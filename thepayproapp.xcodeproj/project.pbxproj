@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21B948551EE6DCFE0099A79F /* RouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B948541EE6DCFE0099A79F /* RouterViewController.swift */; };
+		21B948571EE6ECB90099A79F /* DemoAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B948561EE6ECB90099A79F /* DemoAccountViewController.swift */; };
+		21B9485A1EE6F4900099A79F /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B948591EE6F4900099A79F /* AccountViewController.swift */; };
+		21B9485D1EE6FA200099A79F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9485C1EE6FA200099A79F /* SettingsViewController.swift */; };
+		21B948601EE6FAAB0099A79F /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9485F1EE6FAAB0099A79F /* GroupsViewController.swift */; };
+		21B948631EE700B30099A79F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B948621EE700B30099A79F /* Colors.swift */; };
 		47DF01DE01E7D7D898A65AFE /* Pods_thepayproapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */; };
 		77324EC23C69DAC949032A50 /* Pods_thepayproappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61F7BACC0A7CA6BAD1E0FB1 /* Pods_thepayproappTests.framework */; };
 		898982352C785B0A87DE711B /* Pods_thepayproappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7D9CB0B12DBCFD3FE80391 /* Pods_thepayproappUITests.framework */; };
 		BF9DB8761EDD770600C8A0ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */; };
-		BF9DB8781EDD770600C8A0ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB8771EDD770600C8A0ED /* FirstViewController.swift */; };
-		BF9DB87A1EDD770600C8A0ED /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB8791EDD770600C8A0ED /* SecondViewController.swift */; };
 		BF9DB87D1EDD770600C8A0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB87B1EDD770600C8A0ED /* Main.storyboard */; };
 		BF9DB87F1EDD770600C8A0ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB87E1EDD770600C8A0ED /* Assets.xcassets */; };
 		BF9DB8821EDD770600C8A0ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB8801EDD770600C8A0ED /* LaunchScreen.storyboard */; };
@@ -39,6 +43,12 @@
 
 /* Begin PBXFileReference section */
 		0AC05682788F4523E6443369 /* Pods-thepayproappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappUITests/Pods-thepayproappUITests.release.xcconfig"; sourceTree = "<group>"; };
+		21B948541EE6DCFE0099A79F /* RouterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterViewController.swift; sourceTree = "<group>"; };
+		21B948561EE6ECB90099A79F /* DemoAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAccountViewController.swift; sourceTree = "<group>"; };
+		21B948591EE6F4900099A79F /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		21B9485C1EE6FA200099A79F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		21B9485F1EE6FAAB0099A79F /* GroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		21B948621EE700B30099A79F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		220E96BB616D905BE09C4351 /* Pods-thepayproappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3AD46AC53B7372C495343342 /* Pods-thepayproapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproapp/Pods-thepayproapp.release.xcconfig"; sourceTree = "<group>"; };
 		92818D24EE98AC7382F0827B /* Pods-thepayproapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproapp/Pods-thepayproapp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -47,8 +57,6 @@
 		BF7D9CB0B12DBCFD3FE80391 /* Pods_thepayproappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thepayproappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB8721EDD770600C8A0ED /* thepayproapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thepayproapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF9DB8771EDD770600C8A0ED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		BF9DB8791EDD770600C8A0ED /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		BF9DB87C1EDD770600C8A0ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF9DB87E1EDD770600C8A0ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF9DB8811EDD770600C8A0ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,6 +99,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21B948581EE6F46E0099A79F /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				21B948561EE6ECB90099A79F /* DemoAccountViewController.swift */,
+				21B948591EE6F4900099A79F /* AccountViewController.swift */,
+				21B948541EE6DCFE0099A79F /* RouterViewController.swift */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		21B9485B1EE6F9B80099A79F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				21B9485C1EE6FA200099A79F /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		21B9485E1EE6FA9E0099A79F /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				21B9485F1EE6FAAB0099A79F /* GroupsViewController.swift */,
+			);
+			name = Groups;
+			sourceTree = "<group>";
+		};
+		21B948611EE7009C0099A79F /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				21B948621EE700B30099A79F /* Colors.swift */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
 		306162B3C6F0CECF1766A139 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,9 +181,11 @@
 		BF9DB8741EDD770600C8A0ED /* thepayproapp */ = {
 			isa = PBXGroup;
 			children = (
+				21B948611EE7009C0099A79F /* lib */,
+				21B9485E1EE6FA9E0099A79F /* Groups */,
+				21B9485B1EE6F9B80099A79F /* Settings */,
+				21B948581EE6F46E0099A79F /* Account */,
 				BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */,
-				BF9DB8771EDD770600C8A0ED /* FirstViewController.swift */,
-				BF9DB8791EDD770600C8A0ED /* SecondViewController.swift */,
 				BF9DB87B1EDD770600C8A0ED /* Main.storyboard */,
 				BF9DB87E1EDD770600C8A0ED /* Assets.xcassets */,
 				BF9DB8801EDD770600C8A0ED /* LaunchScreen.storyboard */,
@@ -436,9 +480,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF9DB87A1EDD770600C8A0ED /* SecondViewController.swift in Sources */,
+				21B948551EE6DCFE0099A79F /* RouterViewController.swift in Sources */,
+				21B9485D1EE6FA200099A79F /* SettingsViewController.swift in Sources */,
+				21B948601EE6FAAB0099A79F /* GroupsViewController.swift in Sources */,
+				21B948631EE700B30099A79F /* Colors.swift in Sources */,
+				21B9485A1EE6F4900099A79F /* AccountViewController.swift in Sources */,
+				21B948571EE6ECB90099A79F /* DemoAccountViewController.swift in Sources */,
 				BF9DB8761EDD770600C8A0ED /* AppDelegate.swift in Sources */,
-				BF9DB8781EDD770600C8A0ED /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
