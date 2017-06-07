@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Support-->
+        <!--Support View Controller-->
         <scene sceneID="ZeR-QK-Dse">
             <objects>
-                <viewController id="gnj-Z4-zvt" sceneMemberID="viewController">
+                <viewController id="gnj-Z4-zvt" customClass="SupportViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D48-tQ-asS"/>
                         <viewControllerLayoutGuide type="bottom" id="Dyh-NT-X88"/>
@@ -32,13 +32,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Support" image="tab-support" id="xB2-Kw-7mr"/>
+                    <navigationItem key="navigationItem" id="V6U-u0-Y2Y"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5L-E5-bDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="-1857"/>
+            <point key="canvasLocation" x="1785" y="-1200"/>
         </scene>
-        <!--Groups-->
+        <!--Groups View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="GroupsViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,16 +64,16 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="Groups" image="tab-groups" id="acW-dT-cKf"/>
+                    <navigationItem key="navigationItem" id="ECM-lf-3CB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="-857"/>
+            <point key="canvasLocation" x="1785" y="-430"/>
         </scene>
-        <!--Send Money-->
+        <!--Send Money View Controller-->
         <scene sceneID="4xL-Zj-UnQ">
             <objects>
-                <viewController id="Qn6-BM-Ho9" sceneMemberID="viewController">
+                <viewController id="Qn6-BM-Ho9" customClass="SendMoneyViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jfW-LC-eU2"/>
                         <viewControllerLayoutGuide type="bottom" id="COc-kS-4cg"/>
@@ -93,13 +93,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Send Money" image="tab-paypro" id="Kd1-zQ-mYE"/>
+                    <navigationItem key="navigationItem" id="ZUq-kA-zDg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U17-4F-g0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="0.0"/>
+            <point key="canvasLocation" x="1785" y="358"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SettingsViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -125,48 +125,18 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="tab-settings" id="9HF-EH-AYw"/>
                     <navigationItem key="navigationItem" id="Zxj-EK-KFy"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1942" y="2833"/>
+            <point key="canvasLocation" x="1785" y="2831"/>
         </scene>
-        <!--Router View Controller-->
-        <scene sceneID="blX-mb-LJ4">
-            <objects>
-                <viewController id="7Ce-IR-tZ7" customClass="RouterViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hZ0-MQ-480"/>
-                        <viewControllerLayoutGuide type="bottom" id="0nf-Rb-Wwm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ojK-5L-mIO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Router Account View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prl-3G-BSb">
-                                <rect key="frame" x="19" y="308" width="337" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="kXO-Ky-frg"/>
-                    <connections>
-                        <segue destination="pMF-wz-FKS" kind="show" id="iF7-CT-Ag1"/>
-                        <segue destination="cM0-VI-993" kind="show" id="fgl-Y0-Dj9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eCF-jg-eMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1942" y="1138"/>
-        </scene>
-        <!--Account View Controller-->
+        <!--Account-->
         <scene sceneID="Ofn-Pk-e1Z">
             <objects>
-                <viewController storyboardIdentifier="accountview" id="JNi-wh-gtA" customClass="AccountViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JNi-wh-gtA" customClass="AccountViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OeI-er-X6C"/>
                         <viewControllerLayoutGuide type="bottom" id="t3p-6h-F4h"/>
@@ -185,16 +155,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Account" image="tab-account" id="FGY-Fa-qUs"/>
                     <navigationItem key="navigationItem" id="2Gh-1h-Es2"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UmE-O4-bdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3036" y="1932"/>
+            <point key="canvasLocation" x="1785" y="1933"/>
         </scene>
-        <!--Demo Account View Controller-->
+        <!--Account-->
         <scene sceneID="WSo-kP-Kal">
             <objects>
-                <viewController storyboardIdentifier="demoview" id="Ua9-7f-Ec8" customClass="DemoAccountViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ua9-7f-Ec8" customClass="DemoAccountViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hcL-uB-JE8"/>
                         <viewControllerLayoutGuide type="bottom" id="v4U-Fy-F3r"/>
@@ -208,7 +180,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="GO Subview"/>
                                 <connections>
-                                    <segue destination="WQF-ES-NLp" kind="show" id="YGM-5G-UC5"/>
+                                    <segue destination="WQF-ES-NLp" kind="show" id="Zhk-XT-NbV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Demo Account View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7I5-RO-uQx">
@@ -221,11 +193,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Account" image="tab-account" id="nah-uY-NI5"/>
                     <navigationItem key="navigationItem" id="537-0G-4fZ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKF-ug-mMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4106" y="1138"/>
+            <point key="canvasLocation" x="1786" y="1137"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="iN2-ZA-y5e">
@@ -257,10 +231,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="LYY-nm-mBg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wau-Kv-cac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5258" y="1137"/>
+            <point key="canvasLocation" x="2679" y="1137"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Mbf-Ob-CKO">
@@ -287,35 +262,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpm-iT-TxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6337" y="1138"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="yl2-sM-qoP">
-            <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
-                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="gnj-Z4-zvt" kind="relationship" relationship="viewControllers" id="HBE-TM-K9T"/>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="Jf5-uz-nzC"/>
-                        <segue destination="Qn6-BM-Ho9" kind="relationship" relationship="viewControllers" id="Rbm-kM-0lm"/>
-                        <segue destination="iMY-lU-J0T" kind="relationship" relationship="viewControllers" id="6XP-p3-1Kt"/>
-                        <segue destination="cLv-Rr-zuf" kind="relationship" relationship="viewControllers" id="SUP-hF-Xlj"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="3759" y="1137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XvH-Yv-DVs">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cM0-VI-993" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AccountNavViewControllerId" automaticallyAdjustsScrollViewInsets="NO" id="cM0-VI-993" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a1c-fT-gzN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -328,12 +280,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4pz-FM-bGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1942" y="1932"/>
+            <point key="canvasLocation" x="830" y="1933"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mr4-kT-kER">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pMF-wz-FKS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DemoNavViewControllerId" automaticallyAdjustsScrollViewInsets="NO" id="pMF-wz-FKS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DKA-gL-ff9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -346,31 +298,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTC-LB-awv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3036" y="1138"/>
-        </scene>
-        <!--Account-->
-        <scene sceneID="JH5-fA-vBE">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iMY-lU-J0T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="Account" image="tab-account" id="Uh0-ZE-akK"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pve-Gs-rDV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="7Ce-IR-tZ7" kind="relationship" relationship="rootViewController" id="BCh-RV-RQg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y6s-3U-hqW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
             <point key="canvasLocation" x="830" y="1137"/>
         </scene>
         <!--Settings-->
         <scene sceneID="pxQ-eF-yO3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cLv-Rr-zuf" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SettingsNavViewControllerId" automaticallyAdjustsScrollViewInsets="NO" id="cLv-Rr-zuf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="5" title="Settings" image="tab-settings" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="96w-ml-Hym">
@@ -385,6 +318,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEe-A8-bID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="830" y="2832"/>
+        </scene>
+        <!--Send Money-->
+        <scene sceneID="Ax2-zH-crl">
+            <objects>
+                <navigationController storyboardIdentifier="SendMoneyNavViewControllerId" automaticallyAdjustsScrollViewInsets="NO" id="krp-GC-LHI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Send Money" image="tab-paypro" id="Kd1-zQ-mYE"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qCV-bC-MB0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qn6-BM-Ho9" kind="relationship" relationship="rootViewController" id="yhB-n7-S0X"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g0a-Od-2J6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="358"/>
+        </scene>
+        <!--Groups-->
+        <scene sceneID="6Fi-Dj-IJ2">
+            <objects>
+                <navigationController storyboardIdentifier="GroupsNavViewControllerId" automaticallyAdjustsScrollViewInsets="NO" id="F8J-JK-KRD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" title="Groups" image="tab-groups" id="acW-dT-cKf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s5X-fT-d3h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="o2Q-57-KA0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WHf-8r-tX8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="-430"/>
+        </scene>
+        <!--Support-->
+        <scene sceneID="tyE-E0-Bux">
+            <objects>
+                <navigationController storyboardIdentifier="SupportNavViewControllerId" automaticallyAdjustsScrollViewInsets="NO" id="OAd-h4-Gfm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Support" image="tab-support" id="xB2-Kw-7mr"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UJW-zf-OpZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gnj-Z4-zvt" kind="relationship" relationship="rootViewController" id="2jV-Xr-srS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PRb-lq-OVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="-1200"/>
         </scene>
     </scenes>
     <resources>
