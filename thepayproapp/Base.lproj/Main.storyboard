@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Qqm-Td-nJd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -99,7 +99,7 @@
             </objects>
             <point key="canvasLocation" x="1785" y="358"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SettingsViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -125,7 +125,6 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="tab-settings" id="9HF-EH-AYw"/>
                     <navigationItem key="navigationItem" id="Zxj-EK-KFy"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -133,7 +132,7 @@
             </objects>
             <point key="canvasLocation" x="1785" y="2831"/>
         </scene>
-        <!--Account-->
+        <!--Account View Controller-->
         <scene sceneID="Ofn-Pk-e1Z">
             <objects>
                 <viewController id="JNi-wh-gtA" customClass="AccountViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -155,7 +154,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account" image="tab-account" id="FGY-Fa-qUs"/>
                     <navigationItem key="navigationItem" id="2Gh-1h-Es2"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -163,7 +161,7 @@
             </objects>
             <point key="canvasLocation" x="1785" y="1933"/>
         </scene>
-        <!--Account-->
+        <!--Demo Account View Controller-->
         <scene sceneID="WSo-kP-Kal">
             <objects>
                 <viewController id="Ua9-7f-Ec8" customClass="DemoAccountViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -193,7 +191,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account" image="tab-account" id="nah-uY-NI5"/>
                     <navigationItem key="navigationItem" id="537-0G-4fZ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -264,10 +261,11 @@
             </objects>
             <point key="canvasLocation" x="3759" y="1137"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Account-->
         <scene sceneID="XvH-Yv-DVs">
             <objects>
                 <navigationController storyboardIdentifier="AccountNavViewControllerId" automaticallyAdjustsScrollViewInsets="NO" id="cM0-VI-993" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Account" image="tab-account" id="C3e-Rs-AFX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a1c-fT-gzN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -282,10 +280,11 @@
             </objects>
             <point key="canvasLocation" x="830" y="1933"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Account-->
         <scene sceneID="Mr4-kT-kER">
             <objects>
                 <navigationController storyboardIdentifier="DemoNavViewControllerId" automaticallyAdjustsScrollViewInsets="NO" id="pMF-wz-FKS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Account" image="tab-account" id="kBZ-td-gav"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DKA-gL-ff9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -318,6 +317,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEe-A8-bID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="830" y="2832"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="k6U-LS-QsD">
+            <objects>
+                <tabBarController id="Qqm-Td-nJd" customClass="TPPTabBarController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="3Mw-WW-OXd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="OAd-h4-Gfm" kind="show" id="1SC-n1-e2b"/>
+                        <segue destination="F8J-JK-KRD" kind="show" id="ZIX-pv-VCA"/>
+                        <segue destination="krp-GC-LHI" kind="show" id="8nh-oj-b39"/>
+                        <segue destination="pMF-wz-FKS" kind="show" id="qEe-uF-da9"/>
+                        <segue destination="cM0-VI-993" kind="show" id="IPB-EX-Fuv"/>
+                        <segue destination="cLv-Rr-zuf" kind="show" id="SRP-5y-WDH"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Stq-Va-urK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-614" y="-371"/>
         </scene>
         <!--Send Money-->
         <scene sceneID="Ax2-zH-crl">

@@ -9,38 +9,22 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate
+{
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         // create UIWindow with the same size as main screen
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        // create story board. Default story board will be named as Main.storyboard in your project.
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        // create view controllers from storyboard
-        let supportViewController = storyboard.instantiateViewController(withIdentifier: "SupportNavViewControllerId")
-        let groupsViewController = storyboard.instantiateViewController(withIdentifier: "GroupsNavViewControllerId")
-        let sendViewController = storyboard.instantiateViewController(withIdentifier: "SendMoneyNavViewControllerId")
-//        let accountViewController = storyboard.instantiateViewController(withIdentifier: "AccountNavViewControllerId")
-        let demoViewController = storyboard.instantiateViewController(withIdentifier: "DemoNavViewControllerId")
-        let settingsViewController = storyboard.instantiateViewController(withIdentifier: "SettingsNavViewControllerId")
-        
-        // Set up the Tab Bar Controller to have two tabs
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [supportViewController, groupsViewController, sendViewController, demoViewController, settingsViewController]
-        tabBarController.tabBar.tintColor = PayProColors.blue
+        let tabBarController = TPPTabBarController()
         
         // Make the Tab Bar Controller the root view controller
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
-
         return true
     }
 

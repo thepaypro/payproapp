@@ -23,6 +23,7 @@
 		BF9DB8821EDD770600C8A0ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB8801EDD770600C8A0ED /* LaunchScreen.storyboard */; };
 		BF9DB88D1EDD770600C8A0ED /* thepayproappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB88C1EDD770600C8A0ED /* thepayproappTests.swift */; };
 		BF9DB8981EDD770600C8A0ED /* thepayproappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB8971EDD770600C8A0ED /* thepayproappUITests.swift */; };
+		BFF7FA621EEFE5DE009D798E /* TPPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA611EEFE5DE009D798E /* TPPTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		BF9DB8931EDD770600C8A0ED /* thepayproappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = thepayproappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB8971EDD770600C8A0ED /* thepayproappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thepayproappUITests.swift; sourceTree = "<group>"; };
 		BF9DB8991EDD770600C8A0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFF7FA611EEFE5DE009D798E /* TPPTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPTabBarController.swift; sourceTree = "<group>"; };
 		D87E7015B19FF47C36DAC791 /* Pods-thepayproappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappUITests/Pods-thepayproappUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E61F7BACC0A7CA6BAD1E0FB1 /* Pods_thepayproappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thepayproappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -118,6 +120,7 @@
 		216CCA8E1EE82252003FE3CE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BF50394B1EEFD89C007F619D /* TPPTabBarController */,
 				216CCA921EE822DF003FE3CE /* Support */,
 				216CCA8F1EE822C1003FE3CE /* SendMoney */,
 				21B948581EE6F46E0099A79F /* Account */,
@@ -197,6 +200,14 @@
 				0AC05682788F4523E6443369 /* Pods-thepayproappUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BF50394B1EEFD89C007F619D /* TPPTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				BFF7FA611EEFE5DE009D798E /* TPPTabBarController.swift */,
+			);
+			name = TPPTabBarController;
 			sourceTree = "<group>";
 		};
 		BF9DB8691EDD770500C8A0ED = {
@@ -528,6 +539,7 @@
 				216CCA941EE822EE003FE3CE /* SupportViewController.swift in Sources */,
 				21B948631EE700B30099A79F /* Colors.swift in Sources */,
 				21B9485A1EE6F4900099A79F /* AccountViewController.swift in Sources */,
+				BFF7FA621EEFE5DE009D798E /* TPPTabBarController.swift in Sources */,
 				21B948571EE6ECB90099A79F /* DemoAccountViewController.swift in Sources */,
 				BF9DB8761EDD770600C8A0ED /* AppDelegate.swift in Sources */,
 				216CCA911EE822DC003FE3CE /* SendMoneyViewController.swift in Sources */,
