@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         // create UIWindow with the same size as main screen
         window = UIWindow(frame: UIScreen.main.bounds)
         
+        //TO-DO: Here should be decided whether to show login, register and then TabBar
         let tabBarController = TPPTabBarController()
         
         // Make the Tab Bar Controller the root view controller

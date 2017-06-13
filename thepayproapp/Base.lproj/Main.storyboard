@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Qqm-Td-nJd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -317,28 +317,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEe-A8-bID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="830" y="2832"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="k6U-LS-QsD">
-            <objects>
-                <tabBarController id="Qqm-Td-nJd" customClass="TPPTabBarController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="3Mw-WW-OXd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="OAd-h4-Gfm" kind="show" id="1SC-n1-e2b"/>
-                        <segue destination="F8J-JK-KRD" kind="show" id="ZIX-pv-VCA"/>
-                        <segue destination="krp-GC-LHI" kind="show" id="8nh-oj-b39"/>
-                        <segue destination="pMF-wz-FKS" kind="show" id="qEe-uF-da9"/>
-                        <segue destination="cM0-VI-993" kind="show" id="IPB-EX-Fuv"/>
-                        <segue destination="cLv-Rr-zuf" kind="show" id="SRP-5y-WDH"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Stq-Va-urK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-614" y="-371"/>
         </scene>
         <!--Send Money-->
         <scene sceneID="Ax2-zH-crl">
