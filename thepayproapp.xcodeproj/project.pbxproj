@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		216CCA911EE822DC003FE3CE /* SendMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216CCA901EE822DC003FE3CE /* SendMoneyViewController.swift */; };
-		216CCA941EE822EE003FE3CE /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216CCA931EE822EE003FE3CE /* SupportViewController.swift */; };
-		21B948571EE6ECB90099A79F /* DemoAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B948561EE6ECB90099A79F /* DemoAccountViewController.swift */; };
-		21B9485A1EE6F4900099A79F /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B948591EE6F4900099A79F /* AccountViewController.swift */; };
-		21B9485D1EE6FA200099A79F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9485C1EE6FA200099A79F /* SettingsViewController.swift */; };
-		21B948601EE6FAAB0099A79F /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9485F1EE6FAAB0099A79F /* GroupsViewController.swift */; };
 		21B948631EE700B30099A79F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B948621EE700B30099A79F /* Colors.swift */; };
 		47DF01DE01E7D7D898A65AFE /* Pods_thepayproapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */; };
 		77324EC23C69DAC949032A50 /* Pods_thepayproappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61F7BACC0A7CA6BAD1E0FB1 /* Pods_thepayproappTests.framework */; };
@@ -24,6 +18,12 @@
 		BF9DB88D1EDD770600C8A0ED /* thepayproappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB88C1EDD770600C8A0ED /* thepayproappTests.swift */; };
 		BF9DB8981EDD770600C8A0ED /* thepayproappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB8971EDD770600C8A0ED /* thepayproappUITests.swift */; };
 		BFF7FA621EEFE5DE009D798E /* TPPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA611EEFE5DE009D798E /* TPPTabBarController.swift */; };
+		BFF7FA651EEFF409009D798E /* TPPSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA641EEFF409009D798E /* TPPSupportViewController.swift */; };
+		BFF7FA681EEFF469009D798E /* TPPSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA671EEFF469009D798E /* TPPSettingsViewController.swift */; };
+		BFF7FA6B1EEFF48D009D798E /* TPPSendMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA6A1EEFF48D009D798E /* TPPSendMoneyViewController.swift */; };
+		BFF7FA6E1EEFF4C9009D798E /* TPPGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA6D1EEFF4C9009D798E /* TPPGroupsViewController.swift */; };
+		BFF7FA711EEFF4FF009D798E /* TPPAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA701EEFF4FF009D798E /* TPPAccountViewController.swift */; };
+		BFF7FA731EEFF50C009D798E /* TPPDemoAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA721EEFF50B009D798E /* TPPDemoAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,12 +45,6 @@
 
 /* Begin PBXFileReference section */
 		0AC05682788F4523E6443369 /* Pods-thepayproappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappUITests/Pods-thepayproappUITests.release.xcconfig"; sourceTree = "<group>"; };
-		216CCA901EE822DC003FE3CE /* SendMoneyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendMoneyViewController.swift; sourceTree = "<group>"; };
-		216CCA931EE822EE003FE3CE /* SupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
-		21B948561EE6ECB90099A79F /* DemoAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAccountViewController.swift; sourceTree = "<group>"; };
-		21B948591EE6F4900099A79F /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		21B9485C1EE6FA200099A79F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		21B9485F1EE6FAAB0099A79F /* GroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		21B948621EE700B30099A79F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		220E96BB616D905BE09C4351 /* Pods-thepayproappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3AD46AC53B7372C495343342 /* Pods-thepayproapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproapp/Pods-thepayproapp.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +65,12 @@
 		BF9DB8971EDD770600C8A0ED /* thepayproappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thepayproappUITests.swift; sourceTree = "<group>"; };
 		BF9DB8991EDD770600C8A0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFF7FA611EEFE5DE009D798E /* TPPTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPTabBarController.swift; sourceTree = "<group>"; };
+		BFF7FA641EEFF409009D798E /* TPPSupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPSupportViewController.swift; sourceTree = "<group>"; };
+		BFF7FA671EEFF469009D798E /* TPPSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPSettingsViewController.swift; sourceTree = "<group>"; };
+		BFF7FA6A1EEFF48D009D798E /* TPPSendMoneyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPSendMoneyViewController.swift; sourceTree = "<group>"; };
+		BFF7FA6D1EEFF4C9009D798E /* TPPGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPGroupsViewController.swift; sourceTree = "<group>"; };
+		BFF7FA701EEFF4FF009D798E /* TPPAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPAccountViewController.swift; sourceTree = "<group>"; };
+		BFF7FA721EEFF50B009D798E /* TPPDemoAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPDemoAccountViewController.swift; sourceTree = "<group>"; };
 		D87E7015B19FF47C36DAC791 /* Pods-thepayproappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappUITests/Pods-thepayproappUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E61F7BACC0A7CA6BAD1E0FB1 /* Pods_thepayproappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thepayproappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -121,54 +121,13 @@
 			isa = PBXGroup;
 			children = (
 				BF50394B1EEFD89C007F619D /* TPPTabBarController */,
-				216CCA921EE822DF003FE3CE /* Support */,
-				216CCA8F1EE822C1003FE3CE /* SendMoney */,
-				21B948581EE6F46E0099A79F /* Account */,
-				21B9485E1EE6FA9E0099A79F /* Groups */,
-				21B9485B1EE6F9B80099A79F /* Settings */,
+				BFF7FA631EEFF3E0009D798E /* TPPSupportViewController */,
+				BFF7FA6C1EEFF4B6009D798E /* TPPGroupsViewController */,
+				BFF7FA691EEFF479009D798E /* TPPSendMoneyViewController */,
+				BFF7FA6F1EEFF4EA009D798E /* TPPAccountViewController */,
+				BFF7FA661EEFF44E009D798E /* TPPSettingsViewController */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		216CCA8F1EE822C1003FE3CE /* SendMoney */ = {
-			isa = PBXGroup;
-			children = (
-				216CCA901EE822DC003FE3CE /* SendMoneyViewController.swift */,
-			);
-			name = SendMoney;
-			sourceTree = "<group>";
-		};
-		216CCA921EE822DF003FE3CE /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				216CCA931EE822EE003FE3CE /* SupportViewController.swift */,
-			);
-			name = Support;
-			sourceTree = "<group>";
-		};
-		21B948581EE6F46E0099A79F /* Account */ = {
-			isa = PBXGroup;
-			children = (
-				21B948561EE6ECB90099A79F /* DemoAccountViewController.swift */,
-				21B948591EE6F4900099A79F /* AccountViewController.swift */,
-			);
-			name = Account;
-			sourceTree = "<group>";
-		};
-		21B9485B1EE6F9B80099A79F /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				21B9485C1EE6FA200099A79F /* SettingsViewController.swift */,
-			);
-			name = Settings;
-			sourceTree = "<group>";
-		};
-		21B9485E1EE6FA9E0099A79F /* Groups */ = {
-			isa = PBXGroup;
-			children = (
-				21B9485F1EE6FAAB0099A79F /* GroupsViewController.swift */,
-			);
-			name = Groups;
 			sourceTree = "<group>";
 		};
 		21B948611EE7009C0099A79F /* lib */ = {
@@ -264,6 +223,47 @@
 				BF9DB8991EDD770600C8A0ED /* Info.plist */,
 			);
 			path = thepayproappUITests;
+			sourceTree = "<group>";
+		};
+		BFF7FA631EEFF3E0009D798E /* TPPSupportViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BFF7FA641EEFF409009D798E /* TPPSupportViewController.swift */,
+			);
+			name = TPPSupportViewController;
+			sourceTree = "<group>";
+		};
+		BFF7FA661EEFF44E009D798E /* TPPSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BFF7FA671EEFF469009D798E /* TPPSettingsViewController.swift */,
+			);
+			name = TPPSettingsViewController;
+			sourceTree = "<group>";
+		};
+		BFF7FA691EEFF479009D798E /* TPPSendMoneyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BFF7FA6A1EEFF48D009D798E /* TPPSendMoneyViewController.swift */,
+			);
+			name = TPPSendMoneyViewController;
+			sourceTree = "<group>";
+		};
+		BFF7FA6C1EEFF4B6009D798E /* TPPGroupsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BFF7FA6D1EEFF4C9009D798E /* TPPGroupsViewController.swift */,
+			);
+			name = TPPGroupsViewController;
+			sourceTree = "<group>";
+		};
+		BFF7FA6F1EEFF4EA009D798E /* TPPAccountViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BFF7FA701EEFF4FF009D798E /* TPPAccountViewController.swift */,
+				BFF7FA721EEFF50B009D798E /* TPPDemoAccountViewController.swift */,
+			);
+			name = TPPAccountViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -534,15 +534,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21B9485D1EE6FA200099A79F /* SettingsViewController.swift in Sources */,
-				21B948601EE6FAAB0099A79F /* GroupsViewController.swift in Sources */,
-				216CCA941EE822EE003FE3CE /* SupportViewController.swift in Sources */,
+				BFF7FA6B1EEFF48D009D798E /* TPPSendMoneyViewController.swift in Sources */,
+				BFF7FA711EEFF4FF009D798E /* TPPAccountViewController.swift in Sources */,
+				BFF7FA681EEFF469009D798E /* TPPSettingsViewController.swift in Sources */,
 				21B948631EE700B30099A79F /* Colors.swift in Sources */,
-				21B9485A1EE6F4900099A79F /* AccountViewController.swift in Sources */,
+				BFF7FA6E1EEFF4C9009D798E /* TPPGroupsViewController.swift in Sources */,
+				BFF7FA731EEFF50C009D798E /* TPPDemoAccountViewController.swift in Sources */,
+				BFF7FA651EEFF409009D798E /* TPPSupportViewController.swift in Sources */,
 				BFF7FA621EEFE5DE009D798E /* TPPTabBarController.swift in Sources */,
-				21B948571EE6ECB90099A79F /* DemoAccountViewController.swift in Sources */,
 				BF9DB8761EDD770600C8A0ED /* AppDelegate.swift in Sources */,
-				216CCA911EE822DC003FE3CE /* SendMoneyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
