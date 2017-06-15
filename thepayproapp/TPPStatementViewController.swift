@@ -54,6 +54,7 @@ class TPPStatementViewController: UIViewController {
         viewPickerEnds.frame.size.height = 0
         datePickerEnds.frame.size.height = 0
         datePickerEnds.alpha = 0
+        datePickerEnds.isHidden = false
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMMM yyyy"
