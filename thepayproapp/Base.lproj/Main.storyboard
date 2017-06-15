@@ -898,6 +898,7 @@
                                                 <subviews>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FuJ-yd-2fV">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="FHe-De-YiF"/>
                                                         </constraints>
@@ -910,6 +911,7 @@
                                                         <locale key="locale" localeIdentifier="en_GB"/>
                                                     </datePicker>
                                                 </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="FuJ-yd-2fV" secondAttribute="bottom" id="ISh-al-I4J"/>
                                                     <constraint firstItem="FuJ-yd-2fV" firstAttribute="leading" secondItem="e7W-t2-0nl" secondAttribute="leading" id="Vza-vo-Fd4"/>
@@ -931,7 +933,7 @@
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hI5-Wi-iD4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                                        <rect key="frame" x="15" y="0.0" width="360" height="1"/>
                                                         <color key="backgroundColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="HOO-I4-9c1"/>
@@ -957,7 +959,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="eeA-La-oAo" secondAttribute="trailing" id="BJz-cb-4gO"/>
                                                     <constraint firstAttribute="height" constant="42" id="DXK-nm-VhU"/>
                                                     <constraint firstItem="hI5-Wi-iD4" firstAttribute="top" secondItem="ajS-hY-WSQ" secondAttribute="top" id="KdD-eT-eTq"/>
-                                                    <constraint firstItem="hI5-Wi-iD4" firstAttribute="leading" secondItem="ajS-hY-WSQ" secondAttribute="leading" id="PgX-0K-U45"/>
+                                                    <constraint firstItem="hI5-Wi-iD4" firstAttribute="leading" secondItem="ajS-hY-WSQ" secondAttribute="leading" constant="15" id="PgX-0K-U45"/>
                                                     <constraint firstItem="eeA-La-oAo" firstAttribute="leading" secondItem="ajS-hY-WSQ" secondAttribute="leading" id="UVm-K2-Qbj"/>
                                                     <constraint firstItem="HPb-f6-285" firstAttribute="top" secondItem="ajS-hY-WSQ" secondAttribute="top" constant="11" id="Xwd-wM-VhZ"/>
                                                     <constraint firstItem="eeA-La-oAo" firstAttribute="top" secondItem="ajS-hY-WSQ" secondAttribute="top" id="hTQ-7T-Xch"/>
@@ -967,12 +969,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYv-Nw-RL3">
-                                                <rect key="frame" x="0.0" y="145" width="375" height="235"/>
+                                                <rect key="frame" x="0.0" y="145" width="375" height="0.0"/>
                                                 <subviews>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6nG-I4-EXo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" id="aCh-Ex-buX"/>
+                                                            <constraint firstAttribute="height" constant="150" id="aCh-Ex-buX"/>
                                                         </constraints>
                                                         <date key="date" timeIntervalSinceReferenceDate="519136156.08395302">
                                                             <!--2017-06-14 12:29:16 +0000-->
@@ -982,58 +985,57 @@
                                                         </date>
                                                         <locale key="locale" localeIdentifier="en_GB"/>
                                                     </datePicker>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPn-dJ-0VH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
-                                                        <color key="backgroundColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="put-fF-ZSK"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7S-sg-RYS">
-                                                        <rect key="frame" x="0.0" y="1" width="375" height="80"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We will send the statement to your email address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67o-Sh-UWf">
-                                                                <rect key="frame" x="15" y="8" width="301" height="16"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="enric.giribet@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ls-M4-yGD">
-                                                                <rect key="frame" x="15" y="32" width="147" height="16"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstItem="5Ls-M4-yGD" firstAttribute="top" secondItem="67o-Sh-UWf" secondAttribute="bottom" constant="8" id="0Md-8D-PS3"/>
-                                                            <constraint firstItem="5Ls-M4-yGD" firstAttribute="leading" secondItem="W7S-sg-RYS" secondAttribute="leading" constant="15" id="9YO-oe-U4U"/>
-                                                            <constraint firstAttribute="height" constant="80" id="RHN-bs-AUr"/>
-                                                            <constraint firstItem="67o-Sh-UWf" firstAttribute="top" secondItem="W7S-sg-RYS" secondAttribute="top" constant="8" id="RKY-z8-3EZ"/>
-                                                            <constraint firstItem="67o-Sh-UWf" firstAttribute="leading" secondItem="W7S-sg-RYS" secondAttribute="leading" constant="15" id="sDN-mY-ftp"/>
-                                                        </constraints>
-                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="WPn-dJ-0VH" secondAttribute="trailing" id="25Q-Ax-h33"/>
-                                                    <constraint firstItem="WPn-dJ-0VH" firstAttribute="leading" secondItem="DYv-Nw-RL3" secondAttribute="leading" id="3x7-OR-Q8o"/>
-                                                    <constraint firstItem="WPn-dJ-0VH" firstAttribute="top" secondItem="6nG-I4-EXo" secondAttribute="bottom" id="FdW-h1-13H"/>
                                                     <constraint firstItem="6nG-I4-EXo" firstAttribute="leading" secondItem="DYv-Nw-RL3" secondAttribute="leading" id="GHs-87-Rg0"/>
-                                                    <constraint firstItem="W7S-sg-RYS" firstAttribute="top" secondItem="WPn-dJ-0VH" secondAttribute="bottom" id="Kj7-Va-3a7"/>
                                                     <constraint firstAttribute="trailing" secondItem="6nG-I4-EXo" secondAttribute="trailing" id="Lla-5j-Cga"/>
                                                     <constraint firstItem="6nG-I4-EXo" firstAttribute="top" secondItem="DYv-Nw-RL3" secondAttribute="top" id="Nme-OF-sLb"/>
-                                                    <constraint firstAttribute="trailing" secondItem="W7S-sg-RYS" secondAttribute="trailing" id="Yni-rp-d5I"/>
-                                                    <constraint firstItem="W7S-sg-RYS" firstAttribute="leading" secondItem="DYv-Nw-RL3" secondAttribute="leading" id="c6q-Et-2Lv"/>
-                                                    <constraint firstAttribute="height" constant="235" id="ryF-GK-uuj"/>
+                                                    <constraint firstAttribute="height" id="ryF-GK-uuj"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7S-sg-RYS">
+                                                <rect key="frame" x="0.0" y="145" width="375" height="110"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6M5-rh-FoU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                                        <color key="backgroundColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="qop-uI-EF0"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We will send the statement to your email address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67o-Sh-UWf">
+                                                        <rect key="frame" x="15" y="8" width="301" height="16"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="enric.giribet@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ls-M4-yGD">
+                                                        <rect key="frame" x="15" y="32" width="147" height="16"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="5Ls-M4-yGD" firstAttribute="top" secondItem="67o-Sh-UWf" secondAttribute="bottom" constant="8" id="0Md-8D-PS3"/>
+                                                    <constraint firstItem="6M5-rh-FoU" firstAttribute="leading" secondItem="W7S-sg-RYS" secondAttribute="leading" id="4iO-fG-pGF"/>
+                                                    <constraint firstItem="5Ls-M4-yGD" firstAttribute="leading" secondItem="W7S-sg-RYS" secondAttribute="leading" constant="15" id="9YO-oe-U4U"/>
+                                                    <constraint firstAttribute="height" constant="110" id="RHN-bs-AUr"/>
+                                                    <constraint firstItem="67o-Sh-UWf" firstAttribute="top" secondItem="W7S-sg-RYS" secondAttribute="top" constant="8" id="RKY-z8-3EZ"/>
+                                                    <constraint firstItem="6M5-rh-FoU" firstAttribute="top" secondItem="W7S-sg-RYS" secondAttribute="top" id="RvX-m2-0jN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6M5-rh-FoU" secondAttribute="trailing" id="gSn-Kw-x0B"/>
+                                                    <constraint firstItem="67o-Sh-UWf" firstAttribute="leading" secondItem="W7S-sg-RYS" secondAttribute="leading" constant="15" id="sDN-mY-ftp"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Pp5-w0-0KP" secondAttribute="trailing" id="4mX-63-B82"/>
                                             <constraint firstItem="Pp5-w0-0KP" firstAttribute="leading" secondItem="WFx-uD-TVo" secondAttribute="leading" id="6xn-X6-LtI"/>
+                                            <constraint firstItem="W7S-sg-RYS" firstAttribute="top" secondItem="DYv-Nw-RL3" secondAttribute="bottom" id="8YM-Dx-k10"/>
+                                            <constraint firstAttribute="trailing" secondItem="W7S-sg-RYS" secondAttribute="trailing" id="99Q-lT-UXR"/>
                                             <constraint firstItem="xEP-UJ-Upz" firstAttribute="leading" secondItem="afN-MP-Fus" secondAttribute="leading" id="GVX-68-NBS"/>
                                             <constraint firstItem="DYv-Nw-RL3" firstAttribute="leading" secondItem="WFx-uD-TVo" secondAttribute="leading" id="I3E-Ll-Wgk"/>
                                             <constraint firstItem="ajS-hY-WSQ" firstAttribute="leading" secondItem="WFx-uD-TVo" secondAttribute="leading" id="Im7-NL-vxw"/>
@@ -1045,6 +1047,7 @@
                                             <constraint firstAttribute="trailing" secondItem="DYv-Nw-RL3" secondAttribute="trailing" id="UHC-sX-Rcp"/>
                                             <constraint firstAttribute="trailing" secondItem="e7W-t2-0nl" secondAttribute="trailing" id="YgX-cO-5zH"/>
                                             <constraint firstItem="ajS-hY-WSQ" firstAttribute="top" secondItem="e7W-t2-0nl" secondAttribute="bottom" constant="-150" id="ecJ-rl-0qa"/>
+                                            <constraint firstItem="W7S-sg-RYS" firstAttribute="leading" secondItem="WFx-uD-TVo" secondAttribute="leading" id="koN-rX-f7Q"/>
                                             <constraint firstItem="xEP-UJ-Upz" firstAttribute="trailing" secondItem="afN-MP-Fus" secondAttribute="trailing" id="lNE-4V-BHs"/>
                                             <constraint firstAttribute="trailing" secondItem="ajS-hY-WSQ" secondAttribute="trailing" id="onJ-Ik-xLn"/>
                                             <constraint firstItem="afN-MP-Fus" firstAttribute="top" secondItem="WFx-uD-TVo" secondAttribute="top" constant="61" id="pwz-LA-qcK"/>
@@ -1054,10 +1057,11 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="hI5-Wi-iD4" firstAttribute="width" secondItem="fLZ-uS-3YW" secondAttribute="width" id="4Nd-iK-uX1"/>
                                     <constraint firstItem="WFx-uD-TVo" firstAttribute="top" secondItem="fLZ-uS-3YW" secondAttribute="top" id="G8H-g6-oBV"/>
                                     <constraint firstAttribute="bottom" secondItem="WFx-uD-TVo" secondAttribute="bottom" id="Gc8-rT-bcg"/>
+                                    <constraint firstItem="6M5-rh-FoU" firstAttribute="width" secondItem="fLZ-uS-3YW" secondAttribute="width" id="Ihh-EN-yRD"/>
                                     <constraint firstItem="6vM-Fy-i6k" firstAttribute="width" secondItem="fLZ-uS-3YW" secondAttribute="width" id="Iv9-ig-aQb"/>
                                     <constraint firstItem="WFx-uD-TVo" firstAttribute="leading" secondItem="fLZ-uS-3YW" secondAttribute="leading" id="MO3-CK-KuY"/>
                                     <constraint firstItem="DYv-Nw-RL3" firstAttribute="width" secondItem="fLZ-uS-3YW" secondAttribute="width" id="WC1-Mx-aQf"/>
@@ -1083,7 +1087,6 @@
                         <outlet property="datePickerStarts" destination="FuJ-yd-2fV" id="QBi-dv-Ss2"/>
                         <outlet property="labelDateEnd" destination="vsu-qB-yfq" id="Kl2-0m-OG5"/>
                         <outlet property="labelDateStart" destination="EpA-VS-zjb" id="x50-Sk-Fbe"/>
-                        <outlet property="lineViewBottomEnds" destination="WPn-dJ-0VH" id="Ell-c5-xVK"/>
                         <outlet property="viewEmailSend" destination="W7S-sg-RYS" id="W7a-m0-ffr"/>
                         <outlet property="viewEnds" destination="ajS-hY-WSQ" id="Ffi-dk-gxe"/>
                         <outlet property="viewPickerEnds" destination="DYv-Nw-RL3" id="48D-5A-Yxq"/>
