@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		215FC1121EF14542005E69EE /* TPPStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FC1111EF14542005E69EE /* TPPStatementViewController.swift */; };
 		21B948631EE700B30099A79F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B948621EE700B30099A79F /* Colors.swift */; };
 		47DF01DE01E7D7D898A65AFE /* Pods_thepayproapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */; };
 		77324EC23C69DAC949032A50 /* Pods_thepayproappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61F7BACC0A7CA6BAD1E0FB1 /* Pods_thepayproappTests.framework */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		0AC05682788F4523E6443369 /* Pods-thepayproappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappUITests/Pods-thepayproappUITests.release.xcconfig"; sourceTree = "<group>"; };
+		215FC1111EF14542005E69EE /* TPPStatementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPStatementViewController.swift; sourceTree = "<group>"; };
 		21B948621EE700B30099A79F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		220E96BB616D905BE09C4351 /* Pods-thepayproappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3AD46AC53B7372C495343342 /* Pods-thepayproapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproapp/Pods-thepayproapp.release.xcconfig"; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				BFF7FA671EEFF469009D798E /* TPPSettingsViewController.swift */,
+				215FC1111EF14542005E69EE /* TPPStatementViewController.swift */,
 			);
 			name = TPPSettingsViewController;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				21B948631EE700B30099A79F /* Colors.swift in Sources */,
 				BFF7FA6E1EEFF4C9009D798E /* TPPGroupsViewController.swift in Sources */,
 				BFF7FA731EEFF50C009D798E /* TPPDemoAccountViewController.swift in Sources */,
+				215FC1121EF14542005E69EE /* TPPStatementViewController.swift in Sources */,
 				BFF7FA651EEFF409009D798E /* TPPSupportViewController.swift in Sources */,
 				BFF7FA621EEFE5DE009D798E /* TPPTabBarController.swift in Sources */,
 				BF9DB8761EDD770600C8A0ED /* AppDelegate.swift in Sources */,
