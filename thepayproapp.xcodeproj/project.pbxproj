@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		215540591EF3CCD500670E86 /* TPPContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215540581EF3CCD500670E86 /* TPPContactViewController.swift */; };
+		2155405B1EF3D7C900670E86 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2155405A1EF3D7C900670E86 /* Contacts.framework */; };
+		2155405D1EF3D7D400670E86 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2155405C1EF3D7D400670E86 /* ContactsUI.framework */; };
+		215540601EF3EF2100670E86 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2155405F1EF3EF2100670E86 /* Extensions.swift */; };
+		215540621EF3EF3E00670E86 /* ContactsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215540611EF3EF3E00670E86 /* ContactsPicker.swift */; };
+		215540641EF3EF6100670E86 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 215540631EF3EF6100670E86 /* ContactCell.xib */; };
+		215540681EF3EF7000670E86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215540651EF3EF7000670E86 /* Constants.swift */; };
+		215540691EF3EF7000670E86 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215540661EF3EF7000670E86 /* Contact.swift */; };
+		2155406A1EF3EF7000670E86 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215540671EF3EF7000670E86 /* ContactCell.swift */; };
 		215FC1121EF14542005E69EE /* TPPStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FC1111EF14542005E69EE /* TPPStatementViewController.swift */; };
 		21B948631EE700B30099A79F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B948621EE700B30099A79F /* Colors.swift */; };
 		47DF01DE01E7D7D898A65AFE /* Pods_thepayproapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */; };
@@ -46,6 +55,15 @@
 
 /* Begin PBXFileReference section */
 		0AC05682788F4523E6443369 /* Pods-thepayproappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappUITests/Pods-thepayproappUITests.release.xcconfig"; sourceTree = "<group>"; };
+		215540581EF3CCD500670E86 /* TPPContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPContactViewController.swift; sourceTree = "<group>"; };
+		2155405A1EF3D7C900670E86 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		2155405C1EF3D7D400670E86 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
+		2155405F1EF3EF2100670E86 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		215540611EF3EF3E00670E86 /* ContactsPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsPicker.swift; sourceTree = "<group>"; };
+		215540631EF3EF6100670E86 /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactCell.xib; path = "../../../Downloads/EPContactsPicker-master/Pods/ContactCell.xib"; sourceTree = "<group>"; };
+		215540651EF3EF7000670E86 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../../../Downloads/EPContactsPicker-master/Pods/Constants.swift"; sourceTree = "<group>"; };
+		215540661EF3EF7000670E86 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = "../../../Downloads/EPContactsPicker-master/Pods/Contact.swift"; sourceTree = "<group>"; };
+		215540671EF3EF7000670E86 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = "../../../Downloads/EPContactsPicker-master/Pods/ContactCell.swift"; sourceTree = "<group>"; };
 		215FC1111EF14542005E69EE /* TPPStatementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPStatementViewController.swift; sourceTree = "<group>"; };
 		21B948621EE700B30099A79F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		220E96BB616D905BE09C4351 /* Pods-thepayproappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2155405D1EF3D7D400670E86 /* ContactsUI.framework in Frameworks */,
+				2155405B1EF3D7C900670E86 /* Contacts.framework in Frameworks */,
 				47DF01DE01E7D7D898A65AFE /* Pods_thepayproapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +125,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		215540571EF3CBF300670E86 /* TPPContactViewController */ = {
+			isa = PBXGroup;
+			children = (
+				215540581EF3CCD500670E86 /* TPPContactViewController.swift */,
+			);
+			name = TPPContactViewController;
+			sourceTree = "<group>";
+		};
+		2155405E1EF3EEE500670E86 /* ContactsPicker */ = {
+			isa = PBXGroup;
+			children = (
+				215540651EF3EF7000670E86 /* Constants.swift */,
+				215540661EF3EF7000670E86 /* Contact.swift */,
+				215540671EF3EF7000670E86 /* ContactCell.swift */,
+				215540631EF3EF6100670E86 /* ContactCell.xib */,
+				2155405F1EF3EF2100670E86 /* Extensions.swift */,
+				215540611EF3EF3E00670E86 /* ContactsPicker.swift */,
+			);
+			name = ContactsPicker;
+			sourceTree = "<group>";
+		};
 		216CCA8C1EE8223F003FE3CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +163,7 @@
 		216CCA8E1EE82252003FE3CE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				215540571EF3CBF300670E86 /* TPPContactViewController */,
 				BF50394B1EEFD89C007F619D /* TPPTabBarController */,
 				BFF7FA631EEFF3E0009D798E /* TPPSupportViewController */,
 				BFF7FA6C1EEFF4B6009D798E /* TPPGroupsViewController */,
@@ -135,6 +177,7 @@
 		21B948611EE7009C0099A79F /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				2155405E1EF3EEE500670E86 /* ContactsPicker */,
 				21B948621EE700B30099A79F /* Colors.swift */,
 			);
 			name = lib;
@@ -143,6 +186,8 @@
 		306162B3C6F0CECF1766A139 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2155405C1EF3D7D400670E86 /* ContactsUI.framework */,
+				2155405A1EF3D7C900670E86 /* Contacts.framework */,
 				A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */,
 				E61F7BACC0A7CA6BAD1E0FB1 /* Pods_thepayproappTests.framework */,
 				BF7D9CB0B12DBCFD3FE80391 /* Pods_thepayproappUITests.framework */,
@@ -322,6 +367,7 @@
 				BF9DB8901EDD770600C8A0ED /* Frameworks */,
 				BF9DB8911EDD770600C8A0ED /* Resources */,
 				5AF375E450E4E1FD4FA549BA /* [CP] Copy Pods Resources */,
+				E70879C0AEE0846E02859F8A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -390,6 +436,7 @@
 				BF9DB8821EDD770600C8A0ED /* LaunchScreen.storyboard in Resources */,
 				BF9DB87F1EDD770600C8A0ED /* Assets.xcassets in Resources */,
 				BF9DB87D1EDD770600C8A0ED /* Main.storyboard in Resources */,
+				215540641EF3EF6100670E86 /* ContactCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +469,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		2D171F09A1F4C8268D6095C6 /* [CP] Check Pods Manifest.lock */ = {
@@ -437,7 +484,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		3FF4E7EE8D96338BDEF77960 /* [CP] Check Pods Manifest.lock */ = {
@@ -452,7 +499,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5AF375E450E4E1FD4FA549BA /* [CP] Copy Pods Resources */ = {
@@ -530,6 +577,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E70879C0AEE0846E02859F8A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-thepayproappUITests/Pods-thepayproappUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -539,14 +601,20 @@
 			files = (
 				BFF7FA6B1EEFF48D009D798E /* TPPSendMoneyViewController.swift in Sources */,
 				BFF7FA711EEFF4FF009D798E /* TPPAccountViewController.swift in Sources */,
+				215540621EF3EF3E00670E86 /* ContactsPicker.swift in Sources */,
 				BFF7FA681EEFF469009D798E /* TPPSettingsViewController.swift in Sources */,
 				21B948631EE700B30099A79F /* Colors.swift in Sources */,
 				BFF7FA6E1EEFF4C9009D798E /* TPPGroupsViewController.swift in Sources */,
 				BFF7FA731EEFF50C009D798E /* TPPDemoAccountViewController.swift in Sources */,
 				215FC1121EF14542005E69EE /* TPPStatementViewController.swift in Sources */,
+				215540681EF3EF7000670E86 /* Constants.swift in Sources */,
+				215540691EF3EF7000670E86 /* Contact.swift in Sources */,
+				215540601EF3EF2100670E86 /* Extensions.swift in Sources */,
 				BFF7FA651EEFF409009D798E /* TPPSupportViewController.swift in Sources */,
+				215540591EF3CCD500670E86 /* TPPContactViewController.swift in Sources */,
 				BFF7FA621EEFE5DE009D798E /* TPPTabBarController.swift in Sources */,
 				BF9DB8761EDD770600C8A0ED /* AppDelegate.swift in Sources */,
+				2155406A1EF3EF7000670E86 /* ContactCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,7 +771,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 78E8NNX52N;
 				INFOPLIST_FILE = thepayproapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thepaypro.thepayproapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -718,7 +786,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 78E8NNX52N;
 				INFOPLIST_FILE = thepayproapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thepaypro.thepayproapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
