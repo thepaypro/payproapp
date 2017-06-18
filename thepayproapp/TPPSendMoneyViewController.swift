@@ -17,6 +17,11 @@ class TPPSendMoneyViewController: UIViewController
     {
         super.viewDidLoad()
         print("en viewDidLoad de Send Money")
+        
+        if let contactView = storyboard?.instantiateViewController(withIdentifier: "contactViewID") {
+            self.addChildViewController(contactView)
+            self.view.addSubview(contactView.view)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -24,10 +29,10 @@ class TPPSendMoneyViewController: UIViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if let contactView = storyboard?.instantiateViewController(withIdentifier: "contactViewID") {
-            self.addChildViewController(contactView)
-            self.view.addSubview(contactView.view)
-        }
+//        if let contactView = storyboard?.instantiateViewController(withIdentifier: "contactViewID") {
+//            self.addChildViewController(contactView)
+//            self.view.addSubview(contactView.view)
+//        }
     }
 
     override func didReceiveMemoryWarning()
@@ -37,17 +42,34 @@ class TPPSendMoneyViewController: UIViewController
     }
     
     public func fs() {
-        print("wwww")
+        print("wwwwaaa")
+        
+        let alert = UIAlertController(title: "Send money by", message: "", preferredStyle: .actionSheet)
+        
+        let bankTransfeButtonAction = UIAlertAction(title: "Bank transfer", style: UIAlertActionStyle.default, handler: {
+             action in
+            //bankTransfeNavID
+            
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier:"TPPBankTransfeViewController")
+            UIApplication.shared.keyWindow?.rootViewController?.presentedViewController?.present(nextViewController, animated:true, completion:nil)
+        })
+        
+        alert.addAction(bankTransfeButtonAction)
+        
+        let inviteButtonAction = UIAlertAction(title: "Invite someone to PayPro", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
+            print("Second Button pressed")
+        })
+        
+        alert.addAction(inviteButtonAction)
+        
+        UIApplication.shared.keyWindow?.rootViewController?.presentedViewController?.present(alert, animated: true, completion: nil)
+        
+        print("fiiiin")
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func presentViewController(alert: UIAlertController, animated flag: Bool, completion: (() -> Void)?) -> Void {
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: flag, completion: completion)
     }
-    */
-
 }
