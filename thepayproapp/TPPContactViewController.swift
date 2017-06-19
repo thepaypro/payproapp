@@ -18,7 +18,8 @@ class TPPContactViewController: UIViewController, PickerDelegate {
         let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.email)
         let navigationController = UINavigationController(rootViewController: contactPickerScene)
         self.present(navigationController, animated: true, completion: nil)
-
+//        self.addChildViewController(contactPickerScene)
+//        self.view.addSubview(contactPickerScene.view)
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,18 +36,6 @@ class TPPContactViewController: UIViewController, PickerDelegate {
     func ContactPicker(_: ContactsPicker, didSelectContact contact : Contact)
     {
         print("Contact \(contact.displayName()) has been selected")
-        
-        
-        classControlProcess.fs()
-//        
-//        self.dismiss(animated: true, completion: {
-//            print("finish dismiss view")
-//        })
-        
-//        self.dismiss(animated: true)
-//        ShowAlert()
-        
-
     }
     
     func ContactPicker(_: ContactsPicker, didCancel error : NSError)
@@ -61,44 +50,44 @@ class TPPContactViewController: UIViewController, PickerDelegate {
         }
     }
     
-//    func ShowAlert()
-//    {
-//        print("in alert func")
-//        let alert = UIAlertController(title: "",
-//                                      message: "",
-//                                      preferredStyle: .alert)
-//        
-//        let titleFont:[String : AnyObject] = [ NSFontAttributeName : UIFont(name: "AmericanTypewriter", size: 18)! ]
-//        let messageFont:[String : AnyObject] = [ NSFontAttributeName : UIFont(name: "HelveticaNeue-Thin", size: 14)! ]
-//        let attributedTitle = NSMutableAttributedString(string: "Multiple buttons", attributes: titleFont)
-//        let attributedMessage = NSMutableAttributedString(string: "Select an Action", attributes: messageFont)
-//        alert.setValue(attributedTitle, forKey: "attributedTitle")
-//        alert.setValue(attributedMessage, forKey: "attributedMessage")
-//        
-//        let action1 = UIAlertAction(title: "Action 1", style: .default, handler: { (action) -> Void in
-//            print("ACTION 1 selected!")
-//        })
-//        
-//        let action2 = UIAlertAction(title: "Action 2", style: .default, handler: { (action) -> Void in
-//            print("ACTION 2 selected!")
-//        })
-//        
-//        let action3 = UIAlertAction(title: "Action 3", style: .default, handler: { (action) -> Void in
-//            print("ACTION 3 selected!")
-//        })
-//        
-//        // Cancel button
-//        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in })
-//        
-//        alert.view.tintColor = UIColor.brown  // change text color of the buttons
-//        alert.view.backgroundColor = UIColor.cyan  // change background color
-//        alert.view.layer.cornerRadius = 25   // change corner radius
-//        
-//        // Add action buttons and present the Alert
-//        alert.addAction(action1)
-//        alert.addAction(action2)
-//        alert.addAction(action3)
-//        alert.addAction(cancel)
-//        present(alert, animated: true, completion: nil)
-//    }
+    func showAlert() {
+        let alert = UIAlertController(title: "Send money by", message: "", preferredStyle: .actionSheet)
+        
+        let bankTransfeButtonAction = UIAlertAction(title: "Bank transfer", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
+            //bankTransfeNavID
+            
+//            UIApplication.shared.keyWindow?.rootViewController?.presentedViewController?.dismiss(animated: true, completion: nil)
+            
+            self.performSegue(withIdentifier: "bankTransfeSegue", sender: self)
+
+//            classControlProcess.cd()
+//            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//            
+//            let nextViewController = storyBoard.instantiateViewController(withIdentifier:"TPPBankTransfeViewController")
+////            UIApplication.shared.keyWindow?.rootViewController?.presentedViewController?.present(nextViewController, animated:true, completion:nil)
+//            UIApplication.shared.keyWindow?.rootViewController?.navigationController?.pushViewController(nextViewController, animated: true)
+//            print("88999")
+            
+            
+            //            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            //
+            //            let nextViewController = storyBoard.instantiateViewController(withIdentifier:"TPPBankTransfeViewController")
+            //
+            //            UIApplication.shared.keyWindow?.rootViewController?.navigationController?.pushViewController(nextViewController, animated: true)
+            //            print("aabbbaaabb22222")
+        })
+        
+        alert.addAction(bankTransfeButtonAction)
+        
+        let inviteButtonAction = UIAlertAction(title: "Invite someone to PayPro", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
+            print("Second Button pressed")
+        })
+        
+        alert.addAction(inviteButtonAction)
+        
+        UIApplication.shared.keyWindow?.rootViewController?.presentedViewController?.present(alert, animated: true, completion: nil)
+        
+        print("fiiiin")
+
+    }
 }

@@ -7,33 +7,23 @@
 //
 
 import UIKit
+import Contacts
+import ContactsUI
 
-var classControlProcess = TPPSendMoneyViewController()
-
-
-class TPPSendMoneyViewController: UIViewController
+class TPPSendMoneyViewController: UIViewController, PickerDelegate
 {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        print("en viewDidLoad de Send Money")
-        
-        if let contactView = storyboard?.instantiateViewController(withIdentifier: "contactViewID") {
-            self.addChildViewController(contactView)
-            self.view.addSubview(contactView.view)
-        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print("bbbbbbbbbbbbbbbbbbb")
+    override func viewWillAppear(_ animated: Bool)
+    {
+        let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.email)
+        let navigationController = UINavigationController(rootViewController: contactPickerScene)
+        self.present(navigationController, animated: true, completion: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-//        if let contactView = storyboard?.instantiateViewController(withIdentifier: "contactViewID") {
-//            self.addChildViewController(contactView)
-//            self.view.addSubview(contactView.view)
-//        }
-    }
 
     override func didReceiveMemoryWarning()
     {
@@ -41,19 +31,21 @@ class TPPSendMoneyViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    public func fs() {
-        print("wwwwaaa")
+    func ContactPicker(_: ContactsPicker, didContactFetchFailed error : NSError)
+    {
+        print("Failed with error \(error.description)")
+    }
+    
+    func ContactPicker(_: ContactsPicker, didSelectContact contact : Contact)
+    {
+        print("Contact \(contact.displayName()) has been selected")
         
         let alert = UIAlertController(title: "Send money by", message: "", preferredStyle: .actionSheet)
         
-        let bankTransfeButtonAction = UIAlertAction(title: "Bank transfer", style: UIAlertActionStyle.default, handler: {
-             action in
-            //bankTransfeNavID
+        let bankTransfeButtonAction = UIAlertAction(title: "Bank transfer", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
             
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier:"TPPBankTransfeViewController")
-            UIApplication.shared.keyWindow?.rootViewController?.presentedViewController?.present(nextViewController, animated:true, completion:nil)
+            self.performSegue(withIdentifier: "bankTransfeSegue", sender: self)
+            self.dismiss(animated: true, completion: nil)
         })
         
         alert.addAction(bankTransfeButtonAction)
@@ -69,7 +61,16 @@ class TPPSendMoneyViewController: UIViewController
         print("fiiiin")
     }
     
-    private func presentViewController(alert: UIAlertController, animated flag: Bool, completion: (() -> Void)?) -> Void {
-        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: flag, completion: completion)
+    func ContactPicker(_: ContactsPicker, didCancel error : NSError)
+    {
+        print("User canceled the selection");
     }
+    
+    func ContactPicker(_: ContactsPicker, didSelectMultipleContacts contacts: [Contact]) {
+        print("The following contacts are selected")
+        for contact in contacts {
+            print("\(contact.displayName())")
+        }
+    }
+
 }
