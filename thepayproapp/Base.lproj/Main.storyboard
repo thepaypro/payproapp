@@ -173,23 +173,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khh-rC-L9n">
-                                <rect key="frame" x="146" y="380" width="84" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="GO Subview"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltk-i1-dKG">
+                                <rect key="frame" x="159" y="318" width="57" height="30"/>
+                                <state key="normal" title="Register"/>
                                 <connections>
-                                    <segue destination="WQF-ES-NLp" kind="show" id="Zhk-XT-NbV"/>
+                                    <action selector="registerUser:" destination="Ua9-7f-Ec8" eventType="touchUpInside" id="Zoa-TK-fQt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Demo Account View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7I5-RO-uQx">
-                                <rect key="frame" x="23" y="309" width="329" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ltk-i1-dKG" firstAttribute="centerX" secondItem="PyI-SE-vop" secondAttribute="centerX" id="Tna-SK-k4b"/>
+                            <constraint firstItem="Ltk-i1-dKG" firstAttribute="centerY" secondItem="PyI-SE-vop" secondAttribute="centerY" id="fZh-5e-UgH"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="537-0G-4fZ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -197,69 +193,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKF-ug-mMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1786" y="1137"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="iN2-ZA-y5e">
-            <objects>
-                <viewController id="WQF-ES-NLp" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LAu-kM-okC"/>
-                        <viewControllerLayoutGuide type="bottom" id="DiF-Ju-4eT"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wpM-NP-Lbc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDd-78-ca5">
-                                <rect key="frame" x="119" y="315" width="136" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xjt-6q-7JR">
-                                <rect key="frame" x="135" y="381" width="105" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="GO Subview 2"/>
-                                <connections>
-                                    <segue destination="ZSx-8x-xpd" kind="show" id="fck-vZ-Ee2"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="LYY-nm-mBg"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wau-Kv-cac" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2679" y="1137"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Mbf-Ob-CKO">
-            <objects>
-                <viewController id="ZSx-8x-xpd" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ipO-FF-VTc"/>
-                        <viewControllerLayoutGuide type="bottom" id="vPx-ih-ZKT"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dph-U9-4oA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View A11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8t-32-xuK">
-                                <rect key="frame" x="116" y="317" width="142" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rpm-iT-TxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3759" y="1137"/>
         </scene>
         <!--Account-->
         <scene sceneID="XvH-Yv-DVs">
