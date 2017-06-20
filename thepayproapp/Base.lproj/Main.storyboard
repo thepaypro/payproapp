@@ -105,7 +105,7 @@
         <!--Beneficiary name-->
         <scene sceneID="n3X-0J-i2W">
             <objects>
-                <viewController storyboardIdentifier="BankTransfeFlowInit" automaticallyAdjustsScrollViewInsets="NO" id="tbG-dk-sQh" customClass="TPPBankTransfeViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BankTransfeFlowInit" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="tbG-dk-sQh" customClass="TPPBankTransfeViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2fW-D0-KFE"/>
                         <viewControllerLayoutGuide type="bottom" id="mBI-EN-Wxr"/>
@@ -239,15 +239,15 @@
                         <viewControllerLayoutGuide type="top" id="etz-sQ-YBN"/>
                         <viewControllerLayoutGuide type="bottom" id="ny2-5e-gLo"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="e3M-vg-K0k">
+                    <view key="view" contentMode="scaleToFill" id="e3M-vg-K0k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uY4-1H-rdT">
-                                <rect key="frame" x="0.0" y="64" width="375" height="539"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KfB-hM-hpE">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXk-jx-aiP">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
@@ -359,15 +359,15 @@
                         <viewControllerLayoutGuide type="top" id="SF3-Dk-Tyt"/>
                         <viewControllerLayoutGuide type="bottom" id="DVu-YL-ujS"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="Sg7-Xd-h0H">
+                    <view key="view" contentMode="scaleToFill" id="Sg7-Xd-h0H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roa-zA-lig">
-                                <rect key="frame" x="0.0" y="64" width="375" height="539"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1T-mu-sAm">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Evp-OU-9ae">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
@@ -532,6 +532,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Reference &amp; Reason" id="2TK-2A-BDY">
                         <barButtonItem key="backBarButtonItem" title="Back" id="q9O-Aa-np4"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="0tt-5E-EZe">
+                            <connections>
+                                <segue destination="5nc-Hr-6Hb" kind="show" id="ZJN-89-5Vr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="labelReference" destination="E7f-gy-nyZ" id="TeK-nj-D9g"/>
@@ -541,6 +546,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jci-he-aOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4485.6000000000004" y="357.57121439280365"/>
+        </scene>
+        <!--Bank Transfe Amount View Controller-->
+        <scene sceneID="xa1-C3-P6t">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="5nc-Hr-6Hb" customClass="PPBankTransfeAmountViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yUI-hc-0P4"/>
+                        <viewControllerLayoutGuide type="bottom" id="aGa-yh-KHJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8mG-LU-ugE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rF7-yi-JtG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUA-dk-ZPm">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <subviews>
+                                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="HmP-uw-8Xc">
+                                                <rect key="frame" x="0.0" y="140" width="375" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="£000.00" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXh-ha-neu">
+                                                        <rect key="frame" x="8" y="5" width="359" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="wz2-0k-RnI"/>
+                                                        </constraints>
+                                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="YXh-ha-neu" secondAttribute="trailing" constant="8" id="E7E-UU-Maw"/>
+                                                    <constraint firstAttribute="bottom" secondItem="YXh-ha-neu" secondAttribute="bottom" constant="5" id="HIZ-l0-Zf8"/>
+                                                    <constraint firstAttribute="height" constant="50" id="mMd-MR-Op0"/>
+                                                    <constraint firstItem="YXh-ha-neu" firstAttribute="top" secondItem="HmP-uw-8Xc" secondAttribute="top" constant="5" id="ro5-rA-oab"/>
+                                                    <constraint firstItem="YXh-ha-neu" firstAttribute="leading" secondItem="HmP-uw-8Xc" secondAttribute="leading" constant="8" id="uKK-Qq-Mg6"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="HmP-uw-8Xc" secondAttribute="trailing" id="79e-m1-vfG"/>
+                                            <constraint firstItem="HmP-uw-8Xc" firstAttribute="leading" secondItem="SUA-dk-ZPm" secondAttribute="leading" id="eYm-HT-VOB"/>
+                                            <constraint firstItem="HmP-uw-8Xc" firstAttribute="top" secondItem="SUA-dk-ZPm" secondAttribute="top" constant="140" id="knT-VB-fvN"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="SUA-dk-ZPm" secondAttribute="bottom" id="5Qx-2P-kag"/>
+                                    <constraint firstItem="SUA-dk-ZPm" firstAttribute="width" secondItem="rF7-yi-JtG" secondAttribute="width" id="BXw-uf-nUO"/>
+                                    <constraint firstItem="SUA-dk-ZPm" firstAttribute="top" secondItem="rF7-yi-JtG" secondAttribute="top" id="Dyn-Dm-4ah"/>
+                                    <constraint firstItem="SUA-dk-ZPm" firstAttribute="centerX" secondItem="rF7-yi-JtG" secondAttribute="centerX" id="Id9-4t-h3T"/>
+                                    <constraint firstItem="SUA-dk-ZPm" firstAttribute="centerY" secondItem="rF7-yi-JtG" secondAttribute="centerY" id="RCR-P9-lPR"/>
+                                    <constraint firstItem="SUA-dk-ZPm" firstAttribute="leading" secondItem="rF7-yi-JtG" secondAttribute="leading" id="RhO-c7-8Wi"/>
+                                    <constraint firstAttribute="trailing" secondItem="SUA-dk-ZPm" secondAttribute="trailing" id="ZNS-pB-Ez2"/>
+                                    <constraint firstItem="HmP-uw-8Xc" firstAttribute="width" secondItem="rF7-yi-JtG" secondAttribute="width" id="xgD-zt-Yho"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rF7-yi-JtG" secondAttribute="trailing" id="3mv-cl-9G2"/>
+                            <constraint firstItem="rF7-yi-JtG" firstAttribute="leading" secondItem="8mG-LU-ugE" secondAttribute="leading" id="f1T-rC-nFv"/>
+                            <constraint firstItem="rF7-yi-JtG" firstAttribute="top" secondItem="yUI-hc-0P4" secondAttribute="bottom" id="ua3-Pv-k6z"/>
+                            <constraint firstItem="rF7-yi-JtG" firstAttribute="bottom" secondItem="aGa-yh-KHJ" secondAttribute="top" id="zuZ-qS-NnP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="amountField" destination="YXh-ha-neu" id="CV8-yS-0sQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s8V-RR-1YG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5252" y="357.57121439280365"/>
         </scene>
         <!--Bank Transfe Reference List View Controller-->
         <scene sceneID="UGM-Xb-lrn">
@@ -555,7 +637,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mrC-zi-lfl" id="8bd-T8-VqF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -579,12 +661,12 @@
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="QS5-Rx-YEW">
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIT-b2-rSc">
-                                <rect key="frame" x="0.0" y="64" width="375" height="505"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILe-sl-pQU">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="460"/>
@@ -1403,15 +1485,15 @@
                         <viewControllerLayoutGuide type="top" id="ywf-vR-qaP"/>
                         <viewControllerLayoutGuide type="bottom" id="38C-56-EB5"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="zqC-Lg-kK9">
+                    <view key="view" contentMode="scaleToFill" id="zqC-Lg-kK9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xo4-u8-W7Y">
-                                <rect key="frame" x="0.0" y="64" width="375" height="505"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XIi-Lr-p3t">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="505"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUN-mz-3bg">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -1656,15 +1738,15 @@
                         <viewControllerLayoutGuide type="top" id="3x3-42-fll"/>
                         <viewControllerLayoutGuide type="bottom" id="GKr-Cw-aZ9"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="QQG-sZ-MpO">
+                    <view key="view" contentMode="scaleToFill" id="QQG-sZ-MpO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLZ-uS-3YW">
-                                <rect key="frame" x="0.0" y="64" width="375" height="505"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFx-uD-TVo">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="505"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pp5-w0-0KP">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
