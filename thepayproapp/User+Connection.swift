@@ -23,6 +23,8 @@ extension User {
             ]
         ] as [String : Any]
         
-        makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "register")
+        makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "register", completion: {completionDictionary in
+            self.manage(userDictionary: completionDictionary)
+        })
     }
 }
