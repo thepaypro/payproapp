@@ -12,7 +12,7 @@ let TPPAPIURL = "http://34.253.160.180"
 
 func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String)
 {
-    let absoluteURL = "\(TPPAPIURL)/\(endpointURL)"
+    let absoluteURL = "\(TPPAPIURL)/\(endpointURL)/"
     
     if let postData = (try? JSONSerialization.data(withJSONObject: paramsDictionary, options: []))
     {
@@ -29,15 +29,13 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String)
             {
                 print(error!)
             }
-            else {
+            else
+            {
                 DispatchQueue.main.async(execute:
                     {
                     if let json = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? NSDictionary
                     {
-                        let code = json["code"] as? Int
-                        let message = json["message"] as? String
-                        
-                        NSLog("%d - %@", code!, message!)
+                        print(json["token"]!)
                     }
                     
                 })
