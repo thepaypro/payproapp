@@ -74,6 +74,7 @@
         <attribute name="forename" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="groupMembers" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="GroupMember" inverseName="user" inverseEntity="GroupMember" syncable="YES"/>
         <relationship name="invites" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Invite" inverseName="user" inverseEntity="Invite" syncable="YES"/>
@@ -88,6 +89,6 @@
         <element name="Offset" positionX="-36" positionY="90" width="128" height="135"/>
         <element name="OffsetTransaction" positionX="-18" positionY="117" width="128" height="165"/>
         <element name="Transaction" positionX="-54" positionY="45" width="128" height="240"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="240"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="255"/>
     </elements>
 </model>

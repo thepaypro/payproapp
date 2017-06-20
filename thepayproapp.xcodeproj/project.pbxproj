@@ -14,8 +14,8 @@
 		BF0275C51EF1285D000EA475 /* thepayproapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF0275C31EF1285D000EA475 /* thepayproapp.xcdatamodeld */; };
 		BF2345721EF7B13400C50004 /* User+Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2345711EF7B13400C50004 /* User+Connection.swift */; };
 		BF2345751EF7B2DA00C50004 /* TPPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2345741EF7B2DA00C50004 /* TPPService.swift */; };
-		BF2345781EF7D6A500C50004 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2345761EF7D6A500C50004 /* User+CoreDataClass.swift */; };
-		BF2345791EF7D6A500C50004 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2345771EF7D6A500C50004 /* User+CoreDataProperties.swift */; };
+		BF31E8641EF90108004C233E /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31E8621EF90108004C233E /* User+CoreDataClass.swift */; };
+		BF31E8651EF90108004C233E /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31E8631EF90108004C233E /* User+CoreDataProperties.swift */; };
 		BF56BABE1EF26BF300429005 /* GroupMember+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BAB01EF26BF300429005 /* GroupMember+CoreDataClass.swift */; };
 		BF56BABF1EF26BF300429005 /* GroupMember+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BAB11EF26BF300429005 /* GroupMember+CoreDataProperties.swift */; };
 		BF56BAC01EF26BF300429005 /* Invite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BAB21EF26BF300429005 /* Invite+CoreDataClass.swift */; };
@@ -73,8 +73,8 @@
 		BF0275C41EF1285D000EA475 /* thepayproapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = thepayproapp.xcdatamodel; sourceTree = "<group>"; };
 		BF2345711EF7B13400C50004 /* User+Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+Connection.swift"; sourceTree = "<group>"; };
 		BF2345741EF7B2DA00C50004 /* TPPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPService.swift; sourceTree = "<group>"; };
-		BF2345761EF7D6A500C50004 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BF2345771EF7D6A500C50004 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BF31E8621EF90108004C233E /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BF31E8631EF90108004C233E /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BF56BAB01EF26BF300429005 /* GroupMember+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroupMember+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BF56BAB11EF26BF300429005 /* GroupMember+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroupMember+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BF56BAB21EF26BF300429005 /* Invite+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Invite+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 		BF56BACC1EF26FD500429005 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				BF2345761EF7D6A500C50004 /* User+CoreDataClass.swift */,
-				BF2345771EF7D6A500C50004 /* User+CoreDataProperties.swift */,
+				BF31E8621EF90108004C233E /* User+CoreDataClass.swift */,
+				BF31E8631EF90108004C233E /* User+CoreDataProperties.swift */,
 				BF56BAB01EF26BF300429005 /* GroupMember+CoreDataClass.swift */,
 				BF56BAB11EF26BF300429005 /* GroupMember+CoreDataProperties.swift */,
 				BF56BAB21EF26BF300429005 /* Invite+CoreDataClass.swift */,
@@ -612,12 +612,12 @@
 				BF56BAC81EF26BF300429005 /* Currency+CoreDataClass.swift in Sources */,
 				BF56BAC01EF26BF300429005 /* Invite+CoreDataClass.swift in Sources */,
 				BFF7FA6B1EEFF48D009D798E /* TPPSendMoneyViewController.swift in Sources */,
-				BF2345781EF7D6A500C50004 /* User+CoreDataClass.swift in Sources */,
+				BF31E8641EF90108004C233E /* User+CoreDataClass.swift in Sources */,
 				BF2345721EF7B13400C50004 /* User+Connection.swift in Sources */,
 				BFF7FA711EEFF4FF009D798E /* TPPAccountViewController.swift in Sources */,
 				BF56BAC91EF26BF300429005 /* Currency+CoreDataProperties.swift in Sources */,
 				BF56BAC71EF26BF300429005 /* OffsetTransaction+CoreDataProperties.swift in Sources */,
-				BF2345791EF7D6A500C50004 /* User+CoreDataProperties.swift in Sources */,
+				BF31E8651EF90108004C233E /* User+CoreDataProperties.swift in Sources */,
 				BF56BAC51EF26BF300429005 /* Offset+CoreDataProperties.swift in Sources */,
 				BF56BAC11EF26BF300429005 /* Invite+CoreDataProperties.swift in Sources */,
 				BF56BACA1EF26BF300429005 /* Group+CoreDataClass.swift in Sources */,
