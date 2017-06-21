@@ -310,11 +310,30 @@
                     <navigationItem key="navigationItem" id="SlH-Nj-o9n"/>
                     <connections>
                         <outlet property="phoneNumberTF" destination="0rK-4Z-nog" id="4an-9D-jzD"/>
+                        <segue destination="1o9-uK-9Kc" kind="show" identifier="showLoginVCSegue" id="ymU-qA-kmD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30T-7N-yVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5692" y="1093"/>
+        </scene>
+        <!--Passcode View Controller-->
+        <scene sceneID="n9m-Wp-kcV">
+            <objects>
+                <viewController id="1o9-uK-9Kc" customClass="TPPPasscodeViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="djx-aF-xsk"/>
+                        <viewControllerLayoutGuide type="bottom" id="6s3-R8-U7K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="chm-Eg-FmY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LW6-8d-aJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4447.1999999999998" y="561.76911544227892"/>
         </scene>
         <!--Account-->
         <scene sceneID="Mr4-kT-kER">

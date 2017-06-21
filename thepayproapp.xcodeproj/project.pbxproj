@@ -18,6 +18,7 @@
 		BF31E8651EF90108004C233E /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31E8631EF90108004C233E /* User+CoreDataProperties.swift */; };
 		BF31E8681EF933C0004C233E /* TPPEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31E8671EF933C0004C233E /* TPPEntryViewController.swift */; };
 		BF42C2931EFA629F00DFBED7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42C2921EFA629F00DFBED7 /* Utils.swift */; };
+		BF42C2961EFA7A6900DFBED7 /* TPPPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42C2951EFA7A6900DFBED7 /* TPPPasscodeViewController.swift */; };
 		BF56BABE1EF26BF300429005 /* GroupMember+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BAB01EF26BF300429005 /* GroupMember+CoreDataClass.swift */; };
 		BF56BABF1EF26BF300429005 /* GroupMember+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BAB11EF26BF300429005 /* GroupMember+CoreDataProperties.swift */; };
 		BF56BAC01EF26BF300429005 /* Invite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BAB21EF26BF300429005 /* Invite+CoreDataClass.swift */; };
@@ -79,6 +80,7 @@
 		BF31E8631EF90108004C233E /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BF31E8671EF933C0004C233E /* TPPEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPEntryViewController.swift; sourceTree = "<group>"; };
 		BF42C2921EFA629F00DFBED7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		BF42C2951EFA7A6900DFBED7 /* TPPPasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPPasscodeViewController.swift; sourceTree = "<group>"; };
 		BF56BAB01EF26BF300429005 /* GroupMember+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroupMember+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BF56BAB11EF26BF300429005 /* GroupMember+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroupMember+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BF56BAB21EF26BF300429005 /* Invite+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Invite+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				BF31E8661EF93341004C233E /* TPPEntryViewController */,
+				BF42C2941EFA7A4500DFBED7 /* TPPPasscodeViewController */,
 				BF50394B1EEFD89C007F619D /* TPPTabBarController */,
 				BFF7FA631EEFF3E0009D798E /* TPPSupportViewController */,
 				BFF7FA6C1EEFF4B6009D798E /* TPPGroupsViewController */,
@@ -214,6 +217,14 @@
 				BF42C2921EFA629F00DFBED7 /* Utils.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		BF42C2941EFA7A4500DFBED7 /* TPPPasscodeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BF42C2951EFA7A6900DFBED7 /* TPPPasscodeViewController.swift */,
+			);
+			name = TPPPasscodeViewController;
 			sourceTree = "<group>";
 		};
 		BF50394B1EEFD89C007F619D /* TPPTabBarController */ = {
@@ -643,6 +654,7 @@
 				21B948631EE700B30099A79F /* Colors.swift in Sources */,
 				BF56BAC41EF26BF300429005 /* Offset+CoreDataClass.swift in Sources */,
 				BF0275C51EF1285D000EA475 /* thepayproapp.xcdatamodeld in Sources */,
+				BF42C2961EFA7A6900DFBED7 /* TPPPasscodeViewController.swift in Sources */,
 				BFF7FA6E1EEFF4C9009D798E /* TPPGroupsViewController.swift in Sources */,
 				BFF7FA731EEFF50C009D798E /* TPPDemoAccountViewController.swift in Sources */,
 				BFF7FA651EEFF409009D798E /* TPPSupportViewController.swift in Sources */,

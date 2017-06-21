@@ -41,6 +41,8 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate
             if userExistence
             {
                 print("USER EXISTS")
+                
+                self.performSegue(withIdentifier: "showLoginVCSegue", sender: nil)
             }
             else
             {
@@ -60,15 +62,16 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate
         let newLength = text.utf16.count + string.utf16.count - range.length
         return newLength <= 10 // Bool
     }
-
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let loginVC : TPPPasscodeViewController = segue.destination as! TPPPasscodeViewController
+        loginVC.userUsername = phoneNumberTF.text
     }
-    */
 
 }
