@@ -12,10 +12,18 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
 {
     var userUsername : String?
     
+    @IBOutlet weak var mainPasscodeView: UIView!
+    
+    @IBOutlet weak var passcodeTF: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        passcodeTF.becomeFirstResponder()
+        
+        self.setupView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +31,48 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    func setupView()
+    {
+        for currentView: UIView in self.mainPasscodeView.subviews
+        {
+            currentView.backgroundColor = UIColor.white
+            
+            currentView.layer.cornerRadius = currentView.frame.size.width / 2
+            currentView.layer.borderWidth = 2.0
+            currentView.layer.borderColor = UIColor.lightGray.cgColor
+        }
+    }
+    
+    //MARK: - UITextFieldDelegate
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        guard let text = textField.text else { return true }
+        
+        let newLength = text.utf16.count + string.utf16.count - range.length
+        
+        if newLength > 0 && newLength <= 6
+        {
+            for passcode in 0...newLength - 1
+            {
+                let currentView : UIView = self.mainPasscodeView.subviews[passcode]
+                currentView.layer.backgroundColor = UIColor.groupTableViewBackground.cgColor
+            }
+        }
+        
+        if newLength < 6
+        {
+            for passcode in newLength...self.mainPasscodeView.subviews.count - 1
+            {
+                let currentView : UIView = self.mainPasscodeView.subviews[passcode]
+                currentView.layer.backgroundColor = UIColor.white.cgColor
+            }
+        }
+        
+        return newLength <= 6
+    }
+    
+
     /*
     // MARK: - Navigation
 
