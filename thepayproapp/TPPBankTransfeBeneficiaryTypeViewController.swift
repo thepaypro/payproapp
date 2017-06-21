@@ -14,13 +14,6 @@ class TPPBankTransfeBeneficiaryTypeViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        
-//        let backButtom = UIBarButtonItem()
-//        backButtom.title = "Back"
-//        
-//        navigationItem.backBarButtonItem = backButtom
     }
     
     override func didReceiveMemoryWarning()

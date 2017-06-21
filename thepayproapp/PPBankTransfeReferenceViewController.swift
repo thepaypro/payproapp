@@ -12,14 +12,24 @@ class TPPBankTransfeReferenceViewController: UIViewController, ReferenceViewCont
 {
     @IBOutlet weak var labelReference: UILabel!
     @IBOutlet weak var viewOtherReason: UIView!
+    @IBOutlet weak var textInfoView: UIView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        print("en will appear")
+    override func viewWillAppear(_ animated: Bool)
+    {
+        if self.labelReference.text == "Other" && self.viewOtherReason.isHidden == true {
+            print("aa")
+            self.textInfoView.frame.origin.y += 43
+        }
+        
+        if self.labelReference.text != "Other" && self.viewOtherReason.isHidden == false {
+            print("bb")
+            self.textInfoView.frame.origin.y -= 43
+        }
         
         if self.labelReference.text == "Other" {
             self.viewOtherReason.isHidden = false
@@ -43,9 +53,7 @@ class TPPBankTransfeReferenceViewController: UIViewController, ReferenceViewCont
     }
     
     func referenceSelected(controller: PPBankTransfeReferenceListViewController, text: String?) {
-        print("aaabbbb")
         self.labelReference.text = text
-        print(text ?? "nada de nada")
     }
 }
 
