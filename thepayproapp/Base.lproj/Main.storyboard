@@ -53,7 +53,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Groups View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="85" y="313" width="206" height="42"/>
+                                <rect key="frame" x="84.5" y="312.5" width="206" height="42"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -114,7 +114,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Settings View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="79" y="313" width="218" height="42"/>
+                                <rect key="frame" x="78.5" y="312.5" width="218" height="42"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -202,10 +202,26 @@
             </objects>
             <point key="canvasLocation" x="830" y="1933"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pub-Fu-NOy">
+            <objects>
+                <navigationController storyboardIdentifier="TPPEntryNavigationController" id="E5P-bZ-l1n" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="geH-Gu-8gy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4v3-bQ-Shg" kind="relationship" relationship="rootViewController" id="czc-X8-SiA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I07-Z0-XON" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6954" y="1093"/>
+        </scene>
         <!--Entry View Controller-->
         <scene sceneID="Am2-1u-vke">
             <objects>
-                <viewController storyboardIdentifier="TPPEntryViewController" id="4v3-bQ-Shg" customClass="TPPEntryViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4v3-bQ-Shg" customClass="TPPEntryViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SCQ-Bj-dGv"/>
                         <viewControllerLayoutGuide type="bottom" id="Fdc-3v-Gzz"/>
@@ -215,13 +231,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TYPE YOUR PHONE NUMBER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bW5-34-eON">
-                                <rect key="frame" x="16" y="58" width="180" height="16"/>
+                                <rect key="frame" x="16" y="102" width="180" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zui-HW-jrO">
-                                <rect key="frame" x="0.0" y="82" width="124" height="76"/>
+                                <rect key="frame" x="0.0" y="126" width="124" height="76"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsd-8G-Sml">
                                         <rect key="frame" x="29" y="28" width="24" height="21"/>
@@ -246,16 +262,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5SD-Z1-3np">
-                                <rect key="frame" x="124" y="82" width="251.5" height="76"/>
+                                <rect key="frame" x="124" y="126" width="251" height="76"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDt-9b-gsW">
-                                        <rect key="frame" x="0.0" y="0.0" width="50.5" height="76"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="76"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="0rK-4Z-nog">
-                                        <rect key="frame" x="50.5" y="0.0" width="201" height="76"/>
+                                        <rect key="frame" x="50" y="0.0" width="201" height="76"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
@@ -291,13 +307,14 @@
                             <constraint firstItem="5SD-Z1-3np" firstAttribute="height" secondItem="Zui-HW-jrO" secondAttribute="height" id="oe0-Su-OaO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="SlH-Nj-o9n"/>
                     <connections>
                         <outlet property="phoneNumberTF" destination="0rK-4Z-nog" id="4an-9D-jzD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30T-7N-yVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1119.2" y="884.70764617691157"/>
+            <point key="canvasLocation" x="-5692" y="1093"/>
         </scene>
         <!--Account-->
         <scene sceneID="Mr4-kT-kER">

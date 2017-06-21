@@ -23,8 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         
         //TO-DO: Here should be decided whether to show EntryVC or TabController (local user existence)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let entryViewController = storyboard.instantiateViewController(withIdentifier: "TPPEntryViewController")
-        let entryNavigationController = UINavigationController(rootViewController: entryViewController)
+        let entryNavigationController = storyboard.instantiateViewController(withIdentifier: "TPPEntryNavigationController")
         
         // Make the Tab Bar Controller the root view controller
         window?.rootViewController = entryNavigationController
