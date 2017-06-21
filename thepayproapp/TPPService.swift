@@ -49,3 +49,38 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, comple
         task.resume()
     }
 }
+
+func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
+{
+    let absoluteURL = "\(TPPAPIURL)/\(endpointURL)/\(paramsURL)"
+    
+    let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let task = URLSession.shared.dataTask(with: request as URLRequest)
+    {
+        (data, response, error) -> Void in
+        
+        if (error != nil)
+        {
+            print(error!)
+        }
+        else
+        {
+            DispatchQueue.main.async(execute:
+            {
+                if let json = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? NSDictionary
+                {
+                    completion(json)
+                }
+                else
+                {
+                    print("EMPTY JSON")
+                    completion([:])
+                }
+            })
+        }
+    }
+    
+    task.resume()
+}

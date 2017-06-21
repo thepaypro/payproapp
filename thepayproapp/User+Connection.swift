@@ -27,4 +27,11 @@ extension User {
             self.manage(userDictionary: completionDictionary)
         })
     }
+    
+    class func checkExistence(username: String, completion: @escaping (_ userExistence: Bool) -> Void)
+    {
+        makeGetRequest(endpointURL: "users/check", paramsURL: username) {completionDictionary in
+            completion(completionDictionary.value(forKeyPath: "isUser") as! Bool)
+        }
+    }
 }
