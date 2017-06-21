@@ -16,6 +16,8 @@
 		BF2345751EF7B2DA00C50004 /* TPPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2345741EF7B2DA00C50004 /* TPPService.swift */; };
 		BF31E8641EF90108004C233E /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31E8621EF90108004C233E /* User+CoreDataClass.swift */; };
 		BF31E8651EF90108004C233E /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31E8631EF90108004C233E /* User+CoreDataProperties.swift */; };
+		BF31E8681EF933C0004C233E /* TPPEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31E8671EF933C0004C233E /* TPPEntryViewController.swift */; };
+		BF42C2931EFA629F00DFBED7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42C2921EFA629F00DFBED7 /* Utils.swift */; };
 		BF56BABE1EF26BF300429005 /* GroupMember+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BAB01EF26BF300429005 /* GroupMember+CoreDataClass.swift */; };
 		BF56BABF1EF26BF300429005 /* GroupMember+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BAB11EF26BF300429005 /* GroupMember+CoreDataProperties.swift */; };
 		BF56BAC01EF26BF300429005 /* Invite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BAB21EF26BF300429005 /* Invite+CoreDataClass.swift */; };
@@ -75,6 +77,8 @@
 		BF2345741EF7B2DA00C50004 /* TPPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPService.swift; sourceTree = "<group>"; };
 		BF31E8621EF90108004C233E /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BF31E8631EF90108004C233E /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BF31E8671EF933C0004C233E /* TPPEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPEntryViewController.swift; sourceTree = "<group>"; };
+		BF42C2921EFA629F00DFBED7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		BF56BAB01EF26BF300429005 /* GroupMember+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroupMember+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BF56BAB11EF26BF300429005 /* GroupMember+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroupMember+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BF56BAB21EF26BF300429005 /* Invite+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Invite+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 		216CCA8E1EE82252003FE3CE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BF31E8661EF93341004C233E /* TPPEntryViewController */,
 				BF50394B1EEFD89C007F619D /* TPPTabBarController */,
 				BFF7FA631EEFF3E0009D798E /* TPPSupportViewController */,
 				BFF7FA6C1EEFF4B6009D798E /* TPPGroupsViewController */,
@@ -169,14 +174,6 @@
 				BFF7FA661EEFF44E009D798E /* TPPSettingsViewController */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		21B948611EE7009C0099A79F /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				21B948621EE700B30099A79F /* Colors.swift */,
-			);
-			name = lib;
 			sourceTree = "<group>";
 		};
 		306162B3C6F0CECF1766A139 /* Frameworks */ = {
@@ -200,6 +197,23 @@
 				0AC05682788F4523E6443369 /* Pods-thepayproappUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BF31E8661EF93341004C233E /* TPPEntryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BF31E8671EF933C0004C233E /* TPPEntryViewController.swift */,
+			);
+			name = TPPEntryViewController;
+			sourceTree = "<group>";
+		};
+		BF42C2911EFA626000DFBED7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				21B948621EE700B30099A79F /* Colors.swift */,
+				BF42C2921EFA629F00DFBED7 /* Utils.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		BF50394B1EEFD89C007F619D /* TPPTabBarController */ = {
@@ -270,7 +284,7 @@
 				216CCA8E1EE82252003FE3CE /* Controllers */,
 				216CCA8D1EE8224D003FE3CE /* Views */,
 				216CCA8C1EE8223F003FE3CE /* Models */,
-				21B948611EE7009C0099A79F /* lib */,
+				BF42C2911EFA626000DFBED7 /* Utils */,
 				BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */,
 				BF9DB87B1EDD770600C8A0ED /* Main.storyboard */,
 				BF9DB87E1EDD770600C8A0ED /* Assets.xcassets */,
@@ -612,6 +626,7 @@
 				BF56BAC81EF26BF300429005 /* Currency+CoreDataClass.swift in Sources */,
 				BF56BAC01EF26BF300429005 /* Invite+CoreDataClass.swift in Sources */,
 				BFF7FA6B1EEFF48D009D798E /* TPPSendMoneyViewController.swift in Sources */,
+				BF42C2931EFA629F00DFBED7 /* Utils.swift in Sources */,
 				BF31E8641EF90108004C233E /* User+CoreDataClass.swift in Sources */,
 				BF2345721EF7B13400C50004 /* User+Connection.swift in Sources */,
 				BFF7FA711EEFF4FF009D798E /* TPPAccountViewController.swift in Sources */,
@@ -619,6 +634,7 @@
 				BF56BAC71EF26BF300429005 /* OffsetTransaction+CoreDataProperties.swift in Sources */,
 				BF31E8651EF90108004C233E /* User+CoreDataProperties.swift in Sources */,
 				BF56BAC51EF26BF300429005 /* Offset+CoreDataProperties.swift in Sources */,
+				BF31E8681EF933C0004C233E /* TPPEntryViewController.swift in Sources */,
 				BF56BAC11EF26BF300429005 /* Invite+CoreDataProperties.swift in Sources */,
 				BF56BACA1EF26BF300429005 /* Group+CoreDataClass.swift in Sources */,
 				BF56BABF1EF26BF300429005 /* GroupMember+CoreDataProperties.swift in Sources */,

@@ -21,11 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         // create UIWindow with the same size as main screen
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        //TO-DO: Here should be decided whether to show login, register and then TabBar
-        let tabBarController = TPPTabBarController()
+        //TO-DO: Here should be decided whether to show EntryVC or TabController (local user existence)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let entryViewController = storyboard.instantiateViewController(withIdentifier: "TPPEntryViewController")
+        let entryNavigationController = UINavigationController(rootViewController: entryViewController)
         
         // Make the Tab Bar Controller the root view controller
-        window?.rootViewController = tabBarController
+        window?.rootViewController = entryNavigationController
         window?.makeKeyAndVisible()
         
         return true
