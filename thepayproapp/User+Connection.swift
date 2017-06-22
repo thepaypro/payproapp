@@ -8,7 +8,6 @@
 
 
 import Foundation
-import CoreData
 
 extension User {
     class func register(username: String, password: String, passwordConfirmation: String)

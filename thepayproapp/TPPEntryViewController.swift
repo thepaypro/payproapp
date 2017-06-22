@@ -11,11 +11,6 @@ import UIKit
 class TPPEntryViewController: UIViewController, UITextFieldDelegate
 {
     @IBOutlet weak var phoneNumberTF: UITextField!
-    
-    convenience init()
-    {
-        self.init(nibName:nil, bundle:nil)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +44,6 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate
                 print("USER DOESN'T EXIST")
             }
         })
-        
-        
     }
     
     //MARK: - UITextFieldDelegate
