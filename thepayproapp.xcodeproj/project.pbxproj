@@ -33,6 +33,7 @@
 		BF56BAC91EF26BF300429005 /* Currency+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BABB1EF26BF300429005 /* Currency+CoreDataProperties.swift */; };
 		BF56BACA1EF26BF300429005 /* Group+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BABC1EF26BF300429005 /* Group+CoreDataClass.swift */; };
 		BF56BACB1EF26BF300429005 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BABD1EF26BF300429005 /* Group+CoreDataProperties.swift */; };
+		BF612E541EFBBC7D007110D4 /* TPPSMSConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF612E531EFBBC7D007110D4 /* TPPSMSConfirmationViewController.swift */; };
 		BF9DB8761EDD770600C8A0ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */; };
 		BF9DB87D1EDD770600C8A0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB87B1EDD770600C8A0ED /* Main.storyboard */; };
 		BF9DB87F1EDD770600C8A0ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB87E1EDD770600C8A0ED /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		BF56BABB1EF26BF300429005 /* Currency+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Currency+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BF56BABC1EF26BF300429005 /* Group+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BF56BABD1EF26BF300429005 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BF612E531EFBBC7D007110D4 /* TPPSMSConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPSMSConfirmationViewController.swift; sourceTree = "<group>"; };
 		BF7D9CB0B12DBCFD3FE80391 /* Pods_thepayproappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thepayproappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB8721EDD770600C8A0ED /* thepayproapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thepayproapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				BF31E8661EF93341004C233E /* TPPEntryViewController */,
+				BF612E521EFBBC5E007110D4 /* TPPSMSConfirmationViewController */,
 				BF42C2941EFA7A4500DFBED7 /* TPPPasscodeViewController */,
 				BF50394B1EEFD89C007F619D /* TPPTabBarController */,
 				BFF7FA631EEFF3E0009D798E /* TPPSupportViewController */,
@@ -265,6 +268,14 @@
 				BF2345711EF7B13400C50004 /* User+Connection.swift */,
 			);
 			name = Connection;
+			sourceTree = "<group>";
+		};
+		BF612E521EFBBC5E007110D4 /* TPPSMSConfirmationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BF612E531EFBBC7D007110D4 /* TPPSMSConfirmationViewController.swift */,
+			);
+			name = TPPSMSConfirmationViewController;
 			sourceTree = "<group>";
 		};
 		BF9DB8691EDD770500C8A0ED = {
@@ -648,6 +659,7 @@
 				BF31E8681EF933C0004C233E /* TPPEntryViewController.swift in Sources */,
 				BF56BAC11EF26BF300429005 /* Invite+CoreDataProperties.swift in Sources */,
 				BF56BACA1EF26BF300429005 /* Group+CoreDataClass.swift in Sources */,
+				BF612E541EFBBC7D007110D4 /* TPPSMSConfirmationViewController.swift in Sources */,
 				BF56BABF1EF26BF300429005 /* GroupMember+CoreDataProperties.swift in Sources */,
 				BF56BAC21EF26BF300429005 /* Transaction+CoreDataClass.swift in Sources */,
 				BFF7FA681EEFF469009D798E /* TPPSettingsViewController.swift in Sources */,

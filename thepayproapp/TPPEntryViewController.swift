@@ -42,6 +42,8 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate
             else
             {
                 print("USER DOESN'T EXIST")
+                
+                self.performSegue(withIdentifier: "showSMSConfirmationVCSegue", sender: nil)
             }
         })
     }
@@ -63,8 +65,16 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        let loginVC : TPPPasscodeViewController = segue.destination as! TPPPasscodeViewController
-        loginVC.userUsername = phoneNumberTF.text
+        if segue.identifier == "showLoginVCSegue"
+        {
+            let passcodeVC : TPPPasscodeViewController = segue.destination as! TPPPasscodeViewController
+            passcodeVC.userUsername = phoneNumberTF.text
+        }
+        else if segue.identifier == "showSMSConfirmationVCSegue"
+        {
+            let smsConfirmationVC : TPPSMSConfirmationViewController = segue.destination as! TPPSMSConfirmationViewController
+            smsConfirmationVC.userUsername = phoneNumberTF.text
+        }
     }
 
 }
