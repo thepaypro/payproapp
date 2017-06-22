@@ -33,4 +33,16 @@ extension User {
             completion(completionDictionary.value(forKeyPath: "isUser") as! Bool)
         }
     }
+    
+    class func login(username: String, password: String, completion: @escaping (_ passwordCorrect: Bool) -> Void)
+    {
+        let paramsDictionary = [
+            "_username": username,
+            "_password": password
+            ] as [String : Any]
+        
+        makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "login_check", completion: {completionDictionary in
+            
+        })
+    }
 }

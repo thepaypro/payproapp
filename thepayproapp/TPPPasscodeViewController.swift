@@ -21,6 +21,9 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
 
         // Do any additional setup after loading the view.
         
+        let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
+        navigationItem.rightBarButtonItems = [nextButton]
+                
         passcodeTF.becomeFirstResponder()
         
         self.setupView()
@@ -43,6 +46,13 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
         }
     }
     
+    func nextTapped()
+    {
+        User.login(username: self.userUsername!, password: self.passcodeTF.text!, completion: {userExistence in
+            
+        })
+    }
+    
     //MARK: - UITextFieldDelegate
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
@@ -51,7 +61,7 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
         
         let newLength = text.utf16.count + string.utf16.count - range.length
         
-        if newLength > 0 && newLength <= 6
+        if newLength > 0 && newLength <= self.mainPasscodeView.subviews.count
         {
             for passcode in 0...newLength - 1
             {
@@ -60,7 +70,7 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
             }
         }
         
-        if newLength < 6
+        if newLength < self.mainPasscodeView.subviews.count
         {
             for passcode in newLength...self.mainPasscodeView.subviews.count - 1
             {
@@ -69,7 +79,7 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
             }
         }
         
-        return newLength <= 6
+        return newLength <= self.mainPasscodeView.subviews.count
     }
     
 
