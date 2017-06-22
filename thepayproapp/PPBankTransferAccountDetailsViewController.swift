@@ -42,6 +42,8 @@ class PPBankTransferAccountDetailsViewController: UIViewController
             self.bicField.isHidden = false
         }
     }
+    @IBOutlet weak var accountView: UIView!
+    @IBOutlet weak var bicView: UIView!
     
     override func viewDidLoad()
     {
@@ -68,6 +70,25 @@ class PPBankTransferAccountDetailsViewController: UIViewController
             self.bicLabel.isHidden = false
             self.bicField.isHidden = false
         }
+        
+        
+        let borderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
+        let layerTop = CAShapeLayer()
+        layerTop.path = borderTop.cgPath
+        layerTop.fillColor = PayProColors.line.cgColor
+        self.accountView.layer.addSublayer(layerTop)
+
+        let borderMiddle = UIBezierPath(rect: CGRect(x: 15, y: 42, width: self.view.frame.width, height: 0.4))
+        let layerMiddle = CAShapeLayer()
+        layerMiddle.path = borderMiddle.cgPath
+        layerMiddle.fillColor = PayProColors.line.cgColor
+        self.accountView.layer.addSublayer(layerMiddle)
+        
+        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: 41.5, width: self.view.frame.width, height: 0.4))
+        let layerBottom = CAShapeLayer()
+        layerBottom.path = borderBottom.cgPath
+        layerBottom.fillColor = PayProColors.line.cgColor
+        self.bicView.layer.addSublayer(layerBottom)
 
     }
     
