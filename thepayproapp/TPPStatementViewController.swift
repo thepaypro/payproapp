@@ -39,6 +39,20 @@ class TPPStatementViewController: UIViewController {
         
         datePickerStarts.addTarget(self, action: #selector(dateStartChanged(_:)), for: .valueChanged)
         datePickerEnds.addTarget(self, action: #selector(dateEndChanged(_:)), for: .valueChanged)
+        
+        
+        let endsBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
+        let endsLayerTop = CAShapeLayer()
+        endsLayerTop.path = endsBorderTop.cgPath
+        endsLayerTop.fillColor = PayProColors.line.cgColor
+        self.viewEnds.layer.addSublayer(endsLayerTop)
+        
+        let emailBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
+        let emailLayerTop = CAShapeLayer()
+        emailLayerTop.path = emailBorderTop.cgPath
+        emailLayerTop.fillColor = PayProColors.line.cgColor
+        self.viewEmailSend.layer.addSublayer(emailLayerTop)
+
     }
 
     override func didReceiveMemoryWarning() {
