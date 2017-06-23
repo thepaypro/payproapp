@@ -47,19 +47,55 @@ extension String {
         formatter.minimumFractionDigits = 2
         
         var amountWithPrefix = self
+//
+//        // remove from String: "$", ".", ","
+//        let regex = try! NSRegularExpression(pattern: "[]", options: .caseInsensitive)
+//        print(regex)
+//        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.characters.count), withTemplate: "$1$2$3$4")
+//        print(amountWithPrefix)
+////        let double = (amountWithPrefix as NSString).doubleValue
+////        print(double)
+////        number = NSNumber(value: (double / 100))
+////        print(number)
+////        print("----")
+////        // if first number is 0 or all numbers were deleted
+////        guard number != 0 as NSNumber else {
+////            print("return void")
+////            return ""
+////        }
+////        
+////        return formatter.string(from: number)!
+//            return amountWithPrefix
+//        var amountFormat = self.replacingOccurrences(of: "£", with: "")
+//        amountFormat = amountFormat.replacingOccurrences(of: "a", with: "")
+//        
+//        return amountFormat
         
-        // remove from String: "$", ".", ","
-        let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
-        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.characters.count), withTemplate: "")
+        let amount = self
+//        var regex = try! NSRegularExpression(pattern: "[^0-9]", options: NSRegularExpression.Options.caseInsensitive)
+//        var range = NSMakeRange(0, amount.characters.count)
+//        var modString = regex.stringByReplacingMatches(in: amount, options: [], range: range, withTemplate: "")
+//        
+//        regex = try! NSRegularExpression(pattern: "[^,|\\.]", options: NSRegularExpression.Options.caseInsensitive)
+//        range = NSMakeRange(0, modString.characters.count)
+//        modString = regex.stringByReplacingMatches(in: modString, options: [], range: range, withTemplate: "")
+
+        let matched  = matches(for: "^(\\d)+\\,?\\d{1,3}(\\.(\\d)?(\\d)?)?", in: amount)
+        print(matched)
+        return matched[0]
+
+    }
+    
+    func matches(for regex: String, in text: String) -> [String] {
         
-        let double = (amountWithPrefix as NSString).doubleValue
-        number = NSNumber(value: (double / 100))
-        
-        // if first number is 0 or all numbers were deleted
-        guard number != 0 as NSNumber else {
-            return ""
+        do {
+            let regex = try NSRegularExpression(pattern: regex)
+            let nsString = text as NSString
+            let results = regex.matches(in: text, range: NSRange(location: 0, length: nsString.length))
+            return results.map { nsString.substring(with: $0.range)}
+        } catch let error {
+            print("invalid regex: \(error.localizedDescription)")
+            return []
         }
-        
-        return formatter.string(from: number)!
     }
 }
