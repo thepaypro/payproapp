@@ -40,6 +40,9 @@
 		BF9DB8821EDD770600C8A0ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB8801EDD770600C8A0ED /* LaunchScreen.storyboard */; };
 		BF9DB88D1EDD770600C8A0ED /* thepayproappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB88C1EDD770600C8A0ED /* thepayproappTests.swift */; };
 		BF9DB8981EDD770600C8A0ED /* thepayproappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB8971EDD770600C8A0ED /* thepayproappUITests.swift */; };
+		BFBD893A1F00FA6E003E7A4F /* TPPPrefixSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD89391F00FA6E003E7A4F /* TPPPrefixSelectionViewController.swift */; };
+		BFBD89431F0100FD003E7A4F /* CountryPrefixLocalConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD89421F0100FD003E7A4F /* CountryPrefixLocalConnection.swift */; };
+		BFBD89471F011766003E7A4F /* countries-prefixes.json in Resources */ = {isa = PBXBuildFile; fileRef = BFBD89461F011766003E7A4F /* countries-prefixes.json */; };
 		BFF7FA621EEFE5DE009D798E /* TPPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA611EEFE5DE009D798E /* TPPTabBarController.swift */; };
 		BFF7FA651EEFF409009D798E /* TPPSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA641EEFF409009D798E /* TPPSupportViewController.swift */; };
 		BFF7FA681EEFF469009D798E /* TPPSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA671EEFF469009D798E /* TPPSettingsViewController.swift */; };
@@ -110,6 +113,9 @@
 		BF9DB8931EDD770600C8A0ED /* thepayproappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = thepayproappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB8971EDD770600C8A0ED /* thepayproappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thepayproappUITests.swift; sourceTree = "<group>"; };
 		BF9DB8991EDD770600C8A0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFBD89391F00FA6E003E7A4F /* TPPPrefixSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPPrefixSelectionViewController.swift; sourceTree = "<group>"; };
+		BFBD89421F0100FD003E7A4F /* CountryPrefixLocalConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPrefixLocalConnection.swift; sourceTree = "<group>"; };
+		BFBD89461F011766003E7A4F /* countries-prefixes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "countries-prefixes.json"; sourceTree = "<group>"; };
 		BFF7FA611EEFE5DE009D798E /* TPPTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPTabBarController.swift; sourceTree = "<group>"; };
 		BFF7FA641EEFF409009D798E /* TPPSupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPSupportViewController.swift; sourceTree = "<group>"; };
 		BFF7FA671EEFF469009D798E /* TPPSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPSettingsViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				BF31E8661EF93341004C233E /* TPPEntryViewController */,
+				BFBD89381F00F9D5003E7A4F /* TPPPrefixSelectionViewController */,
 				BF612E521EFBBC5E007110D4 /* TPPSMSConfirmationViewController */,
 				BF42C2941EFA7A4500DFBED7 /* TPPPasscodeViewController */,
 				BF50394B1EEFD89C007F619D /* TPPTabBarController */,
@@ -266,6 +273,7 @@
 			children = (
 				BF2345741EF7B2DA00C50004 /* TPPService.swift */,
 				BF2345711EF7B13400C50004 /* User+Connection.swift */,
+				BFBD89421F0100FD003E7A4F /* CountryPrefixLocalConnection.swift */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 				216CCA8D1EE8224D003FE3CE /* Views */,
 				216CCA8C1EE8223F003FE3CE /* Models */,
 				BF42C2911EFA626000DFBED7 /* Utils */,
+				BFBD893F1F00FF24003E7A4F /* Resources */,
 				BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */,
 				BF9DB87B1EDD770600C8A0ED /* Main.storyboard */,
 				BF9DB87E1EDD770600C8A0ED /* Assets.xcassets */,
@@ -332,6 +341,22 @@
 				BF9DB8991EDD770600C8A0ED /* Info.plist */,
 			);
 			path = thepayproappUITests;
+			sourceTree = "<group>";
+		};
+		BFBD89381F00F9D5003E7A4F /* TPPPrefixSelectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BFBD89391F00FA6E003E7A4F /* TPPPrefixSelectionViewController.swift */,
+			);
+			name = TPPPrefixSelectionViewController;
+			sourceTree = "<group>";
+		};
+		BFBD893F1F00FF24003E7A4F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BFBD89461F011766003E7A4F /* countries-prefixes.json */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		BFF7FA631EEFF3E0009D798E /* TPPSupportViewController */ = {
@@ -495,6 +520,7 @@
 			files = (
 				BF9DB8821EDD770600C8A0ED /* LaunchScreen.storyboard in Resources */,
 				BF9DB87F1EDD770600C8A0ED /* Assets.xcassets in Resources */,
+				BFBD89471F011766003E7A4F /* countries-prefixes.json in Resources */,
 				BF9DB87D1EDD770600C8A0ED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -669,11 +695,13 @@
 				BF42C2961EFA7A6900DFBED7 /* TPPPasscodeViewController.swift in Sources */,
 				BFF7FA6E1EEFF4C9009D798E /* TPPGroupsViewController.swift in Sources */,
 				BFF7FA731EEFF50C009D798E /* TPPDemoAccountViewController.swift in Sources */,
+				BFBD89431F0100FD003E7A4F /* CountryPrefixLocalConnection.swift in Sources */,
 				BFF7FA651EEFF409009D798E /* TPPSupportViewController.swift in Sources */,
 				BF56BAC31EF26BF300429005 /* Transaction+CoreDataProperties.swift in Sources */,
 				BF2345751EF7B2DA00C50004 /* TPPService.swift in Sources */,
 				BFF7FA621EEFE5DE009D798E /* TPPTabBarController.swift in Sources */,
 				BF9DB8761EDD770600C8A0ED /* AppDelegate.swift in Sources */,
+				BFBD893A1F00FA6E003E7A4F /* TPPPrefixSelectionViewController.swift in Sources */,
 				BF56BABE1EF26BF300429005 /* GroupMember+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

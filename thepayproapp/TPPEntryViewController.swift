@@ -8,8 +8,10 @@
 
 import UIKit
 
-class TPPEntryViewController: UIViewController, UITextFieldDelegate
+class TPPEntryViewController: UIViewController, UITextFieldDelegate, TPPPrefixSelectionDelegate
 {
+    @IBOutlet weak var prefixView: UIView!
+    @IBOutlet weak var prefixTF: UITextField!
     @IBOutlet weak var phoneNumberTF: UITextField!
 
     override func viewDidLoad() {
@@ -19,6 +21,9 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate
         navigationItem.rightBarButtonItems = [nextButton]
         
         Utils.navigationBarToPayProStyle(navigationBar: (self.navigationController?.navigationBar)!)
+        
+        let prefixViewGR = UITapGestureRecognizer(target: self, action: #selector(showPrefixSelection))
+        self.prefixView.addGestureRecognizer(prefixViewGR)
         
 //        self.phoneNumberTF.text = "666666666"
         
@@ -48,6 +53,11 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate
         })
     }
     
+    func showPrefixSelection()
+    {
+        self.performSegue(withIdentifier: "showPrefixSelectionVCSegue", sender: nil)
+    }
+    
     //MARK: - UITextFieldDelegate
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
@@ -56,6 +66,13 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate
         
         let newLength = text.utf16.count + string.utf16.count - range.length
         return newLength <= 10 // Bool
+    }
+    
+    //MARK: - TPPPrefixSelectionDelegate
+    
+    func didSelectCountryPrefix(countryPrefix: String)
+    {
+        self.prefixTF.text = countryPrefix
     }
     
     // MARK: - Navigation
@@ -74,6 +91,11 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate
         {
             let smsConfirmationVC : TPPSMSConfirmationViewController = segue.destination as! TPPSMSConfirmationViewController
             smsConfirmationVC.userUsername = phoneNumberTF.text
+        }
+        else if segue.identifier == "showPrefixSelectionVCSegue"
+        {
+            let prefixSelectionVC : TPPPrefixSelectionViewController = segue.destination as! TPPPrefixSelectionViewController
+            prefixSelectionVC.delegate = self
         }
     }
 
