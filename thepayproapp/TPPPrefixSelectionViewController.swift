@@ -18,6 +18,8 @@ class TPPPrefixSelectionViewController: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var prefixTV: UITableView!
     
     var countriesPrefixesArray : [AnyObject] = []
+    var ukPrefix : AnyObject?
+    
     
     var delegate : TPPPrefixSelectionDelegate?
     
@@ -28,6 +30,10 @@ class TPPPrefixSelectionViewController: UIViewController, UITableViewDelegate, U
         // Do any additional setup after loading the view.
         
         countriesPrefixesArray = CountryPrefixLocalConnection.loadLocalCountriesPrefixes()
+        
+        ukPrefix = countriesPrefixesArray.first!
+        
+        countriesPrefixesArray.remove(at: 0)
         
         self.prefixTV.register(UITableViewCell.self, forCellReuseIdentifier: "PrefixCell")
         
@@ -43,11 +49,16 @@ class TPPPrefixSelectionViewController: UIViewController, UITableViewDelegate, U
     
     func numberOfSections(in tableView: UITableView) -> Int
     {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        if section == 0
+        {
+            return 1
+        }
+        
         return countriesPrefixesArray.count
     }
     
@@ -55,7 +66,13 @@ class TPPPrefixSelectionViewController: UIViewController, UITableViewDelegate, U
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PrefixCell", for: indexPath)
         
-        let country = countriesPrefixesArray[indexPath.row] as AnyObject
+        var country = countriesPrefixesArray[indexPath.row] as AnyObject
+        
+        if indexPath.section == 0
+        {
+            country = self.ukPrefix!
+        }
+        
         let countryName = country.value(forKey: "name") as! String
         
         let countryPrefixes = country.value(forKey: "callingCodes") as! [AnyObject]
@@ -74,13 +91,56 @@ class TPPPrefixSelectionViewController: UIViewController, UITableViewDelegate, U
         
         if cell != nil
         {
-            let country = countriesPrefixesArray[indexPath.row] as AnyObject
+            var country = countriesPrefixesArray[indexPath.row] as AnyObject
+            
+            if indexPath.section == 0
+            {
+                country = self.ukPrefix!
+            }
+            
             let countryPrefixes = country.value(forKey: "callingCodes") as! [AnyObject]
             let countryPrefix = countryPrefixes.first as! String
             
             self.delegate?.didSelectCountryPrefix(countryPrefix: "+\(countryPrefix)")
             self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        if section == 1
+        {
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 18))
+            let label = UILabel(frame: CGRect(x: 15, y: 38, width: tableView.frame.size.width, height: 18))
+            
+            if #available(iOS 8.2, *)
+            {
+                label.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightRegular)
+            }
+            else
+            {
+                label.font = UIFont.systemFont(ofSize: 13)
+            }
+            
+            label.textColor = UIColor.darkGray
+            label.text = "MORE COUNTRIES"
+            view.addSubview(label)
+            view.backgroundColor = UIColor.groupTableViewBackground
+            
+            return view
+        }
+        
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        if section == 1
+        {
+            return 60.0
+        }
+        
+        return 0.0
     }
     
     /*
