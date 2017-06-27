@@ -11,7 +11,9 @@ import UIKit
 class TPPEntryViewController: UIViewController, UITextFieldDelegate, TPPPrefixSelectionDelegate
 {
     @IBOutlet weak var prefixView: UIView!
+    @IBOutlet weak var countryLabel: UILabel!    
     @IBOutlet weak var prefixTF: UITextField!
+    
     @IBOutlet weak var phoneNumberTF: UITextField!
 
     override func viewDidLoad() {
@@ -70,8 +72,9 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate, TPPPrefixSe
     
     //MARK: - TPPPrefixSelectionDelegate
     
-    func didSelectCountryPrefix(countryPrefix: String)
+    func didSelectCountryPrefix(countryPrefix: String, country: String)
     {
+        self.countryLabel.text = country
         self.prefixTF.text = countryPrefix
     }
     

@@ -34,6 +34,7 @@
 		BF56BACA1EF26BF300429005 /* Group+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BABC1EF26BF300429005 /* Group+CoreDataClass.swift */; };
 		BF56BACB1EF26BF300429005 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BABD1EF26BF300429005 /* Group+CoreDataProperties.swift */; };
 		BF612E541EFBBC7D007110D4 /* TPPSMSConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF612E531EFBBC7D007110D4 /* TPPSMSConfirmationViewController.swift */; };
+		BF6516041F02467F00CEE051 /* countries-prefixes.json in Resources */ = {isa = PBXBuildFile; fileRef = BF6516031F02467F00CEE051 /* countries-prefixes.json */; };
 		BF9DB8761EDD770600C8A0ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */; };
 		BF9DB87D1EDD770600C8A0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB87B1EDD770600C8A0ED /* Main.storyboard */; };
 		BF9DB87F1EDD770600C8A0ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB87E1EDD770600C8A0ED /* Assets.xcassets */; };
@@ -42,7 +43,6 @@
 		BF9DB8981EDD770600C8A0ED /* thepayproappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB8971EDD770600C8A0ED /* thepayproappUITests.swift */; };
 		BFBD893A1F00FA6E003E7A4F /* TPPPrefixSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD89391F00FA6E003E7A4F /* TPPPrefixSelectionViewController.swift */; };
 		BFBD89431F0100FD003E7A4F /* CountryPrefixLocalConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD89421F0100FD003E7A4F /* CountryPrefixLocalConnection.swift */; };
-		BFBD89471F011766003E7A4F /* countries-prefixes.json in Resources */ = {isa = PBXBuildFile; fileRef = BFBD89461F011766003E7A4F /* countries-prefixes.json */; };
 		BFF7FA621EEFE5DE009D798E /* TPPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA611EEFE5DE009D798E /* TPPTabBarController.swift */; };
 		BFF7FA651EEFF409009D798E /* TPPSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA641EEFF409009D798E /* TPPSupportViewController.swift */; };
 		BFF7FA681EEFF469009D798E /* TPPSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7FA671EEFF469009D798E /* TPPSettingsViewController.swift */; };
@@ -100,6 +100,7 @@
 		BF56BABC1EF26BF300429005 /* Group+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BF56BABD1EF26BF300429005 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BF612E531EFBBC7D007110D4 /* TPPSMSConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPSMSConfirmationViewController.swift; sourceTree = "<group>"; };
+		BF6516031F02467F00CEE051 /* countries-prefixes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "countries-prefixes.json"; sourceTree = "<group>"; };
 		BF7D9CB0B12DBCFD3FE80391 /* Pods_thepayproappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thepayproappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB8721EDD770600C8A0ED /* thepayproapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thepayproapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,7 +116,6 @@
 		BF9DB8991EDD770600C8A0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFBD89391F00FA6E003E7A4F /* TPPPrefixSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPPrefixSelectionViewController.swift; sourceTree = "<group>"; };
 		BFBD89421F0100FD003E7A4F /* CountryPrefixLocalConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPrefixLocalConnection.swift; sourceTree = "<group>"; };
-		BFBD89461F011766003E7A4F /* countries-prefixes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "countries-prefixes.json"; sourceTree = "<group>"; };
 		BFF7FA611EEFE5DE009D798E /* TPPTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPTabBarController.swift; sourceTree = "<group>"; };
 		BFF7FA641EEFF409009D798E /* TPPSupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPSupportViewController.swift; sourceTree = "<group>"; };
 		BFF7FA671EEFF469009D798E /* TPPSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPSettingsViewController.swift; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 		BFBD893F1F00FF24003E7A4F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BFBD89461F011766003E7A4F /* countries-prefixes.json */,
+				BF6516031F02467F00CEE051 /* countries-prefixes.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -520,7 +520,7 @@
 			files = (
 				BF9DB8821EDD770600C8A0ED /* LaunchScreen.storyboard in Resources */,
 				BF9DB87F1EDD770600C8A0ED /* Assets.xcassets in Resources */,
-				BFBD89471F011766003E7A4F /* countries-prefixes.json in Resources */,
+				BF6516041F02467F00CEE051 /* countries-prefixes.json in Resources */,
 				BF9DB87D1EDD770600C8A0ED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

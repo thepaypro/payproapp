@@ -10,7 +10,7 @@ import UIKit
 
 protocol TPPPrefixSelectionDelegate
 {
-    func didSelectCountryPrefix(countryPrefix: String)
+    func didSelectCountryPrefix(countryPrefix: String, country: String)
 }
 
 class TPPPrefixSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
@@ -100,8 +100,9 @@ class TPPPrefixSelectionViewController: UIViewController, UITableViewDelegate, U
             
             let countryPrefixes = country.value(forKey: "callingCodes") as! [AnyObject]
             let countryPrefix = countryPrefixes.first as! String
+            let countryISO2 = country.value(forKey: "alpha2Code") as! String
             
-            self.delegate?.didSelectCountryPrefix(countryPrefix: "+\(countryPrefix)")
+            self.delegate?.didSelectCountryPrefix(countryPrefix: "+\(countryPrefix)", country: countryISO2)
             self.navigationController?.popViewController(animated: true)
         }
     }

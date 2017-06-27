@@ -240,7 +240,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zui-HW-jrO">
                                 <rect key="frame" x="0.0" y="126" width="124" height="76"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsd-8G-Sml">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsd-8G-Sml">
                                         <rect key="frame" x="29" y="28" width="24" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -299,6 +299,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="SlH-Nj-o9n"/>
                     <connections>
+                        <outlet property="countryLabel" destination="gsd-8G-Sml" id="GqX-gd-b6r"/>
                         <outlet property="phoneNumberTF" destination="0rK-4Z-nog" id="4an-9D-jzD"/>
                         <outlet property="prefixTF" destination="ujK-Ng-yLt" id="v7d-Eh-xPK"/>
                         <outlet property="prefixView" destination="Zui-HW-jrO" id="eBS-sn-fTf"/>
