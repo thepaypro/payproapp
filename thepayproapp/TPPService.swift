@@ -9,10 +9,11 @@
 import UIKit
 
 let TPPAPIURL = "http://34.253.160.180"
+let TPPLocalAPIURL = "http://172.28.128.77"
 
 func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
 {
-    let absoluteURL = "\(TPPAPIURL)/\(endpointURL)/"
+    let absoluteURL = "\(TPPLocalAPIURL)/\(endpointURL)"
     
     if let postData = (try? JSONSerialization.data(withJSONObject: paramsDictionary, options: []))
     {
@@ -52,7 +53,7 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, comple
 
 func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
 {
-    let absoluteURL = "\(TPPAPIURL)/\(endpointURL)/\(paramsURL)"
+    let absoluteURL = "\(TPPLocalAPIURL)/\(endpointURL)/\(paramsURL)"
     
     let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
