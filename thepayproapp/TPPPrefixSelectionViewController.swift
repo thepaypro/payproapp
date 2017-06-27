@@ -81,6 +81,7 @@ class TPPPrefixSelectionViewController: UIViewController, UITableViewDelegate, U
         cell.accessoryType = .disclosureIndicator
         
         cell.textLabel?.text = "\(countryName) +\(firstCountryPrefix)"
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
         
         return cell
     }
