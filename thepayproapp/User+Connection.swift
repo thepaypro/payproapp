@@ -27,11 +27,11 @@ extension User {
         })
     }
     
-    class func checkExistence(username: String, completion: @escaping (_ userExistence: Bool) -> Void)
+    class func mobileVerificationCode(phoneNumber: String, completion: @escaping (_ userExistence: Bool) -> Void)
     {
-        makeGetRequest(endpointURL: "users/check", paramsURL: username) {completionDictionary in
+        makePostRequest(paramsDictionary: ["phoneNumber": phoneNumber], endpointURL: "mobile-verification-code", completion: {completionDictionary in
             completion(completionDictionary.value(forKeyPath: "isUser") as! Bool)
-        }
+        });
     }
     
     class func login(username: String, password: String, completion: @escaping (_ passwordCorrect: Bool) -> Void)

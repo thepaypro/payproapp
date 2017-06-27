@@ -39,7 +39,7 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate, TPPPrefixSe
     
     func nextTapped()
     {
-        User.checkExistence(username: phoneNumberTF.text!, completion: {userExistence in
+        User.mobileVerificationCode(phoneNumber: "\(self.prefixTF.text!)\(self.phoneNumberTF.text!)", completion: {userExistence in
             if userExistence
             {
                 print("USER EXISTS")
