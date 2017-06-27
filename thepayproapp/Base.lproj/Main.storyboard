@@ -606,16 +606,16 @@ in ThePayPro</string>
                                 <rect key="frame" x="16" y="270" width="343" height="50"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSV-rL-iKg">
-                                        <rect key="frame" x="58" y="14.5" width="21" height="21"/>
+                                        <rect key="frame" x="58" y="10.5" width="21" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="la1-yz-vQc">
-                                                <rect key="frame" x="0.0" y="0.0" width="20.5" height="17.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20.5" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ya-s3-OIS">
-                                                <rect key="frame" x="1.5" y="19" width="18.5" height="1"/>
+                                                <rect key="frame" x="1.5" y="28" width="18.5" height="1"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="hqQ-SW-G5c"/>
@@ -624,26 +624,26 @@ in ThePayPro</string>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="la1-yz-vQc" firstAttribute="top" secondItem="rSV-rL-iKg" secondAttribute="top" id="08r-Uq-bye"/>
-                                            <constraint firstAttribute="width" secondItem="rSV-rL-iKg" secondAttribute="height" multiplier="1:1" id="2J6-XU-Uam"/>
                                             <constraint firstAttribute="trailing" secondItem="la1-yz-vQc" secondAttribute="trailing" id="76y-2t-MQc"/>
                                             <constraint firstItem="la1-yz-vQc" firstAttribute="leading" secondItem="rSV-rL-iKg" secondAttribute="leading" id="Enf-EL-8PY"/>
                                             <constraint firstItem="0ya-s3-OIS" firstAttribute="leading" secondItem="rSV-rL-iKg" secondAttribute="leading" constant="1" id="FRa-c4-MMo"/>
                                             <constraint firstAttribute="bottom" secondItem="0ya-s3-OIS" secondAttribute="bottom" constant="1" id="bz8-f2-QGa"/>
+                                            <constraint firstAttribute="height" constant="30" id="eF8-s8-Pii"/>
                                             <constraint firstAttribute="bottom" secondItem="la1-yz-vQc" secondAttribute="bottom" constant="4" id="fK6-2n-FT5"/>
                                             <constraint firstAttribute="trailing" secondItem="0ya-s3-OIS" secondAttribute="trailing" constant="1" id="sWO-rO-AM5"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="944-EF-iOb">
-                                        <rect key="frame" x="126.5" y="14.5" width="21" height="21"/>
+                                        <rect key="frame" x="126.5" y="10.5" width="21" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnL-lK-ZIW">
-                                                <rect key="frame" x="0.0" y="0.0" width="21" height="17.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="21" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTb-eF-zW2">
-                                                <rect key="frame" x="1" y="19" width="18.5" height="1"/>
+                                                <rect key="frame" x="1" y="28" width="18.5" height="1"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="siC-NB-GtC"/>
@@ -654,24 +654,24 @@ in ThePayPro</string>
                                             <constraint firstAttribute="bottom" secondItem="mTb-eF-zW2" secondAttribute="bottom" constant="1" id="3Zr-m2-IUm"/>
                                             <constraint firstItem="XnL-lK-ZIW" firstAttribute="top" secondItem="944-EF-iOb" secondAttribute="top" id="9it-8v-Up3"/>
                                             <constraint firstAttribute="trailing" secondItem="XnL-lK-ZIW" secondAttribute="trailing" id="AdL-wr-TtU"/>
+                                            <constraint firstAttribute="height" constant="30" id="IEI-1X-Tbh"/>
                                             <constraint firstItem="mTb-eF-zW2" firstAttribute="leading" secondItem="944-EF-iOb" secondAttribute="leading" constant="1" id="i4B-Qg-oTC"/>
                                             <constraint firstAttribute="trailing" secondItem="mTb-eF-zW2" secondAttribute="trailing" constant="1" id="jUY-vR-2lv"/>
                                             <constraint firstItem="XnL-lK-ZIW" firstAttribute="leading" secondItem="944-EF-iOb" secondAttribute="leading" id="l1i-ME-Zz7"/>
-                                            <constraint firstAttribute="width" secondItem="944-EF-iOb" secondAttribute="height" multiplier="1:1" id="m68-fB-GPu"/>
                                             <constraint firstAttribute="bottom" secondItem="XnL-lK-ZIW" secondAttribute="bottom" constant="4" id="txN-ox-Gfa"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yE-n4-q7U">
-                                        <rect key="frame" x="195.5" y="14.5" width="21" height="21"/>
+                                        <rect key="frame" x="195.5" y="10.5" width="21" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arh-h5-Xx2">
-                                                <rect key="frame" x="0.0" y="0.0" width="21" height="17.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="21" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eU-R5-ua6">
-                                                <rect key="frame" x="0.5" y="19" width="19.5" height="1"/>
+                                                <rect key="frame" x="0.5" y="28" width="19.5" height="1"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="juJ-q3-N8N"/>
@@ -682,24 +682,24 @@ in ThePayPro</string>
                                             <constraint firstAttribute="bottom" secondItem="1eU-R5-ua6" secondAttribute="bottom" constant="1" id="10y-qM-o81"/>
                                             <constraint firstItem="arh-h5-Xx2" firstAttribute="leading" secondItem="0yE-n4-q7U" secondAttribute="leading" id="Aad-F5-ZUQ"/>
                                             <constraint firstAttribute="bottom" secondItem="arh-h5-Xx2" secondAttribute="bottom" constant="4" id="C07-tI-QW1"/>
-                                            <constraint firstAttribute="width" secondItem="0yE-n4-q7U" secondAttribute="height" multiplier="1:1" id="JoN-Tc-fzV"/>
                                             <constraint firstAttribute="trailing" secondItem="1eU-R5-ua6" secondAttribute="trailing" constant="1" id="Lie-Wk-AcZ"/>
                                             <constraint firstItem="1eU-R5-ua6" firstAttribute="leading" secondItem="0yE-n4-q7U" secondAttribute="leading" constant="1" id="UFl-dd-BR6"/>
                                             <constraint firstItem="arh-h5-Xx2" firstAttribute="top" secondItem="0yE-n4-q7U" secondAttribute="top" id="ioN-Fa-q2i"/>
+                                            <constraint firstAttribute="height" constant="30" id="ixR-cA-Fhe"/>
                                             <constraint firstAttribute="trailing" secondItem="arh-h5-Xx2" secondAttribute="trailing" id="pyT-6i-LQd"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Isq-PW-zyq">
-                                        <rect key="frame" x="264" y="14.5" width="21" height="21"/>
+                                        <rect key="frame" x="264" y="10.5" width="21" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nH0-f3-MGu">
-                                                <rect key="frame" x="0.0" y="0.0" width="21" height="17.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="21" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCB-pO-oMN">
-                                                <rect key="frame" x="0.5" y="19" width="19.5" height="1"/>
+                                                <rect key="frame" x="0.5" y="28" width="19.5" height="1"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="I4C-YM-5hv"/>
@@ -714,7 +714,7 @@ in ThePayPro</string>
                                             <constraint firstAttribute="trailing" secondItem="rCB-pO-oMN" secondAttribute="trailing" constant="1" id="Ym4-x5-bCm"/>
                                             <constraint firstItem="nH0-f3-MGu" firstAttribute="top" secondItem="Isq-PW-zyq" secondAttribute="top" id="aOx-bI-k29"/>
                                             <constraint firstAttribute="bottom" secondItem="nH0-f3-MGu" secondAttribute="bottom" constant="4" id="aei-xK-8cO"/>
-                                            <constraint firstAttribute="width" secondItem="Isq-PW-zyq" secondAttribute="height" multiplier="1:1" id="lWx-cw-b3i"/>
+                                            <constraint firstAttribute="height" constant="30" id="oHv-bU-DzJ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
