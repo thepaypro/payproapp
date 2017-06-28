@@ -152,4 +152,23 @@ public class User: NSManagedObject
             print("Failure to save context: \(error) \(error.userInfo)")
         }
     }
+    
+    class func currentUser() -> User?
+    {
+        let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+        
+        let userFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        
+        do
+        {
+            let users: [User]? = try context.fetch(userFetchRequest) as? [User]
+            
+            return users!.first
+        }
+        catch
+        {
+            fatalError("Failed to fetch user: \(error)")
+        }
+    }
+
 }
