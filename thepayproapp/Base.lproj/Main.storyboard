@@ -372,7 +372,7 @@ in ThePayPro</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your passcode to unlock ThePayPro app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUx-8b-TyJ">
                                 <rect key="frame" x="16" y="212" width="343" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzM-E2-5wY">
@@ -472,8 +472,11 @@ in ThePayPro</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="kUx-8b-TyJ" id="F88-wp-wd4"/>
                         <outlet property="mainPasscodeView" destination="rzM-E2-5wY" id="uaU-dt-hPt"/>
                         <outlet property="passcodeTF" destination="Kj4-1F-8zS" id="J8k-dW-Wz3"/>
+                        <outlet property="titleLabel" destination="eNv-OG-Q0d" id="VqO-yA-tBy"/>
+                        <segue destination="bUA-SV-ONN" kind="show" identifier="showConfirmPasscodeSegue" id="JJj-1x-d2j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LW6-8d-aJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -765,11 +768,146 @@ in ThePayPro</string>
                     <connections>
                         <outlet property="mainSMSCodeView" destination="b31-up-6LL" id="ioX-a7-k6a"/>
                         <outlet property="smsCodeTF" destination="2jp-bT-wQh" id="We1-TB-ZZI"/>
+                        <segue destination="1o9-uK-9Kc" kind="show" identifier="showCreatePasscodeSegue" id="CKg-gm-nrI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyj-nm-ZeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4330" y="2020"/>
+        </scene>
+        <!--Passcode View Controller-->
+        <scene sceneID="HOt-Ay-huj">
+            <objects>
+                <viewController id="bUA-SV-ONN" customClass="TPPPasscodeViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Lp-4y-QzO"/>
+                        <viewControllerLayoutGuide type="bottom" id="3aC-RP-Hdr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MT9-Zp-YI4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm your Passcode" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPg-Bz-9L7">
+                                <rect key="frame" x="16" y="138" width="343" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="Xyl-iE-Fdy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A passcode protects your data and is used to unlock the PayPro app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rey-3b-ypD">
+                                <rect key="frame" x="16" y="212" width="343" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6o1-2r-uyf">
+                                <rect key="frame" x="16" y="275.5" width="343" height="50"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahE-3F-7AL">
+                                        <rect key="frame" x="32.5" y="14.5" width="21" height="21"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ahE-3F-7AL" secondAttribute="height" multiplier="1:1" id="WhT-yT-cmM"/>
+                                        </constraints>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0U-XH-Yte">
+                                        <rect key="frame" x="84" y="14.5" width="21" height="21"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="G0U-XH-Yte" secondAttribute="height" multiplier="1:1" id="jIG-TY-BCF"/>
+                                        </constraints>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sp7-Yv-YsH">
+                                        <rect key="frame" x="135.5" y="14.5" width="21" height="21"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="sp7-Yv-YsH" secondAttribute="height" multiplier="1:1" id="fSy-Fm-GJs"/>
+                                        </constraints>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g80-zY-D3i">
+                                        <rect key="frame" x="186.5" y="14.5" width="21" height="21"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="g80-zY-D3i" secondAttribute="height" multiplier="1:1" id="mcC-FW-DTR"/>
+                                        </constraints>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-tI-Ufb">
+                                        <rect key="frame" x="238" y="14.5" width="21" height="21"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="cdt-tI-Ufb" secondAttribute="height" multiplier="1:1" id="nuc-Ff-Etk"/>
+                                        </constraints>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxQ-Ve-mEL">
+                                        <rect key="frame" x="289.5" y="14.5" width="21" height="21"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="WxQ-Ve-mEL" secondAttribute="height" multiplier="1:1" id="RNz-wP-sIX"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="sp7-Yv-YsH" firstAttribute="centerY" secondItem="6o1-2r-uyf" secondAttribute="centerY" id="89z-M6-P5O"/>
+                                    <constraint firstItem="cdt-tI-Ufb" firstAttribute="centerY" secondItem="6o1-2r-uyf" secondAttribute="centerY" id="Bd6-dl-CIS"/>
+                                    <constraint firstItem="sp7-Yv-YsH" firstAttribute="width" secondItem="6o1-2r-uyf" secondAttribute="width" multiplier="0.06" id="DOJ-CH-xr3"/>
+                                    <constraint firstItem="WxQ-Ve-mEL" firstAttribute="centerX" secondItem="6o1-2r-uyf" secondAttribute="centerX" multiplier="1.75" id="GoA-AD-0rq"/>
+                                    <constraint firstItem="sp7-Yv-YsH" firstAttribute="centerX" secondItem="6o1-2r-uyf" secondAttribute="centerX" multiplier="0.85" id="IZt-ty-5WW"/>
+                                    <constraint firstItem="G0U-XH-Yte" firstAttribute="centerY" secondItem="6o1-2r-uyf" secondAttribute="centerY" id="Mq2-AF-pZf"/>
+                                    <constraint firstItem="g80-zY-D3i" firstAttribute="width" secondItem="6o1-2r-uyf" secondAttribute="width" multiplier="0.06" id="NmD-zY-3Ls"/>
+                                    <constraint firstItem="ahE-3F-7AL" firstAttribute="centerX" secondItem="6o1-2r-uyf" secondAttribute="centerX" multiplier="0.25" id="OBV-XU-mJQ"/>
+                                    <constraint firstItem="cdt-tI-Ufb" firstAttribute="centerX" secondItem="6o1-2r-uyf" secondAttribute="centerX" multiplier="1.45" id="WRe-cl-vEq"/>
+                                    <constraint firstItem="G0U-XH-Yte" firstAttribute="width" secondItem="6o1-2r-uyf" secondAttribute="width" multiplier="0.06" id="XUc-oO-dIv"/>
+                                    <constraint firstItem="cdt-tI-Ufb" firstAttribute="width" secondItem="6o1-2r-uyf" secondAttribute="width" multiplier="0.06" id="YC9-5l-dbb"/>
+                                    <constraint firstItem="ahE-3F-7AL" firstAttribute="width" secondItem="6o1-2r-uyf" secondAttribute="width" multiplier="0.06" id="b4a-kQ-s1U"/>
+                                    <constraint firstItem="g80-zY-D3i" firstAttribute="centerX" secondItem="6o1-2r-uyf" secondAttribute="centerX" multiplier="1.15" id="bWd-9i-qZd"/>
+                                    <constraint firstItem="WxQ-Ve-mEL" firstAttribute="centerY" secondItem="6o1-2r-uyf" secondAttribute="centerY" id="dhE-7j-jIO"/>
+                                    <constraint firstAttribute="height" constant="50" id="j9w-s5-WuJ"/>
+                                    <constraint firstItem="WxQ-Ve-mEL" firstAttribute="width" secondItem="6o1-2r-uyf" secondAttribute="width" multiplier="0.06" id="jfN-C3-D0X"/>
+                                    <constraint firstItem="ahE-3F-7AL" firstAttribute="centerY" secondItem="6o1-2r-uyf" secondAttribute="centerY" id="pKk-7w-HD5"/>
+                                    <constraint firstItem="G0U-XH-Yte" firstAttribute="centerX" secondItem="6o1-2r-uyf" secondAttribute="centerX" multiplier="0.55" id="qen-A7-mvG"/>
+                                    <constraint firstItem="g80-zY-D3i" firstAttribute="centerY" secondItem="6o1-2r-uyf" secondAttribute="centerY" id="x2v-q8-uH6"/>
+                                </constraints>
+                            </view>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JLt-4X-USC">
+                                <rect key="frame" x="16" y="275.5" width="343" height="50"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bUA-SV-ONN" id="3J9-h6-la3"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="6o1-2r-uyf" secondAttribute="trailing" id="05Z-5u-pYZ"/>
+                            <constraint firstItem="Rey-3b-ypD" firstAttribute="top" secondItem="vPg-Bz-9L7" secondAttribute="bottom" constant="16" id="HLp-DH-4ID"/>
+                            <constraint firstItem="JLt-4X-USC" firstAttribute="height" secondItem="6o1-2r-uyf" secondAttribute="height" id="IgN-LE-5xl"/>
+                            <constraint firstItem="vPg-Bz-9L7" firstAttribute="centerY" secondItem="MT9-Zp-YI4" secondAttribute="centerY" multiplier="0.5" id="KCx-u1-Qez"/>
+                            <constraint firstItem="JLt-4X-USC" firstAttribute="centerY" secondItem="6o1-2r-uyf" secondAttribute="centerY" id="KLz-sF-59H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vPg-Bz-9L7" secondAttribute="trailing" id="Kda-tV-0Ip"/>
+                            <constraint firstItem="6o1-2r-uyf" firstAttribute="top" secondItem="Rey-3b-ypD" secondAttribute="bottom" constant="32" id="S8f-uJ-Jhd"/>
+                            <constraint firstItem="JLt-4X-USC" firstAttribute="width" secondItem="6o1-2r-uyf" secondAttribute="width" id="VH6-Np-cXZ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Rey-3b-ypD" secondAttribute="leading" id="bt3-Zl-QUn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rey-3b-ypD" secondAttribute="trailing" id="izm-1k-f6F"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="6o1-2r-uyf" secondAttribute="leading" id="j5t-gY-syy"/>
+                            <constraint firstItem="JLt-4X-USC" firstAttribute="centerX" secondItem="6o1-2r-uyf" secondAttribute="centerX" id="mEE-7I-4g6"/>
+                            <constraint firstItem="vPg-Bz-9L7" firstAttribute="leading" secondItem="MT9-Zp-YI4" secondAttribute="leadingMargin" id="sTF-qM-S7K"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="Rey-3b-ypD" id="oTS-Vm-yaz"/>
+                        <outlet property="mainPasscodeView" destination="6o1-2r-uyf" id="Hvy-v8-RrR"/>
+                        <outlet property="passcodeTF" destination="JLt-4X-USC" id="egl-Ak-a0d"/>
+                        <outlet property="titleLabel" destination="vPg-Bz-9L7" id="wKx-HS-6IF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bDa-j0-XYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3442" y="1093"/>
         </scene>
     </scenes>
     <resources>
@@ -779,5 +917,8 @@ in ThePayPro</string>
         <image name="tab-settings" width="48" height="32"/>
         <image name="tab-support" width="48" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="CKg-gm-nrI"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

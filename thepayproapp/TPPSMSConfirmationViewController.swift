@@ -10,7 +10,7 @@ import UIKit
 
 class TPPSMSConfirmationViewController: UIViewController, UITextFieldDelegate
 {
-    var userUsername : String?
+    var userUsername : String!
     
     @IBOutlet weak var mainSMSCodeView: UIView!  
     
@@ -35,7 +35,7 @@ class TPPSMSConfirmationViewController: UIViewController, UITextFieldDelegate
     
     func nextTapped()
     {
-        
+        self.performSegue(withIdentifier: "showCreatePasscodeSegue", sender: nil)
     }
     
     //MARK: - UITextFieldDelegate
@@ -59,15 +59,19 @@ class TPPSMSConfirmationViewController: UIViewController, UITextFieldDelegate
         return false
     }
     
+    // MARK: - Navigation
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "showCreatePasscodeSegue"
+        {
+            let passcodeVC : TPPPasscodeViewController = segue.destination as! TPPPasscodeViewController
+            passcodeVC.userUsername = userUsername
+            passcodeVC.validationCode = smsCodeTF.text!
+        }
+    }    
 }

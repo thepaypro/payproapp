@@ -10,7 +10,7 @@
 import Foundation
 
 extension User {
-    class func register(username: String, password: String, passwordConfirmation: String)
+    class func register(username: String, password: String, passwordConfirmation: String, validationCode: String)
     {
         let paramsDictionary = [
             "app_user_registration": [
@@ -18,11 +18,14 @@ extension User {
                 "plainPassword": [
                     "first": password,
                     "second": passwordConfirmation
-                ]
+                ],
+                "validationCode": validationCode
             ]
         ] as [String : Any]
         
-        makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "register", completion: {completionDictionary in
+        print(paramsDictionary)
+        
+        makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "register/", completion: {completionDictionary in
             self.manage(userDictionary: completionDictionary)
         })
     }
@@ -42,7 +45,7 @@ extension User {
             ] as [String : Any]
         
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "login_check", completion: {completionDictionary in
-            
+            self.manage(userDictionary: completionDictionary)
         })
     }
 }

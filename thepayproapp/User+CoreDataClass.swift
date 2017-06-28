@@ -34,37 +34,37 @@ public class User: NSManagedObject
     
     class func manage (userDictionary: NSDictionary)
     {
-//        let userID = userDictionary["id"]
         
-        let userID : Int64 = 100
-        
-        let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
-        
-        let userFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        userFetchRequest.predicate = NSPredicate(format: "identifier == %d", userID)
-        
-        do
+        if let userID = userDictionary.value(forKeyPath: "user.id")! as? Int64
         {
-            var user : User? = try context.fetch(userFetchRequest).first as? User
             
-            if user == nil
-            {
-                user = self.create()
-                user?.identifier = userID
-                self.update(user: user!, attributesDictionary: userDictionary)
-            }
-            else
-            {
-                self.update(user: user!, attributesDictionary: userDictionary)
-            }
+            let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
             
-            self.save()
+            let userFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+            userFetchRequest.predicate = NSPredicate(format: "identifier == %d", userID)
+            
+            do
+            {
+                var user : User? = try context.fetch(userFetchRequest).first as? User
+                
+                if user == nil
+                {
+                    user = self.create()
+                    user?.identifier = userID
+                    self.update(user: user!, attributesDictionary: userDictionary)
+                }
+                else
+                {
+                    self.update(user: user!, attributesDictionary: userDictionary)
+                }
+                
+                self.save()
+            }
+            catch
+            {
+                fatalError("Failed to fetch user: \(error)")
+            }
         }
-        catch
-        {
-            fatalError("Failed to fetch user: \(error)")
-        }
-        
     }
     
     class func update(user: User, attributesDictionary: NSDictionary)
@@ -85,10 +85,10 @@ public class User: NSManagedObject
 //        var offsetTransactions: NSSet?
 //        var transactions: NSSet?
         
-//        if identifier == nil
-//        {
-//            return
-//        }
+        if identifier == nil
+        {
+            return
+        }
         
         if accountTypeId != nil
         {

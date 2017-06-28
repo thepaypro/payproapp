@@ -27,7 +27,10 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate, TPPPrefixSe
         let prefixViewGR = UITapGestureRecognizer(target: self, action: #selector(showPrefixSelection))
         self.prefixView.addGestureRecognizer(prefixViewGR)
         
-//        self.phoneNumberTF.text = "666666666"
+//        self.countryLabel.text = "ES"
+//        self.prefixTF.text = "+34"
+//        self.phoneNumberTF.text = "662177197"
+//        self.phoneNumberTF.text = "627737377"
         
         // Do any additional setup after loading the view.
     }
@@ -85,12 +88,12 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate, TPPPrefixSe
         if segue.identifier == "showLoginVCSegue"
         {
             let passcodeVC : TPPPasscodeViewController = segue.destination as! TPPPasscodeViewController
-            passcodeVC.userUsername = phoneNumberTF.text
+            passcodeVC.userUsername = "\(self.prefixTF.text!)\(self.phoneNumberTF.text!)"
         }
         else if segue.identifier == "showSMSConfirmationVCSegue"
         {
             let smsConfirmationVC : TPPSMSConfirmationViewController = segue.destination as! TPPSMSConfirmationViewController
-            smsConfirmationVC.userUsername = phoneNumberTF.text
+            smsConfirmationVC.userUsername = "\(self.prefixTF.text!)\(self.phoneNumberTF.text!)"
         }
         else if segue.identifier == "showPrefixSelectionVCSegue"
         {
@@ -98,5 +101,4 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate, TPPPrefixSe
             prefixSelectionVC.delegate = self
         }
     }
-
 }

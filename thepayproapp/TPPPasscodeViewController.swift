@@ -12,6 +12,13 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
 {
     var userUsername : String?
     
+    var validationCode : String?
+    
+    var firstPassword : String?
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     @IBOutlet weak var mainPasscodeView: UIView!
     
     @IBOutlet weak var passcodeTF: UITextField!
@@ -23,6 +30,17 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
         
         let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
         navigationItem.rightBarButtonItems = [nextButton]
+        
+        if validationCode != nil
+        {
+            titleLabel.text = "Create a passcode"
+            descriptionLabel.text = "A passcode protects your data and is used to unlock the PayPro app"
+            
+            if firstPassword != nil
+            {
+                titleLabel.text = "Confirm your passcode"
+            }
+        }
                 
         passcodeTF.becomeFirstResponder()
         
@@ -48,9 +66,24 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
     
     func nextTapped()
     {
-        User.login(username: self.userUsername!, password: self.passcodeTF.text!, completion: {userExistence in
-            
-        })
+        if validationCode != nil
+        {
+            if firstPassword != nil
+            {
+                NSLog("REGISTER %@ %@ %@ %@", userUsername!, firstPassword!, passcodeTF.text!, validationCode!)
+                User.register(username: userUsername!, password: firstPassword!, passwordConfirmation: passcodeTF.text!, validationCode: validationCode!)
+            }
+            else
+            {
+                self.performSegue(withIdentifier: "showConfirmPasscodeSegue", sender: nil)
+            }
+        }
+        else
+        {
+            User.login(username: self.userUsername!, password: self.passcodeTF.text!, completion: {userExistence in
+                
+            })
+        }
     }
     
     //MARK: - UITextFieldDelegate
@@ -82,15 +115,21 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
         return newLength <= self.mainPasscodeView.subviews.count
     }
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+        
+        if segue.identifier == "showConfirmPasscodeSegue"
+        {
+            let passcodeVC : TPPPasscodeViewController = segue.destination as! TPPPasscodeViewController
+            passcodeVC.userUsername = userUsername
+            passcodeVC.validationCode = validationCode
+            passcodeVC.firstPassword = passcodeTF.text!
+        }
 
+    }
 }
