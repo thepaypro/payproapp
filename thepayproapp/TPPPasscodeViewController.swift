@@ -70,8 +70,16 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
         {
             if firstPassword != nil
             {
-                NSLog("REGISTER %@ %@ %@ %@", userUsername!, firstPassword!, passcodeTF.text!, validationCode!)
-                User.register(username: userUsername!, password: firstPassword!, passwordConfirmation: passcodeTF.text!, validationCode: validationCode!)
+                User.register(username: userUsername!, password: firstPassword!, passwordConfirmation: passcodeTF.text!, validationCode: validationCode!, completion: {successRegister in
+                    if successRegister
+                    {
+                        self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
+                    }
+                    else
+                    {
+                        print("REGISTER FAILED")
+                    }
+                })
             }
             else
             {
@@ -80,8 +88,15 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
         }
         else
         {
-            User.login(username: self.userUsername!, password: self.passcodeTF.text!, completion: {userExistence in
-                
+            User.login(username: self.userUsername!, password: self.passcodeTF.text!, completion: {successLogin in
+                if successLogin
+                {
+                    self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
+                }
+                else
+                {
+                    print("LOGIN FAILED")
+                }
             })
         }
     }
@@ -130,6 +145,10 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
             passcodeVC.validationCode = validationCode
             passcodeVC.firstPassword = passcodeTF.text!
         }
-
+        else if segue.identifier == "showTabCSegue"
+        {
+            let tabController : TPPTabBarController = segue.destination as! TPPTabBarController
+            tabController.navigationItem.hidesBackButton = true
+        }
     }
 }

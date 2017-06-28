@@ -483,6 +483,27 @@ in ThePayPro</string>
             </objects>
             <point key="canvasLocation" x="-4330" y="1093"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="55k-CH-zLe">
+            <objects>
+                <tabBarController id="6oh-h3-Uec" customClass="TPPTabBarController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="7kO-fY-12I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="OAd-h4-Gfm" kind="relationship" relationship="viewControllers" id="TjT-ZT-US1"/>
+                        <segue destination="F8J-JK-KRD" kind="relationship" relationship="viewControllers" id="HVP-KL-IeV"/>
+                        <segue destination="krp-GC-LHI" kind="relationship" relationship="viewControllers" id="RiA-0e-8gF"/>
+                        <segue destination="pMF-wz-FKS" kind="relationship" relationship="viewControllers" id="m9D-hy-QIR"/>
+                        <segue destination="cLv-Rr-zuf" kind="relationship" relationship="viewControllers" id="Vwc-Hw-ugO"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLS-9H-lKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1257" y="1093"/>
+        </scene>
         <!--Account-->
         <scene sceneID="Mr4-kT-kER">
             <objects>
@@ -903,11 +924,12 @@ in ThePayPro</string>
                         <outlet property="mainPasscodeView" destination="6o1-2r-uyf" id="Hvy-v8-RrR"/>
                         <outlet property="passcodeTF" destination="JLt-4X-USC" id="egl-Ak-a0d"/>
                         <outlet property="titleLabel" destination="vPg-Bz-9L7" id="wKx-HS-6IF"/>
+                        <segue destination="6oh-h3-Uec" kind="show" identifier="showTabCSegue" id="YTQ-Cy-NT2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDa-j0-XYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3442" y="1093"/>
+            <point key="canvasLocation" x="-3038" y="1093"/>
         </scene>
     </scenes>
     <resources>

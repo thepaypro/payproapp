@@ -15,13 +15,13 @@ class TPPTabBarController: UITabBarController
         self.init(nibName:nil, bundle:nil)
         
         self.setTabControllers()
-        
-        self.setTabView()
     }
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.setTabView()
 
         // Do any additional setup after loading the view.
     }

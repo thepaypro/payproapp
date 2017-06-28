@@ -32,12 +32,12 @@ public class User: NSManagedObject
         return user
     }
     
-    class func manage (userDictionary: NSDictionary)
+    class func manage (userDictionary: NSDictionary) -> User?
     {
+        var user : User?
         
         if let userID = userDictionary.value(forKeyPath: "user.id")! as? Int64
         {
-            
             let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
             
             let userFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
@@ -45,7 +45,7 @@ public class User: NSManagedObject
             
             do
             {
-                var user : User? = try context.fetch(userFetchRequest).first as? User
+                user = try context.fetch(userFetchRequest).first as? User
                 
                 if user == nil
                 {
@@ -65,6 +65,8 @@ public class User: NSManagedObject
                 fatalError("Failed to fetch user: \(error)")
             }
         }
+        
+        return user
     }
     
     class func update(user: User, attributesDictionary: NSDictionary)
