@@ -1,6 +1,6 @@
 //
 //  Contact.swift
-//  payproapp
+//  thepayproapp
 //
 //  Created by Enric Giribet Usó on 17/6/17.
 //  Copyright © 2017 The Pay Pro LTD. All rights reserved.

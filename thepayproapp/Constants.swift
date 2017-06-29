@@ -21,6 +21,7 @@ struct GlobalConstants {
         static let cellNibIdentifier = "ContactCell"
     }
     
+    
     //MARK: Color Constants
     struct Colors {
         static let emeraldColor = UIColor(red: (46/255), green: (204/255), blue: (113/255), alpha: 1.0)
