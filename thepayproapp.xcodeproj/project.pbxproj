@@ -236,14 +236,6 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		217316B41F05018C00DB0B14 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				217316B51F05019A00DB0B14 /* ContactPicker */,
-			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
 		217316B51F05019A00DB0B14 /* ContactPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,14 +247,6 @@
 				6A0CE8F01EF58DB9000C0D1F /* ContactCell.xib */,
 			);
 			name = ContactPicker;
-			sourceTree = "<group>";
-		};
-		21B948611EE7009C0099A79F /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				21B948621EE700B30099A79F /* Colors.swift */,
-			);
-			name = lib;
 			sourceTree = "<group>";
 		};
 		306162B3C6F0CECF1766A139 /* Frameworks */ = {
@@ -301,6 +285,7 @@
 		BF42C2911EFA626000DFBED7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				217316B51F05019A00DB0B14 /* ContactPicker */,
 				21B948621EE700B30099A79F /* Colors.swift */,
 				BF42C2921EFA629F00DFBED7 /* Utils.swift */,
 			);
@@ -389,7 +374,6 @@
 		BF9DB8741EDD770600C8A0ED /* thepayproapp */ = {
 			isa = PBXGroup;
 			children = (
-				217316B41F05018C00DB0B14 /* Utils */,
 				216CCA8E1EE82252003FE3CE /* Controllers */,
 				216CCA8D1EE8224D003FE3CE /* Views */,
 				216CCA8C1EE8223F003FE3CE /* Models */,
