@@ -41,6 +41,11 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
                 titleLabel.text = "Confirm your passcode"
             }
         }
+        else
+        {
+            titleLabel.text = "Enter your Passcode in ThePayPro"
+            descriptionLabel.text = "Enter your passcode to unlock ThePayPro app"
+        }
                 
         passcodeTF.becomeFirstResponder()
         

@@ -1962,9 +1962,9 @@
                         <outlet property="phoneNumberTF" destination="0rK-4Z-nog" id="4an-9D-jzD"/>
                         <outlet property="prefixTF" destination="ujK-Ng-yLt" id="v7d-Eh-xPK"/>
                         <outlet property="prefixView" destination="Zui-HW-jrO" id="eBS-sn-fTf"/>
-                        <segue destination="1o9-uK-9Kc" kind="show" identifier="showLoginVCSegue" id="ymU-qA-kmD"/>
                         <segue destination="Jib-et-EfL" kind="show" identifier="showSMSConfirmationVCSegue" id="jhM-6c-xPe"/>
                         <segue destination="634-3B-IW6" kind="show" identifier="showPrefixSelectionVCSegue" id="K4j-Kw-io9"/>
+                        <segue destination="bUA-SV-ONN" kind="show" identifier="showLoginVCSegue" id="QOc-uS-S0D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30T-7N-yVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2140,7 +2140,7 @@ in ThePayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LW6-8d-aJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4330" y="1093"/>
+            <point key="canvasLocation" x="-3039" y="2020"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="55k-CH-zLe">
@@ -2477,7 +2477,7 @@ in ThePayPro</string>
         <!--Passcode View Controller-->
         <scene sceneID="HOt-Ay-huj">
             <objects>
-                <viewController id="bUA-SV-ONN" customClass="TPPPasscodeViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TPPPasscodeViewController" id="bUA-SV-ONN" customClass="TPPPasscodeViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Lp-4y-QzO"/>
                         <viewControllerLayoutGuide type="bottom" id="3aC-RP-Hdr"/>
@@ -2644,7 +2644,7 @@ in ThePayPro</string>
         <image name="tab-support" width="48" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CKg-gm-nrI"/>
+        <segue reference="QOc-uS-S0D"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

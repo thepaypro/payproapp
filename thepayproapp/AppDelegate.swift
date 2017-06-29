@@ -28,7 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         
         if User.currentUser() != nil
         {
-            rootController = TPPTabBarController()
+            let passcodeVC : TPPPasscodeViewController = storyboard.instantiateViewController(withIdentifier: "TPPPasscodeViewController") as! TPPPasscodeViewController
+            passcodeVC.userUsername = User.currentUser()?.username
+            
+            let passcodeNC = UINavigationController.init(rootViewController: passcodeVC)
+            Utils.navigationBarToPayProStyle(navigationBar: passcodeNC.navigationBar)
+            rootController = passcodeNC
         }
         
         // Make the Tab Bar Controller the root view controller
