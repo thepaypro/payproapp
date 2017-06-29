@@ -23,6 +23,12 @@ class TPPDemoAccountViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func registerUser(_ sender: Any)
+    {
+        NSLog("REGISTER")
+        
+        User.register(username: "222333444", password: "testPassword", passwordConfirmation: "testPassword")
+    }
 
     /*
     // MARK: - Navigation
