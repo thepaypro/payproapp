@@ -12,35 +12,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Support View Controller-->
-        <scene sceneID="ZeR-QK-Dse">
-            <objects>
-                <viewController id="gnj-Z4-zvt" customClass="TPPSupportViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="D48-tQ-asS"/>
-                        <viewControllerLayoutGuide type="bottom" id="Dyh-NT-X88"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ORw-DU-TzT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Support View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4dv-gE-JIX">
-                                <rect key="frame" x="80" y="312" width="214" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="V6U-u0-Y2Y"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O5L-E5-bDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1785" y="-1200"/>
-        </scene>
         <!--Groups View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
@@ -118,10 +89,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTz-zu-FZK">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEp-rJ-9Vx">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="602"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBY-Kz-7PS">
                                                 <rect key="frame" x="0.0" y="43" width="375" height="43"/>
@@ -238,10 +209,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uY4-1H-rdT">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KfB-hM-hpE">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXk-jx-aiP">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -427,10 +398,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roa-zA-lig">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1T-mu-sAm">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Evp-OU-9ae">
                                                 <rect key="frame" x="0.0" y="43" width="375" height="42"/>
@@ -621,10 +592,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rF7-yi-JtG">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUA-dk-ZPm">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                         <subviews>
                                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="HmP-uw-8Xc">
                                                 <rect key="frame" x="0.0" y="140" width="375" height="50"/>
@@ -1040,8 +1011,9 @@
                                     <constraint firstItem="ILe-sl-pQU" firstAttribute="top" secondItem="AIT-b2-rSc" secondAttribute="top" id="tJ0-kZ-Odj"/>
                                 </constraints>
                             </scrollView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Settings View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Settings View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
                                 <rect key="frame" x="78.5" y="312.5" width="218" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1837,35 +1809,6 @@
             </objects>
             <point key="canvasLocation" x="2592.8000000000002" y="3604.9475262368819"/>
         </scene>
-        <!--Account View Controller-->
-        <scene sceneID="Ofn-Pk-e1Z">
-            <objects>
-                <viewController id="JNi-wh-gtA" customClass="TPPAccountViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OeI-er-X6C"/>
-                        <viewControllerLayoutGuide type="bottom" id="t3p-6h-F4h"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WFv-uP-5IW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Account View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsB-bX-f4j">
-                                <rect key="frame" x="70" y="311" width="234" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="2Gh-1h-Es2"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UmE-O4-bdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1785" y="1933"/>
-        </scene>
         <!--Demo Account View Controller-->
         <scene sceneID="WSo-kP-Kal">
             <objects>
@@ -1882,9 +1825,6 @@
                                 <rect key="frame" x="146" y="380" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="GO Subview"/>
-                                <connections>
-                                    <segue destination="WQF-ES-NLp" kind="show" identifier="" id="Zhk-XT-NbV"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Demo Account View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7I5-RO-uQx">
                                 <rect key="frame" x="23" y="309" width="329" height="49"/>
@@ -1903,24 +1843,24 @@
             </objects>
             <point key="canvasLocation" x="1786" y="1137"/>
         </scene>
-        <!--Account-->
-        <scene sceneID="XvH-Yv-DVs">
+        <!--Account View Controller-->
+        <scene sceneID="ZYp-Zm-pGS">
             <objects>
-                <navigationController storyboardIdentifier="TPPAccountNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="cM0-VI-993" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" image="tab-account" id="C3e-Rs-AFX"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a1c-fT-gzN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="JNi-wh-gtA" kind="relationship" relationship="rootViewController" id="glo-38-9zB"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4pz-FM-bGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="alA-po-r6g" customClass="PPAccountViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eMQ-hi-HR0"/>
+                        <viewControllerLayoutGuide type="bottom" id="lZB-iU-LO6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c1b-Nn-J9k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Xa-D3-83j"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eO8-7h-llH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="1933"/>
+            <point key="canvasLocation" x="1785" y="1940"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pub-Fu-NOy">
@@ -2311,12 +2251,31 @@ in ThePayPro</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="gnj-Z4-zvt" kind="relationship" relationship="rootViewController" id="2jV-Xr-srS"/>
+                        <segue destination="gsB-Oa-76m" kind="relationship" relationship="rootViewController" id="xPe-AX-Wdm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PRb-lq-OVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="830" y="-1200"/>
+        </scene>
+        <!--Support View Controller-->
+        <scene sceneID="OMT-yx-JGm">
+            <objects>
+                <viewController id="gsB-Oa-76m" customClass="PPSupportViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rur-3g-Ore"/>
+                        <viewControllerLayoutGuide type="bottom" id="yug-lM-ExX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nXa-4D-k23">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lqy-2o-2Ky"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WiO-9T-pal" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1663" y="-1200"/>
         </scene>
         <!--Confirmation View Controller-->
         <scene sceneID="CME-f1-tT4">
@@ -2649,6 +2608,24 @@ in ThePayPro</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDa-j0-XYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3038" y="1093"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="poj-MA-6u7">
+            <objects>
+                <navigationController storyboardIdentifier="TPPAccountNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="HX1-FH-pU9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VPk-oB-clO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="alA-po-r6g" kind="relationship" relationship="rootViewController" id="QYu-x6-g0w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="akR-k8-u9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="1940"/>
         </scene>
     </scenes>
     <resources>

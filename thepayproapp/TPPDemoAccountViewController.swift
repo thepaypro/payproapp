@@ -27,7 +27,7 @@ class TPPDemoAccountViewController: UIViewController
     {
         NSLog("REGISTER")
         
-        User.register(username: "222333444", password: "testPassword", passwordConfirmation: "testPassword")
+//        User.register(username: "222333444", password: "testPassword", passwordConfirmation: "testPassword")
     }
 
     /*
