@@ -1,6 +1,6 @@
 //
 //  Extensions.swift
-//  payproapp
+//  thepayproapp
 //
 //  Created by Enric Giribet on 16/6/17.
 //  Copyright © 2017 The Pay Pro LTD. All rights reserved.
