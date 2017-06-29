@@ -149,19 +149,6 @@
 			name = TPPContactViewController;
 			sourceTree = "<group>";
 		};
-		2155405E1EF3EEE500670E86 /* ContactsPicker */ = {
-			isa = PBXGroup;
-			children = (
-				6A0CE8F01EF58DB9000C0D1F /* ContactCell.xib */,
-				2155405F1EF3EF2100670E86 /* Extensions.swift */,
-				215540611EF3EF3E00670E86 /* ContactsPicker.swift */,
-				6A0CE8EA1EF58D5E000C0D1F /* ContactCell.swift */,
-				6A0CE8EC1EF58D7A000C0D1F /* Contact.swift */,
-				6A0CE8EE1EF58D92000C0D1F /* Constants.swift */,
-			);
-			name = ContactsPicker;
-			sourceTree = "<group>";
-		};
 		216CCA8C1EE8223F003FE3CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,10 +177,30 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		217316B41F05018C00DB0B14 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				217316B51F05019A00DB0B14 /* ContactPicker */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		217316B51F05019A00DB0B14 /* ContactPicker */ = {
+			isa = PBXGroup;
+			children = (
+				6A0CE8EC1EF58D7A000C0D1F /* Contact.swift */,
+				6A0CE8EE1EF58D92000C0D1F /* Constants.swift */,
+				6A0CE8EA1EF58D5E000C0D1F /* ContactCell.swift */,
+				215540611EF3EF3E00670E86 /* ContactsPicker.swift */,
+				2155405F1EF3EF2100670E86 /* Extensions.swift */,
+				6A0CE8F01EF58DB9000C0D1F /* ContactCell.xib */,
+			);
+			name = ContactPicker;
+			sourceTree = "<group>";
+		};
 		21B948611EE7009C0099A79F /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				2155405E1EF3EEE500670E86 /* ContactsPicker */,
 				21B948621EE700B30099A79F /* Colors.swift */,
 			);
 			name = lib;
@@ -257,6 +264,7 @@
 		BF9DB8741EDD770600C8A0ED /* thepayproapp */ = {
 			isa = PBXGroup;
 			children = (
+				217316B41F05018C00DB0B14 /* Utils */,
 				216CCA8E1EE82252003FE3CE /* Controllers */,
 				216CCA8D1EE8224D003FE3CE /* Views */,
 				216CCA8C1EE8223F003FE3CE /* Models */,
