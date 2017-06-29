@@ -1,5 +1,5 @@
 //
-//  TPPContactViewController.swift
+//  PPContactViewController.swift
 //  payproapp
 //
 //  Created by Enric Giribet on 16/6/17.
@@ -10,7 +10,7 @@ import UIKit
 import Contacts
 import ContactsUI
 
-class TPPContactViewController: UIViewController, PickerDelegate {
+class PPContactViewController: UIViewController, PickerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +63,7 @@ class TPPContactViewController: UIViewController, PickerDelegate {
 //            classControlProcess.cd()
 //            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 //            
-//            let nextViewController = storyBoard.instantiateViewController(withIdentifier:"TPPBankTransfeViewController")
+//            let nextViewController = storyBoard.instantiateViewController(withIdentifier:"PPBankTransfeViewController")
 ////            UIApplication.shared.keyWindow?.rootViewController?.presentedViewController?.present(nextViewController, animated:true, completion:nil)
 //            UIApplication.shared.keyWindow?.rootViewController?.navigationController?.pushViewController(nextViewController, animated: true)
 //            print("88999")
@@ -71,7 +71,7 @@ class TPPContactViewController: UIViewController, PickerDelegate {
             
             //            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             //
-            //            let nextViewController = storyBoard.instantiateViewController(withIdentifier:"TPPBankTransfeViewController")
+            //            let nextViewController = storyBoard.instantiateViewController(withIdentifier:"PPBankTransfeViewController")
             //
             //            UIApplication.shared.keyWindow?.rootViewController?.navigationController?.pushViewController(nextViewController, animated: true)
             //            print("aabbbaaabb22222")

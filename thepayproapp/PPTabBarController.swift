@@ -1,5 +1,5 @@
 //
-//  TPPTabBarController.swift
+//  PPTabBarController.swift
 //  thepayproapp
 //
 //  Created by Manuel Ortega Cordovilla on 13/06/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TPPTabBarController: UITabBarController
+class PPTabBarController: UITabBarController
 {
     convenience init()
     {
@@ -36,12 +36,12 @@ class TPPTabBarController: UITabBarController
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         // create view controllers from storyboard
-        let supportViewController = storyboard.instantiateViewController(withIdentifier: "TPPSupportNavigationController")
-        let groupsViewController = storyboard.instantiateViewController(withIdentifier: "TPPGroupsNavigationController")
-        let sendViewController = storyboard.instantiateViewController(withIdentifier: "TPPSendMoneyNavigationController")
-//        let accountViewController = storyboard.instantiateViewController(withIdentifier: "TPPAccountNavigationController")
-        let demoViewController = storyboard.instantiateViewController(withIdentifier: "TPPDemoAccountNavigationController")
-        let settingsViewController = storyboard.instantiateViewController(withIdentifier: "TPPSettingsNavigationController")
+        let supportViewController = storyboard.instantiateViewController(withIdentifier: "PPSupportNavigationController")
+        let groupsViewController = storyboard.instantiateViewController(withIdentifier: "PPGroupsNavigationController")
+        let sendViewController = storyboard.instantiateViewController(withIdentifier: "PPSendMoneyNavigationController")
+//        let accountViewController = storyboard.instantiateViewController(withIdentifier: "PPAccountNavigationController")
+        let demoViewController = storyboard.instantiateViewController(withIdentifier: "PPDemoAccountNavigationController")
+        let settingsViewController = storyboard.instantiateViewController(withIdentifier: "PPSettingsNavigationController")
         
         self.viewControllers = [supportViewController, groupsViewController, sendViewController, demoViewController, settingsViewController]
     }

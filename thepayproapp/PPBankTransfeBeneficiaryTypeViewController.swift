@@ -1,5 +1,5 @@
 //
-//  TPPBankTransfeBeneficiaryTypeViewController.swift
+//  PPBankTransfeBeneficiaryTypeViewController.swift
 //  thepayproapp
 //
 //  Created by Enric Giribet Usó on 18/6/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TPPBankTransfeBeneficiaryTypeViewController: UIViewController
+class PPBankTransfeBeneficiaryTypeViewController: UIViewController
 {
     
     override func viewDidLoad()

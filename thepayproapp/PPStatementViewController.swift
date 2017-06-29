@@ -1,5 +1,5 @@
 //
-//  TPPStatementViewController.swift
+//  PPStatementViewController.swift
 //  thepayproapp
 //
 //  Created by Enric Giribet on 14/6/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TPPStatementViewController: UIViewController {
+class PPStatementViewController: UIViewController {
 
     @IBOutlet weak var viewPickerStarts: UIView!
     @IBOutlet weak var datePickerStarts: UIDatePicker!

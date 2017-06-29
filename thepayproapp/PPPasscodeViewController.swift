@@ -1,5 +1,5 @@
 //
-//  TPPPasscodeViewController.swift
+//  PPPasscodeViewController.swift
 //  thepayproapp
 //
 //  Created by Manuel Ortega Cordovilla on 21/06/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
+class PPPasscodeViewController: UIViewController, UITextFieldDelegate
 {
     var userUsername : String?
     
@@ -145,14 +145,14 @@ class TPPPasscodeViewController: UIViewController, UITextFieldDelegate
         
         if segue.identifier == "showConfirmPasscodeSegue"
         {
-            let passcodeVC : TPPPasscodeViewController = segue.destination as! TPPPasscodeViewController
+            let passcodeVC : PPPasscodeViewController = segue.destination as! PPPasscodeViewController
             passcodeVC.userUsername = userUsername
             passcodeVC.validationCode = validationCode
             passcodeVC.firstPassword = passcodeTF.text!
         }
         else if segue.identifier == "showTabCSegue"
         {
-            let tabController : TPPTabBarController = segue.destination as! TPPTabBarController
+            let tabController : PPTabBarController = segue.destination as! PPTabBarController
             tabController.navigationItem.hidesBackButton = true
         }
     }

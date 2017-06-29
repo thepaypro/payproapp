@@ -1,5 +1,5 @@
 //
-//  TPPSettingsViewController.swift
+//  PPSettingsViewController.swift
 //  thepayproapp
 //
 //  Created by Manuel Ortega Cordovilla on 13/06/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TPPSettingsViewController: UIViewController {
+class PPSettingsViewController: UIViewController {
 
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var cardView: UIView!

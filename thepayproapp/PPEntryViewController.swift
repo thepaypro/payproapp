@@ -1,5 +1,5 @@
 //
-//  TPPEntryViewController.swift
+//  PPEntryViewController.swift
 //  thepayproapp
 //
 //  Created by Manuel Ortega Cordovilla on 20/06/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TPPEntryViewController: UIViewController, UITextFieldDelegate, TPPPrefixSelectionDelegate
+class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSelectionDelegate
 {
     @IBOutlet weak var prefixView: UIView!
     @IBOutlet weak var countryLabel: UILabel!    
@@ -27,10 +27,9 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate, TPPPrefixSe
         let prefixViewGR = UITapGestureRecognizer(target: self, action: #selector(showPrefixSelection))
         self.prefixView.addGestureRecognizer(prefixViewGR)
         
-//        self.countryLabel.text = "ES"
-//        self.prefixTF.text = "+34"
-//        self.phoneNumberTF.text = "662177197"
-//        self.phoneNumberTF.text = "627737377"
+        self.countryLabel.text = "ES"
+        self.prefixTF.text = "+34"
+        self.phoneNumberTF.text = "627737377"
         
         // Do any additional setup after loading the view.
     }
@@ -70,7 +69,7 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate, TPPPrefixSe
         return true
     }
     
-    //MARK: - TPPPrefixSelectionDelegate
+    //MARK: - PPPrefixSelectionDelegate
     
     func didSelectCountryPrefix(countryPrefix: String, country: String)
     {
@@ -87,17 +86,17 @@ class TPPEntryViewController: UIViewController, UITextFieldDelegate, TPPPrefixSe
         
         if segue.identifier == "showLoginVCSegue"
         {
-            let passcodeVC : TPPPasscodeViewController = segue.destination as! TPPPasscodeViewController
+            let passcodeVC : PPPasscodeViewController = segue.destination as! PPPasscodeViewController
             passcodeVC.userUsername = "\(self.prefixTF.text!)\(self.phoneNumberTF.text!)"
         }
         else if segue.identifier == "showSMSConfirmationVCSegue"
         {
-            let smsConfirmationVC : TPPSMSConfirmationViewController = segue.destination as! TPPSMSConfirmationViewController
+            let smsConfirmationVC : PPSMSConfirmationViewController = segue.destination as! PPSMSConfirmationViewController
             smsConfirmationVC.userUsername = "\(self.prefixTF.text!)\(self.phoneNumberTF.text!)"
         }
         else if segue.identifier == "showPrefixSelectionVCSegue"
         {
-            let prefixSelectionVC : TPPPrefixSelectionViewController = segue.destination as! TPPPrefixSelectionViewController
+            let prefixSelectionVC : PPPrefixSelectionViewController = segue.destination as! PPPrefixSelectionViewController
             prefixSelectionVC.delegate = self
         }
     }

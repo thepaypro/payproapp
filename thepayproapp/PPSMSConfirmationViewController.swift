@@ -1,5 +1,5 @@
 //
-//  TPPSMSConfirmationViewController.swift
+//  PPSMSConfirmationViewController.swift
 //  thepayproapp
 //
 //  Created by Manuel Ortega Cordovilla on 22/06/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TPPSMSConfirmationViewController: UIViewController, UITextFieldDelegate
+class PPSMSConfirmationViewController: UIViewController, UITextFieldDelegate
 {
     var userUsername : String!
     
@@ -69,7 +69,7 @@ class TPPSMSConfirmationViewController: UIViewController, UITextFieldDelegate
         
         if segue.identifier == "showCreatePasscodeSegue"
         {
-            let passcodeVC : TPPPasscodeViewController = segue.destination as! TPPPasscodeViewController
+            let passcodeVC : PPPasscodeViewController = segue.destination as! PPPasscodeViewController
             passcodeVC.userUsername = userUsername
             passcodeVC.validationCode = smsCodeTF.text!
         }

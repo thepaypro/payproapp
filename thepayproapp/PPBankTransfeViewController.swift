@@ -1,5 +1,5 @@
 //
-//  TPPBankTransfeViewController.swift
+//  PPBankTransfeViewController.swift
 //  thepayproapp
 //
 //  Created by Enric Giribet Usó on 18/6/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TPPBankTransfeViewController: UIViewController
+class PPBankTransfeViewController: UIViewController
 {
     
     @IBOutlet weak var forenameView: UIView!

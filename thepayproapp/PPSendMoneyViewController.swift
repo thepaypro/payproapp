@@ -1,5 +1,5 @@
 //
-//  TPPSendMoneyViewController.swift
+//  PPSendMoneyViewController.swift
 //  payproapp
 //
 //  Created by Manuel Ortega Cordovilla on 13/06/2017.
@@ -10,7 +10,7 @@ import UIKit
 import Contacts
 import ContactsUI
 
-class TPPSendMoneyViewController: UIViewController, PickerDelegate
+class PPSendMoneyViewController: UIViewController, PickerDelegate
 {
     override func viewDidLoad()
     {

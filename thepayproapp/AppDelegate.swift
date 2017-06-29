@@ -22,13 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let entryNavigationController = storyboard.instantiateViewController(withIdentifier: "TPPEntryNavigationController")
+        let entryNavigationController = storyboard.instantiateViewController(withIdentifier: "PPEntryNavigationController")
         
         var rootController = entryNavigationController
         
         if User.currentUser() != nil
         {
-            let passcodeVC : TPPPasscodeViewController = storyboard.instantiateViewController(withIdentifier: "TPPPasscodeViewController") as! TPPPasscodeViewController
+            let passcodeVC : PPPasscodeViewController = storyboard.instantiateViewController(withIdentifier: "PPPasscodeViewController") as! PPPasscodeViewController
             passcodeVC.userUsername = User.currentUser()?.username
             
             let passcodeNC = UINavigationController.init(rootViewController: passcodeVC)

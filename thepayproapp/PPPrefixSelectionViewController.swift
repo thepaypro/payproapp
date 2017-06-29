@@ -1,5 +1,5 @@
 //
-//  TPPPrefixSelectionViewController.swift
+//  PPPrefixSelectionViewController.swift
 //  thepayproapp
 //
 //  Created by Manuel Ortega Cordovilla on 26/06/2017.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol TPPPrefixSelectionDelegate
+protocol PPPrefixSelectionDelegate
 {
     func didSelectCountryPrefix(countryPrefix: String, country: String)
 }
 
-class TPPPrefixSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class PPPrefixSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     @IBOutlet weak var prefixTV: UITableView!
     
@@ -21,7 +21,7 @@ class TPPPrefixSelectionViewController: UIViewController, UITableViewDelegate, U
     var ukPrefix : AnyObject?
     
     
-    var delegate : TPPPrefixSelectionDelegate?
+    var delegate : PPPrefixSelectionDelegate?
     
     override func viewDidLoad()
     {
