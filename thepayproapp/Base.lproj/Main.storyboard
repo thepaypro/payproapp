@@ -618,7 +618,7 @@
                                                 <rect key="frame" x="0.0" y="43" width="375" height="106"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£123.40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPH-Zx-CmV">
-                                                        <rect key="frame" x="15" y="31.5" width="134.5" height="43"/>
+                                                        <rect key="frame" x="15" y="32" width="135" height="43"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -652,7 +652,7 @@
                                                 <rect key="frame" x="0.0" y="192" width="375" height="119"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Appleseed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdP-qC-kaX">
-                                                        <rect key="frame" x="15" y="7" width="123.5" height="21"/>
+                                                        <rect key="frame" x="15" y="7" width="124" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -716,26 +716,42 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipe-send-money" translatesAutoresizingMaskIntoConstraints="NO" id="Xsb-Iu-u9y">
                                                         <rect key="frame" x="0.0" y="0.0" width="330" height="72"/>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7FB-Ve-mIA">
-                                                        <rect key="frame" x="-211" y="0.0" width="330" height="72"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UU3-x3-6uS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="72"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipe-send-money-confirm" translatesAutoresizingMaskIntoConstraints="NO" id="C1e-5R-bU7">
-                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="72"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7FB-Ve-mIA">
+                                                                <rect key="frame" x="-300" y="0.0" width="360" height="72"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipe-send-money-confirm" translatesAutoresizingMaskIntoConstraints="NO" id="C1e-5R-bU7">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="72"/>
+                                                                        <gestureRecognizers/>
+                                                                    </imageView>
+                                                                </subviews>
                                                                 <gestureRecognizers/>
-                                                            </imageView>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="C1e-5R-bU7" secondAttribute="trailing" id="8Kh-j6-ker"/>
+                                                                    <constraint firstAttribute="height" constant="72" id="DIr-cO-qAA"/>
+                                                                    <constraint firstItem="C1e-5R-bU7" firstAttribute="top" secondItem="7FB-Ve-mIA" secondAttribute="top" id="Msw-7F-CRt"/>
+                                                                    <constraint firstItem="C1e-5R-bU7" firstAttribute="leading" secondItem="7FB-Ve-mIA" secondAttribute="leading" id="ZoU-2E-C1J"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="C1e-5R-bU7" secondAttribute="bottom" id="kDG-2v-OXr"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="rCV-Ks-xSo" appends="YES" id="QRm-KL-vYL"/>
+                                                                </connections>
+                                                            </view>
                                                         </subviews>
-                                                        <gestureRecognizers/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="C1e-5R-bU7" secondAttribute="trailing" id="8Kh-j6-ker"/>
-                                                            <constraint firstAttribute="height" constant="72" id="DIr-cO-qAA"/>
-                                                            <constraint firstItem="C1e-5R-bU7" firstAttribute="top" secondItem="7FB-Ve-mIA" secondAttribute="top" id="Msw-7F-CRt"/>
-                                                            <constraint firstItem="C1e-5R-bU7" firstAttribute="leading" secondItem="7FB-Ve-mIA" secondAttribute="leading" id="ZoU-2E-C1J"/>
-                                                            <constraint firstAttribute="bottom" secondItem="C1e-5R-bU7" secondAttribute="bottom" id="kDG-2v-OXr"/>
+                                                            <constraint firstItem="7FB-Ve-mIA" firstAttribute="top" secondItem="UU3-x3-6uS" secondAttribute="top" id="5Wa-XP-myE"/>
+                                                            <constraint firstAttribute="trailing" secondItem="7FB-Ve-mIA" secondAttribute="trailing" id="VPc-Rm-zcu"/>
+                                                            <constraint firstAttribute="width" constant="60" id="a77-wC-zRT"/>
                                                         </constraints>
-                                                        <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="rCV-Ks-xSo" appends="YES" id="vtR-wH-pLw"/>
-                                                        </connections>
                                                     </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Swipe to send" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qf-oz-fXR">
+                                                        <rect key="frame" x="124" y="28" width="99" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.93843692540000001" green="0.9390823841" blue="0.95562428239999997" alpha="1" colorSpace="deviceRGB"/>
                                                 <gestureRecognizers/>
@@ -743,10 +759,12 @@
                                                     <constraint firstAttribute="height" constant="72" id="03k-WB-aPl"/>
                                                     <constraint firstAttribute="bottom" secondItem="Xsb-Iu-u9y" secondAttribute="bottom" id="3il-Zz-zt3"/>
                                                     <constraint firstAttribute="trailing" secondItem="Xsb-Iu-u9y" secondAttribute="trailing" id="5aQ-4h-1hJ"/>
-                                                    <constraint firstItem="7FB-Ve-mIA" firstAttribute="width" secondItem="084-Se-uD2" secondAttribute="width" id="T99-gl-to0"/>
-                                                    <constraint firstItem="7FB-Ve-mIA" firstAttribute="top" secondItem="084-Se-uD2" secondAttribute="bottom" constant="-72" id="ZZC-KR-nUC"/>
+                                                    <constraint firstAttribute="bottom" secondItem="UU3-x3-6uS" secondAttribute="bottom" id="APd-eF-tf8"/>
+                                                    <constraint firstItem="UU3-x3-6uS" firstAttribute="top" secondItem="084-Se-uD2" secondAttribute="top" id="M1D-on-rGd"/>
+                                                    <constraint firstItem="0Qf-oz-fXR" firstAttribute="centerY" secondItem="084-Se-uD2" secondAttribute="centerY" id="Vq4-fl-uoT"/>
+                                                    <constraint firstItem="UU3-x3-6uS" firstAttribute="leading" secondItem="084-Se-uD2" secondAttribute="leading" id="Xxq-wc-HFo"/>
+                                                    <constraint firstItem="0Qf-oz-fXR" firstAttribute="centerX" secondItem="084-Se-uD2" secondAttribute="centerX" id="j0i-Kh-Yi6"/>
                                                     <constraint firstItem="Xsb-Iu-u9y" firstAttribute="leading" secondItem="084-Se-uD2" secondAttribute="leading" id="pd2-Ix-ECb"/>
-                                                    <constraint firstItem="7FB-Ve-mIA" firstAttribute="leading" secondItem="084-Se-uD2" secondAttribute="leading" constant="-211" id="pl1-gR-6FB"/>
                                                     <constraint firstItem="Xsb-Iu-u9y" firstAttribute="top" secondItem="084-Se-uD2" secondAttribute="top" id="qqX-Gn-Rrq"/>
                                                 </constraints>
                                             </view>
@@ -802,9 +820,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="superView" destination="EUu-mV-cCq" id="O1W-26-Ysr"/>
                         <outlet property="swipeBaseBox" destination="084-Se-uD2" id="gXS-Ok-GYk"/>
                         <outlet property="swipeColorBox" destination="7FB-Ve-mIA" id="Pnx-Ow-KUy"/>
                         <outlet property="swipeImage" destination="C1e-5R-bU7" id="1lh-q3-xkF"/>
+                        <outlet property="swipeSmallBox" destination="UU3-x3-6uS" id="Re2-UP-FDz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iyy-kX-apC" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import AVFoundation
+import AudioToolbox
+
+var swipeColorBoxCenterX: CGFloat = 0.0
 
 class PPBankTransfeResumViewController: UIViewController
 {
-
+    @IBOutlet weak var superView: UIView!
+    
     @IBAction func panGesture(_ sender: UIPanGestureRecognizer) {
-//        print(self.swipeColorBox.center.x)
-//        print(self.swipeBaseBox.center.x)
-//        print(self.swipeColorBox.frame.origin.x)
-
         let translation = sender.translation(in: self.view)
         let status = sender.state.rawValue
         
@@ -25,15 +26,26 @@ class PPBankTransfeResumViewController: UIViewController
             if self.swipeBaseBox.center.x <= newX {
                 newX = gestureView.center.x
             }
-            print(status)
-            print(newX)
-            print(self.swipeBaseBox.center.x * 0.80)
-            if status == 3 && newX < self.swipeBaseBox.center.x * 0.80{
-                newX = self.swipeBaseBox.center.x * 0.20
-                
+            
+            let displaced = Swift.abs(swipeColorBoxCenterX - self.swipeColorBox.center.x)
+            let finalXSwipe = self.swipeBaseBox.frame.width - self.swipeSmallBox.frame.width - Swift.abs(swipeColorBoxCenterX)
+            
+            // if view displaced more than total, force last value of movement position
+            if displaced + self.swipeSmallBox.frame.width > self.swipeBaseBox.frame.width {
+                newX = finalXSwipe
             }
             
-            gestureView.center = CGPoint(x: newX, y: gestureView.center.y)
+            if status == 3 {
+                // if view displaced more or equal to 80% set complete 100%
+                if displaced + self.swipeSmallBox.frame.width >= self.swipeBaseBox.frame.width * 0.80 {
+                    animateSwipe(position: finalXSwipe)
+                    vibrateDevice()
+                } else {
+                    animateSwipe(position: swipeColorBoxCenterX)
+                }
+            } else {
+                gestureView.center = CGPoint(x: newX, y: gestureView.center.y)
+            }
         }
         
         sender.setTranslation(CGPoint.zero, in: sender.view)
@@ -42,25 +54,20 @@ class PPBankTransfeResumViewController: UIViewController
     @IBOutlet weak var swipeImage: UIImageView!
     @IBOutlet weak var swipeBaseBox: UIView!
     @IBOutlet weak var swipeColorBox: UIView!
+    @IBOutlet weak var swipeSmallBox: UIView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+        print(self.swipeBaseBox.center.x)
+        print(self.swipeBaseBox.frame.width)
+        print(self.swipeColorBox.frame.width)
+        print(self.swipeSmallBox.center.x)
+        print(self.swipeColorBox.center.x)
         
-//        print(self.swipeBaseBox.frame.size.width)
-//        print(self.swipeBaseBox.frame.origin.x)
-//        print(self.swipeBaseBox.frame.origin.y)
-//        print(self.swipeBaseBox.center.x)
-//        print(self.swipeBaseBox.center.y)
-//        
-//        print(self.swipeColorBox.frame.size.width)
-//        print(self.swipeColorBox.frame.origin.x)
-//        print(self.swipeColorBox.frame.origin.y)
-//        print(self.swipeColorBox.center.x)
-//        print(self.swipeColorBox.center.y)
-        
+        swipeColorBoxCenterX = self.swipeColorBox.center.x
+        animateSwipe(position: 400)
     }
     
     override func didReceiveMemoryWarning()
@@ -69,16 +76,18 @@ class PPBankTransfeResumViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    func animateSwipe(position: CGFloat)
+    {
+        UIView.animate(withDuration: 0.2) {
+            self.swipeColorBox.center = CGPoint(x: CGFloat(position), y: self.swipeColorBox.center.y)
+        }
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func vibrateDevice()
+    {
+        print("in vibrateDevice")
+        AudioServicesPlaySystemSound(SystemSoundID (kSystemSoundID_Vibrate))
+    }
     
 }
 
