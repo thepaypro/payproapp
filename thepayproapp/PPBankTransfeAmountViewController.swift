@@ -33,10 +33,7 @@ class PPBankTransfeAmountViewController: UIViewController
             amountField.text = amountString
         }
         
-        var checkAmount = false
-        checkAmount = (amountField.text?.check())!
-        
-        self.navigationItem.rightBarButtonItem?.isEnabled = checkAmount
+        self.navigationItem.rightBarButtonItem?.isEnabled = (amountField.text?.check())!
     }
     
     func checkAmount() {
@@ -59,7 +56,7 @@ extension String {
         
         if matchedFull.count > 0 {
             return "£"+matchedFull[0]
-        } else if matched.count > 0 {
+        } else if matched.count > 0 && matched[0] != "0"{
             return "£"+matched[0]
         } else {
             return ""
