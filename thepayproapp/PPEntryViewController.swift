@@ -27,9 +27,9 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
         let prefixViewGR = UITapGestureRecognizer(target: self, action: #selector(showPrefixSelection))
         self.prefixView.addGestureRecognizer(prefixViewGR)
         
-        self.countryLabel.text = "ES"
-        self.prefixTF.text = "+34"
-        self.phoneNumberTF.text = "627737377"
+//        self.countryLabel.text = "ES"
+//        self.prefixTF.text = "+34"
+//        self.phoneNumberTF.text = "627737377"
         
         // Do any additional setup after loading the view.
     }
