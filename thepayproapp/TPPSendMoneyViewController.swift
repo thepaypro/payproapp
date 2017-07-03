@@ -19,7 +19,7 @@ class TPPSendMoneyViewController: UIViewController, PickerDelegate
     
     override func viewWillAppear(_ animated: Bool)
     {
-        let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.email)
+        let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.phoneNumber)
         let navigationController = UINavigationController(rootViewController: contactPickerScene)
         self.present(navigationController, animated: true, completion: nil)
     }
@@ -56,6 +56,10 @@ class TPPSendMoneyViewController: UIViewController, PickerDelegate
         
         alert.addAction(inviteButtonAction)
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(cancelAction)
+        
         UIApplication.shared.keyWindow?.rootViewController?.presentedViewController?.present(alert, animated: true, completion: nil)
         
         print("fiiiin")
@@ -64,6 +68,8 @@ class TPPSendMoneyViewController: UIViewController, PickerDelegate
     func ContactPicker(_: ContactsPicker, didCancel error : NSError)
     {
         print("User canceled the selection");
+        TPPTabBarController().loadAmountTabItem()
+        self.dismiss(animated: true, completion: nil)
     }
     
     func ContactPicker(_: ContactsPicker, didSelectMultipleContacts contacts: [Contact]) {

@@ -209,6 +209,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                     self.sortedContactKeys.removeFirst()
                     self.sortedContactKeys.append("#")
                 }
+
                 completion(contactsArray, nil)
             }
                 //Catching exception as enumerateContactsWithFetchRequest can throw errors
@@ -329,9 +330,10 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
     // MARK: - Button Actions
     
     func onTouchCancelButton() {
-        dismiss(animated: true, completion: {
-            self.contactDelegate?.ContactPicker(self, didCancel: NSError(domain: "EPContactPickerErrorDomain", code: 2, userInfo: [ NSLocalizedDescriptionKey: "User Canceled Selection"]))
-        })
+//        dismiss(animated: true, completion: {
+//            self.contactDelegate?.ContactPicker(self, didCancel: NSError(domain: "EPContactPickerErrorDomain", code: 2, userInfo: [ NSLocalizedDescriptionKey: "User Canceled Selection"]))
+//        })
+        self.contactDelegate?.ContactPicker(self, didCancel: NSError(domain: "EPContactPickerErrorDomain", code: 2, userInfo: [ NSLocalizedDescriptionKey: "User Canceled Selection"]))
     }
     
     func onTouchDoneButton() {
@@ -357,7 +359,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
             do {
                 filteredContacts = try store.unifiedContacts(matching: predicate,
                                                              keysToFetch: allowedContactKeys())
-                //print("\(filteredContacts.count) count")
+                print("\(filteredContacts.count) count")
                 
                 self.tableView.reloadData()
                 

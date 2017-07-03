@@ -15,6 +15,12 @@ class ContactCell: UITableViewCell {
     @IBOutlet weak var contactImageView: UIImageView!
     @IBOutlet weak var contactInitialLabel: UILabel!
     @IBOutlet weak var contactContainerView: UIView!
+    @IBOutlet weak var imagePayProUser: UIImageView! {
+        didSet{
+            imagePayProUser.clipsToBounds = true
+            imagePayProUser.layer.cornerRadius = imagePayProUser.frame.size.width / 2;
+        }
+    }
     
     var contact: Contact?
     

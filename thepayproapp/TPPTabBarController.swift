@@ -51,6 +51,11 @@ class TPPTabBarController: UITabBarController
         self.tabBar.tintColor = PayProColors.blue
     }
     
+    func loadAmountTabItem()
+    {
+        let tabBarController: UITabBarController = (UIApplication.shared.keyWindow?.rootViewController as? UITabBarController)!
+        tabBarController.selectedIndex = 3
+    }
 
     /*
     // MARK: - Navigation

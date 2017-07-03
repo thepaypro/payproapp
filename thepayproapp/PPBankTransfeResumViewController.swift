@@ -40,6 +40,7 @@ class PPBankTransfeResumViewController: UIViewController
                 if displaced + self.swipeSmallBox.frame.width >= self.swipeBaseBox.frame.width * 0.80 {
                     animateSwipe(position: finalXSwipe)
                     vibrateDevice()
+                    goToConfirm()
                 } else {
                     animateSwipe(position: swipeColorBoxCenterX)
                 }
@@ -61,23 +62,12 @@ class PPBankTransfeResumViewController: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
-        
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        
-//        print(self.swipeBaseBox.center.x)
-//        print(self.swipeBaseBox.frame.width)
-//        print(self.swipeColorBox.frame.width)
-//        print(self.swipeSmallBox.center.x)
-//        print(self.swipeColorBox.center.x)
-        
         swipeColorBoxCenterX = self.swipeColorBox.center.x
         animateSwipe(position: 400)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
-        
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
@@ -96,8 +86,14 @@ class PPBankTransfeResumViewController: UIViewController
     
     func vibrateDevice()
     {
-        print("in vibrateDevice")
         AudioServicesPlaySystemSound(SystemSoundID (kSystemSoundID_Vibrate))
+    }
+    
+    func goToConfirm()
+    {
+        let confirmViewController = PPSendMoneyConfirmViewController()
+        confirmViewController.modalTransitionStyle = .crossDissolve
+        self.present(confirmViewController, animated: true, completion: nil)
     }
     
 }

@@ -825,6 +825,7 @@
                         <outlet property="swipeColorBox" destination="7FB-Ve-mIA" id="Pnx-Ow-KUy"/>
                         <outlet property="swipeImage" destination="C1e-5R-bU7" id="1lh-q3-xkF"/>
                         <outlet property="swipeSmallBox" destination="UU3-x3-6uS" id="Re2-UP-FDz"/>
+                        <segue destination="5NT-2W-7pg" kind="show" identifier="segueConfirmSendMoney" id="WjB-IF-zDW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iyy-kX-apC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -835,6 +836,24 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5941.6000000000004" y="356.67166416791605"/>
+        </scene>
+        <!--Send Money Confirm View Controller-->
+        <scene sceneID="74A-7y-8bf">
+            <objects>
+                <viewController id="5NT-2W-7pg" customClass="PPSendMoneyConfirmViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TNI-mj-JJc"/>
+                        <viewControllerLayoutGuide type="bottom" id="C2m-vh-xi8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BMT-2j-0eH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HCC-9v-vUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6861.6000000000004" y="356.67166416791605"/>
         </scene>
         <!--Amount-->
         <scene sceneID="xa1-C3-P6t">

@@ -17,6 +17,7 @@
 		2155405D1EF3D7D400670E86 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2155405C1EF3D7D400670E86 /* ContactsUI.framework */; };
 		215540601EF3EF2100670E86 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2155405F1EF3EF2100670E86 /* Extensions.swift */; };
 		215540621EF3EF3E00670E86 /* ContactsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215540611EF3EF3E00670E86 /* ContactsPicker.swift */; };
+		2156A4D11F0A3318005EEE68 /* PPSendMoneyConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156A4D01F0A3318005EEE68 /* PPSendMoneyConfirmViewController.swift */; };
 		215FC1121EF14542005E69EE /* TPPStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FC1111EF14542005E69EE /* TPPStatementViewController.swift */; };
 		217316B91F05072D00DB0B14 /* PPAcountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217316B81F05072D00DB0B14 /* PPAcountViewController.swift */; };
 		217316BB1F05084900DB0B14 /* PPSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217316BA1F05084900DB0B14 /* PPSupportViewController.swift */; };
@@ -100,6 +101,7 @@
 		2155405C1EF3D7D400670E86 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		2155405F1EF3EF2100670E86 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		215540611EF3EF3E00670E86 /* ContactsPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsPicker.swift; sourceTree = "<group>"; };
+		2156A4D01F0A3318005EEE68 /* PPSendMoneyConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPSendMoneyConfirmViewController.swift; sourceTree = "<group>"; };
 		215FC1111EF14542005E69EE /* TPPStatementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPStatementViewController.swift; sourceTree = "<group>"; };
 		217316B81F05072D00DB0B14 /* PPAcountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPAcountViewController.swift; sourceTree = "<group>"; };
 		217316BA1F05084900DB0B14 /* PPSupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPSupportViewController.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 				21A114EC1EF9688A00664883 /* PPBankTransfeAmountViewController.swift */,
 				21153CA01EFA5AF80075F73A /* PPBankTransferAccountDetailsViewController.swift */,
 				217316BC1F053C3300DB0B14 /* PPBankTransfeResumViewController.swift */,
+				2156A4D01F0A3318005EEE68 /* PPSendMoneyConfirmViewController.swift */,
 			);
 			name = TPPSendMoneyViewController;
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 				21B948631EE700B30099A79F /* Colors.swift in Sources */,
 				BF56BAC41EF26BF300429005 /* Offset+CoreDataClass.swift in Sources */,
 				BF0275C51EF1285D000EA475 /* thepayproapp.xcdatamodeld in Sources */,
+				2156A4D11F0A3318005EEE68 /* PPSendMoneyConfirmViewController.swift in Sources */,
 				BF42C2961EFA7A6900DFBED7 /* TPPPasscodeViewController.swift in Sources */,
 				BFF7FA6E1EEFF4C9009D798E /* TPPGroupsViewController.swift in Sources */,
 				BFF7FA731EEFF50C009D798E /* TPPDemoAccountViewController.swift in Sources */,
