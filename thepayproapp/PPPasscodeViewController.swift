@@ -29,7 +29,8 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
         // Do any additional setup after loading the view.
         
         let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
-        navigationItem.rightBarButtonItems = [nextButton]
+        navigationItem.rightBarButtonItem = nextButton
+        nextButton.isEnabled = false
         
         if validationCode != nil
         {
@@ -131,6 +132,8 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
                 currentView.layer.backgroundColor = UIColor.white.cgColor
             }
         }
+        
+        self.navigationItem.rightBarButtonItem?.isEnabled = newLength == 6
         
         return newLength <= self.mainPasscodeView.subviews.count
     }
