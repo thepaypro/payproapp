@@ -60,14 +60,25 @@ class PPBankTransfeResumViewController: UIViewController
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(self.swipeBaseBox.center.x)
-        print(self.swipeBaseBox.frame.width)
-        print(self.swipeColorBox.frame.width)
-        print(self.swipeSmallBox.center.x)
-        print(self.swipeColorBox.center.x)
+        
+        self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
+        
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
+//        print(self.swipeBaseBox.center.x)
+//        print(self.swipeBaseBox.frame.width)
+//        print(self.swipeColorBox.frame.width)
+//        print(self.swipeSmallBox.center.x)
+//        print(self.swipeColorBox.center.x)
         
         swipeColorBoxCenterX = self.swipeColorBox.center.x
         animateSwipe(position: 400)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
+        
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     override func didReceiveMemoryWarning()
