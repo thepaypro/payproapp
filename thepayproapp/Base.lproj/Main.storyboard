@@ -2115,7 +2115,7 @@ in ThePayPro</string>
         <scene sceneID="Mr4-kT-kER">
             <objects>
                 <navigationController storyboardIdentifier="PPDemoAccountNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="pMF-wz-FKS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" image="tab-account" id="kBZ-td-gav"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Account" image="tab-account" id="kBZ-td-gav"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DKA-gL-ff9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -2134,7 +2134,7 @@ in ThePayPro</string>
         <scene sceneID="pxQ-eF-yO3">
             <objects>
                 <navigationController storyboardIdentifier="PPSettingsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="cLv-Rr-zuf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="5" title="Settings" image="tab-settings" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="Settings" image="tab-settings" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="96w-ml-Hym">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -2153,7 +2153,7 @@ in ThePayPro</string>
         <scene sceneID="Ax2-zH-crl">
             <objects>
                 <navigationController storyboardIdentifier="PPSendMoneyNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="krp-GC-LHI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Send Money" image="tab-paypro" id="Kd1-zQ-mYE"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Send Money" image="tab-paypro" id="Kd1-zQ-mYE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qCV-bC-MB0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -2172,7 +2172,7 @@ in ThePayPro</string>
         <scene sceneID="6Fi-Dj-IJ2">
             <objects>
                 <navigationController storyboardIdentifier="PPGroupsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="F8J-JK-KRD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="Groups" image="tab-groups" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Groups" image="tab-groups" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="s5X-fT-d3h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
