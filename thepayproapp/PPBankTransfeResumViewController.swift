@@ -23,22 +23,14 @@ class PPBankTransfeResumViewController: UIViewController
         if let gestureView = sender.view {
             var newX = gestureView.center.x + translation.x
             
-            if self.swipeBaseBox.center.x <= newX {
-                newX = gestureView.center.x
-            }
-            
-            let displaced = Swift.abs(swipeColorBoxCenterX - self.swipeColorBox.center.x)
-            let finalXSwipe = self.swipeBaseBox.frame.width - self.swipeSmallBox.frame.width - Swift.abs(swipeColorBoxCenterX)
-            
-            // if view displaced more than total, force last value of movement position
-            if displaced + self.swipeSmallBox.frame.width > self.swipeBaseBox.frame.width {
-                newX = finalXSwipe
+            if newX >= self.swipeBaseBox.center.x {
+                newX = self.swipeBaseBox.center.x
             }
             
             if status == 3 {
                 // if view displaced more or equal to 80% set complete 100%
-                if displaced + self.swipeSmallBox.frame.width >= self.swipeBaseBox.frame.width * 0.80 {
-                    animateSwipe(position: finalXSwipe)
+                if self.swipeColorBox.center.x >= self.swipeBaseBox.center.x * 0.80 {
+                    animateSwipe(position: self.swipeBaseBox.center.x)
                     vibrateDevice()
                     goToConfirm()
                 } else {
@@ -55,7 +47,6 @@ class PPBankTransfeResumViewController: UIViewController
     @IBOutlet weak var swipeImage: UIImageView!
     @IBOutlet weak var swipeBaseBox: UIView!
     @IBOutlet weak var swipeColorBox: UIView!
-    @IBOutlet weak var swipeSmallBox: UIView!
     
     override func viewDidLoad()
     {
@@ -63,7 +54,6 @@ class PPBankTransfeResumViewController: UIViewController
         // Do any additional setup after loading the view.
         
         swipeColorBoxCenterX = self.swipeColorBox.center.x
-        animateSwipe(position: 400)
     }
     
     override func viewWillAppear(_ animated: Bool) {

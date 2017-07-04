@@ -53,7 +53,7 @@ class PPSendMoneyConfirmViewController: UIViewController
         box.frame = CGRect(x: 0, y:0, width: self.view.frame.width, height: self.view.frame.height)
         
         let labelTop = UILabel()
-        labelTop.text = "You rocks!"
+        labelTop.text = "You rock!"
         labelTop.textAlignment = .center
         labelTop.textColor = UIColor.white
         labelTop.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)

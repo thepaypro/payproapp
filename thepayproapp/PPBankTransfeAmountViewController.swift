@@ -35,42 +35,75 @@ class PPBankTransfeAmountViewController: UIViewController
         
         self.navigationItem.rightBarButtonItem?.isEnabled = (amountField.text?.check())!
     }
-    
-    func checkAmount() {
-        
-        
-    }
-    
 }
 
 extension String {
     
     // formatting text for currency textField
     func currencyInputFormatting() -> String {
+        var amount = self.replacingOccurrences(of: "£", with: "")
         
-        let amount = self.replacingOccurrences(of: "£", with: "")
-
-        let matched = matches(for: "^\\d+(,[0-9]{0,3}|\\.[0-9]{0,2})?", in: amount)
+        if amount.characters.last == "," {
+            amount = String(amount.characters.dropLast()) + "."
+        }
         
-        let matchedFull = matches(for: "^\\d+,[0-9]{3}\\.([0-9]{1,2})?", in: amount)
+        amount = amount.replacingOccurrences(of: ",", with: "")
+        amount = amount.replacingOccurrences(of: "..", with: ".")
+        
+        let matched = matches(for: "^\\d+((,[0-9]{0,3})+.|\\.[0-9]{0,2})?", in: amount)
+        let matchedFull = matches(for: "^\\d+(,[0-9]{3})+\\.([0-9]{1,2})?", in: amount)
         
         if matchedFull.count > 0 {
-            return "£"+matchedFull[0]
+            amount = matchedFull[0]
         } else if matched.count > 0 && matched[0] != "0"{
-            return "£"+matched[0]
+            amount = matched[0]
         } else {
             return ""
         }
-
+        
+        var amount_integer: String! = amount
+        var amount_decimals: String! = ""
+        var amount_decimals_origin: String! = ""
+        let pos_dot = amount.range(of: ".", options: .backwards)?.lowerBound
+        
+        if pos_dot != nil {
+            amount_integer = amount.substring(to: pos_dot!)
+            amount_decimals_origin = amount.substring(from: pos_dot!)
+            amount_decimals = amount_decimals_origin
+            
+            if amount_decimals_origin == "." {
+                amount_decimals = ""
+            }
+        }
+        
+        let amount_number = Int(amount_integer)! as NSNumber
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.decimalSeparator = "."
+        formatter.currencySymbol = "£"
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 2
+        formatter.locale = Locale(identifier: "en_GB")
+        
+        var amount_formatted = formatter.string(from: amount_number)
+        
+        if amount_decimals_origin != amount_decimals {
+            amount_formatted = amount_formatted!+""+amount_decimals_origin
+        } else {
+            amount_formatted = amount_formatted!+""+amount_decimals
+        }
+        
+        return amount_formatted!
     }
     
     func check() -> Bool {
         let amount = self.replacingOccurrences(of: "£", with: "")
         
         let matchedA = matches(for: "^\\d+$", in: amount)
-        let matchedB = matches(for: "^\\d+,[0-9]{3}$", in: amount)
+        let matchedB = matches(for: "^\\d+(,[0-9]{3})+$", in: amount)
         let matchedC = matches(for: "^\\d+\\.[0-9]{1,2}$", in: amount)
-        let matchedFull = matches(for: "^\\d+,[0-9]{3}\\.[0-9]{1,2}$", in: amount)
+        let matchedFull = matches(for: "^\\d+(,[0-9]{3})+\\.[0-9]{1,2}$", in: amount)
         
         if matchedA.count > 0 || matchedB.count > 0 || matchedC.count > 0 || matchedFull.count > 0{
             return true
