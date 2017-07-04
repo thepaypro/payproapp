@@ -349,6 +349,14 @@
 			name = PPSMSConfirmationViewController;
 			sourceTree = "<group>";
 		};
+		BF9CA1081F0A3E78006934C0 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				BF6516031F02467F00CEE051 /* countries-prefixes.json */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
 		BF9DB8691EDD770500C8A0ED = {
 			isa = PBXGroup;
 			children = (
@@ -417,7 +425,7 @@
 		BFBD893F1F00FF24003E7A4F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BF6516031F02467F00CEE051 /* countries-prefixes.json */,
+				BF9CA1081F0A3E78006934C0 /* JSON */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
