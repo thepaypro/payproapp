@@ -92,6 +92,11 @@ class PPBankTransferAccountDetailsViewController: UIViewController
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()

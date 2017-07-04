@@ -53,6 +53,9 @@ class TPPBankTransfeReferenceViewController: UIViewController, ReferenceViewCont
     
     override func viewWillAppear(_ animated: Bool)
     {
+        self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
         if self.labelReference.text == "Other" && self.viewOtherReason.isHidden == true {
             print("aa")
             self.textInfoView.frame.origin.y += 43

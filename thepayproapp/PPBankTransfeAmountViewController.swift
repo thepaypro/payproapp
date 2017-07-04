@@ -17,6 +17,8 @@ class PPBankTransfeAmountViewController: UIViewController
         super.viewDidLoad()
         
         amountField.addTarget(self, action: #selector(amountFieldDidChange), for: .editingChanged)
+        
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     override func didReceiveMemoryWarning()
@@ -30,60 +32,84 @@ class PPBankTransfeAmountViewController: UIViewController
         if let amountString = amountField.text?.currencyInputFormatting() {
             amountField.text = amountString
         }
+        
+        self.navigationItem.rightBarButtonItem?.isEnabled = (amountField.text?.check())!
     }
-    
 }
 
 extension String {
     
     // formatting text for currency textField
     func currencyInputFormatting() -> String {
+        var amount = self.replacingOccurrences(of: "£", with: "")
         
-        var number: NSNumber!
+        if amount.characters.last == "," {
+            amount = String(amount.characters.dropLast()) + "."
+        }
+        
+        amount = amount.replacingOccurrences(of: ",", with: "")
+        amount = amount.replacingOccurrences(of: "..", with: ".")
+        
+        let matched = matches(for: "^\\d+((,[0-9]{0,3})+.|\\.[0-9]{0,2})?", in: amount)
+        let matchedFull = matches(for: "^\\d+(,[0-9]{3})+\\.([0-9]{1,2})?", in: amount)
+        
+        if matchedFull.count > 0 {
+            amount = matchedFull[0]
+        } else if matched.count > 0 && matched[0] != "0"{
+            amount = matched[0]
+        } else {
+            return ""
+        }
+        
+        var amount_integer: String! = amount
+        var amount_decimals: String! = ""
+        var amount_decimals_origin: String! = ""
+        let pos_dot = amount.range(of: ".", options: .backwards)?.lowerBound
+        
+        if pos_dot != nil {
+            amount_integer = amount.substring(to: pos_dot!)
+            amount_decimals_origin = amount.substring(from: pos_dot!)
+            amount_decimals = amount_decimals_origin
+            
+            if amount_decimals_origin == "." {
+                amount_decimals = ""
+            }
+        }
+        
+        let amount_number = Int(amount_integer)! as NSNumber
+        
         let formatter = NumberFormatter()
-        formatter.numberStyle = .currencyAccounting
+        formatter.numberStyle = .currency
+        formatter.decimalSeparator = "."
         formatter.currencySymbol = "£"
+        formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
-        formatter.minimumFractionDigits = 2
+        formatter.locale = Locale(identifier: "en_GB")
         
-        var amountWithPrefix = self
-//
-//        // remove from String: "$", ".", ","
-//        let regex = try! NSRegularExpression(pattern: "[]", options: .caseInsensitive)
-//        print(regex)
-//        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.characters.count), withTemplate: "$1$2$3$4")
-//        print(amountWithPrefix)
-////        let double = (amountWithPrefix as NSString).doubleValue
-////        print(double)
-////        number = NSNumber(value: (double / 100))
-////        print(number)
-////        print("----")
-////        // if first number is 0 or all numbers were deleted
-////        guard number != 0 as NSNumber else {
-////            print("return void")
-////            return ""
-////        }
-////        
-////        return formatter.string(from: number)!
-//            return amountWithPrefix
-//        var amountFormat = self.replacingOccurrences(of: "£", with: "")
-//        amountFormat = amountFormat.replacingOccurrences(of: "a", with: "")
-//        
-//        return amountFormat
+        var amount_formatted = formatter.string(from: amount_number)
         
-        let amount = self
-//        var regex = try! NSRegularExpression(pattern: "[^0-9]", options: NSRegularExpression.Options.caseInsensitive)
-//        var range = NSMakeRange(0, amount.characters.count)
-//        var modString = regex.stringByReplacingMatches(in: amount, options: [], range: range, withTemplate: "")
-//        
-//        regex = try! NSRegularExpression(pattern: "[^,|\\.]", options: NSRegularExpression.Options.caseInsensitive)
-//        range = NSMakeRange(0, modString.characters.count)
-//        modString = regex.stringByReplacingMatches(in: modString, options: [], range: range, withTemplate: "")
-
-        let matched  = matches(for: "^(\\d)+\\,?\\d{1,3}(\\.(\\d)?(\\d)?)?", in: amount)
-        print(matched)
-        return matched[0]
-
+        if amount_decimals_origin != amount_decimals {
+            amount_formatted = amount_formatted!+""+amount_decimals_origin
+        } else {
+            amount_formatted = amount_formatted!+""+amount_decimals
+        }
+        
+        return amount_formatted!
+    }
+    
+    func check() -> Bool {
+        let amount = self.replacingOccurrences(of: "£", with: "")
+        
+        let matchedA = matches(for: "^\\d+$", in: amount)
+        let matchedB = matches(for: "^\\d+(,[0-9]{3})+$", in: amount)
+        let matchedC = matches(for: "^\\d+\\.[0-9]{1,2}$", in: amount)
+        let matchedFull = matches(for: "^\\d+(,[0-9]{3})+\\.[0-9]{1,2}$", in: amount)
+        
+        if matchedA.count > 0 || matchedB.count > 0 || matchedC.count > 0 || matchedFull.count > 0{
+            return true
+        } else {
+            return false
+        }
     }
     
     func matches(for regex: String, in text: String) -> [String] {

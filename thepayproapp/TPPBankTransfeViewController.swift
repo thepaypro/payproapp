@@ -20,8 +20,6 @@ class TPPBankTransfeViewController: UIViewController
         
         // Do any additional setup after loading the view.
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButton))
-        
         let borderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.40))
         let layerTop = CAShapeLayer()
         layerTop.path = borderTop.cgPath
@@ -47,11 +45,10 @@ class TPPBankTransfeViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    public func backButton() {
-        print("in backButton")
-        
-        self.dismiss(animated: true, completion: nil)
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
+
 }
 
