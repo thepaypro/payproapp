@@ -8,26 +8,30 @@
 
 import UIKit
 
-class PPDemoAccountViewController: UIViewController
+class PPDemoAccountViewController: UIViewController, UIScrollViewDelegate
 {
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        scrollView.delegate = self
     }
-
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func registerUser(_ sender: Any)
+    override func viewWillAppear(_ animated: Bool)
     {
-        NSLog("REGISTER")
+        super.viewWillAppear(animated)        
         
-//        User.register(username: "222333444", password: "testPassword", passwordConfirmation: "testPassword")
+        scrollView.contentOffset = CGPoint(x: UIScreen.main.bounds.width, y: 0.0)
     }
 
     /*
