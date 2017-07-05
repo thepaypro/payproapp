@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21153CA11EFA5AF80075F73A /* PPBankTransferAccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21153CA01EFA5AF80075F73A /* PPBankTransferAccountDetailsViewController.swift */; };
+		21203F171F0CF62C002A24B7 /* ContactsConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21203F161F0CF62C002A24B7 /* ContactsConnection.swift */; };
 		212100D31EF9069700208F72 /* PPBankTransfeReferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212100D21EF9069700208F72 /* PPBankTransfeReferenceViewController.swift */; };
 		212100D51EF9091600208F72 /* PPBankTransfeReferenceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212100D41EF9091600208F72 /* PPBankTransfeReferenceListViewController.swift */; };
 		213381271EFD1A5B0007A509 /* PPProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213381261EFD1A5B0007A509 /* PPProfileViewController.swift */; };
@@ -92,6 +93,7 @@
 /* Begin PBXFileReference section */
 		0AC05682788F4523E6443369 /* Pods-thepayproappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappUITests/Pods-thepayproappUITests.release.xcconfig"; sourceTree = "<group>"; };
 		21153CA01EFA5AF80075F73A /* PPBankTransferAccountDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBankTransferAccountDetailsViewController.swift; sourceTree = "<group>"; };
+		21203F161F0CF62C002A24B7 /* ContactsConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsConnection.swift; sourceTree = "<group>"; };
 		212100D21EF9069700208F72 /* PPBankTransfeReferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBankTransfeReferenceViewController.swift; sourceTree = "<group>"; };
 		212100D41EF9091600208F72 /* PPBankTransfeReferenceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBankTransfeReferenceListViewController.swift; sourceTree = "<group>"; };
 		213381261EFD1A5B0007A509 /* PPProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPProfileViewController.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				BF2345741EF7B2DA00C50004 /* TPPService.swift */,
 				BF2345711EF7B13400C50004 /* User+Connection.swift */,
 				BFBD89421F0100FD003E7A4F /* CountryPrefixLocalConnection.swift */,
+				21203F161F0CF62C002A24B7 /* ContactsConnection.swift */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 			files = (
 				BF56BAC61EF26BF300429005 /* OffsetTransaction+CoreDataClass.swift in Sources */,
 				BF56BACB1EF26BF300429005 /* Group+CoreDataProperties.swift in Sources */,
+				21203F171F0CF62C002A24B7 /* ContactsConnection.swift in Sources */,
 				BF56BAC81EF26BF300429005 /* Currency+CoreDataClass.swift in Sources */,
 				BF56BAC01EF26BF300429005 /* Invite+CoreDataClass.swift in Sources */,
 				BFF7FA6B1EEFF48D009D798E /* TPPSendMoneyViewController.swift in Sources */,

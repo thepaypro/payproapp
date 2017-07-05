@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let entryNavigationController = storyboard.instantiateViewController(withIdentifier: "TPPEntryNavigationController")
-//        let entryNavigationController = storyboard.instantiateViewController(withIdentifier: "PPTabBar")
+//        let entryNavigationController = storyboard.instantiateViewController(withIdentifier: "TPPEntryNavigationController")
+        let entryNavigationController = storyboard.instantiateViewController(withIdentifier: "PPTabBar")
         
         var rootController = entryNavigationController
         

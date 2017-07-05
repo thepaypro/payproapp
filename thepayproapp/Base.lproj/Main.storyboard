@@ -62,6 +62,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="5nc-Hr-6Hb" kind="show" identifier="bankTransfeSegue" id="BcM-Ex-rKR"/>
+                        <segue destination="54n-bP-fDS" kind="show" identifier="sendMoneyInAppSegue" id="4h9-kM-2Nm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U17-4F-g0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -939,7 +940,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mrC-zi-lfl" id="8bd-T8-VqF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -2095,6 +2096,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKF-ug-mMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1786" y="1137"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dHJ-GV-HPj">
+            <objects>
+                <viewController id="54n-bP-fDS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9km-QF-lM2"/>
+                        <viewControllerLayoutGuide type="bottom" id="BgA-uh-CaL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o9r-Cd-LA6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send money in app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOZ-rV-xRs">
+                                <rect key="frame" x="42" y="313" width="290" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="437-ee-R4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2592.8000000000002" y="1136.5817091454273"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="ZYp-Zm-pGS">

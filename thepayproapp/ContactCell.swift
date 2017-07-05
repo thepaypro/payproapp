@@ -44,11 +44,13 @@ class ContactCell: UITableViewCell {
         contactInitialLabel.backgroundColor = colorArray[randomValue]
     }
     
-    func updateContactsinUI(_ contact: Contact, indexPath: IndexPath, subtitleType: SubtitleCellValue) {
+    func updateContactsinUI(_ contact: Contact, validateContacts: NSDictionary, indexPath: IndexPath, subtitleType: SubtitleCellValue) {
         self.contact = contact
+        
         //Update all UI in the cell here
         self.contactTextLabel?.text = contact.displayName()
         updateSubtitleBasedonType(subtitleType, contact: contact)
+        
         if contact.thumbnailProfileImage != nil {
             self.contactImageView?.image = contact.thumbnailProfileImage
             self.contactImageView.isHidden = false
@@ -58,6 +60,24 @@ class ContactCell: UITableViewCell {
             updateInitialsColorForIndexPath(indexPath)
             self.contactImageView.isHidden = true
             self.contactInitialLabel.isHidden = false
+        }
+        
+        //Check if contact is an PayPro user
+        let phoneNumber:String = (self.contact?.phoneNumbers[0].phoneNumber)!
+        if let validateContactRow = validateContacts.value(forKeyPath: phoneNumber) {
+            
+            let isPayProUser = (validateContactRow as AnyObject).value(forKeyPath: "isUser") as! String
+            
+            if isPayProUser == "true" {
+                contact.setIsPayProUser(value: true)
+                self.imagePayProUser.isHidden = false
+            } else {
+                contact.setIsPayProUser(value: false)
+                self.imagePayProUser.isHidden = true
+            }
+        } else {
+            contact.setIsPayProUser(value: false)
+            self.imagePayProUser.isHidden = true
         }
     }
     

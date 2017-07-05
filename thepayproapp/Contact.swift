@@ -21,6 +21,7 @@ open class Contact {
     open var contactId: String?
     open var phoneNumbers = [(phoneNumber: String, phoneLabel: String)]()
     open var emails = [(email: String, emailLabel: String )]()
+    open var isPayProUser: Bool?
     
     public init (contact: CNContact) {
         firstName = contact.givenName
@@ -79,6 +80,14 @@ open class Contact {
         }
         
         return initials
+    }
+    
+    open func setIsPayProUser(value: Bool){
+        isPayProUser = value
+    }
+    
+    open func getIsPayProUser() -> Bool {
+        return isPayProUser!
     }
     
 }

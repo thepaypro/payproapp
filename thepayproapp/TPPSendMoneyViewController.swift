@@ -39,30 +39,34 @@ class TPPSendMoneyViewController: UIViewController, PickerDelegate
     func ContactPicker(_: ContactsPicker, didSelectContact contact : Contact)
     {
         print("Contact \(contact.displayName()) has been selected")
+        print("getIsPayProUser: \(contact.getIsPayProUser())")
         
-        let alert = UIAlertController(title: "Send money by", message: "", preferredStyle: .actionSheet)
+        if contact.getIsPayProUser() == false {
+            let alert = UIAlertController(title: "Send money by", message: "", preferredStyle: .actionSheet)
         
-        let bankTransfeButtonAction = UIAlertAction(title: "Bank transfer", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
-            
-            self.performSegue(withIdentifier: "bankTransfeSegue", sender: self)
+            let bankTransfeButtonAction = UIAlertAction(title: "Bank transfer", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
+                self.performSegue(withIdentifier: "bankTransfeSegue", sender: self)
+                self.dismiss(animated: true, completion: nil)
+            })
+        
+            alert.addAction(bankTransfeButtonAction)
+        
+            let inviteButtonAction = UIAlertAction(title: "Invite someone to PayPro", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
+                print("Second Button pressed")
+            })
+        
+            alert.addAction(inviteButtonAction)
+        
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+            alert.addAction(cancelAction)
+        
+            UIApplication.shared.keyWindow?.rootViewController?.presentedViewController?.present(alert, animated: true, completion: nil)
+        } else if contact.getIsPayProUser() == true {
+            self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
             self.dismiss(animated: true, completion: nil)
-        })
+        }
         
-        alert.addAction(bankTransfeButtonAction)
-        
-        let inviteButtonAction = UIAlertAction(title: "Invite someone to PayPro", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
-            print("Second Button pressed")
-        })
-        
-        alert.addAction(inviteButtonAction)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        alert.addAction(cancelAction)
-        
-        UIApplication.shared.keyWindow?.rootViewController?.presentedViewController?.present(alert, animated: true, completion: nil)
-        
-        print("fiiiin")
     }
     
     func ContactPicker(_: ContactsPicker, didCancel error : NSError)
