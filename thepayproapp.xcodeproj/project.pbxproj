@@ -55,6 +55,7 @@
 		BF56BACB1EF26BF300429005 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BABD1EF26BF300429005 /* Group+CoreDataProperties.swift */; };
 		BF612E541EFBBC7D007110D4 /* PPSMSConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF612E531EFBBC7D007110D4 /* PPSMSConfirmationViewController.swift */; };
 		BF6516041F02467F00CEE051 /* countries-prefixes.json in Resources */ = {isa = PBXBuildFile; fileRef = BF6516031F02467F00CEE051 /* countries-prefixes.json */; };
+		BF69E1351F0E328D0004EE4E /* PPCardFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF69E1341F0E328D0004EE4E /* PPCardFormViewController.swift */; };
 		BF9DB8761EDD770600C8A0ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */; };
 		BF9DB87D1EDD770600C8A0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB87B1EDD770600C8A0ED /* Main.storyboard */; };
 		BF9DB87F1EDD770600C8A0ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB87E1EDD770600C8A0ED /* Assets.xcassets */; };
@@ -139,6 +140,7 @@
 		BF56BABD1EF26BF300429005 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BF612E531EFBBC7D007110D4 /* PPSMSConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPSMSConfirmationViewController.swift; sourceTree = "<group>"; };
 		BF6516031F02467F00CEE051 /* countries-prefixes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "countries-prefixes.json"; sourceTree = "<group>"; };
+		BF69E1341F0E328D0004EE4E /* PPCardFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPCardFormViewController.swift; sourceTree = "<group>"; };
 		BF7D9CB0B12DBCFD3FE80391 /* Pods_thepayproappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thepayproappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB8721EDD770600C8A0ED /* thepayproapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thepayproapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 			children = (
 				BFF7FA721EEFF50B009D798E /* PPDemoAccountViewController.swift */,
 				217316B81F05072D00DB0B14 /* PPAcountViewController.swift */,
+				BF69E1341F0E328D0004EE4E /* PPCardFormViewController.swift */,
 			);
 			name = PPAccountViewController;
 			sourceTree = "<group>";
@@ -780,6 +783,7 @@
 				BF31E8641EF90108004C233E /* User+CoreDataClass.swift in Sources */,
 				BF2345721EF7B13400C50004 /* User+Connection.swift in Sources */,
 				BF56BAC91EF26BF300429005 /* Currency+CoreDataProperties.swift in Sources */,
+				BF69E1351F0E328D0004EE4E /* PPCardFormViewController.swift in Sources */,
 				BF56BAC71EF26BF300429005 /* OffsetTransaction+CoreDataProperties.swift in Sources */,
 				BF31E8651EF90108004C233E /* User+CoreDataProperties.swift in Sources */,
 				217316B91F05072D00DB0B14 /* PPAcountViewController.swift in Sources */,

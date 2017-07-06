@@ -10,6 +10,8 @@ import UIKit
 
 class PPDemoAccountViewController: UIViewController, UIScrollViewDelegate
 {
+    var proAccountSelected = true
+    
     @IBOutlet weak var proView: UIView!
     @IBOutlet weak var proHeaderIV: UIImageView!
     @IBOutlet weak var proTitleLabel: UILabel!
@@ -31,6 +33,9 @@ class PPDemoAccountViewController: UIViewController, UIScrollViewDelegate
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let chooseButton = UIBarButtonItem(title: "Choose", style: .done, target: self, action: #selector(chooseTapped))
+        self.navigationItem.rightBarButtonItem = chooseButton
         
         self.setupView()
     }
@@ -74,6 +79,8 @@ class PPDemoAccountViewController: UIViewController, UIScrollViewDelegate
     
     func selectPro()
     {
+        proAccountSelected = true
+        
         proViewHeight.constant = 267.0
         proCheck.isHidden = false
         proTitleLabel.textColor = UIColor.white
@@ -89,6 +96,8 @@ class PPDemoAccountViewController: UIViewController, UIScrollViewDelegate
     
     func selectBasic()
     {
+        proAccountSelected = false
+        
         basicViewHeight.constant = 267.0
         basicCheck.isHidden = false
         basicTitleLabel.textColor = UIColor.white
@@ -101,15 +110,24 @@ class PPDemoAccountViewController: UIViewController, UIScrollViewDelegate
         proSubtitleLabel.textColor = PayProColors.darkBlue
         proHeaderIV.image = UIImage(named: "pro")
     }
-
-    /*
+    
+    func chooseTapped()
+    {        
+        performSegue(withIdentifier: "showFormVCSegue", sender: self)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "showFormVCSegue"
+        {
+            let cardFormVC = segue.destination as! PPCardFormViewController
+            cardFormVC.proAccountSelected = self.proAccountSelected
+        }
     }
-    */
 
 }
