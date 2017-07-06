@@ -1986,42 +1986,42 @@ in ThePayPro</string>
                                 <rect key="frame" x="16" y="260" width="343" height="50"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHH-7q-BGP">
-                                        <rect key="frame" x="32.5" y="13.5" width="21" height="21"/>
+                                        <rect key="frame" x="32.5" y="14.5" width="21" height="21"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="yHH-7q-BGP" secondAttribute="height" multiplier="1:1" id="dag-tD-Dnx"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7Z-Z5-zcT">
-                                        <rect key="frame" x="84" y="13.5" width="21" height="21"/>
+                                        <rect key="frame" x="84" y="14.5" width="21" height="21"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="I7Z-Z5-zcT" secondAttribute="height" multiplier="1:1" id="RhO-7p-1lr"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e6i-NR-2iI">
-                                        <rect key="frame" x="135.5" y="13.5" width="21" height="21"/>
+                                        <rect key="frame" x="135.5" y="14.5" width="21" height="21"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="e6i-NR-2iI" secondAttribute="height" multiplier="1:1" id="3Hb-bA-31o"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEC-KO-Bao">
-                                        <rect key="frame" x="186.5" y="13.5" width="21" height="21"/>
+                                        <rect key="frame" x="186.5" y="14.5" width="21" height="21"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="yEC-KO-Bao" secondAttribute="height" multiplier="1:1" id="0d8-LI-e6o"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60J-Zt-37b">
-                                        <rect key="frame" x="238" y="13.5" width="21" height="21"/>
+                                        <rect key="frame" x="238" y="14.5" width="21" height="21"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="60J-Zt-37b" secondAttribute="height" multiplier="1:1" id="Zfs-ys-MBr"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdi-hz-2nI">
-                                        <rect key="frame" x="289.5" y="13.5" width="21" height="21"/>
+                                        <rect key="frame" x="289.5" y="14.5" width="21" height="21"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="xdi-hz-2nI" secondAttribute="height" multiplier="1:1" id="ck5-xz-r3G"/>
@@ -2453,42 +2453,42 @@ in ThePayPro</string>
                                 <rect key="frame" x="16" y="275.5" width="343" height="50"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahE-3F-7AL">
-                                        <rect key="frame" x="32.5" y="13.5" width="21" height="21"/>
+                                        <rect key="frame" x="32.5" y="14.5" width="21" height="21"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ahE-3F-7AL" secondAttribute="height" multiplier="1:1" id="WhT-yT-cmM"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0U-XH-Yte">
-                                        <rect key="frame" x="84" y="13.5" width="21" height="21"/>
+                                        <rect key="frame" x="84" y="14.5" width="21" height="21"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="G0U-XH-Yte" secondAttribute="height" multiplier="1:1" id="jIG-TY-BCF"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sp7-Yv-YsH">
-                                        <rect key="frame" x="135.5" y="13.5" width="21" height="21"/>
+                                        <rect key="frame" x="135.5" y="14.5" width="21" height="21"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="sp7-Yv-YsH" secondAttribute="height" multiplier="1:1" id="fSy-Fm-GJs"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g80-zY-D3i">
-                                        <rect key="frame" x="186.5" y="13.5" width="21" height="21"/>
+                                        <rect key="frame" x="186.5" y="14.5" width="21" height="21"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="g80-zY-D3i" secondAttribute="height" multiplier="1:1" id="mcC-FW-DTR"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-tI-Ufb">
-                                        <rect key="frame" x="238" y="13.5" width="21" height="21"/>
+                                        <rect key="frame" x="238" y="14.5" width="21" height="21"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="cdt-tI-Ufb" secondAttribute="height" multiplier="1:1" id="nuc-Ff-Etk"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxQ-Ve-mEL">
-                                        <rect key="frame" x="289.5" y="13.5" width="21" height="21"/>
+                                        <rect key="frame" x="289.5" y="14.5" width="21" height="21"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="WxQ-Ve-mEL" secondAttribute="height" multiplier="1:1" id="RNz-wP-sIX"/>
@@ -2550,7 +2550,7 @@ in ThePayPro</string>
                         <outlet property="mainPasscodeView" destination="6o1-2r-uyf" id="Hvy-v8-RrR"/>
                         <outlet property="passcodeTF" destination="JLt-4X-USC" id="egl-Ak-a0d"/>
                         <outlet property="titleLabel" destination="vPg-Bz-9L7" id="wKx-HS-6IF"/>
-                        <segue destination="6oh-h3-Uec" kind="show" identifier="showTabCSegue" id="YTQ-Cy-NT2"/>
+                        <segue destination="6oh-h3-Uec" kind="presentation" identifier="showTabCSegue" id="YTQ-Cy-NT2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDa-j0-XYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
