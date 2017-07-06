@@ -219,7 +219,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                         phoneNumberArray.append(phoneNumber.value.stringValue)
                     }
                 }
-                print(self.orderedContacts)
+
                 checkContacts(contacts: phoneNumberArray, completion: {contactsResponse in
                     if contactsResponse.count > 0 {
                         print("success check contacts")
@@ -318,12 +318,6 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
             //Single selection code
             resultSearchController.isActive = false
             self.contactDelegate?.ContactPicker(self, didSelectContact: selectedContact)
-            
-//            self.dismiss(animated: true, completion: {
-//                DispatchQueue.main.async {
-//                    self.contactDelegate?.ContactPicker(self, didSelectContact: selectedContact)
-//                }
-//            })
         }
     }
     

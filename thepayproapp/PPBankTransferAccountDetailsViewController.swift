@@ -10,6 +10,8 @@ import UIKit
 
 class PPBankTransferAccountDetailsViewController: UIViewController
 {
+    var sendMoney = SendMoney()
+    
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var accountField: UITextField!
     @IBOutlet weak var ibanLabel: UILabel!
@@ -48,6 +50,12 @@ class PPBankTransferAccountDetailsViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        accountField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
+        shortcodeField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
+        ibanField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
+        bicField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
         
         if segmentControlField.selectedSegmentIndex == 0 {
             self.accountLabel.isHidden = false
@@ -92,6 +100,30 @@ class PPBankTransferAccountDetailsViewController: UIViewController
 
     }
     
+    func checkNavigation() {
+        if segmentControlField.selectedSegmentIndex == 0 && accountField.text != "" && shortcodeField.text != "" {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+            sendMoney.setAccountDetailsType(accountDetailsTypeValue: 0)
+            sendMoney.setAccountNumber(accountNumberValue: self.accountField.text!)
+            sendMoney.setShortcode(shortcodeValue: self.shortcodeField.text!)
+            
+            sendMoney.setIban(ibanValue: "")
+            sendMoney.setBic(bicValue: "")
+            
+        } else if segmentControlField.selectedSegmentIndex == 0 && ibanField.text != "" && bicField.text != "" {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+            sendMoney.setAccountDetailsType(accountDetailsTypeValue: 1)
+            sendMoney.setIban(ibanValue: self.ibanField.text!)
+            sendMoney.setBic(bicValue: self.bicField.text!)
+            
+            sendMoney.setAccountNumber(accountNumberValue: "")
+            sendMoney.setShortcode(shortcodeValue: "")
+            
+        } else {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -101,6 +133,17 @@ class PPBankTransferAccountDetailsViewController: UIViewController
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "reasonSegue"
+        {
+            let reasonVC : TPPBankTransfeReferenceViewController = segue.destination as! TPPBankTransfeReferenceViewController
+            reasonVC.sendMoney = sendMoney
+        }
     }
     
 }

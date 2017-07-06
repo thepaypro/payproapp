@@ -70,6 +70,10 @@ class ContactCell: UITableViewCell {
             
             if isPayProUser == "true" {
                 contact.setIsPayProUser(value: true)
+                
+                let beneficiaryName = (validateContactRow as AnyObject).value(forKeyPath: "fullName") as! String
+                contact.setBeneficiaryName(beneficiaryNameValue: beneficiaryName)
+                
                 self.imagePayProUser.isHidden = false
             } else {
                 contact.setIsPayProUser(value: false)

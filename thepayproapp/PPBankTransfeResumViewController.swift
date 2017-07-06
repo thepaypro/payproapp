@@ -14,6 +14,8 @@ var swipeColorBoxCenterX: CGFloat = 0.0
 
 class PPBankTransfeResumViewController: UIViewController
 {
+    var sendMoney = SendMoney()
+    
     @IBOutlet weak var superView: UIView!
     
     @IBAction func panGesture(_ sender: UIPanGestureRecognizer) {
@@ -48,12 +50,45 @@ class PPBankTransfeResumViewController: UIViewController
     @IBOutlet weak var swipeBaseBox: UIView!
     @IBOutlet weak var swipeColorBox: UIView!
     
+    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var firstLabel: UILabel!
+    @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var thirdLabel: UILabel!
+    @IBOutlet weak var fourthLabel: UILabel!
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         swipeColorBoxCenterX = self.swipeColorBox.center.x
+        
+        self.amountLabel.text = sendMoney.getAmount()
+        
+        if sendMoney.getOperationType() == 0 {
+            self.firstLabel.text = sendMoney.getForename()+" "+sendMoney.getLastname()
+            
+            if sendMoney.getAccountDetailsType() == 0 {
+                self.secondLabel.text = sendMoney.getAccountNumber()+" "+sendMoney.getShortcode()
+            } else if sendMoney.getAccountDetailsType() == 1 {
+                self.secondLabel.text = sendMoney.getIban()+" "+sendMoney.getBic()
+            }
+            
+            self.thirdLabel.text = sendMoney.getMessage()
+            
+            if sendMoney.getReason() == "Other" {
+                self.fourthLabel.text = sendMoney.getReason()+": "+sendMoney.getReasonExplain()
+            } else {
+                self.fourthLabel.text = sendMoney.getReason()
+            }
+            
+        } else if sendMoney.getOperationType() == 1 {
+            self.amountLabel.text = sendMoney.getAmount()
+            self.firstLabel.text = sendMoney.getBeneficiaryName()
+            self.secondLabel.text = sendMoney.getMessage()
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +118,7 @@ class PPBankTransfeResumViewController: UIViewController
     {
         let confirmViewController = PPSendMoneyConfirmViewController()
         confirmViewController.modalTransitionStyle = .crossDissolve
+        confirmViewController.sendMoney = sendMoney
         self.present(confirmViewController, animated: true, completion: nil)
     }
     

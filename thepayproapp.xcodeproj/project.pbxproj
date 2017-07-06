@@ -11,6 +11,7 @@
 		21203F171F0CF62C002A24B7 /* ContactsConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21203F161F0CF62C002A24B7 /* ContactsConnection.swift */; };
 		212100D31EF9069700208F72 /* PPBankTransfeReferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212100D21EF9069700208F72 /* PPBankTransfeReferenceViewController.swift */; };
 		212100D51EF9091600208F72 /* PPBankTransfeReferenceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212100D41EF9091600208F72 /* PPBankTransfeReferenceListViewController.swift */; };
+		2128DBE61F0E20800051FC8E /* PPSendMoneyAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2128DBE51F0E20800051FC8E /* PPSendMoneyAmountViewController.swift */; };
 		213381271EFD1A5B0007A509 /* PPProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213381261EFD1A5B0007A509 /* PPProfileViewController.swift */; };
 		213381291EFD1E2A0007A509 /* PPInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213381281EFD1E2A0007A509 /* PPInfoViewController.swift */; };
 		215540591EF3CCD500670E86 /* TPPContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215540581EF3CCD500670E86 /* TPPContactViewController.swift */; };
@@ -96,6 +97,7 @@
 		21203F161F0CF62C002A24B7 /* ContactsConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsConnection.swift; sourceTree = "<group>"; };
 		212100D21EF9069700208F72 /* PPBankTransfeReferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBankTransfeReferenceViewController.swift; sourceTree = "<group>"; };
 		212100D41EF9091600208F72 /* PPBankTransfeReferenceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBankTransfeReferenceListViewController.swift; sourceTree = "<group>"; };
+		2128DBE51F0E20800051FC8E /* PPSendMoneyAmountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPSendMoneyAmountViewController.swift; sourceTree = "<group>"; };
 		213381261EFD1A5B0007A509 /* PPProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPProfileViewController.swift; sourceTree = "<group>"; };
 		213381281EFD1E2A0007A509 /* PPInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPInfoViewController.swift; sourceTree = "<group>"; };
 		215540581EF3CCD500670E86 /* TPPContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPPContactViewController.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				21153CA01EFA5AF80075F73A /* PPBankTransferAccountDetailsViewController.swift */,
 				217316BC1F053C3300DB0B14 /* PPBankTransfeResumViewController.swift */,
 				2156A4D01F0A3318005EEE68 /* PPSendMoneyConfirmViewController.swift */,
+				2128DBE51F0E20800051FC8E /* PPSendMoneyAmountViewController.swift */,
 			);
 			name = TPPSendMoneyViewController;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				6A0CE8FC1EF6E600000C0D1F /* TPPBankTransfeBeneficiaryTypeViewController.swift in Sources */,
 				6A0CE8FA1EF6D816000C0D1F /* TPPBankTransfeViewController.swift in Sources */,
 				BF9DB8761EDD770600C8A0ED /* AppDelegate.swift in Sources */,
+				2128DBE61F0E20800051FC8E /* PPSendMoneyAmountViewController.swift in Sources */,
 				BFBD893A1F00FA6E003E7A4F /* TPPPrefixSelectionViewController.swift in Sources */,
 				BF56BABE1EF26BF300429005 /* GroupMember+CoreDataClass.swift in Sources */,
 			);

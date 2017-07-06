@@ -10,6 +10,8 @@ import UIKit
 
 class PPSendMoneyConfirmViewController: UIViewController
 {
+    var sendMoney = SendMoney()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -57,11 +59,11 @@ class PPSendMoneyConfirmViewController: UIViewController
         labelTop.textAlignment = .center
         labelTop.textColor = UIColor.white
         labelTop.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
-        labelTop.frame = CGRect(x: 0, y: (self.view.frame.height/2) - 120, width: self.view.frame.width, height: 20)
+        labelTop.frame = CGRect(x: 0, y: (self.view.frame.height/2) - 125, width: self.view.frame.width, height: 20)
         self.view.addSubview(labelTop)
        
         let labelMiddle = UILabel()
-        labelMiddle.text = "£123.40"
+        labelMiddle.text = sendMoney.getAmount()
         labelMiddle.textAlignment = .center
         labelMiddle.textColor = UIColor.white
         labelMiddle.font = UIFont.systemFont(ofSize: 42, weight: UIFontWeightLight)
@@ -69,11 +71,15 @@ class PPSendMoneyConfirmViewController: UIViewController
         self.view.addSubview(labelMiddle)
         
         let labelBottom = UILabel()
-        labelBottom.text = "sent to John"
+        if sendMoney.getOperationType() == 0 {
+            labelBottom.text = "sent to "+sendMoney.getForename()+" "+sendMoney.getLastname()
+        } else if sendMoney.getOperationType() == 1 {
+            labelBottom.text = "sent to "+sendMoney.getBeneficiaryName()
+        }        
         labelBottom.textAlignment = .center
         labelBottom.textColor = UIColor.white
         labelBottom.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
-        labelBottom.frame = CGRect(x: 0, y: (self.view.frame.height/2) - 60, width: self.view.frame.width, height: 20)
+        labelBottom.frame = CGRect(x: 0, y: (self.view.frame.height/2) - 55, width: self.view.frame.width, height: 20)
         self.view.addSubview(labelBottom)
     }
     

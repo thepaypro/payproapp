@@ -10,11 +10,16 @@ import UIKit
 
 class PPBankTransfeAmountViewController: UIViewController
 {
+    var sendMoney = SendMoney()
+    
     @IBOutlet weak var amountField: UITextField!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        //disabled block load process
+        sendMoney.setLoadProcess(loadProcessValue: 0)
         
         amountField.addTarget(self, action: #selector(amountFieldDidChange), for: .editingChanged)
         
@@ -31,9 +36,21 @@ class PPBankTransfeAmountViewController: UIViewController
         
         if let amountString = amountField.text?.currencyInputFormatting() {
             amountField.text = amountString
+            sendMoney.setAmount(amountToSend: amountString)
         }
         
         self.navigationItem.rightBarButtonItem?.isEnabled = (amountField.text?.check())!
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "beneficiaryNameSegue"
+        {
+            let beneficiaryNameVC : TPPBankTransfeViewController = segue.destination as! TPPBankTransfeViewController
+            beneficiaryNameVC.sendMoney = sendMoney
+        }
     }
 }
 

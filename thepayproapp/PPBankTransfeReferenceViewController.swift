@@ -10,15 +10,23 @@ import UIKit
 
 class TPPBankTransfeReferenceViewController: UIViewController, ReferenceViewControllerDelegate
 {
+    var sendMoney = SendMoney()
+    
     @IBOutlet weak var labelReference: UILabel!
     @IBOutlet weak var viewOtherReason: UIView!
     @IBOutlet weak var textInfoView: UIView!
     @IBOutlet weak var noteView: UIView!
     @IBOutlet weak var reasonView: UIView!
+    @IBOutlet weak var messageField: UITextField!
+    @IBOutlet weak var reasonExplainField: UITextField!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        messageField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
+        reasonExplainField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
         
         let noteBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
         let noteLayerTop = CAShapeLayer()
@@ -79,16 +87,50 @@ class TPPBankTransfeReferenceViewController: UIViewController, ReferenceViewCont
         // Dispose of any resources that can be recreated.
     }
     
+    func checkNavigation() {
+        if labelReference.text != "" {
+            if messageField.text == "" {
+                sendMoney.setMessage(messageValue: "Sent from PayPro App")
+            } else {
+                sendMoney.setMessage(messageValue: messageField.text!)
+            }
+            
+            sendMoney.setReason(reasonValue: labelReference.text!)
+            
+            if labelReference.text == "Other" {
+                if reasonExplainField.text == "" {
+                    self.navigationItem.rightBarButtonItem?.isEnabled = false
+                } else {
+                    self.navigationItem.rightBarButtonItem?.isEnabled = true
+                }
+                sendMoney.setReasonExplain(reasonExplainValue: reasonExplainField.text!)
+            } else {
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
+                sendMoney.setReasonExplain(reasonExplainValue: "")
+            }
+            
+        } else {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        }
+    }
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueReferenceList"{
             let vc = segue.destination as! PPBankTransfeReferenceListViewController
             vc.itemSelected = labelReference.text!
             vc.delegate = self
+            
+        } else if segue.identifier == "resumToReasonSegue"{
+            let resumVC : PPBankTransfeResumViewController = segue.destination as! PPBankTransfeResumViewController
+            resumVC.sendMoney = sendMoney
         }
     }
     
     func referenceSelected(controller: PPBankTransfeReferenceListViewController, text: String?) {
         self.labelReference.text = text
+        
+        checkNavigation()
     }
 }
 

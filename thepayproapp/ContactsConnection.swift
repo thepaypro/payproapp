@@ -10,9 +10,6 @@ import Foundation
 
 func checkContacts(contacts: Array<Any>, completion: @escaping (_ contactsResponse: NSDictionary) -> Void)
 {
-    print(contacts)
-    print("............")
-    
     let callResponse = [
         "691487998": [
             "phonenumber": "+34691487998",
