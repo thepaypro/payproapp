@@ -34,7 +34,7 @@ class TPPBankTransfeReferenceViewController: UIViewController, ReferenceViewCont
         noteLayerTop.fillColor = PayProColors.line.cgColor
         self.noteView.layer.addSublayer(noteLayerTop)
         
-        let noteBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 41.5, width: self.view.frame.width, height: 0.4))
+        let noteBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 41.6, width: self.view.frame.width, height: 0.4))
         let noteLayerBottom = CAShapeLayer()
         noteLayerBottom.path = noteBorderBottom.cgPath
         noteLayerBottom.fillColor = PayProColors.line.cgColor
@@ -46,13 +46,13 @@ class TPPBankTransfeReferenceViewController: UIViewController, ReferenceViewCont
         reasonLayerTop.fillColor = PayProColors.line.cgColor
         self.reasonView.layer.addSublayer(reasonLayerTop)
         
-        let reasonBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 41.5, width: self.view.frame.width, height: 0.4))
+        let reasonBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 41.6, width: self.view.frame.width, height: 0.4))
         let reasonLayerBottom = CAShapeLayer()
         reasonLayerBottom.path = reasonBorderBottom.cgPath
         reasonLayerBottom.fillColor = PayProColors.line.cgColor
         self.reasonView.layer.addSublayer(reasonLayerBottom)
         
-        let otherReasonBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 41.5, width: self.view.frame.width, height: 0.4))
+        let otherReasonBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 41.6, width: self.view.frame.width, height: 0.4))
         let otherReasonLayerBottom = CAShapeLayer()
         otherReasonLayerBottom.path = otherReasonBorderBottom.cgPath
         otherReasonLayerBottom.fillColor = PayProColors.line.cgColor

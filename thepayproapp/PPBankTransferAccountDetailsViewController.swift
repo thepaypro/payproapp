@@ -86,13 +86,13 @@ class PPBankTransferAccountDetailsViewController: UIViewController
         layerTop.fillColor = PayProColors.line.cgColor
         self.accountView.layer.addSublayer(layerTop)
 
-        let borderMiddle = UIBezierPath(rect: CGRect(x: 15, y: 42, width: self.view.frame.width, height: 0.4))
+        let borderMiddle = UIBezierPath(rect: CGRect(x: 15, y: 42.6, width: self.view.frame.width, height: 0.4))
         let layerMiddle = CAShapeLayer()
         layerMiddle.path = borderMiddle.cgPath
         layerMiddle.fillColor = PayProColors.line.cgColor
         self.accountView.layer.addSublayer(layerMiddle)
         
-        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: 41.5, width: self.view.frame.width, height: 0.4))
+        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: 41.6, width: self.view.frame.width, height: 0.4))
         let layerBottom = CAShapeLayer()
         layerBottom.path = borderBottom.cgPath
         layerBottom.fillColor = PayProColors.line.cgColor

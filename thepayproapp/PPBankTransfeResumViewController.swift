@@ -56,6 +56,8 @@ class PPBankTransfeResumViewController: UIViewController
     @IBOutlet weak var thirdLabel: UILabel!
     @IBOutlet weak var fourthLabel: UILabel!
     
+    @IBOutlet weak var amountView: UIView!
+    @IBOutlet weak var infoView: UIView!
     
     override func viewDidLoad()
     {
@@ -88,6 +90,30 @@ class PPBankTransfeResumViewController: UIViewController
             self.firstLabel.text = sendMoney.getBeneficiaryName()
             self.secondLabel.text = sendMoney.getMessage()
         }
+        
+        let amountBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
+        let amountLayerTop = CAShapeLayer()
+        amountLayerTop.path = amountBorderTop.cgPath
+        amountLayerTop.fillColor = PayProColors.line.cgColor
+        self.amountView.layer.addSublayer(amountLayerTop)
+        
+        let amountBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 105.6, width: self.view.frame.width, height: 0.4))
+        let amountLayerBottom = CAShapeLayer()
+        amountLayerBottom.path = amountBorderBottom.cgPath
+        amountLayerBottom.fillColor = PayProColors.line.cgColor
+        self.amountView.layer.addSublayer(amountLayerBottom)
+        
+        let infoBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
+        let infoLayerTop = CAShapeLayer()
+        infoLayerTop.path = infoBorderTop.cgPath
+        infoLayerTop.fillColor = PayProColors.line.cgColor
+        self.infoView.layer.addSublayer(infoLayerTop)
+        
+        let infoBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 98.6, width: self.view.frame.width, height: 0.4))
+        let infoLayerBottom = CAShapeLayer()
+        infoLayerBottom.path = infoBorderBottom.cgPath
+        infoLayerBottom.fillColor = PayProColors.line.cgColor
+        self.infoView.layer.addSublayer(infoLayerBottom)
         
     }
     
