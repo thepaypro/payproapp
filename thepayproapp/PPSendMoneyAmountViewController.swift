@@ -50,7 +50,7 @@ class PPSendMoneyAmountViewController: UIViewController
     }
     
     func checkNavigation() {
-        if amountField.text?.check() == true && messageField.text != "" {
+        if amountField.text?.checkValidAmount() == true && messageField.text != "" {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
             sendMoney.setAmount(amountToSend: amountField.text!)
             sendMoney.setMessage(messageValue: messageField.text!)

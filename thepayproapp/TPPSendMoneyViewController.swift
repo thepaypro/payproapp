@@ -9,8 +9,9 @@
 import UIKit
 import Contacts
 import ContactsUI
+import MessageUI
 
-class TPPSendMoneyViewController: UIViewController, PickerDelegate
+class TPPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComposeViewControllerDelegate
 {
     var sendMoney = SendMoney()
     
@@ -21,10 +22,39 @@ class TPPSendMoneyViewController: UIViewController, PickerDelegate
     
     override func viewWillAppear(_ animated: Bool)
     {
+//        if UIApplication.shared.canOpenURL(URL(string:"sms:")!) {
+//            UIApplication.shared.open(URL(string:"sms:")!, options: [:], completionHandler: nil)
+//        }
+        
+//        let messageVC = MFMessageComposeViewController()
+//        
+//        messageVC.body = "Enter a message";
+//        messageVC.recipients = ["691487998"]
+//        messageVC.messageComposeDelegate = self;
+////        print(messageVC)
+//        self.present(messageVC, animated: true, completion: nil)
+        
+        
         if sendMoney.getLoadProcess() == 0 {
             let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.phoneNumber)
             let navigationController = UINavigationController(rootViewController: contactPickerScene)
             self.present(navigationController, animated: true, completion: nil)
+        }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch (result.rawValue) {
+        case MessageComposeResult.cancelled.rawValue:
+            print("Message was cancelled")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.failed.rawValue:
+            print("Message failed")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.sent.rawValue:
+            print("Message was sent")
+            self.dismiss(animated: true, completion: nil)
+        default:
+            break;
         }
     }
     
@@ -61,7 +91,20 @@ class TPPSendMoneyViewController: UIViewController, PickerDelegate
             alert.addAction(bankTransfeButtonAction)
         
             let inviteButtonAction = UIAlertAction(title: "Invite someone to PayPro", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
-                print("Second Button pressed")
+                
+                if MFMessageComposeViewController.canSendText() {
+                    let controller = MFMessageComposeViewController()
+                    controller.body = "Message from PayPro App"
+                    controller.recipients = ["691487998"]
+                    controller.messageComposeDelegate = self
+                    self.present(controller, animated: true, completion: nil)
+                } else {
+                    print("no puedo enviar sms!!")
+                }
+                
+//                if UIApplication.shared.canOpenURL(URL(string:"sms:")!) {
+//                    UIApplication.shared.open(URL(string:"sms:691487998&body=Send from PayPro App")!, options: [:], completionHandler: nil)
+//                }
             })
         
             alert.addAction(inviteButtonAction)
