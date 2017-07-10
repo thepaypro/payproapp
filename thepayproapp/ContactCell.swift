@@ -63,18 +63,26 @@ class ContactCell: UITableViewCell {
         }
         
         //Check if contact is an PayPro user
-        let phoneNumber:String = (self.contact?.phoneNumbers[0].phoneNumber)!
-        if let validateContactRow = validateContacts.value(forKeyPath: phoneNumber) {
+        let phoneNumbers = self.contact?.phoneNumbers.count as! Int
+        
+        if phoneNumbers > 0 {
+            let phoneNumber:String = (self.contact?.phoneNumbers[0].phoneNumber)!
             
-            let isPayProUser = (validateContactRow as AnyObject).value(forKeyPath: "isUser") as! String
+            if let validateContactRow = validateContacts.value(forKeyPath: phoneNumber) {
             
-            if isPayProUser == "true" {
-                contact.setIsPayProUser(value: true)
+                let isPayProUser = (validateContactRow as AnyObject).value(forKeyPath: "isUser") as! String
+            
+                if isPayProUser == "true" {
+                    contact.setIsPayProUser(value: true)
                 
-                let beneficiaryName = (validateContactRow as AnyObject).value(forKeyPath: "fullName") as! String
-                contact.setBeneficiaryName(beneficiaryNameValue: beneficiaryName)
+                    let beneficiaryName = (validateContactRow as AnyObject).value(forKeyPath: "fullName") as! String
+                    contact.setBeneficiaryName(beneficiaryNameValue: beneficiaryName)
                 
-                self.imagePayProUser.isHidden = false
+                    self.imagePayProUser.isHidden = false
+                } else {
+                    contact.setIsPayProUser(value: false)
+                    self.imagePayProUser.isHidden = true
+                }
             } else {
                 contact.setIsPayProUser(value: false)
                 self.imagePayProUser.isHidden = true
@@ -84,12 +92,13 @@ class ContactCell: UITableViewCell {
             self.imagePayProUser.isHidden = true
         }
     }
-    
+
     func updateSubtitleBasedonType(_ subtitleType: SubtitleCellValue , contact: Contact) {
         
-        switch subtitleType {
-            
-        case SubtitleCellValue.phoneNumber:
+//        switch subtitleType {
+//            
+//        case SubtitleCellValue.phoneNumber:
+        if subtitleType == SubtitleCellValue.phoneNumber {
             let phoneNumberCount = contact.phoneNumbers.count
             
             if phoneNumberCount == 1  {
@@ -101,23 +110,24 @@ class ContactCell: UITableViewCell {
             else {
                 self.contactDetailTextLabel.text = GlobalConstants.Strings.phoneNumberNotAvaialable
             }
-        case SubtitleCellValue.email:
-            let emailCount = contact.emails.count
-            
-            if emailCount == 1  {
-                self.contactDetailTextLabel.text = "\(contact.emails[0].email)"
-            }
-            else if emailCount > 1 {
-                self.contactDetailTextLabel.text = "\(contact.emails[0].email) and \(contact.emails.count-1) more"
-            }
-            else {
-                self.contactDetailTextLabel.text = GlobalConstants.Strings.emailNotAvaialable
-            }
-        case SubtitleCellValue.birthday:
-            self.contactDetailTextLabel.text = contact.birthdayString
-        case SubtitleCellValue.organization:
-            self.contactDetailTextLabel.text = contact.company
         }
+//        case SubtitleCellValue.email:
+////            let emailCount = contact.emails.count
+////            
+////            if emailCount == 1  {
+////                self.contactDetailTextLabel.text = "\(contact.emails[0].email)"
+////            }
+////            else if emailCount > 1 {
+////                self.contactDetailTextLabel.text = "\(contact.emails[0].email) and \(contact.emails.count-1) more"
+////            }
+////            else {
+////                self.contactDetailTextLabel.text = GlobalConstants.Strings.emailNotAvaialable
+////            }
+//        case SubtitleCellValue.birthday:
+////            self.contactDetailTextLabel.text = contact.birthdayString
+//        case SubtitleCellValue.organization:
+////            self.contactDetailTextLabel.text = contact.company
+//        }
     }
 }
 

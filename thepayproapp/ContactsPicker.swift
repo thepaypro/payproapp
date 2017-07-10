@@ -253,6 +253,13 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                 CNContactPhoneNumbersKey as CNKeyDescriptor,
                 CNContactEmailAddressesKey as CNKeyDescriptor,
         ]
+//        return [CNContactNamePrefixKey as CNKeyDescriptor,
+//                CNContactGivenNameKey as CNKeyDescriptor,
+//                CNContactImageDataKey as CNKeyDescriptor,
+//                CNContactThumbnailImageDataKey as CNKeyDescriptor,
+//                CNContactImageDataAvailableKey as CNKeyDescriptor,
+//                CNContactPhoneNumbersKey as CNKeyDescriptor,
+//        ]
     }
     
     // MARK: - Table View DataSource
@@ -371,12 +378,9 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
             
             let store = CNContactStore()
             do {
-                filteredContacts = try store.unifiedContacts(matching: predicate,
-                                                             keysToFetch: allowedContactKeys())
-                print("\(filteredContacts.count) count")
+                filteredContacts = try store.unifiedContacts(matching: predicate, keysToFetch: allowedContactKeys())
                 
                 self.tableView.reloadData()
-                
             }
             catch {
                 print("Error!")
