@@ -21,31 +21,31 @@ class PPInfoViewController: UIViewController
         infoLayerTop.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayerTop)
         
-        let infoBorder2 = UIBezierPath(rect: CGRect(x: 15, y: 43.5, width: self.view.frame.width, height: 0.4))
+        let infoBorder2 = UIBezierPath(rect: CGRect(x: 15, y: 43.6, width: self.view.frame.width, height: 0.4))
         let infoLayer2 = CAShapeLayer()
         infoLayer2.path = infoBorder2.cgPath
         infoLayer2.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayer2)
         
-        let infoBorder3 = UIBezierPath(rect: CGRect(x: 15, y: 87.5, width: self.view.frame.width, height: 0.4))
+        let infoBorder3 = UIBezierPath(rect: CGRect(x: 15, y: 87.6, width: self.view.frame.width, height: 0.4))
         let infoLayer3 = CAShapeLayer()
         infoLayer3.path = infoBorder3.cgPath
         infoLayer3.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayer3)
         
-        let infoBorder4 = UIBezierPath(rect: CGRect(x: 15, y: 131.5, width: self.view.frame.width, height: 0.4))
+        let infoBorder4 = UIBezierPath(rect: CGRect(x: 15, y: 131.6, width: self.view.frame.width, height: 0.4))
         let infoLayer4 = CAShapeLayer()
         infoLayer4.path = infoBorder4.cgPath
         infoLayer4.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayer4)
         
-        let infoBorder5 = UIBezierPath(rect: CGRect(x: 15, y: 175.5, width: self.view.frame.width, height: 0.4))
+        let infoBorder5 = UIBezierPath(rect: CGRect(x: 15, y: 175.6, width: self.view.frame.width, height: 0.4))
         let infoLayer5 = CAShapeLayer()
         infoLayer5.path = infoBorder5.cgPath
         infoLayer5.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayer5)
         
-        let infoBorder6 = UIBezierPath(rect: CGRect(x: 0, y: 219.5, width: self.view.frame.width, height: 0.4))
+        let infoBorder6 = UIBezierPath(rect: CGRect(x: 0, y: 219.6, width: self.view.frame.width, height: 0.4))
         let infoLayer6 = CAShapeLayer()
         infoLayer6.path = infoBorder6.cgPath
         infoLayer6.fillColor = PayProColors.line.cgColor

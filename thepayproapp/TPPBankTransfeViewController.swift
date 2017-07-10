@@ -33,13 +33,13 @@ class TPPBankTransfeViewController: UIViewController
         layerTop.fillColor = PayProColors.line.cgColor
         self.forenameView.layer.addSublayer(layerTop)
         
-        let borderMiddle = UIBezierPath(rect: CGRect(x: 15, y: 42, width: self.view.frame.width, height: 0.40))
+        let borderMiddle = UIBezierPath(rect: CGRect(x: 15, y: 42.6, width: self.view.frame.width, height: 0.40))
         let layerMiddle = CAShapeLayer()
         layerMiddle.path = borderMiddle.cgPath
         layerMiddle.fillColor = PayProColors.line.cgColor
         self.forenameView.layer.addSublayer(layerMiddle)
         
-        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: 41.5, width: self.view.frame.width, height: 0.40))
+        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: 41.6, width: self.view.frame.width, height: 0.40))
         let layerBottom = CAShapeLayer()
         layerBottom.path = borderBottom.cgPath
         layerBottom.fillColor = PayProColors.line.cgColor

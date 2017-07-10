@@ -22,6 +22,19 @@ class TPPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageCom
     
     override func viewWillAppear(_ animated: Bool)
     {
+//        if UIApplication.shared.canOpenURL(URL(string:"sms:")!) {
+//            UIApplication.shared.open(URL(string:"sms:")!, options: [:], completionHandler: nil)
+//        }
+        
+//        let messageVC = MFMessageComposeViewController()
+//        
+//        messageVC.body = "Enter a message";
+//        messageVC.recipients = ["691487998"]
+//        messageVC.messageComposeDelegate = self;
+////        print(messageVC)
+//        self.present(messageVC, animated: true, completion: nil)
+        
+        
         if sendMoney.getLoadProcess() == 0 {
             let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.phoneNumber)
             let navigationController = UINavigationController(rootViewController: contactPickerScene)
@@ -33,16 +46,20 @@ class TPPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageCom
         }
     }
     
-    func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
-        contacts.forEach { contact in
-            for number in contact.phoneNumbers {
-                let phoneNumber = number.value
-                print("number is = \(phoneNumber)")
-            }
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch (result.rawValue) {
+        case MessageComposeResult.cancelled.rawValue:
+            print("Message was cancelled")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.failed.rawValue:
+            print("Message failed")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.sent.rawValue:
+            print("Message was sent")
+            self.dismiss(animated: true, completion: nil)
+        default:
+            break;
         }
-    }
-    func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
-        print("Cancel Contact Picker")
     }
     
 
@@ -116,7 +133,6 @@ class TPPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageCom
                         print("no puedo enviar SMS!!")
                     }
                 })
-                
             })
         
             alert.addAction(inviteButtonAction)

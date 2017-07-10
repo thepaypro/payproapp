@@ -241,7 +241,7 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="accountField" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Account number" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="aU1-ax-yj7">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="accountField" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="12345674" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="aU1-ax-yj7">
                                                         <rect key="frame" x="157" y="11" width="203" height="21"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -253,7 +253,7 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ibanField" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Iban" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="OOE-vx-Qm7">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ibanField" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="AD1200012030200359100100" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="OOE-vx-Qm7">
                                                         <rect key="frame" x="63" y="11" width="297" height="21"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -284,7 +284,7 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="shortcodeField" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Shortcode" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="gN4-9U-hH0">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="shortcodeField" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="601613" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="gN4-9U-hH0">
                                                         <rect key="frame" x="110.5" y="10.5" width="249.5" height="21"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -296,7 +296,7 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="bicField" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="BIC / Swift" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="2jI-0S-O0r">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="bicField" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="BARCGB21" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="2jI-0S-O0r">
                                                         <rect key="frame" x="110.5" y="10.5" width="249.5" height="21"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -812,8 +812,10 @@
                     <navigationItem key="navigationItem" title="Send" id="XAO-6q-fM0"/>
                     <connections>
                         <outlet property="amountLabel" destination="cPH-Zx-CmV" id="PN8-n6-SZx"/>
+                        <outlet property="amountView" destination="21g-ZE-Lac" id="HCw-ag-lOO"/>
                         <outlet property="firstLabel" destination="qdP-qC-kaX" id="dX0-i4-faL"/>
                         <outlet property="fourthLabel" destination="DRO-06-AJe" id="LND-Hc-cV7"/>
+                        <outlet property="infoView" destination="OLa-fi-RJA" id="u6s-27-G70"/>
                         <outlet property="secondLabel" destination="mOO-eb-whH" id="zXZ-dO-8TP"/>
                         <outlet property="superView" destination="EUu-mV-cCq" id="O1W-26-Ysr"/>
                         <outlet property="swipeBaseBox" destination="084-Se-uD2" id="gXS-Ok-GYk"/>
@@ -2065,6 +2067,7 @@
                         <outlet property="viewEnds" destination="ajS-hY-WSQ" id="Ffi-dk-gxe"/>
                         <outlet property="viewPickerEnds" destination="DYv-Nw-RL3" id="48D-5A-Yxq"/>
                         <outlet property="viewPickerStarts" destination="e7W-t2-0nl" id="KFv-Ja-CqS"/>
+                        <outlet property="viewStarts" destination="afN-MP-Fus" id="yCj-NA-RQC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uXb-du-VTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3021,7 +3024,7 @@ in ThePayPro</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ymU-qA-kmD"/>
-        <segue reference="MgD-j5-nvC"/>
+        <segue reference="ops-cj-9Fb"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
