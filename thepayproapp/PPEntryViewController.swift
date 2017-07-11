@@ -71,9 +71,9 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
     
     //MARK: - PPPrefixSelectionDelegate
     
-    func didSelectCountryPrefix(countryPrefix: String, country: String)
+    func didSelectCountryPrefix(countryPrefix: String, countryName: String, countryISO2: String)
     {
-        self.countryLabel.text = country
+        self.countryLabel.text = countryName
         self.prefixTF.text = countryPrefix
     }
     
@@ -98,6 +98,7 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
         {
             let prefixSelectionVC : PPPrefixSelectionViewController = segue.destination as! PPPrefixSelectionViewController
             prefixSelectionVC.delegate = self
+            prefixSelectionVC.showPrefixes = true
         }
     }
 }

@@ -113,7 +113,7 @@ class PPDemoAccountViewController: UIViewController, UIScrollViewDelegate
     
     func chooseTapped()
     {        
-        performSegue(withIdentifier: "showFormVCSegue", sender: self)
+        performSegue(withIdentifier: "showFirstFormVCSegue", sender: self)
     }
     
     // MARK: - Navigation
@@ -123,9 +123,9 @@ class PPDemoAccountViewController: UIViewController, UIScrollViewDelegate
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "showFormVCSegue"
+        if segue.identifier == "showFirstFormVCSegue"
         {
-            let cardFormVC = segue.destination as! PPCardFormViewController
+            let cardFormVC = segue.destination as! PPCardFirstFormViewController
             cardFormVC.proAccountSelected = self.proAccountSelected
         }
     }

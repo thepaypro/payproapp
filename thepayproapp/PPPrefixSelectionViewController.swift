@@ -10,7 +10,7 @@ import UIKit
 
 protocol PPPrefixSelectionDelegate
 {
-    func didSelectCountryPrefix(countryPrefix: String, country: String)
+    func didSelectCountryPrefix(countryPrefix: String, countryName: String, countryISO2: String)
 }
 
 class PPPrefixSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
@@ -20,8 +20,9 @@ class PPPrefixSelectionViewController: UIViewController, UITableViewDelegate, UI
     var countriesPrefixesArray : [AnyObject] = []
     var ukPrefix : AnyObject?
     
-    
     var delegate : PPPrefixSelectionDelegate?
+    
+    var showPrefixes = false
     
     override func viewDidLoad()
     {
@@ -80,7 +81,14 @@ class PPPrefixSelectionViewController: UIViewController, UITableViewDelegate, UI
         
         cell.accessoryType = .disclosureIndicator
         
-        cell.textLabel?.text = "\(countryName) +\(firstCountryPrefix)"
+        var countryText = "\(countryName)"
+        
+        if showPrefixes
+        {
+            countryText +=  "+\(firstCountryPrefix)"
+        }
+        
+        cell.textLabel?.text = countryText
         cell.textLabel?.adjustsFontSizeToFitWidth = true
         
         return cell
@@ -102,8 +110,9 @@ class PPPrefixSelectionViewController: UIViewController, UITableViewDelegate, UI
             let countryPrefixes = country.value(forKey: "callingCodes") as! [AnyObject]
             let countryPrefix = countryPrefixes.first as! String
             let countryISO2 = country.value(forKey: "alpha2Code") as! String
+            let countryName = country.value(forKey: "name") as! String
             
-            self.delegate?.didSelectCountryPrefix(countryPrefix: "+\(countryPrefix)", country: countryISO2)
+            self.delegate?.didSelectCountryPrefix(countryPrefix: "+\(countryPrefix)", countryName: countryName, countryISO2: countryISO2)
             self.navigationController?.popViewController(animated: true)
         }
     }
