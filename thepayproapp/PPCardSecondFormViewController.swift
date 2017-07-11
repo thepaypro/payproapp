@@ -34,6 +34,12 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
             cell.textField?.minimumFontSize = 14.0
         }
         
+        ButtonRow.defaultCellUpdate = { cell, row in
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 17)
+            cell.textLabel?.adjustsFontSizeToFitWidth = true
+            cell.textLabel?.minimumScaleFactor = 14.0 / (cell.textLabel?.font.pointSize)!
+        }
+        
         form +++
             
             Section()
