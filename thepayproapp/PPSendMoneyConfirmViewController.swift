@@ -85,12 +85,9 @@ class PPSendMoneyConfirmViewController: UIViewController
     
     func transition()
     {
-//        PPTabBarController().loadAmountTabItem()
-        
-        let when = DispatchTime.now() + 3 // change 2 to desired number of seconds
+        let when = DispatchTime.now() + 3
         DispatchQueue.main.asyncAfter(deadline: when) {
             self.dismiss(animated: true, completion: nil)
-
         }
     }
     

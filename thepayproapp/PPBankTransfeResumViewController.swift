@@ -183,7 +183,9 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                 let confirmViewController = PPSendMoneyConfirmViewController()
                 confirmViewController.modalTransitionStyle = .crossDissolve
                 confirmViewController.sendMoney = self.sendMoney
-                self.present(confirmViewController, animated: true, completion: nil)
+                self.present(confirmViewController, animated: true, completion: {
+                    self.tabBarController?.selectedIndex = 3
+                })
             })
         case MessageComposeResult.failed.rawValue:
             print("Message failed")
@@ -201,6 +203,5 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
             break;
         }
     }
-
 }
 

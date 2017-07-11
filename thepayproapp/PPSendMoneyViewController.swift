@@ -112,7 +112,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate
     func ContactPicker(_: ContactsPicker, didCancel error : NSError)
     {
         print("User canceled the selection");
-//        PPTabBarController().loadAmountTabItem()
+        self.tabBarController?.selectedIndex = 3
         self.dismiss(animated: true, completion: nil)
     }
     

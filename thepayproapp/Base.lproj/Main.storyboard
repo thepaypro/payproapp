@@ -1632,7 +1632,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpZ-2A-JZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2656.8000000000002" y="2829.5352323838083"/>
+            <point key="canvasLocation" x="2593" y="2831"/>
         </scene>
         <!--Info-->
         <scene sceneID="pRu-je-lGa">
@@ -2075,40 +2075,6 @@
             </objects>
             <point key="canvasLocation" x="2592.8000000000002" y="3604.9475262368819"/>
         </scene>
-        <!--Demo Account View Controller-->
-        <scene sceneID="WSo-kP-Kal">
-            <objects>
-                <viewController id="Ua9-7f-Ec8" customClass="TPPDemoAccountViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hcL-uB-JE8"/>
-                        <viewControllerLayoutGuide type="bottom" id="v4U-Fy-F3r"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="PyI-SE-vop">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khh-rC-L9n">
-                                <rect key="frame" x="146" y="380" width="84" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="GO Subview"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Demo Account View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7I5-RO-uQx">
-                                <rect key="frame" x="23" y="309" width="329" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="537-0G-4fZ"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TKF-ug-mMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1786" y="1137"/>
-        </scene>
         <!--Amount-->
         <scene sceneID="dHJ-GV-HPj">
             <objects>
@@ -2220,25 +2186,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="437-ee-R4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5121" y="1117"/>
-        </scene>
-        <!--Account View Controller-->
-        <scene sceneID="ZYp-Zm-pGS">
-            <objects>
-                <viewController id="alA-po-r6g" customClass="PPAccountViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eMQ-hi-HR0"/>
-                        <viewControllerLayoutGuide type="bottom" id="lZB-iU-LO6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="c1b-Nn-J9k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="8Xa-D3-83j"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eO8-7h-llH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1785" y="1940"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pub-Fu-NOy">
@@ -3197,7 +3144,7 @@ in ThePayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vMe-mJ-7gM" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2096.8000000000002" y="1136.5817091454273"/>
+            <point key="canvasLocation" x="1785" y="1137"/>
         </scene>
         <!--Card First Form View Controller-->
         <scene sceneID="4UE-k6-XpR">
@@ -3218,7 +3165,7 @@ in ThePayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zsB-KD-0DK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3285.5999999999999" y="1136.5817091454273"/>
+            <point key="canvasLocation" x="2593" y="1137"/>
         </scene>
         <!--Card Second Form View Controller-->
         <scene sceneID="2t7-No-uCB">
@@ -3239,7 +3186,7 @@ in ThePayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sn-Vs-BpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4484" y="1137"/>
+            <point key="canvasLocation" x="3364" y="1137"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="2P1-wl-qAK">
@@ -3422,7 +3369,7 @@ in ThePayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZJ-ha-FG3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2097" y="1940"/>
+            <point key="canvasLocation" x="1785" y="1940"/>
         </scene>
         <!--Prefix Selection View Controller-->
         <scene sceneID="RJw-oT-HDP">
@@ -3459,7 +3406,7 @@ in ThePayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yc3-IW-n9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4484" y="1940"/>
+            <point key="canvasLocation" x="3364" y="1940"/>
         </scene>
     </scenes>
     <resources>

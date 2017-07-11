@@ -13,7 +13,6 @@
 		212100D51EF9091600208F72 /* PPBankTransfeReferenceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212100D41EF9091600208F72 /* PPBankTransfeReferenceListViewController.swift */; };
 		2128DBE61F0E20800051FC8E /* PPSendMoneyAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2128DBE51F0E20800051FC8E /* PPSendMoneyAmountViewController.swift */; };
 		2128DBE91F0E93CA0051FC8E /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2128DBE81F0E93CA0051FC8E /* ExtensionString.swift */; };
-		212C98271F0F8B1F003CAF73 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212C98261F0F8B1F003CAF73 /* MessageUI.framework */; };
 		213381271EFD1A5B0007A509 /* PPProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213381261EFD1A5B0007A509 /* PPProfileViewController.swift */; };
 		213381291EFD1E2A0007A509 /* PPInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213381281EFD1E2A0007A509 /* PPInfoViewController.swift */; };
 		215540591EF3CCD500670E86 /* PPContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215540581EF3CCD500670E86 /* PPContactViewController.swift */; };
@@ -33,9 +32,9 @@
 		6A0CE8ED1EF58D7A000C0D1F /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CE8EC1EF58D7A000C0D1F /* Contact.swift */; };
 		6A0CE8EF1EF58D92000C0D1F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CE8EE1EF58D92000C0D1F /* Constants.swift */; };
 		6A0CE8F11EF58DB9000C0D1F /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A0CE8F01EF58DB9000C0D1F /* ContactCell.xib */; };
-		6A4AE5B51F1374A80041B63F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4AE5B41F1374A80041B63F /* MessageUI.framework */; };
 		6A0CE8FA1EF6D816000C0D1F /* PPBankTransfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CE8F91EF6D816000C0D1F /* PPBankTransfeViewController.swift */; };
 		6A0CE8FC1EF6E600000C0D1F /* PPBankTransfeBeneficiaryTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CE8FB1EF6E600000C0D1F /* PPBankTransfeBeneficiaryTypeViewController.swift */; };
+		6A4AE5B51F1374A80041B63F /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		77324EC23C69DAC949032A50 /* Pods_thepayproappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61F7BACC0A7CA6BAD1E0FB1 /* Pods_thepayproappTests.framework */; };
 		898982352C785B0A87DE711B /* Pods_thepayproappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7D9CB0B12DBCFD3FE80391 /* Pods_thepayproappUITests.framework */; };
 		BF0275C51EF1285D000EA475 /* thepayproapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF0275C31EF1285D000EA475 /* thepayproapp.xcdatamodeld */; };
@@ -105,7 +104,6 @@
 		212100D41EF9091600208F72 /* PPBankTransfeReferenceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBankTransfeReferenceListViewController.swift; sourceTree = "<group>"; };
 		2128DBE51F0E20800051FC8E /* PPSendMoneyAmountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPSendMoneyAmountViewController.swift; sourceTree = "<group>"; };
 		2128DBE81F0E93CA0051FC8E /* ExtensionString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
-		212C98261F0F8B1F003CAF73 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		213381261EFD1A5B0007A509 /* PPProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPProfileViewController.swift; sourceTree = "<group>"; };
 		213381281EFD1E2A0007A509 /* PPInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPInfoViewController.swift; sourceTree = "<group>"; };
 		215540581EF3CCD500670E86 /* PPContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPContactViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A4AE5B51F1374A80041B63F /* MessageUI.framework in Frameworks */,
+				6A4AE5B51F1374A80041B63F /* (null) in Frameworks */,
 				2155405D1EF3D7D400670E86 /* ContactsUI.framework in Frameworks */,
 				2155405B1EF3D7C900670E86 /* Contacts.framework in Frameworks */,
 				47DF01DE01E7D7D898A65AFE /* Pods_thepayproapp.framework in Frameworks */,
@@ -221,7 +219,6 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-
 		215540571EF3CBF300670E86 /* PPContactViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,7 +278,6 @@
 		306162B3C6F0CECF1766A139 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6A4AE5B41F1374A80041B63F /* MessageUI.framework */,
 				2155405C1EF3D7D400670E86 /* ContactsUI.framework */,
 				2155405A1EF3D7C900670E86 /* Contacts.framework */,
 				A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */,
