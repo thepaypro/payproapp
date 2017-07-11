@@ -110,7 +110,7 @@ class PPBankTransferAccountDetailsViewController: UIViewController
             sendMoney.setIban(ibanValue: "")
             sendMoney.setBic(bicValue: "")
             
-        } else if segmentControlField.selectedSegmentIndex == 0 && ibanField.text != "" && bicField.text != "" {
+        } else if segmentControlField.selectedSegmentIndex == 1 && ibanField.text != "" && bicField.text != "" {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
             sendMoney.setAccountDetailsType(accountDetailsTypeValue: 1)
             sendMoney.setIban(ibanValue: self.ibanField.text!)

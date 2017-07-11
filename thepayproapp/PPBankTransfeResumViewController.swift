@@ -9,10 +9,11 @@
 import UIKit
 import AVFoundation
 import AudioToolbox
+import MessageUI
 
 var swipeColorBoxCenterX: CGFloat = 0.0
 
-class PPBankTransfeResumViewController: UIViewController
+class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewControllerDelegate
 {
     var sendMoney = SendMoney()
     
@@ -58,6 +59,7 @@ class PPBankTransfeResumViewController: UIViewController
     
     @IBOutlet weak var amountView: UIView!
     @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var textInfo: UITextView!
     
     override func viewDidLoad()
     {
@@ -85,10 +87,20 @@ class PPBankTransfeResumViewController: UIViewController
                 self.fourthLabel.text = sendMoney.getReason()
             }
             
+            self.textInfo.text = "Cell description which explains the consequences of the above action."
+            
         } else if sendMoney.getOperationType() == 1 {
             self.amountLabel.text = sendMoney.getAmount()
             self.firstLabel.text = sendMoney.getBeneficiaryName()
             self.secondLabel.text = sendMoney.getMessage()
+            self.textInfo.text = "Cell description which explains the consequences of the above action."
+            
+        } else if sendMoney.getOperationType() == 2 {
+            self.amountLabel.text = sendMoney.getAmount()
+            self.firstLabel.text = sendMoney.getBeneficiaryName()
+            self.secondLabel.text = sendMoney.getMessage()
+            self.thirdLabel.text = sendMoney.getphoneNumber()
+            self.textInfo.text = "Cell description which explains the consequences of the above action DIF."
         }
         
         let amountBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
@@ -142,11 +154,53 @@ class PPBankTransfeResumViewController: UIViewController
     
     func goToConfirm()
     {
-        let confirmViewController = PPSendMoneyConfirmViewController()
-        confirmViewController.modalTransitionStyle = .crossDissolve
-        confirmViewController.sendMoney = sendMoney
-        self.present(confirmViewController, animated: true, completion: nil)
+        if sendMoney.getOperationType() == 0 || sendMoney.getOperationType() == 1 {
+            let confirmViewController = PPSendMoneyConfirmViewController()
+            confirmViewController.modalTransitionStyle = .crossDissolve
+            confirmViewController.sendMoney = sendMoney
+            self.present(confirmViewController, animated: true, completion: nil)
+            
+        } else if sendMoney.getOperationType() == 2 {
+            if (MFMessageComposeViewController.canSendText()) {
+                let controller = MFMessageComposeViewController()
+                controller.body = "Enric Giribet te invita a que descarges PayPro App!!! http://www.payproapp.com "
+                controller.recipients = ["666395251"]
+                controller.messageComposeDelegate = self
+                self.present(controller, animated: true, completion: nil)
+            } else {
+                print("no puedo enviar SMS!!")
+            }
+        }
     }
     
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.sendMoney.setLoadProcess(loadProcessValue: 0)
+        
+        switch (result.rawValue) {
+        case MessageComposeResult.cancelled.rawValue:
+            print("Message was cancelled")
+            self.dismiss(animated: true, completion: {
+                let confirmViewController = PPSendMoneyConfirmViewController()
+                confirmViewController.modalTransitionStyle = .crossDissolve
+                confirmViewController.sendMoney = self.sendMoney
+                self.present(confirmViewController, animated: true, completion: nil)
+            })
+        case MessageComposeResult.failed.rawValue:
+            print("Message failed")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.sent.rawValue:
+            print("Message was sent")
+            self.dismiss(animated: true, completion: {
+                let confirmViewController = PPSendMoneyConfirmViewController()
+                confirmViewController.modalTransitionStyle = .crossDissolve
+                confirmViewController.sendMoney = self.sendMoney
+                self.present(confirmViewController, animated: true, completion: nil)
+            })
+
+        default:
+            break;
+        }
+    }
+
 }
 

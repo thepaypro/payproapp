@@ -9,9 +9,8 @@
 import UIKit
 import Contacts
 import ContactsUI
-import MessageUI
 
-class TPPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComposeViewControllerDelegate
+class TPPSendMoneyViewController: UIViewController, PickerDelegate
 {
     var sendMoney = SendMoney()
     
@@ -22,47 +21,13 @@ class TPPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageCom
     
     override func viewWillAppear(_ animated: Bool)
     {
-//        if UIApplication.shared.canOpenURL(URL(string:"sms:")!) {
-//            UIApplication.shared.open(URL(string:"sms:")!, options: [:], completionHandler: nil)
-//        }
-        
-//        let messageVC = MFMessageComposeViewController()
-//        
-//        messageVC.body = "Enter a message";
-//        messageVC.recipients = ["691487998"]
-//        messageVC.messageComposeDelegate = self;
-////        print(messageVC)
-//        self.present(messageVC, animated: true, completion: nil)
-        
-        
         if sendMoney.getLoadProcess() == 0 {
             let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.phoneNumber)
             let navigationController = UINavigationController(rootViewController: contactPickerScene)
             self.present(navigationController, animated: true, completion: nil)
-
-//            let cnPicker = CNContactPickerViewController()
-//            cnPicker.delegate = self
-//            self.present(cnPicker, animated: true, completion: nil)
         }
     }
     
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        switch (result.rawValue) {
-        case MessageComposeResult.cancelled.rawValue:
-            print("Message was cancelled")
-            self.dismiss(animated: true, completion: nil)
-        case MessageComposeResult.failed.rawValue:
-            print("Message failed")
-            self.dismiss(animated: true, completion: nil)
-        case MessageComposeResult.sent.rawValue:
-            print("Message was sent")
-            self.dismiss(animated: true, completion: nil)
-        default:
-            break;
-        }
-    }
-    
-
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -71,24 +36,6 @@ class TPPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageCom
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
-    }
-    
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        self.sendMoney.setLoadProcess(loadProcessValue: 0)
-        
-        switch (result.rawValue) {
-        case MessageComposeResult.cancelled.rawValue:
-            print("Message was cancelled")
-            self.dismiss(animated: true, completion: nil)
-        case MessageComposeResult.failed.rawValue:
-            print("Message failed")
-            self.dismiss(animated: true, completion: nil)
-        case MessageComposeResult.sent.rawValue:
-            print("Message was sent")
-            self.dismiss(animated: true, completion: nil)
-        default:
-            break;
-        }
     }
     
     func ContactPicker(_: ContactsPicker, didContactFetchFailed error : NSError)
@@ -120,18 +67,24 @@ class TPPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageCom
                 print("Second Button pressed")
                 
                 self.sendMoney.setLoadProcess(loadProcessValue: 1)
+                self.sendMoney.setOperationType(operationTypeValue: 2)
+                self.sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.displayName())
+                self.sendMoney.setphoneNumber(phoneNumberValue: contact.getPhoneNumber())
                 
+//                self.dismiss(animated: true, completion: {
+//                
+//                    if (MFMessageComposeViewController.canSendText()) {
+//                        let controller = MFMessageComposeViewController()
+//                        controller.body = "Enric Giribet te invita a que descarges PayPro App!!! http://www.payproapp.com "
+//                        controller.recipients = ["666395251"]
+//                        controller.messageComposeDelegate = self
+//                        self.present(controller, animated: true, completion: nil)
+//                    } else {
+//                        print("no puedo enviar SMS!!")
+//                    }
+//                })
                 self.dismiss(animated: true, completion: {
-                
-                    if (MFMessageComposeViewController.canSendText()) {
-                        let controller = MFMessageComposeViewController()
-                        controller.body = "Enric Giribet te invita a que descarges PayPro App!!! http://www.payproapp.com "
-                        controller.recipients = ["666395251"]
-                        controller.messageComposeDelegate = self
-                        self.present(controller, animated: true, completion: nil)
-                    } else {
-                        print("no puedo enviar SMS!!")
-                    }
+                    self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
                 })
             })
         
@@ -185,7 +138,7 @@ class TPPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageCom
 
 open class SendMoney {
     open var load_process: Int = 0 //0:initial load not active, 1:initial load active
-    open var operation_type: Int = 0 //0:bankTransfe, 1:sendMoneyIntraApp
+    open var operation_type: Int = 0 //0:bankTransfe, 1:sendMoneyIntraApp, 2:sendMoneyInvite
     open var amount: String?
     open var forename: String?
     open var lastname: String?
@@ -198,6 +151,7 @@ open class SendMoney {
     open var reason: String?
     open var reasonExplain: String?
     open var beneficiaryName: String?
+    open var phoneNumber: String?
     
     open func setLoadProcess(loadProcessValue: Int) {
         load_process = loadProcessValue
@@ -309,5 +263,13 @@ open class SendMoney {
     
     open func getBeneficiaryName() -> String {
         return beneficiaryName!
+    }
+    
+    open func setphoneNumber(phoneNumberValue: String) {
+        phoneNumber = phoneNumberValue
+    }
+    
+    open func getphoneNumber() -> String {
+        return phoneNumber!
     }
 }

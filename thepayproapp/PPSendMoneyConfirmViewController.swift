@@ -73,7 +73,7 @@ class PPSendMoneyConfirmViewController: UIViewController
         let labelBottom = UILabel()
         if sendMoney.getOperationType() == 0 {
             labelBottom.text = "sent to "+sendMoney.getForename()+" "+sendMoney.getLastname()
-        } else if sendMoney.getOperationType() == 1 {
+        } else if sendMoney.getOperationType() == 1 || sendMoney.getOperationType() == 2 {
             labelBottom.text = "sent to "+sendMoney.getBeneficiaryName()
         }        
         labelBottom.textAlignment = .center

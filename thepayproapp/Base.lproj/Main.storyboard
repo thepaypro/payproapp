@@ -693,8 +693,8 @@
                                                     <constraint firstAttribute="height" constant="60" id="ghC-Vd-yA2"/>
                                                 </constraints>
                                             </view>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Cell description which explains the consequences of the above action." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZA-xQ-cBq">
-                                                <rect key="frame" x="15" y="296" width="345" height="47.5"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZA-xQ-cBq">
+                                                <rect key="frame" x="15" y="296" width="345" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -821,6 +821,7 @@
                         <outlet property="swipeBaseBox" destination="084-Se-uD2" id="gXS-Ok-GYk"/>
                         <outlet property="swipeColorBox" destination="7FB-Ve-mIA" id="Pnx-Ow-KUy"/>
                         <outlet property="swipeImage" destination="C1e-5R-bU7" id="1lh-q3-xkF"/>
+                        <outlet property="textInfo" destination="XZA-xQ-cBq" id="EJ2-A1-EGJ"/>
                         <outlet property="thirdLabel" destination="DPY-EZ-uT2" id="Bcf-u3-1gh"/>
                         <segue destination="5NT-2W-7pg" kind="show" identifier="segueConfirmSendMoney" id="WjB-IF-zDW"/>
                     </connections>

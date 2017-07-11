@@ -11,7 +11,7 @@ import Foundation
 func checkContacts(contacts: Array<Any>, completion: @escaping (_ contactsResponse: NSDictionary) -> Void)
 {
     let callResponse = [
-        "691487998": [
+        "691 487 998": [
             "phonenumber": "+34691487998",
             "fullName": "Enric Giribet Usó",
             "isUser": "true"

@@ -63,12 +63,16 @@ class ContactCell: UITableViewCell {
         }
         
         //Check if contact is an PayPro user
-        let phoneNumbers = self.contact?.phoneNumbers.count as! Int
+        let phoneNumbers:Int = (self.contact?.phoneNumbers.count)!
         
         if phoneNumbers > 0 {
             let phoneNumber:String = (self.contact?.phoneNumbers[0].phoneNumber)!
+            contact.setPhoneNumber(phoneNumberValue: phoneNumber)
             
             if let validateContactRow = validateContacts.value(forKeyPath: phoneNumber) {
+                
+                let phoneNumberFromBackend = (validateContactRow as AnyObject).value(forKeyPath: "phonenumber") as! String
+                contact.setPhoneNumber(phoneNumberValue: phoneNumberFromBackend)
             
                 let isPayProUser = (validateContactRow as AnyObject).value(forKeyPath: "isUser") as! String
             

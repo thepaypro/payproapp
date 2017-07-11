@@ -23,7 +23,7 @@ open class Contact {
 //    open var emails = [(email: String, emailLabel: String )]()
     open var isPayProUser: Bool?
     open var beneficiaryName: String?
-    open var phoneNumberFromBackend: String?
+    open var phoneNumber: String?
     
     public init (contact: CNContact) {
         firstName = contact.givenName
@@ -98,6 +98,14 @@ open class Contact {
     
     open func getBeneficiaryName() -> String {
         return beneficiaryName!
+    }
+    
+    open func setPhoneNumber(phoneNumberValue: String) {
+        phoneNumber = phoneNumberValue
+    }
+    
+    open func getPhoneNumber() -> String {
+        return phoneNumber!
     }
 }
 
