@@ -39,16 +39,16 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
             Section()
             
             <<< TextRow() {
-                $0.tag = "address1"
-                $0.title = "Address 1"
+                $0.tag = "street"
+                $0.title = "Street"
                 $0.placeholder = "mandatory"
                 
                 $0.add(rule: RuleRequired())
             }
             
             <<< TextRow() {
-                $0.tag = "address2"
-                $0.title = "Address 2"
+                $0.tag = "buildingNumber"
+                $0.title = "Building number"
                 $0.placeholder = "mandatory"
                 
                 $0.add(rule: RuleRequired())
