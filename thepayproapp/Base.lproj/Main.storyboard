@@ -2610,7 +2610,7 @@ in ThePayPro</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteCheck" translatesAutoresizingMaskIntoConstraints="NO" id="cSp-It-bkI">
-                                        <rect key="frame" x="238" y="36" width="23" height="23"/>
+                                        <rect key="frame" x="238" y="28.5" width="23" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="23" id="XWf-PC-gFJ"/>
                                             <constraint firstAttribute="height" constant="23" id="jZh-Y3-22n"/>
@@ -2645,7 +2645,6 @@ in ThePayPro</string>
                                     <constraint firstItem="doB-xL-Yvh" firstAttribute="leading" secondItem="k31-Uq-Ch6" secondAttribute="leading" id="FGr-xa-qQB"/>
                                     <constraint firstItem="UHw-AN-P2j" firstAttribute="top" secondItem="k31-Uq-Ch6" secondAttribute="top" constant="18" id="ID1-tp-eM6"/>
                                     <constraint firstItem="oNn-hj-0r9" firstAttribute="leading" secondItem="k31-Uq-Ch6" secondAttribute="leading" id="Uaf-7t-TCC"/>
-                                    <constraint firstItem="cSp-It-bkI" firstAttribute="bottom" secondItem="UHw-AN-P2j" secondAttribute="bottom" constant="12" id="V5b-bE-GCd"/>
                                     <constraint firstItem="doB-xL-Yvh" firstAttribute="top" secondItem="oNn-hj-0r9" secondAttribute="bottom" id="b1R-gW-beS"/>
                                     <constraint firstItem="oNn-hj-0r9" firstAttribute="top" secondItem="k31-Uq-Ch6" secondAttribute="top" id="daZ-sc-hEs"/>
                                     <constraint firstItem="FzR-MY-StS" firstAttribute="leading" secondItem="UHw-AN-P2j" secondAttribute="leading" id="ef9-tg-9iu"/>
@@ -2655,6 +2654,7 @@ in ThePayPro</string>
                                     <constraint firstItem="UHw-AN-P2j" firstAttribute="leading" secondItem="k31-Uq-Ch6" secondAttribute="leading" constant="22" id="rCi-EY-ca8"/>
                                     <constraint firstAttribute="height" constant="80" id="tUi-8V-5z0"/>
                                     <constraint firstAttribute="trailing" secondItem="doB-xL-Yvh" secondAttribute="trailing" id="xYG-Bj-LkG"/>
+                                    <constraint firstItem="cSp-It-bkI" firstAttribute="centerY" secondItem="oNn-hj-0r9" secondAttribute="centerY" id="yA1-X5-pye"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hS-Gm-Ylg">
@@ -2679,7 +2679,7 @@ in ThePayPro</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteCheck" translatesAutoresizingMaskIntoConstraints="NO" id="axu-Bu-a06">
-                                        <rect key="frame" x="238" y="36" width="23" height="23"/>
+                                        <rect key="frame" x="238" y="28.5" width="23" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="C0B-gW-RXo"/>
                                             <constraint firstAttribute="width" constant="23" id="aH8-rp-ngf"/>
@@ -2712,9 +2712,9 @@ in ThePayPro</string>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="KZY-be-bVG" secondAttribute="bottom" id="1bN-Yg-gD2"/>
                                     <constraint firstItem="KZY-be-bVG" firstAttribute="leading" secondItem="2hS-Gm-Ylg" secondAttribute="leading" id="DE1-ol-mdz"/>
-                                    <constraint firstItem="axu-Bu-a06" firstAttribute="bottom" secondItem="bto-cd-IQF" secondAttribute="bottom" constant="12" id="For-UL-Lxe"/>
                                     <constraint firstItem="bto-cd-IQF" firstAttribute="top" secondItem="2hS-Gm-Ylg" secondAttribute="top" constant="18" id="FwD-uE-97R"/>
                                     <constraint firstItem="hZR-Yt-ll6" firstAttribute="top" secondItem="bto-cd-IQF" secondAttribute="bottom" id="Hqj-GD-M6y"/>
+                                    <constraint firstItem="axu-Bu-a06" firstAttribute="centerY" secondItem="gud-3B-bZp" secondAttribute="centerY" id="SMs-dA-SO7"/>
                                     <constraint firstItem="gud-3B-bZp" firstAttribute="leading" secondItem="2hS-Gm-Ylg" secondAttribute="leading" id="UaO-H9-pl8"/>
                                     <constraint firstAttribute="height" constant="267" id="UnD-yc-HMW"/>
                                     <constraint firstAttribute="trailing" secondItem="gud-3B-bZp" secondAttribute="trailing" id="V4G-Y9-wsV"/>
