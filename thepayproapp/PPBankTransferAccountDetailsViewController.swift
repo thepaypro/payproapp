@@ -10,6 +10,8 @@ import UIKit
 
 class PPBankTransferAccountDetailsViewController: UIViewController
 {
+    var sendMoney = SendMoney()
+    
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var accountField: UITextField!
     @IBOutlet weak var ibanLabel: UILabel!
@@ -49,6 +51,12 @@ class PPBankTransferAccountDetailsViewController: UIViewController
     {
         super.viewDidLoad()
         
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        accountField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
+        shortcodeField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
+        ibanField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
+        bicField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
+        
         if segmentControlField.selectedSegmentIndex == 0 {
             self.accountLabel.isHidden = false
             self.accountField.isHidden = false
@@ -78,18 +86,42 @@ class PPBankTransferAccountDetailsViewController: UIViewController
         layerTop.fillColor = PayProColors.line.cgColor
         self.accountView.layer.addSublayer(layerTop)
 
-        let borderMiddle = UIBezierPath(rect: CGRect(x: 15, y: 42, width: self.view.frame.width, height: 0.4))
+        let borderMiddle = UIBezierPath(rect: CGRect(x: 15, y: 42.6, width: self.view.frame.width, height: 0.4))
         let layerMiddle = CAShapeLayer()
         layerMiddle.path = borderMiddle.cgPath
         layerMiddle.fillColor = PayProColors.line.cgColor
         self.accountView.layer.addSublayer(layerMiddle)
         
-        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: 41.5, width: self.view.frame.width, height: 0.4))
+        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: 41.6, width: self.view.frame.width, height: 0.4))
         let layerBottom = CAShapeLayer()
         layerBottom.path = borderBottom.cgPath
         layerBottom.fillColor = PayProColors.line.cgColor
         self.bicView.layer.addSublayer(layerBottom)
 
+    }
+    
+    func checkNavigation() {
+        if segmentControlField.selectedSegmentIndex == 0 && accountField.text != "" && shortcodeField.text != "" {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+            sendMoney.setAccountDetailsType(accountDetailsTypeValue: 0)
+            sendMoney.setAccountNumber(accountNumberValue: self.accountField.text!)
+            sendMoney.setShortcode(shortcodeValue: self.shortcodeField.text!)
+            
+            sendMoney.setIban(ibanValue: "")
+            sendMoney.setBic(bicValue: "")
+            
+        } else if segmentControlField.selectedSegmentIndex == 1 && ibanField.text != "" && bicField.text != "" {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+            sendMoney.setAccountDetailsType(accountDetailsTypeValue: 1)
+            sendMoney.setIban(ibanValue: self.ibanField.text!)
+            sendMoney.setBic(bicValue: self.bicField.text!)
+            
+            sendMoney.setAccountNumber(accountNumberValue: "")
+            sendMoney.setShortcode(shortcodeValue: "")
+            
+        } else {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,6 +133,17 @@ class PPBankTransferAccountDetailsViewController: UIViewController
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "reasonSegue"
+        {
+            let reasonVC : TPPBankTransfeReferenceViewController = segue.destination as! TPPBankTransfeReferenceViewController
+            reasonVC.sendMoney = sendMoney
+        }
     }
     
 }

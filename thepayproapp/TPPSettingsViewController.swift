@@ -24,7 +24,7 @@ class TPPSettingsViewController: UIViewController {
         nameLayerTop.fillColor = PayProColors.line.cgColor
         self.nameView.layer.addSublayer(nameLayerTop)
         
-        let nameBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 75.5, width: self.view.frame.width, height: 0.4))
+        let nameBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 75.6, width: self.view.frame.width, height: 0.4))
         let nameLayerBottom = CAShapeLayer()
         nameLayerBottom.path = nameBorderBottom.cgPath
         nameLayerBottom.fillColor = PayProColors.line.cgColor
@@ -37,13 +37,13 @@ class TPPSettingsViewController: UIViewController {
         cardLayerTop.fillColor = PayProColors.line.cgColor
         self.cardView.layer.addSublayer(cardLayerTop)
         
-        let cardBorderMiddle = UIBezierPath(rect: CGRect(x: 58, y: 43.5, width: self.view.frame.width, height: 0.4))
+        let cardBorderMiddle = UIBezierPath(rect: CGRect(x: 58, y: 43.6, width: self.view.frame.width, height: 0.4))
         let cardLayerMiddle = CAShapeLayer()
         cardLayerMiddle.path = cardBorderMiddle.cgPath
         cardLayerMiddle.fillColor = PayProColors.line.cgColor
         self.cardView.layer.addSublayer(cardLayerMiddle)
         
-        let cardBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 87.5, width: self.view.frame.width, height: 0.4))
+        let cardBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 87.6, width: self.view.frame.width, height: 0.4))
         let cardLayerBottom = CAShapeLayer()
         cardLayerBottom.path = cardBorderBottom.cgPath
         cardLayerBottom.fillColor = PayProColors.line.cgColor
@@ -56,7 +56,7 @@ class TPPSettingsViewController: UIViewController {
         upgradeLayerTop.fillColor = PayProColors.line.cgColor
         self.upgradeView.layer.addSublayer(upgradeLayerTop)
         
-        let upgradeBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 43.5, width: self.view.frame.width, height: 0.4))
+        let upgradeBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
         let upgradeLayerBottom = CAShapeLayer()
         upgradeLayerBottom.path = upgradeBorderBottom.cgPath
         upgradeLayerBottom.fillColor = PayProColors.line.cgColor
@@ -69,19 +69,19 @@ class TPPSettingsViewController: UIViewController {
         infoLayerTop.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayerTop)
         
-        let infoBorderMiddle = UIBezierPath(rect: CGRect(x: 0, y: 43.5, width: self.view.frame.width, height: 0.4))
+        let infoBorderMiddle = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
         let infoLayerMiddle = CAShapeLayer()
         infoLayerMiddle.path = infoBorderMiddle.cgPath
         infoLayerMiddle.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayerMiddle)
         
-        let infoBorderMiddleB = UIBezierPath(rect: CGRect(x: 0, y: 87.5, width: self.view.frame.width, height: 0.4))
+        let infoBorderMiddleB = UIBezierPath(rect: CGRect(x: 0, y: 87.6, width: self.view.frame.width, height: 0.4))
         let infoLayerMiddleB = CAShapeLayer()
         infoLayerMiddleB.path = infoBorderMiddleB.cgPath
         infoLayerMiddleB.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayerMiddleB)
         
-        let infoBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 131.5, width: self.view.frame.width, height: 0.4))
+        let infoBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 131.6, width: self.view.frame.width, height: 0.4))
         let infoLayerBottom = CAShapeLayer()
         infoLayerBottom.path = infoBorderBottom.cgPath
         infoLayerBottom.fillColor = PayProColors.line.cgColor

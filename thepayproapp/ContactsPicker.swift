@@ -42,6 +42,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
     var resultSearchController = UISearchController()
     var orderedContacts = [String: [CNContact]]() //Contacts ordered in dicitonary alphabetically
     var sortedContactKeys = [String]()
+    var validateContacts = NSDictionary() //Contacts received from backend before checked
     
     var selectedContacts = [Contact]()
     var filteredContacts = [CNContact]()
@@ -209,10 +210,29 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                     self.sortedContactKeys.removeFirst()
                     self.sortedContactKeys.append("#")
                 }
+                
+                //make phonenumber array to send back for check if phone is app user
+                var phoneNumberArray = [String]()
+                
+                for c in contactsArray {
+                    for phoneNumber in c.phoneNumbers {
+                        phoneNumberArray.append(phoneNumber.value.stringValue)
+                    }
+                }
+
+                checkContacts(contacts: phoneNumberArray, completion: {contactsResponse in
+                    if contactsResponse.count > 0 {
+                        print("success check contacts")
+                        self.validateContacts = contactsResponse
+                    } else {
+                        print("check contacts FAILED")
+                    }
+                })
 
                 completion(contactsArray, nil)
             }
-                //Catching exception as enumerateContactsWithFetchRequest can throw errors
+                
+            //Catching exception as enumerateContactsWithFetchRequest can throw errors
             catch let error as NSError {
                 print(error.localizedDescription)
             }
@@ -233,6 +253,13 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                 CNContactPhoneNumbersKey as CNKeyDescriptor,
                 CNContactEmailAddressesKey as CNKeyDescriptor,
         ]
+//        return [CNContactNamePrefixKey as CNKeyDescriptor,
+//                CNContactGivenNameKey as CNKeyDescriptor,
+//                CNContactImageDataKey as CNKeyDescriptor,
+//                CNContactThumbnailImageDataKey as CNKeyDescriptor,
+//                CNContactImageDataAvailableKey as CNKeyDescriptor,
+//                CNContactPhoneNumbersKey as CNKeyDescriptor,
+//        ]
     }
     
     // MARK: - Table View DataSource
@@ -265,15 +292,15 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                 assertionFailure()
                 return UITableViewCell()
             }
-            
+
             contact = Contact(contact: contactsForSection[(indexPath as NSIndexPath).row])
         }
         
         if multiSelectEnabled  && selectedContacts.contains(where: { $0.contactId == contact.contactId }) {
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }
-        
-        cell.updateContactsinUI(contact, indexPath: indexPath, subtitleType: subtitleCellValue)
+//        print("contacto: \(contact)")
+        cell.updateContactsinUI(contact, validateContacts: self.validateContacts, indexPath: indexPath, subtitleType: subtitleCellValue)
         return cell
     }
     
@@ -298,12 +325,6 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
             //Single selection code
             resultSearchController.isActive = false
             self.contactDelegate?.ContactPicker(self, didSelectContact: selectedContact)
-            
-//            self.dismiss(animated: true, completion: {
-//                DispatchQueue.main.async {
-//                    self.contactDelegate?.ContactPicker(self, didSelectContact: selectedContact)
-//                }
-//            })
         }
     }
     
@@ -357,12 +378,9 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
             
             let store = CNContactStore()
             do {
-                filteredContacts = try store.unifiedContacts(matching: predicate,
-                                                             keysToFetch: allowedContactKeys())
-                print("\(filteredContacts.count) count")
+                filteredContacts = try store.unifiedContacts(matching: predicate, keysToFetch: allowedContactKeys())
                 
                 self.tableView.reloadData()
-                
             }
             catch {
                 print("Error!")

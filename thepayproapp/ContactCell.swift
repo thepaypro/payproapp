@@ -44,11 +44,13 @@ class ContactCell: UITableViewCell {
         contactInitialLabel.backgroundColor = colorArray[randomValue]
     }
     
-    func updateContactsinUI(_ contact: Contact, indexPath: IndexPath, subtitleType: SubtitleCellValue) {
+    func updateContactsinUI(_ contact: Contact, validateContacts: NSDictionary, indexPath: IndexPath, subtitleType: SubtitleCellValue) {
         self.contact = contact
+        
         //Update all UI in the cell here
         self.contactTextLabel?.text = contact.displayName()
         updateSubtitleBasedonType(subtitleType, contact: contact)
+        
         if contact.thumbnailProfileImage != nil {
             self.contactImageView?.image = contact.thumbnailProfileImage
             self.contactImageView.isHidden = false
@@ -59,13 +61,48 @@ class ContactCell: UITableViewCell {
             self.contactImageView.isHidden = true
             self.contactInitialLabel.isHidden = false
         }
+        
+        //Check if contact is an PayPro user
+        let phoneNumbers:Int = (self.contact?.phoneNumbers.count)!
+        
+        if phoneNumbers > 0 {
+            let phoneNumber:String = (self.contact?.phoneNumbers[0].phoneNumber)!
+            contact.setPhoneNumber(phoneNumberValue: phoneNumber)
+            
+            if let validateContactRow = validateContacts.value(forKeyPath: phoneNumber) {
+                
+                let phoneNumberFromBackend = (validateContactRow as AnyObject).value(forKeyPath: "phonenumber") as! String
+                contact.setPhoneNumber(phoneNumberValue: phoneNumberFromBackend)
+            
+                let isPayProUser = (validateContactRow as AnyObject).value(forKeyPath: "isUser") as! String
+            
+                if isPayProUser == "true" {
+                    contact.setIsPayProUser(value: true)
+                
+                    let beneficiaryName = (validateContactRow as AnyObject).value(forKeyPath: "fullName") as! String
+                    contact.setBeneficiaryName(beneficiaryNameValue: beneficiaryName)
+                
+                    self.imagePayProUser.isHidden = false
+                } else {
+                    contact.setIsPayProUser(value: false)
+                    self.imagePayProUser.isHidden = true
+                }
+            } else {
+                contact.setIsPayProUser(value: false)
+                self.imagePayProUser.isHidden = true
+            }
+        } else {
+            contact.setIsPayProUser(value: false)
+            self.imagePayProUser.isHidden = true
+        }
     }
-    
+
     func updateSubtitleBasedonType(_ subtitleType: SubtitleCellValue , contact: Contact) {
         
-        switch subtitleType {
-            
-        case SubtitleCellValue.phoneNumber:
+//        switch subtitleType {
+//            
+//        case SubtitleCellValue.phoneNumber:
+        if subtitleType == SubtitleCellValue.phoneNumber {
             let phoneNumberCount = contact.phoneNumbers.count
             
             if phoneNumberCount == 1  {
@@ -77,23 +114,24 @@ class ContactCell: UITableViewCell {
             else {
                 self.contactDetailTextLabel.text = GlobalConstants.Strings.phoneNumberNotAvaialable
             }
-        case SubtitleCellValue.email:
-            let emailCount = contact.emails.count
-            
-            if emailCount == 1  {
-                self.contactDetailTextLabel.text = "\(contact.emails[0].email)"
-            }
-            else if emailCount > 1 {
-                self.contactDetailTextLabel.text = "\(contact.emails[0].email) and \(contact.emails.count-1) more"
-            }
-            else {
-                self.contactDetailTextLabel.text = GlobalConstants.Strings.emailNotAvaialable
-            }
-        case SubtitleCellValue.birthday:
-            self.contactDetailTextLabel.text = contact.birthdayString
-        case SubtitleCellValue.organization:
-            self.contactDetailTextLabel.text = contact.company
         }
+//        case SubtitleCellValue.email:
+////            let emailCount = contact.emails.count
+////            
+////            if emailCount == 1  {
+////                self.contactDetailTextLabel.text = "\(contact.emails[0].email)"
+////            }
+////            else if emailCount > 1 {
+////                self.contactDetailTextLabel.text = "\(contact.emails[0].email) and \(contact.emails.count-1) more"
+////            }
+////            else {
+////                self.contactDetailTextLabel.text = GlobalConstants.Strings.emailNotAvaialable
+////            }
+//        case SubtitleCellValue.birthday:
+////            self.contactDetailTextLabel.text = contact.birthdayString
+//        case SubtitleCellValue.organization:
+////            self.contactDetailTextLabel.text = contact.company
+//        }
     }
 }
 

@@ -26,7 +26,7 @@ class PPProfileViewController: UIViewController
         avatarLayerTop.fillColor = PayProColors.line.cgColor
         self.avatarView.layer.addSublayer(avatarLayerTop)
         
-        let avatarBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 75.5, width: self.view.frame.width, height: 0.4))
+        let avatarBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 75.6, width: self.view.frame.width, height: 0.4))
         let avatarLayerBottom = CAShapeLayer()
         avatarLayerBottom.path = avatarBorderBottom.cgPath
         avatarLayerBottom.fillColor = PayProColors.line.cgColor
@@ -39,7 +39,7 @@ class PPProfileViewController: UIViewController
         nameLayerTop.fillColor = PayProColors.line.cgColor
         self.nameView.layer.addSublayer(nameLayerTop)
         
-        let nameBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 43.5, width: self.view.frame.width, height: 0.4))
+        let nameBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
         let nameLayerBottom = CAShapeLayer()
         nameLayerBottom.path = nameBorderBottom.cgPath
         nameLayerBottom.fillColor = PayProColors.line.cgColor
@@ -52,7 +52,7 @@ class PPProfileViewController: UIViewController
         nationalLayerTop.fillColor = PayProColors.line.cgColor
         self.nationalView.layer.addSublayer(nationalLayerTop)
         
-        let nationalBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 43.5, width: self.view.frame.width, height: 0.4))
+        let nationalBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
         let nationalLayerBottom = CAShapeLayer()
         nationalLayerBottom.path = nationalBorderBottom.cgPath
         nationalLayerBottom.fillColor = PayProColors.line.cgColor
@@ -65,7 +65,7 @@ class PPProfileViewController: UIViewController
         addressLayerTop.fillColor = PayProColors.line.cgColor
         self.addressView.layer.addSublayer(addressLayerTop)
         
-        let addressBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 119.5, width: self.view.frame.width, height: 0.4))
+        let addressBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 119.6, width: self.view.frame.width, height: 0.4))
         let addressLayerBottom = CAShapeLayer()
         addressLayerBottom.path = addressBorderBottom.cgPath
         addressLayerBottom.fillColor = PayProColors.line.cgColor
@@ -78,13 +78,13 @@ class PPProfileViewController: UIViewController
         infoLayerTop.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayerTop)
         
-        let infoBorderMiddle = UIBezierPath(rect: CGRect(x: 15, y: 43.5, width: self.view.frame.width, height: 0.4))
+        let infoBorderMiddle = UIBezierPath(rect: CGRect(x: 15, y: 43.6, width: self.view.frame.width, height: 0.4))
         let infoLayerMiddle = CAShapeLayer()
         infoLayerMiddle.path = infoBorderMiddle.cgPath
         infoLayerMiddle.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayerMiddle)
         
-        let infoBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 87.5, width: self.view.frame.width, height: 0.4))
+        let infoBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 87.6, width: self.view.frame.width, height: 0.4))
         let infoLayerBottom = CAShapeLayer()
         infoLayerBottom.path = infoBorderBottom.cgPath
         infoLayerBottom.fillColor = PayProColors.line.cgColor

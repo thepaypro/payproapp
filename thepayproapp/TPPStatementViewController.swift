@@ -12,6 +12,7 @@ class TPPStatementViewController: UIViewController {
 
     @IBOutlet weak var viewPickerStarts: UIView!
     @IBOutlet weak var datePickerStarts: UIDatePicker!
+    @IBOutlet weak var viewStarts: UIView!
     @IBOutlet weak var viewEnds: UIView!
     
     @IBAction func buttonStarts(_ sender: Any) {
@@ -40,6 +41,11 @@ class TPPStatementViewController: UIViewController {
         datePickerStarts.addTarget(self, action: #selector(dateStartChanged(_:)), for: .valueChanged)
         datePickerEnds.addTarget(self, action: #selector(dateEndChanged(_:)), for: .valueChanged)
         
+        let viewStartsBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
+        let viewStartsLayerTop = CAShapeLayer()
+        viewStartsLayerTop.path = viewStartsBorderTop.cgPath
+        viewStartsLayerTop.fillColor = PayProColors.line.cgColor
+        self.viewStarts.layer.addSublayer(viewStartsLayerTop)
         
         let endsBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
         let endsLayerTop = CAShapeLayer()
