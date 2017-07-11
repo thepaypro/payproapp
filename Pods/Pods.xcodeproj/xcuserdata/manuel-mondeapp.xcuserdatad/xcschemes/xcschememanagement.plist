@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Eureka.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-thepayproapp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3464010695E0F29931AAEFBC109C68B3</key>
+		<key>4E2E3154E32899983F12F5849118F098</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC7AE82AA79A9B1EC03F315AB36396BC</key>
+		<key>675A114988AE198732ED4AD726408964</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DE59FA8AF05A6E0CF335E857F9051D8C</key>
+		<key>86A732DCD5C6573D45C77D7A7D8D02AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B9E458EA623B6A3E352BB11E446049C6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

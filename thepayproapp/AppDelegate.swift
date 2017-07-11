@@ -22,14 +22,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let entryNavigationController = storyboard.instantiateViewController(withIdentifier: "TPPEntryNavigationController")
-        let entryNavigationController = storyboard.instantiateViewController(withIdentifier: "PPTabBar")
+//        let entryNavigationController = storyboard.instantiateViewController(withIdentifier: "PPEntryNavigationController")
+        let entryNavigationController = storyboard.instantiateViewController(withIdentifier: "PPTABBAR")
         
         var rootController = entryNavigationController
         
         if User.currentUser() != nil
         {
-            rootController = TPPTabBarController()
+            let passcodeVC : PPPasscodeViewController = storyboard.instantiateViewController(withIdentifier: "PPPasscodeViewController") as! PPPasscodeViewController
+            passcodeVC.userUsername = User.currentUser()?.username
+            
+            let passcodeNC = UINavigationController.init(rootViewController: passcodeVC)
+            Utils.navigationBarToPayProStyle(navigationBar: passcodeNC.navigationBar)
+            rootController = passcodeNC
         }
         
         // Make the Tab Bar Controller the root view controller

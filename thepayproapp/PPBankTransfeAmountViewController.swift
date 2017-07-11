@@ -48,7 +48,7 @@ class PPBankTransfeAmountViewController: UIViewController
         
         if segue.identifier == "beneficiaryNameSegue"
         {
-            let beneficiaryNameVC : TPPBankTransfeViewController = segue.destination as! TPPBankTransfeViewController
+            let beneficiaryNameVC : PPBankTransfeViewController = segue.destination as! PPBankTransfeViewController
             beneficiaryNameVC.sendMoney = sendMoney
         }
     }

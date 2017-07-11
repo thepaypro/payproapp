@@ -141,7 +141,7 @@ class PPBankTransferAccountDetailsViewController: UIViewController
         
         if segue.identifier == "reasonSegue"
         {
-            let reasonVC : TPPBankTransfeReferenceViewController = segue.destination as! TPPBankTransfeReferenceViewController
+            let reasonVC : PPBankTransfeReferenceViewController = segue.destination as! PPBankTransfeReferenceViewController
             reasonVC.sendMoney = sendMoney
         }
     }

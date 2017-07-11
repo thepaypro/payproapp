@@ -36,7 +36,7 @@ public class User: NSManagedObject
     {
         var user : User?
         
-        if let userID = userDictionary.value(forKeyPath: "user.id")! as? Int64
+        if let userID = userDictionary.value(forKeyPath: "id")! as? Int64
         {
             let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
             

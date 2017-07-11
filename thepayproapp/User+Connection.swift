@@ -26,8 +26,11 @@ extension User {
         print(paramsDictionary)
         
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "register/", completion: {completionDictionary in
-            let registeredUser = self.manage(userDictionary: completionDictionary)
-            completion(registeredUser != nil)
+            if let userDictionary = completionDictionary["user"]
+            {
+                let registeredUser = self.manage(userDictionary: userDictionary as! NSDictionary)
+                completion(registeredUser != nil)
+            }
         })
     }
     
@@ -46,8 +49,11 @@ extension User {
             ] as [String : Any]
         
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "login_check", completion: {completionDictionary in
-            let loggedUser = self.manage(userDictionary: completionDictionary)
-            completion(loggedUser != nil)
+            if let userDictionary = completionDictionary["user"]
+            {
+                let loggedUser = self.manage(userDictionary: userDictionary as! NSDictionary)
+                completion(loggedUser != nil)
+            }
         })
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TPPBankTransfeReferenceViewController: UIViewController, ReferenceViewControllerDelegate
+class PPBankTransfeReferenceViewController: UIViewController, ReferenceViewControllerDelegate
 {
     var sendMoney = SendMoney()
     
