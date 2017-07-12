@@ -71,7 +71,7 @@ public class User: NSManagedObject
     
     class func update(user: User, attributesDictionary: NSDictionary)
     {
-        let accountTypeId: Int16? = attributesDictionary.object(forKey: "account_type_id") as? Int16
+        var accountTypeId: Int16? = attributesDictionary.object(forKey: "account_type_id") as? Int16
         let cardHolderId: Int64? = attributesDictionary.object(forKey: "card_holder_id") as? Int64
         let dob: NSDate? = attributesDictionary.object(forKey: "dob") as? NSDate
         let documentNumber: String? = attributesDictionary.object(forKey: "document_number") as? String
@@ -92,9 +92,22 @@ public class User: NSManagedObject
             return
         }
         
+        // Static account type setting
+        // TO-DO: Fetch from WS
+        accountTypeId = 1
+        
         if accountTypeId != nil
         {
-            user.setValue(accountTypeId, forKeyPath: "accountTypeId")
+            user.accountType = .demoAccount
+            
+            if accountTypeId == 1
+            {
+                user.accountType = .basicAccount
+            }
+            else if accountTypeId == 2
+            {
+                user.accountType = .proAccount
+            }
         }
         
         if cardHolderId != nil

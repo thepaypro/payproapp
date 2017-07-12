@@ -15,6 +15,14 @@ extension User {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
         return NSFetchRequest<User>(entityName: "User")
     }
+    
+    @objc enum AccountType: Int32
+    {
+        case demoAccount = 0
+        case basicAccount = 1
+        case proAccount = 2
+    }
+    @NSManaged var accountType: AccountType
 
     @NSManaged public var accountTypeId: Int16
     @NSManaged public var cardHolderId: Int64
