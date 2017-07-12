@@ -72,6 +72,7 @@ public class User: NSManagedObject
     class func update(user: User, attributesDictionary: NSDictionary)
     {
         var accountTypeId: Int16? = attributesDictionary.object(forKey: "account_type_id") as? Int16
+        var cardStatusId: Int16? = attributesDictionary.object(forKey: "card_status_id") as? Int16
         let cardHolderId: Int64? = attributesDictionary.object(forKey: "card_holder_id") as? Int64
         let dob: NSDate? = attributesDictionary.object(forKey: "dob") as? NSDate
         let documentNumber: String? = attributesDictionary.object(forKey: "document_number") as? String
@@ -107,6 +108,24 @@ public class User: NSManagedObject
             else if accountTypeId == 2
             {
                 user.accountType = .proAccount
+            }
+        }
+        
+        // Static card status setting
+        // TO-DO: Fetch from WS
+        cardStatusId = 1
+        
+        if cardStatusId != nil
+        {
+            user.cardStatus = .notOrdered
+            
+            if cardStatusId == 1
+            {
+                user.cardStatus = .ordered
+            }
+            else if cardStatusId == 2
+            {
+                user.cardStatus = .activated
             }
         }
         

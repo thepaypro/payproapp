@@ -23,6 +23,14 @@ extension User {
         case proAccount = 2
     }
     @NSManaged var accountType: AccountType
+    
+    @objc enum CardStatus: Int32
+    {
+        case notOrdered = 0
+        case ordered = 1
+        case activated = 2
+    }
+    @NSManaged var cardStatus: CardStatus
 
     @NSManaged public var accountTypeId: Int16
     @NSManaged public var cardHolderId: Int64
