@@ -16,12 +16,36 @@ class PPTabBarController: UITabBarController
         
         self.setTabView()
 
+        self.setTabControllers()
+        
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setTabControllers()
+    {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        // create view controllers from storyboard
+        let supportNC = storyboard.instantiateViewController(withIdentifier: "PPSupportNavigationController")
+        let groupsNC = storyboard.instantiateViewController(withIdentifier: "PPGroupsNavigationController")
+        let sendNC = storyboard.instantiateViewController(withIdentifier: "PPSendMoneyNavigationController")
+        
+        let userAccountType = User.currentUser()?.accountType
+        var accountNC = storyboard.instantiateViewController(withIdentifier: "PPAccountNavigationController")
+        
+        if userAccountType == .demoAccount
+        {
+            accountNC = storyboard.instantiateViewController(withIdentifier: "PPDemoAccountNavigationController")
+        }
+        
+        let settingsNC = storyboard.instantiateViewController(withIdentifier: "PPSettingsNavigationController")
+        
+        self.viewControllers = [supportNC, groupsNC, sendNC, accountNC, settingsNC]
     }
     
     func setTabView()
