@@ -2322,8 +2322,8 @@
                         <constraints>
                             <constraint firstItem="Cnl-2E-bbH" firstAttribute="top" secondItem="JTK-E3-rGD" secondAttribute="bottom" id="Idj-Ta-AoG"/>
                             <constraint firstItem="QkO-TL-f19" firstAttribute="top" secondItem="Cnl-2E-bbH" secondAttribute="bottom" id="KLU-3S-45W"/>
-                            <constraint firstItem="Cnl-2E-bbH" firstAttribute="leading" secondItem="y6G-X4-yVM" secondAttribute="leadingMargin" constant="-16" id="jgA-MX-Pw9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Cnl-2E-bbH" secondAttribute="trailing" constant="-16" id="jsw-Zf-Dg9"/>
+                            <constraint firstItem="Cnl-2E-bbH" firstAttribute="centerX" secondItem="y6G-X4-yVM" secondAttribute="centerX" id="OgT-oi-ePW"/>
+                            <constraint firstItem="Cnl-2E-bbH" firstAttribute="width" secondItem="y6G-X4-yVM" secondAttribute="width" id="RLB-Q3-uoF"/>
                         </constraints>
                     </view>
                     <connections>
@@ -3402,9 +3402,9 @@ in ThePayPro</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LrV-pm-RZ4" firstAttribute="top" secondItem="1yC-fr-uA7" secondAttribute="bottom" id="K6E-9d-l5J"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1yC-fr-uA7" secondAttribute="trailing" constant="-16" id="SxH-Vq-pAK"/>
+                            <constraint firstItem="1yC-fr-uA7" firstAttribute="centerX" secondItem="4J9-f6-7R3" secondAttribute="centerX" id="LHm-L6-61w"/>
                             <constraint firstItem="1yC-fr-uA7" firstAttribute="top" secondItem="FgG-Bo-78A" secondAttribute="bottom" id="cDc-8H-xaL"/>
-                            <constraint firstItem="1yC-fr-uA7" firstAttribute="leading" secondItem="4J9-f6-7R3" secondAttribute="leadingMargin" constant="-16" id="m0f-us-bLR"/>
+                            <constraint firstItem="1yC-fr-uA7" firstAttribute="width" secondItem="4J9-f6-7R3" secondAttribute="width" id="ky5-Gl-TKd"/>
                         </constraints>
                     </view>
                     <connections>
