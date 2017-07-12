@@ -34,7 +34,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                 // if view displaced more or equal to 80% set complete 100%
                 if self.swipeColorBox.center.x >= self.swipeBaseBox.center.x * 0.80 {
                     animateSwipe(position: self.swipeBaseBox.center.x)
-                    vibrateDevice()
+//                    vibrateDevice()
                     goToConfirm()
                 } else {
                     animateSwipe(position: swipeColorBoxCenterX)
@@ -158,7 +158,10 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
             let confirmViewController = PPSendMoneyConfirmViewController()
             confirmViewController.modalTransitionStyle = .crossDissolve
             confirmViewController.sendMoney = sendMoney
-            self.present(confirmViewController, animated: true, completion: nil)
+            self.present(confirmViewController, animated: true, completion: {
+                self.tabBarController?.selectedIndex = 3
+                self.vibrateDevice()
+            })
             
         } else if sendMoney.getOperationType() == 2 {
             if (MFMessageComposeViewController.canSendText()) {
@@ -179,24 +182,36 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         switch (result.rawValue) {
         case MessageComposeResult.cancelled.rawValue:
             print("Message was cancelled")
+            animateSwipe(position: swipeColorBoxCenterX)
             self.dismiss(animated: true, completion: {
-                let confirmViewController = PPSendMoneyConfirmViewController()
-                confirmViewController.modalTransitionStyle = .crossDissolve
-                confirmViewController.sendMoney = self.sendMoney
-                self.present(confirmViewController, animated: true, completion: {
-                    self.tabBarController?.selectedIndex = 3
-                })
+                let alert = UIAlertController(title: "iMessage Cancelled", message: "Swipe against and send imessage for complete invite send money", preferredStyle: UIAlertControllerStyle.alert)
+                let confirmAction = UIAlertAction(title: "Ok", style: .default)
+                
+                alert.addAction(confirmAction)
+                
+                self.present(alert, animated: true, completion: nil)
             })
         case MessageComposeResult.failed.rawValue:
             print("Message failed")
-            self.dismiss(animated: true, completion: nil)
+            animateSwipe(position: swipeColorBoxCenterX)
+            self.dismiss(animated: true, completion: {
+                let alert = UIAlertController(title: "iMessage Failed", message: "Swipe against and send imessage for complete invite send money", preferredStyle: UIAlertControllerStyle.alert)
+                let confirmAction = UIAlertAction(title: "Ok", style: .default)
+                
+                alert.addAction(confirmAction)
+                
+                self.present(alert, animated: true, completion: nil)
+            })
         case MessageComposeResult.sent.rawValue:
             print("Message was sent")
             self.dismiss(animated: true, completion: {
                 let confirmViewController = PPSendMoneyConfirmViewController()
                 confirmViewController.modalTransitionStyle = .crossDissolve
                 confirmViewController.sendMoney = self.sendMoney
-                self.present(confirmViewController, animated: true, completion: nil)
+                self.present(confirmViewController, animated: true, completion: {
+                    self.vibrateDevice()
+                    self.tabBarController?.selectedIndex = 3
+                })
             })
 
         default:
