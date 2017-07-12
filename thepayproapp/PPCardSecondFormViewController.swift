@@ -27,11 +27,13 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
         
         let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
         self.navigationItem.rightBarButtonItem = nextButton
+        nextButton.isEnabled = false
         
         TextRow.defaultCellUpdate = { cell, row in
             cell.textField?.font = UIFont.systemFont(ofSize: 17)
             cell.textField?.adjustsFontSizeToFitWidth = true
             cell.textField?.minimumFontSize = 14.0
+            cell.textField?.addTarget(self, action: #selector(self.textfieldEdited), for: .editingChanged)
         }
         
         ButtonRow.defaultCellUpdate = { cell, row in
@@ -113,6 +115,15 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
         countryRow?.value = countryISO2
         countryRow?.reload()
         countryRow?.cell.textLabel?.textColor = UIColor.black
+        
+        self.navigationItem.rightBarButtonItem?.isEnabled = form.validate().count == 0
+    }
+    
+    // MARK: - TextField's actions
+    
+    func textfieldEdited()
+    {
+        self.navigationItem.rightBarButtonItem?.isEnabled = form.validate().count == 0
     }
     
     // MARK: - Navigation
