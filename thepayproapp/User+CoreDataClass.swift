@@ -171,4 +171,45 @@ public class User: NSManagedObject
         }
     }
 
+    class func deleteUser()
+    {
+        let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        
+        if #available(iOS 9.0, *)
+        {
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            
+            do
+            {
+                try context.execute(deleteRequest)
+                try context.save()
+            }
+            catch
+            {
+                print ("There was an error deleting the user")
+            }
+        }
+        else
+        {
+            // Fallback on earlier versions
+            
+            deleteFetch.returnsObjectsAsFaults = false
+            
+            do
+            {
+                let results = try context.fetch(deleteFetch)
+                for managedObject in results
+                {
+                    let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                    context.delete(managedObjectData)
+                }
+            }
+            catch
+            {
+                print ("There was an error deleting the user")
+            }
+        }
+    }
 }
