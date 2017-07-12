@@ -3313,15 +3313,21 @@ in ThePayPro</string>
                                 </variation>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cO-So-W8R">
-                                <rect key="frame" x="0.0" y="231" width="375" height="66.5"/>
+                                <rect key="frame" x="0.0" y="231" width="375" height="60"/>
                                 <color key="backgroundColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="J77-ru-cX6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                 <state key="normal" title="Order Visa Debit Card">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cardButtonTouched:" destination="E4X-fn-yZx" eventType="touchUpInside" id="QGE-Jb-gF6"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKE-Od-sRX">
-                                <rect key="frame" x="0.0" y="297.5" width="375" height="33.5"/>
+                                <rect key="frame" x="0.0" y="291" width="375" height="33.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LATEST TRANSACTIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2m-Qz-Eze">
                                         <rect key="frame" x="15" y="5.5" width="345" height="21"/>
@@ -3339,7 +3345,7 @@ in ThePayPro</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itn-Lo-3Rf">
-                                <rect key="frame" x="0.0" y="331" width="375" height="336"/>
+                                <rect key="frame" x="0.0" y="324.5" width="375" height="342.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -3350,7 +3356,6 @@ in ThePayPro</string>
                             <constraint firstItem="itn-Lo-3Rf" firstAttribute="top" secondItem="WKE-Od-sRX" secondAttribute="bottom" id="4N1-B0-3jb"/>
                             <constraint firstItem="WKE-Od-sRX" firstAttribute="height" secondItem="zc3-zb-31a" secondAttribute="height" multiplier="0.05" id="HUw-hM-UfF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="itn-Lo-3Rf" secondAttribute="trailing" constant="-16" id="Hy8-CL-gMe"/>
-                            <constraint firstItem="0cO-So-W8R" firstAttribute="height" secondItem="zc3-zb-31a" secondAttribute="height" multiplier="0.1" id="JO9-l1-1JT"/>
                             <constraint firstAttribute="trailing" secondItem="adW-Hh-xKo" secondAttribute="trailing" id="Low-Fn-t6q"/>
                             <constraint firstItem="WKE-Od-sRX" firstAttribute="top" secondItem="0cO-So-W8R" secondAttribute="bottom" id="M4b-ht-WvU"/>
                             <constraint firstItem="adW-Hh-xKo" firstAttribute="leading" secondItem="zc3-zb-31a" secondAttribute="leading" id="eYo-cR-Lxi"/>
@@ -3364,6 +3369,8 @@ in ThePayPro</string>
                     </view>
                     <navigationItem key="navigationItem" id="O12-uo-L1f"/>
                     <connections>
+                        <outlet property="cardButton" destination="0cO-So-W8R" id="8sV-W8-eZQ"/>
+                        <outlet property="cardHeight" destination="J77-ru-cX6" id="6qd-9j-QC8"/>
                         <outlet property="scrollView" destination="adW-Hh-xKo" id="ecT-1L-2FZ"/>
                     </connections>
                 </viewController>

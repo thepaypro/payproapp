@@ -11,6 +11,8 @@ import UIKit
 class PPAccountViewController: UIViewController, UIScrollViewDelegate
 {
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var cardButton: UIButton!
+    @IBOutlet weak var cardHeight: NSLayoutConstraint!
     
     override func viewDidLoad()
     {
@@ -31,8 +33,46 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate
     {
         super.viewWillAppear(animated)
         
-        scrollView.contentOffset = CGPoint(x: UIScreen.main.bounds.width, y: 0.0)
+        self.setupView()
     }
+    
+    func setupView()
+    {
+        scrollView.contentOffset = CGPoint(x: UIScreen.main.bounds.width, y: 0.0)
+        
+        cardButton.isHidden = false
+        cardHeight.constant = 60.0
+        
+        let cardStatus = User.currentUser()?.cardStatus
+        
+        if cardStatus == .notOrdered
+        {
+            cardButton.setTitle("Order Visa Debit Card", for: .normal)
+        }
+        else if cardStatus == .ordered
+        {
+            cardButton.setTitle("Activate Visa Debit Card", for: .normal)
+        }
+        else
+        {
+            cardButton.isHidden = true
+            cardHeight.constant = 0.0
+        }
+    }
+    
+    @IBAction func cardButtonTouched(_ sender: Any)
+    {
+        let cardStatus = User.currentUser()?.cardStatus
+        
+        if cardStatus == .notOrdered
+        {
+            print("ORDER CARD")
+        }
+        else if cardStatus == .ordered
+        {
+            print("ACTIVATE CARD")
+        }
+    }    
     
     /*
      // MARK: - Navigation
