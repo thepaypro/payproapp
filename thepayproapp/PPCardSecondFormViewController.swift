@@ -18,6 +18,7 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
     var dateOfBirth : String?
     var documentType : String?
     var documentNumber: String?
+    var orderingCard: Bool = false
     
     override func viewDidLoad()
     {
@@ -26,6 +27,12 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
         // Do any additional setup after loading the view.
         
         let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
+        
+        if orderingCard
+        {
+            nextButton.title = "Confirm"
+        }
+        
         self.navigationItem.rightBarButtonItem = nextButton
         nextButton.isEnabled = false
         
@@ -98,7 +105,14 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
     {
         if form.validate().count == 0
         {
-            print("CARD HOLDER ENDPOINT")
+            if orderingCard
+            {
+                print("ORDER CARD ENDPOINT")
+            }
+            else
+            {
+                print("CARD HOLDER ENDPOINT")
+            }
         }
         else
         {
