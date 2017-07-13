@@ -122,7 +122,7 @@ class PPPrefixSelectionViewController: UIViewController, UITableViewDelegate, UI
         if section == 1
         {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 18))
-            let label = UILabel(frame: CGRect(x: 15, y: 23, width: tableView.frame.size.width, height: 18))
+            let label = UILabel(frame: CGRect(x: 15, y: 38, width: tableView.frame.size.width, height: 18))
             
             if #available(iOS 8.2, *)
             {
@@ -148,10 +148,15 @@ class PPPrefixSelectionViewController: UIViewController, UITableViewDelegate, UI
     {
         if section == 1
         {
-            return 44.0
+            return 60.0
         }
         
         return 0.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 50.0
     }
     
     /*
