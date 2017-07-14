@@ -10,7 +10,23 @@ import UIKit
 
 class PPInfoViewController: UIViewController
 {
+    var webViewOption = 0 //0:faqs, 1:terms, 2:community, 3:about
+    
     @IBOutlet weak var infoView: UIView!
+    @IBAction func faqsButton(_ sender: Any) {
+        self.webViewOption = 0
+    }
+    @IBAction func termsButton(_ sender: Any) {
+        self.webViewOption = 1
+    }
+    @IBAction func communityButton(_ sender: Any) {
+        self.webViewOption = 2
+    }
+    @IBAction func aboutButton(_ sender: Any) {
+        self.webViewOption = 3
+    }
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -59,6 +75,11 @@ class PPInfoViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "infoWebViewSegue" {
+            let webViewVC : PPInfoWebViewController = segue.destination as! PPInfoWebViewController
+            webViewVC.loadOption = self.webViewOption
+        }
+    }
 }
 

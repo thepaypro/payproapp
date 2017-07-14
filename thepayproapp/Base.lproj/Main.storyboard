@@ -1962,6 +1962,10 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="Dti-5D-1CT"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="faqsButton:" destination="gVp-Q9-2nw" eventType="touchUpInside" id="C6h-Uz-bBl"/>
+                                                            <segue destination="CyL-kN-RHn" kind="show" identifier="infoWebViewSegue" id="U4W-kM-Lwy"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGf-kU-obh">
                                                         <rect key="frame" x="15" y="11" width="41" height="21"/>
@@ -1974,6 +1978,10 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="yAt-MU-0sH"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="termsButton:" destination="gVp-Q9-2nw" eventType="touchUpInside" id="H1a-ZJ-zIy"/>
+                                                            <segue destination="CyL-kN-RHn" kind="show" id="MgT-Wx-0Df"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms &amp; Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZC-wt-fx9">
                                                         <rect key="frame" x="15" y="55" width="151" height="21"/>
@@ -1986,6 +1994,10 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="Afl-HC-rj0"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="communityButton:" destination="gVp-Q9-2nw" eventType="touchUpInside" id="Ag5-Xw-iWa"/>
+                                                            <segue destination="CyL-kN-RHn" kind="show" id="8Cl-oA-bFg"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Community" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHW-b3-PTq">
                                                         <rect key="frame" x="15" y="99" width="88" height="21"/>
@@ -1998,6 +2010,10 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="FD5-Ai-ilv"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="aboutButton:" destination="gVp-Q9-2nw" eventType="touchUpInside" id="NIJ-tV-Qj7"/>
+                                                            <segue destination="CyL-kN-RHn" kind="show" id="Azs-uz-2tr"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-Cf-kVv">
                                                         <rect key="frame" x="15" y="143" width="69" height="21"/>
@@ -2112,6 +2128,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZxE-Fv-XZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1784.8" y="3604.9475262368819"/>
+        </scene>
+        <!--Info Web View Controller-->
+        <scene sceneID="QYc-aT-Yrr">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="CyL-kN-RHn" customClass="PPInfoWebViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="917-f6-DZg"/>
+                        <viewControllerLayoutGuide type="bottom" id="dOR-oc-olo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A36-7H-fgT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAP-lg-6ST">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dOR-oc-olo" firstAttribute="top" secondItem="tAP-lg-6ST" secondAttribute="bottom" id="DkY-hr-Hhy"/>
+                            <constraint firstAttribute="trailing" secondItem="tAP-lg-6ST" secondAttribute="trailing" id="KPi-5u-r9k"/>
+                            <constraint firstItem="tAP-lg-6ST" firstAttribute="width" secondItem="A36-7H-fgT" secondAttribute="width" id="O9U-kJ-Wuk"/>
+                            <constraint firstItem="tAP-lg-6ST" firstAttribute="top" secondItem="917-f6-DZg" secondAttribute="bottom" id="YEZ-7O-UYZ"/>
+                            <constraint firstItem="tAP-lg-6ST" firstAttribute="leading" secondItem="A36-7H-fgT" secondAttribute="leading" id="bMd-Rk-ZV2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="tAP-lg-6ST" id="U1v-uT-ql1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qmW-wg-OIq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784.8" y="4349.7751124437782"/>
         </scene>
         <!--Get a Statement-->
         <scene sceneID="Kkd-u9-9M4">
@@ -3717,9 +3767,10 @@ in ThePayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QjQ-Zm-ceK"/>
         <segue reference="QOc-uS-S0D"/>
         <segue reference="MgD-j5-nvC"/>
+        <segue reference="QjQ-Zm-ceK"/>
+        <segue reference="U4W-kM-Lwy"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
