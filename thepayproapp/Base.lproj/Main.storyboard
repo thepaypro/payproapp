@@ -1296,6 +1296,7 @@
                     <navigationItem key="navigationItem" title="Profile" id="Zxj-EK-KFy"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="avatarImage" destination="T9U-hM-d1f" id="Eex-p1-MRN"/>
                         <outlet property="cardView" destination="5UD-7E-SRb" id="it4-ag-Exf"/>
                         <outlet property="infoView" destination="tfO-gP-ohz" id="gq0-4P-v0b"/>
                         <outlet property="nameView" destination="ewX-oQ-5dn" id="Mfl-PM-Xhf"/>
@@ -1327,6 +1328,12 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4d-HZ-LLR">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                                 <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ1-Rg-7O6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                                        <connections>
+                                                            <action selector="avatarButtonAction:" destination="PeJ-Wt-1eu" eventType="touchUpInside" id="qD3-Ge-Nck"/>
+                                                        </connections>
+                                                    </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sZr-Sm-e1J">
                                                         <rect key="frame" x="166" y="10" width="44" height="44"/>
                                                         <constraints>
@@ -1345,6 +1352,11 @@
                                                 <constraints>
                                                     <constraint firstItem="SzA-7T-Hgk" firstAttribute="top" secondItem="sZr-Sm-e1J" secondAttribute="bottom" constant="4" id="B3g-lp-dwC"/>
                                                     <constraint firstAttribute="height" constant="76" id="Nne-bH-QTQ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="FJ1-Rg-7O6" secondAttribute="bottom" id="WCs-em-6Wx"/>
+                                                    <constraint firstItem="FJ1-Rg-7O6" firstAttribute="leading" secondItem="K4d-HZ-LLR" secondAttribute="leading" id="eTB-C1-NAe"/>
+                                                    <constraint firstItem="FJ1-Rg-7O6" firstAttribute="width" secondItem="K4d-HZ-LLR" secondAttribute="width" id="gDr-RA-paH"/>
+                                                    <constraint firstItem="FJ1-Rg-7O6" firstAttribute="top" secondItem="K4d-HZ-LLR" secondAttribute="top" id="glp-Ew-gEf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="FJ1-Rg-7O6" secondAttribute="trailing" id="jEb-ai-YUX"/>
                                                     <constraint firstItem="sZr-Sm-e1J" firstAttribute="top" secondItem="K4d-HZ-LLR" secondAttribute="top" constant="10" id="q8O-dk-soq"/>
                                                 </constraints>
                                             </view>
@@ -1647,6 +1659,7 @@
                     </view>
                     <connections>
                         <outlet property="addressView" destination="ucj-hc-xex" id="S5s-7R-Yg0"/>
+                        <outlet property="avatarImage" destination="sZr-Sm-e1J" id="dVH-Gu-sNy"/>
                         <outlet property="avatarView" destination="K4d-HZ-LLR" id="KkR-9M-kZW"/>
                         <outlet property="infoView" destination="DSc-Gx-lYa" id="tAu-dA-dDR"/>
                         <outlet property="nameView" destination="4JB-B8-JJE" id="nVO-aG-xaV"/>

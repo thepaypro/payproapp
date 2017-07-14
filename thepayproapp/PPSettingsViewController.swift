@@ -14,6 +14,7 @@ class PPSettingsViewController: UIViewController {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var upgradeView: UIView!
     @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var avatarImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +87,21 @@ class PPSettingsViewController: UIViewController {
         infoLayerBottom.path = infoBorderBottom.cgPath
         infoLayerBottom.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayerBottom)
+        
+        //rounded avatar image
+        avatarImage.layer.cornerRadius = avatarImage.frame.size.width/2
+        avatarImage.clipsToBounds = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        var data:NSData?
+        data = UserDefaults.standard.object(forKey: "avatar") as? NSData
+        
+        if data != nil
+        {
+            avatarImage.contentMode = .scaleToFill
+            avatarImage.image = UIImage(data: data! as Data)
+        }
     }
 
     override func didReceiveMemoryWarning() {
