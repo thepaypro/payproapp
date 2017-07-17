@@ -128,7 +128,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         }
         else if cardStatus == .ordered
         {
-            print("ACTIVATE CARD")
+            self.performSegue(withIdentifier: "showActivateCardVCSegue", sender: nil)
         }
     }    
     

@@ -45,6 +45,7 @@
 		BF31E8681EF933C0004C233E /* PPEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31E8671EF933C0004C233E /* PPEntryViewController.swift */; };
 		BF401F951F1CD0CA0071EA84 /* PPTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF401F931F1CD0CA0071EA84 /* PPTransactionTableViewCell.swift */; };
 		BF401F961F1CD0CA0071EA84 /* PPTransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF401F941F1CD0CA0071EA84 /* PPTransactionTableViewCell.xib */; };
+		BF401F981F1CD2340071EA84 /* PPActivationCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF401F971F1CD2340071EA84 /* PPActivationCardViewController.swift */; };
 		BF42C2931EFA629F00DFBED7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42C2921EFA629F00DFBED7 /* Utils.swift */; };
 		BF42C2961EFA7A6900DFBED7 /* PPPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42C2951EFA7A6900DFBED7 /* PPPasscodeViewController.swift */; };
 		BF56BABE1EF26BF300429005 /* GroupMember+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BAB01EF26BF300429005 /* GroupMember+CoreDataClass.swift */; };
@@ -139,6 +140,7 @@
 		BF31E8671EF933C0004C233E /* PPEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPEntryViewController.swift; sourceTree = "<group>"; };
 		BF401F931F1CD0CA0071EA84 /* PPTransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPTransactionTableViewCell.swift; sourceTree = "<group>"; };
 		BF401F941F1CD0CA0071EA84 /* PPTransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPTransactionTableViewCell.xib; sourceTree = "<group>"; };
+		BF401F971F1CD2340071EA84 /* PPActivationCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPActivationCardViewController.swift; sourceTree = "<group>"; };
 		BF42C2921EFA629F00DFBED7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		BF42C2951EFA7A6900DFBED7 /* PPPasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPasscodeViewController.swift; sourceTree = "<group>"; };
 		BF56BAB01EF26BF300429005 /* GroupMember+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroupMember+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -516,6 +518,7 @@
 				217316B81F05072D00DB0B14 /* PPAcountViewController.swift */,
 				BF69E1341F0E328D0004EE4E /* PPCardFirstFormViewController.swift */,
 				BFDA4CB61F1373D700300261 /* PPCardSecondFormViewController.swift */,
+				BF401F971F1CD2340071EA84 /* PPActivationCardViewController.swift */,
 			);
 			name = PPAccountViewController;
 			sourceTree = "<group>";
@@ -834,6 +837,7 @@
 				BF56BACA1EF26BF300429005 /* Group+CoreDataClass.swift in Sources */,
 				BF612E541EFBBC7D007110D4 /* PPSMSConfirmationViewController.swift in Sources */,
 				BF56BABF1EF26BF300429005 /* GroupMember+CoreDataProperties.swift in Sources */,
+				BF401F981F1CD2340071EA84 /* PPActivationCardViewController.swift in Sources */,
 				BF56BAC21EF26BF300429005 /* Transaction+CoreDataClass.swift in Sources */,
 				BFF7FA681EEFF469009D798E /* PPSettingsViewController.swift in Sources */,
 				21B948631EE700B30099A79F /* Colors.swift in Sources */,
