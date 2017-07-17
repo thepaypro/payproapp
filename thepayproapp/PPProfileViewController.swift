@@ -111,6 +111,9 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         {
             avatarImage.contentMode = .scaleToFill
             avatarImage.image = UIImage(data: data! as Data)
+        } else {
+            avatarImage.contentMode = .scaleToFill
+            avatarImage.image = UIImage(named:"default-profile")
         }
     }
     
@@ -166,9 +169,10 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             prepareImageForSaving(image: pickedImage)
         }
+        
         picker.dismiss(animated: true, completion: nil)
     }
     
