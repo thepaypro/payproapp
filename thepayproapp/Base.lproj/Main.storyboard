@@ -1980,7 +1980,7 @@
                                                         </constraints>
                                                         <connections>
                                                             <action selector="termsButton:" destination="gVp-Q9-2nw" eventType="touchUpInside" id="H1a-ZJ-zIy"/>
-                                                            <segue destination="CyL-kN-RHn" kind="show" id="MgT-Wx-0Df"/>
+                                                            <segue destination="CyL-kN-RHn" kind="show" identifier="infoWebViewSegue" id="MgT-Wx-0Df"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms &amp; Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZC-wt-fx9">
@@ -1996,7 +1996,7 @@
                                                         </constraints>
                                                         <connections>
                                                             <action selector="communityButton:" destination="gVp-Q9-2nw" eventType="touchUpInside" id="Ag5-Xw-iWa"/>
-                                                            <segue destination="CyL-kN-RHn" kind="show" id="8Cl-oA-bFg"/>
+                                                            <segue destination="CyL-kN-RHn" kind="show" identifier="infoWebViewSegue" id="8Cl-oA-bFg"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Community" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHW-b3-PTq">
@@ -2012,7 +2012,7 @@
                                                         </constraints>
                                                         <connections>
                                                             <action selector="aboutButton:" destination="gVp-Q9-2nw" eventType="touchUpInside" id="NIJ-tV-Qj7"/>
-                                                            <segue destination="CyL-kN-RHn" kind="show" id="Azs-uz-2tr"/>
+                                                            <segue destination="CyL-kN-RHn" kind="show" identifier="infoWebViewSegue" id="Azs-uz-2tr"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-Cf-kVv">
@@ -3770,7 +3770,7 @@ in ThePayPro</string>
         <segue reference="QOc-uS-S0D"/>
         <segue reference="MgD-j5-nvC"/>
         <segue reference="QjQ-Zm-ceK"/>
-        <segue reference="U4W-kM-Lwy"/>
+        <segue reference="8Cl-oA-bFg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
