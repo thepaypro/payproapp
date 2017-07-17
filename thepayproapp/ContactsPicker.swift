@@ -15,6 +15,7 @@ public protocol PickerDelegate: class {
     func ContactPicker(_: ContactsPicker, didCancel error: NSError)
     func ContactPicker(_: ContactsPicker, didSelectContact contact: Contact)
     func ContactPicker(_: ContactsPicker, didSelectMultipleContacts contacts: [Contact])
+    func ContacPickerNotInList(controller:ContactsPicker)
 }
 
 public extension PickerDelegate {
@@ -22,6 +23,7 @@ public extension PickerDelegate {
     func ContactPicker(_: ContactsPicker, didCancel error: NSError) { }
     func ContactPicker(_: ContactsPicker, didSelectContact contact: Contact) { }
     func ContactPicker(_: ContactsPicker, didSelectMultipleContacts contacts: [Contact]) { }
+    func ContacPickerNotInList(controller:ContactsPicker) { }
 }
 
 typealias ContactsHandler = (_ contacts : [CNContact] , _ error : NSError?) -> Void
@@ -64,15 +66,57 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
     
     func initializeSearchBar() {
         self.resultSearchController = ( {
+            let box = UIView()
+            box.frame = CGRect(x: 0, y:0, width: self.tableView.frame.width , height: 88)
+            box.backgroundColor = UIColor.clear
+            
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
             controller.dimsBackgroundDuringPresentation = false
             controller.hidesNavigationBarDuringPresentation = false
             controller.searchBar.sizeToFit()
             controller.searchBar.delegate = self
-            self.tableView.tableHeaderView = controller.searchBar
+            controller.searchBar.frame.size.width = box.frame.width - 15
+            
+//            self.tableView.tableHeaderView = controller.searchBar
+            
+            box.addSubview(controller.searchBar)
+            
+            let notInContactList = UIView()
+            notInContactList.frame = CGRect(x: 0, y:44, width: box.frame.width , height: 44)
+            
+            let button = UIButton()
+            button.frame = CGRect(x:0, y:0, width: box.frame.width, height: 44)
+            button.backgroundColor = UIColor.clear
+            button.addTarget(self, action: #selector(pressNotInMyContactList), for: .touchUpInside)
+            
+            notInContactList.addSubview(button)
+            
+            let plusImage = UIImage(named: "contactAdd")
+            let plusImageView = UIImageView(image: plusImage!)
+            plusImageView.frame = CGRect(x:15, y: 8, width: 29, height: 29)
+            
+            notInContactList.addSubview(plusImageView)
+            
+            let label = UILabel()
+            label.text = "Not in my contact list"
+            label.textAlignment = .center
+            label.textColor = PayProColors.blue
+            label.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightLight)
+            label.frame = CGRect(x: 40, y: 12, width: 200, height: 20)
+            
+            notInContactList.addSubview(label)
+            
+            box.addSubview(notInContactList)
+            
+            self.tableView.tableHeaderView = box
             return controller
         })()
+    }
+    
+    func pressNotInMyContactList()
+    {
+        contactDelegate?.ContacPickerNotInList(controller: self)
     }
     
     func inititlizeBarButtons() {
