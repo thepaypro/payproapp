@@ -8,17 +8,26 @@
 
 import UIKit
 
-class PPAccountViewController: UIViewController, UIScrollViewDelegate
+class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource
 {
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var transactionsTV: UITableView!
     @IBOutlet weak var cardButton: UIButton!
     @IBOutlet weak var cardHeight: NSLayoutConstraint!
+    
+    var transactionsArray : [Transaction]?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        initDummyTransactions()
+        
+        transactionsTV.register(UINib(nibName: "PPTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionCell")
+        
+        transactionsTV.reloadData()
         
         scrollView.delegate = self
     }
@@ -34,6 +43,55 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate
         super.viewWillAppear(animated)
         
         self.setupView()
+    }
+    
+    func initDummyTransactions()
+    {
+        transactionsArray = [Transaction]()
+        
+        var currentDictionary = [
+            "id": Int64(0),
+            "title": "Residencial Viella Sa",
+            "subtitle": "Barcelona, Catalonia",
+            "datetime": "2 days ago",
+            "amount": Float(123.40)
+            ] as [String : Any]
+        
+        var currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
+        transactionsArray?.append(currentTransaction!)
+        
+        currentDictionary = [
+            "id": Int64(1),
+            "title": "Pret A Manger Gatwik",
+            "subtitle": "Barcelona, Catalonia",
+            "datetime": "3 days ago",
+            "amount": Float(-68.25)
+            ] as [String : Any]
+        
+        currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
+        transactionsArray?.append(currentTransaction!)
+        
+        currentDictionary = [
+            "id": Int64(2),
+            "title": "W H Smith",
+            "subtitle": "London, United Kingdom",
+            "datetime": "5 days ago",
+            "amount": Float(345.20)
+            ] as [String : Any]
+        
+        currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
+        transactionsArray?.append(currentTransaction!)
+        
+        currentDictionary = [
+            "id": Int64(3),
+            "title": "Marks & Spencer-Kensington High Street",
+            "subtitle": "London, United Kingdom",
+            "datetime": "8 days ago",
+            "amount": Float(64.70)
+            ] as [String : Any]
+        
+        currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
+        transactionsArray?.append(currentTransaction!)
     }
     
     func setupView()
@@ -73,6 +131,34 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate
             print("ACTIVATE CARD")
         }
     }    
+    
+    // MARK: - Table view data source
+    
+    func numberOfSections(in tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return transactionsArray!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! PPTransactionTableViewCell
+        
+        let cellTransaction = transactionsArray?[indexPath.row]
+        
+        cell.setTransaction(transaction: cellTransaction!)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 76.0
+    }
     
     // MARK: - Navigation
     

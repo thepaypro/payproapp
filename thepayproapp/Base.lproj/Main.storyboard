@@ -3347,6 +3347,10 @@ in ThePayPro</string>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itn-Lo-3Rf">
                                 <rect key="frame" x="0.0" y="324.5" width="375" height="342.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="E4X-fn-yZx" id="ZRz-Tx-OZC"/>
+                                    <outlet property="delegate" destination="E4X-fn-yZx" id="A9Z-uh-4zl"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3372,6 +3376,7 @@ in ThePayPro</string>
                         <outlet property="cardButton" destination="0cO-So-W8R" id="8sV-W8-eZQ"/>
                         <outlet property="cardHeight" destination="J77-ru-cX6" id="6qd-9j-QC8"/>
                         <outlet property="scrollView" destination="adW-Hh-xKo" id="ecT-1L-2FZ"/>
+                        <outlet property="transactionsTV" destination="itn-Lo-3Rf" id="ljk-5e-bwp"/>
                         <segue destination="SAg-Jd-pbt" kind="show" identifier="showAddressFormVC" id="5oX-E6-27I"/>
                     </connections>
                 </viewController>
