@@ -23,6 +23,7 @@
 		215540601EF3EF2100670E86 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2155405F1EF3EF2100670E86 /* Extensions.swift */; };
 		215540621EF3EF3E00670E86 /* ContactsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215540611EF3EF3E00670E86 /* ContactsPicker.swift */; };
 		2156A4D11F0A3318005EEE68 /* PPSendMoneyConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2156A4D01F0A3318005EEE68 /* PPSendMoneyConfirmViewController.swift */; };
+		2158D7CC1F1CE1C30081A7E6 /* thepayproapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2158D7CA1F1CE1C30081A7E6 /* thepayproapp.xcdatamodeld */; };
 		215FC1121EF14542005E69EE /* PPStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215FC1111EF14542005E69EE /* PPStatementViewController.swift */; };
 		217316B91F05072D00DB0B14 /* PPAcountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217316B81F05072D00DB0B14 /* PPAcountViewController.swift */; };
 		217316BB1F05084900DB0B14 /* PPSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217316BA1F05084900DB0B14 /* PPSupportViewController.swift */; };
@@ -41,7 +42,6 @@
 		6A4AE5B51F1374A80041B63F /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		77324EC23C69DAC949032A50 /* Pods_thepayproappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61F7BACC0A7CA6BAD1E0FB1 /* Pods_thepayproappTests.framework */; };
 		898982352C785B0A87DE711B /* Pods_thepayproappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7D9CB0B12DBCFD3FE80391 /* Pods_thepayproappUITests.framework */; };
-		BF0275C51EF1285D000EA475 /* thepayproapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF0275C31EF1285D000EA475 /* thepayproapp.xcdatamodeld */; };
 		BF2345721EF7B13400C50004 /* User+Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2345711EF7B13400C50004 /* User+Connection.swift */; };
 		BF2345751EF7B2DA00C50004 /* PPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2345741EF7B2DA00C50004 /* PPService.swift */; };
 		BF31E8641EF90108004C233E /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31E8621EF90108004C233E /* User+CoreDataClass.swift */; };
@@ -109,7 +109,6 @@
 		2128DBE51F0E20800051FC8E /* PPSendMoneyAmountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPSendMoneyAmountViewController.swift; sourceTree = "<group>"; };
 		2128DBE81F0E93CA0051FC8E /* ExtensionString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
 		2131C1001F18D6CB00118B1D /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2131C1021F18D8A000118B1D /* thepayproapp 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "thepayproapp 2.xcdatamodel"; sourceTree = "<group>"; };
 		213381261EFD1A5B0007A509 /* PPProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPProfileViewController.swift; sourceTree = "<group>"; };
 		213381281EFD1E2A0007A509 /* PPInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPInfoViewController.swift; sourceTree = "<group>"; };
 		215540581EF3CCD500670E86 /* PPContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPContactViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +117,7 @@
 		2155405F1EF3EF2100670E86 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		215540611EF3EF3E00670E86 /* ContactsPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsPicker.swift; sourceTree = "<group>"; };
 		2156A4D01F0A3318005EEE68 /* PPSendMoneyConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPSendMoneyConfirmViewController.swift; sourceTree = "<group>"; };
+		2158D7CB1F1CE1C30081A7E6 /* thepayproapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = thepayproapp.xcdatamodel; sourceTree = "<group>"; };
 		215FC1111EF14542005E69EE /* PPStatementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPStatementViewController.swift; sourceTree = "<group>"; };
 		217316B81F05072D00DB0B14 /* PPAcountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPAcountViewController.swift; sourceTree = "<group>"; };
 		217316BA1F05084900DB0B14 /* PPSupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPSupportViewController.swift; sourceTree = "<group>"; };
@@ -137,7 +137,6 @@
 		92818D24EE98AC7382F0827B /* Pods-thepayproapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproapp/Pods-thepayproapp.debug.xcconfig"; sourceTree = "<group>"; };
 		9B2628C7C678438F8E8FEB1E /* Pods-thepayproappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thepayproapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF0275C41EF1285D000EA475 /* thepayproapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = thepayproapp.xcdatamodel; sourceTree = "<group>"; };
 		BF2345711EF7B13400C50004 /* User+Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+Connection.swift"; sourceTree = "<group>"; };
 		BF2345741EF7B2DA00C50004 /* PPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPService.swift; sourceTree = "<group>"; };
 		BF31E8621EF90108004C233E /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -237,9 +236,9 @@
 		216CCA8C1EE8223F003FE3CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2158D7CA1F1CE1C30081A7E6 /* thepayproapp.xcdatamodeld */,
 				BF56BACC1EF26FD500429005 /* CoreData */,
 				BF56BACD1EF26FED00429005 /* Connection */,
-				BF0275C31EF1285D000EA475 /* thepayproapp.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -843,8 +842,8 @@
 				BFF7FA681EEFF469009D798E /* PPSettingsViewController.swift in Sources */,
 				21B948631EE700B30099A79F /* Colors.swift in Sources */,
 				BF56BAC41EF26BF300429005 /* Offset+CoreDataClass.swift in Sources */,
-				BF0275C51EF1285D000EA475 /* thepayproapp.xcdatamodeld in Sources */,
 				2156A4D11F0A3318005EEE68 /* PPSendMoneyConfirmViewController.swift in Sources */,
+				2158D7CC1F1CE1C30081A7E6 /* thepayproapp.xcdatamodeld in Sources */,
 				217316BD1F053C3300DB0B14 /* PPBankTransfeResumViewController.swift in Sources */,
 				BF42C2961EFA7A6900DFBED7 /* PPPasscodeViewController.swift in Sources */,
 				BFF7FA6E1EEFF4C9009D798E /* PPGroupsViewController.swift in Sources */,
@@ -1157,13 +1156,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		BF0275C31EF1285D000EA475 /* thepayproapp.xcdatamodeld */ = {
+		2158D7CA1F1CE1C30081A7E6 /* thepayproapp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2131C1021F18D8A000118B1D /* thepayproapp 2.xcdatamodel */,
-				BF0275C41EF1285D000EA475 /* thepayproapp.xcdatamodel */,
+				2158D7CB1F1CE1C30081A7E6 /* thepayproapp.xcdatamodel */,
 			);
-			currentVersion = BF0275C41EF1285D000EA475 /* thepayproapp.xcdatamodel */;
+			currentVersion = 2158D7CB1F1CE1C30081A7E6 /* thepayproapp.xcdatamodel */;
 			path = thepayproapp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
