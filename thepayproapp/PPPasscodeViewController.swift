@@ -72,7 +72,7 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
             
             currentView.layer.cornerRadius = currentView.frame.size.width / 2
             currentView.layer.borderWidth = 2.0
-            currentView.layer.borderColor = UIColor.lightGray.cgColor
+            currentView.layer.borderColor = UIColor.white.cgColor
         }
     }
     
@@ -80,7 +80,7 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
     {
         let gradient: CAGradientLayer = CAGradientLayer()
         
-        gradient.colors = [UIColor.white.cgColor, PayProColors.lightBlue.cgColor]
+        gradient.colors = [PayProColors.lightBlue.cgColor, PayProColors.blue.cgColor]
         gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
         gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
         gradient.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
@@ -138,7 +138,7 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
             for passcode in 0...newLength - 1
             {
                 let currentView : UIView = self.mainPasscodeView.subviews[passcode]
-                currentView.layer.backgroundColor = UIColor.groupTableViewBackground.cgColor
+                currentView.layer.backgroundColor = UIColor.white.cgColor
             }
         }
         
