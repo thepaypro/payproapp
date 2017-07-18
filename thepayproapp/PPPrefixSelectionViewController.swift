@@ -85,7 +85,7 @@ class PPPrefixSelectionViewController: UIViewController, UITableViewDelegate, UI
         
         if showPrefixes
         {
-            countryText +=  "+\(firstCountryPrefix)"
+            countryText += " +\(firstCountryPrefix)"
         }
         
         cell.textLabel?.text = countryText
@@ -152,6 +152,11 @@ class PPPrefixSelectionViewController: UIViewController, UITableViewDelegate, UI
         }
         
         return 0.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 50.0
     }
     
     /*

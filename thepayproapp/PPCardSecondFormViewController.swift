@@ -18,6 +18,7 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
     var dateOfBirth : String?
     var documentType : String?
     var documentNumber: String?
+    var orderingCard: Bool = false
     
     override func viewDidLoad()
     {
@@ -26,12 +27,20 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
         // Do any additional setup after loading the view.
         
         let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
+        
+        if orderingCard
+        {
+            nextButton.title = "Confirm"
+        }
+        
         self.navigationItem.rightBarButtonItem = nextButton
+        nextButton.isEnabled = false
         
         TextRow.defaultCellUpdate = { cell, row in
             cell.textField?.font = UIFont.systemFont(ofSize: 17)
             cell.textField?.adjustsFontSizeToFitWidth = true
             cell.textField?.minimumFontSize = 14.0
+            cell.textField?.addTarget(self, action: #selector(self.textfieldEdited), for: .editingChanged)
         }
         
         ButtonRow.defaultCellUpdate = { cell, row in
@@ -96,7 +105,14 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
     {
         if form.validate().count == 0
         {
-            print("CARD HOLDER ENDPOINT")
+            if orderingCard
+            {
+                print("ORDER CARD ENDPOINT")
+            }
+            else
+            {
+                print("CARD HOLDER ENDPOINT")
+            }
         }
         else
         {
@@ -113,6 +129,15 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
         countryRow?.value = countryISO2
         countryRow?.reload()
         countryRow?.cell.textLabel?.textColor = UIColor.black
+        
+        self.navigationItem.rightBarButtonItem?.isEnabled = form.validate().count == 0
+    }
+    
+    // MARK: - TextField's actions
+    
+    func textfieldEdited()
+    {
+        self.navigationItem.rightBarButtonItem?.isEnabled = form.validate().count == 0
     }
     
     // MARK: - Navigation

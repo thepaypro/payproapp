@@ -71,7 +71,8 @@ public class User: NSManagedObject
     
     class func update(user: User, attributesDictionary: NSDictionary)
     {
-        let accountTypeId: Int16? = attributesDictionary.object(forKey: "account_type_id") as? Int16
+        var accountTypeId: Int16? = attributesDictionary.object(forKey: "account_type_id") as? Int16
+        var cardStatusId: Int16? = attributesDictionary.object(forKey: "card_status_id") as? Int16
         let cardHolderId: Int64? = attributesDictionary.object(forKey: "card_holder_id") as? Int64
         let dob: NSDate? = attributesDictionary.object(forKey: "dob") as? NSDate
         let documentNumber: String? = attributesDictionary.object(forKey: "document_number") as? String
@@ -92,9 +93,40 @@ public class User: NSManagedObject
             return
         }
         
+        // Static account type setting
+        // TO-DO: Fetch from WS
+        accountTypeId = 1
+        
         if accountTypeId != nil
         {
-            user.setValue(accountTypeId, forKeyPath: "accountTypeId")
+            user.accountType = .demoAccount
+            
+            if accountTypeId == 1
+            {
+                user.accountType = .basicAccount
+            }
+            else if accountTypeId == 2
+            {
+                user.accountType = .proAccount
+            }
+        }
+        
+        // Static card status setting
+        // TO-DO: Fetch from WS
+        cardStatusId = 1
+        
+        if cardStatusId != nil
+        {
+            user.cardStatus = .notOrdered
+            
+            if cardStatusId == 1
+            {
+                user.cardStatus = .ordered
+            }
+            else if cardStatusId == 2
+            {
+                user.cardStatus = .activated
+            }
         }
         
         if cardHolderId != nil
@@ -171,4 +203,45 @@ public class User: NSManagedObject
         }
     }
 
+    class func deleteUser()
+    {
+        let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        
+        if #available(iOS 9.0, *)
+        {
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            
+            do
+            {
+                try context.execute(deleteRequest)
+                try context.save()
+            }
+            catch
+            {
+                print ("There was an error deleting the user")
+            }
+        }
+        else
+        {
+            // Fallback on earlier versions
+            
+            deleteFetch.returnsObjectsAsFaults = false
+            
+            do
+            {
+                let results = try context.fetch(deleteFetch)
+                for managedObject in results
+                {
+                    let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                    context.delete(managedObjectData)
+                }
+            }
+            catch
+            {
+                print ("There was an error deleting the user")
+            }
+        }
+    }
 }

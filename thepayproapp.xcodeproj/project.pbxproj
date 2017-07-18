@@ -46,6 +46,9 @@
 		BF2345751EF7B2DA00C50004 /* PPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2345741EF7B2DA00C50004 /* PPService.swift */; };
 		BF31E8641EF90108004C233E /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31E8621EF90108004C233E /* User+CoreDataClass.swift */; };
 		BF31E8681EF933C0004C233E /* PPEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31E8671EF933C0004C233E /* PPEntryViewController.swift */; };
+		BF401F951F1CD0CA0071EA84 /* PPTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF401F931F1CD0CA0071EA84 /* PPTransactionTableViewCell.swift */; };
+		BF401F961F1CD0CA0071EA84 /* PPTransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF401F941F1CD0CA0071EA84 /* PPTransactionTableViewCell.xib */; };
+		BF401F981F1CD2340071EA84 /* PPActivationCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF401F971F1CD2340071EA84 /* PPActivationCardViewController.swift */; };
 		BF42C2931EFA629F00DFBED7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42C2921EFA629F00DFBED7 /* Utils.swift */; };
 		BF42C2961EFA7A6900DFBED7 /* PPPasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF42C2951EFA7A6900DFBED7 /* PPPasscodeViewController.swift */; };
 		BF56BABE1EF26BF300429005 /* GroupMember+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF56BAB01EF26BF300429005 /* GroupMember+CoreDataClass.swift */; };
@@ -141,6 +144,9 @@
 		BF2345741EF7B2DA00C50004 /* PPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPService.swift; sourceTree = "<group>"; };
 		BF31E8621EF90108004C233E /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BF31E8671EF933C0004C233E /* PPEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPEntryViewController.swift; sourceTree = "<group>"; };
+		BF401F931F1CD0CA0071EA84 /* PPTransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPTransactionTableViewCell.swift; sourceTree = "<group>"; };
+		BF401F941F1CD0CA0071EA84 /* PPTransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPTransactionTableViewCell.xib; sourceTree = "<group>"; };
+		BF401F971F1CD2340071EA84 /* PPActivationCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPActivationCardViewController.swift; sourceTree = "<group>"; };
 		BF42C2921EFA629F00DFBED7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		BF42C2951EFA7A6900DFBED7 /* PPPasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPasscodeViewController.swift; sourceTree = "<group>"; };
 		BF56BAB01EF26BF300429005 /* GroupMember+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroupMember+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -246,6 +252,8 @@
 		216CCA8D1EE8224D003FE3CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BF401F931F1CD0CA0071EA84 /* PPTransactionTableViewCell.swift */,
+				BF401F941F1CD0CA0071EA84 /* PPTransactionTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -519,6 +527,7 @@
 				217316B81F05072D00DB0B14 /* PPAcountViewController.swift */,
 				BF69E1341F0E328D0004EE4E /* PPCardFirstFormViewController.swift */,
 				BFDA4CB61F1373D700300261 /* PPCardSecondFormViewController.swift */,
+				BF401F971F1CD2340071EA84 /* PPActivationCardViewController.swift */,
 			);
 			name = PPAccountViewController;
 			sourceTree = "<group>";
@@ -642,6 +651,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF401F961F1CD0CA0071EA84 /* PPTransactionTableViewCell.xib in Resources */,
 				BF9DB8821EDD770600C8A0ED /* LaunchScreen.storyboard in Resources */,
 				6A0CE8F11EF58DB9000C0D1F /* ContactCell.xib in Resources */,
 				BF9DB87F1EDD770600C8A0ED /* Assets.xcassets in Resources */,
@@ -838,6 +848,7 @@
 				BF56BACA1EF26BF300429005 /* Group+CoreDataClass.swift in Sources */,
 				BF612E541EFBBC7D007110D4 /* PPSMSConfirmationViewController.swift in Sources */,
 				BF56BABF1EF26BF300429005 /* GroupMember+CoreDataProperties.swift in Sources */,
+				BF401F981F1CD2340071EA84 /* PPActivationCardViewController.swift in Sources */,
 				BF56BAC21EF26BF300429005 /* Transaction+CoreDataClass.swift in Sources */,
 				BFF7FA681EEFF469009D798E /* PPSettingsViewController.swift in Sources */,
 				21B948631EE700B30099A79F /* Colors.swift in Sources */,
@@ -845,6 +856,7 @@
 				2156A4D11F0A3318005EEE68 /* PPSendMoneyConfirmViewController.swift in Sources */,
 				2158D7CC1F1CE1C30081A7E6 /* thepayproapp.xcdatamodeld in Sources */,
 				217316BD1F053C3300DB0B14 /* PPBankTransfeResumViewController.swift in Sources */,
+				BF401F951F1CD0CA0071EA84 /* PPTransactionTableViewCell.swift in Sources */,
 				BF42C2961EFA7A6900DFBED7 /* PPPasscodeViewController.swift in Sources */,
 				BFF7FA6E1EEFF4C9009D798E /* PPGroupsViewController.swift in Sources */,
 				BFF7FA731EEFF50C009D798E /* PPDemoAccountViewController.swift in Sources */,

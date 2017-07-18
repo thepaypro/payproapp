@@ -24,6 +24,9 @@ extension Transaction {
     @NSManaged public var offsetId: Int64
     @NSManaged public var status: String?
     @NSManaged public var transactionDescription: String?
+    @NSManaged public var title: String?
+    @NSManaged public var subtitle: String?
+    @NSManaged public var datetime: String?
     @NSManaged public var currency: Currency?
     @NSManaged public var group: Group?
     @NSManaged public var invites: NSSet?
