@@ -112,6 +112,7 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
             else
             {
                 print("CARD HOLDER ENDPOINT")
+                performSegue(withIdentifier: "documentPhotoFromSecondFormSegue", sender: self)
             }
         }
         else
@@ -152,6 +153,12 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
         {
             let countryVC = segue.destination as! PPPrefixSelectionViewController
             countryVC.delegate = self
+        }
+        
+        if segue.identifier == "documentPhotoFromSecondFormSegue"
+        {
+            let documentTypePhotoVC = segue.destination as! PPDocumentPhotoViewController
+            documentTypePhotoVC.documentType = documentType!
         }
     }
 }

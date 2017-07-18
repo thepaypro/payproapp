@@ -23,4 +23,5 @@ struct PayProColors {
     static let gradientBackgroundBottom = UIColor(red: 102.0 / 255.0, green: 102.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
     static let green = UIColor(red: 29.0 / 255.0, green: 186.0 / 255.0, blue: 197.0 / 255.0, alpha: 1.0)
     static let lightGreen = UIColor(red: 128.0 / 255.0, green: 242.0 / 255.0, blue: 170.0 / 255.0, alpha: 1.0)
+    static let title = UIColor(red: 109.0 / 255.0, green: 109.0 / 255.0, blue: 114.0 / 255.0, alpha: 1.0)
 }

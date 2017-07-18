@@ -3517,6 +3517,7 @@ in ThePayPro</string>
                     </view>
                     <connections>
                         <segue destination="qcW-8p-sz6" kind="show" identifier="showCountryFormVC" id="IoS-sB-LD8"/>
+                        <segue destination="WuB-bl-OVO" kind="show" identifier="documentPhotoFromSecondFormSegue" id="HF2-MJ-WVS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sn-Vs-BpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3757,6 +3758,37 @@ in ThePayPro</string>
             </objects>
             <point key="canvasLocation" x="4351" y="1137"/>
         </scene>
+        <!--Document Photo View Controller-->
+        <scene sceneID="3gF-1N-6Vf">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="WuB-bl-OVO" customClass="PPDocumentPhotoViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vj6-P8-cit"/>
+                        <viewControllerLayoutGuide type="bottom" id="6B6-ov-b7S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uvl-07-cnU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WbT-aP-dJ6">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WbT-aP-dJ6" secondAttribute="trailing" id="65Q-lb-lGN"/>
+                            <constraint firstItem="WbT-aP-dJ6" firstAttribute="width" secondItem="uvl-07-cnU" secondAttribute="width" id="7pM-7w-sPH"/>
+                            <constraint firstItem="WbT-aP-dJ6" firstAttribute="top" secondItem="vj6-P8-cit" secondAttribute="bottom" id="NkH-lf-WLY"/>
+                            <constraint firstItem="WbT-aP-dJ6" firstAttribute="leading" secondItem="uvl-07-cnU" secondAttribute="leading" id="So7-To-rrb"/>
+                            <constraint firstItem="WbT-aP-dJ6" firstAttribute="bottom" secondItem="6B6-ov-b7S" secondAttribute="top" id="gLe-Lo-T5K"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VPi-Hj-Off" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4349.6000000000004" y="1939.8800599700151"/>
+        </scene>
         <!--Activation Card View Controller-->
         <scene sceneID="l1S-XW-VoN">
             <objects>
@@ -3978,8 +4010,8 @@ in ThePayPro</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QOc-uS-S0D"/>
-        <segue reference="MgD-j5-nvC"/>
-        <segue reference="QjQ-Zm-ceK"/>
+        <segue reference="ops-cj-9Fb"/>
+        <segue reference="cPk-Rt-u9Q"/>
         <segue reference="8Cl-oA-bFg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
