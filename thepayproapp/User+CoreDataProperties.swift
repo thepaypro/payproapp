@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  thepayproapp
 //
-//  Created by Manuel Ortega Cordovilla on 20/06/2017.
+//  Created by Enric Giribet on 14/7/17.
 //  Copyright © 2017 The Pay Pro LTD. All rights reserved.
 //
 
@@ -40,8 +40,8 @@ extension User {
     @NSManaged public var forename: String?
     @NSManaged public var identifier: Int64
     @NSManaged public var lastname: String?
-    @NSManaged public var username: String?
     @NSManaged public var token: String?
+    @NSManaged public var username: String?
     @NSManaged public var groupMembers: NSSet?
     @NSManaged public var invites: NSSet?
     @NSManaged public var offsetTransactions: NSSet?

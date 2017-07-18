@@ -38,6 +38,17 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate
         self.navigationController?.isNavigationBarHidden = false
     }
     
+    func ContacPickerNotInList(controller: ContactsPicker)
+    {
+        self.sendMoney.setLoadProcess(loadProcessValue: 1)
+        self.sendMoney.setOperationType(operationTypeValue: 0)
+        
+        self.dismiss(animated: true, completion: {
+            self.performSegue(withIdentifier: "bankTransfeSegue", sender: self)
+        })
+
+    }
+    
     func ContactPicker(_: ContactsPicker, didContactFetchFailed error : NSError)
     {
         print("Failed with error \(error.description)")
@@ -71,18 +82,6 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate
                 self.sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.displayName())
                 self.sendMoney.setphoneNumber(phoneNumberValue: contact.getPhoneNumber())
                 
-//                self.dismiss(animated: true, completion: {
-//                
-//                    if (MFMessageComposeViewController.canSendText()) {
-//                        let controller = MFMessageComposeViewController()
-//                        controller.body = "Enric Giribet te invita a que descarges PayPro App!!! http://www.payproapp.com "
-//                        controller.recipients = ["666395251"]
-//                        controller.messageComposeDelegate = self
-//                        self.present(controller, animated: true, completion: nil)
-//                    } else {
-//                        print("no puedo enviar SMS!!")
-//                    }
-//                })
                 self.dismiss(animated: true, completion: {
                     self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
                 })
@@ -125,6 +124,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "bankTransfeSegue" {
+            print("cccc")
             let bankTransfeAmountVC : PPBankTransfeAmountViewController = segue.destination as! PPBankTransfeAmountViewController
             bankTransfeAmountVC.sendMoney = sendMoney
             
