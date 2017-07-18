@@ -2539,7 +2539,7 @@
             </objects>
             <point key="canvasLocation" x="-6954" y="1093"/>
         </scene>
-        <!--Entry View Controller-->
+        <!--Phone number-->
         <scene sceneID="Am2-1u-vke">
             <objects>
                 <viewController id="4v3-bQ-Shg" customClass="PPEntryViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -2558,35 +2558,45 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zui-HW-jrO">
-                                <rect key="frame" x="0.0" y="126" width="124" height="76"/>
+                                <rect key="frame" x="0.0" y="126" width="153" height="76"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsd-8G-Sml">
-                                        <rect key="frame" x="29" y="28" width="24" height="21"/>
+                                        <rect key="frame" x="31.5" y="28" width="24" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+44" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ujK-Ng-yLt">
-                                        <rect key="frame" x="56" y="28" width="36" height="21"/>
+                                        <rect key="frame" x="58.5" y="28" width="36" height="21"/>
                                         <color key="textColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disclosure-indicator-down" translatesAutoresizingMaskIntoConstraints="NO" id="0W9-a5-HH4">
+                                        <rect key="frame" x="110.5" y="34.5" width="13" height="8"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="8" id="aks-Wf-L5z"/>
+                                            <constraint firstAttribute="width" constant="13" id="eEg-9T-aMz"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="1zV-Pt-714"/>
+                                    <constraint firstAttribute="width" constant="153" id="3NN-Xy-dzz"/>
                                     <constraint firstItem="gsd-8G-Sml" firstAttribute="centerY" secondItem="ujK-Ng-yLt" secondAttribute="centerY" id="9Bt-Fa-wrz"/>
                                     <constraint firstItem="ujK-Ng-yLt" firstAttribute="leading" secondItem="gsd-8G-Sml" secondAttribute="trailing" constant="3" id="DfK-HJ-BrN"/>
                                     <constraint firstItem="ujK-Ng-yLt" firstAttribute="centerY" secondItem="Zui-HW-jrO" secondAttribute="centerY" id="Hbl-fk-EQJ"/>
-                                    <constraint firstItem="ujK-Ng-yLt" firstAttribute="centerX" secondItem="Zui-HW-jrO" secondAttribute="centerX" multiplier="1.2" id="w5U-WS-VdJ"/>
+                                    <constraint firstItem="0W9-a5-HH4" firstAttribute="centerY" secondItem="ujK-Ng-yLt" secondAttribute="centerY" id="I9W-1J-vAh"/>
+                                    <constraint firstItem="0W9-a5-HH4" firstAttribute="leading" secondItem="ujK-Ng-yLt" secondAttribute="trailing" constant="16" id="oov-VD-0C4"/>
+                                    <constraint firstItem="ujK-Ng-yLt" firstAttribute="centerX" secondItem="Zui-HW-jrO" secondAttribute="centerX" id="w5U-WS-VdJ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5SD-Z1-3np">
-                                <rect key="frame" x="124" y="126" width="251" height="76"/>
+                                <rect key="frame" x="153" y="126" width="222" height="76"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="0rK-4Z-nog">
-                                        <rect key="frame" x="0.0" y="0.0" width="251" height="76"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="0rK-4Z-nog">
+                                        <rect key="frame" x="0.0" y="0.0" width="222" height="76"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
@@ -2603,22 +2613,31 @@
                                     <constraint firstItem="0rK-4Z-nog" firstAttribute="width" secondItem="5SD-Z1-3np" secondAttribute="width" id="td7-4K-fiZ"/>
                                 </constraints>
                             </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdn-b2-kfa">
+                                <rect key="frame" x="0.0" y="126" width="375" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="fOW-fC-XLA"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Zui-HW-jrO" firstAttribute="top" secondItem="bW5-34-eON" secondAttribute="bottom" constant="8" id="2Qu-la-ebm"/>
                             <constraint firstItem="5SD-Z1-3np" firstAttribute="leading" secondItem="Zui-HW-jrO" secondAttribute="trailing" id="7B9-Nr-PRC"/>
                             <constraint firstItem="bW5-34-eON" firstAttribute="top" secondItem="SCQ-Bj-dGv" secondAttribute="bottom" constant="38" id="Cua-2p-ejO"/>
-                            <constraint firstItem="5SD-Z1-3np" firstAttribute="width" secondItem="y0K-Jd-Hp0" secondAttribute="width" multiplier="0.67" id="KRy-S6-dq4"/>
                             <constraint firstItem="5SD-Z1-3np" firstAttribute="top" secondItem="bW5-34-eON" secondAttribute="bottom" constant="8" id="KsF-AN-zx7"/>
-                            <constraint firstItem="Zui-HW-jrO" firstAttribute="width" secondItem="y0K-Jd-Hp0" secondAttribute="width" multiplier="0.33" id="Uac-Sk-fPd"/>
+                            <constraint firstItem="Bdn-b2-kfa" firstAttribute="width" secondItem="y0K-Jd-Hp0" secondAttribute="width" id="WdQ-5w-zd4"/>
+                            <constraint firstItem="Bdn-b2-kfa" firstAttribute="centerX" secondItem="y0K-Jd-Hp0" secondAttribute="centerX" id="Z1d-iW-Y4M"/>
                             <constraint firstItem="Zui-HW-jrO" firstAttribute="leading" secondItem="y0K-Jd-Hp0" secondAttribute="leadingMargin" constant="-16" id="ZoM-EU-c1o"/>
                             <constraint firstAttribute="leadingMargin" secondItem="bW5-34-eON" secondAttribute="leading" id="bg3-De-Quc"/>
+                            <constraint firstItem="Bdn-b2-kfa" firstAttribute="top" secondItem="bW5-34-eON" secondAttribute="bottom" constant="8" id="cLs-fZ-rQ1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5SD-Z1-3np" secondAttribute="trailing" constant="-16" id="n06-Zr-8M7"/>
                             <constraint firstItem="5SD-Z1-3np" firstAttribute="height" secondItem="Zui-HW-jrO" secondAttribute="height" id="oe0-Su-OaO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="SlH-Nj-o9n"/>
+                    <navigationItem key="navigationItem" title="Phone number" id="SlH-Nj-o9n"/>
                     <connections>
+                        <outlet property="borderView" destination="Bdn-b2-kfa" id="tzw-TY-Lfv"/>
                         <outlet property="countryLabel" destination="gsd-8G-Sml" id="GqX-gd-b6r"/>
                         <outlet property="phoneNumberTF" destination="0rK-4Z-nog" id="4an-9D-jzD"/>
                         <outlet property="prefixTF" destination="ujK-Ng-yLt" id="v7d-Eh-xPK"/>
@@ -2630,7 +2649,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30T-7N-yVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5692" y="1093"/>
+            <point key="canvasLocation" x="-5692" y="1092.5037481259371"/>
         </scene>
         <!--Prefix Selection View Controller-->
         <scene sceneID="udr-e7-7iu">
@@ -3959,6 +3978,7 @@ in ThePayPro</string>
         <image name="basic" width="315" height="80"/>
         <image name="descriptionBackground" width="315" height="142"/>
         <image name="disclosure-indicator" width="8" height="13"/>
+        <image name="disclosure-indicator-down" width="13" height="8"/>
         <image name="logo-horizontal" width="467" height="160"/>
         <image name="proSelected" width="315" height="80"/>
         <image name="settings-card" width="29" height="29"/>
