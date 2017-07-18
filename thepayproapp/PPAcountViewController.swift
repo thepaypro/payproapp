@@ -14,6 +14,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     @IBOutlet weak var transactionsTV: UITableView!
     @IBOutlet weak var cardButton: UIButton!
     @IBOutlet weak var cardHeight: NSLayoutConstraint!
+    @IBOutlet weak var latestTransactionsView: UIView!
     
     var transactionsArray : [Transaction]?
     
@@ -30,6 +31,18 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         transactionsTV.reloadData()
         
         scrollView.delegate = self
+        
+        let borderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: latestTransactionsView.frame.width, height: 0.4))
+        let layerTop = CAShapeLayer()
+        layerTop.path = borderTop.cgPath
+        layerTop.fillColor = UIColor.lightGray.cgColor
+        latestTransactionsView.layer.addSublayer(layerTop)
+        
+        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: latestTransactionsView.frame.height - 0.4, width: latestTransactionsView.frame.width, height: 0.4))
+        let layerBottom = CAShapeLayer()
+        layerBottom.path = borderBottom.cgPath
+        layerBottom.fillColor = UIColor.lightGray.cgColor
+        latestTransactionsView.layer.addSublayer(layerBottom)
     }
     
     override func didReceiveMemoryWarning()

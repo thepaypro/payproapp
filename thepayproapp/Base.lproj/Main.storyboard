@@ -3726,6 +3726,7 @@ in PayPro</string>
                     <connections>
                         <outlet property="cardButton" destination="0cO-So-W8R" id="8sV-W8-eZQ"/>
                         <outlet property="cardHeight" destination="J77-ru-cX6" id="6qd-9j-QC8"/>
+                        <outlet property="latestTransactionsView" destination="WKE-Od-sRX" id="KPN-e3-lDE"/>
                         <outlet property="scrollView" destination="adW-Hh-xKo" id="ecT-1L-2FZ"/>
                         <outlet property="transactionsTV" destination="itn-Lo-3Rf" id="ljk-5e-bwp"/>
                         <segue destination="SAg-Jd-pbt" kind="show" identifier="showAddressFormVC" id="5oX-E6-27I"/>
