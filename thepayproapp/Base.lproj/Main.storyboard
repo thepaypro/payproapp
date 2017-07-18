@@ -2703,12 +2703,12 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNv-OG-Q0d">
                                 <rect key="frame" x="16" y="138" width="343" height="58"/>
                                 <string key="text">Enter your Passcode
-in ThePayPro</string>
+in PayPro</string>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your passcode to unlock ThePayPro app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUx-8b-TyJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your passcode to unlock the PayPro app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUx-8b-TyJ">
                                 <rect key="frame" x="16" y="212" width="343" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2760,7 +2760,6 @@ in ThePayPro</string>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="xdi-hz-2nI" firstAttribute="width" secondItem="rzM-E2-5wY" secondAttribute="width" multiplier="0.06" id="2Di-2u-Itz"/>
                                     <constraint firstItem="xdi-hz-2nI" firstAttribute="centerX" secondItem="rzM-E2-5wY" secondAttribute="centerX" multiplier="1.75" id="2Qa-3X-aPD"/>
@@ -2955,12 +2954,12 @@ in ThePayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WiO-9T-pal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1663" y="-1200"/>
+            <point key="canvasLocation" x="1784.8" y="-1200.4497751124438"/>
         </scene>
-        <!--Confirmation View Controller-->
+        <!--SMS code-->
         <scene sceneID="CME-f1-tT4">
             <objects>
-                <viewController id="Jib-et-EfL" customClass="PPSMSConfirmationViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="SMS code" id="Jib-et-EfL" customClass="PPSMSConfirmationViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="svN-AS-h6x"/>
                         <viewControllerLayoutGuide type="bottom" id="N2p-oZ-EsP"/>
@@ -2975,7 +2974,7 @@ in ThePayPro</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the SMS code you have received to register in ThePayPro app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO7-md-j7H">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the SMS code you have received to register in the PayPro app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO7-md-j7H">
                                 <rect key="frame" x="16" y="198" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="tTZ-aq-B4u"/>
@@ -3100,7 +3099,6 @@ in ThePayPro</string>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Isq-PW-zyq" firstAttribute="centerX" secondItem="b31-up-6LL" secondAttribute="centerX" multiplier="1.6" id="8xl-Yw-Yx9"/>
                                     <constraint firstAttribute="height" constant="50" id="Exg-AO-R1R"/>
@@ -3227,7 +3225,6 @@ in ThePayPro</string>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="sp7-Yv-YsH" firstAttribute="centerY" secondItem="6o1-2r-uyf" secondAttribute="centerY" id="89z-M6-P5O"/>
                                     <constraint firstItem="cdt-tI-Ufb" firstAttribute="centerY" secondItem="6o1-2r-uyf" secondAttribute="centerY" id="Bd6-dl-CIS"/>
@@ -3287,7 +3284,7 @@ in ThePayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDa-j0-XYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3038" y="1093"/>
+            <point key="canvasLocation" x="-3039" y="1093"/>
         </scene>
         <!--Account-->
         <scene sceneID="poj-MA-6u7">
@@ -3752,7 +3749,7 @@ in ThePayPro</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1yC-fr-uA7">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qcW-8p-sz6" id="cBz-7d-ZO1"/>
@@ -3997,11 +3994,10 @@ in ThePayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QOc-uS-S0D"/>
         <segue reference="MgD-j5-nvC"/>
-        <segue reference="5oX-E6-27I"/>
-        <segue reference="QjQ-Zm-ceK"/>
+        <segue reference="JJj-1x-d2j"/>
         <segue reference="8Cl-oA-bFg"/>
+        <segue reference="QjQ-Zm-ceK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
