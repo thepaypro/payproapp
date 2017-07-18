@@ -99,10 +99,10 @@ class PPSettingsViewController: UIViewController {
         
         if data != nil
         {
-            avatarImage.contentMode = .scaleToFill
+            avatarImage.contentMode = .scaleAspectFill
             avatarImage.image = UIImage(data: data! as Data)
         } else {
-            avatarImage.contentMode = .scaleToFill
+            avatarImage.contentMode = .scaleAspectFill
             avatarImage.image = UIImage(named:"default-profile")
         }
     }
