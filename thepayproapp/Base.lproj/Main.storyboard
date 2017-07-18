@@ -3695,7 +3695,7 @@ in PayPro</string>
                                     <constraint firstItem="l2m-Qz-Eze" firstAttribute="top" secondItem="WKE-Od-sRX" secondAttribute="top" constant="5.5" id="oWG-6l-Rkr"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itn-Lo-3Rf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itn-Lo-3Rf">
                                 <rect key="frame" x="0.0" y="324.5" width="375" height="342.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
