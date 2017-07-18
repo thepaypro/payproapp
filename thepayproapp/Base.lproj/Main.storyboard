@@ -3539,7 +3539,7 @@ in PayPro</string>
             </objects>
             <point key="canvasLocation" x="3473" y="1137"/>
         </scene>
-        <!--Account View Controller-->
+        <!--Account-->
         <scene sceneID="2P1-wl-qAK">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="E4X-fn-yZx" customClass="PPAccountViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -3722,7 +3722,7 @@ in PayPro</string>
                             <constraint firstItem="adW-Hh-xKo" firstAttribute="top" secondItem="TGX-w7-cdC" secondAttribute="bottom" id="wHN-nY-Xbi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="O12-uo-L1f"/>
+                    <navigationItem key="navigationItem" title="Account" id="O12-uo-L1f"/>
                     <connections>
                         <outlet property="cardButton" destination="0cO-So-W8R" id="8sV-W8-eZQ"/>
                         <outlet property="cardHeight" destination="J77-ru-cX6" id="6qd-9j-QC8"/>
@@ -3749,7 +3749,7 @@ in PayPro</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1yC-fr-uA7">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qcW-8p-sz6" id="cBz-7d-ZO1"/>
@@ -3994,10 +3994,10 @@ in PayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="5oX-E6-27I"/>
         <segue reference="MgD-j5-nvC"/>
         <segue reference="JJj-1x-d2j"/>
         <segue reference="8Cl-oA-bFg"/>
-        <segue reference="QjQ-Zm-ceK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
