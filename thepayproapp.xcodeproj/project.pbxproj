@@ -32,6 +32,7 @@
 		219355521F17B4A900101256 /* PPProfileEditDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219355511F17B4A900101256 /* PPProfileEditDocumentViewController.swift */; };
 		21A114ED1EF9688A00664883 /* PPBankTransfeAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A114EC1EF9688A00664883 /* PPBankTransfeAmountViewController.swift */; };
 		21B948631EE700B30099A79F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B948621EE700B30099A79F /* Colors.swift */; };
+		21D50DA51F1E18AE0013CD4C /* PPDocumentPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D50DA41F1E18AE0013CD4C /* PPDocumentPhotoViewController.swift */; };
 		47DF01DE01E7D7D898A65AFE /* Pods_thepayproapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */; };
 		6A0CE8EB1EF58D5E000C0D1F /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CE8EA1EF58D5E000C0D1F /* ContactCell.swift */; };
 		6A0CE8ED1EF58D7A000C0D1F /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CE8EC1EF58D7A000C0D1F /* Contact.swift */; };
@@ -130,6 +131,7 @@
 		219355511F17B4A900101256 /* PPProfileEditDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPProfileEditDocumentViewController.swift; sourceTree = "<group>"; };
 		21A114EC1EF9688A00664883 /* PPBankTransfeAmountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBankTransfeAmountViewController.swift; sourceTree = "<group>"; };
 		21B948621EE700B30099A79F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		21D50DA41F1E18AE0013CD4C /* PPDocumentPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPDocumentPhotoViewController.swift; sourceTree = "<group>"; };
 		220E96BB616D905BE09C4351 /* Pods-thepayproappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3AD46AC53B7372C495343342 /* Pods-thepayproapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproapp/Pods-thepayproapp.release.xcconfig"; sourceTree = "<group>"; };
 		6A0CE8EA1EF58D5E000C0D1F /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
@@ -531,6 +533,7 @@
 				BF69E1341F0E328D0004EE4E /* PPCardFirstFormViewController.swift */,
 				BFDA4CB61F1373D700300261 /* PPCardSecondFormViewController.swift */,
 				BF401F971F1CD2340071EA84 /* PPActivationCardViewController.swift */,
+				21D50DA41F1E18AE0013CD4C /* PPDocumentPhotoViewController.swift */,
 			);
 			name = PPAccountViewController;
 			sourceTree = "<group>";
@@ -884,6 +887,7 @@
 				2128DBE91F0E93CA0051FC8E /* ExtensionString.swift in Sources */,
 				2128DBE61F0E20800051FC8E /* PPSendMoneyAmountViewController.swift in Sources */,
 				BFBD893A1F00FA6E003E7A4F /* PPPrefixSelectionViewController.swift in Sources */,
+				21D50DA51F1E18AE0013CD4C /* PPDocumentPhotoViewController.swift in Sources */,
 				BF56BABE1EF26BF300429005 /* GroupMember+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1042,7 +1046,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				DEVELOPMENT_TEAM = 78E8NNX52N;
 				INFOPLIST_FILE = thepayproapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.payproapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1059,7 +1063,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				DEVELOPMENT_TEAM = 78E8NNX52N;
 				INFOPLIST_FILE = thepayproapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.payproapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

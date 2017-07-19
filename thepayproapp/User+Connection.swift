@@ -19,7 +19,7 @@ extension User {
                     "first": password,
                     "second": passwordConfirmation
                 ],
-                "validationCode": validationCode
+                "mobileVerificationCode": validationCode
             ]
         ] as [String : Any]
         

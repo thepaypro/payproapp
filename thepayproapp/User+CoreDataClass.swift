@@ -95,7 +95,7 @@ public class User: NSManagedObject
         
         // Static account type setting
         // TO-DO: Fetch from WS
-        accountTypeId = 1
+        accountTypeId = 0
         
         if accountTypeId != nil
         {
