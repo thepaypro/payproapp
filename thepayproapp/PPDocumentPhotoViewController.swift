@@ -10,39 +10,29 @@ import UIKit
 
 class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
+    var documentType:String = "Driving license"
+    var buttonPicked:UIButton?
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var viewContent: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    
-    var documentType:String = "Driving license"
-    var buttonPicked:UIButton?
+    @IBOutlet weak var firstPhotoView: UIView!
+    @IBOutlet weak var secondPhotoView: UIView!
+    @IBAction func firstButtonAction(_ sender: Any) {
+        buttonPicked = sender as? UIButton
+        openCamera()
+    }
+    @IBAction func secondButtonAction(_ sender: Any) {
+        buttonPicked = sender as? UIButton
+        openCamera()
+    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        print(self.scrollView.frame.size.height)
-        print(self.view.frame.size.height)
-        print(self.viewContent.frame.size.height)
         
-        print(self.scrollView.frame.size.width)
-        print(self.view.frame.size.width)
         print(self.viewContent.frame.size.width)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print(self.scrollView.frame.size.height)
-        print(self.view.frame.size.height)
-        print(self.viewContent.frame.size.height)
         
-        print(self.scrollView.frame.size.width)
-        print(self.view.frame.size.width)
-        print(self.viewContent.frame.size.width)
-    
         self.view.backgroundColor = PayProColors.background
         
         if documentType == "Driving license" {
@@ -55,73 +45,12 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
             self.titleLabel.text = "TAKE A PHOTO OF PASSPORT"
         }
         
-        let viewContentPhoto = UIView()
-        viewContentPhoto.frame = CGRect(x: 0, y:43, width: self.view.frame.size.width, height: self.viewContent.frame.size.height - 43)
-        viewContentPhoto.backgroundColor = UIColor.red
         
-        let viewTakePhoto = UIView()
-        viewTakePhoto.frame = CGRect(x: 15, y:15, width: self.view.frame.size.width - 30, height: viewContentPhoto.frame.size.height / 2 - 30)
-        
-        let dashedBorder = CAShapeLayer()
-        dashedBorder.strokeColor = UIColor.black.cgColor
-        dashedBorder.lineDashPattern = [2, 2]
-        dashedBorder.frame = viewTakePhoto.bounds
-        dashedBorder.path = UIBezierPath(rect: viewTakePhoto.bounds).cgPath
-        dashedBorder.fillColor = UIColor.white.cgColor
-        viewTakePhoto.layer.addSublayer(dashedBorder)
-        
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: viewTakePhoto.frame.size.width, height: viewTakePhoto.frame.size.height))
-        button.backgroundColor = UIColor.clear
-        button.setTitle("Press to take a photo", for: .normal)
-        button.setTitleColor(PayProColors.title, for: .normal)
-        button.tag = 0
-        button.addTarget(self, action: #selector(openCamera), for: .touchUpInside)
-        
-        let xcamera = viewTakePhoto.frame.size.width / 2 - 34
-        let ycamera = viewTakePhoto.frame.size.height / 2 - 70
-        
-        let cameraIcon = UIImageView(frame: CGRect(x: xcamera, y: ycamera, width: 69, height: 69))
-        cameraIcon.contentMode = .scaleAspectFill
-        cameraIcon.image = UIImage(named: "camera")
-        button.addSubview(cameraIcon)
-        
-        viewTakePhoto.addSubview(button)
-        
-        viewContentPhoto.addSubview(viewTakePhoto)
-        
-        
-        //Second Photo
-        let viewTakeSecondPhoto = UIView()
-        viewTakeSecondPhoto.frame = CGRect(x: 15, y: viewContentPhoto.frame.size.height / 2 + 15, width: self.view.frame.size.width - 30, height: viewContentPhoto.frame.size.height / 2 - 30)
-        
-        let dashedBorderSecond = CAShapeLayer()
-        dashedBorderSecond.strokeColor = UIColor.black.cgColor
-        dashedBorderSecond.lineDashPattern = [2, 2]
-        dashedBorderSecond.frame = viewTakeSecondPhoto.bounds
-        dashedBorderSecond.path = UIBezierPath(rect: viewTakeSecondPhoto.bounds).cgPath
-        dashedBorderSecond.fillColor = UIColor.white.cgColor
-        viewTakeSecondPhoto.layer.addSublayer(dashedBorderSecond)
-        
-        let buttonSecond = UIButton(frame: CGRect(x: 0, y: 0, width: viewTakeSecondPhoto.frame.size.width, height: viewTakeSecondPhoto.frame.size.height))
-        buttonSecond.backgroundColor = UIColor.clear
-        buttonSecond.setTitle("Press to take a photo", for: .normal)
-        buttonSecond.setTitleColor(PayProColors.title, for: .normal)
-        buttonSecond.tag = 1
-        buttonSecond.addTarget(self, action: #selector(openCamera), for: .touchUpInside)
-        
-        let xcameraSecond = viewTakeSecondPhoto.frame.size.width / 2 - 34
-        let ycameraSecond = viewTakeSecondPhoto.frame.size.height / 2 - 70
-        
-        let cameraIconSecond = UIImageView(frame: CGRect(x: xcameraSecond, y: ycameraSecond, width: 69, height: 69))
-        cameraIconSecond.contentMode = .scaleAspectFill
-        cameraIconSecond.image = UIImage(named: "camera")
-        buttonSecond.addSubview(cameraIconSecond)
-        
-        viewTakeSecondPhoto.addSubview(buttonSecond)
-        
-        viewContentPhoto.addSubview(viewTakeSecondPhoto)
-        
-        self.viewContent.addSubview(viewContentPhoto)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     private func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
@@ -132,10 +61,8 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         return true
     }
     
-    func openCamera(_ sender: UIButton)
+    func openCamera()
     {
-        buttonPicked = sender
-        
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
