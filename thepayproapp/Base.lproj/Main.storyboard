@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -749,11 +749,21 @@
                                                             <constraint firstItem="Xsb-Iu-u9y" firstAttribute="top" secondItem="084-Se-uD2" secondAttribute="top" id="qqX-Gn-Rrq"/>
                                                         </constraints>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJx-sq-VLk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="58" id="l4J-xw-6kh"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="RJx-sq-VLk" firstAttribute="leading" secondItem="m5X-sh-fU0" secondAttribute="leading" id="CIf-CJ-NWD"/>
                                                     <constraint firstItem="084-Se-uD2" firstAttribute="centerY" secondItem="m5X-sh-fU0" secondAttribute="centerY" id="Y1o-u9-Dxu"/>
                                                     <constraint firstItem="084-Se-uD2" firstAttribute="leading" secondItem="m5X-sh-fU0" secondAttribute="leading" id="aCx-1J-OHL"/>
+                                                    <constraint firstItem="RJx-sq-VLk" firstAttribute="top" secondItem="m5X-sh-fU0" secondAttribute="top" id="oej-pN-PEx"/>
                                                     <constraint firstAttribute="trailing" secondItem="084-Se-uD2" secondAttribute="trailing" constant="45" id="pax-TP-LrN"/>
+                                                    <constraint firstItem="RJx-sq-VLk" firstAttribute="width" secondItem="m5X-sh-fU0" secondAttribute="width" id="rMr-Vw-5pS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="RJx-sq-VLk" secondAttribute="trailing" id="yfG-Qo-MGr"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -813,6 +823,8 @@
                     <connections>
                         <outlet property="amountLabel" destination="cPH-Zx-CmV" id="PN8-n6-SZx"/>
                         <outlet property="amountView" destination="21g-ZE-Lac" id="HCw-ag-lOO"/>
+                        <outlet property="boxActivityIndicator" destination="RJx-sq-VLk" id="sHo-UT-GEG"/>
+                        <outlet property="boxSwipe" destination="m5X-sh-fU0" id="jRr-dH-62q"/>
                         <outlet property="firstLabel" destination="qdP-qC-kaX" id="dX0-i4-faL"/>
                         <outlet property="fourthLabel" destination="DRO-06-AJe" id="LND-Hc-cV7"/>
                         <outlet property="infoView" destination="OLa-fi-RJA" id="u6s-27-G70"/>
@@ -3755,7 +3767,7 @@ in PayPro</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1yC-fr-uA7">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qcW-8p-sz6" id="cBz-7d-ZO1"/>
@@ -4357,11 +4369,9 @@ in PayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5oX-E6-27I"/>
         <segue reference="QOc-uS-S0D"/>
-        <segue reference="ops-cj-9Fb"/>
-        <segue reference="QjQ-Zm-ceK"/>
         <segue reference="8Cl-oA-bFg"/>
+        <segue reference="QjQ-Zm-ceK"/>
         <segue reference="MgD-j5-nvC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

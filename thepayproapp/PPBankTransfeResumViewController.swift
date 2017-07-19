@@ -16,6 +16,7 @@ var swipeColorBoxCenterX: CGFloat = 0.0
 class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewControllerDelegate
 {
     var sendMoney = SendMoney()
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     @IBOutlet weak var superView: UIView!
     
@@ -60,6 +61,8 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
     @IBOutlet weak var amountView: UIView!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var textInfo: UITextView!
+    @IBOutlet weak var boxSwipe: UIView!
+    @IBOutlet weak var boxActivityIndicator: UIView!
     
     override func viewDidLoad()
     {
@@ -152,16 +155,41 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         AudioServicesPlaySystemSound(SystemSoundID (kSystemSoundID_Vibrate))
     }
     
+    func showActivityIndicator()
+    {
+        activityIndicator.center = self.boxActivityIndicator.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        self.boxActivityIndicator.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+    }
+    
+    func hideActivityIndicator()
+    {
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
+    }
+    
     func goToConfirm()
     {
         if sendMoney.getOperationType() == 0 || sendMoney.getOperationType() == 1 {
-            let confirmViewController = PPSendMoneyConfirmViewController()
-            confirmViewController.modalTransitionStyle = .crossDissolve
-            confirmViewController.sendMoney = sendMoney
-            self.present(confirmViewController, animated: true, completion: {
-                self.tabBarController?.selectedIndex = 3
-                self.vibrateDevice()
-            })
+            
+            //call endpoint
+            showActivityIndicator()
+            let when = DispatchTime.now() + 3
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                self.hideActivityIndicator()
+                
+                let confirmViewController = PPSendMoneyConfirmViewController()
+                confirmViewController.modalTransitionStyle = .crossDissolve
+                confirmViewController.sendMoney = self.sendMoney
+                self.present(confirmViewController, animated: true, completion: {
+                    self.tabBarController?.selectedIndex = 3
+                    self.vibrateDevice()
+                })
+            }
             
         } else if sendMoney.getOperationType() == 2 {
             if (MFMessageComposeViewController.canSendText()) {
