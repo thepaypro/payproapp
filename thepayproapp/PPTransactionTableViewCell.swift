@@ -33,8 +33,12 @@ class PPTransactionTableViewCell: UITableViewCell
         titleLabel.text = transaction.title
         subtitleLabel.text = transaction.subtitle
         datetimeLabel.text = transaction.datetime
-        quantityLabel.text = "£\(transaction.amount)"
         
-        quantityLabel.textColor = transaction.amount > 0 ? UIColor.black : UIColor.red
+        quantityLabel.text = "£\(abs(transaction.amount))"
+        
+        if transaction.amount < 0
+        {
+            quantityLabel.text = "-\(quantityLabel.text!)"
+        }
     }
 }

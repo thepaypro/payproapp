@@ -21,6 +21,11 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
     }
     @IBOutlet weak var avatarImage: UIImageView!
     
+//    let saveQueue = dispatch_queue_create("saveQueue", DISPATCH_QUEUE_CONCURRENT)
+    
+    // moc
+//    var managedContext : NSManagedObjectContext?
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -104,10 +109,10 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         if data != nil
         {
-            avatarImage.contentMode = .scaleAspectFill
+            avatarImage.contentMode = .scaleToFill
             avatarImage.image = UIImage(data: data! as Data)
         } else {
-            avatarImage.contentMode = .scaleAspectFill
+            avatarImage.contentMode = .scaleToFill
             avatarImage.image = UIImage(named:"default-profile")
         }
     }
@@ -129,13 +134,15 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
                 let imagePicker = UIImagePickerController()
                 imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
                 imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-                imagePicker.cameraCaptureMode = .photo
-                imagePicker.modalPresentationStyle = .fullScreen
                 imagePicker.allowsEditing = false
                 self.present(imagePicker, animated: true, completion: nil)
             } else {
                 print("problems with open camera")
             }
+            
+//            self.dismiss(animated: true, completion: {
+//                self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
+//            })
         })
         
         alert.addAction(cameraButtonAction)
@@ -162,11 +169,7 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-            prepareImageForSaving(image: editedImage)
-            
-        } else if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             prepareImageForSaving(image: pickedImage)
         }
         
@@ -175,7 +178,19 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     func prepareImageForSaving(image:UIImage)
     {
-        guard let imageData  = UIImageJPEGRepresentation(image, 1.0) else {
+//        let imageData = UIImagePNGRepresentation(avatarImage.image!)
+//        let compresedImage = UIImage(data: imageData!)
+//        UIImageWriteToSavedPhotosAlbum(compresedImage!, nil, nil, nil)
+//        
+//        let alert = UIAlertController(title: "Saved", message: "Your image has been saved", preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+//        alert.addAction(okAction)
+//        self.present(alert, animated: true, completion: nil)
+        
+        // scale image, I chose the size of the VC because it is easy
+//        let thumbnail = image.scale(toSize: self.avatarImage.frame.size)
+        
+        guard let imageData  = UIImageJPEGRepresentation(image, 0.7) else {
             // handle failed conversion
             print("jpg error")
             return
@@ -185,7 +200,7 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         let data = UserDefaults.standard.object(forKey: "avatar") as! NSData
         
-        avatarImage.contentMode = .scaleAspectFill
+        avatarImage.contentMode = .scaleToFill
         avatarImage.image = UIImage(data: data as Data)
     }
 }

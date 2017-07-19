@@ -41,12 +41,18 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
             {
                 titleLabel.text = "Confirm your passcode"
             }
+            
+            self.navigationItem.title = "Passcode"
         }
         else
         {
-            titleLabel.text = "Enter your Passcode in ThePayPro"
-            descriptionLabel.text = "Enter your passcode to unlock ThePayPro app"
+            titleLabel.text = "Enter your Passcode in PayPro"
+            descriptionLabel.text = "Enter your passcode to unlock the PayPro app"
+            
+            self.navigationItem.title = "Log in"
         }
+        
+        self.applyGradientBackground()
                 
         passcodeTF.becomeFirstResponder()
         
@@ -62,12 +68,24 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
     {
         for currentView: UIView in self.mainPasscodeView.subviews
         {
-            currentView.backgroundColor = UIColor.white
+            currentView.backgroundColor = UIColor.clear
             
             currentView.layer.cornerRadius = currentView.frame.size.width / 2
             currentView.layer.borderWidth = 2.0
-            currentView.layer.borderColor = UIColor.lightGray.cgColor
+            currentView.layer.borderColor = UIColor.white.cgColor
         }
+    }
+    
+    func applyGradientBackground()
+    {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        
+        gradient.colors = [PayProColors.lightBlue.cgColor, PayProColors.blue.cgColor]
+        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        
+        self.view.layer.insertSublayer(gradient, at: 0)
     }
     
     func nextTapped()
@@ -120,7 +138,7 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
             for passcode in 0...newLength - 1
             {
                 let currentView : UIView = self.mainPasscodeView.subviews[passcode]
-                currentView.layer.backgroundColor = UIColor.groupTableViewBackground.cgColor
+                currentView.layer.backgroundColor = UIColor.white.cgColor
             }
         }
         
@@ -129,7 +147,7 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
             for passcode in newLength...self.mainPasscodeView.subviews.count - 1
             {
                 let currentView : UIView = self.mainPasscodeView.subviews[passcode]
-                currentView.layer.backgroundColor = UIColor.white.cgColor
+                currentView.layer.backgroundColor = UIColor.clear.cgColor
             }
         }
         

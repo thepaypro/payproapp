@@ -37,7 +37,10 @@ extension User {
     class func mobileVerificationCode(phoneNumber: String, completion: @escaping (_ userExistence: Bool) -> Void)
     {
         makePostRequest(paramsDictionary: ["phoneNumber": phoneNumber], endpointURL: "mobile-verification-code", completion: {completionDictionary in
-            completion(completionDictionary.value(forKeyPath: "isUser") as! Bool)
+            if let isUser = completionDictionary["isUser"]
+            {
+                completion(isUser as! Bool)
+            }
         });
     }
     

@@ -11,9 +11,12 @@ import UIKit
 class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource
 {
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var cardIV: UIImageView!
     @IBOutlet weak var transactionsTV: UITableView!
     @IBOutlet weak var cardButton: UIButton!
     @IBOutlet weak var cardHeight: NSLayoutConstraint!
+    @IBOutlet weak var latestTransactionsView: UIView!
+    @IBOutlet weak var accountDetailsView: UIView!
     
     var transactionsArray : [Transaction]?
     
@@ -23,6 +26,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         // Do any additional setup after loading the view.
         
+        self.navigationItem.title = User.currentUser()?.accountType == .proAccount ? "Pro account" : "Basic account"
+        
         initDummyTransactions()
         
         transactionsTV.register(UINib(nibName: "PPTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionCell")
@@ -30,6 +35,18 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         transactionsTV.reloadData()
         
         scrollView.delegate = self
+        
+        let borderTop = UIBezierPath(rect: CGRect(x: 0, y: 0.4, width: UIScreen.main.bounds.width, height: 0.4))
+        let layerTop = CAShapeLayer()
+        layerTop.path = borderTop.cgPath
+        layerTop.fillColor = UIColor.lightGray.cgColor
+        latestTransactionsView.layer.addSublayer(layerTop)
+        
+        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: latestTransactionsView.bounds.height, width: UIScreen.main.bounds.width, height: 0.4))
+        let layerBottom = CAShapeLayer()
+        layerBottom.path = borderBottom.cgPath
+        layerBottom.fillColor = UIColor.lightGray.cgColor
+        latestTransactionsView.layer.addSublayer(layerBottom)
     }
     
     override func didReceiveMemoryWarning()
@@ -43,6 +60,11 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         super.viewWillAppear(animated)
         
         self.setupView()
+    }
+    
+    override func viewDidLayoutSubviews()
+    {
+        scrollView.contentOffset = CGPoint(x: accountDetailsView.bounds.width, y: 0.0)
     }
     
     func initDummyTransactions()
@@ -96,12 +118,14 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     func setupView()
     {
-        scrollView.contentOffset = CGPoint(x: UIScreen.main.bounds.width, y: 0.0)
+        scrollView.contentOffset = CGPoint(x: accountDetailsView.bounds.width, y: 0.0)
         
         cardButton.isHidden = false
         cardHeight.constant = 60.0
         
         let cardStatus = User.currentUser()?.cardStatus
+        
+        cardIV.image = UIImage(named: "account-card")
         
         if cardStatus == .notOrdered
         {
@@ -110,6 +134,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         else if cardStatus == .ordered
         {
             cardButton.setTitle("Activate Visa Debit Card", for: .normal)
+            
+            cardIV.image = UIImage(named: "account-card-pending")
         }
         else
         {
