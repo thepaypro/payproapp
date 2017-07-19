@@ -10,7 +10,7 @@ import UIKit
 
 class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSelectionDelegate
 {
-    @IBOutlet weak var borderView: UIView!
+    @IBOutlet weak var phoneView: UIView!
     @IBOutlet weak var prefixView: UIView!
     @IBOutlet weak var countryLabel: UILabel!    
     @IBOutlet weak var prefixTF: UITextField!
@@ -31,17 +31,17 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
 //        self.countryLabel.text = "ES"
 //        self.prefixTF.text = "+34"
 //        self.phoneNumberTF.text = "627737377"
-        let borderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: borderView.frame.width, height: 0.4))
+        let borderTop = UIBezierPath(rect: CGRect(x: 0, y: 0.4, width: UIScreen.main.bounds.width, height: 0.4))
         let layerTop = CAShapeLayer()
         layerTop.path = borderTop.cgPath
         layerTop.fillColor = UIColor.lightGray.cgColor
-        borderView.layer.addSublayer(layerTop)
+        phoneView.layer.addSublayer(layerTop)
         
-        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: borderView.frame.height, width: borderView.frame.width, height: 0.4))
+        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: phoneView.frame.height - 0.4, width: UIScreen.main.bounds.width, height: 0.4))
         let layerBottom = CAShapeLayer()
         layerBottom.path = borderBottom.cgPath
         layerBottom.fillColor = UIColor.lightGray.cgColor
-        borderView.layer.addSublayer(layerBottom)
+        phoneView.layer.addSublayer(layerBottom)
         
         // Do any additional setup after loading the view.
     }
