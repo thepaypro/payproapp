@@ -11,6 +11,7 @@ import UIKit
 class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource
 {
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var cardIV: UIImageView!
     @IBOutlet weak var transactionsTV: UITableView!
     @IBOutlet weak var cardButton: UIButton!
     @IBOutlet weak var cardHeight: NSLayoutConstraint!
@@ -116,6 +117,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         let cardStatus = User.currentUser()?.cardStatus
         
+        cardIV.image = UIImage(named: "account-card")
+        
         if cardStatus == .notOrdered
         {
             cardButton.setTitle("Order Visa Debit Card", for: .normal)
@@ -123,6 +126,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         else if cardStatus == .ordered
         {
             cardButton.setTitle("Activate Visa Debit Card", for: .normal)
+            
+            cardIV.image = UIImage(named: "account-card-pending")
         }
         else
         {
