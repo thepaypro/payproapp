@@ -10,16 +10,23 @@ import UIKit
 
 class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
-    var documentType:String = ""
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var viewContent: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    var documentType:String = "Driving license"
     var buttonPicked:UIButton?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        print(self.scrollView.frame.size.height)
+        print(self.view.frame.size.height)
+        print(self.viewContent.frame.size.height)
         
-        print("documentType: \(documentType)")
-        
-        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        print(self.scrollView.frame.size.width)
+        print(self.view.frame.size.width)
+        print(self.viewContent.frame.size.width)
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,31 +35,29 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let viewTitle = UIView()
-        viewTitle.frame = CGRect(x: 0, y:0, width: self.view.frame.size.width, height: 43)
+        print(self.scrollView.frame.size.height)
+        print(self.view.frame.size.height)
+        print(self.viewContent.frame.size.height)
         
-        let titleLabel = UILabel()
-        //        Driving Licence", "Passport", "National ID Card"
+        print(self.scrollView.frame.size.width)
+        print(self.view.frame.size.width)
+        print(self.viewContent.frame.size.width)
+    
+        self.view.backgroundColor = PayProColors.background
+        
         if documentType == "Driving license" {
-            titleLabel.text = "TAKE A PHOTO OF FRONT DRIVING CARD"
+            self.titleLabel.text = "TAKE A PHOTO OF FRONT DRIVING CARD"
             
         } else if documentType == "National ID Card" {
-            titleLabel.text = "TAKE A PHOTO OF FRON NATIONAL CARD"
+            self.titleLabel.text = "TAKE A PHOTO OF FRON NATIONAL CARD"
             
         } else if documentType == "Passport" {
-            titleLabel.text = "TAKE A PHOTO OF PASSPORT"
+            self.titleLabel.text = "TAKE A PHOTO OF PASSPORT"
         }
         
-        titleLabel.tintColor = PayProColors.title
-        
-        viewTitle.addSubview(titleLabel)
-        
-        self.view.insertSubview(viewTitle, at: 0)
-        
-        
         let viewContentPhoto = UIView()
-        viewContentPhoto.frame = CGRect(x: 0, y:43, width: self.view.frame.size.width, height: viewContentPhoto.frame.size.height - 43)
-        viewContentPhoto.backgroundColor = UIColor.white
+        viewContentPhoto.frame = CGRect(x: 0, y:43, width: self.view.frame.size.width, height: self.viewContent.frame.size.height - 43)
+        viewContentPhoto.backgroundColor = UIColor.red
         
         let viewTakePhoto = UIView()
         viewTakePhoto.frame = CGRect(x: 15, y:15, width: self.view.frame.size.width - 30, height: viewContentPhoto.frame.size.height / 2 - 30)
@@ -116,7 +121,7 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         
         viewContentPhoto.addSubview(viewTakeSecondPhoto)
         
-        self.view.addSubview(viewContentPhoto)
+        self.viewContent.addSubview(viewContentPhoto)
     }
     
     private func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
@@ -167,6 +172,9 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
             print("jpg error")
             return
         }
+        
+        let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
+        print(strBase64)
         
         buttonPicked?.setImage(UIImage(data: imageData as Data), for: .normal)
     }
