@@ -27,6 +27,9 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         openCamera()
     }
     
+    @IBOutlet weak var labelFirstPhoto: UILabel!
+    @IBOutlet weak var labelSecondPhoto: UILabel!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -37,12 +40,18 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         
         if documentType == "Driving license" {
             self.titleLabel.text = "TAKE A PHOTO OF FRONT DRIVING CARD"
+            self.labelFirstPhoto.text = "Press to take a photo with front view"
+            self.labelSecondPhoto.text = "Press to take a photo with back view"
             
         } else if documentType == "National ID Card" {
             self.titleLabel.text = "TAKE A PHOTO OF FRON NATIONAL CARD"
+            self.labelFirstPhoto.text = "Press to take a photo with front view"
+            self.labelSecondPhoto.text = "Press to take a photo with back view"
             
         } else if documentType == "Passport" {
+            self.secondPhotoView.isHidden = true
             self.titleLabel.text = "TAKE A PHOTO OF PASSPORT"
+            self.labelFirstPhoto.text = "Press to take a photo"
         }
         
         

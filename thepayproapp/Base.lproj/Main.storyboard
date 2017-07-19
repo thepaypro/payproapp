@@ -3919,6 +3919,8 @@ in ThePayPro</string>
                     </view>
                     <connections>
                         <outlet property="firstPhotoView" destination="eLs-e8-nlz" id="d0D-E2-m4J"/>
+                        <outlet property="labelFirstPhoto" destination="3Lp-Ee-9oA" id="ArF-59-oUG"/>
+                        <outlet property="labelSecondPhoto" destination="FkU-KS-2Ue" id="anc-ze-Ctw"/>
                         <outlet property="scrollView" destination="WbT-aP-dJ6" id="xxU-ud-j9n"/>
                         <outlet property="secondPhotoView" destination="Obn-xA-v14" id="Zyj-Uy-A5W"/>
                         <outlet property="titleLabel" destination="MfO-sb-cIg" id="Hgj-L0-mOH"/>
