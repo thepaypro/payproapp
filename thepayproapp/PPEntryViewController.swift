@@ -22,6 +22,7 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
         
         let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
         navigationItem.rightBarButtonItems = [nextButton]
+        nextButton.isEnabled = false
         
         Utils.navigationBarToPayProStyle(navigationBar: (self.navigationController?.navigationBar)!)
         
@@ -78,6 +79,12 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
+        guard let text = textField.text else { return true }
+        
+        let newLength = text.utf16.count + string.utf16.count - range.length
+        
+        navigationItem.rightBarButtonItem?.isEnabled = newLength > 0
+        
         return true
     }
     
