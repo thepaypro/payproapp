@@ -16,6 +16,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     @IBOutlet weak var cardButton: UIButton!
     @IBOutlet weak var cardHeight: NSLayoutConstraint!
     @IBOutlet weak var latestTransactionsView: UIView!
+    @IBOutlet weak var accountDetailsView: UIView!
     
     var transactionsArray : [Transaction]?
     
@@ -61,7 +62,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     override func viewDidLayoutSubviews()
     {
-        scrollView.contentOffset = CGPoint(x: UIScreen.main.bounds.width, y: 0.0)
+        scrollView.contentOffset = CGPoint(x: accountDetailsView.bounds.width, y: 0.0)
     }
     
     func initDummyTransactions()
@@ -115,7 +116,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     func setupView()
     {
-        scrollView.contentOffset = CGPoint(x: UIScreen.main.bounds.width, y: 0.0)
+        scrollView.contentOffset = CGPoint(x: accountDetailsView.bounds.width, y: 0.0)
         
         cardButton.isHidden = false
         cardHeight.constant = 60.0
