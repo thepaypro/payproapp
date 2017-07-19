@@ -33,13 +33,13 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         scrollView.delegate = self
         
-        let borderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: latestTransactionsView.frame.width, height: 0.4))
+        let borderTop = UIBezierPath(rect: CGRect(x: 0, y: 0.4, width: UIScreen.main.bounds.width, height: 0.4))
         let layerTop = CAShapeLayer()
         layerTop.path = borderTop.cgPath
         layerTop.fillColor = UIColor.lightGray.cgColor
         latestTransactionsView.layer.addSublayer(layerTop)
         
-        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: latestTransactionsView.frame.height - 0.4, width: latestTransactionsView.frame.width, height: 0.4))
+        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: latestTransactionsView.bounds.height, width: UIScreen.main.bounds.width, height: 0.4))
         let layerBottom = CAShapeLayer()
         layerBottom.path = borderBottom.cgPath
         layerBottom.fillColor = UIColor.lightGray.cgColor
