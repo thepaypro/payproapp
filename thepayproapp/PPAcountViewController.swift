@@ -26,6 +26,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         // Do any additional setup after loading the view.
         
+        self.navigationItem.title = User.currentUser()?.accountType == .proAccount ? "Pro account" : "Basic account"
+        
         initDummyTransactions()
         
         transactionsTV.register(UINib(nibName: "PPTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionCell")
