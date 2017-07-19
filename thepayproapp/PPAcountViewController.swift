@@ -59,6 +59,11 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         self.setupView()
     }
     
+    override func viewDidLayoutSubviews()
+    {
+        scrollView.contentOffset = CGPoint(x: UIScreen.main.bounds.width, y: 0.0)
+    }
+    
     func initDummyTransactions()
     {
         transactionsArray = [Transaction]()
