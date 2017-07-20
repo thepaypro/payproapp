@@ -125,8 +125,16 @@ class PPChooseAccountViewController: UIViewController, UIScrollViewDelegate
         
         if segue.identifier == "showFirstFormVCSegue"
         {
-            let cardFormVC = segue.destination as! PPCardFirstFormViewController
-            cardFormVC.proAccountSelected = self.proAccountSelected
+//            let cardFormVC = segue.destination as! PPCardFirstFormViewController
+//            cardFormVC.proAccountSelected = self.proAccountSelected
+            
+            let user = User.currentUser()
+            
+            if self.proAccountSelected == true {
+                user?.accountType = .proAccount
+            } else if self.proAccountSelected == false {
+                user?.accountType = .basicAccount
+            }
         }
     }
 

@@ -16,8 +16,6 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var viewContent: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var firstPhotoView: UIView!
-    @IBOutlet weak var secondPhotoView: UIView!
     @IBAction func firstButtonAction(_ sender: Any) {
         buttonPicked = sender as? UIButton
         openCamera()
@@ -29,12 +27,17 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
     
     @IBOutlet weak var labelFirstPhoto: UILabel!
     @IBOutlet weak var labelSecondPhoto: UILabel!
+    @IBOutlet weak var firstImage: UIImageView!
+    @IBOutlet weak var secondImage: UIImageView!
+    @IBOutlet weak var secondPhotoView: UIView!
+    
+    var firstDocumentBase64: String!
+    var secondDocumentBase64: String!
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        print(self.viewContent.frame.size.width)
         
         self.view.backgroundColor = PayProColors.background
         
@@ -54,6 +57,9 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
             self.labelFirstPhoto.text = "Press to take a photo"
         }
         
+        let next = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(callEndpoint))
+        
+        self.navigationItem.setRightBarButtonItems([next], animated: true)
         
     }
     
@@ -62,26 +68,41 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         // Dispose of any resources that can be recreated.
     }
     
-    private func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.landscapeLeft
-    }
-    
-    private func shouldAutorotate() -> Bool {
-        return true
+    func callEndpoint()
+    {
+        let forename: String = (user?.forename)!
+        let lastname: String = (user?.lastname)!
+        let birthDate: String = (user?.dob)!
+        let documentType: String = (user?.documentType)!
+        let street: String = (user?.street)!
+        let buildingNumber: String = (user?.buildingNumber)!
+        let postcode: String = (user?.postCode)!
+        let city: String = (user?.city)!
+        let country: String = (user?.country)!
+        let documentPicture1 = documentFront
+        let documentPicture2 = documentBack
+        
+        User.accountCreate(documentFront: self.firstDocumentBase64, documentBack: self.secondDocumentBase64, completion: {successAccountCreate in
+            if successAccountCreate {
+                print("create account success")
+            } else {
+                print("create account problems")
+            }
+        })
     }
     
     func openCamera()
     {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            let imagePicker = PPImagePickerController()
+            imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera
             imagePicker.cameraCaptureMode = .photo
             imagePicker.modalPresentationStyle = .fullScreen
             imagePicker.allowsEditing = false
             
-            let value = UIInterfaceOrientation.landscapeLeft.rawValue
-            UIDevice.current.setValue(value, forKey: "orientation")
+//            let value = UIInterfaceOrientation.landscapeLeft.rawValue
+//            UIDevice.current.setValue(value, forKey: "orientation")
             
             self.present(imagePicker, animated: true, completion: nil)
         } else {
@@ -110,9 +131,19 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         }
         
         let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
-        print(strBase64)
+//        print(strBase64)
         
-        buttonPicked?.setImage(UIImage(data: imageData as Data), for: .normal)
+        let imageview = UIImageView()
+        imageview.image = UIImage(data: imageData as Data)
+        
+        if buttonPicked?.tag == 0 {
+            self.firstImage.image = UIImage(data: imageData as Data)
+            self.firstDocumentBase64 = strBase64
+        } else if buttonPicked?.tag == 1 {
+            self.secondImage.image = UIImage(data: imageData as Data)
+            self.secondDocumentBase64 = strBase64
+        }
+//        buttonPicked?.setImage(UIImage(data: imageData as Data), for: .normal)
     }
 }
 

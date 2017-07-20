@@ -23,6 +23,8 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        let user = User.currentUser()
 
         // Do any additional setup after loading the view.
         
@@ -157,8 +159,24 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
         
         if segue.identifier == "documentPhotoFromSecondFormSegue"
         {
-            let documentTypePhotoVC = segue.destination as! PPDocumentPhotoViewController
-            documentTypePhotoVC.documentType = documentType!
+//            let documentTypePhotoVC = segue.destination as! PPDocumentPhotoViewController
+            
+            let user = User.currentUser()
+            
+            let streetRow: TextRow? = form.rowBy(tag: "street")
+            user?.street = streetRow?.value
+            
+            let buildingNumberRow: TextRow? = form.rowBy(tag: "buildingNumber")
+            user?.buildingNumber = buildingNumberRow?.value
+            
+            let postCodeRow: TextRow? = form.rowBy(tag: "zipcode")
+            user?.postCode = postCodeRow?.value
+            
+            let cityRow: TextRow? = form.rowBy(tag: "city")
+            user?.city = cityRow?.value
+            
+            let countryRow: TextRow? = form.rowBy(tag: "country")
+            user?.country = countryRow?.value
         }
     }
 }

@@ -41,6 +41,7 @@
 		6A0CE8FA1EF6D816000C0D1F /* PPBankTransfeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CE8F91EF6D816000C0D1F /* PPBankTransfeViewController.swift */; };
 		6A0CE8FC1EF6E600000C0D1F /* PPBankTransfeBeneficiaryTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CE8FB1EF6E600000C0D1F /* PPBankTransfeBeneficiaryTypeViewController.swift */; };
 		6A4AE5B51F1374A80041B63F /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		6A9C73F01F20B445006D2C57 /* PPImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9C73EF1F20B445006D2C57 /* PPImagePickerController.swift */; };
 		77324EC23C69DAC949032A50 /* Pods_thepayproappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61F7BACC0A7CA6BAD1E0FB1 /* Pods_thepayproappTests.framework */; };
 		898982352C785B0A87DE711B /* Pods_thepayproappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7D9CB0B12DBCFD3FE80391 /* Pods_thepayproappUITests.framework */; };
 		BF2345721EF7B13400C50004 /* User+Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2345711EF7B13400C50004 /* User+Connection.swift */; };
@@ -140,6 +141,7 @@
 		6A0CE8F01EF58DB9000C0D1F /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
 		6A0CE8F91EF6D816000C0D1F /* PPBankTransfeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBankTransfeViewController.swift; sourceTree = "<group>"; };
 		6A0CE8FB1EF6E600000C0D1F /* PPBankTransfeBeneficiaryTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBankTransfeBeneficiaryTypeViewController.swift; sourceTree = "<group>"; };
+		6A9C73EF1F20B445006D2C57 /* PPImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPImagePickerController.swift; sourceTree = "<group>"; };
 		92818D24EE98AC7382F0827B /* Pods-thepayproapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproapp/Pods-thepayproapp.debug.xcconfig"; sourceTree = "<group>"; };
 		9B2628C7C678438F8E8FEB1E /* Pods-thepayproappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thepayproapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,6 +336,7 @@
 				21B948621EE700B30099A79F /* Colors.swift */,
 				BF42C2921EFA629F00DFBED7 /* Utils.swift */,
 				BFDA4CB81F137EF400300261 /* PayProDate.swift */,
+				6A9C73EF1F20B445006D2C57 /* PPImagePickerController.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -832,6 +835,7 @@
 				BF56BAC01EF26BF300429005 /* Invite+CoreDataClass.swift in Sources */,
 				BFF7FA6B1EEFF48D009D798E /* PPSendMoneyViewController.swift in Sources */,
 				212100D31EF9069700208F72 /* PPBankTransfeReferenceViewController.swift in Sources */,
+				6A9C73F01F20B445006D2C57 /* PPImagePickerController.swift in Sources */,
 				BF3D17921F1F506A00F5825D /* PPDemoAccountViewController.swift in Sources */,
 				219355521F17B4A900101256 /* PPProfileEditDocumentViewController.swift in Sources */,
 				212100D51EF9091600208F72 /* PPBankTransfeReferenceListViewController.swift in Sources */,
