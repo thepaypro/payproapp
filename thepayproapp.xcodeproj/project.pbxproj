@@ -70,6 +70,7 @@
 		BF612E541EFBBC7D007110D4 /* PPSMSConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF612E531EFBBC7D007110D4 /* PPSMSConfirmationViewController.swift */; };
 		BF6516041F02467F00CEE051 /* countries-prefixes.json in Resources */ = {isa = PBXBuildFile; fileRef = BF6516031F02467F00CEE051 /* countries-prefixes.json */; };
 		BF69E1351F0E328D0004EE4E /* PPCardFirstFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF69E1341F0E328D0004EE4E /* PPCardFirstFormViewController.swift */; };
+		BF7F79871F22071900523131 /* PPSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7F79861F22071900523131 /* PPSliderViewController.swift */; };
 		BF9DB8761EDD770600C8A0ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */; };
 		BF9DB87D1EDD770600C8A0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB87B1EDD770600C8A0ED /* Main.storyboard */; };
 		BF9DB87F1EDD770600C8A0ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB87E1EDD770600C8A0ED /* Assets.xcassets */; };
@@ -171,6 +172,7 @@
 		BF6516031F02467F00CEE051 /* countries-prefixes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "countries-prefixes.json"; sourceTree = "<group>"; };
 		BF69E1341F0E328D0004EE4E /* PPCardFirstFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPCardFirstFormViewController.swift; sourceTree = "<group>"; };
 		BF7D9CB0B12DBCFD3FE80391 /* Pods_thepayproappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thepayproappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF7F79861F22071900523131 /* PPSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPSliderViewController.swift; sourceTree = "<group>"; };
 		BF9DB8721EDD770600C8A0ED /* thepayproapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thepayproapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF9DB87C1EDD770600C8A0ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				215540571EF3CBF300670E86 /* PPContactViewController */,
+				BF7F79851F2206FA00523131 /* PPSliderViewController */,
 				BF31E8661EF93341004C233E /* PPEntryViewController */,
 				BFBD89381F00F9D5003E7A4F /* PPPrefixSelectionViewController */,
 				BF612E521EFBBC5E007110D4 /* PPSMSConfirmationViewController */,
@@ -394,6 +397,14 @@
 				BF612E531EFBBC7D007110D4 /* PPSMSConfirmationViewController.swift */,
 			);
 			name = PPSMSConfirmationViewController;
+			sourceTree = "<group>";
+		};
+		BF7F79851F2206FA00523131 /* PPSliderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BF7F79861F22071900523131 /* PPSliderViewController.swift */,
+			);
+			name = PPSliderViewController;
 			sourceTree = "<group>";
 		};
 		BF9CA1081F0A3E78006934C0 /* JSON */ = {
@@ -830,6 +841,7 @@
 				21203F171F0CF62C002A24B7 /* ContactsConnection.swift in Sources */,
 				BF56BAC81EF26BF300429005 /* Currency+CoreDataClass.swift in Sources */,
 				BF56BAC01EF26BF300429005 /* Invite+CoreDataClass.swift in Sources */,
+				BF7F79871F22071900523131 /* PPSliderViewController.swift in Sources */,
 				BFF7FA6B1EEFF48D009D798E /* PPSendMoneyViewController.swift in Sources */,
 				212100D31EF9069700208F72 /* PPBankTransfeReferenceViewController.swift in Sources */,
 				BF3D17921F1F506A00F5825D /* PPDemoAccountViewController.swift in Sources */,
