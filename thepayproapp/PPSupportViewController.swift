@@ -10,11 +10,20 @@ import UIKit
 
 class PPSupportViewController: UIViewController
 {
+    @IBOutlet weak var chatWV: UIWebView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        self.title = "Support"
+        
         // Do any additional setup after loading the view.
+        
+        if User.currentUser()?.supportChatId != nil
+        {
+            self.loadSupportChat()
+        }
     }
     
     override func didReceiveMemoryWarning()
@@ -23,6 +32,16 @@ class PPSupportViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    public func loadSupportChat()
+    {
+        let chatURL = "https://www.mensaxe.com/webview/\((User.currentUser()?.supportChatId)!)?key=kprvd6suDOTedUX9xN3hc4EiDKHnLEvTBmsJuj"
+        
+        if let url = URL(string: chatURL)
+        {
+            let request = URLRequest(url: url)
+            chatWV.loadRequest(request)
+        }
+    }
     
     /*
      // MARK: - Navigation

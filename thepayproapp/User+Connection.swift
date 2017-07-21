@@ -59,4 +59,53 @@ extension User {
             }
         })
     }
+        
+    class func supportChat(languageCode: String, completion: @escaping (_ success: Bool) -> Void)
+    {
+        let absoluteURL = "https://www.mensaxe.com/v6/chat-sessions"
+        
+        let paramsDictionary = [
+            "language_code": languageCode,
+            "contact_id": "576835"
+            ] as [String : Any]
+        
+        if let postData = (try? JSONSerialization.data(withJSONObject: paramsDictionary, options: []))
+        {
+            let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = postData
+            
+            let task = URLSession.shared.dataTask(with: request as URLRequest)
+            {
+                (data, response, error) -> Void in
+                
+                if (error != nil)
+                {
+                    print(error!)
+                }
+                else
+                {
+                    DispatchQueue.main.async(execute: {
+                        if let completionDictionary = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? NSDictionary
+                        {
+                            if let chatSessionId = completionDictionary.value(forKeyPath: "chat_session.id")
+                            {
+                                let currentUser = User.currentUser()
+                                currentUser?.supportChatId = chatSessionId as! Int64
+                                User.save()
+                                completion(true)
+                            }
+                            else
+                            {
+                                completion(false)
+                            }
+                        }
+                    })
+                }
+            }
+            
+            task.resume()
+        }
+    }
 }

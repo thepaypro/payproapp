@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -2942,7 +2942,7 @@ in PayPro</string>
         <!--Support View Controller-->
         <scene sceneID="OMT-yx-JGm">
             <objects>
-                <viewController id="gsB-Oa-76m" customClass="PPSupportViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="gsB-Oa-76m" customClass="PPSupportViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rur-3g-Ore"/>
                         <viewControllerLayoutGuide type="bottom" id="yug-lM-ExX"/>
@@ -2950,9 +2950,24 @@ in PayPro</string>
                     <view key="view" contentMode="scaleToFill" id="nXa-4D-k23">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQD-Bk-iNM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wQD-Bk-iNM" firstAttribute="top" secondItem="Rur-3g-Ore" secondAttribute="bottom" id="F8j-6b-0Zp"/>
+                            <constraint firstItem="wQD-Bk-iNM" firstAttribute="width" secondItem="nXa-4D-k23" secondAttribute="width" id="IiS-yb-XG6"/>
+                            <constraint firstItem="wQD-Bk-iNM" firstAttribute="centerX" secondItem="nXa-4D-k23" secondAttribute="centerX" id="KKJ-6N-eat"/>
+                            <constraint firstItem="yug-lM-ExX" firstAttribute="top" secondItem="wQD-Bk-iNM" secondAttribute="bottom" id="OUy-f2-Qkz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lqy-2o-2Ky"/>
+                    <connections>
+                        <outlet property="chatWV" destination="wQD-Bk-iNM" id="D0J-os-o7E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WiO-9T-pal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3755,7 +3770,7 @@ in PayPro</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1yC-fr-uA7">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qcW-8p-sz6" id="cBz-7d-ZO1"/>
@@ -4357,11 +4372,9 @@ in PayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5oX-E6-27I"/>
         <segue reference="QOc-uS-S0D"/>
-        <segue reference="ops-cj-9Fb"/>
-        <segue reference="QjQ-Zm-ceK"/>
         <segue reference="8Cl-oA-bFg"/>
+        <segue reference="QjQ-Zm-ceK"/>
         <segue reference="MgD-j5-nvC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

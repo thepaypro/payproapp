@@ -42,6 +42,7 @@ extension User {
     @NSManaged public var lastname: String?
     @NSManaged public var token: String?
     @NSManaged public var username: String?
+    @NSManaged public var supportChatId: Int64
     @NSManaged public var groupMembers: NSSet?
     @NSManaged public var invites: NSSet?
     @NSManaged public var offsetTransactions: NSSet?

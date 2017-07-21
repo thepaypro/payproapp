@@ -31,7 +31,17 @@ class PPTabBarController: UITabBarController
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         // create view controllers from storyboard
-        let supportNC = storyboard.instantiateViewController(withIdentifier: "PPSupportNavigationController")
+        let supportNC = storyboard.instantiateViewController(withIdentifier: "PPSupportNavigationController") as! UINavigationController
+        
+        let supportVC = supportNC.viewControllers.first as! PPSupportViewController
+        
+        if User.currentUser()?.supportChatId == nil
+        {
+            User.supportChat(languageCode: Locale.current.languageCode!) { (supportChatId) in
+                supportVC.loadSupportChat()
+            }
+        }
+        
         let groupsNC = storyboard.instantiateViewController(withIdentifier: "PPGroupsNavigationController")
         let sendNC = storyboard.instantiateViewController(withIdentifier: "PPSendMoneyNavigationController")
         
