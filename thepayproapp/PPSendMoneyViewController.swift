@@ -93,7 +93,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate
         
             alert.addAction(cancelAction)
         
-            UIApplication.shared.keyWindow?.rootViewController?.presentedViewController?.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
             
         } else if contact.getIsPayProUser() == true {
             //enabled block load process

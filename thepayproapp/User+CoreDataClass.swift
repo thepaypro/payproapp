@@ -74,7 +74,7 @@ public class User: NSManagedObject
         var accountTypeId: Int16? = attributesDictionary.object(forKey: "account_type_id") as? Int16
         var cardStatusId: Int16? = attributesDictionary.object(forKey: "card_status_id") as? Int16
         let cardHolderId: Int64? = attributesDictionary.object(forKey: "card_holder_id") as? Int64
-        let dob: NSDate? = attributesDictionary.object(forKey: "dob") as? NSDate
+        let dob: String? = attributesDictionary.object(forKey: "dob") as? String
         let documentNumber: String? = attributesDictionary.object(forKey: "document_number") as? String
         let documentType: String? = attributesDictionary.object(forKey: "document_type") as? String
         let forename: String? = attributesDictionary.object(forKey: "forename") as? String

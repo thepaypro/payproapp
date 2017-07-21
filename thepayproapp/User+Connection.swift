@@ -108,4 +108,32 @@ extension User {
             task.resume()
         }
     }
+    
+    class func accountCreate(agreement: String, forename: String, lastname: String, dob: String, documentType: String,  documentFront: String, documentBack: String, completion: @escaping (_ success: Bool) -> Void)
+    {
+        let user = User.currentUser()
+        
+        let paramsDictionary = [
+            "agreement": user?.accountType,
+            "forename": user?.forename,
+            "lastname": user?.lastname,
+            "birthDate": user?.dob,
+            "documentType": user?.documentType,
+            "street": user?.street,
+            "buildingNumber": user?.buildingNumber,
+            "postcode": user?.postCode,
+            "city": user?.city,
+            "country": user?.country,
+            "documentPicture1": documentFront,
+            "documentPicture2": documentBack
+        ] as [String : Any]
+        
+        makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "account-requests", completion: {completionDictionary in
+            if completionDictionary["emailSended"] as! Bool == true {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        })
+    }
 }

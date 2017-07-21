@@ -109,29 +109,36 @@ class PPCardFirstFormViewController: FormViewController
         
         if segue.identifier == "showSecondFormVCSegue"
         {
-            let secondFormVC = segue.destination as! PPCardSecondFormViewController
-            secondFormVC.proAccountSelected = self.proAccountSelected
+//            let secondFormVC = segue.destination as! PPCardSecondFormViewController
+//            secondFormVC.proAccountSelected = self.proAccountSelected
+            
+            let user = User.currentUser()
             
             let forenameRow: TextRow? = form.rowBy(tag: "forename")
-            let forename: String? = forenameRow?.value
+//            let forename: String? = forenameRow?.value
+            user?.forename = forenameRow?.value
             
             let lastNameRow: TextRow? = form.rowBy(tag: "lastname")
-            let lastname: String? = lastNameRow?.value
+//            let lastname: String? = lastNameRow?.value
+            user?.lastname = lastNameRow?.value
             
             let dateOfBirthRow : DateRow? = form.rowBy(tag: "dateOfBirth")
-            let dateOfBirth : String? = dateOfBirthRow?.value?.toString(dateFormat: "yyyy-MM-dd HH:mm:ss")
+//            let dateOfBirth : String? = dateOfBirthRow?.value?.toString(dateFormat: "yyyy-MM-dd HH:mm:ss")
+            user?.dob = dateOfBirthRow?.value?.toString(dateFormat: "yyyy-MM-dd HH:mm:ss")
             
             let documentTypeRow: PickerInputRow<String>? = form.rowBy(tag: "documentType")
-            let documentType: String? = documentTypeRow?.value
+//            let documentType: String? = documentTypeRow?.value
+            user?.documentType = documentTypeRow?.value
             
             let documentNumberRow: TextRow? = form.rowBy(tag: "documentNumber")
-            let documentNumber: String? = documentNumberRow?.value
+//            let documentNumber: String? = documentNumberRow?.value
+            user?.documentNumber = documentNumberRow?.value
             
-            secondFormVC.forename = forename
-            secondFormVC.lastname = lastname
-            secondFormVC.dateOfBirth = dateOfBirth
-            secondFormVC.documentType = documentType
-            secondFormVC.documentNumber = documentNumber
+//            secondFormVC.forename = forename
+//            secondFormVC.lastname = lastname
+//            secondFormVC.dateOfBirth = dateOfBirth
+//            secondFormVC.documentType = documentType
+//            secondFormVC.documentNumber = documentNumber
         }
     }
 

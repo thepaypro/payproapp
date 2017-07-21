@@ -3889,7 +3889,7 @@ in PayPro</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1yC-fr-uA7">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qcW-8p-sz6" id="cBz-7d-ZO1"/>
@@ -3973,18 +3973,25 @@ in PayPro</string>
                                                                     <action selector="firstButtonAction:" destination="WuB-bl-OVO" eventType="touchUpInside" id="hqt-5Z-17i"/>
                                                                 </connections>
                                                             </button>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="crm-mN-QgF">
+                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="225"/>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.93843692540000001" green="0.9390823841" blue="0.95562428239999997" alpha="1" colorSpace="deviceRGB"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="crm-mN-QgF" secondAttribute="trailing" id="3a9-Ex-1Bg"/>
                                                             <constraint firstItem="3Lp-Ee-9oA" firstAttribute="top" secondItem="0Ds-t4-hdv" secondAttribute="bottom" id="AHI-Zc-sqG"/>
                                                             <constraint firstAttribute="bottom" secondItem="DoX-aw-PpD" secondAttribute="bottom" id="E0X-B3-os4"/>
                                                             <constraint firstItem="DoX-aw-PpD" firstAttribute="width" secondItem="eLs-e8-nlz" secondAttribute="width" id="J7G-oy-6Ye"/>
                                                             <constraint firstItem="0Ds-t4-hdv" firstAttribute="centerY" secondItem="eLs-e8-nlz" secondAttribute="centerY" id="S3o-AW-TaZ"/>
                                                             <constraint firstItem="0Ds-t4-hdv" firstAttribute="centerX" secondItem="eLs-e8-nlz" secondAttribute="centerX" id="Tcn-W4-j4p"/>
                                                             <constraint firstAttribute="trailing" secondItem="DoX-aw-PpD" secondAttribute="trailing" id="bTR-00-f6s"/>
+                                                            <constraint firstItem="crm-mN-QgF" firstAttribute="leading" secondItem="eLs-e8-nlz" secondAttribute="leading" id="cjS-MT-czD"/>
+                                                            <constraint firstAttribute="bottom" secondItem="crm-mN-QgF" secondAttribute="bottom" id="n68-BL-Blb"/>
                                                             <constraint firstItem="3Lp-Ee-9oA" firstAttribute="centerX" secondItem="eLs-e8-nlz" secondAttribute="centerX" id="rjQ-HB-3io"/>
                                                             <constraint firstItem="DoX-aw-PpD" firstAttribute="top" secondItem="eLs-e8-nlz" secondAttribute="top" id="rjX-FF-dlh"/>
                                                             <constraint firstItem="DoX-aw-PpD" firstAttribute="leading" secondItem="eLs-e8-nlz" secondAttribute="leading" id="zPD-Zn-X1D"/>
+                                                            <constraint firstItem="crm-mN-QgF" firstAttribute="top" secondItem="eLs-e8-nlz" secondAttribute="top" id="zdD-oY-9kr"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obn-xA-v14">
@@ -4009,10 +4016,17 @@ in PayPro</string>
                                                                     <action selector="secondButtonAction:" destination="WuB-bl-OVO" eventType="touchUpInside" id="yWk-nx-L1U"/>
                                                                 </connections>
                                                             </button>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="49X-3V-fpO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="225"/>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.93843692540000001" green="0.9390823841" blue="0.95562428239999997" alpha="1" colorSpace="deviceRGB"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="49X-3V-fpO" secondAttribute="trailing" id="05z-Bz-emx"/>
+                                                            <constraint firstItem="49X-3V-fpO" firstAttribute="top" secondItem="Obn-xA-v14" secondAttribute="top" id="8Bf-3o-z8X"/>
+                                                            <constraint firstItem="49X-3V-fpO" firstAttribute="leading" secondItem="Obn-xA-v14" secondAttribute="leading" id="93c-0A-UWr"/>
                                                             <constraint firstItem="dfu-nU-Qp1" firstAttribute="centerY" secondItem="Obn-xA-v14" secondAttribute="centerY" id="Amk-28-SW0"/>
+                                                            <constraint firstAttribute="bottom" secondItem="49X-3V-fpO" secondAttribute="bottom" id="C8L-DQ-wMO"/>
                                                             <constraint firstItem="dfu-nU-Qp1" firstAttribute="centerX" secondItem="Obn-xA-v14" secondAttribute="centerX" id="Dfp-AP-9Le"/>
                                                             <constraint firstAttribute="trailing" secondItem="9xY-Ck-Zs1" secondAttribute="trailing" id="I4j-hv-ntN"/>
                                                             <constraint firstItem="FkU-KS-2Ue" firstAttribute="top" secondItem="dfu-nU-Qp1" secondAttribute="bottom" id="O5C-v6-NTj"/>
@@ -4073,11 +4087,12 @@ in PayPro</string>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="firstPhotoView" destination="eLs-e8-nlz" id="d0D-E2-m4J"/>
+                        <outlet property="firstImage" destination="crm-mN-QgF" id="hRn-Yg-gCq"/>
                         <outlet property="labelFirstPhoto" destination="3Lp-Ee-9oA" id="ArF-59-oUG"/>
                         <outlet property="labelSecondPhoto" destination="FkU-KS-2Ue" id="anc-ze-Ctw"/>
                         <outlet property="scrollView" destination="WbT-aP-dJ6" id="xxU-ud-j9n"/>
-                        <outlet property="secondPhotoView" destination="Obn-xA-v14" id="Zyj-Uy-A5W"/>
+                        <outlet property="secondImage" destination="49X-3V-fpO" id="mLt-FP-12R"/>
+                        <outlet property="secondPhotoView" destination="Obn-xA-v14" id="wGb-0O-x4t"/>
                         <outlet property="titleLabel" destination="MfO-sb-cIg" id="Hgj-L0-mOH"/>
                         <outlet property="viewContent" destination="t5f-9o-kZ3" id="jme-TE-dO1"/>
                     </connections>
@@ -4408,13 +4423,13 @@ in PayPro</string>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yu-5c-fFg">
                                 <rect key="frame" x="0.0" y="231" width="375" height="60"/>
-                                <color key="backgroundColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="eaf-xF-dhD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                 <state key="normal" title="Start Now">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.3411764706" green="1" blue="0.70196078429999997" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="startNowButtonTouched:" destination="jQL-vT-U1E" eventType="touchUpInside" id="tgT-3t-K7G"/>
@@ -4498,6 +4513,7 @@ in PayPro</string>
         <segue reference="MgD-j5-nvC"/>
         <segue reference="8Cl-oA-bFg"/>
         <segue reference="5oX-E6-27I"/>
+        <segue reference="cPk-Rt-u9Q"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
