@@ -20,7 +20,7 @@ class PPSupportViewController: UIViewController
         
         // Do any additional setup after loading the view.
         
-        if User.currentUser()?.supportChatId != nil
+        if User.currentUser()?.supportChatId != 0
         {
             self.loadSupportChat()
         }

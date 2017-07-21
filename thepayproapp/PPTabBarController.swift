@@ -35,7 +35,7 @@ class PPTabBarController: UITabBarController
         
         let supportVC = supportNC.viewControllers.first as! PPSupportViewController
         
-        if User.currentUser()?.supportChatId == nil
+        if User.currentUser()?.supportChatId == 0
         {
             User.supportChat(languageCode: Locale.current.languageCode!) { (supportChatId) in
                 supportVC.loadSupportChat()
