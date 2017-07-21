@@ -3493,7 +3493,6 @@ in PayPro</string>
                         <outlet property="proView" destination="2hS-Gm-Ylg" id="7Pw-FY-4Zk"/>
                         <outlet property="proViewHeight" destination="UnD-yc-HMW" id="K8u-X8-BSx"/>
                         <segue destination="x21-sy-8IN" kind="show" identifier="showFirstFormVCSegue" id="nRM-l9-t2s"/>
-                        <segue destination="WuB-bl-OVO" kind="show" identifier="testSegue" id="lf3-WD-L0d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vMe-mJ-7gM" sceneMemberID="firstResponder"/>
@@ -4296,7 +4295,7 @@ in PayPro</string>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                 <state key="normal" title="Start Now">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.3411764706" green="1" blue="0.70196078429999997" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="startNowButtonTouched:" destination="jQL-vT-U1E" eventType="touchUpInside" id="tgT-3t-K7G"/>
@@ -4373,11 +4372,10 @@ in PayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cPk-Rt-u9Q"/>
-        <segue reference="QOc-uS-S0D"/>
         <segue reference="MgD-j5-nvC"/>
+        <segue reference="QOc-uS-S0D"/>
+        <segue reference="cPk-Rt-u9Q"/>
         <segue reference="8Cl-oA-bFg"/>
-        <segue reference="lf3-WD-L0d"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

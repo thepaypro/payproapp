@@ -105,28 +105,57 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
             imagePicker.allowsEditing = false
             
             let rectangleTopLeftTop = UIView()
-            rectangleTopLeftTop.frame = CGRect(x: 50, y:5, width: 100, height: 3)
-            rectangleTopLeftTop.backgroundColor = UIColor.white
+            rectangleTopLeftTop.frame = CGRect(x: 100, y:50, width: 100, height: 3)
+            rectangleTopLeftTop.backgroundColor = PayProColors.lightGreen
             
             let rectangleTopLeftLeft = UIView()
-            rectangleTopLeftLeft.frame = CGRect(x: 50, y:5, width: 3, height: 100)
-            rectangleTopLeftLeft.backgroundColor = UIColor.white
+            rectangleTopLeftLeft.frame = CGRect(x: 100, y:50, width: 3, height: 25)
+            rectangleTopLeftLeft.backgroundColor = PayProColors.lightGreen
             
             let rectangleTopRightTop = UIView()
-            rectangleTopRightTop.frame = CGRect(x: imagePicker.view.frame.size.width - 150, y:5, width: 100, height: 3)
-            rectangleTopRightTop.backgroundColor = UIColor.white
+            rectangleTopRightTop.frame = CGRect(x: imagePicker.view.frame.size.height - 280, y:50, width: 100, height: 3)
+            rectangleTopRightTop.backgroundColor = PayProColors.lightGreen
             
             let rectangleTopRightRight = UIView()
-            rectangleTopRightRight.frame = CGRect(x: imagePicker.view.frame.size.width - 50, y:5, width: 3, height: 100)
-            rectangleTopRightRight.backgroundColor = UIColor.white
+            rectangleTopRightRight.frame = CGRect(x: imagePicker.view.frame.size.height - 180, y:50, width: 3, height: 25)
+            rectangleTopRightRight.backgroundColor = PayProColors.lightGreen
+            
+            let rectangleBottomLeftBottom = UIView()
+            rectangleBottomLeftBottom.frame = CGRect(x: 100, y:imagePicker.view.frame.size.width - 58, width: 100, height: 3)
+            rectangleBottomLeftBottom.backgroundColor = PayProColors.lightGreen
+            
+            let rectangleBottomLeftLeft = UIView()
+            rectangleBottomLeftLeft.frame = CGRect(x: 100, y:imagePicker.view.frame.size.width - 83, width: 3, height: 25)
+            rectangleBottomLeftLeft.backgroundColor = PayProColors.lightGreen
+            
+            let rectangleBottomRightBottom = UIView()
+            rectangleBottomRightBottom.frame = CGRect(x: imagePicker.view.frame.size.height - 280, y:imagePicker.view.frame.size.width - 58, width: 100, height: 3)
+            rectangleBottomRightBottom.backgroundColor = PayProColors.lightGreen
+            
+            let rectangleBottomRightRight = UIView()
+            rectangleBottomRightRight.frame = CGRect(x: imagePicker.view.frame.size.height - 180, y:imagePicker.view.frame.size.width - 80, width: 3, height: 25)
+            rectangleBottomRightRight.backgroundColor = PayProColors.lightGreen
+            
+            let labelBottomCenter = UILabel()
+            labelBottomCenter.text = "Take a photo bla bla bla"
+            labelBottomCenter.textAlignment = .center
+            labelBottomCenter.textColor = UIColor.white
+            labelBottomCenter.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
+            labelBottomCenter.frame = CGRect(x: 50, y: imagePicker.view.frame.size.width - 50, width: imagePicker.view.frame.size.height - 180, height: 20)
             
             let rectangleFull = UIView()
-            rectangleFull.frame = CGRect(x: 0, y:0, width: imagePicker.view.frame.size.width, height: imagePicker.view.frame.height)
+            rectangleFull.frame = CGRect(x: 0, y:0, width: imagePicker.view.frame.size.height, height: imagePicker.view.frame.width)
+            rectangleFull.backgroundColor = UIColor.clear
             
             rectangleFull.addSubview(rectangleTopLeftTop)
             rectangleFull.addSubview(rectangleTopLeftLeft)
             rectangleFull.addSubview(rectangleTopRightTop)
             rectangleFull.addSubview(rectangleTopRightRight)
+            rectangleFull.addSubview(rectangleBottomLeftBottom)
+            rectangleFull.addSubview(rectangleBottomLeftLeft)
+            rectangleFull.addSubview(rectangleBottomRightBottom)
+            rectangleFull.addSubview(rectangleBottomRightRight)
+            rectangleFull.addSubview(labelBottomCenter)
             
             imagePicker.cameraOverlayView = rectangleFull
             

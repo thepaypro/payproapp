@@ -113,9 +113,7 @@ class PPChooseAccountViewController: UIViewController, UIScrollViewDelegate
     
     func chooseTapped()
     {        
-        //performSegue(withIdentifier: "showFirstFormVCSegue", sender: self)
-        
-        performSegue(withIdentifier: "testSegue", sender: self)
+        performSegue(withIdentifier: "showFirstFormVCSegue", sender: self)
     }
     
     // MARK: - Navigation
