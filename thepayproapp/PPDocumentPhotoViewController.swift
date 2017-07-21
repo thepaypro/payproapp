@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import Foundation
 
 class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
@@ -60,7 +62,6 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         let next = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(callEndpoint))
         
         self.navigationItem.setRightBarButtonItems([next], animated: true)
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,25 +71,27 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
     
     func callEndpoint()
     {
-        let forename: String = (user?.forename)!
-        let lastname: String = (user?.lastname)!
-        let birthDate: String = (user?.dob)!
-        let documentType: String = (user?.documentType)!
-        let street: String = (user?.street)!
-        let buildingNumber: String = (user?.buildingNumber)!
-        let postcode: String = (user?.postCode)!
-        let city: String = (user?.city)!
-        let country: String = (user?.country)!
-        let documentPicture1 = documentFront
-        let documentPicture2 = documentBack
-        
-        User.accountCreate(documentFront: self.firstDocumentBase64, documentBack: self.secondDocumentBase64, completion: {successAccountCreate in
-            if successAccountCreate {
-                print("create account success")
-            } else {
-                print("create account problems")
-            }
-        })
+//        let user = User.currentUser()
+//        
+//        let forename: String = (user?.forename)!
+//        let lastname: String = (user?.lastname)!
+//        let birthDate: String = (user?.dob)!
+//        let documentType: String = (user?.documentType)!
+//        let street: String = (user?.street)!
+//        let buildingNumber: String = (user?.buildingNumber)!
+//        let postcode: String = (user?.postCode)!
+//        let city: String = (user?.city)!
+//        let country: String = (user?.country)!
+//        let documentPicture1 = self.firstDocumentBase64
+//        let documentPicture2 = self.secondDocumentBase64
+//        
+//        User.accountCreate(documentFront: self.firstDocumentBase64, documentBack: self.secondDocumentBase64, completion: {successAccountCreate in
+//            if successAccountCreate {
+//                print("create account success")
+//            } else {
+//                print("create account problems")
+//            }
+//        })
     }
     
     func openCamera()
@@ -100,6 +103,32 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
             imagePicker.cameraCaptureMode = .photo
             imagePicker.modalPresentationStyle = .fullScreen
             imagePicker.allowsEditing = false
+            
+            let rectangleTopLeftTop = UIView()
+            rectangleTopLeftTop.frame = CGRect(x: 50, y:5, width: 100, height: 3)
+            rectangleTopLeftTop.backgroundColor = UIColor.white
+            
+            let rectangleTopLeftLeft = UIView()
+            rectangleTopLeftLeft.frame = CGRect(x: 50, y:5, width: 3, height: 100)
+            rectangleTopLeftLeft.backgroundColor = UIColor.white
+            
+            let rectangleTopRightTop = UIView()
+            rectangleTopRightTop.frame = CGRect(x: imagePicker.view.frame.size.width - 150, y:5, width: 100, height: 3)
+            rectangleTopRightTop.backgroundColor = UIColor.white
+            
+            let rectangleTopRightRight = UIView()
+            rectangleTopRightRight.frame = CGRect(x: imagePicker.view.frame.size.width - 50, y:5, width: 3, height: 100)
+            rectangleTopRightRight.backgroundColor = UIColor.white
+            
+            let rectangleFull = UIView()
+            rectangleFull.frame = CGRect(x: 0, y:0, width: imagePicker.view.frame.size.width, height: imagePicker.view.frame.height)
+            
+            rectangleFull.addSubview(rectangleTopLeftTop)
+            rectangleFull.addSubview(rectangleTopLeftLeft)
+            rectangleFull.addSubview(rectangleTopRightTop)
+            rectangleFull.addSubview(rectangleTopRightRight)
+            
+            imagePicker.cameraOverlayView = rectangleFull
             
 //            let value = UIInterfaceOrientation.landscapeLeft.rawValue
 //            UIDevice.current.setValue(value, forKey: "orientation")
