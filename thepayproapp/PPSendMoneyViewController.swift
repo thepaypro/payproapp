@@ -49,6 +49,39 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate
 
     }
     
+    func ContactBankTransfer(contact: Contact)
+    {
+        self.sendMoney.setLoadProcess(loadProcessValue: 1)
+        self.sendMoney.setOperationType(operationTypeValue: 0)
+        
+        self.dismiss(animated: true, completion: {
+            self.performSegue(withIdentifier: "bankTransfeSegue", sender: self)
+        })
+    }
+    
+    func ContactInvite(contact: Contact)
+    {
+        self.sendMoney.setLoadProcess(loadProcessValue: 1)
+        self.sendMoney.setOperationType(operationTypeValue: 2)
+        self.sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.displayName())
+        self.sendMoney.setphoneNumber(phoneNumberValue: contact.getPhoneNumber())
+        
+        self.dismiss(animated: true, completion: {
+            self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
+        })
+    }
+    
+    func ContactSendInApp(contact: Contact)
+    {
+        self.sendMoney.setLoadProcess(loadProcessValue: 1)
+        self.sendMoney.setOperationType(operationTypeValue: 1)
+        self.sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.getBeneficiaryName())
+        
+        self.dismiss(animated: true, completion: {
+            self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
+        })
+    }
+    
     func ContactPicker(_: ContactsPicker, didContactFetchFailed error : NSError)
     {
         print("Failed with error \(error.description)")
