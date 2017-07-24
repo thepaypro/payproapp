@@ -8,8 +8,10 @@
 
 import UIKit
 
-class PPSliderViewController: UIViewController
+class PPSliderViewController: UIViewController, UIScrollViewDelegate
 {
+    @IBOutlet weak var slidePageControl: UIPageControl!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -40,6 +42,13 @@ class PPSliderViewController: UIViewController
     @IBAction func continueButtonTouched(_ sender: Any)
     {
         performSegue(withIdentifier: "showEntryVCSegue", sender: self)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView)
+    {
+        let currentPage = Int(scrollView.contentOffset.x / UIScreen.main.bounds.width)
+        
+        slidePageControl.currentPage = currentPage
     }
 
     /*
