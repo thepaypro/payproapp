@@ -16,6 +16,9 @@ public protocol PickerDelegate: class {
     func ContactPicker(_: ContactsPicker, didSelectContact contact: Contact)
     func ContactPicker(_: ContactsPicker, didSelectMultipleContacts contacts: [Contact])
     func ContacPickerNotInList(controller:ContactsPicker)
+    func ContactBankTransfer(contact: Contact)
+    func ContactInvite(contact: Contact)
+    func ContactSendInApp(contact: Contact)
 }
 
 public extension PickerDelegate {
@@ -24,6 +27,9 @@ public extension PickerDelegate {
     func ContactPicker(_: ContactsPicker, didSelectContact contact: Contact) { }
     func ContactPicker(_: ContactsPicker, didSelectMultipleContacts contacts: [Contact]) { }
     func ContacPickerNotInList(controller:ContactsPicker) { }
+    func ContactBankTransfer(contact: Contact) { }
+    func ContactInvite(contact: Contact) { }
+    func ContactSendInApp(contact: Contact) { }
 }
 
 typealias ContactsHandler = (_ contacts : [CNContact] , _ error : NSError?) -> Void
@@ -368,7 +374,35 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
         else {
             //Single selection code
             resultSearchController.isActive = false
-            self.contactDelegate?.ContactPicker(self, didSelectContact: selectedContact)
+//            self.contactDelegate?.ContactPicker(self, didSelectContact: selectedContact)
+            
+            print("Contact \(selectedContact.displayName()) has been selected")
+            print("getIsPayProUser: \(selectedContact.getIsPayProUser())")
+            
+            if selectedContact.getIsPayProUser() == false {
+                let alert = UIAlertController(title: "Send money by", message: "", preferredStyle: .actionSheet)
+                
+                let bankTransfeButtonAction = UIAlertAction(title: "Bank transfer", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
+                    self.contactDelegate?.ContactBankTransfer(contact: selectedContact)
+                })
+                alert.addAction(bankTransfeButtonAction)
+                
+                let inviteButtonAction = UIAlertAction(title: "Invite someone to PayPro", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
+                    self.contactDelegate?.ContactInvite(contact: selectedContact)
+                })
+                alert.addAction(inviteButtonAction)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                alert.addAction(cancelAction)
+                
+                self.present(alert, animated: true, completion: nil)
+                
+            } else if selectedContact.getIsPayProUser() == true {
+                //enabled block load process
+                self.contactDelegate?.ContactSendInApp(contact: selectedContact)
+            }
+
+            
         }
     }
     
