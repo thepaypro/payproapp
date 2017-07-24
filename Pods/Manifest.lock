@@ -1,12 +1,24 @@
 PODS:
+  - ALCameraViewController (1.2.7)
   - Eureka (3.0.0)
 
 DEPENDENCIES:
+  - ALCameraViewController (from `https://github.com/Tulleb/ALCameraViewController.git`)
   - Eureka (= 3.0.0)
 
+EXTERNAL SOURCES:
+  ALCameraViewController:
+    :git: https://github.com/Tulleb/ALCameraViewController.git
+
+CHECKOUT OPTIONS:
+  ALCameraViewController:
+    :commit: 3cae416f3da3abaf04fa4d5252f067428da3e145
+    :git: https://github.com/Tulleb/ALCameraViewController.git
+
 SPEC CHECKSUMS:
+  ALCameraViewController: 4a513b8d5ecfdb3f34c50b1d469c373aae1ec7b4
   Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
 
-PODFILE CHECKSUM: 61a702a22cf7ffa54697ffb69cd980e2395dd90b
+PODFILE CHECKSUM: eb1167947bd947e5f8f025557cd28974b55a7849
 
 COCOAPODS: 1.2.1

@@ -7,6 +7,7 @@ target 'thepayproapp' do
 
   # Pods for thepayproapp
   pod 'Eureka', '3.0.0'
+  pod 'ALCameraViewController', :git => 'https://github.com/Tulleb/ALCameraViewController.git'
 
   target 'thepayproappTests' do
     inherit! :search_paths
