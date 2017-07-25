@@ -31,6 +31,13 @@ class PPChooseAccountViewController: UIViewController, UIScrollViewDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        let u = User.currentUser()
+        print(u?.identifier ?? "nothing")
+        print(u?.forename ?? "nothing")
+        print(u?.country ?? "nothing")
+        print(u?.accountNumber ?? "nothing")
+        print(u?.status ?? "nothing")
 
         // Do any additional setup after loading the view.
         

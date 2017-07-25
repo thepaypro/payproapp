@@ -33,16 +33,20 @@ extension User {
     @NSManaged var cardStatus: CardStatus
 
     @NSManaged public var accountTypeId: Int16
+    @NSManaged public var accountNumber: String?
     @NSManaged public var cardHolderId: Int64
     @NSManaged public var dob: String?
     @NSManaged public var documentNumber: String?
     @NSManaged public var documentType: String?
+    @NSManaged public var email: String?
     @NSManaged public var forename: String?
     @NSManaged public var identifier: Int64
     @NSManaged public var lastname: String?
     @NSManaged public var token: String?
     @NSManaged public var username: String?
     @NSManaged public var supportChatId: Int64
+    @NSManaged public var sortCode: String?
+    @NSManaged public var status: String?
     @NSManaged public var street: String?
     @NSManaged public var buildingNumber: String?
     @NSManaged public var postCode: String?

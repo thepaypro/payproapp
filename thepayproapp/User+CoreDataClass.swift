@@ -71,8 +71,8 @@ public class User: NSManagedObject
     
     class func update(user: User, attributesDictionary: NSDictionary)
     {
-        var accountTypeId: Int16? = attributesDictionary.object(forKey: "account_type_id") as? Int16
-        var cardStatusId: Int16? = attributesDictionary.object(forKey: "card_status_id") as? Int16
+        let accountTypeId: Int16? = attributesDictionary.object(forKey: "account_type_id") as? Int16
+        let cardStatusId: Int16? = attributesDictionary.object(forKey: "card_status_id") as? Int16
         let cardHolderId: Int64? = attributesDictionary.object(forKey: "card_holder_id") as? Int64
         let dob: String? = attributesDictionary.object(forKey: "dob") as? String
         let documentNumber: String? = attributesDictionary.object(forKey: "document_number") as? String
@@ -82,6 +82,15 @@ public class User: NSManagedObject
         let lastname: String? = attributesDictionary.object(forKey: "lastname") as? String
         let username: String? = attributesDictionary.object(forKey: "username") as? String
         let token: String? = attributesDictionary.object(forKey: "token") as? String
+        let status: String? = attributesDictionary.object(forKey: "status") as? String
+        let street: String? = attributesDictionary.object(forKey: "street") as? String
+        let buildingNumber: String? = attributesDictionary.object(forKey: "buildingNumber") as? String
+        let postcode: String? = attributesDictionary.object(forKey: "postcode") as? String
+        let city: String? = attributesDictionary.object(forKey: "city") as? String
+        let country: String? = attributesDictionary.object(forKey: "country") as? String
+        let accountNumber: String? = attributesDictionary.object(forKey: "accountNumber") as? String
+        let sortCode: String? = attributesDictionary.object(forKey: "sortCode") as? String
+        let email: String? = attributesDictionary.object(forKey: "email") as? String
         
 //        var groupMembers: NSSet?
 //        var invites: NSSet?
@@ -95,38 +104,40 @@ public class User: NSManagedObject
         
         // Static account type setting
         // TO-DO: Fetch from WS
-        accountTypeId = 0
+//        accountTypeId = 0
         
         if accountTypeId != nil
         {
-            user.accountType = .demoAccount
-            
-            if accountTypeId == 1
-            {
-                user.accountType = .basicAccount
-            }
-            else if accountTypeId == 2
-            {
-                user.accountType = .proAccount
-            }
+            user.setValue(accountTypeId, forKeyPath: "accountType")
+//            user.accountType = .demoAccount
+//            
+//            if accountTypeId == 1
+//            {
+//                user.accountType = .basicAccount
+//            }
+//            else if accountTypeId == 2
+//            {
+//                user.accountType = .proAccount
+//            }
         }
         
         // Static card status setting
         // TO-DO: Fetch from WS
-        cardStatusId = 1
+//        cardStatusId = 1
         
         if cardStatusId != nil
         {
-            user.cardStatus = .notOrdered
-            
-            if cardStatusId == 1
-            {
-                user.cardStatus = .ordered
-            }
-            else if cardStatusId == 2
-            {
-                user.cardStatus = .activated
-            }
+            user.setValue(cardStatusId, forKeyPath: "cardStatus")
+//            user.cardStatus = .notOrdered
+//            
+//            if cardStatusId == 1
+//            {
+//                user.cardStatus = .ordered
+//            }
+//            else if cardStatusId == 2
+//            {
+//                user.cardStatus = .activated
+//            }
         }
         
         if cardHolderId != nil
@@ -151,7 +162,7 @@ public class User: NSManagedObject
         
         if forename != nil
         {
-            self.setValue(forename, forKeyPath: "forename")
+            user.setValue(forename, forKeyPath: "forename")
         }
         
         if lastname != nil
@@ -169,6 +180,50 @@ public class User: NSManagedObject
             user.setValue(token, forKeyPath: "token")
         }
         
+        if status != nil
+        {
+            user.setValue(status, forKeyPath: "status")
+        }
+        
+        if street != nil
+        {
+            user.setValue(street, forKeyPath: "street")
+        }
+        
+        if buildingNumber != nil
+        {
+            user.setValue(buildingNumber, forKeyPath: "buildingNumber")
+        }
+        
+        if postcode != nil
+        {
+            user.setValue(postcode, forKeyPath: "postCode")
+        }
+        
+        if city != nil
+        {
+            user.setValue(city, forKeyPath: "city")
+        }
+        
+        if country != nil
+        {
+            user.setValue(country, forKeyPath: "country")
+        }
+        
+        if accountNumber != nil
+        {
+            user.setValue(accountNumber, forKeyPath: "accountNumber")
+        }
+        
+        if sortCode != nil
+        {
+            user.setValue(sortCode, forKeyPath: "sortCode")
+        }
+        
+        if email != nil
+        {
+            user.setValue(email, forKeyPath: "email")
+        }
     }
     
     class func save()

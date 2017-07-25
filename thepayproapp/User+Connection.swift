@@ -28,7 +28,17 @@ extension User {
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "register/", completion: {completionDictionary in
             if let userDictionary = completionDictionary["user"]
             {
-                let registeredUser = self.manage(userDictionary: userDictionary as! NSDictionary)
+                var registeredUser = self.manage(userDictionary: userDictionary as! NSDictionary)
+                
+                if registeredUser != nil {
+                    let accountDictionary = [
+                        "account_type_id": 0,
+                        "card_status_id": 0
+                    ]
+                    
+                    registeredUser = self.manage(userDictionary: accountDictionary as NSDictionary)
+                }
+                
                 completion(registeredUser != nil)
             }
         })
@@ -52,10 +62,32 @@ extension User {
             ] as [String : Any]
         
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "login_check", completion: {completionDictionary in
-            if let userDictionary = completionDictionary["user"]
+            if let userDictionary = completionDictionary["user"] as? NSDictionary
             {
-                let loggedUser = self.manage(userDictionary: userDictionary as! NSDictionary)
-                completion(loggedUser != nil)
+                if let accountInformation = (userDictionary as AnyObject).value(forKeyPath: "account")! as? NSDictionary {
+                    let accountDictionary = [
+                        "id": userDictionary.value(forKeyPath: "id"),
+                        "forename": accountInformation.value(forKeyPath: "forename"),
+                        "lastname": accountInformation.value(forKeyPath: "lastname"),
+                        "dob": accountInformation.value(forKeyPath: "birthDate"),
+                        "document_type": accountInformation.value(forKeyPath: "documentType"),
+                        "account_type_id": accountInformation.value(forKeyPath: "agreement"),
+                        "accountNumber": accountInformation.value(forKeyPath: "accountNumber"),
+                        "sortCode": accountInformation.value(forKeyPath: "sortCode"),
+                        "street": accountInformation.value(forKeyPath: "street"),
+                        "buildingNumber": accountInformation.value(forKeyPath: "buildingNumber"),
+                        "postcode": accountInformation.value(forKeyPath: "postcode"),
+                        "city": accountInformation.value(forKeyPath: "city"),
+                        "country": accountInformation.value(forKeyPath: "country"),
+                        "email": accountInformation.value(forKeyPath: "email")
+                    ]
+                    
+                    let loggedUser = self.manage(userDictionary: accountDictionary as NSDictionary)
+                    completion(loggedUser != nil)
+                } else {
+                    let loggedUser = self.manage(userDictionary: userDictionary)
+                    completion(loggedUser != nil)
+                }
             }
         })
     }
@@ -119,7 +151,7 @@ extension User {
         buildingNumber: String,
         postcode: String,
         city: String,
-        country: String,
+        country: Int,
         documentFront: String,
         documentBack: String,
         completion: @escaping (_ success: Bool) -> Void)
@@ -139,12 +171,13 @@ extension User {
             "documentPicture2": documentBack
         ] as [String : Any]
         
-//        makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "account-requests", completion: {completionDictionary in
-//            if completionDictionary["emailSended"] as! Bool == true {
-//                completion(true)
-//            } else {
-//                completion(false)
-//            }
-//        })
+        makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "account-requests", completion: {completionDictionary in
+            
+            if completionDictionary["emailSended"] != nil {
+                completion(completionDictionary["emailSended"] as! Bool)
+            } else {
+                completion(false)
+            }
+        })
     }
 }

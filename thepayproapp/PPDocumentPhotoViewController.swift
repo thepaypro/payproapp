@@ -86,7 +86,8 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         let buildingNumber: String = (user?.buildingNumber)!
         let postcode: String = (user?.postCode)!
         let city: String = (user?.city)!
-        let country: String = (user?.country)!
+//        let country: String = (user?.country)!
+        let country: Int = 239
         let documentPicture1 = self.firstDocumentBase64
         let documentPicture2 = self.secondDocumentBase64
         
@@ -106,6 +107,27 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
             completion: {successAccountCreate in
                 if successAccountCreate {
                     print("create account success")
+                    
+                    let userDictionary = [
+                        "account_type_id": agreement,
+                        "forename": forename,
+                        "lastname": lastname,
+                        "status": "account_activate_pending",
+                        "dob": birthDate,
+                        "docment_type": documentType,
+                        "street": street,
+                        "buildingNumber": buildingNumber,
+                        "postcode": postcode,
+                        "city": city,
+                        "country": country
+                    ] as [String : Any]
+                    
+                    let updateUser = User.manage(userDictionary: userDictionary as NSDictionary)
+                    if updateUser != nil {
+                        print("update user correctly")
+                    } else {
+                        print("update user error")
+                    }
                 } else {
                     print("create account problems")
                 }
@@ -120,7 +142,16 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
             let w:Int = Int((image?.size.width)!)
             let h:Int = Int((image?.size.height)!)
             
-            guard let imageData  = UIImageJPEGRepresentation(image!, 1.0) else {
+            var newImage: UIImage?
+            
+            if w < h {
+                newImage = UIImage(cgImage: (image?.cgImage!)!, scale: (image?.scale)!, orientation: UIImageOrientation.left)
+                newImage = newImage?.resized(toWidth: (self?.firstImage.frame.size.width)!)
+            } else {
+                newImage = image?.resized(toWidth: (self?.firstImage.frame.size.width)!)
+            }
+            
+            guard let imageData  = UIImageJPEGRepresentation(newImage!, 1.0) else {
                 print("jpg error")
                 return
             }
@@ -129,28 +160,34 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
             
             if self?.buttonPicked?.tag == 0 {
                 
-                if w < h {
-                    let newImage = UIImage(cgImage: (image?.cgImage!)!, scale: (image?.scale)!, orientation: UIImageOrientation.left)
-                    self?.firstImage.image = newImage
-                } else {
-                    self?.firstImage.image = image
-                }
-
+                self?.firstImage.image = newImage
                 self?.firstDocumentBase64 = strBase64
                 
             } else if self?.buttonPicked?.tag == 1 {
-                if w < h {
-                    let newImage = UIImage(cgImage: (image?.cgImage!)!, scale: (image?.scale)!, orientation: UIImageOrientation.left)
-                    self?.secondImage.image = newImage
-                } else {
-                    self?.secondImage.image = image
-                }
-                
+                self?.secondImage.image = newImage
                 self?.secondDocumentBase64 = strBase64
             }
+            
             self?.dismiss(animated: true, completion: nil)
         }
         
         present(cameraViewController, animated: true, completion: nil)
+    }
+}
+
+extension UIImage {
+    func resized(withPercentage percentage: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: size.width * percentage, height: size.height * percentage)
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+    func resized(toWidth width: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 }

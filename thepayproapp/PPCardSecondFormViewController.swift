@@ -169,13 +169,13 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
             let buildingNumberRow: TextRow? = form.rowBy(tag: "buildingNumber")
             user?.buildingNumber = buildingNumberRow?.value
             
-            let postCodeRow: TextRow? = form.rowBy(tag: "zipcode")
+            let postCodeRow: ZipCodeRow? = form.rowBy(tag: "zipcode")
             user?.postCode = postCodeRow?.value
             
             let cityRow: TextRow? = form.rowBy(tag: "city")
             user?.city = cityRow?.value
             
-            let countryRow: TextRow? = form.rowBy(tag: "country")
+            let countryRow: ButtonRow? = form.rowBy(tag: "country")
             user?.country = countryRow?.value
         }
     }
