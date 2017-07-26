@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Foundation
+import ALCameraViewController
 
 class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
@@ -62,6 +63,9 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         let next = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(callEndpoint))
         
         self.navigationItem.setRightBarButtonItems([next], animated: true)
+        
+        print(self.firstImage.frame.size.width)
+        print(self.firstImage.frame.size.height)
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,137 +75,119 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
     
     func callEndpoint()
     {
-//        let user = User.currentUser()
-//        
-//        let forename: String = (user?.forename)!
-//        let lastname: String = (user?.lastname)!
-//        let birthDate: String = (user?.dob)!
-//        let documentType: String = (user?.documentType)!
-//        let street: String = (user?.street)!
-//        let buildingNumber: String = (user?.buildingNumber)!
-//        let postcode: String = (user?.postCode)!
-//        let city: String = (user?.city)!
+        let user = User.currentUser()
+        
+        let agreement: Int = Int((user?.accountType)!.rawValue)
+        let forename: String = (user?.forename)!
+        let lastname: String = (user?.lastname)!
+        let birthDate: String = (user?.dob)!
+        let documentType: String = (user?.documentType)!
+        let street: String = (user?.street)!
+        let buildingNumber: String = (user?.buildingNumber)!
+        let postcode: String = (user?.postCode)!
+        let city: String = (user?.city)!
 //        let country: String = (user?.country)!
-//        let documentPicture1 = self.firstDocumentBase64
-//        let documentPicture2 = self.secondDocumentBase64
-//        
-//        User.accountCreate(documentFront: self.firstDocumentBase64, documentBack: self.secondDocumentBase64, completion: {successAccountCreate in
-//            if successAccountCreate {
-//                print("create account success")
-//            } else {
-//                print("create account problems")
-//            }
-//        })
+        let country: Int = 239
+        let documentPicture1 = self.firstDocumentBase64
+        let documentPicture2 = self.secondDocumentBase64
+        
+        User.accountCreate(
+            agreement: agreement,
+            forename: forename,
+            lastname: lastname,
+            dob: birthDate,
+            documentType: documentType,
+            street: street,
+            buildingNumber: buildingNumber,
+            postcode: postcode,
+            city: city,
+            country: country,
+            documentFront: documentPicture1!,
+            documentBack: documentPicture2!,
+            completion: {successAccountCreate in
+                if successAccountCreate {
+                    print("create account success")
+                    
+                    let userDictionary = [
+                        "account_type_id": agreement,
+                        "forename": forename,
+                        "lastname": lastname,
+                        "status": "account_activate_pending",
+                        "dob": birthDate,
+                        "docment_type": documentType,
+                        "street": street,
+                        "buildingNumber": buildingNumber,
+                        "postcode": postcode,
+                        "city": city,
+                        "country": country
+                    ] as [String : Any]
+                    
+                    let updateUser = User.manage(userDictionary: userDictionary as NSDictionary)
+                    if updateUser != nil {
+                        print("update user correctly")
+                    } else {
+                        print("update user error")
+                    }
+                } else {
+                    print("create account problems")
+                }
+            }
+        )
     }
     
     func openCamera()
     {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-            let imagePicker = PPImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-            imagePicker.cameraCaptureMode = .photo
-            imagePicker.modalPresentationStyle = .fullScreen
-            imagePicker.allowsEditing = false
+        let cameraViewController = CameraViewController(croppingEnabled: true, allowsLibraryAccess: true) { [weak self] image, asset in
             
-            let rectangleTopLeftTop = UIView()
-            rectangleTopLeftTop.frame = CGRect(x: 50, y:50, width: 100, height: 3)
-            rectangleTopLeftTop.backgroundColor = PayProColors.lightGreen
+            let w:Int = Int((image?.size.width)!)
+            let h:Int = Int((image?.size.height)!)
             
-            let rectangleTopLeftLeft = UIView()
-            rectangleTopLeftLeft.frame = CGRect(x: 50, y:50, width: 3, height: 25)
-            rectangleTopLeftLeft.backgroundColor = PayProColors.lightGreen
+            var newImage: UIImage?
             
-            let rectangleTopRightTop = UIView()
-            rectangleTopRightTop.frame = CGRect(x: imagePicker.view.frame.size.height - 330, y:50, width: 100, height: 3)
-            rectangleTopRightTop.backgroundColor = PayProColors.lightGreen
+            if w < h {
+                newImage = UIImage(cgImage: (image?.cgImage!)!, scale: (image?.scale)!, orientation: UIImageOrientation.left)
+                newImage = newImage?.resized(toWidth: (self?.firstImage.frame.size.width)!)
+            } else {
+                newImage = image?.resized(toWidth: (self?.firstImage.frame.size.width)!)
+            }
             
-            let rectangleTopRightRight = UIView()
-            rectangleTopRightRight.frame = CGRect(x: imagePicker.view.frame.size.height - 230, y:50, width: 3, height: 25)
-            rectangleTopRightRight.backgroundColor = PayProColors.lightGreen
+            guard let imageData  = UIImageJPEGRepresentation(newImage!, 1.0) else {
+                print("jpg error")
+                return
+            }
             
-            let rectangleBottomLeftBottom = UIView()
-            rectangleBottomLeftBottom.frame = CGRect(x: 50, y:imagePicker.view.frame.size.width - 58, width: 100, height: 3)
-            rectangleBottomLeftBottom.backgroundColor = PayProColors.lightGreen
+            let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
             
-            let rectangleBottomLeftLeft = UIView()
-            rectangleBottomLeftLeft.frame = CGRect(x: 50, y:imagePicker.view.frame.size.width - 83, width: 3, height: 25)
-            rectangleBottomLeftLeft.backgroundColor = PayProColors.lightGreen
+            if self?.buttonPicked?.tag == 0 {
+                
+                self?.firstImage.image = newImage
+                self?.firstDocumentBase64 = strBase64
+                
+            } else if self?.buttonPicked?.tag == 1 {
+                self?.secondImage.image = newImage
+                self?.secondDocumentBase64 = strBase64
+            }
             
-            let rectangleBottomRightBottom = UIView()
-            rectangleBottomRightBottom.frame = CGRect(x: imagePicker.view.frame.size.height - 330, y:imagePicker.view.frame.size.width - 58, width: 100, height: 3)
-            rectangleBottomRightBottom.backgroundColor = PayProColors.lightGreen
-            
-            let rectangleBottomRightRight = UIView()
-            rectangleBottomRightRight.frame = CGRect(x: imagePicker.view.frame.size.height - 230, y:imagePicker.view.frame.size.width - 80, width: 3, height: 25)
-            rectangleBottomRightRight.backgroundColor = PayProColors.lightGreen
-            
-            let labelBottomCenter = UILabel()
-            labelBottomCenter.text = "Take a photo bla bla bla"
-            labelBottomCenter.textAlignment = .center
-            labelBottomCenter.textColor = UIColor.white
-            labelBottomCenter.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
-            labelBottomCenter.frame = CGRect(x: 0, y: imagePicker.view.frame.size.width - 50, width: imagePicker.view.frame.size.height - 180, height: 20)
-            
-            let rectangleFull = UIView()
-            rectangleFull.frame = CGRect(x: 50, y:0, width: imagePicker.view.frame.size.height - 180, height: imagePicker.view.frame.width)
-            rectangleFull.backgroundColor = UIColor.clear
-            
-            rectangleFull.addSubview(rectangleTopLeftTop)
-            rectangleFull.addSubview(rectangleTopLeftLeft)
-            rectangleFull.addSubview(rectangleTopRightTop)
-            rectangleFull.addSubview(rectangleTopRightRight)
-            rectangleFull.addSubview(rectangleBottomLeftBottom)
-            rectangleFull.addSubview(rectangleBottomLeftLeft)
-            rectangleFull.addSubview(rectangleBottomRightBottom)
-            rectangleFull.addSubview(rectangleBottomRightRight)
-            rectangleFull.addSubview(labelBottomCenter)
-            
-            imagePicker.cameraOverlayView = rectangleFull
-            
-//            let value = UIInterfaceOrientation.landscapeLeft.rawValue
-//            UIDevice.current.setValue(value, forKey: "orientation")
-            
-            self.present(imagePicker, animated: true, completion: nil)
-        } else {
-            print("problems with open camera")
-        }
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-            prepareImageForSaving(image: editedImage)
-            
-        } else if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            prepareImageForSaving(image: pickedImage)
+            self?.dismiss(animated: true, completion: nil)
         }
         
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func prepareImageForSaving(image:UIImage)
-    {
-        guard let imageData  = UIImageJPEGRepresentation(image, 1.0) else {
-            // handle failed conversion
-            print("jpg error")
-            return
-        }
-        
-        let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
-//        print(strBase64)
-        
-        let imageview = UIImageView()
-        imageview.image = UIImage(data: imageData as Data)
-        
-        if buttonPicked?.tag == 0 {
-            self.firstImage.image = UIImage(data: imageData as Data)
-            self.firstDocumentBase64 = strBase64
-        } else if buttonPicked?.tag == 1 {
-            self.secondImage.image = UIImage(data: imageData as Data)
-            self.secondDocumentBase64 = strBase64
-        }
-//        buttonPicked?.setImage(UIImage(data: imageData as Data), for: .normal)
+        present(cameraViewController, animated: true, completion: nil)
     }
 }
 
+extension UIImage {
+    func resized(withPercentage percentage: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: size.width * percentage, height: size.height * percentage)
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+    func resized(toWidth width: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}
