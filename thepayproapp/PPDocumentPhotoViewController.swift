@@ -73,6 +73,8 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
     
     func callEndpoint()
     {
+        self.displayNavBarActivity()
+        
         let user = User.currentUser()
         
         let agreement: Int = Int((user?.accountType)!.rawValue)
@@ -124,6 +126,7 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
                     let updateUser = User.manage(userDictionary: userDictionary as NSDictionary)
                     if updateUser != nil {
                         print("update user correctly")
+                        self.dismissNavBarActivity()
                         self.navigationController?.popToRootViewController(animated: false)
                     } else {
                         print("update user error")

@@ -54,7 +54,12 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
     
     func nextTapped()
     {
+        self.displayNavBarActivity()
+        
         User.mobileVerificationCode(phoneNumber: "\(self.prefixTF.text!)\(self.phoneNumberTF.text!)", completion: {userExistence in
+            
+            self.dismissNavBarActivity()
+            
             if userExistence
             {
                 print("USER EXISTS")

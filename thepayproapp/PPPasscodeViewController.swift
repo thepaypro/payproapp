@@ -90,35 +90,29 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
     
     func nextTapped()
     {
-        if validationCode != nil
-        {
-            if firstPassword != nil
-            {
+        if validationCode != nil {
+            if firstPassword != nil {
+                self.displayNavBarActivity()
+                
                 User.register(username: userUsername!, password: firstPassword!, passwordConfirmation: passcodeTF.text!, validationCode: validationCode!, completion: {successRegister in
-                    if successRegister
-                    {
+                    if successRegister {
+                        self.dismissNavBarActivity()
                         self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
-                    }
-                    else
-                    {
+                    } else {
                         print("REGISTER FAILED")
                     }
                 })
-            }
-            else
-            {
+            } else {
                 self.performSegue(withIdentifier: "showConfirmPasscodeSegue", sender: nil)
             }
-        }
-        else
-        {
+        } else {
+            self.displayNavBarActivity()
+            
             User.login(username: self.userUsername!, password: self.passcodeTF.text!, completion: {successLogin in
-                if successLogin
-                {
+                if successLogin {
+                    self.dismissNavBarActivity()
                     self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
-                }
-                else
-                {
+                } else {
                     print("LOGIN FAILED")
                 }
             })
