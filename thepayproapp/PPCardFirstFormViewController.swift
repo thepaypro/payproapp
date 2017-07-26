@@ -64,14 +64,6 @@ class PPCardFirstFormViewController: FormViewController
                 $0.options = ["Driving Licence", "Passport", "National ID Card"]
                 $0.value = $0.options.first
             }
-            
-            <<< TextRow() {
-                $0.tag = "documentNumber"
-                $0.title = "Document number"
-                $0.placeholder = "mandatory"
-                
-                $0.add(rule: RuleRequired())
-            }
     }
 
     override func didReceiveMemoryWarning()
