@@ -13,7 +13,6 @@ import ALCameraViewController
 
 class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
-    var documentType:String = "Driving license"
     var buttonPicked:UIButton?
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -44,17 +43,19 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         
         self.view.backgroundColor = PayProColors.background
         
-        if documentType == "Driving license" {
+        let documentType = User.currentUser()?.documentType
+    
+        if documentType == "DRIVING_LICENSE" {
             self.titleLabel.text = "TAKE A PHOTO OF FRONT DRIVING CARD"
             self.labelFirstPhoto.text = "Press to take a photo with front view"
             self.labelSecondPhoto.text = "Press to take a photo with back view"
             
-        } else if documentType == "National ID Card" {
+        } else if documentType == "DNI" {
             self.titleLabel.text = "TAKE A PHOTO OF FRON NATIONAL CARD"
             self.labelFirstPhoto.text = "Press to take a photo with front view"
             self.labelSecondPhoto.text = "Press to take a photo with back view"
             
-        } else if documentType == "Passport" {
+        } else if documentType == "PASSPORT" {
             self.secondPhotoView.isHidden = true
             self.titleLabel.text = "TAKE A PHOTO OF PASSPORT"
             self.labelFirstPhoto.text = "Press to take a photo"
@@ -63,9 +64,6 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         let next = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(callEndpoint))
         
         self.navigationItem.setRightBarButtonItems([next], animated: true)
-        
-        print(self.firstImage.frame.size.width)
-        print(self.firstImage.frame.size.height)
     }
     
     override func didReceiveMemoryWarning() {
@@ -88,8 +86,8 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         let city: String = (user?.city)!
 //        let country: String = (user?.country)!
         let country: Int = 239
-        let documentPicture1 = self.firstDocumentBase64
-        let documentPicture2 = self.secondDocumentBase64
+        let documentPicture1 = self.firstDocumentBase64 ?? ""
+        let documentPicture2 = self.secondDocumentBase64 ?? ""
         
         User.accountCreate(
             agreement: agreement,
@@ -102,14 +100,14 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
             postcode: postcode,
             city: city,
             country: country,
-            documentFront: documentPicture1!,
-            documentBack: documentPicture2!,
+            documentFront: documentPicture1,
+            documentBack: documentPicture2,
             completion: {successAccountCreate in
                 if successAccountCreate {
                     print("create account success")
                     
                     let userDictionary = [
-                        "id": User.currentUser()?.identifier,
+                        "id": User.currentUser()?.identifier ?? nil,
                         "status": User.Status.statusActivating.rawValue,
                         "account_type_id": agreement,
                         "forename": forename,
@@ -127,7 +125,6 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
                     if updateUser != nil {
                         print("update user correctly")
                         self.navigationController?.popToRootViewController(animated: false)
-//                        self.tabBarController?.selectedIndex = 3
                     } else {
                         print("update user error")
                     }
