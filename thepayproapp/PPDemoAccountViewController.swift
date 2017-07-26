@@ -13,6 +13,8 @@ class PPDemoAccountViewController: UIViewController, UIScrollViewDelegate
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var accountDetailsView: UIView!
     @IBOutlet weak var latestTransactionsView: UIView!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var accountReviewedButton: UIButton!
     
     var transactionsArray : [Transaction]?
     
@@ -36,19 +38,27 @@ class PPDemoAccountViewController: UIViewController, UIScrollViewDelegate
         layerBottom.fillColor = UIColor.lightGray.cgColor
         latestTransactionsView.layer.addSublayer(layerBottom)
         
-        let demoAccountAlert = UIAlertController(title: "", message: "In order to enjoy the advantages of the Visa debit card you need to start a free PayPro account", preferredStyle: .alert)
+        if User.currentUser()?.status == User.Status.statusDemo {
+            startButton.isHidden = false
+            accountReviewedButton.isHidden = true
         
-        let notNowAction = UIAlertAction(title: "Not now", style: .cancel, handler: nil)
+            let demoAccountAlert = UIAlertController(title: "", message: "In order to enjoy the advantages of the Visa debit card you need to start a free PayPro account", preferredStyle: .alert)
         
-        let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
-            self.performSegue(withIdentifier: "showChooseAccountVCSegue", sender: self)
-        })
+            let notNowAction = UIAlertAction(title: "Not now", style: .cancel, handler: nil)
         
-        demoAccountAlert.addAction(notNowAction)
-        demoAccountAlert.addAction(OKAction)
-        demoAccountAlert.preferredAction = OKAction
+            let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+                self.performSegue(withIdentifier: "showChooseAccountVCSegue", sender: self)
+            })
         
-        self.present(demoAccountAlert, animated: true)
+            demoAccountAlert.addAction(notNowAction)
+            demoAccountAlert.addAction(OKAction)
+            demoAccountAlert.preferredAction = OKAction
+        
+            self.present(demoAccountAlert, animated: true)
+        } else {
+            startButton.isHidden = true
+            accountReviewedButton.isHidden = false
+        }
     }
     
     override func didReceiveMemoryWarning()
@@ -62,16 +72,29 @@ class PPDemoAccountViewController: UIViewController, UIScrollViewDelegate
         super.viewWillAppear(animated)
         
         self.setupView()
+        self.checkUserStatus()
     }
     
     override func viewDidLayoutSubviews()
     {
-        scrollView.contentOffset = CGPoint(x: accountDetailsView.bounds.width, y: 0.0)
+        scrollView.contentOffset = CGPoint(x: 0.0, y: 0.0)
+    }
+    
+    func checkUserStatus()
+    {
+        if User.currentUser()?.status == User.Status.statusDemo {
+            startButton.isHidden = false
+            accountReviewedButton.isHidden = true
+        } else {
+            startButton.isHidden = true
+            accountReviewedButton.isHidden = false
+        }
+
     }
     
     func setupView()
     {
-        scrollView.contentOffset = CGPoint(x: accountDetailsView.bounds.width, y: 0.0)
+        scrollView.contentOffset = CGPoint(x: 0.0, y: 0.0)
     }
     
     @IBAction func startNowButtonTouched(_ sender: Any)

@@ -44,14 +44,17 @@ class PPTabBarController: UITabBarController
         
         let groupsNC = storyboard.instantiateViewController(withIdentifier: "PPGroupsNavigationController")
         let sendNC = storyboard.instantiateViewController(withIdentifier: "PPSendMoneyNavigationController")
-        
-//        let userAccountType = User.currentUser()?.accountType
         var accountNC = storyboard.instantiateViewController(withIdentifier: "PPAccountNavigationController")
         
-//        if userAccountType == .demoAccount
-//        {
+        let userAccountType = User.currentUser()?.accountType
+        let userStatus = User.currentUser()?.status
+        
+        if userAccountType == .demoAccount ||
+           userStatus == .statusDemo ||
+           userStatus == .statusActivating
+        {
             accountNC = storyboard.instantiateViewController(withIdentifier: "PPDemoAccountNavigationController")
-//        }
+        }
         
         let settingsNC = storyboard.instantiateViewController(withIdentifier: "PPSettingsNavigationController")
         
@@ -62,7 +65,6 @@ class PPTabBarController: UITabBarController
     {
         self.tabBar.tintColor = PayProColors.blue
     }
-    
 
     /*
     // MARK: - Navigation

@@ -31,6 +31,16 @@ extension User {
         case activated = 2
     }
     @NSManaged var cardStatus: CardStatus
+    
+    
+    @objc enum Status: Int32
+    {
+        case statusDemo = 0
+        case statusActivating = 1
+        case statusActivated = 2
+        case statusLocked = 3
+    }
+    @NSManaged var status: Status
 
     @NSManaged public var accountTypeId: Int16
     @NSManaged public var accountNumber: String?
@@ -46,7 +56,6 @@ extension User {
     @NSManaged public var username: String?
     @NSManaged public var supportChatId: Int64
     @NSManaged public var sortCode: String?
-    @NSManaged public var status: String?
     @NSManaged public var street: String?
     @NSManaged public var buildingNumber: String?
     @NSManaged public var postCode: String?

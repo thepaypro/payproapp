@@ -64,30 +64,44 @@ extension User {
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "login_check", completion: {completionDictionary in
             if let userDictionary = completionDictionary["user"] as? NSDictionary
             {
+                var accountDictionary:NSDictionary?
+                
                 if let accountInformation = (userDictionary as AnyObject).value(forKeyPath: "account")! as? NSDictionary {
-                    let accountDictionary = [
-                        "id": userDictionary.value(forKeyPath: "id"),
-                        "forename": accountInformation.value(forKeyPath: "forename"),
-                        "lastname": accountInformation.value(forKeyPath: "lastname"),
-                        "dob": accountInformation.value(forKeyPath: "birthDate"),
-                        "document_type": accountInformation.value(forKeyPath: "documentType"),
-                        "account_type_id": accountInformation.value(forKeyPath: "agreement"),
-                        "accountNumber": accountInformation.value(forKeyPath: "accountNumber"),
-                        "sortCode": accountInformation.value(forKeyPath: "sortCode"),
-                        "street": accountInformation.value(forKeyPath: "street"),
-                        "buildingNumber": accountInformation.value(forKeyPath: "buildingNumber"),
-                        "postcode": accountInformation.value(forKeyPath: "postcode"),
-                        "city": accountInformation.value(forKeyPath: "city"),
-                        "country": accountInformation.value(forKeyPath: "country"),
-                        "email": accountInformation.value(forKeyPath: "email")
-                    ]
                     
-                    let loggedUser = self.manage(userDictionary: accountDictionary as NSDictionary)
-                    completion(loggedUser != nil)
+                    let agreement = accountInformation.value(forKeyPath: "agreement")
+                    
+                    accountDictionary = [
+                        "id": userDictionary.value(forKeyPath: "id")!,
+                        "username": userDictionary.value(forKeyPath: "username")!,
+                        "forename": accountInformation.value(forKeyPath: "forename")!,
+                        "lastname": accountInformation.value(forKeyPath: "lastname")!,
+                        "dob": accountInformation.value(forKeyPath: "birthDate")!,
+                        "document_type": accountInformation.value(forKeyPath: "documentType")!,
+                        "account_type_id": (agreement as AnyObject).value(forKeyPath: "id") as! Int32,
+                        "accountNumber": accountInformation.value(forKeyPath: "accountNumber")!,
+                        "sortCode": accountInformation.value(forKeyPath: "sortCode")!,
+                        "street": accountInformation.value(forKeyPath: "street")!,
+                        "buildingNumber": accountInformation.value(forKeyPath: "buildingNumber")!,
+                        "postcode": accountInformation.value(forKeyPath: "postcode")!,
+                        "city": accountInformation.value(forKeyPath: "city")!,
+                        "country": accountInformation.value(forKeyPath: "country")!,
+                        "email": accountInformation.value(forKeyPath: "email")!,
+                        "status": User.Status.statusActivated.rawValue
+                    ]
                 } else {
-                    let loggedUser = self.manage(userDictionary: userDictionary)
-                    completion(loggedUser != nil)
+                    let status = User.currentUser()?.status.rawValue ?? User.Status.statusDemo.rawValue
+                    accountDictionary = [
+                        "id": userDictionary.value(forKeyPath: "id")!,
+                        "username": userDictionary.value(forKeyPath: "username")!,
+                        "account_type_id": User.AccountType.demoAccount.rawValue,
+                        "status": status
+                    ]
                 }
+                
+                let accountUser = self.manage(userDictionary: accountDictionary!)
+                
+                let loggedUser = self.manage(userDictionary: userDictionary)
+                completion(loggedUser != nil && accountUser != nil)
             }
         })
     }
@@ -172,7 +186,7 @@ extension User {
         ] as [String : Any]
         
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "account-requests", completion: {completionDictionary in
-            
+            print(completionDictionary)
             if completionDictionary["emailSended"] != nil {
                 completion(completionDictionary["emailSended"] as! Bool)
             } else {

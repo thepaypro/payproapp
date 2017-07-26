@@ -37,7 +37,8 @@ class PPChooseAccountViewController: UIViewController, UIScrollViewDelegate
         print(u?.forename ?? "nothing")
         print(u?.country ?? "nothing")
         print(u?.accountNumber ?? "nothing")
-        print(u?.status ?? "nothing")
+        print(u?.status.rawValue ?? "nothing")
+        print(u?.accountType.rawValue ?? "nothing")
 
         // Do any additional setup after loading the view.
         

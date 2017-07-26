@@ -71,8 +71,8 @@ public class User: NSManagedObject
     
     class func update(user: User, attributesDictionary: NSDictionary)
     {
-        let accountTypeId: Int16? = attributesDictionary.object(forKey: "account_type_id") as? Int16
-        let cardStatusId: Int16? = attributesDictionary.object(forKey: "card_status_id") as? Int16
+        let accountTypeId: Int32? = attributesDictionary.object(forKey: "account_type_id") as? Int32
+        let cardStatusId: Int32? = attributesDictionary.object(forKey: "card_status_id") as? Int32
         let cardHolderId: Int64? = attributesDictionary.object(forKey: "card_holder_id") as? Int64
         let dob: String? = attributesDictionary.object(forKey: "dob") as? String
         let documentNumber: String? = attributesDictionary.object(forKey: "document_number") as? String
@@ -82,7 +82,7 @@ public class User: NSManagedObject
         let lastname: String? = attributesDictionary.object(forKey: "lastname") as? String
         let username: String? = attributesDictionary.object(forKey: "username") as? String
         let token: String? = attributesDictionary.object(forKey: "token") as? String
-        let status: String? = attributesDictionary.object(forKey: "status") as? String
+        let status: Int32? = attributesDictionary.object(forKey: "status") as? Int32
         let street: String? = attributesDictionary.object(forKey: "street") as? String
         let buildingNumber: String? = attributesDictionary.object(forKey: "buildingNumber") as? String
         let postcode: String? = attributesDictionary.object(forKey: "postcode") as? String

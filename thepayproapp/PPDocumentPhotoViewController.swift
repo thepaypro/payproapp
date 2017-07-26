@@ -109,10 +109,11 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
                     print("create account success")
                     
                     let userDictionary = [
+                        "id": User.currentUser()?.identifier,
+                        "status": User.Status.statusActivating.rawValue,
                         "account_type_id": agreement,
                         "forename": forename,
                         "lastname": lastname,
-                        "status": "account_activate_pending",
                         "dob": birthDate,
                         "docment_type": documentType,
                         "street": street,
@@ -125,6 +126,8 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
                     let updateUser = User.manage(userDictionary: userDictionary as NSDictionary)
                     if updateUser != nil {
                         print("update user correctly")
+                        self.navigationController?.popToRootViewController(animated: false)
+//                        self.tabBarController?.selectedIndex = 3
                     } else {
                         print("update user error")
                     }
