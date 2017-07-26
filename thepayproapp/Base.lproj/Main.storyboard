@@ -2628,6 +2628,9 @@
                                         <exclude reference="so8-JC-70A"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="djb-cS-4ox" id="666-ED-1Bc"/>
+                                </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGN-7U-n5S">
                                 <rect key="frame" x="56" y="600" width="262.5" height="33"/>
@@ -2637,20 +2640,28 @@
                                     <action selector="continueButtonTouched:" destination="djb-cS-4ox" eventType="touchUpInside" id="cZm-5P-op3"/>
                                 </connections>
                             </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="DDO-I1-JAi">
+                                <rect key="frame" x="168" y="555" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mDT-Cg-umo" firstAttribute="centerX" secondItem="hD3-Xr-kSj" secondAttribute="centerX" id="2FE-PG-8UU"/>
+                            <constraint firstItem="hGN-7U-n5S" firstAttribute="top" secondItem="DDO-I1-JAi" secondAttribute="bottom" constant="8" id="2nA-ja-qiY"/>
                             <constraint firstItem="mDT-Cg-umo" firstAttribute="width" secondItem="hD3-Xr-kSj" secondAttribute="width" id="ByD-PM-7W4"/>
                             <constraint firstItem="mDT-Cg-umo" firstAttribute="centerY" secondItem="hD3-Xr-kSj" secondAttribute="centerY" id="TBf-Bi-Gbg"/>
                             <constraint firstItem="mDT-Cg-umo" firstAttribute="height" secondItem="hD3-Xr-kSj" secondAttribute="height" id="Yc9-5U-Xga"/>
                             <constraint firstItem="hGN-7U-n5S" firstAttribute="centerX" secondItem="hD3-Xr-kSj" secondAttribute="centerX" id="awc-IU-gGp"/>
                             <constraint firstItem="hGN-7U-n5S" firstAttribute="width" secondItem="hD3-Xr-kSj" secondAttribute="width" multiplier="0.7" id="cig-pu-jbm"/>
+                            <constraint firstItem="DDO-I1-JAi" firstAttribute="centerX" secondItem="hD3-Xr-kSj" secondAttribute="centerX" id="nVW-qx-fmN"/>
                             <constraint firstItem="cdG-5q-kVn" firstAttribute="top" secondItem="hGN-7U-n5S" secondAttribute="bottom" constant="34" id="qb9-sc-gbb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YYW-By-blS"/>
                     <connections>
+                        <outlet property="slidePageControl" destination="DDO-I1-JAi" id="FvL-cS-U2Y"/>
                         <segue destination="4v3-bQ-Shg" kind="show" identifier="showEntryVCSegue" id="P1O-49-Ye2"/>
                     </connections>
                 </viewController>
@@ -3890,7 +3901,7 @@ in PayPro</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1yC-fr-uA7">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qcW-8p-sz6" id="cBz-7d-ZO1"/>
@@ -4511,10 +4522,10 @@ in PayPro</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QOc-uS-S0D"/>
-        <segue reference="MgD-j5-nvC"/>
         <segue reference="OvV-mV-ZJJ"/>
-        <segue reference="cPk-Rt-u9Q"/>
+        <segue reference="MgD-j5-nvC"/>
         <segue reference="8Cl-oA-bFg"/>
+        <segue reference="5oX-E6-27I"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
