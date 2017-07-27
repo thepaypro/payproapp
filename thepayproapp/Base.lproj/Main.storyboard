@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -2863,43 +2863,91 @@ in PayPro</string>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHH-7q-BGP">
                                         <rect key="frame" x="32" y="14.5" width="21" height="21"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="Hu2-ec-puQ">
+                                                <rect key="frame" x="0.0" y="0.5" width="21" height="20"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
+                                            <constraint firstItem="Hu2-ec-puQ" firstAttribute="top" secondItem="yHH-7q-BGP" secondAttribute="top" id="J92-kr-hx7"/>
+                                            <constraint firstAttribute="trailing" secondItem="Hu2-ec-puQ" secondAttribute="trailing" id="WNF-ap-krz"/>
+                                            <constraint firstAttribute="bottom" secondItem="Hu2-ec-puQ" secondAttribute="bottom" id="aPi-DE-yPy"/>
                                             <constraint firstAttribute="width" secondItem="yHH-7q-BGP" secondAttribute="height" multiplier="1:1" id="dag-tD-Dnx"/>
+                                            <constraint firstItem="Hu2-ec-puQ" firstAttribute="leading" secondItem="yHH-7q-BGP" secondAttribute="leading" id="jIt-yJ-rYd"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7Z-Z5-zcT">
                                         <rect key="frame" x="84.5" y="14.5" width="20" height="20"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="Axi-pW-C0t">
+                                                <rect key="frame" x="-0.5" y="-0.5" width="20" height="20"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
+                                            <constraint firstItem="Axi-pW-C0t" firstAttribute="top" secondItem="I7Z-Z5-zcT" secondAttribute="top" id="IRl-Vb-Zp1"/>
                                             <constraint firstAttribute="width" secondItem="I7Z-Z5-zcT" secondAttribute="height" multiplier="1:1" id="RhO-7p-1lr"/>
+                                            <constraint firstAttribute="bottom" secondItem="Axi-pW-C0t" secondAttribute="bottom" id="dw5-p1-Yop"/>
+                                            <constraint firstItem="Axi-pW-C0t" firstAttribute="leading" secondItem="I7Z-Z5-zcT" secondAttribute="leading" id="g7n-Sv-ZHf"/>
+                                            <constraint firstAttribute="trailing" secondItem="Axi-pW-C0t" secondAttribute="trailing" id="mYY-lC-o4V"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e6i-NR-2iI">
                                         <rect key="frame" x="136" y="14.5" width="21" height="21"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="I4c-pc-Ody">
+                                                <rect key="frame" x="0.0" y="0.5" width="21" height="20"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="e6i-NR-2iI" secondAttribute="height" multiplier="1:1" id="3Hb-bA-31o"/>
+                                            <constraint firstItem="I4c-pc-Ody" firstAttribute="leading" secondItem="e6i-NR-2iI" secondAttribute="leading" id="gzB-6K-4AK"/>
+                                            <constraint firstAttribute="trailing" secondItem="I4c-pc-Ody" secondAttribute="trailing" id="ntb-YQ-t9s"/>
+                                            <constraint firstItem="I4c-pc-Ody" firstAttribute="top" secondItem="e6i-NR-2iI" secondAttribute="top" id="rmJ-3R-MhD"/>
+                                            <constraint firstAttribute="bottom" secondItem="I4c-pc-Ody" secondAttribute="bottom" id="yko-c4-U2N"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEC-KO-Bao">
                                         <rect key="frame" x="186" y="14.5" width="21" height="21"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="bf2-yl-PBq">
+                                                <rect key="frame" x="0.0" y="0.5" width="21" height="20"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="yEC-KO-Bao" secondAttribute="height" multiplier="1:1" id="0d8-LI-e6o"/>
+                                            <constraint firstAttribute="bottom" secondItem="bf2-yl-PBq" secondAttribute="bottom" id="993-Wf-FLA"/>
+                                            <constraint firstItem="bf2-yl-PBq" firstAttribute="leading" secondItem="yEC-KO-Bao" secondAttribute="leading" id="BLw-c2-Mja"/>
+                                            <constraint firstAttribute="trailing" secondItem="bf2-yl-PBq" secondAttribute="trailing" id="iJ2-fD-vsU"/>
+                                            <constraint firstItem="bf2-yl-PBq" firstAttribute="top" secondItem="yEC-KO-Bao" secondAttribute="top" id="mnA-rh-fI7"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60J-Zt-37b">
                                         <rect key="frame" x="238.5" y="14.5" width="20" height="20"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="MkR-AQ-IHA">
+                                                <rect key="frame" x="-0.5" y="-0.5" width="20" height="20"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
+                                            <constraint firstItem="MkR-AQ-IHA" firstAttribute="leading" secondItem="60J-Zt-37b" secondAttribute="leading" id="V89-ld-tkj"/>
                                             <constraint firstAttribute="width" secondItem="60J-Zt-37b" secondAttribute="height" multiplier="1:1" id="Zfs-ys-MBr"/>
+                                            <constraint firstItem="MkR-AQ-IHA" firstAttribute="top" secondItem="60J-Zt-37b" secondAttribute="top" id="km7-FD-f6v"/>
+                                            <constraint firstAttribute="bottom" secondItem="MkR-AQ-IHA" secondAttribute="bottom" id="vaS-pf-09h"/>
+                                            <constraint firstAttribute="trailing" secondItem="MkR-AQ-IHA" secondAttribute="trailing" id="zz5-Pj-rl5"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdi-hz-2nI">
                                         <rect key="frame" x="290" y="14.5" width="21" height="21"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="6ib-EK-mFu">
+                                                <rect key="frame" x="0.0" y="0.5" width="21" height="20"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
+                                            <constraint firstItem="6ib-EK-mFu" firstAttribute="leading" secondItem="xdi-hz-2nI" secondAttribute="leading" id="9is-JB-v3L"/>
+                                            <constraint firstItem="6ib-EK-mFu" firstAttribute="top" secondItem="xdi-hz-2nI" secondAttribute="top" id="LqA-Kp-G50"/>
+                                            <constraint firstAttribute="bottom" secondItem="6ib-EK-mFu" secondAttribute="bottom" id="Lqw-tk-d1X"/>
+                                            <constraint firstAttribute="trailing" secondItem="6ib-EK-mFu" secondAttribute="trailing" id="azn-is-EDi"/>
                                             <constraint firstAttribute="width" secondItem="xdi-hz-2nI" secondAttribute="height" multiplier="1:1" id="ck5-xz-r3G"/>
                                         </constraints>
                                     </view>
@@ -2936,7 +2984,7 @@ in PayPro</string>
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="1" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="Kj4-1F-8zS" firstAttribute="width" secondItem="rzM-E2-5wY" secondAttribute="width" id="9u6-Vw-bRD"/>
                             <constraint firstAttribute="leadingMargin" secondItem="kUx-8b-TyJ" secondAttribute="leading" id="9zW-8h-t8U"/>
@@ -2963,7 +3011,7 @@ in PayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LW6-8d-aJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3039" y="2020"/>
+            <point key="canvasLocation" x="-3039.1999999999998" y="2019.9400299850076"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="55k-CH-zLe">
@@ -3284,7 +3332,7 @@ in PayPro</string>
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="1" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="dO7-md-j7H" secondAttribute="trailing" id="0a6-u6-Z9a"/>
                             <constraint firstItem="oee-pj-O1L" firstAttribute="centerY" secondItem="5Js-xK-6oR" secondAttribute="centerY" multiplier="0.5" id="EyI-Sw-Qy8"/>
@@ -3343,44 +3391,92 @@ in PayPro</string>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahE-3F-7AL">
                                         <rect key="frame" x="32" y="14.5" width="21" height="21"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="0bk-8R-fWE">
+                                                <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ahE-3F-7AL" secondAttribute="height" multiplier="1:1" id="WhT-yT-cmM"/>
+                                            <constraint firstItem="0bk-8R-fWE" firstAttribute="leading" secondItem="ahE-3F-7AL" secondAttribute="leading" id="acJ-KI-nIb"/>
+                                            <constraint firstAttribute="bottom" secondItem="0bk-8R-fWE" secondAttribute="bottom" id="gWr-Hm-63J"/>
+                                            <constraint firstItem="0bk-8R-fWE" firstAttribute="top" secondItem="ahE-3F-7AL" secondAttribute="top" id="i7Q-3E-Udy"/>
+                                            <constraint firstAttribute="trailing" secondItem="0bk-8R-fWE" secondAttribute="trailing" id="pc5-Il-P5O"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0U-XH-Yte">
                                         <rect key="frame" x="84.5" y="14.5" width="20" height="20"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="1Mc-6l-ehf">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
+                                            <constraint firstItem="1Mc-6l-ehf" firstAttribute="leading" secondItem="G0U-XH-Yte" secondAttribute="leading" id="2KH-iF-0rS"/>
+                                            <constraint firstAttribute="trailing" secondItem="1Mc-6l-ehf" secondAttribute="trailing" id="Cl3-sZ-sKF"/>
+                                            <constraint firstAttribute="bottom" secondItem="1Mc-6l-ehf" secondAttribute="bottom" id="Dw2-i5-s5P"/>
+                                            <constraint firstItem="1Mc-6l-ehf" firstAttribute="top" secondItem="G0U-XH-Yte" secondAttribute="top" id="Pkq-k2-QGd"/>
                                             <constraint firstAttribute="width" secondItem="G0U-XH-Yte" secondAttribute="height" multiplier="1:1" id="jIG-TY-BCF"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sp7-Yv-YsH">
                                         <rect key="frame" x="136" y="14.5" width="21" height="21"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="aTB-4e-76j">
+                                                <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
+                                            <constraint firstItem="aTB-4e-76j" firstAttribute="top" secondItem="sp7-Yv-YsH" secondAttribute="top" id="0O6-oA-riq"/>
+                                            <constraint firstAttribute="bottom" secondItem="aTB-4e-76j" secondAttribute="bottom" id="5tt-3f-6rj"/>
+                                            <constraint firstAttribute="trailing" secondItem="aTB-4e-76j" secondAttribute="trailing" id="Zza-yI-n0j"/>
+                                            <constraint firstItem="aTB-4e-76j" firstAttribute="leading" secondItem="sp7-Yv-YsH" secondAttribute="leading" id="esY-8h-2xa"/>
                                             <constraint firstAttribute="width" secondItem="sp7-Yv-YsH" secondAttribute="height" multiplier="1:1" id="fSy-Fm-GJs"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g80-zY-D3i">
                                         <rect key="frame" x="186" y="14.5" width="21" height="21"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="94B-pM-yc6">
+                                                <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
+                                            <constraint firstItem="94B-pM-yc6" firstAttribute="leading" secondItem="g80-zY-D3i" secondAttribute="leading" id="R2m-Xw-ikt"/>
+                                            <constraint firstItem="94B-pM-yc6" firstAttribute="top" secondItem="g80-zY-D3i" secondAttribute="top" id="aq4-g4-hZS"/>
+                                            <constraint firstAttribute="bottom" secondItem="94B-pM-yc6" secondAttribute="bottom" id="bs4-Kx-sub"/>
+                                            <constraint firstAttribute="trailing" secondItem="94B-pM-yc6" secondAttribute="trailing" id="d3t-mL-qvt"/>
                                             <constraint firstAttribute="width" secondItem="g80-zY-D3i" secondAttribute="height" multiplier="1:1" id="mcC-FW-DTR"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-tI-Ufb">
                                         <rect key="frame" x="238.5" y="14.5" width="20" height="20"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="Jnn-Cw-J9j">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Jnn-Cw-J9j" secondAttribute="trailing" id="7e8-H9-ejO"/>
+                                            <constraint firstItem="Jnn-Cw-J9j" firstAttribute="top" secondItem="cdt-tI-Ufb" secondAttribute="top" id="9ZG-5N-pGa"/>
+                                            <constraint firstAttribute="bottom" secondItem="Jnn-Cw-J9j" secondAttribute="bottom" id="Egy-BS-Ma7"/>
+                                            <constraint firstItem="Jnn-Cw-J9j" firstAttribute="leading" secondItem="cdt-tI-Ufb" secondAttribute="leading" id="FWx-qP-03P"/>
                                             <constraint firstAttribute="width" secondItem="cdt-tI-Ufb" secondAttribute="height" multiplier="1:1" id="nuc-Ff-Etk"/>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxQ-Ve-mEL">
                                         <rect key="frame" x="290" y="14.5" width="21" height="21"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="wu4-Sa-Scp">
+                                                <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
+                                            <constraint firstItem="wu4-Sa-Scp" firstAttribute="top" secondItem="WxQ-Ve-mEL" secondAttribute="top" id="2gE-w1-JLa"/>
+                                            <constraint firstAttribute="trailing" secondItem="wu4-Sa-Scp" secondAttribute="trailing" id="QW9-X1-eFL"/>
                                             <constraint firstAttribute="width" secondItem="WxQ-Ve-mEL" secondAttribute="height" multiplier="1:1" id="RNz-wP-sIX"/>
+                                            <constraint firstAttribute="bottom" secondItem="wu4-Sa-Scp" secondAttribute="bottom" id="d9h-B7-SJs"/>
+                                            <constraint firstItem="wu4-Sa-Scp" firstAttribute="leading" secondItem="WxQ-Ve-mEL" secondAttribute="leading" id="vbH-Ci-Uzn"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -3412,11 +3508,12 @@ in PayPro</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
+                                    <action selector="passcodeAction:" destination="bUA-SV-ONN" eventType="editingDidEnd" id="Hrk-Ff-Puc"/>
                                     <outlet property="delegate" destination="bUA-SV-ONN" id="3J9-h6-la3"/>
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="1" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="6o1-2r-uyf" secondAttribute="trailing" id="05Z-5u-pYZ"/>
                             <constraint firstItem="Rey-3b-ypD" firstAttribute="top" secondItem="vPg-Bz-9L7" secondAttribute="bottom" constant="16" id="HLp-DH-4ID"/>
@@ -3443,7 +3540,7 @@ in PayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDa-j0-XYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3039" y="1093"/>
+            <point key="canvasLocation" x="-3039.1999999999998" y="1092.5037481259371"/>
         </scene>
         <!--Account-->
         <scene sceneID="poj-MA-6u7">
@@ -4529,6 +4626,7 @@ in PayPro</string>
         <image name="disclosure-indicator" width="8" height="13"/>
         <image name="disclosure-indicator-down" width="13" height="8"/>
         <image name="logo-horizontal" width="467" height="160"/>
+        <image name="oval" width="20" height="20"/>
         <image name="proSelected" width="315" height="80"/>
         <image name="settings-card" width="29" height="29"/>
         <image name="settings-info" width="29" height="29"/>
@@ -4540,7 +4638,7 @@ in PayPro</string>
         <image name="slide2Image" width="300" height="450"/>
         <image name="slide3Image" width="300" height="450"/>
         <image name="swipe-send-money" width="331" height="74"/>
-        <image name="swipe-send-money-confirm" width="360" height="70"/>
+        <image name="swipe-send-money-confirm" width="331" height="74"/>
         <image name="tab-account" width="48" height="32"/>
         <image name="tab-groups" width="48" height="32"/>
         <image name="tab-paypro" width="48" height="32"/>
@@ -4549,9 +4647,9 @@ in PayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QOc-uS-S0D"/>
-        <segue reference="MgD-j5-nvC"/>
+        <segue reference="JJj-1x-d2j"/>
         <segue reference="8Cl-oA-bFg"/>
+        <segue reference="MgD-j5-nvC"/>
         <segue reference="5oX-E6-27I"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -40,6 +40,8 @@ extension User {
                 }
                 
                 completion(registeredUser != nil)
+            } else {
+                completion(false)
             }
         })
     }
@@ -50,6 +52,8 @@ extension User {
             if let isUser = completionDictionary["isUser"]
             {
                 completion(isUser as! Bool)
+            } else {
+                completion(false)
             }
         });
     }
@@ -102,6 +106,8 @@ extension User {
                 
                 let loggedUser = self.manage(userDictionary: userDictionary)
                 completion(loggedUser != nil && accountUser != nil)
+            } else {
+                completion(false)
             }
         })
     }

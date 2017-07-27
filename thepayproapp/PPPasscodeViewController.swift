@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class PPPasscodeViewController: UIViewController, UITextFieldDelegate
 {
@@ -28,10 +29,6 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
 
         // Do any additional setup after loading the view.
         
-        let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
-        navigationItem.rightBarButtonItem = nextButton
-        nextButton.isEnabled = false
-        
         if validationCode != nil
         {
             titleLabel.text = "Create a passcode"
@@ -51,29 +48,13 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
             
             self.navigationItem.title = "Log in"
         }
-        
-        self.applyGradientBackground()
                 
         passcodeTF.becomeFirstResponder()
-        
-        self.setupView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func setupView()
-    {
-        for currentView: UIView in self.mainPasscodeView.subviews
-        {
-            currentView.backgroundColor = UIColor.clear
-            
-            currentView.layer.cornerRadius = currentView.frame.size.width / 2
-            currentView.layer.borderWidth = 2.0
-            currentView.layer.borderColor = UIColor.white.cgColor
-        }
     }
     
     func applyGradientBackground()
@@ -99,7 +80,7 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
                         self.dismissNavBarActivity()
                         self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
                     } else {
-                        print("REGISTER FAILED")
+                        self.shake()
                     }
                 })
             } else {
@@ -107,16 +88,33 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
             }
         } else {
             self.displayNavBarActivity()
-            
+
             User.login(username: self.userUsername!, password: self.passcodeTF.text!, completion: {successLogin in
+                
+                self.dismissNavBarActivity()
+                
                 if successLogin {
-                    self.dismissNavBarActivity()
                     self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
                 } else {
-                    print("LOGIN FAILED")
+                    self.shake()
                 }
             })
         }
+    }
+    
+    func shake()
+    {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.duration = 0.6
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        self.mainPasscodeView.layer.add(animation, forKey: "shake")
+        self.vibrateDevice()
+    }
+    
+    func vibrateDevice()
+    {
+        AudioServicesPlaySystemSound(SystemSoundID (kSystemSoundID_Vibrate))
     }
     
     //MARK: - UITextFieldDelegate
@@ -132,7 +130,8 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
             for passcode in 0...newLength - 1
             {
                 let currentView : UIView = self.mainPasscodeView.subviews[passcode]
-                currentView.layer.backgroundColor = UIColor.white.cgColor
+                let oval:UIImageView = currentView.subviews[0] as! UIImageView
+                oval.image = UIImage(named: "oval_complete")
             }
         }
         
@@ -141,11 +140,15 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
             for passcode in newLength...self.mainPasscodeView.subviews.count - 1
             {
                 let currentView : UIView = self.mainPasscodeView.subviews[passcode]
-                currentView.layer.backgroundColor = UIColor.clear.cgColor
+                let oval:UIImageView = currentView.subviews[0] as! UIImageView
+                oval.image = UIImage(named: "oval")
             }
         }
         
-        self.navigationItem.rightBarButtonItem?.isEnabled = newLength == 6
+        if newLength == self.mainPasscodeView.subviews.count && string != "" {
+            self.passcodeTF.text = self.passcodeTF.text! + string
+            nextTapped()
+        }
         
         return newLength <= self.mainPasscodeView.subviews.count
     }

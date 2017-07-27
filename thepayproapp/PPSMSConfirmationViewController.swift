@@ -21,7 +21,7 @@ class PPSMSConfirmationViewController: UIViewController, UITextFieldDelegate
         
         // Do any additional setup after loading the view.
         
-        self.applyGradientBackground()
+//        self.applyGradientBackground()
         
         let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
         nextButton.isEnabled = false
