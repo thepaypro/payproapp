@@ -11,10 +11,14 @@ import UIKit
 class PPSliderViewController: UIViewController, UIScrollViewDelegate
 {
     @IBOutlet weak var slidePageControl: UIPageControl!
+    @IBOutlet weak var continueButton: UIButton!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.continueButton.layer.cornerRadius = 8
+        self.continueButton.clipsToBounds = true
 
         // Do any additional setup after loading the view.
     }
