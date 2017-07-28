@@ -15,6 +15,8 @@ class PPSettingsViewController: UIViewController {
     @IBOutlet weak var upgradeView: UIView!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameArrow: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +93,13 @@ class PPSettingsViewController: UIViewController {
         //rounded avatar image
         avatarImage.layer.cornerRadius = avatarImage.frame.size.width/2
         avatarImage.clipsToBounds = true
+        
+        if User.currentUser()?.status == User.Status.statusActivated {
+            self.nameLabel.text = (User.currentUser()?.forename)!+" "+(User.currentUser()?.lastname)!
+        } else {
+            self.nameLabel.text = "Your name"
+            self.nameArrow.isHidden = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,15 +121,15 @@ class PPSettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "profileViewSegue" {
+            if User.currentUser()?.status == User.Status.statusActivated {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return true
+        }
     }
-    */
-
 }

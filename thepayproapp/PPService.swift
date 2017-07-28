@@ -14,7 +14,7 @@ let PPLocalAPIURL = "http://172.28.128.77"
 func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
 {
     let absoluteURL = "\(PPAPIURL)/\(endpointURL)"
-    print(paramsDictionary)
+//    print(paramsDictionary)
     if let postData = (try? JSONSerialization.data(withJSONObject: paramsDictionary, options: []))
     {
         let tokenAccess = UserDefaults.standard.string(forKey: "token")

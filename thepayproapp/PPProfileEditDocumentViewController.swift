@@ -67,6 +67,15 @@ class PPProfileEditDocumentViewController: UIViewController, UIPickerViewDelegat
         documentTypePicker.delegate = self
         documentTypePicker.dataSource = self
         
+        if User.currentUser()?.documentType == "DNI" {
+            self.documentTypeLabel.text = "National ID Card"
+        } else if User.currentUser()?.documentType == "DRIVING_LICENSE" {
+            self.documentTypeLabel.text = "Driving Licence"
+        } else if User.currentUser()?.documentType == "PASSPORT" {
+            self.documentTypeLabel.text = "Passport"
+        }
+                
+        self.documentTypeInput.text = User.currentUser()?.documentNumber
     }
     
     func closePicker()

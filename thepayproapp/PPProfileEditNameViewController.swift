@@ -38,9 +38,10 @@ class PPProfileEditNameViewController: UIViewController
         self.lastnameView.layer.addSublayer(lastnameLayerBottom)
         
         
-//        let user = User.currentUser()
+        let user = User.currentUser()
         
-//        self.forenameView.text = user
+        self.forenameInput.text = user?.forename
+        self.lastnameInput.text = user?.lastname
         
     }
     

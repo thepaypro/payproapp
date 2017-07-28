@@ -263,10 +263,13 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                 
                 //make phonenumber array to send back for check if phone is app user
                 var phoneNumberArray:[String:String] = [:]
+                var position = 0
                 
-                for (index,c) in contactsArray.enumerated() {
+                for c in contactsArray {
                     for phoneNumber in c.phoneNumbers {
-                        phoneNumberArray["\(index)"] = phoneNumber.value.stringValue.replacingOccurrences(of: "[^\\d+]", with: "", options: [.regularExpression])
+//print(phoneNumber.value.stringValue.replacingOccurrences(of: "[^\\d+]", with: "", options: [.regularExpression]))
+                        phoneNumberArray["\(position)"] = phoneNumber.value.stringValue.replacingOccurrences(of: "[^\\d+]", with: "", options: [.regularExpression])
+                        position += 1
                     }
                 }
 

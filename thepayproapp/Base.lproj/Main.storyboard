@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1003,7 +1003,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ft2-5f-fjx">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
                                                         <connections>
-                                                            <segue destination="PeJ-Wt-1eu" kind="show" id="jxM-N8-RF6"/>
+                                                            <segue destination="PeJ-Wt-1eu" kind="show" identifier="profileViewSegue" id="jxM-N8-RF6"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T9U-hM-d1f">
@@ -1311,6 +1311,8 @@
                         <outlet property="avatarImage" destination="T9U-hM-d1f" id="Eex-p1-MRN"/>
                         <outlet property="cardView" destination="5UD-7E-SRb" id="it4-ag-Exf"/>
                         <outlet property="infoView" destination="tfO-gP-ohz" id="gq0-4P-v0b"/>
+                        <outlet property="nameArrow" destination="v2L-HB-irG" id="L67-b9-NXc"/>
+                        <outlet property="nameLabel" destination="LvK-B3-IwB" id="kht-4q-N11"/>
                         <outlet property="nameView" destination="ewX-oQ-5dn" id="Mfl-PM-Xhf"/>
                         <outlet property="upgradeView" destination="oJ6-KP-qRJ" id="flD-B7-WAa"/>
                     </connections>
@@ -1673,9 +1675,18 @@
                         <outlet property="addressView" destination="ucj-hc-xex" id="S5s-7R-Yg0"/>
                         <outlet property="avatarImage" destination="sZr-Sm-e1J" id="dVH-Gu-sNy"/>
                         <outlet property="avatarView" destination="K4d-HZ-LLR" id="KkR-9M-kZW"/>
+                        <outlet property="cityLabel" destination="w27-aT-Ssm" id="GVY-Xs-eie"/>
+                        <outlet property="countryLabel" destination="qD7-Km-Z2Z" id="0xg-k4-HiJ"/>
+                        <outlet property="documentLabel" destination="Ca7-Jj-lO8" id="AnB-uM-Loo"/>
+                        <outlet property="emailLabel" destination="KT1-3a-cGf" id="ZoK-RH-wLJ"/>
                         <outlet property="infoView" destination="DSc-Gx-lYa" id="tAu-dA-dDR"/>
+                        <outlet property="nameLabel" destination="qHJ-HK-6ag" id="Vy5-n9-eq7"/>
                         <outlet property="nameView" destination="4JB-B8-JJE" id="nVO-aG-xaV"/>
                         <outlet property="nationalView" destination="sYx-sE-LXk" id="XUr-H5-Fu7"/>
+                        <outlet property="numberBuildingLabel" destination="OzB-q8-NWZ" id="q9q-hO-01x"/>
+                        <outlet property="phoneNumberLabel" destination="tbK-30-dmC" id="7Vt-4T-A5D"/>
+                        <outlet property="postCodeLabel" destination="iLc-mr-tD9" id="EkP-KX-k7f"/>
+                        <outlet property="streetLabel" destination="dtL-fg-ZGh" id="vsE-R1-D3n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpZ-2A-JZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4101,7 +4112,7 @@ in PayPro</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1yC-fr-uA7">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qcW-8p-sz6" id="cBz-7d-ZO1"/>
@@ -4138,10 +4149,10 @@ in PayPro</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WbT-aP-dJ6">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5f-9o-kZ3">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gB-um-3tU">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -4161,32 +4172,32 @@ in PayPro</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORz-hX-KxU">
-                                                <rect key="frame" x="0.0" y="43" width="320" height="461"/>
+                                                <rect key="frame" x="0.0" y="43" width="320" height="412"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLs-e8-nlz">
-                                                        <rect key="frame" x="15" y="15" width="290" height="203"/>
+                                                        <rect key="frame" x="15" y="15" width="290" height="181.5"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="0Ds-t4-hdv">
-                                                                <rect key="frame" x="110" y="67" width="69" height="69"/>
+                                                                <rect key="frame" x="110" y="56" width="69" height="69"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="69" id="17Q-Zw-njH"/>
                                                                     <constraint firstAttribute="width" constant="69" id="VtV-jp-c8J"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press to take a photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Lp-Ee-9oA">
-                                                                <rect key="frame" x="63.5" y="136" width="162" height="21"/>
+                                                                <rect key="frame" x="63.5" y="125" width="162" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DoX-aw-PpD">
-                                                                <rect key="frame" x="0.0" y="0.0" width="290" height="203"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="290" height="181.5"/>
                                                                 <connections>
                                                                     <action selector="firstButtonAction:" destination="WuB-bl-OVO" eventType="touchUpInside" id="hqt-5Z-17i"/>
                                                                 </connections>
                                                             </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="crm-mN-QgF">
-                                                                <rect key="frame" x="0.0" y="0.0" width="290" height="203"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="290" height="181.5"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.93843692540000001" green="0.9390823841" blue="0.95562428239999997" alpha="1" colorSpace="deviceRGB"/>
@@ -4207,29 +4218,29 @@ in PayPro</string>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obn-xA-v14">
-                                                        <rect key="frame" x="15" y="233" width="290" height="203"/>
+                                                        <rect key="frame" x="15" y="211.5" width="290" height="181.5"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="dfu-nU-Qp1">
-                                                                <rect key="frame" x="110.5" y="67" width="69" height="69"/>
+                                                                <rect key="frame" x="110.5" y="56" width="69" height="69"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="69" id="XYC-22-jna"/>
                                                                     <constraint firstAttribute="width" constant="69" id="o0M-Nt-3Z4"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press to take a photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkU-KS-2Ue">
-                                                                <rect key="frame" x="63.5" y="136" width="162" height="21"/>
+                                                                <rect key="frame" x="63.5" y="125" width="162" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xY-Ck-Zs1">
-                                                                <rect key="frame" x="0.0" y="0.0" width="290" height="203"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="290" height="181.5"/>
                                                                 <connections>
                                                                     <action selector="secondButtonAction:" destination="WuB-bl-OVO" eventType="touchUpInside" id="yWk-nx-L1U"/>
                                                                 </connections>
                                                             </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="49X-3V-fpO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="290" height="203"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="290" height="181.5"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.93843692540000001" green="0.9390823841" blue="0.95562428239999997" alpha="1" colorSpace="deviceRGB"/>
@@ -4739,9 +4750,9 @@ in PayPro</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JJj-1x-d2j"/>
-        <segue reference="8Cl-oA-bFg"/>
+        <segue reference="cPk-Rt-u9Q"/>
         <segue reference="MgD-j5-nvC"/>
-        <segue reference="5oX-E6-27I"/>
+        <segue reference="8Cl-oA-bFg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

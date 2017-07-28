@@ -21,7 +21,7 @@ open class Contact {
     open var contactId: String?
     open var phoneNumbers = [(phoneNumber: String, phoneLabel: String)]()
 //    open var emails = [(email: String, emailLabel: String )]()
-    open var isPayProUser: Bool?
+    open var isPayProUser: Bool = false
     open var beneficiaryName: String?
     open var phoneNumber: String?
     
@@ -89,7 +89,7 @@ open class Contact {
     }
     
     open func getIsPayProUser() -> Bool {
-        return isPayProUser!
+        return isPayProUser
     }
     
     open func setBeneficiaryName(beneficiaryNameValue: String) {

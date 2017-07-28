@@ -117,6 +117,7 @@
 		212100D41EF9091600208F72 /* PPBankTransfeReferenceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBankTransfeReferenceListViewController.swift; sourceTree = "<group>"; };
 		2128DBE51F0E20800051FC8E /* PPSendMoneyAmountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPSendMoneyAmountViewController.swift; sourceTree = "<group>"; };
 		2128DBE81F0E93CA0051FC8E /* ExtensionString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
+		212BC5971F2B5A0000625A9A /* thepayproapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = thepayproapp.entitlements; sourceTree = "<group>"; };
 		2131C1001F18D6CB00118B1D /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		213381261EFD1A5B0007A509 /* PPProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPProfileViewController.swift; sourceTree = "<group>"; };
 		213381281EFD1E2A0007A509 /* PPInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPInfoViewController.swift; sourceTree = "<group>"; };
@@ -446,6 +447,7 @@
 		BF9DB8741EDD770600C8A0ED /* thepayproapp */ = {
 			isa = PBXGroup;
 			children = (
+				212BC5971F2B5A0000625A9A /* thepayproapp.entitlements */,
 				216CCA8E1EE82252003FE3CE /* Controllers */,
 				216CCA8D1EE8224D003FE3CE /* Views */,
 				216CCA8C1EE8223F003FE3CE /* Models */,
@@ -634,6 +636,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 78E8NNX52N;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					BF9DB8871EDD770600C8A0ED = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -1064,6 +1071,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_ENTITLEMENTS = thepayproapp/thepayproapp.entitlements;
 				DEVELOPMENT_TEAM = 78E8NNX52N;
 				INFOPLIST_FILE = thepayproapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1081,6 +1089,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_ENTITLEMENTS = thepayproapp/thepayproapp.entitlements;
 				DEVELOPMENT_TEAM = 78E8NNX52N;
 				INFOPLIST_FILE = thepayproapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

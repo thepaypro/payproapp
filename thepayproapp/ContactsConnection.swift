@@ -10,7 +10,7 @@ import Foundation
 
 func checkContacts(contacts: NSDictionary, completion: @escaping (_ contactsResponse: NSDictionary) -> Void)
 {
-    print("contacts: \(contacts)")
+//    print("contacts: \(contacts)")
     makePostRequest(paramsDictionary: contacts as NSDictionary, endpointURL: "contacts", completion: {contactsDictionary in
         
         //    let callResponse = [
@@ -31,9 +31,13 @@ func checkContacts(contacts: NSDictionary, completion: @escaping (_ contactsResp
         //        ]
         //    ] as [String : AnyObject]
         
-        print("response contacts: \(contactsDictionary)")
+//        print("response contacts: \(contactsDictionary)")
         
-        completion(contactsDictionary as NSDictionary)
+        if contactsDictionary["contacts"] != nil {
+            completion(contactsDictionary["contacts"] as! NSDictionary)
+        } else {
+            completion([:] as NSDictionary)
+        }
     })
     
     //    completion(callResponse as NSDictionary)

@@ -66,34 +66,42 @@ class ContactCell: UITableViewCell {
         let phoneNumbers:Int = (self.contact?.phoneNumbers.count)!
         
         if phoneNumbers > 0 {
-            let phoneNumber:String = (self.contact?.phoneNumbers[0].phoneNumber)!
-            contact.setPhoneNumber(phoneNumberValue: phoneNumber)
+            var contactFound = false
             
-            if let validateContactRow = validateContacts.value(forKeyPath: phoneNumber.replacingOccurrences(of: "[^\\d+]", with: "", options: [.regularExpression])) {
+            for (key, value) in (self.contact?.phoneNumbers)! {
+                contact.setPhoneNumber(phoneNumberValue: key)
                 
-                let phoneNumberFromBackend = (validateContactRow as AnyObject).value(forKeyPath: "phonenumber") as! String
-                contact.setPhoneNumber(phoneNumberValue: phoneNumberFromBackend)
-            
-                let isPayProUser = (validateContactRow as AnyObject).value(forKeyPath: "isUser") as! String
-            
-                if isPayProUser == "true" {
-                    contact.setIsPayProUser(value: true)
-                
-                    let beneficiaryName = (validateContactRow as AnyObject).value(forKeyPath: "fullName") as! String
-                    contact.setBeneficiaryName(beneficiaryNameValue: beneficiaryName)
-                
-                    self.imagePayProUser.isHidden = false
-                } else {
-                    contact.setIsPayProUser(value: false)
-                    self.imagePayProUser.isHidden = true
+                if let validateContactRow = validateContacts.value(forKeyPath: key.replacingOccurrences(of: "[^\\d+]", with: "", options: [.regularExpression])) {
+                    contactFound = true
+                    
+                    let phoneNumberFromBackend = (validateContactRow as AnyObject).value(forKeyPath: "phoneNumber") as! String
+                    contact.setPhoneNumber(phoneNumberValue: phoneNumberFromBackend)
+                    
+                    let isPayProUser = (validateContactRow as AnyObject).value(forKeyPath: "isUser") as! Bool
+                    
+                    if isPayProUser == true {
+                        print("dentrooooooooo")
+                        contact.setIsPayProUser(value: true)
+                        
+                        let beneficiaryName = (validateContactRow as AnyObject).value(forKeyPath: "fullName") as! String
+                        
+                        contact.setBeneficiaryName(beneficiaryNameValue: beneficiaryName)
+                        
+                        self.imagePayProUser.isHidden = false
+                    } else {
+                        //if contact have more than one phonenumber it's posible that one number is member and other no
+                        if contact.getIsPayProUser() == false {
+                            contact.setIsPayProUser(value: false)
+                            self.imagePayProUser.isHidden = true
+                        }
+                    }
                 }
-            } else {
+            }
+            
+            if contactFound == false {
                 contact.setIsPayProUser(value: false)
                 self.imagePayProUser.isHidden = true
             }
-        } else {
-            contact.setIsPayProUser(value: false)
-            self.imagePayProUser.isHidden = true
         }
     }
 

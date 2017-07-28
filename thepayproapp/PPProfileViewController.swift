@@ -21,10 +21,15 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
     }
     @IBOutlet weak var avatarImage: UIImageView!
     
-//    let saveQueue = dispatch_queue_create("saveQueue", DISPATCH_QUEUE_CONCURRENT)
-    
-    // moc
-//    var managedContext : NSManagedObjectContext?
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var documentLabel: UILabel!
+    @IBOutlet weak var streetLabel: UILabel!
+    @IBOutlet weak var numberBuildingLabel: UILabel!
+    @IBOutlet weak var postCodeLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     
     override func viewDidLoad()
     {
@@ -115,6 +120,21 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
             avatarImage.contentMode = .scaleToFill
             avatarImage.image = UIImage(named:"default-profile")
         }
+        
+        let user = User.currentUser()
+        
+        if user?.status == User.Status.statusActivating ||
+            user?.status == User.Status.statusActivated {
+            self.nameLabel.text = (user?.forename)!+" "+(user?.lastname)!
+            self.documentLabel.text = user?.documentNumber
+            self.streetLabel.text = user?.street
+            self.numberBuildingLabel.text = user?.buildingNumber
+            self.postCodeLabel.text = user?.postCode
+            self.cityLabel.text = user?.city
+            self.countryLabel.text = user?.country
+            self.phoneNumberLabel.text = user?.username
+            self.emailLabel.text = user?.email
+        }
     }
     
     override func didReceiveMemoryWarning()
@@ -178,20 +198,7 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     func prepareImageForSaving(image:UIImage)
     {
-//        let imageData = UIImagePNGRepresentation(avatarImage.image!)
-//        let compresedImage = UIImage(data: imageData!)
-//        UIImageWriteToSavedPhotosAlbum(compresedImage!, nil, nil, nil)
-//        
-//        let alert = UIAlertController(title: "Saved", message: "Your image has been saved", preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-//        alert.addAction(okAction)
-//        self.present(alert, animated: true, completion: nil)
-        
-        // scale image, I chose the size of the VC because it is easy
-//        let thumbnail = image.scale(toSize: self.avatarImage.frame.size)
-        
         guard let imageData  = UIImageJPEGRepresentation(image, 0.7) else {
-            // handle failed conversion
             print("jpg error")
             return
         }
