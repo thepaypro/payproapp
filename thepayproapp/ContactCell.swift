@@ -69,7 +69,7 @@ class ContactCell: UITableViewCell {
             let phoneNumber:String = (self.contact?.phoneNumbers[0].phoneNumber)!
             contact.setPhoneNumber(phoneNumberValue: phoneNumber)
             
-            if let validateContactRow = validateContacts.value(forKeyPath: phoneNumber) {
+            if let validateContactRow = validateContacts.value(forKeyPath: phoneNumber.replacingOccurrences(of: "[^\\d+]", with: "", options: [.regularExpression])) {
                 
                 let phoneNumberFromBackend = (validateContactRow as AnyObject).value(forKeyPath: "phonenumber") as! String
                 contact.setPhoneNumber(phoneNumberValue: phoneNumberFromBackend)
