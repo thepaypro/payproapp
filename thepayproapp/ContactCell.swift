@@ -80,7 +80,6 @@ class ContactCell: UITableViewCell {
                     let isPayProUser = (validateContactRow as AnyObject).value(forKeyPath: "isUser") as! Bool
                     
                     if isPayProUser == true {
-                        print("dentrooooooooo")
                         contact.setIsPayProUser(value: true)
                         
                         let beneficiaryName = (validateContactRow as AnyObject).value(forKeyPath: "fullName") as! String

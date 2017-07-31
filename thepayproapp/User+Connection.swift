@@ -23,7 +23,7 @@ extension User {
             ]
         ] as [String : Any]
         
-        print(paramsDictionary)
+//        print(paramsDictionary)
         
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "register/", completion: {completionDictionary in
             if let userDictionary = completionDictionary["user"]
@@ -32,6 +32,7 @@ extension User {
                 
                 if registeredUser != nil {
                     let accountDictionary = [
+                        "id": User.currentUser()?.identifier,
                         "account_type_id": 0,
                         "card_status_id": 0
                     ]

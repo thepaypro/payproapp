@@ -178,18 +178,20 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
             
             //call endpoint
             showActivityIndicator()
-            let when = DispatchTime.now() + 3
-            DispatchQueue.main.asyncAfter(deadline: when) {
+            
+            createTransaction(completion:{createTransactionResponse in
                 self.hideActivityIndicator()
                 
-                let confirmViewController = PPSendMoneyConfirmViewController()
-                confirmViewController.modalTransitionStyle = .crossDissolve
-                confirmViewController.sendMoney = self.sendMoney
-                self.present(confirmViewController, animated: true, completion: {
-                    self.tabBarController?.selectedIndex = 3
-                    self.vibrateDevice()
-                })
-            }
+                if createTransactionResponse {
+                    let confirmViewController = PPSendMoneyConfirmViewController()
+                    confirmViewController.modalTransitionStyle = .crossDissolve
+                    confirmViewController.sendMoney = self.sendMoney
+                    self.present(confirmViewController, animated: true, completion: {
+                        self.tabBarController?.selectedIndex = 3
+                        self.vibrateDevice()
+                    })
+                }
+            })
             
         } else if sendMoney.getOperationType() == 2 {
             if (MFMessageComposeViewController.canSendText()) {
@@ -245,6 +247,44 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         default:
             break;
         }
+    }
+    
+    func createTransaction(completion: @escaping (_ createTransactionResponse: Bool) -> Void)
+    {
+        let transactionDictionary = [
+            "beneficiary":String(6),
+            "amount": String(sendMoney.getAmount())?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression]) as Any,
+            "subject": String(sendMoney.getMessage())!
+        ] as [String : Any]
+
+        TransactionCreate(
+            transaction: transactionDictionary as NSDictionary,
+            completion: {transactionResponse in
+                if transactionResponse["status"] as! Bool == true {
+                    completion(true)
+                } else if transactionResponse["errorMessage"] != nil {
+                    let alert = UIAlertController(title: "Transaction Failed", message: transactionResponse.value(forKeyPath: "errorMessage") as? String, preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    let errorAction = UIAlertAction(title: "Ok", style: .default)
+                    
+                    alert.addAction(errorAction)
+                    
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    completion(false)
+                    
+                } else if transactionResponse["status"] as! Bool == false {
+                    let alert = UIAlertController(title: "Transaction Failed", message: "Error ocurred during transaction create", preferredStyle: UIAlertControllerStyle.alert)
+                    let errorAction = UIAlertAction(title: "Ok", style: .default)
+                    
+                    alert.addAction(errorAction)
+                    
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    completion(false)
+                }
+            }
+        )
     }
 }
 
