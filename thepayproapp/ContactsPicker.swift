@@ -267,7 +267,6 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                 
                 for c in contactsArray {
                     for phoneNumber in c.phoneNumbers {
-//print(phoneNumber.value.stringValue.replacingOccurrences(of: "[^\\d+]", with: "", options: [.regularExpression]))
                         phoneNumberArray["\(position)"] = phoneNumber.value.stringValue.replacingOccurrences(of: "[^\\d+]", with: "", options: [.regularExpression])
                         position += 1
                     }
@@ -280,9 +279,9 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                     } else {
                         print("check contacts FAILED")
                     }
+                    
+                    completion(contactsArray, nil)
                 })
-
-                completion(contactsArray, nil)
             }
                 
             //Catching exception as enumerateContactsWithFetchRequest can throw errors

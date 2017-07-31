@@ -124,6 +124,10 @@ public class Transaction: NSManagedObject
         
         let transactionsFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Transaction")
         
+        let sortDescriptor = NSSortDescriptor(key: "identifier", ascending: false)
+        
+        transactionsFetchRequest.sortDescriptors = [sortDescriptor]
+        
         do
         {
             let transactions: [Transaction]? = try context.fetch(transactionsFetchRequest) as? [Transaction]

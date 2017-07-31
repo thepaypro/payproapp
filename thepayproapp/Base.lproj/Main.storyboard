@@ -4750,9 +4750,9 @@ in PayPro</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JJj-1x-d2j"/>
-        <segue reference="cPk-Rt-u9Q"/>
-        <segue reference="MgD-j5-nvC"/>
         <segue reference="8Cl-oA-bFg"/>
+        <segue reference="QjQ-Zm-ceK"/>
+        <segue reference="MgD-j5-nvC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

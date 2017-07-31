@@ -20,6 +20,15 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     var transactionsArray : [Transaction]?
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.tintColor = PayProColors.blue
+        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        
+        return refreshControl
+    }()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -28,11 +37,14 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         self.navigationItem.title = User.currentUser()?.accountType == .proAccount ? "Pro account" : "Basic account"
         
-        initDummyTransactions()
+//        initDummyTransactions()
+        getTransactions()
         
         transactionsTV.register(UINib(nibName: "PPTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionCell")
         
         transactionsTV.reloadData()
+        
+        self.transactionsTV.addSubview(self.refreshControl)
         
         scrollView.delegate = self
         
@@ -65,6 +77,11 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     override func viewDidLayoutSubviews()
     {
         scrollView.contentOffset = CGPoint(x: 0.0, y: 0.0)
+    }
+    
+    func getTransactions()
+    {
+        transactionsArray = Transaction.getTransactions()
     }
     
     func initDummyTransactions()
@@ -156,7 +173,23 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         {
             self.performSegue(withIdentifier: "showActivateCardVCSegue", sender: nil)
         }
-    }    
+    }
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
+        // Do some reloading of data and update the table view's data source
+        // Fetch more objects from a web service, for example...
+        
+        // Simply adding an object to the data source for this example
+//        let newMovie = Movie(title: "Serenity", genre: "Sci-fi")
+//        movies.append(newMovie)
+//        
+//        movies.sort() { $0.title < $1.title }
+        
+        print("aaaaa")
+        
+        self.transactionsTV.reloadData()
+        refreshControl.endRefreshing()
+    }
     
     // MARK: - Table view data source
     

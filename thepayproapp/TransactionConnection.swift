@@ -22,12 +22,21 @@ func TransactionCreate(transaction: NSDictionary, completion: @escaping (_ trans
             
             let transactionDictionary = completionDictionary["transaction"] as! NSDictionary
             
+            let beneficiaryTransaction = transactionDictionary.value(forKeyPath: "beneficiary") as! NSDictionary
+            
+            var title = "Transaction to "
+            title += beneficiaryTransaction.value(forKeyPath: "forename") as! String
+            title += " "
+            title += beneficiaryTransaction.value(forKeyPath: "lastname") as! String
+            
+            let subject = transactionDictionary.value(forKeyPath: "subject") as! String
+            
             let transactionDictionaryResponse = [
                 "id" : transactionDictionary.value(forKeyPath: "id")!,
-                "title": "Transaction to...",
-                "sutitle": transactionDictionary.value(forKeyPath: "subject")!,
+                "title": title,
+                "subtitle": subject,
                 "amount": transactionDictionary.value(forKeyPath: "amount")!,
-                "datetime": "\(String(describing: components.year))/\(String(describing: components.month))/\(String(describing: components.day)) \(String(describing: components.hour)):\(String(describing: components.minute))"
+                "datetime": "\(Int(components.year!))/\(Int(components.month!))/\(Int(components.day!)) \(Int(components.hour!)):\(Int(components.minute!))"
             ]  as [String : Any]
             
             let registerTransaction = Transaction.manage(transactionDictionary: transactionDictionaryResponse as NSDictionary)
