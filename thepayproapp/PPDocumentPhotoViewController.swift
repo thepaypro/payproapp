@@ -86,12 +86,12 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         let buildingNumber: String = (user?.buildingNumber)!
         let postcode: String = (user?.postCode)!
         let city: String = (user?.city)!
-//        let country: String = (user?.country)!
-        let country: Int = 239
+        let country: String = (user?.country)!
         let documentPicture1 = self.firstDocumentBase64 ?? ""
         let documentPicture2 = self.secondDocumentBase64 ?? ""
+        let deviceToken = UserDefaults.standard.object(forKey: "deviceToken") as! String
         
-        User.accountCreate(
+        AccountCreate(
             agreement: agreement,
             forename: forename,
             lastname: lastname,
@@ -104,6 +104,7 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
             country: country,
             documentFront: documentPicture1,
             documentBack: documentPicture2,
+            deviceToken: deviceToken,
             completion: {successAccountCreate in
                 if successAccountCreate {
                     print("create account success")

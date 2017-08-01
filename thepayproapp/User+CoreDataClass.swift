@@ -88,6 +88,7 @@ public class User: NSManagedObject
         let postcode: String? = attributesDictionary.object(forKey: "postcode") as? String
         let city: String? = attributesDictionary.object(forKey: "city") as? String
         let country: String? = attributesDictionary.object(forKey: "country") as? String
+        let countryName: String? = attributesDictionary.object(forKey: "countryName") as? String
         let accountNumber: String? = attributesDictionary.object(forKey: "accountNumber") as? String
         let sortCode: String? = attributesDictionary.object(forKey: "sortCode") as? String
         let email: String? = attributesDictionary.object(forKey: "email") as? String
@@ -208,6 +209,11 @@ public class User: NSManagedObject
         if country != nil
         {
             user.setValue(country, forKeyPath: "country")
+        }
+        
+        if countryName != nil
+        {
+            user.setValue(countryName, forKeyPath: "countryName")
         }
         
         if accountNumber != nil

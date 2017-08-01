@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -41,7 +42,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         window?.rootViewController = rootController
         window?.makeKeyAndVisible()
         
+        //UserNotifications
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+            // Enable or disable features based on authorization.
+        }
+        application.registerForRemoteNotifications()
+        
         return true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        
+        UserDefaults.standard.setValue(deviceTokenString, forKey: "deviceToken")
+        
+        let token = UserDefaults.standard.object(forKey: "deviceToken") as! String
+        print("APNs device token: \(deviceTokenString)")
+        print("APNs device token: \(token)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        
+        print("APNs registration failed: \(error)")
+        
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
+        // Print notification payload data
+        print("Push notification received: \(data)")
     }
 
     func applicationWillResignActive(_ application: UIApplication)

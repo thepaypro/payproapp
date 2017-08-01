@@ -50,7 +50,7 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
             cell.textLabel?.adjustsFontSizeToFitWidth = true
             cell.textLabel?.minimumScaleFactor = 14.0 / (cell.textLabel?.font.pointSize)!
         }
-        
+
         form +++
             
             Section()
@@ -59,6 +59,7 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
                 $0.tag = "street"
                 $0.title = "Street"
                 $0.placeholder = "mandatory"
+                $0.baseValue = user?.street
                 
                 $0.add(rule: RuleRequired())
             }
@@ -67,6 +68,7 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
                 $0.tag = "buildingNumber"
                 $0.title = "Building number"
                 $0.placeholder = "mandatory"
+                $0.baseValue = user?.buildingNumber
                 
                 $0.add(rule: RuleRequired())
             }
@@ -75,6 +77,7 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
                 $0.tag = "zipcode"
                 $0.title = "Postcode"
                 $0.placeholder = "mandatory"
+                $0.baseValue = user?.postCode
                 
                 $0.add(rule: RuleRequired())
             }
@@ -83,19 +86,28 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
                 $0.tag = "city"
                 $0.title = "City"
                 $0.placeholder = "mandatory"
+                $0.baseValue = user?.city
                 
                 $0.add(rule: RuleRequired())
             }
-            
+                
             <<< ButtonRow("country") {
-                $0.title = "Country"
+                $0.title = user?.countryName ?? "Country"
                 $0.presentationMode = .segueName(segueName: "showCountryFormVC", onDismiss: nil)
+                $0.value = user?.country ?? nil
                 
                 $0.add(rule: RuleRequired())
                 }
+                
                 .cellUpdate { cell, row in
-                    cell.textLabel?.textColor = UIColor.lightGray
+                    if user?.countryName == nil {
+                        cell.textLabel?.textColor = UIColor.lightGray
+                    }
             }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.rightBarButtonItem?.isEnabled = form.validate().count == 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -109,7 +121,21 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
         {
             if orderingCard
             {
+                let user = User.currentUser()
+                
                 print("ORDER CARD ENDPOINT")
+                let accountUpdateDictionary = [
+                    "street": user?.street!,
+                    "buildingNumber": user?.buildingNumber!,
+                    "postcode": user?.postCode!,
+                    "city": user?.city!,
+                    "country": user?.countryName!
+                ] as [String : Any]
+                
+                AccountUpdate(paramsDictionary: accountUpdateDictionary as NSDictionary, completion: { accountUpdateResponse in
+                    
+                    self.navigationController?.popViewController(animated: true)
+                })
             }
             else
             {
@@ -177,6 +203,7 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
             
             let countryRow: ButtonRow? = form.rowBy(tag: "country")
             user?.country = countryRow?.value
+            user?.countryName = countryRow?.title
         }
     }
 }

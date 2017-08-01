@@ -75,6 +75,8 @@ extension User {
                     
                     let agreement = accountInformation.value(forKeyPath: "agreement")
                     
+                    let country = accountInformation.value(forKeyPath: "country")
+                    
                     accountDictionary = [
                         "id": userDictionary.value(forKeyPath: "id")!,
                         "username": userDictionary.value(forKeyPath: "username")!,
@@ -89,7 +91,8 @@ extension User {
                         "buildingNumber": accountInformation.value(forKeyPath: "buildingNumber")!,
                         "postcode": accountInformation.value(forKeyPath: "postcode")!,
                         "city": accountInformation.value(forKeyPath: "city")!,
-                        "country": accountInformation.value(forKeyPath: "country")!,
+                        "country": (country as AnyObject).value(forKeyPath: "iso2")!,
+                        "countryName": (country as AnyObject).value(forKeyPath: "name")!,
                         "email": accountInformation.value(forKeyPath: "email")!,
                         "status": User.Status.statusActivated.rawValue
                     ]
@@ -160,45 +163,5 @@ extension User {
             
             task.resume()
         }
-    }
-    
-    class func accountCreate(
-        agreement: Int,
-        forename: String,
-        lastname: String,
-        dob: String,
-        documentType: String,
-        street: String,
-        buildingNumber: String,
-        postcode: String,
-        city: String,
-        country: Int,
-        documentFront: String,
-        documentBack: String,
-        completion: @escaping (_ success: Bool) -> Void)
-    {
-        let paramsDictionary = [
-            "agreement": agreement,
-            "forename": forename,
-            "lastname": lastname,
-            "birthDate": dob,
-            "documentType": documentType,
-            "street": street,
-            "buildingNumber": buildingNumber,
-            "postcode": postcode,
-            "city": city,
-            "country": country,
-            "documentPicture1": documentFront,
-            "documentPicture2": documentBack
-        ] as [String : Any]
-        
-        makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "account-requests", completion: {completionDictionary in
-            print(completionDictionary)
-            if completionDictionary["emailSended"] != nil {
-                completion(completionDictionary["emailSended"] as! Bool)
-            } else {
-                completion(false)
-            }
-        })
     }
 }

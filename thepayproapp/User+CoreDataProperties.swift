@@ -61,6 +61,7 @@ extension User {
     @NSManaged public var postCode: String?
     @NSManaged public var city: String?
     @NSManaged public var country: String?
+    @NSManaged public var countryName: String?
     @NSManaged public var groupMembers: NSSet?
     @NSManaged public var invites: NSSet?
     @NSManaged public var offsetTransactions: NSSet?

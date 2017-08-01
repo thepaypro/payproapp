@@ -17,6 +17,9 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     @IBOutlet weak var cardHeight: NSLayoutConstraint!
     @IBOutlet weak var latestTransactionsView: UIView!
     @IBOutlet weak var accountDetailsView: UIView!
+    @IBOutlet weak var accountLabel: UILabel!
+    @IBOutlet weak var sortCodeLabel: UILabel!
+    @IBOutlet weak var balanceLabel: UILabel!
     
     var transactionsArray : [Transaction]?
     
@@ -37,12 +40,9 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         self.navigationItem.title = User.currentUser()?.accountType == .proAccount ? "Pro account" : "Basic account"
         
-//        initDummyTransactions()
-        getTransactions()
-        
         transactionsTV.register(UINib(nibName: "PPTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionCell")
         
-        transactionsTV.reloadData()
+        refreshTransactionList()
         
         self.transactionsTV.addSubview(self.refreshControl)
         
@@ -59,6 +59,12 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         layerBottom.path = borderBottom.cgPath
         layerBottom.fillColor = UIColor.lightGray.cgColor
         latestTransactionsView.layer.addSublayer(layerBottom)
+        
+        self.accountLabel.text = User.currentUser()?.accountNumber
+        self.sortCodeLabel.text = User.currentUser()?.sortCode
+        self.balanceLabel.text = "£ 99,999.99"
+        self.balanceLabel.numberOfLines = 1
+        self.balanceLabel.adjustsFontSizeToFitWidth = true
     }
     
     override func didReceiveMemoryWarning()
@@ -84,54 +90,60 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         transactionsArray = Transaction.getTransactions()
     }
     
-    func initDummyTransactions()
+    func refreshTransactionList()
     {
-        transactionsArray = [Transaction]()
-        
-        var currentDictionary = [
-            "id": Int64(0),
-            "title": "Residencial Viella Sa",
-            "subtitle": "Barcelona, Catalonia",
-            "datetime": "2 days ago",
-            "amount": Float(123.40)
-            ] as [String : Any]
-        
-        var currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
-        transactionsArray?.append(currentTransaction!)
-        
-        currentDictionary = [
-            "id": Int64(1),
-            "title": "Pret A Manger Gatwik",
-            "subtitle": "Barcelona, Catalonia",
-            "datetime": "3 days ago",
-            "amount": Float(-68.25)
-            ] as [String : Any]
-        
-        currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
-        transactionsArray?.append(currentTransaction!)
-        
-        currentDictionary = [
-            "id": Int64(2),
-            "title": "W H Smith",
-            "subtitle": "London, United Kingdom",
-            "datetime": "5 days ago",
-            "amount": Float(345.20)
-            ] as [String : Any]
-        
-        currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
-        transactionsArray?.append(currentTransaction!)
-        
-        currentDictionary = [
-            "id": Int64(3),
-            "title": "Marks & Spencer-Kensington High Street",
-            "subtitle": "London, United Kingdom",
-            "datetime": "8 days ago",
-            "amount": Float(64.70)
-            ] as [String : Any]
-        
-        currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
-        transactionsArray?.append(currentTransaction!)
+        getTransactions()
+        self.transactionsTV.reloadData()
     }
+    
+//    func initDummyTransactions()
+//    {
+//        transactionsArray = [Transaction]()
+//        
+//        var currentDictionary = [
+//            "id": Int64(0),
+//            "title": "Residencial Viella Sa",
+//            "subtitle": "Barcelona, Catalonia",
+//            "datetime": "2 days ago",
+//            "amount": Float(123.40)
+//            ] as [String : Any]
+//        
+//        var currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
+//        transactionsArray?.append(currentTransaction!)
+//        
+//        currentDictionary = [
+//            "id": Int64(1),
+//            "title": "Pret A Manger Gatwik",
+//            "subtitle": "Barcelona, Catalonia",
+//            "datetime": "3 days ago",
+//            "amount": Float(-68.25)
+//            ] as [String : Any]
+//        
+//        currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
+//        transactionsArray?.append(currentTransaction!)
+//        
+//        currentDictionary = [
+//            "id": Int64(2),
+//            "title": "W H Smith",
+//            "subtitle": "London, United Kingdom",
+//            "datetime": "5 days ago",
+//            "amount": Float(345.20)
+//            ] as [String : Any]
+//        
+//        currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
+//        transactionsArray?.append(currentTransaction!)
+//        
+//        currentDictionary = [
+//            "id": Int64(3),
+//            "title": "Marks & Spencer-Kensington High Street",
+//            "subtitle": "London, United Kingdom",
+//            "datetime": "8 days ago",
+//            "amount": Float(64.70)
+//            ] as [String : Any]
+//        
+//        currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
+//        transactionsArray?.append(currentTransaction!)
+//    }
     
     func setupView()
     {
@@ -159,6 +171,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
             cardButton.isHidden = true
             cardHeight.constant = 0.0
         }
+        
+        refreshTransactionList()
     }
     
     @IBAction func cardButtonTouched(_ sender: Any)
@@ -167,7 +181,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         if cardStatus == .notOrdered
         {
-            performSegue(withIdentifier: "showAddressFormVC", sender: self)
+            self.performSegue(withIdentifier: "showShippingAddressVC", sender: self)
         }
         else if cardStatus == .ordered
         {
@@ -185,9 +199,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
 //        
 //        movies.sort() { $0.title < $1.title }
         
-        print("aaaaa")
-        
-        self.transactionsTV.reloadData()
+        refreshTransactionList()
         refreshControl.endRefreshing()
     }
     
@@ -217,20 +229,5 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 76.0
-    }
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "showAddressFormVC"
-        {
-            let formVC = segue.destination as! PPCardSecondFormViewController
-            formVC.orderingCard = true
-        }
     }
 }

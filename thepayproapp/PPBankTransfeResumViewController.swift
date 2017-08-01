@@ -252,7 +252,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
     func createTransaction(completion: @escaping (_ createTransactionResponse: Bool) -> Void)
     {
         let transactionDictionary = [
-            "beneficiary":String(6),
+            "beneficiary": String(sendMoney.getcontactId()),
             "amount": String(sendMoney.getAmount())?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression]) as Any,
             "subject": String(sendMoney.getMessage())!
         ] as [String : Any]

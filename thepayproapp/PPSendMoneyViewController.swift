@@ -76,6 +76,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate
         self.sendMoney.setLoadProcess(loadProcessValue: 1)
         self.sendMoney.setOperationType(operationTypeValue: 1)
         self.sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.getBeneficiaryName())
+        self.sendMoney.setcontactId(contactIdValue: contact.getContactId())
         
         self.dismiss(animated: true, completion: {
             self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
@@ -185,6 +186,7 @@ open class SendMoney {
     open var reasonExplain: String?
     open var beneficiaryName: String?
     open var phoneNumber: String?
+    open var contactId: Int?
     
     open func setLoadProcess(loadProcessValue: Int) {
         load_process = loadProcessValue
@@ -304,5 +306,13 @@ open class SendMoney {
     
     open func getphoneNumber() -> String {
         return phoneNumber!
+    }
+    
+    open func setcontactId(contactIdValue: Int) {
+        contactId = contactIdValue
+    }
+    
+    open func getcontactId() -> Int {
+        return contactId!
     }
 }

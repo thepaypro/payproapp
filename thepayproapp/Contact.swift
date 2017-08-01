@@ -18,7 +18,7 @@ open class Contact {
     open var profileImage: UIImage?
 //    open var birthday: Date?
 //    open var birthdayString: String?
-    open var contactId: String?
+    open var contactId: Int?
     open var phoneNumbers = [(phoneNumber: String, phoneLabel: String)]()
 //    open var emails = [(email: String, emailLabel: String )]()
     open var isPayProUser: Bool = false
@@ -29,7 +29,7 @@ open class Contact {
         firstName = contact.givenName
         lastName = contact.familyName
 //        company = contact.organizationName
-        contactId = contact.identifier
+//        contactId = contact.identifier
         
         if let thumbnailImageData = contact.thumbnailImageData {
             thumbnailProfileImage = UIImage(data:thumbnailImageData)
@@ -106,6 +106,14 @@ open class Contact {
     
     open func getPhoneNumber() -> String {
         return phoneNumber!
+    }
+    
+    open func setContactId(contactIdValue: Int) {
+        contactId = contactIdValue
+    }
+    
+    open func getContactId() -> Int {
+        return contactId!
     }
 }
 
