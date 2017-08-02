@@ -110,6 +110,7 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
         self.mainPasscodeView.layer.add(animation, forKey: "shake")
         self.vibrateDevice()
+        self.rebootPasscode()
     }
     
     func vibrateDevice()
@@ -151,6 +152,18 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
         }
         
         return newLength <= self.mainPasscodeView.subviews.count
+    }
+    
+    func rebootPasscode()
+    {
+        self.passcodeTF.text = ""
+        
+        for passcode in 0...self.mainPasscodeView.subviews.count - 1
+        {
+            let currentView : UIView = self.mainPasscodeView.subviews[passcode]
+            let oval:UIImageView = currentView.subviews[0] as! UIImageView
+            oval.image = UIImage(named: "oval")
+        }
     }
     
     // MARK: - Navigation

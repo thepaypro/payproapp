@@ -17,6 +17,14 @@ class PPSettingsViewController: UIViewController {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameArrow: UIImageView!
+    @IBOutlet weak var disableCardSwitch: UISwitch!
+    
+    @IBAction func disableCardAction(_ sender: Any) {
+        CardUpdateStatus(status: self.disableCardSwitch.isOn, completion: {cardUpdateResponse in
+            print("cardUpdateResponse: \(cardUpdateResponse)")
+        })
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,19 +98,19 @@ class PPSettingsViewController: UIViewController {
         infoLayerBottom.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayerBottom)
         
+        self.setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.setupView()
+    }
+    
+    func setupView()
+    {
         //rounded avatar image
         avatarImage.layer.cornerRadius = avatarImage.frame.size.width/2
         avatarImage.clipsToBounds = true
         
-        if User.currentUser()?.status == User.Status.statusActivated {
-            self.nameLabel.text = (User.currentUser()?.forename)!+" "+(User.currentUser()?.lastname)!
-        } else {
-            self.nameLabel.text = "Your name"
-            self.nameArrow.isHidden = true
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         var data:NSData?
         data = UserDefaults.standard.object(forKey: "avatar") as? NSData
         
@@ -113,6 +121,22 @@ class PPSettingsViewController: UIViewController {
         } else {
             avatarImage.contentMode = .scaleToFill
             avatarImage.image = UIImage(named:"default-profile")
+        }
+        
+        if User.currentUser()?.status == User.Status.statusActivated {
+            self.nameLabel.text = (User.currentUser()?.forename)!+" "+(User.currentUser()?.lastname)!
+        } else {
+            self.nameLabel.text = "Your name"
+            self.nameArrow.isHidden = true
+        }
+        
+        if User.currentUser()?.cardStatus == User.CardStatus.notOrdered ||
+            User.currentUser()?.cardStatus == User.CardStatus.ordered {
+            self.disableCardSwitch.isEnabled = false
+            
+        } else if User.currentUser()?.cardStatus == User.CardStatus.activated ||
+            User.currentUser()?.cardStatus == User.CardStatus.disabled {
+            self.disableCardSwitch.isEnabled = true
         }
     }
 

@@ -52,7 +52,7 @@ func AccountCreate(
 
 func AccountUpdate(paramsDictionary: NSDictionary, completion: @escaping (_ accountUpdateResponse: NSDictionary) -> Void)
 {
-    let accountId = User.currentUser()?.identifier
+    let accountId:Int64 = Int64((User.currentUser()?.identifier)!)
     
     makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "accounts/\(accountId)", completion: {completionDictionary in
         

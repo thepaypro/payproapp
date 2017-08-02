@@ -260,9 +260,14 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         TransactionCreate(
             transaction: transactionDictionary as NSDictionary,
             completion: {transactionResponse in
+                
+                print("transaction: \(transactionResponse)")
+                
                 if transactionResponse["status"] as! Bool == true {
                     completion(true)
                 } else if transactionResponse["errorMessage"] != nil {
+                    self.animateSwipe(position: swipeColorBoxCenterX)
+                    
                     let alert = UIAlertController(title: "Transaction Failed", message: transactionResponse.value(forKeyPath: "errorMessage") as? String, preferredStyle: UIAlertControllerStyle.alert)
                     
                     let errorAction = UIAlertAction(title: "Ok", style: .default)
@@ -274,6 +279,8 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                     completion(false)
                     
                 } else if transactionResponse["status"] as! Bool == false {
+                    self.animateSwipe(position: swipeColorBoxCenterX)
+                    
                     let alert = UIAlertController(title: "Transaction Failed", message: "Error ocurred during transaction create", preferredStyle: UIAlertControllerStyle.alert)
                     let errorAction = UIAlertAction(title: "Ok", style: .default)
                     

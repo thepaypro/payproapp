@@ -77,6 +77,7 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         
         let user = User.currentUser()
         
+        let identifier: Int64 = Int64((User.currentUser()?.identifier)!)
         let agreement: Int = Int((user?.accountType)!.rawValue)
         let forename: String = (user?.forename)!
         let lastname: String = (user?.lastname)!
@@ -87,6 +88,7 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         let postcode: String = (user?.postCode)!
         let city: String = (user?.city)!
         let country: String = (user?.country)!
+        let countryName: String = (user?.countryName)!
         let documentPicture1 = self.firstDocumentBase64 ?? ""
         let documentPicture2 = self.secondDocumentBase64 ?? ""
         let deviceToken = UserDefaults.standard.object(forKey: "deviceToken") as! String
@@ -110,7 +112,7 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
                     print("create account success")
                     
                     let userDictionary = [
-                        "id": User.currentUser()?.identifier ?? nil,
+                        "id": identifier,
                         "status": User.Status.statusActivating.rawValue,
                         "account_type_id": agreement,
                         "forename": forename,
@@ -121,7 +123,8 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
                         "buildingNumber": buildingNumber,
                         "postcode": postcode,
                         "city": city,
-                        "country": country
+                        "country": country,
+                        "countryName": countryName
                     ] as [String : Any]
                     
                     let updateUser = User.manage(userDictionary: userDictionary as NSDictionary)
@@ -130,6 +133,7 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
                         self.dismissNavBarActivity()
                         self.navigationController?.popToRootViewController(animated: false)
                     } else {
+                        self.dismissNavBarActivity()
                         print("update user error")
                     }
                 } else {

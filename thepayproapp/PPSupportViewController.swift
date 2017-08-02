@@ -20,6 +20,13 @@ class PPSupportViewController: UIViewController
         
         // Do any additional setup after loading the view.
         
+        if User.currentUser()?.supportChatId == 0
+        {
+            User.supportChat(languageCode: Locale.current.languageCode!) { (supportChatId) in
+                self.loadSupportChat()
+            }
+        }
+        
         if User.currentUser()?.supportChatId != 0
         {
             self.loadSupportChat()

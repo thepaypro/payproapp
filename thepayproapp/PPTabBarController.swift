@@ -18,6 +18,8 @@ class PPTabBarController: UITabBarController
 
         self.setTabControllers()
         
+        selectedIndex = 3
+        
         // Do any additional setup after loading the view.
     }
 
@@ -32,16 +34,6 @@ class PPTabBarController: UITabBarController
         
         // create view controllers from storyboard
         let supportNC = storyboard.instantiateViewController(withIdentifier: "PPSupportNavigationController") as! UINavigationController
-        
-        let supportVC = supportNC.viewControllers.first as! PPSupportViewController
-        
-        if User.currentUser()?.supportChatId == 0
-        {
-            User.supportChat(languageCode: Locale.current.languageCode!) { (supportChatId) in
-                supportVC.loadSupportChat()
-            }
-        }
-        
         let groupsNC = storyboard.instantiateViewController(withIdentifier: "PPGroupsNavigationController")
         let sendNC = storyboard.instantiateViewController(withIdentifier: "PPSendMoneyNavigationController")
         var accountNC = storyboard.instantiateViewController(withIdentifier: "PPAccountNavigationController")

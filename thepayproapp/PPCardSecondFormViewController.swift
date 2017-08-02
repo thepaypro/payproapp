@@ -121,19 +121,26 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
         {
             if orderingCard
             {
+                self.displayNavBarActivity()
+                
                 let user = User.currentUser()
                 
-                print("ORDER CARD ENDPOINT")
+                let street: String = (user?.street)!
+                let buildingNumber: String = (user?.buildingNumber)!
+                let postCode: String = (user?.postCode)!
+                let city: String = (user?.city)!
+                let countryName: String = (user?.countryName)!
+                
                 let accountUpdateDictionary = [
-                    "street": user?.street!,
-                    "buildingNumber": user?.buildingNumber!,
-                    "postcode": user?.postCode!,
-                    "city": user?.city!,
-                    "country": user?.countryName!
+                    "street": street,
+                    "buildingNumber": buildingNumber,
+                    "postcode": postCode,
+                    "city": city,
+                    "country": countryName
                 ] as [String : Any]
                 
                 AccountUpdate(paramsDictionary: accountUpdateDictionary as NSDictionary, completion: { accountUpdateResponse in
-                    
+                    self.dismissNavBarActivity()
                     self.navigationController?.popViewController(animated: true)
                 })
             }

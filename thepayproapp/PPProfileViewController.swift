@@ -154,7 +154,7 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
                 let imagePicker = UIImagePickerController()
                 imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
                 imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-                imagePicker.allowsEditing = false
+                imagePicker.allowsEditing = true
                 self.present(imagePicker, animated: true, completion: nil)
             } else {
                 print("problems with open camera")
@@ -189,9 +189,14 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-            prepareImageForSaving(image: pickedImage)
+        
+        var pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        if ((info[UIImagePickerControllerEditedImage] as? UIImage) != nil) {
+            pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage
         }
+        
+        prepareImageForSaving(image: pickedImage!)
         
         picker.dismiss(animated: true, completion: nil)
     }

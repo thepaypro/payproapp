@@ -34,6 +34,13 @@ class PPActivationCardViewController: UIViewController, UITextFieldDelegate
     func activateTapped()
     {
         NSLog("ACTIVATE CARD ENDPOINT %@", cardActivationTF.text!)
+        CardActivation(completion: {
+            cardActivationResponse in
+            if cardActivationResponse["status"] as! Bool == true {
+                self.dismissNavBarActivity()
+                self.navigationController?.popToRootViewController(animated: false)
+            }
+        })
     }
     
     //MARK: - UITextFieldDelegate

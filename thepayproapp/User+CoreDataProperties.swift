@@ -29,6 +29,7 @@ extension User {
         case notOrdered = 0
         case ordered = 1
         case activated = 2
+        case disabled = 3
     }
     @NSManaged var cardStatus: CardStatus
     

@@ -42,7 +42,6 @@ class PPCardAddressViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         self.setupView()
-        print("aaa")
     }
     
     func setupView()
@@ -64,6 +63,7 @@ class PPCardAddressViewController: UIViewController
     
     func callEndPoint()
     {
+        self.displayNavBarActivity()
         CardConnection(completion: {cardRequestResponse in
             if cardRequestResponse["status"] as! Bool == true {
                 self.dismissNavBarActivity()
