@@ -14,7 +14,7 @@ let PPLocalAPIURL = "http://172.28.128.77"
 func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
 {
     let absoluteURL = "\(PPAPIURL)/\(endpointURL)"
-//    print(paramsDictionary)
+    print(paramsDictionary)
     if let postData = (try? JSONSerialization.data(withJSONObject: paramsDictionary, options: []))
     {
         let tokenAccess = UserDefaults.standard.string(forKey: "token")
@@ -32,6 +32,7 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, comple
         let task = URLSession.shared.dataTask(with: request as URLRequest)
         {
             (data, response, error) -> Void in
+            
             if (error != nil)
             {
                 print(error!)
@@ -82,6 +83,10 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
             {
                 if let json = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? NSDictionary
                 {
+                    if json["token"] != nil {
+                        UserDefaults.standard.setValue(json["token"], forKey: "token")
+                    }
+                    
                     completion(json)
                 }
                 else
@@ -94,4 +99,55 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
     }
     
     task.resume()
+}
+
+func makePutRequest(paramsDictionary: NSDictionary, endpointURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
+{
+    let absoluteURL = "\(PPAPIURL)/\(endpointURL)"
+    print(paramsDictionary)
+    if let postData = (try? JSONSerialization.data(withJSONObject: paramsDictionary, options: []))
+    {
+        let tokenAccess = UserDefaults.standard.string(forKey: "token")
+        
+        let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        if tokenAccess != nil && tokenAccess != "" {
+            request.addValue("Bearer "+tokenAccess!, forHTTPHeaderField: "Authorization")
+        }
+        
+        request.httpBody = postData
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest)
+        {
+            (data, response, error) -> Void in
+            
+            if (error != nil)
+            {
+                print(error!)
+            }
+            else
+            {
+                DispatchQueue.main.async(execute:
+                    {
+                        if let json = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? NSDictionary
+                        {
+                            if json["token"] != nil {
+                                UserDefaults.standard.setValue(json["token"], forKey: "token")
+                            }
+                            
+                            completion(json)
+                        }
+                        else
+                        {
+                            print("EMPTY JSON")
+                            completion([:])
+                        }
+                })
+            }
+        }
+        
+        task.resume()
+    }
 }

@@ -164,4 +164,24 @@ extension User {
             task.resume()
         }
     }
+    
+    class func changePasscode(oldPasscode: String, firstPasscode: String, confirmPasscode: String, completion: @escaping (_ changePasscodeResponse: NSDictionary) -> Void)
+    {
+        let paramsDictionary = [
+            "old_password": oldPasscode,
+            "new_password": firstPasscode,
+            "confirm_password": confirmPasscode
+            ] as [String : Any]
+        
+        let accountId:Int64 = Int64((User.currentUser()?.identifier)!)
+        
+        makePutRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "users/\(accountId)", completion: {completionDictionary in
+            if completionDictionary["user"] != nil
+            {
+                completion(["status":true] as NSDictionary)
+            } else {
+                completion(["status":false, "messageError": completionDictionary["message"]!] as NSDictionary)
+            }
+        })
+    }
 }

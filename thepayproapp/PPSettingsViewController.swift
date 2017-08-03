@@ -156,4 +156,11 @@ class PPSettingsViewController: UIViewController {
             return true
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showOldPasscodeSegue" {
+            let changePasscodeVC : PPPasscodeViewController = segue.destination as! PPPasscodeViewController
+            changePasscodeVC.changePassword = true
+        }
+    }
 }

@@ -17,6 +17,10 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
     
     var firstPassword : String?
     
+    var changePassword : Bool?
+    
+    var oldPassword : String?
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
@@ -29,26 +33,45 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
 
         // Do any additional setup after loading the view.
         
-        if validationCode != nil
-        {
-            titleLabel.text = "Create a passcode"
-            descriptionLabel.text = "A passcode protects your data and is used to unlock the PayPro app"
-            
-            if firstPassword != nil
-            {
+        if changePassword == true {
+            if firstPassword != nil {
                 titleLabel.text = "Confirm your passcode"
+                descriptionLabel.text = "A passcode protects your data and is used to unlock the PayPro app"
+                self.navigationItem.title = "Confirm Passcode"
             }
+            else if oldPassword != nil {
+                titleLabel.text = "New passcode in PayPro"
+                descriptionLabel.text = "A passcode protects your data and is used to unlock the PayPro app"
+                self.navigationItem.title = "New Passcode"
+            }
+            else {
+                titleLabel.text = "Old passcode in PayPro"
+                descriptionLabel.text = "Enter your passcode to change for one new"
+                self.navigationItem.title = "Old Passcode"
+            }
+        } else {
+        
+            if validationCode != nil
+            {
+                titleLabel.text = "Create a passcode"
+                descriptionLabel.text = "A passcode protects your data and is used to unlock the PayPro app"
             
-            self.navigationItem.title = "Passcode"
-        }
-        else
-        {
-            titleLabel.text = "Enter your Passcode in PayPro"
-            descriptionLabel.text = "Enter your passcode to unlock the PayPro app"
+                if firstPassword != nil
+                {
+                    titleLabel.text = "Confirm your passcode"
+                }
             
-            self.navigationItem.title = "Log in"
+                self.navigationItem.title = "Passcode"
+            }
+            else
+            {
+                titleLabel.text = "Enter your Passcode in PayPro"
+                descriptionLabel.text = "Enter your passcode to unlock the PayPro app"
+            
+                self.navigationItem.title = "Log in"
+            }
         }
-                
+        
         passcodeTF.becomeFirstResponder()
     }
 
@@ -57,48 +80,62 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    func applyGradientBackground()
-    {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        
-        gradient.colors = [PayProColors.lightBlue.cgColor, PayProColors.blue.cgColor]
-        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
-        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradient.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-        
-        self.view.layer.insertSublayer(gradient, at: 0)
-    }
-    
     func nextTapped()
     {
-        if validationCode != nil {
+        if changePassword == true {
             if firstPassword != nil {
                 self.displayNavBarActivity()
+                User.changePasscode(oldPasscode: oldPassword!, firstPasscode: firstPassword!, confirmPasscode: passcodeTF.text!, completion: { changePasswordResponse in
+                    self.dismissNavBarActivity()
+                    if changePasswordResponse["status"] as! Bool == true {
+//                        self.performSegue(withIdentifier: "showSettingFromChangePasscodeSegue", sender: nil)
+                        self.navigationController?.popToRootViewController(animated: false)
+                    } else {
+                        let messageError: String = (changePasswordResponse["messageError"])! as! String
+                        let alert = UIAlertController(title: "Change Passcode Error", message: messageError, preferredStyle: UIAlertControllerStyle.alert)
+                        let confirmAction = UIAlertAction(title: "Ok", style: .default)
+                        
+                        alert.addAction(confirmAction)
+                        
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                })
+            }
+            else if oldPassword != nil {
+                self.performSegue(withIdentifier: "showConfirmPasscodeSegue", sender: nil)
+            } else {
+                self.performSegue(withIdentifier: "showNewPasscodeSegue", sender: nil)
+            }
+        } else {
+            if validationCode != nil {
+                if firstPassword != nil {
+                    self.displayNavBarActivity()
                 
-                User.register(username: userUsername!, password: firstPassword!, passwordConfirmation: passcodeTF.text!, validationCode: validationCode!, completion: {successRegister in
-                    if successRegister {
-                        self.dismissNavBarActivity()
+                    User.register(username: userUsername!, password: firstPassword!, passwordConfirmation: passcodeTF.text!, validationCode: validationCode!, completion: {successRegister in
+                        if successRegister {
+                            self.dismissNavBarActivity()
+                            self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
+                        } else {
+                            self.shake()
+                        }
+                    })
+                } else {
+                    self.performSegue(withIdentifier: "showConfirmPasscodeSegue", sender: nil)
+                }
+            } else {
+                self.displayNavBarActivity()
+
+                User.login(username: self.userUsername!, password: self.passcodeTF.text!, completion: {successLogin in
+                
+                    self.dismissNavBarActivity()
+                
+                    if successLogin {
                         self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
                     } else {
                         self.shake()
                     }
                 })
-            } else {
-                self.performSegue(withIdentifier: "showConfirmPasscodeSegue", sender: nil)
             }
-        } else {
-            self.displayNavBarActivity()
-
-            User.login(username: self.userUsername!, password: self.passcodeTF.text!, completion: {successLogin in
-                
-                self.dismissNavBarActivity()
-                
-                if successLogin {
-                    self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
-                } else {
-                    self.shake()
-                }
-            })
         }
     }
     
@@ -174,7 +211,7 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "showConfirmPasscodeSegue"
+        if segue.identifier == "showConfirmPasscodeSegue" && changePassword != true
         {
             let passcodeVC : PPPasscodeViewController = segue.destination as! PPPasscodeViewController
             passcodeVC.userUsername = userUsername
@@ -185,6 +222,17 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
         {
             let tabController : PPTabBarController = segue.destination as! PPTabBarController
             tabController.navigationItem.hidesBackButton = true
+        }
+        else if segue.identifier == "showNewPasscodeSegue" {
+            let passcodeVC : PPPasscodeViewController = segue.destination as! PPPasscodeViewController
+            passcodeVC.changePassword = true
+            passcodeVC.oldPassword = passcodeTF.text!
+        }
+        else if segue.identifier == "showConfirmPasscodeSegue" && changePassword == true {
+            let passcodeVC : PPPasscodeViewController = segue.destination as! PPPasscodeViewController
+            passcodeVC.changePassword = true
+            passcodeVC.oldPassword = oldPassword
+            passcodeVC.firstPassword = passcodeTF.text!
         }
     }
 }
