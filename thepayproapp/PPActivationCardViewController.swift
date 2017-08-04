@@ -17,12 +17,6 @@ class PPActivationCardViewController: UIViewController, UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        
-        let activateButton = UIBarButtonItem(title: "Activate", style: .done, target: self, action: #selector(activateTapped))
-        activateButton.isEnabled = false
-        navigationItem.rightBarButtonItems = [activateButton]
-        
         cardActivationTF.becomeFirstResponder()
     }
     
@@ -31,16 +25,13 @@ class PPActivationCardViewController: UIViewController, UITextFieldDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    func activateTapped()
+    override func viewWillAppear(_ animated: Bool) {
+        cardActivationTF.becomeFirstResponder()
+    }
+    
+    func nextTapped()
     {
-        NSLog("ACTIVATE CARD ENDPOINT %@", cardActivationTF.text!)
-        CardActivation(completion: {
-            cardActivationResponse in
-            if cardActivationResponse["status"] as! Bool == true {
-                self.dismissNavBarActivity()
-                self.navigationController?.popToRootViewController(animated: false)
-            }
-        })
+        self.performSegue(withIdentifier: "showPINCodeFromActivateCardSegue", sender: nil)
     }
     
     //MARK: - UITextFieldDelegate
@@ -58,6 +49,11 @@ class PPActivationCardViewController: UIViewController, UITextFieldDelegate
             
             navigationItem.rightBarButtonItems?.first?.isEnabled = newLength == self.cardActivationView.subviews.count
             
+            if newLength == self.cardActivationView.subviews.count && string != "" {
+                self.cardActivationTF.text = self.cardActivationTF.text! + string
+                nextTapped()
+            }
+            
             return true
         }
         
@@ -66,12 +62,12 @@ class PPActivationCardViewController: UIViewController, UITextFieldDelegate
     
     /*
     // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPINCodeFromActivateCardSegue" {
+            let PINCodeVC : PPCardPinViewController = segue.destination as! PPCardPinViewController
+            PINCodeVC.activateCode = cardActivationTF.text
+        }
+    }
 }

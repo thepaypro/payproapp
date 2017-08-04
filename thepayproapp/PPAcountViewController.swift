@@ -65,6 +65,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         self.balanceLabel.text = "£ 99,999.99"
         self.balanceLabel.numberOfLines = 1
         self.balanceLabel.adjustsFontSizeToFitWidth = true
+        
+        self.setupView()
     }
     
     override func didReceiveMemoryWarning()
@@ -96,55 +98,6 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         self.transactionsTV.reloadData()
     }
     
-//    func initDummyTransactions()
-//    {
-//        transactionsArray = [Transaction]()
-//        
-//        var currentDictionary = [
-//            "id": Int64(0),
-//            "title": "Residencial Viella Sa",
-//            "subtitle": "Barcelona, Catalonia",
-//            "datetime": "2 days ago",
-//            "amount": Float(123.40)
-//            ] as [String : Any]
-//        
-//        var currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
-//        transactionsArray?.append(currentTransaction!)
-//        
-//        currentDictionary = [
-//            "id": Int64(1),
-//            "title": "Pret A Manger Gatwik",
-//            "subtitle": "Barcelona, Catalonia",
-//            "datetime": "3 days ago",
-//            "amount": Float(-68.25)
-//            ] as [String : Any]
-//        
-//        currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
-//        transactionsArray?.append(currentTransaction!)
-//        
-//        currentDictionary = [
-//            "id": Int64(2),
-//            "title": "W H Smith",
-//            "subtitle": "London, United Kingdom",
-//            "datetime": "5 days ago",
-//            "amount": Float(345.20)
-//            ] as [String : Any]
-//        
-//        currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
-//        transactionsArray?.append(currentTransaction!)
-//        
-//        currentDictionary = [
-//            "id": Int64(3),
-//            "title": "Marks & Spencer-Kensington High Street",
-//            "subtitle": "London, United Kingdom",
-//            "datetime": "8 days ago",
-//            "amount": Float(64.70)
-//            ] as [String : Any]
-//        
-//        currentTransaction = Transaction.manage(transactionDictionary: currentDictionary as NSDictionary)
-//        transactionsArray?.append(currentTransaction!)
-//    }
-    
     func setupView()
     {
         scrollView.contentOffset = CGPoint(x: 0.0, y: 0.0)
@@ -153,6 +106,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         cardHeight.constant = 60.0
         
         let cardStatus = User.currentUser()?.cardStatus
+        
+        print("cardStatus en setupView: \(cardStatus?.rawValue)")
         
         cardIV.image = UIImage(named: "account-card")
         
@@ -178,6 +133,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     @IBAction func cardButtonTouched(_ sender: Any)
     {
         let cardStatus = User.currentUser()?.cardStatus
+        
+        print("cardStatus en buttonTouched: \(cardStatus?.rawValue)")
         
         if cardStatus == .notOrdered
         {

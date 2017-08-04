@@ -15,9 +15,21 @@ func CardConnection(completion: @escaping (_ cardResponse: NSDictionary) -> Void
         
         print("completionDictionary: \(completionDictionary)")
         
-        User.currentUser()?.cardStatus = User.CardStatus.ordered
+        print("card status init: \(User.currentUser()?.cardStatus.rawValue)")
         
-        completion(["status": true] as NSDictionary)
+        let identified: Int64 = Int64((User.currentUser()?.identifier)!)
+        let newStatus: Int32 = Int32(User.CardStatus.ordered.rawValue)
+        
+        let userDictionary = [
+            "id": identified,
+            "card_status_id": newStatus
+        ] as [String : Any]
+        
+        let updateCardStatus = User.manage(userDictionary: userDictionary as NSDictionary)
+
+        print("card status fin: \(User.currentUser()?.cardStatus.rawValue)")
+        
+        completion(["status": updateCardStatus != nil] as NSDictionary)
         
 //        if completionDictionary["transaction"] != nil {
 //            completion(["status": registerTransaction != nil] as NSDictionary)
@@ -29,8 +41,12 @@ func CardConnection(completion: @escaping (_ cardResponse: NSDictionary) -> Void
     })
 }
 
-func CardActivation(completion: @escaping (_ cardResponse: NSDictionary) -> Void)
+func CardActivation(activationCode: String, pinCode: String, confirmCode: String, completion: @escaping (_ cardResponse: NSDictionary) -> Void)
 {
+    print("activationCode: \(activationCode)")
+    print("pinCode: \(pinCode)")
+    print("confirmCode: \(confirmCode)")
+    
     makePostRequest(paramsDictionary: [:] as NSDictionary, endpointURL: "cards/activation", completion: {completionDictionary in
         
         print("completionDictionary: \(completionDictionary)")
