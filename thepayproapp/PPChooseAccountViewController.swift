@@ -10,7 +10,7 @@ import UIKit
 
 class PPChooseAccountViewController: UIViewController, UIScrollViewDelegate
 {
-    var proAccountSelected = true
+    var proAccountSelected = false
     
     @IBOutlet weak var proView: UIView!
     @IBOutlet weak var proHeaderIV: UIImageView!
@@ -31,14 +31,6 @@ class PPChooseAccountViewController: UIViewController, UIScrollViewDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        let u = User.currentUser()
-        print(u?.identifier ?? "nothing")
-        print(u?.forename ?? "nothing")
-        print(u?.country ?? "nothing")
-        print(u?.accountNumber ?? "nothing")
-        print(u?.status.rawValue ?? "nothing")
-        print(u?.accountType.rawValue ?? "nothing")
 
         // Do any additional setup after loading the view.
         
@@ -56,12 +48,13 @@ class PPChooseAccountViewController: UIViewController, UIScrollViewDelegate
         let selectBasicGR = UITapGestureRecognizer(target: self, action: #selector(selectBasic))
         basicView.addGestureRecognizer(selectBasicGR)
         
-        let proAS = NSMutableAttributedString(string: "Bank Account FREE\nVisa Debit FREE\nFX Transactions (0,6%)\nPOS FREE\nUp to € 2,000 per month FREE\n")
+//        let proAS = NSMutableAttributedString(string: "Bank Account FREE\nVisa Debit FREE\nFX Transactions (0,6%)\nPOS FREE\nUp to € 2,000 per month FREE\n")
+        let proAS = NSMutableAttributedString(string: "Coming soon")
         proAS.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightLight), range: NSRange(location: 0, length: proAS.length))
-        proAS.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightMedium), range: NSRange(location: 13, length: 4))
-        proAS.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightMedium), range: NSRange(location: 29, length: 4))
-        proAS.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightMedium), range: NSRange(location: 61, length: 4))
-        proAS.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightMedium), range: NSRange(location: 90, length: 4))
+//        proAS.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightMedium), range: NSRange(location: 13, length: 4))
+//        proAS.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightMedium), range: NSRange(location: 29, length: 4))
+//        proAS.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightMedium), range: NSRange(location: 61, length: 4))
+//        proAS.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightMedium), range: NSRange(location: 90, length: 4))
         proAS.addAttribute(NSForegroundColorAttributeName, value: PayProColors.darkBlue, range: NSRange(location: 0, length: proAS.length))
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
@@ -77,6 +70,8 @@ class PPChooseAccountViewController: UIViewController, UIScrollViewDelegate
         basicAS.addAttribute(NSForegroundColorAttributeName, value: PayProColors.darkBlue, range: NSRange(location: 0, length: basicAS.length))
         basicAS.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSRange(location: 0, length: basicAS.length))
         basicDescriptionTV.attributedText = basicAS
+        
+        self.selectBasic()
     }
     
     override func didReceiveMemoryWarning()
@@ -85,9 +80,13 @@ class PPChooseAccountViewController: UIViewController, UIScrollViewDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.setupView()
+    }
+    
     func selectPro()
     {
-        proAccountSelected = true
+//        proAccountSelected = true
         
         proViewHeight.constant = 267.0
         proCheck.isHidden = false
@@ -122,7 +121,6 @@ class PPChooseAccountViewController: UIViewController, UIScrollViewDelegate
     func chooseTapped()
     {        
         performSegue(withIdentifier: "showFirstFormVCSegue", sender: self)
-//        performSegue(withIdentifier: "testSegue", sender: self)
     }
     
     // MARK: - Navigation

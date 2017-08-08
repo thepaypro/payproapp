@@ -58,7 +58,7 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
             <<< TextRow() {
                 $0.tag = "street"
                 $0.title = "Street"
-                $0.placeholder = "mandatory"
+                $0.placeholder = "Street"
                 $0.baseValue = user?.street
                 
                 $0.add(rule: RuleRequired())
@@ -67,7 +67,7 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
             <<< TextRow() {
                 $0.tag = "buildingNumber"
                 $0.title = "Building number"
-                $0.placeholder = "mandatory"
+                $0.placeholder = "Building number"
                 $0.baseValue = user?.buildingNumber
                 
                 $0.add(rule: RuleRequired())
@@ -76,7 +76,7 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
             <<< ZipCodeRow() {
                 $0.tag = "zipcode"
                 $0.title = "Postcode"
-                $0.placeholder = "mandatory"
+                $0.placeholder = "Postcode"
                 $0.baseValue = user?.postCode
                 
                 $0.add(rule: RuleRequired())
@@ -85,7 +85,7 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
             <<< TextRow() {
                 $0.tag = "city"
                 $0.title = "City"
-                $0.placeholder = "mandatory"
+                $0.placeholder = "City"
                 $0.baseValue = user?.city
                 
                 $0.add(rule: RuleRequired())

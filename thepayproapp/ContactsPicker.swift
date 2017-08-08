@@ -273,6 +273,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                 }
 
                 checkContacts(contacts: phoneNumberArray as NSDictionary, completion: {contactsResponse in
+                    
                     if contactsResponse.count > 0 {
                         print("success check contacts")
                         self.validateContacts = contactsResponse

@@ -20,10 +20,6 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
-        navigationItem.rightBarButtonItems = [nextButton]
-        nextButton.isEnabled = false
-        
         Utils.navigationBarToPayProStyle(navigationBar: (self.navigationController?.navigationBar)!)
         
         let prefixViewGR = UITapGestureRecognizer(target: self, action: #selector(showPrefixSelection))
@@ -45,6 +41,12 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
         phoneView.layer.addSublayer(layerBottom)
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
+        navigationItem.rightBarButtonItems = [nextButton]
+        nextButton.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {

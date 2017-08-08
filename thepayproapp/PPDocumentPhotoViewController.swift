@@ -147,33 +147,35 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
     {
         let cameraViewController = CameraViewController(croppingEnabled: true, allowsLibraryAccess: true) { [weak self] image, asset in
             
-            let w:Int = Int((image?.size.width)!)
-            let h:Int = Int((image?.size.height)!)
+            if image != nil {
+                let w:Int = Int((image?.size.width)!)
+                let h:Int = Int((image?.size.height)!)
             
-            var newImage: UIImage?
+                var newImage: UIImage?
             
-            if w < h {
-                newImage = UIImage(cgImage: (image?.cgImage!)!, scale: (image?.scale)!, orientation: UIImageOrientation.left)
-                newImage = newImage?.resized(toWidth: (self?.firstImage.frame.size.width)!)
-            } else {
-                newImage = image?.resized(toWidth: (self?.firstImage.frame.size.width)!)
-            }
+                if w < h {
+                    newImage = UIImage(cgImage: (image?.cgImage!)!, scale: (image?.scale)!, orientation: UIImageOrientation.left)
+                    newImage = newImage?.resized(toWidth: (self?.firstImage.frame.size.width)!)
+                } else {
+                    newImage = image?.resized(toWidth: (self?.firstImage.frame.size.width)!)
+                }
             
-            guard let imageData  = UIImageJPEGRepresentation(newImage!, 1.0) else {
-                print("jpg error")
-                return
-            }
+                guard let imageData  = UIImageJPEGRepresentation(newImage!, 1.0) else {
+                    print("jpg error")
+                    return
+                }
             
-            let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
+                let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
             
-            if self?.buttonPicked?.tag == 0 {
+                if self?.buttonPicked?.tag == 0 {
                 
-                self?.firstImage.image = newImage
-                self?.firstDocumentBase64 = strBase64
+                    self?.firstImage.image = newImage
+                    self?.firstDocumentBase64 = strBase64
                 
-            } else if self?.buttonPicked?.tag == 1 {
-                self?.secondImage.image = newImage
-                self?.secondDocumentBase64 = strBase64
+                } else if self?.buttonPicked?.tag == 1 {
+                    self?.secondImage.image = newImage
+                    self?.secondDocumentBase64 = strBase64
+                }
             }
             
             self?.dismiss(animated: true, completion: nil)

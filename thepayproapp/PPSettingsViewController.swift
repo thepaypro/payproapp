@@ -122,7 +122,7 @@ class PPSettingsViewController: UIViewController {
             avatarImage.contentMode = .scaleToFill
             avatarImage.image = UIImage(named:"default-profile")
         }
-        
+        print("user status: \(User.currentUser()?.status.rawValue)")
         if User.currentUser()?.status == User.Status.statusActivated {
             self.nameLabel.text = (User.currentUser()?.forename)!+" "+(User.currentUser()?.lastname)!
         } else {

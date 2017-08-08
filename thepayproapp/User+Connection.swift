@@ -26,6 +26,9 @@ extension User {
 //        print(paramsDictionary)
         
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "register/", completion: {completionDictionary in
+            
+            print("register response: \(completionDictionary)")
+            
             if let userDictionary = completionDictionary["user"]
             {
                 var registeredUser = self.manage(userDictionary: userDictionary as! NSDictionary)
@@ -73,29 +76,41 @@ extension User {
                 
                 if let accountInformation = (userDictionary as AnyObject).value(forKeyPath: "account")! as? NSDictionary {
                     
-                    let agreement = accountInformation.value(forKeyPath: "agreement")
+                    let statusAccount:String = (accountInformation.value(forKeyPath: "status") as! String)
                     
-                    let country = accountInformation.value(forKeyPath: "country")
+                    if statusAccount == "PENDING" {
+                        accountDictionary = [
+                            "id": userDictionary.value(forKeyPath: "id")!,
+                            "username": userDictionary.value(forKeyPath: "username")!,
+                            "account_type_id": User.AccountType.demoAccount.rawValue,
+                            "status": User.Status.statusActivating.rawValue    
+                        ]
+                    } else {
                     
-                    accountDictionary = [
-                        "id": userDictionary.value(forKeyPath: "id")!,
-                        "username": userDictionary.value(forKeyPath: "username")!,
-                        "forename": accountInformation.value(forKeyPath: "forename")!,
-                        "lastname": accountInformation.value(forKeyPath: "lastname")!,
-                        "dob": accountInformation.value(forKeyPath: "birthDate")!,
-                        "document_type": accountInformation.value(forKeyPath: "documentType")!,
-                        "account_type_id": (agreement as AnyObject).value(forKeyPath: "id") as! Int32,
-                        "accountNumber": accountInformation.value(forKeyPath: "accountNumber")!,
-                        "sortCode": accountInformation.value(forKeyPath: "sortCode")!,
-                        "street": accountInformation.value(forKeyPath: "street")!,
-                        "buildingNumber": accountInformation.value(forKeyPath: "buildingNumber")!,
-                        "postcode": accountInformation.value(forKeyPath: "postcode")!,
-                        "city": accountInformation.value(forKeyPath: "city")!,
-                        "country": (country as AnyObject).value(forKeyPath: "iso2")!,
-                        "countryName": (country as AnyObject).value(forKeyPath: "name")!,
-                        "email": accountInformation.value(forKeyPath: "email")!,
-                        "status": User.Status.statusActivated.rawValue
-                    ]
+                        let agreement = accountInformation.value(forKeyPath: "agreement")
+                    
+                        let country = accountInformation.value(forKeyPath: "country")
+                    
+                        accountDictionary = [
+                            "id": userDictionary.value(forKeyPath: "id")!,
+                            "username": userDictionary.value(forKeyPath: "username")!,
+                            "forename": accountInformation.value(forKeyPath: "forename")!,
+                            "lastname": accountInformation.value(forKeyPath: "lastname")!,
+                            "dob": accountInformation.value(forKeyPath: "birthDate")!,
+                            "document_type": accountInformation.value(forKeyPath: "documentType")!,
+                            "account_type_id": (agreement as AnyObject).value(forKeyPath: "id") as! Int32,
+                            "accountNumber": accountInformation.value(forKeyPath: "accountNumber")!,
+                            "sortCode": accountInformation.value(forKeyPath: "sortCode")!,
+                            "street": accountInformation.value(forKeyPath: "street")!,
+                            "buildingNumber": accountInformation.value(forKeyPath: "buildingNumber")!,
+                            "postcode": accountInformation.value(forKeyPath: "postcode")!,
+                            "city": accountInformation.value(forKeyPath: "city")!,
+                            "country": (country as AnyObject).value(forKeyPath: "iso2")!,
+                            "countryName": (country as AnyObject).value(forKeyPath: "name")!,
+                            "email": accountInformation.value(forKeyPath: "email")!,
+                            "status": User.Status.statusActivated.rawValue
+                        ]
+                    }
                 } else {
                     let status = User.currentUser()?.status.rawValue ?? User.Status.statusDemo.rawValue
                     accountDictionary = [

@@ -21,8 +21,6 @@ class PPSMSConfirmationViewController: UIViewController, UITextFieldDelegate
         
         // Do any additional setup after loading the view.
         
-//        self.applyGradientBackground()
-        
         let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
         nextButton.isEnabled = false
         navigationItem.rightBarButtonItems = [nextButton]
@@ -35,18 +33,10 @@ class PPSMSConfirmationViewController: UIViewController, UITextFieldDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    func applyGradientBackground()
-    {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        
-        gradient.colors = [PayProColors.lightBlue.cgColor, PayProColors.blue.cgColor]
-        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
-        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradient.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-        
-        self.view.layer.insertSublayer(gradient, at: 0)
+    override func viewWillAppear(_ animated: Bool) {
+        smsCodeTF.becomeFirstResponder()
     }
-    
+        
     func nextTapped()
     {
         self.performSegue(withIdentifier: "showCreatePasscodeSegue", sender: nil)

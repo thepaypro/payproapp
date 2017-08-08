@@ -38,7 +38,7 @@ class PPCardFirstFormViewController: FormViewController
             <<< TextRow() {
                 $0.tag = "forename"
                 $0.title = "Forename"
-                $0.placeholder = "mandatory"
+                $0.placeholder = "Forename"
                 
                 $0.add(rule: RuleRequired())
             }
@@ -46,7 +46,7 @@ class PPCardFirstFormViewController: FormViewController
             <<< TextRow() {
                 $0.tag = "lastname"
                 $0.title = "Lastname"
-                $0.placeholder = "mandatory"
+                $0.placeholder = "Lastname"
                 
                 $0.add(rule: RuleRequired())
             }

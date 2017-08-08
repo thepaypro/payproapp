@@ -80,6 +80,10 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        passcodeTF.becomeFirstResponder()
+    }
+    
     func nextTapped()
     {
         if changePassword == true {
