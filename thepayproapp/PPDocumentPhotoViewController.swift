@@ -35,7 +35,7 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
     
     var firstDocumentBase64: String!
     var secondDocumentBase64: String!
-    
+    var updateAccount : Bool = false
     
     override func viewDidLoad()
     {
@@ -71,6 +71,42 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.setupView()
+    }
+    
+    func setupView()
+    {
+        self.setNavigationBarButton()
+    }
+    
+    func setNavigationBarButton()
+    {
+        let nextButton = UIBarButtonItem(title: "Confirm", style: .plain, target: self, action: #selector(callEndpoint))
+        
+        self.navigationItem.rightBarButtonItem = nextButton
+        
+        self.checkNavigation()
+    }
+    
+    func checkNavigation() {
+        let documentType = User.currentUser()?.documentType
+        
+        if documentType == "DRIVING_LICENSE" && self.firstDocumentBase64 != "" && self.secondDocumentBase64 != "" {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+            
+        } else if documentType == "DNI" {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+            
+        } else if documentType == "PASSPORT" {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+        } else {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        }
+
+    }
+
+    
     func callEndpoint()
     {
         self.displayNavBarActivity()
@@ -78,69 +114,106 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
         let user = User.currentUser()
         
         let identifier: Int64 = Int64((User.currentUser()?.identifier)!)
-        let agreement: Int = Int((user?.accountType)!.rawValue)
-        let forename: String = (user?.forename)!
-        let lastname: String = (user?.lastname)!
-        let birthDate: String = (user?.dob)!
         let documentType: String = (user?.documentType)!
-        let street: String = (user?.street)!
-        let buildingNumber: String = (user?.buildingNumber)!
-        let postcode: String = (user?.postCode)!
-        let city: String = (user?.city)!
-        let country: String = (user?.country)!
-        let countryName: String = (user?.countryName)!
         let documentPicture1 = self.firstDocumentBase64 ?? ""
         let documentPicture2 = self.secondDocumentBase64 ?? ""
-        let deviceToken = UserDefaults.standard.object(forKey: "deviceToken") as! String
         
-        AccountCreate(
-            agreement: agreement,
-            forename: forename,
-            lastname: lastname,
-            dob: birthDate,
-            documentType: documentType,
-            street: street,
-            buildingNumber: buildingNumber,
-            postcode: postcode,
-            city: city,
-            country: country,
-            documentFront: documentPicture1,
-            documentBack: documentPicture2,
-            deviceToken: deviceToken,
-            completion: {successAccountCreate in
-                if successAccountCreate {
-                    print("create account success")
+        if updateAccount == false {
+            let agreement: Int = Int((user?.accountType)!.rawValue)
+            let forename: String = (user?.forename)!
+            let lastname: String = (user?.lastname)!
+            let birthDate: String = (user?.dob)!
+            let street: String = (user?.street)!
+            let buildingNumber: String = (user?.buildingNumber)!
+            let postcode: String = (user?.postCode)!
+            let city: String = (user?.city)!
+            let country: String = (user?.country)!
+            let countryName: String = (user?.countryName)!
+            let deviceToken = UserDefaults.standard.object(forKey: "deviceToken") as! String
+        
+            AccountCreate(
+                agreement: agreement,
+                forename: forename,
+                lastname: lastname,
+                dob: birthDate,
+                documentType: documentType,
+                street: street,
+                buildingNumber: buildingNumber,
+                postcode: postcode,
+                city: city,
+                country: country,
+                documentFront: documentPicture1,
+                documentBack: documentPicture2,
+                deviceToken: deviceToken,
+                completion: {successAccountCreate in
+                    if successAccountCreate {
+                        print("create account success")
                     
+                        let userDictionary = [
+                            "id": identifier,
+                            "status": User.Status.statusActivating.rawValue,
+                            "account_type_id": agreement,
+                            "forename": forename,
+                            "lastname": lastname,
+                            "dob": birthDate,
+                            "docment_type": documentType,
+                            "street": street,
+                            "buildingNumber": buildingNumber,
+                            "postcode": postcode,
+                            "city": city,
+                            "country": country,
+                            "countryName": countryName
+                            ] as [String : Any]
+                    
+                        let updateUser = User.manage(userDictionary: userDictionary as NSDictionary)
+                        if updateUser != nil {
+                            print("update user correctly")
+                            self.dismissNavBarActivity()
+                            self.navigationController?.popToRootViewController(animated: false)
+                        } else {
+                            self.dismissNavBarActivity()
+                            print("update user error")
+                        }
+                    } else {
+                        print("create account problems")
+                    }
+                }
+            )
+        } else {
+            
+            let accountUpdateDictionary = [
+                "documentType": documentType,
+                "documentPicture1": documentPicture1,
+                "documentPicture2": documentPicture2
+                ] as [String : Any]
+            
+            AccountRequestUpdate(paramsDictionary: accountUpdateDictionary as NSDictionary, completion: { accountUpdateResponse in
+                
+                if accountUpdateResponse["status"] as! Bool == true {
                     let userDictionary = [
                         "id": identifier,
-                        "status": User.Status.statusActivating.rawValue,
-                        "account_type_id": agreement,
-                        "forename": forename,
-                        "lastname": lastname,
-                        "dob": birthDate,
-                        "docment_type": documentType,
-                        "street": street,
-                        "buildingNumber": buildingNumber,
-                        "postcode": postcode,
-                        "city": city,
-                        "country": country,
-                        "countryName": countryName
-                    ] as [String : Any]
+                        "documentType": documentType
+                        ] as [String : Any]
                     
                     let updateUser = User.manage(userDictionary: userDictionary as NSDictionary)
+                    
                     if updateUser != nil {
-                        print("update user correctly")
                         self.dismissNavBarActivity()
-                        self.navigationController?.popToRootViewController(animated: false)
+                        self.navigationController?.popViewController(animated: true)
                     } else {
                         self.dismissNavBarActivity()
-                        print("update user error")
+                        self.setNavigationBarButton()
+                        let alert = UIAlertController()
+                        self.present(alert.displayAlert(code: "error_saving"), animated: true, completion: nil)
                     }
                 } else {
-                    print("create account problems")
+                    self.dismissNavBarActivity()
+                    self.setNavigationBarButton()
+                    let alert = UIAlertController()
+                    self.present(alert.displayAlert(code: "error_saving"), animated: true, completion: nil)
                 }
-            }
-        )
+            })
+        }
     }
     
     func openCamera()

@@ -1,45 +1,43 @@
 //
-//  PPProfileEditNameViewController.swift
+//  PPProfileEditContactInfoViewController.swift
 //  thepayproapp
 //
-//  Created by Enric Giribet on 13/7/17.
+//  Created by Enric Giribet Usó on 8/8/17.
 //  Copyright © 2017 The Pay Pro LTD. All rights reserved.
 //
 
 import UIKit
 
-class PPProfileEditNameViewController: UIViewController
+class PPProfileEditContactInfoViewController: UIViewController
 {
-    @IBOutlet weak var forenameView: UIView!
-    @IBOutlet weak var forenameInput: UITextField!
-    @IBOutlet weak var lastnameView: UIView!
-    @IBOutlet weak var lastnameInput: UITextField!
+    @IBOutlet weak var phoneNumberView: UIView!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var emailInput: UITextField!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        let forenameBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
-        let forenameLayerTop = CAShapeLayer()
-        forenameLayerTop.path = forenameBorderTop.cgPath
-        forenameLayerTop.fillColor = PayProColors.line.cgColor
-        self.forenameView.layer.addSublayer(forenameLayerTop)
+        let phoneNumberBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
+        let phoneNumberLayerTop = CAShapeLayer()
+        phoneNumberLayerTop.path = phoneNumberBorderTop.cgPath
+        phoneNumberLayerTop.fillColor = PayProColors.line.cgColor
+        self.phoneNumberView.layer.addSublayer(phoneNumberLayerTop)
         
-        let lastnameBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
-        let lastnameLayerTop = CAShapeLayer()
-        lastnameLayerTop.path = lastnameBorderTop.cgPath
-        lastnameLayerTop.fillColor = PayProColors.line.cgColor
-        self.lastnameView.layer.addSublayer(lastnameLayerTop)
+        let emailBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
+        let emailLayerTop = CAShapeLayer()
+        emailLayerTop.path = emailBorderTop.cgPath
+        emailLayerTop.fillColor = PayProColors.line.cgColor
+        self.emailView.layer.addSublayer(emailLayerTop)
         
-        let lastnameBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
-        let lastnameLayerBottom = CAShapeLayer()
-        lastnameLayerBottom.path = lastnameBorderBottom.cgPath
-        lastnameLayerBottom.fillColor = PayProColors.line.cgColor
-        self.lastnameView.layer.addSublayer(lastnameLayerBottom)
+        let emailBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
+        let emailLayerBottom = CAShapeLayer()
+        emailLayerBottom.path = emailBorderBottom.cgPath
+        emailLayerBottom.fillColor = PayProColors.line.cgColor
+        self.emailView.layer.addSublayer(emailLayerBottom)
         
-        
-        forenameInput.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
-        lastnameInput.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
+        emailInput.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
         
         self.setupView()
     }
@@ -52,7 +50,7 @@ class PPProfileEditNameViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool)
     {
-        self.forenameInput.becomeFirstResponder()
+        self.emailInput.becomeFirstResponder()
         self.setupView()
     }
     
@@ -60,8 +58,8 @@ class PPProfileEditNameViewController: UIViewController
     {
         let user = User.currentUser()
         
-        self.forenameInput.text = user?.forename
-        self.lastnameInput.text = user?.lastname
+        self.phoneNumberLabel.text = user?.username
+        self.emailInput.text = user?.email
         
         self.setNavigationBarButton()
     }
@@ -75,9 +73,8 @@ class PPProfileEditNameViewController: UIViewController
         self.checkNavigation()
     }
     
-    func checkNavigation()
-    {
-        if forenameInput.text != "" && lastnameInput.text != "" {
+    func checkNavigation() {
+        if self.emailInput.text != "" {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
             
         } else {
@@ -87,16 +84,14 @@ class PPProfileEditNameViewController: UIViewController
     
     func nextTapped()
     {
-        if self.forenameInput.text != "" && self.lastnameInput.text != "" {
+        if self.emailInput.text != "" {
             self.displayNavBarActivity()
             
             let identifier: Int64 = Int64((User.currentUser()?.identifier)!)
-            let forename: String = String((self.forenameInput.text)!)
-            let lastname: String = String((self.lastnameInput.text)!)
+            let email: String = String((self.emailInput.text)!)
             
             let accountUpdateDictionary = [
-                "forename": forename,
-                "lastname": lastname
+                "email": email
                 ] as [String : Any]
             
             AccountUpdate(paramsDictionary: accountUpdateDictionary as NSDictionary, completion: { accountUpdateResponse in
@@ -104,8 +99,7 @@ class PPProfileEditNameViewController: UIViewController
                 if accountUpdateResponse["status"] as! Bool == true {
                     let userDictionary = [
                         "id": identifier,
-                        "forename": forename,
-                        "lastname": lastname
+                        "email": email
                         ] as [String : Any]
                     
                     let updateUser = User.manage(userDictionary: userDictionary as NSDictionary)
@@ -126,18 +120,14 @@ class PPProfileEditNameViewController: UIViewController
                     self.present(alert.displayAlert(code: "error_saving"), animated: true, completion: nil)
                 }
             })
-        } else if self.forenameInput.text == "" {
+        } else if self.emailInput.text == "" {
             self.dismissNavBarActivity()
             self.setNavigationBarButton()
             let alert = UIAlertController()
-            self.present(alert.displayAlert(code: "error_profile_saving_forename"), animated: true, completion: nil)
-        } else if self.lastnameInput.text == "" {
-            self.dismissNavBarActivity()
-            self.setNavigationBarButton()
-            let alert = UIAlertController()
-            self.present(alert.displayAlert(code: "error_profile_saving_lastname"), animated: true, completion: nil)
+            self.present(alert.displayAlert(code: "error_profile_saving_invalid_format"), animated: true, completion: nil)
         }
     }
     
     
 }
+

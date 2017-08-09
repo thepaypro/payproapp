@@ -53,7 +53,7 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, comple
                     else
                     {
                         print("EMPTY JSON")
-                        completion([:])
+                        completion(["status":false])
                     }
                 })
             }

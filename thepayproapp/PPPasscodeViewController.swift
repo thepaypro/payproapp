@@ -73,6 +73,9 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
         }
         
         passcodeTF.becomeFirstResponder()
+        
+//        let alert = UIAlertController()
+//        self.present(alert.displayAlert(code: "error"), animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,7 +95,6 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
                 User.changePasscode(oldPasscode: oldPassword!, firstPasscode: firstPassword!, confirmPasscode: passcodeTF.text!, completion: { changePasswordResponse in
                     self.dismissNavBarActivity()
                     if changePasswordResponse["status"] as! Bool == true {
-//                        self.performSegue(withIdentifier: "showSettingFromChangePasscodeSegue", sender: nil)
                         self.navigationController?.popToRootViewController(animated: false)
                     } else {
                         let messageError: String = (changePasswordResponse["messageError"])! as! String
@@ -115,11 +117,16 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
                 if firstPassword != nil {
                     self.displayNavBarActivity()
                 
-                    User.register(username: userUsername!, password: firstPassword!, passwordConfirmation: passcodeTF.text!, validationCode: validationCode!, completion: {successRegister in
-                        if successRegister {
-                            self.dismissNavBarActivity()
+                    User.register(username: userUsername!, password: firstPassword!, passwordConfirmation: passcodeTF.text!, validationCode: validationCode!, completion: {registerResponse in
+                        
+                        self.dismissNavBarActivity()
+                        
+                        if registerResponse["status"] as! Bool == true {
                             self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
                         } else {
+                            let errorMessage: String = registerResponse["errorMessage"] as! String
+                            let alert = UIAlertController()
+                            self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
                             self.shake()
                         }
                     })

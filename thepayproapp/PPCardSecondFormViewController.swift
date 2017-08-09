@@ -19,6 +19,7 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
     var documentType : String?
     var documentNumber: String?
     var orderingCard: Bool = false
+    var updateAccount : Bool = false
     
     override func viewDidLoad()
     {
@@ -27,16 +28,6 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
         let user = User.currentUser()
 
         // Do any additional setup after loading the view.
-        
-        let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
-        
-        if orderingCard
-        {
-            nextButton.title = "Confirm"
-        }
-        
-        self.navigationItem.rightBarButtonItem = nextButton
-        nextButton.isEnabled = false
         
         TextRow.defaultCellUpdate = { cell, row in
             cell.textField?.font = UIFont.systemFont(ofSize: 17)
@@ -104,10 +95,15 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
                         cell.textLabel?.textColor = UIColor.lightGray
                     }
             }
+        
+        self.setupView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.rightBarButtonItem?.isEnabled = form.validate().count == 0
+    override func viewWillAppear(_ animated: Bool)
+    {
+        form.rowBy(tag: "street")?.baseCell.cellBecomeFirstResponder()
+        
+        self.setupView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,33 +111,93 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
         // Dispose of any resources that can be recreated.
     }
     
+    func setupView()
+    {
+        self.setNavigationBarButton()
+    }
+    
+    func setNavigationBarButton()
+    {
+        let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
+        
+        if orderingCard || updateAccount
+        {
+            nextButton.title = "Confirm"
+        }
+        
+        self.navigationItem.rightBarButtonItem = nextButton
+        
+        self.checkNavigation()
+    }
+    
+    func checkNavigation() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = form.validate().count == 0
+    }
+    
     func nextTapped ()
     {
         if form.validate().count == 0
         {
-            if orderingCard
+            if orderingCard || updateAccount
             {
                 self.displayNavBarActivity()
                 
-                let user = User.currentUser()
+                let identifier: Int64 = Int64((User.currentUser()?.identifier)!)
                 
-                let street: String = (user?.street)!
-                let buildingNumber: String = (user?.buildingNumber)!
-                let postCode: String = (user?.postCode)!
-                let city: String = (user?.city)!
-                let countryName: String = (user?.countryName)!
+                let streetRow: TextRow? = form.rowBy(tag: "street")
+                let street: String = (streetRow?.value)!
+                
+                let buildingNumberRow: TextRow? = form.rowBy(tag: "buildingNumber")
+                let buildingNumber: String = (buildingNumberRow?.value)!
+                
+                let postCodeRow: ZipCodeRow? = form.rowBy(tag: "zipcode")
+                let postCode: String = (postCodeRow?.value)!
+                
+                let cityRow: TextRow? = form.rowBy(tag: "city")
+                let city: String = (cityRow?.value)!
+                
+                let countryRow: ButtonRow? = form.rowBy(tag: "country")
+                let country: String = (countryRow?.value)!
+                let countryName: String = (countryRow?.title)!
                 
                 let accountUpdateDictionary = [
                     "street": street,
                     "buildingNumber": buildingNumber,
                     "postcode": postCode,
                     "city": city,
-                    "country": countryName
+                    "country": country
                 ] as [String : Any]
                 
                 AccountUpdate(paramsDictionary: accountUpdateDictionary as NSDictionary, completion: { accountUpdateResponse in
-                    self.dismissNavBarActivity()
-                    self.navigationController?.popViewController(animated: true)
+                    
+                    if accountUpdateResponse["status"] as! Bool == true {
+                        let userDictionary = [
+                            "id": identifier,
+                            "street": street,
+                            "buildingNumber": buildingNumber,
+                            "postcode": postCode,
+                            "city": city,
+                            "country": country,
+                            "countryName": countryName
+                            ] as [String : Any]
+                        
+                        let updateUser = User.manage(userDictionary: userDictionary as NSDictionary)
+                        
+                        if updateUser != nil {
+                            self.dismissNavBarActivity()
+                            self.navigationController?.popViewController(animated: true)
+                        } else {
+                            self.dismissNavBarActivity()
+                            self.setNavigationBarButton()
+                            let alert = UIAlertController()
+                            self.present(alert.displayAlert(code: "error_saving"), animated: true, completion: nil)
+                        }
+                    } else {
+                        self.dismissNavBarActivity()
+                        self.setNavigationBarButton()
+                        let alert = UIAlertController()
+                        self.present(alert.displayAlert(code: "error_saving"), animated: true, completion: nil)
+                    }
                 })
             }
             else

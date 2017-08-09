@@ -72,6 +72,10 @@ class PPCardFirstFormViewController: FormViewController
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        form.rowBy(tag: "forename")?.baseCell.cellBecomeFirstResponder()
+    }
+    
     func nextTapped ()
     {
         if form.validate().count == 0

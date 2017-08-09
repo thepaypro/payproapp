@@ -25,9 +25,6 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
         let prefixViewGR = UITapGestureRecognizer(target: self, action: #selector(showPrefixSelection))
         self.prefixView.addGestureRecognizer(prefixViewGR)
         
-//        self.countryLabel.text = "ES"
-//        self.prefixTF.text = "+34"
-//        self.phoneNumberTF.text = "627737377"
         let borderTop = UIBezierPath(rect: CGRect(x: 0, y: 0.4, width: UIScreen.main.bounds.width, height: 0.4))
         let layerTop = CAShapeLayer()
         layerTop.path = borderTop.cgPath
@@ -44,9 +41,24 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.setNavigationBarButton()
+    }
+    
+    func setNavigationBarButton()
+    {
         let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
         navigationItem.rightBarButtonItems = [nextButton]
-        nextButton.isEnabled = false
+        
+        self.checkNavigation()
+    }
+    
+    func checkNavigation()
+    {
+        if self.phoneNumberTF.text == "" {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        } else {
+            navigationItem.rightBarButtonItem?.isEnabled = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,21 +70,23 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
     {
         self.displayNavBarActivity()
         
-        User.mobileVerificationCode(phoneNumber: "\(self.prefixTF.text!)\(self.phoneNumberTF.text!)", completion: {userExistence in
+        User.mobileVerificationCode(phoneNumber: "\(self.prefixTF.text!)\(self.phoneNumberTF.text!)", completion: {mobileVerificationResponse in
             
             self.dismissNavBarActivity()
             
-            if userExistence
+            if mobileVerificationResponse["status"] as! Bool == true &&
+               mobileVerificationResponse["isUser"] as! Bool == true
             {
-                print("USER EXISTS")
-                
                 self.performSegue(withIdentifier: "showLoginVCSegue", sender: nil)
-            }
-            else
+            } else if mobileVerificationResponse["status"] as! Bool == true &&
+                mobileVerificationResponse["isUser"] as! Bool == false
             {
-                print("USER DOESN'T EXIST")
-                
                 self.performSegue(withIdentifier: "showSMSConfirmationVCSegue", sender: nil)
+            } else if mobileVerificationResponse["status"] as! Bool == false {
+                self.setNavigationBarButton()
+                
+                let alert = UIAlertController()
+                self.present(alert.displayAlert(code: "error_invalid_phonenumber"), animated: true, completion: nil)
             }
         })
     }

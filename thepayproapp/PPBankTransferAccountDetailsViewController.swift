@@ -127,6 +127,12 @@ class PPBankTransferAccountDetailsViewController: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
+        if segmentControlField.selectedSegmentIndex == 0 {
+            self.accountField.becomeFirstResponder()
+        } else if segmentControlField.selectedSegmentIndex == 1 {
+            self.ibanField.becomeFirstResponder()
+        }
     }
     
     override func didReceiveMemoryWarning()

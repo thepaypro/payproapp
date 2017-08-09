@@ -41,7 +41,7 @@ func AccountCreate(
         ] as [String : Any]
     
     makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "account-requests", completion: {completionDictionary in
-        print(completionDictionary)
+        print("completionDictionary: \(completionDictionary)")
         if completionDictionary["emailSended"] != nil {
             completion(completionDictionary["emailSended"] as! Bool)
         } else {
@@ -54,17 +54,30 @@ func AccountUpdate(paramsDictionary: NSDictionary, completion: @escaping (_ acco
 {
     let accountId:Int64 = Int64((User.currentUser()?.identifier)!)
     
-    makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "accounts/\(accountId)", completion: {completionDictionary in
+    print("accountId: \(accountId)")
+    
+    makePutRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "accounts/\(accountId)", completion: {completionDictionary in
         
-        print(completionDictionary)
+        print("completionDictionary: \(completionDictionary)")
         
-        completion(["status":true] as NSDictionary)
-        
-//        if completionDictionary["emailSended"] != nil {
-//            completion(completionDictionary["emailSended"] as! Bool)
-//        } else {
-//            completion(false)
-//        }
+        if completionDictionary["account"] != nil {
+            completion(["status":true] as NSDictionary)
+        } else {
+            completion(["status":false] as NSDictionary)
+        }
     })
+}
 
+func AccountRequestUpdate(paramsDictionary: NSDictionary, completion: @escaping (_ accountUpdateResponse: NSDictionary) -> Void)
+{
+    makePutRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "account-requests", completion: {completionDictionary in
+        
+        print("completionDictionary: \(completionDictionary)")
+        
+        if completionDictionary["emailSended"] != nil {
+            completion(["status":completionDictionary["emailSended"] as! Bool] as NSDictionary)
+        } else {
+            completion(["status":false] as NSDictionary)
+        }
+    })
 }

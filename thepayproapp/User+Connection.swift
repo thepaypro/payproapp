@@ -10,7 +10,7 @@
 import Foundation
 
 extension User {
-    class func register(username: String, password: String, passwordConfirmation: String, validationCode: String, completion: @escaping (_ success: Bool) -> Void)
+    class func register(username: String, password: String, passwordConfirmation: String, validationCode: String, completion: @escaping (_ registerResponse: NSDictionary) -> Void)
     {
         let paramsDictionary = [
             "app_user_registration": [
@@ -43,21 +43,27 @@ extension User {
                     registeredUser = self.manage(userDictionary: accountDictionary as NSDictionary)
                 }
                 
-                completion(registeredUser != nil)
+                completion(["status": registeredUser != nil] as NSDictionary)
             } else {
-                completion(false)
+                var errorMessage = completionDictionary["message"] as! String
+                if completionDictionary["message"] as! String == "Invalid verification code" {
+                    errorMessage = "error_invalid_verification_code"
+                } else if completionDictionary["message"] as! String == "Passwords dont match" {
+                    errorMessage = "error_passcode_dont_match"
+                }
+                
+                completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
             }
         })
     }
     
-    class func mobileVerificationCode(phoneNumber: String, completion: @escaping (_ userExistence: Bool) -> Void)
+    class func mobileVerificationCode(phoneNumber: String, completion: @escaping (_ mobileVerificationResponse: NSDictionary) -> Void)
     {
         makePostRequest(paramsDictionary: ["phoneNumber": phoneNumber], endpointURL: "mobile-verification-code", completion: {completionDictionary in
-            if let isUser = completionDictionary["isUser"]
-            {
-                completion(isUser as! Bool)
-            } else {
-                completion(false)
+            if let isUser = completionDictionary["isUser"] {
+                completion(["status": true, "isUser": isUser as! Bool] as NSDictionary)
+            } else if completionDictionary["errorMessage"] != nil {
+                completion(["status": false, "erroMessage": completionDictionary["errorMessage"]!] as NSDictionary)
             }
         });
     }
@@ -98,6 +104,7 @@ extension User {
                             "lastname": accountInformation.value(forKeyPath: "lastname")!,
                             "dob": accountInformation.value(forKeyPath: "birthDate")!,
                             "document_type": accountInformation.value(forKeyPath: "documentType")!,
+                            "document_number": accountInformation.value(forKeyPath: "documentNumber")!,
                             "account_type_id": (agreement as AnyObject).value(forKeyPath: "id") as! Int32,
                             "accountNumber": accountInformation.value(forKeyPath: "accountNumber")!,
                             "sortCode": accountInformation.value(forKeyPath: "sortCode")!,

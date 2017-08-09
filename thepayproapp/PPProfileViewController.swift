@@ -105,6 +105,21 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         infoLayerBottom.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayerBottom)
         
+        self.setupView()
+    }
+    
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.setupView()
+    }
+    
+    func setupView()
+    {
         //rounded avatar image
         avatarImage.layer.cornerRadius = avatarImage.frame.size.width/2
         avatarImage.clipsToBounds = true
@@ -135,12 +150,6 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
             self.phoneNumberLabel.text = user?.username
             self.emailLabel.text = user?.email
         }
-    }
-    
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func avatarAlert()
@@ -214,5 +223,12 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         avatarImage.contentMode = .scaleToFill
         avatarImage.image = UIImage(data: data as Data)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showUpdateAddressSegue" {
+            let updateAddressVC = segue.destination as! PPCardSecondFormViewController
+            updateAddressVC.updateAccount = true
+        }
     }
 }

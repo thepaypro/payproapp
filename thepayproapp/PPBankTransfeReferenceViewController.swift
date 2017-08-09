@@ -79,6 +79,8 @@ class PPBankTransfeReferenceViewController: UIViewController, ReferenceViewContr
         } else {
             self.viewOtherReason.isHidden = true
         }
+        
+        self.messageField.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning()

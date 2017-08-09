@@ -41,6 +41,10 @@ class PPSendMoneyAmountViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.amountField.becomeFirstResponder()
+    }
+    
     func amountFieldDidChange(_ textField: UITextField) {
         if let amountString = amountField.text?.currencyInputFormatting() {
             amountField.text = amountString
