@@ -81,3 +81,30 @@ func AccountRequestUpdate(paramsDictionary: NSDictionary, completion: @escaping 
         }
     })
 }
+
+func AccountGetBalance(completion: @escaping (_ accountGetBalanceResponse: NSDictionary) -> Void)
+{
+    makeGetRequest(endpointURL: "balance", paramsURL: "", completion: {
+        completionDictionary in
+        print("AccountGetBalance completionDictionary: \(completionDictionary)")
+        
+        if completionDictionary["balance"] != nil {
+            let balanceAmount: Float = completionDictionary["balance"] as! Float
+            
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currencyAccounting
+            formatter.currencyCode = "GBP"
+            formatter.currencySymbol = "£ "
+            formatter.minimumFractionDigits = 2
+            formatter.maximumFractionDigits = 2
+            formatter.groupingSeparator = ","
+            formatter.locale = Locale(identifier: "GBP")
+            
+            let balanceAmountResult = formatter.string(from: NSNumber(value: balanceAmount)) ?? "£ \(balanceAmount)"
+            
+            completion(["status":true, "balance": balanceAmountResult as String] as NSDictionary)
+        } else {
+            completion(["status":false] as NSDictionary)
+        }
+    })
+}

@@ -15,7 +15,7 @@ let PPLocalAPIURL = "http://172.28.128.77"
 func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
 {
     let absoluteURL = "\(PPAPIURL)/\(endpointURL)"
-    print(paramsDictionary)
+    
     if let postData = (try? JSONSerialization.data(withJSONObject: paramsDictionary, options: []))
     {
         let tokenAccess = UserDefaults.standard.string(forKey: "token")
@@ -65,14 +65,29 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, comple
 
 func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
 {
-    let absoluteURL = "\(PPLocalAPIURL)/\(endpointURL)/\(paramsURL)"
+    var absoluteURL = "\(PPAPIURL)/\(endpointURL)"
+    
+    if paramsURL != "" {
+        absoluteURL += "/\(paramsURL)"
+    }
     
     let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+    request.httpMethod = "GET"
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let tokenAccess = UserDefaults.standard.string(forKey: "token")
+    
+    if tokenAccess != nil && tokenAccess != "" {
+        request.addValue("Bearer "+tokenAccess!, forHTTPHeaderField: "Authorization")
+    }
     
     let task = URLSession.shared.dataTask(with: request as URLRequest)
     {
         (data, response, error) -> Void in
+        
+        print("data: \(data)")
+        print("response: \(response)")
+        print("error: \(error)")
         
         if (error != nil)
         {
@@ -93,7 +108,7 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
                 else
                 {
                     print("EMPTY JSON")
-                    completion([:])
+                    completion(["status":false])
                 }
             })
         }
@@ -105,7 +120,7 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
 func makePutRequest(paramsDictionary: NSDictionary, endpointURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
 {
     let absoluteURL = "\(PPAPIURL)/\(endpointURL)"
-    print(paramsDictionary)
+
     if let postData = (try? JSONSerialization.data(withJSONObject: paramsDictionary, options: []))
     {
         let tokenAccess = UserDefaults.standard.string(forKey: "token")
@@ -143,7 +158,7 @@ func makePutRequest(paramsDictionary: NSDictionary, endpointURL: String, complet
                         else
                         {
                             print("EMPTY JSON")
-                            completion([:])
+                            completion(["status":false])
                         }
                 })
             }

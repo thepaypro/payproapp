@@ -104,6 +104,7 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
                         alert.addAction(confirmAction)
                         
                         self.present(alert, animated: true, completion: nil)
+                        self.shake()
                     }
                 })
             }

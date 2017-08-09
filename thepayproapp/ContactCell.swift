@@ -81,7 +81,7 @@ class ContactCell: UITableViewCell {
                     
                     if isPayProUser == true {
                         contact.setIsPayProUser(value: true)
-                        print("validateContactRow: \(validateContactRow)")
+                        
                         let contactId = (validateContactRow as AnyObject).value(forKeyPath: "id") as! Int
                         
                         contact.setContactId(contactIdValue: contactId)

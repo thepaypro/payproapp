@@ -92,6 +92,7 @@ public class User: NSManagedObject
         let accountNumber: String? = attributesDictionary.object(forKey: "accountNumber") as? String
         let sortCode: String? = attributesDictionary.object(forKey: "sortCode") as? String
         let email: String? = attributesDictionary.object(forKey: "email") as? String
+        let amountBalance: String? = attributesDictionary.object(forKey: "amountBalance") as? String
         
 //        var groupMembers: NSSet?
 //        var invites: NSSet?
@@ -229,6 +230,11 @@ public class User: NSManagedObject
         if email != nil
         {
             user.setValue(email, forKeyPath: "email")
+        }
+        
+        if amountBalance != nil
+        {
+            user.setValue(amountBalance, forKeyPath: "amountBalance")
         }
     }
     

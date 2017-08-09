@@ -38,6 +38,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         // Do any additional setup after loading the view.
         
+        let user = User.currentUser()
+        
         self.navigationItem.title = User.currentUser()?.accountType == .proAccount ? "Pro account" : "Basic account"
         
         transactionsTV.register(UINib(nibName: "PPTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionCell")
@@ -60,11 +62,13 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         layerBottom.fillColor = UIColor.lightGray.cgColor
         latestTransactionsView.layer.addSublayer(layerBottom)
         
-        self.accountLabel.text = User.currentUser()?.accountNumber
-        self.sortCodeLabel.text = User.currentUser()?.sortCode
-        self.balanceLabel.text = "£ 99,999.99"
+        self.accountLabel.text = user?.accountNumber
+        self.sortCodeLabel.text = user?.sortCode
+        self.balanceLabel.text = user?.amountBalance
         self.balanceLabel.numberOfLines = 1
         self.balanceLabel.adjustsFontSizeToFitWidth = true
+        
+//        self.getBalance()
         
         self.setupView()
     }
@@ -82,6 +86,18 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         self.setupView()
     }
     
+    func getBalance()
+    {
+        AccountGetBalance(completion: {accountGetBalanceResponse in
+            if accountGetBalanceResponse["status"] as! Bool == true {
+                    
+                if accountGetBalanceResponse["balance"] != nil {
+                    self.balanceLabel.text = accountGetBalanceResponse["balance"] as? String
+                }
+            }
+        })
+    }
+    
     override func viewDidLayoutSubviews()
     {
         scrollView.contentOffset = CGPoint(x: 0.0, y: 0.0)
@@ -94,6 +110,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     func refreshTransactionList()
     {
+        getBalance()
         getTransactions()
         self.transactionsTV.reloadData()
     }
@@ -134,8 +151,6 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     {
         let cardStatus = User.currentUser()?.cardStatus
         
-        print("cardStatus en buttonTouched: \(cardStatus?.rawValue)")
-        
         if cardStatus == .notOrdered
         {
             self.performSegue(withIdentifier: "showShippingAddressVC", sender: self)
@@ -147,15 +162,6 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     }
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
-        // Do some reloading of data and update the table view's data source
-        // Fetch more objects from a web service, for example...
-        
-        // Simply adding an object to the data source for this example
-//        let newMovie = Movie(title: "Serenity", genre: "Sci-fi")
-//        movies.append(newMovie)
-//        
-//        movies.sort() { $0.title < $1.title }
-        
         refreshTransactionList()
         refreshControl.endRefreshing()
     }

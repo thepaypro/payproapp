@@ -45,6 +45,7 @@ extension User {
 
     @NSManaged public var accountTypeId: Int16
     @NSManaged public var accountNumber: String?
+    @NSManaged public var amountBalance: String?
     @NSManaged public var cardHolderId: Int64
     @NSManaged public var dob: String?
     @NSManaged public var documentNumber: String?
