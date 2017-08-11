@@ -10,6 +10,22 @@ import UIKit
 
 extension String {
     
+    func getPennies() -> String {
+        let amount = self
+        
+        let pennies = Double(amount)! * Double(100)
+        
+        return String(pennies)
+    }
+    
+    func getPounds() -> String {
+        let amount = self
+        print("amount: \(amount)")
+        let pounds = Double(amount)! / Double(100)
+        
+        return String(pounds)
+    }
+    
     // formatting text for currency textField
     func currencyInputFormatting() -> String {
         var amount = self.replacingOccurrences(of: "£", with: "")

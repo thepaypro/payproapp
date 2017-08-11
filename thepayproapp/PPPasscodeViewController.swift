@@ -137,13 +137,19 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
             } else {
                 self.displayNavBarActivity()
 
-                User.login(username: self.userUsername!, password: self.passcodeTF.text!, completion: {successLogin in
+                User.login(username: self.userUsername!, password: self.passcodeTF.text!, completion: {loginResponse in
                 
                     self.dismissNavBarActivity()
                 
-                    if successLogin {
+                    if loginResponse["status"] as! Bool == true {
                         self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
                     } else {
+                        if loginResponse["errorMessage"] != nil {
+                            let errorMessage: String = loginResponse["errorMessage"] as! String
+                            let alert = UIAlertController()
+                            self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
+                        }
+                        
                         self.shake()
                     }
                 })

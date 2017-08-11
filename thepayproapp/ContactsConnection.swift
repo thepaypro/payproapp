@@ -13,32 +13,12 @@ func checkContacts(contacts: NSDictionary, completion: @escaping (_ contactsResp
 //    print("contacts: \(contacts)")
     makePostRequest(paramsDictionary: contacts as NSDictionary, endpointURL: "contacts", completion: {contactsDictionary in
         
-        //    let callResponse = [
-        //        "691 487 998": [
-        //            "phonenumber": "+34691487998",
-        //            "fullName": "Enric Giribet Usó",
-        //            "isUser": "true"
-        //        ],
-        //        "888-555-5512": [
-        //            "phonenumber": "+34 888-555-5512",
-        //            "fullName": "John Appleseed López",
-        //            "isUser": "true"
-        //        ],
-        //        "555-610-6679": [
-        //            "phonenumber": "+34 555-610-6679",
-        //            "fullName": "Homer Simpson",
-        //            "isUser": "true"
-        //        ]
-        //    ] as [String : AnyObject]
-        
-//        print("response contacts: \(contactsDictionary)")
-        
         if contactsDictionary["contacts"] != nil {
-            completion(contactsDictionary["contacts"] as! NSDictionary)
+            completion(["status": true, "contacts": contactsDictionary["contacts"]] as! NSDictionary)
+        } else if let errorMessage = contactsDictionary["errorMessage"] {
+            completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
         } else {
-            completion([:] as NSDictionary)
+            completion(["status": false] as NSDictionary)
         }
     })
-    
-    //    completion(callResponse as NSDictionary)
 }

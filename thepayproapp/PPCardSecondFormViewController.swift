@@ -193,10 +193,16 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
                             self.present(alert.displayAlert(code: "error_saving"), animated: true, completion: nil)
                         }
                     } else {
+                        var errorMessage: String = "error_saving"
+                        
+                        if accountUpdateResponse["errorMessage"] != nil {
+                            errorMessage = accountUpdateResponse["errorMessage"] as! String
+                        }
+                        
                         self.dismissNavBarActivity()
                         self.setNavigationBarButton()
                         let alert = UIAlertController()
-                        self.present(alert.displayAlert(code: "error_saving"), animated: true, completion: nil)
+                        self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
                     }
                 })
             }

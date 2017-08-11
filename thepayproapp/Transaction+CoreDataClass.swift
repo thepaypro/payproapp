@@ -78,6 +78,8 @@ public class Transaction: NSManagedObject
         let identifier: Int64? = attributesDictionary.object(forKey: "id") as? Int64
         let amount: Float? = attributesDictionary.object(forKey: "amount") as? Float
         
+        print("amount en manage: \(amount)")
+        
         if identifier == nil
         {
             return

@@ -31,11 +31,15 @@ func TransactionCreate(transaction: NSDictionary, completion: @escaping (_ trans
             
             let subject = transactionDictionary.value(forKeyPath: "subject") as! String
             
+            let amountNumber: Float = transactionDictionary.value(forKeyPath: "amount") as! Float
+            let amountString: String = String(amountNumber)
+            let amountPounds: Float = NSString(string: amountString.getPounds()).floatValue
+            
             let transactionDictionaryResponse = [
                 "id" : transactionDictionary.value(forKeyPath: "id")!,
                 "title": title,
                 "subtitle": subject,
-                "amount": transactionDictionary.value(forKeyPath: "amount")!,
+                "amount": amountPounds,
                 "datetime": "\(Int(components.year!))/\(Int(components.month!))/\(Int(components.day!)) \(Int(components.hour!)):\(Int(components.minute!))"
             ]  as [String : Any]
             

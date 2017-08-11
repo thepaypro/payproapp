@@ -85,8 +85,14 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
             } else if mobileVerificationResponse["status"] as! Bool == false {
                 self.setNavigationBarButton()
                 
+                var errorMessage: String = "error"
+                
+                if mobileVerificationResponse["errorMessage"] != nil {
+                    errorMessage = mobileVerificationResponse["errorMessage"] as! String
+                }
+                
                 let alert = UIAlertController()
-                self.present(alert.displayAlert(code: "error_invalid_phonenumber"), animated: true, completion: nil)
+                self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
             }
         })
     }

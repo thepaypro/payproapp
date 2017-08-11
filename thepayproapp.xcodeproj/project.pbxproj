@@ -45,6 +45,7 @@
 		6A0CE8FC1EF6E600000C0D1F /* PPBankTransfeBeneficiaryTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CE8FB1EF6E600000C0D1F /* PPBankTransfeBeneficiaryTypeViewController.swift */; };
 		6A2033B31F39B1B300CBB14A /* ExtensionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2033B21F39B1B300CBB14A /* ExtensionAlert.swift */; };
 		6A2033B51F39DF9800CBB14A /* PPProfileEditContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2033B41F39DF9800CBB14A /* PPProfileEditContactInfoViewController.swift */; };
+		6A2033B91F3CB29C00CBB14A /* ExtensionConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2033B81F3CB29C00CBB14A /* ExtensionConnectivity.swift */; };
 		6A9C73F01F20B445006D2C57 /* PPImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9C73EF1F20B445006D2C57 /* PPImagePickerController.swift */; };
 		6AF2B6D71F30830F00255B65 /* PPCardAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF2B6D61F30830F00255B65 /* PPCardAddressViewController.swift */; };
 		6AF2B6D91F308C3400255B65 /* CardConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF2B6D81F308C3400255B65 /* CardConnection.swift */; };
@@ -156,6 +157,7 @@
 		6A0CE8FB1EF6E600000C0D1F /* PPBankTransfeBeneficiaryTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBankTransfeBeneficiaryTypeViewController.swift; sourceTree = "<group>"; };
 		6A2033B21F39B1B300CBB14A /* ExtensionAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionAlert.swift; sourceTree = "<group>"; };
 		6A2033B41F39DF9800CBB14A /* PPProfileEditContactInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPProfileEditContactInfoViewController.swift; sourceTree = "<group>"; };
+		6A2033B81F3CB29C00CBB14A /* ExtensionConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionConnectivity.swift; sourceTree = "<group>"; };
 		6A9C73EF1F20B445006D2C57 /* PPImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPImagePickerController.swift; sourceTree = "<group>"; };
 		6AF2B6D61F30830F00255B65 /* PPCardAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPCardAddressViewController.swift; sourceTree = "<group>"; };
 		6AF2B6D81F308C3400255B65 /* CardConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardConnection.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				2128DBE81F0E93CA0051FC8E /* ExtensionString.swift */,
 				211C45631F28EC8800CA0174 /* ExtensionUIViewController.swift */,
 				6A2033B21F39B1B300CBB14A /* ExtensionAlert.swift */,
+				6A2033B81F3CB29C00CBB14A /* ExtensionConnectivity.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -901,6 +904,7 @@
 				BFDA4CB91F137EF400300261 /* PayProDate.swift in Sources */,
 				BF56BAC71EF26BF300429005 /* OffsetTransaction+CoreDataProperties.swift in Sources */,
 				6AF2B6D71F30830F00255B65 /* PPCardAddressViewController.swift in Sources */,
+				6A2033B91F3CB29C00CBB14A /* ExtensionConnectivity.swift in Sources */,
 				217316B91F05072D00DB0B14 /* PPAcountViewController.swift in Sources */,
 				BF56BAC51EF26BF300429005 /* Offset+CoreDataProperties.swift in Sources */,
 				BF31E8681EF933C0004C233E /* PPEntryViewController.swift in Sources */,

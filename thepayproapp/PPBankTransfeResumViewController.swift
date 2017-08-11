@@ -130,6 +130,11 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         infoLayerBottom.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayerBottom)
         
+        let a = String(sendMoney.getAmount())?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
+        
+        print("a: \(a)")
+        print("pennies: \(a?.getPennies())")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -251,9 +256,10 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
     
     func createTransaction(completion: @escaping (_ createTransactionResponse: Bool) -> Void)
     {
+        let amount = String(sendMoney.getAmount())?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
         let transactionDictionary = [
             "beneficiary": String(sendMoney.getcontactId()),
-            "amount": String(sendMoney.getAmount())?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression]) as Any,
+            "amount": amount?.getPennies() as Any,
             "subject": String(sendMoney.getMessage())!
         ] as [String : Any]
 
@@ -268,25 +274,20 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                 } else if transactionResponse["errorMessage"] != nil {
                     self.animateSwipe(position: swipeColorBoxCenterX)
                     
-                    let alert = UIAlertController(title: "Transaction Failed", message: transactionResponse.value(forKeyPath: "errorMessage") as? String, preferredStyle: UIAlertControllerStyle.alert)
+                    let errorMessage: String = transactionResponse["errorMessage"] as! String
                     
-                    let errorAction = UIAlertAction(title: "Ok", style: .default)
+                    let alert = UIAlertController()
                     
-                    alert.addAction(errorAction)
-                    
-                    self.present(alert, animated: true, completion: nil)
+                    self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
                     
                     completion(false)
                     
                 } else if transactionResponse["status"] as! Bool == false {
                     self.animateSwipe(position: swipeColorBoxCenterX)
                     
-                    let alert = UIAlertController(title: "Transaction Failed", message: "Error ocurred during transaction create", preferredStyle: UIAlertControllerStyle.alert)
-                    let errorAction = UIAlertAction(title: "Ok", style: .default)
+                    let alert = UIAlertController()
                     
-                    alert.addAction(errorAction)
-                    
-                    self.present(alert, animated: true, completion: nil)
+                    self.present(alert.displayAlert(code: "transaction_failed"), animated: true, completion: nil)
                     
                     completion(false)
                 }

@@ -15,8 +15,6 @@ func CardConnection(completion: @escaping (_ cardResponse: NSDictionary) -> Void
         
         print("completionDictionary: \(completionDictionary)")
         
-        print("card status init: \(User.currentUser()?.cardStatus.rawValue)")
-        
         let identified: Int64 = Int64((User.currentUser()?.identifier)!)
         let newStatus: Int32 = Int32(User.CardStatus.ordered.rawValue)
         
@@ -26,8 +24,6 @@ func CardConnection(completion: @escaping (_ cardResponse: NSDictionary) -> Void
         ] as [String : Any]
         
         let updateCardStatus = User.manage(userDictionary: userDictionary as NSDictionary)
-
-        print("card status fin: \(User.currentUser()?.cardStatus.rawValue)")
         
         completion(["status": updateCardStatus != nil] as NSDictionary)
         

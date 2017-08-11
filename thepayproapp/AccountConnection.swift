@@ -89,7 +89,9 @@ func AccountGetBalance(completion: @escaping (_ accountGetBalanceResponse: NSDic
         print("AccountGetBalance completionDictionary: \(completionDictionary)")
         
         if completionDictionary["balance"] != nil {
-            let balanceAmount: Float = completionDictionary["balance"] as! Float
+            let amountNumber:Float = completionDictionary["balance"] as! Float
+            let amountString: String = String(amountNumber)
+            let balanceAmount: Float = NSString(string: amountString.getPounds()).floatValue
             
             let formatter = NumberFormatter()
             formatter.numberStyle = .currencyAccounting

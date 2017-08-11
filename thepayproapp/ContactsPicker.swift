@@ -274,11 +274,17 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
 
                 checkContacts(contacts: phoneNumberArray as NSDictionary, completion: {contactsResponse in
                     
-                    if contactsResponse.count > 0 {
-                        print("success check contacts")
-                        self.validateContacts = contactsResponse
-                    } else {
-                        print("check contacts FAILED")
+                    if contactsResponse["status"] as! Bool == true {
+                        
+                        let contacts: NSDictionary = contactsResponse["contacts"] as! NSDictionary
+
+                        if contacts.count > 0 {
+                            self.validateContacts = contacts
+                        }
+                    } else if let errorMessage = contactsResponse["errorMessage"] {
+                        print("aaaaaa")
+                        let alert = UIAlertController()
+                        self.present(alert.displayAlert(code: errorMessage as! String), animated: true, completion: nil)
                     }
                     
                     completion(contactsArray, nil)

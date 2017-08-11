@@ -14,126 +14,83 @@ let PPLocalAPIURL = "http://172.28.128.77"
 
 func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
 {
-    let absoluteURL = "\(PPAPIURL)/\(endpointURL)"
-    
-    if let postData = (try? JSONSerialization.data(withJSONObject: paramsDictionary, options: []))
+    if Reachability.isConnectedToNetwork() == true
     {
-        let tokenAccess = UserDefaults.standard.string(forKey: "token")
+        let absoluteURL = "\(PPAPIURL)/\(endpointURL)"
         
-        let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        if tokenAccess != nil && tokenAccess != "" {
-            request.addValue("Bearer "+tokenAccess!, forHTTPHeaderField: "Authorization")
-        }
-        
-        request.httpBody = postData
-        
-        let task = URLSession.shared.dataTask(with: request as URLRequest)
+        if let postData = (try? JSONSerialization.data(withJSONObject: paramsDictionary, options: []))
         {
-            (data, response, error) -> Void in
+            let tokenAccess = UserDefaults.standard.string(forKey: "token")
             
-            if (error != nil)
-            {
-                print(error!)
+            let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            if tokenAccess != nil && tokenAccess != "" {
+                request.addValue("Bearer "+tokenAccess!, forHTTPHeaderField: "Authorization")
             }
-            else
+            
+            request.httpBody = postData
+            
+            let task = URLSession.shared.dataTask(with: request as URLRequest)
             {
-                DispatchQueue.main.async(execute:
+                (data, response, error) -> Void in
+                
+                if (error != nil)
                 {
-                    if let json = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? NSDictionary
-                    {
-                        if json["token"] != nil {
-                            UserDefaults.standard.setValue(json["token"], forKey: "token")
-                        }
-                        
-                        completion(json)
-                    }
-                    else
-                    {
-                        print("EMPTY JSON")
-                        completion(["status":false])
-                    }
-                })
+                    print(error!)
+                }
+                else
+                {
+                    DispatchQueue.main.async(execute:
+                        {
+                            if let json = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? NSDictionary
+                            {
+                                if json["token"] != nil {
+                                    UserDefaults.standard.setValue(json["token"], forKey: "token")
+                                }
+                                
+                                completion(json)
+                            }
+                            else
+                            {
+                                print("EMPTY JSON")
+                                completion(["status":false])
+                            }
+                    })
+                }
             }
+            
+            task.resume()
         }
         
-        task.resume()
+    }
+    else
+    {
+        print("Internet Connection not Available!")
+        completion(["status":false, "message":"internet_connection_not_available", "errorMessage":"internet_connection_not_available"])
     }
 }
 
 func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
 {
-    var absoluteURL = "\(PPAPIURL)/\(endpointURL)"
-    
-    if paramsURL != "" {
-        absoluteURL += "/\(paramsURL)"
-    }
-    
-    let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
-    request.httpMethod = "GET"
-    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    
-    let tokenAccess = UserDefaults.standard.string(forKey: "token")
-    
-    if tokenAccess != nil && tokenAccess != "" {
-        request.addValue("Bearer "+tokenAccess!, forHTTPHeaderField: "Authorization")
-    }
-    
-    let task = URLSession.shared.dataTask(with: request as URLRequest)
+    if Reachability.isConnectedToNetwork() == true
     {
-        (data, response, error) -> Void in
+        var absoluteURL = "\(PPAPIURL)/\(endpointURL)"
         
-        print("data: \(data)")
-        print("response: \(response)")
-        print("error: \(error)")
-        
-        if (error != nil)
-        {
-            print(error!)
+        if paramsURL != "" {
+            absoluteURL += "/\(paramsURL)"
         }
-        else
-        {
-            DispatchQueue.main.async(execute:
-            {
-                if let json = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? NSDictionary
-                {
-                    if json["token"] != nil {
-                        UserDefaults.standard.setValue(json["token"], forKey: "token")
-                    }
-                    
-                    completion(json)
-                }
-                else
-                {
-                    print("EMPTY JSON")
-                    completion(["status":false])
-                }
-            })
-        }
-    }
-    
-    task.resume()
-}
-
-func makePutRequest(paramsDictionary: NSDictionary, endpointURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
-{
-    let absoluteURL = "\(PPAPIURL)/\(endpointURL)"
-
-    if let postData = (try? JSONSerialization.data(withJSONObject: paramsDictionary, options: []))
-    {
-        let tokenAccess = UserDefaults.standard.string(forKey: "token")
         
         let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
-        request.httpMethod = "PUT"
+        request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let tokenAccess = UserDefaults.standard.string(forKey: "token")
         
         if tokenAccess != nil && tokenAccess != "" {
             request.addValue("Bearer "+tokenAccess!, forHTTPHeaderField: "Authorization")
         }
-        
-        request.httpBody = postData
         
         let task = URLSession.shared.dataTask(with: request as URLRequest)
         {
@@ -165,5 +122,70 @@ func makePutRequest(paramsDictionary: NSDictionary, endpointURL: String, complet
         }
         
         task.resume()
+        
+    }
+    else
+    {
+        print("Internet Connection not Available!")
+        completion(["status":false, "message":"internet_connection_not_available", "errorMessage":"internet_connection_not_available"])
+    }
+}
+
+func makePutRequest(paramsDictionary: NSDictionary, endpointURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
+{
+    if Reachability.isConnectedToNetwork() == true
+    {
+        let absoluteURL = "\(PPAPIURL)/\(endpointURL)"
+        
+        if let postData = (try? JSONSerialization.data(withJSONObject: paramsDictionary, options: []))
+        {
+            let tokenAccess = UserDefaults.standard.string(forKey: "token")
+            
+            let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+            request.httpMethod = "PUT"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            if tokenAccess != nil && tokenAccess != "" {
+                request.addValue("Bearer "+tokenAccess!, forHTTPHeaderField: "Authorization")
+            }
+            
+            request.httpBody = postData
+            
+            let task = URLSession.shared.dataTask(with: request as URLRequest)
+            {
+                (data, response, error) -> Void in
+                
+                if (error != nil)
+                {
+                    print(error!)
+                }
+                else
+                {
+                    DispatchQueue.main.async(execute:
+                        {
+                            if let json = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? NSDictionary
+                            {
+                                if json["token"] != nil {
+                                    UserDefaults.standard.setValue(json["token"], forKey: "token")
+                                }
+                                
+                                completion(json)
+                            }
+                            else
+                            {
+                                print("EMPTY JSON")
+                                completion(["status":false])
+                            }
+                    })
+                }
+            }
+            
+            task.resume()
+        }
+    }
+    else
+    {
+        print("Internet Connection not Available!")
+        completion(["status":false, "message":"internet_connection_not_available", "errorMessage":"internet_connection_not_available"])
     }
 }

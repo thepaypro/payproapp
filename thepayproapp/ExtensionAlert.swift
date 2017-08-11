@@ -122,6 +122,34 @@ extension UIAlertController {
             alert.addAction(confirmAction)
             
             return alert
+            
+        case "internet_connection_not_available":
+            let alert = UIAlertController(
+                title: "No Internet Connection",
+                message: "Make sure your device is connected to the internet.",
+                preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction = UIAlertAction(
+                title: "Ok",
+                style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
+            
+        case "transaction_failed":
+            let alert = UIAlertController(
+                title: "Transaction Failed",
+                message: "Error ocurred during create transaction",
+                preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction = UIAlertAction(
+                title: "Ok",
+                style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
 
         default:
             let alert = UIAlertController(

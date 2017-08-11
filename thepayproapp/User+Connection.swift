@@ -25,8 +25,6 @@ extension User {
         
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "register/", completion: {completionDictionary in
             
-            print("register response: \(completionDictionary)")
-            
             if let userDictionary = completionDictionary["user"] as? NSDictionary
             {
                 var registeredUser = self.manage(userDictionary: userDictionary )
@@ -64,12 +62,27 @@ extension User {
             if let isUser = completionDictionary["isUser"] {
                 completion(["status": true, "isUser": isUser as! Bool] as NSDictionary)
             } else if completionDictionary["errorMessage"] != nil {
-                completion(["status": false, "erroMessage": completionDictionary["errorMessage"]!] as NSDictionary)
+                
+                var errorMessage = completionDictionary["errorMessage"] as! String
+                if completionDictionary["errorMessage"] as! String == "Invalid phone number" {
+                    errorMessage = "error_invalid_phonenumber"
+                }
+                
+                completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
+                
+            } else if completionDictionary["message"] != nil {
+                
+                var errorMessage = completionDictionary["message"] as! String
+                if completionDictionary["message"] as! String == "Invalid phone number" {
+                    errorMessage = "error_invalid_phonenumber"
+                }
+                
+                completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
             }
         });
     }
     
-    class func login(username: String, password: String, completion: @escaping (_ success: Bool) -> Void)
+    class func login(username: String, password: String, completion: @escaping (_ loginResponse: NSDictionary) -> Void)
     {
         let paramsDictionary = [
             "_username": username,
@@ -97,7 +110,7 @@ extension User {
                         let accountUser = self.manage(userDictionary: accountDictionary!)
                         
                         let loggedUser = self.manage(userDictionary: userDictionary)
-                        completion(loggedUser != nil && accountUser != nil)
+                        completion(["status":loggedUser != nil && accountUser != nil] as NSDictionary)
                         
                     } else {
                         
@@ -141,7 +154,7 @@ extension User {
                             let accountUser = self.manage(userDictionary: accountDictionary!)
                             
                             let loggedUser = self.manage(userDictionary: userDictionary)
-                            completion(loggedUser != nil && accountUser != nil)
+                            completion(["status":loggedUser != nil && accountUser != nil] as NSDictionary)
                         })
                     }
                 } else {
@@ -157,10 +170,10 @@ extension User {
                     let accountUser = self.manage(userDictionary: accountDictionary!)
                     
                     let loggedUser = self.manage(userDictionary: userDictionary)
-                    completion(loggedUser != nil && accountUser != nil)
+                    completion(["status":loggedUser != nil && accountUser != nil] as NSDictionary)
                 }
             } else {
-                completion(false)
+                completion(completionDictionary)
             }
         })
     }
