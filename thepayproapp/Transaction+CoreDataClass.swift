@@ -77,8 +77,7 @@ public class Transaction: NSManagedObject
         let datetime: String? = attributesDictionary.object(forKey: "datetime") as? String
         let identifier: Int64? = attributesDictionary.object(forKey: "id") as? Int64
         let amount: Float? = attributesDictionary.object(forKey: "amount") as? Float
-        
-        print("amount en manage: \(amount)")
+        let isPayer: Bool? = attributesDictionary.object(forKey: "isPayer") as? Bool
         
         if identifier == nil
         {
@@ -103,6 +102,11 @@ public class Transaction: NSManagedObject
         if amount != nil
         {
             transaction.amount = amount!
+        }
+        
+        if isPayer != nil
+        {
+            transaction.isPayer = isPayer!
         }
     }
     
@@ -134,6 +138,29 @@ public class Transaction: NSManagedObject
         {
             let transactions: [Transaction]? = try context.fetch(transactionsFetchRequest) as? [Transaction]
             
+            return transactions!
+        }
+        catch
+        {
+            fatalError("Failed to fetch transactions: \(error)")
+        }
+    }
+    
+    class func getLastTransaction() -> [Transaction]?
+    {
+        let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+        
+        let transactionsFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Transaction")
+        
+        let sortDescriptor = NSSortDescriptor(key: "identifier", ascending: false)
+        
+        transactionsFetchRequest.sortDescriptors = [sortDescriptor]
+        
+        transactionsFetchRequest.fetchLimit = 1
+        
+        do
+        {
+            let transactions: [Transaction]? = try context.fetch(transactionsFetchRequest) as? [Transaction]
             return transactions!
         }
         catch

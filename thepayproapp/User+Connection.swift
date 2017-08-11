@@ -154,7 +154,10 @@ extension User {
                             let accountUser = self.manage(userDictionary: accountDictionary!)
                             
                             let loggedUser = self.manage(userDictionary: userDictionary)
-                            completion(["status":loggedUser != nil && accountUser != nil] as NSDictionary)
+                            
+                            TransactionGetTransactions(completion: {transactionsResponse in
+                                completion(["status":loggedUser != nil && accountUser != nil] as NSDictionary)
+                            })
                         })
                     }
                 } else {

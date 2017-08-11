@@ -130,16 +130,15 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         infoLayerBottom.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayerBottom)
         
-        let a = String(sendMoney.getAmount())?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
-        
-        print("a: \(a)")
-        print("pennies: \(a?.getPennies())")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        if sendMoney.getFinishProcess() == 1 {
+            self.navigationController?.popToRootViewController(animated: true)
+        } else {
+            self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        }
     }
     
     override func didReceiveMemoryWarning()
@@ -260,7 +259,8 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         let transactionDictionary = [
             "beneficiary": String(sendMoney.getcontactId()),
             "amount": amount?.getPennies() as Any,
-            "subject": String(sendMoney.getMessage())!
+            "subject": String(sendMoney.getMessage())!,
+            "title": String("Transaction to "+sendMoney.getBeneficiaryName())!
         ] as [String : Any]
 
         TransactionCreate(
@@ -270,6 +270,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                 print("transaction: \(transactionResponse)")
                 
                 if transactionResponse["status"] as! Bool == true {
+                    self.sendMoney.setFinishProcess(finishProcessValue: 1)
                     completion(true)
                 } else if transactionResponse["errorMessage"] != nil {
                     self.animateSwipe(position: swipeColorBoxCenterX)

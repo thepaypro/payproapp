@@ -79,7 +79,7 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
         var absoluteURL = "\(PPAPIURL)/\(endpointURL)"
         
         if paramsURL != "" {
-            absoluteURL += "/\(paramsURL)"
+            absoluteURL += "?\(paramsURL)"
         }
         
         let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
@@ -98,6 +98,7 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
             
             if (error != nil)
             {
+                print("erroooooooooooooooor")
                 print(error!)
             }
             else

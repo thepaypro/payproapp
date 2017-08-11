@@ -36,7 +36,7 @@ class PPTransactionTableViewCell: UITableViewCell
         
         quantityLabel.text = "£\(abs(transaction.amount))"
         
-        if transaction.amount < 0
+        if transaction.isPayer
         {
             quantityLabel.text = "-\(quantityLabel.text!)"
         }

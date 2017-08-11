@@ -35,6 +35,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        sendMoney.setFinishProcess(finishProcessValue: 0)
         self.navigationController?.isNavigationBarHidden = false
     }
     
@@ -172,6 +173,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate
 
 open class SendMoney {
     open var load_process: Int = 0 //0:initial load not active, 1:initial load active
+    open var finish_process: Int = 0 //0:process are active, 1:process are finished
     open var operation_type: Int = 0 //0:bankTransfe, 1:sendMoneyIntraApp, 2:sendMoneyInvite
     open var amount: String?
     open var forename: String?
@@ -194,6 +196,14 @@ open class SendMoney {
     
     open func getLoadProcess() -> Int {
         return load_process
+    }
+    
+    open func setFinishProcess(finishProcessValue: Int) {
+        finish_process = finishProcessValue
+    }
+    
+    open func getFinishProcess() -> Int {
+        return finish_process
     }
     
     open func setOperationType(operationTypeValue: Int) {

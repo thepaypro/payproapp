@@ -2,7 +2,7 @@
 //  Transaction+CoreDataProperties.swift
 //  thepayproapp
 //
-//  Created by Manuel Ortega Cordovilla on 15/06/2017.
+//  Created by Enric Giribet Usó on 11/8/17.
 //  Copyright © 2017 The Pay Pro LTD. All rights reserved.
 //
 
@@ -19,14 +19,15 @@ extension Transaction {
     @NSManaged public var amount: Float
     @NSManaged public var contisId: Int64
     @NSManaged public var currencyId: Int64
+    @NSManaged public var datetime: String?
     @NSManaged public var groupId: Int64
     @NSManaged public var identifier: Int64
     @NSManaged public var offsetId: Int64
     @NSManaged public var status: String?
-    @NSManaged public var transactionDescription: String?
-    @NSManaged public var title: String?
     @NSManaged public var subtitle: String?
-    @NSManaged public var datetime: String?
+    @NSManaged public var title: String?
+    @NSManaged public var transactionDescription: String?
+    @NSManaged public var isPayer: Bool
     @NSManaged public var currency: Currency?
     @NSManaged public var group: Group?
     @NSManaged public var invites: NSSet?

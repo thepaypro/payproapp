@@ -44,7 +44,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         transactionsTV.register(UINib(nibName: "PPTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionCell")
         
-        refreshTransactionList()
+        refreshTransactionList(fullMode: false)
         
         self.transactionsTV.addSubview(self.refreshControl)
         
@@ -103,15 +103,26 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         scrollView.contentOffset = CGPoint(x: 0.0, y: 0.0)
     }
     
-    func getTransactions()
+    func getTransactionsFromBack()
     {
-        transactionsArray = Transaction.getTransactions()
+        TransactionGetTransactions(completion: {transactionsResponse in
+            print("transactionsResponse: \(transactionsResponse)")
+            self.transactionsArray = Transaction.getTransactions()
+        })
     }
     
-    func refreshTransactionList()
+    func getTransactions(){
+        self.transactionsArray = Transaction.getTransactions()
+    }
+    
+    func refreshTransactionList(fullMode:Bool)
     {
         getBalance()
-        getTransactions()
+        if fullMode == false {
+            getTransactions()
+        } else {
+            getTransactionsFromBack()
+        }
         self.transactionsTV.reloadData()
     }
     
@@ -123,8 +134,6 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         cardHeight.constant = 60.0
         
         let cardStatus = User.currentUser()?.cardStatus
-        
-        print("cardStatus en setupView: \(cardStatus?.rawValue)")
         
         cardIV.image = UIImage(named: "account-card")
         
@@ -144,7 +153,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
             cardHeight.constant = 0.0
         }
         
-        refreshTransactionList()
+        refreshTransactionList(fullMode: false)
     }
     
     @IBAction func cardButtonTouched(_ sender: Any)
@@ -162,7 +171,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     }
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
-        refreshTransactionList()
+        refreshTransactionList(fullMode: true)
         refreshControl.endRefreshing()
     }
     

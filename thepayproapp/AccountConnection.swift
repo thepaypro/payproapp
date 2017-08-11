@@ -54,8 +54,6 @@ func AccountUpdate(paramsDictionary: NSDictionary, completion: @escaping (_ acco
 {
     let accountId:Int64 = Int64((User.currentUser()?.identifier)!)
     
-    print("accountId: \(accountId)")
-    
     makePutRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "accounts/\(accountId)", completion: {completionDictionary in
         
         print("completionDictionary: \(completionDictionary)")
@@ -72,8 +70,6 @@ func AccountRequestUpdate(paramsDictionary: NSDictionary, completion: @escaping 
 {
     makePutRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "account-requests", completion: {completionDictionary in
         
-        print("completionDictionary: \(completionDictionary)")
-        
         if completionDictionary["emailSended"] != nil {
             completion(["status":completionDictionary["emailSended"] as! Bool] as NSDictionary)
         } else {
@@ -86,7 +82,6 @@ func AccountGetBalance(completion: @escaping (_ accountGetBalanceResponse: NSDic
 {
     makeGetRequest(endpointURL: "balance", paramsURL: "", completion: {
         completionDictionary in
-        print("AccountGetBalance completionDictionary: \(completionDictionary)")
         
         if completionDictionary["balance"] != nil {
             let amountNumber:Float = completionDictionary["balance"] as! Float
