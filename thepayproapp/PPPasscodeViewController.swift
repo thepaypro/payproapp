@@ -89,6 +89,7 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
     
     func nextTapped()
     {
+        print("1")
         if changePassword == true {
             if firstPassword != nil {
                 self.displayNavBarActivity()
@@ -136,9 +137,9 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
                 }
             } else {
                 self.displayNavBarActivity()
-
+print("2")
                 User.login(username: self.userUsername!, password: self.passcodeTF.text!, completion: {loginResponse in
-                
+                print("3")
                     self.dismissNavBarActivity()
                 
                     if loginResponse["status"] as! Bool == true {
@@ -147,7 +148,13 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
                         if loginResponse["errorMessage"] != nil {
                             let errorMessage: String = loginResponse["errorMessage"] as! String
                             let alert = UIAlertController()
-                            self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
+                            
+                            if loginResponse["errorMessage"] as! String == "internet_connection_error" {
+                                let segue:Any = self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
+                                self.present(alert.displayAlert(code: errorMessage, actionConfirm: segue), animated: true, completion: nil)
+                            } else {
+                                self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
+                            }
                         }
                         
                         self.shake()
@@ -203,6 +210,7 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
         
         if newLength == self.mainPasscodeView.subviews.count && string != "" {
             self.passcodeTF.text = self.passcodeTF.text! + string
+            print("0")
             nextTapped()
         }
         

@@ -178,34 +178,52 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
     
     func goToConfirm()
     {
-        if sendMoney.getOperationType() == 0 || sendMoney.getOperationType() == 1 {
+        let userAccountType = User.currentUser()?.accountType
+        let userStatus = User.currentUser()?.status
+        
+        if userAccountType == .demoAccount ||
+            userStatus == .statusDemo ||
+            userStatus == .statusActivating
+        {
+            self.sendMoney.setFinishProcess(finishProcessValue: 1)
             
-            //call endpoint
-            showActivityIndicator()
-            
-            createTransaction(completion:{createTransactionResponse in
-                self.hideActivityIndicator()
-                
-                if createTransactionResponse {
-                    let confirmViewController = PPSendMoneyConfirmViewController()
-                    confirmViewController.modalTransitionStyle = .crossDissolve
-                    confirmViewController.sendMoney = self.sendMoney
-                    self.present(confirmViewController, animated: true, completion: {
-                        self.tabBarController?.selectedIndex = 3
-                        self.vibrateDevice()
-                    })
-                }
+            let confirmViewController = PPSendMoneyConfirmViewController()
+            confirmViewController.modalTransitionStyle = .crossDissolve
+            confirmViewController.sendMoney = self.sendMoney
+            self.present(confirmViewController, animated: true, completion: {
+                self.tabBarController?.selectedIndex = 3
+                self.vibrateDevice()
             })
-            
-        } else if sendMoney.getOperationType() == 2 {
-            if (MFMessageComposeViewController.canSendText()) {
-                let controller = MFMessageComposeViewController()
-                controller.body = "Enric Giribet te invita a que descarges PayPro App!!! http://www.payproapp.com "
-                controller.recipients = ["666395251"]
-                controller.messageComposeDelegate = self
-                self.present(controller, animated: true, completion: nil)
-            } else {
-                print("no puedo enviar SMS!!")
+        } else {
+            if sendMoney.getOperationType() == 0 || sendMoney.getOperationType() == 1 {
+                
+                //call endpoint
+                showActivityIndicator()
+                
+                createTransaction(completion:{createTransactionResponse in
+                    self.hideActivityIndicator()
+                    
+                    if createTransactionResponse {
+                        let confirmViewController = PPSendMoneyConfirmViewController()
+                        confirmViewController.modalTransitionStyle = .crossDissolve
+                        confirmViewController.sendMoney = self.sendMoney
+                        self.present(confirmViewController, animated: true, completion: {
+                            self.tabBarController?.selectedIndex = 3
+                            self.vibrateDevice()
+                        })
+                    }
+                })
+                
+            } else if sendMoney.getOperationType() == 2 {
+                if (MFMessageComposeViewController.canSendText()) {
+                    let controller = MFMessageComposeViewController()
+                    controller.body = "Enric Giribet te invita a que descarges PayPro App!!! http://www.payproapp.com "
+                    controller.recipients = ["666395251"]
+                    controller.messageComposeDelegate = self
+                    self.present(controller, animated: true, completion: nil)
+                } else {
+                    print("no puedo enviar SMS!!")
+                }
             }
         }
     }
@@ -256,20 +274,21 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
     func createTransaction(completion: @escaping (_ createTransactionResponse: Bool) -> Void)
     {
         let amount = String(sendMoney.getAmount())?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
-        let transactionDictionary = [
-            "beneficiary": String(sendMoney.getcontactId()),
-            "amount": amount?.getPennies() as Any,
-            "subject": String(sendMoney.getMessage())!,
-            "title": String("Transaction to "+sendMoney.getBeneficiaryName())!
-        ] as [String : Any]
-
+        let amountPennies:String = (amount?.getPennies())!
+        let subject:String = sendMoney.getMessage()
+        let title:String = String("Transaction to "+sendMoney.getBeneficiaryName())!
+        
         TransactionCreate(
-            transaction: transactionDictionary as NSDictionary,
+            beneficiary: sendMoney.getcontactId(),
+            amount: amountPennies,
+            subject: subject.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
+            title: title.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
             completion: {transactionResponse in
                 
                 print("transaction: \(transactionResponse)")
                 
                 if transactionResponse["status"] as! Bool == true {
+                    print("finishProcess: \(self.sendMoney.getFinishProcess())")
                     self.sendMoney.setFinishProcess(finishProcessValue: 1)
                     completion(true)
                 } else if transactionResponse["errorMessage"] != nil {

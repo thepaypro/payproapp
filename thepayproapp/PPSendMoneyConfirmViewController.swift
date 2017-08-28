@@ -11,6 +11,8 @@ import UIKit
 class PPSendMoneyConfirmViewController: UIViewController
 {
     var sendMoney = SendMoney()
+    var userAccountType = User.currentUser()?.accountType
+    var userStatus = User.currentUser()?.status
     
     override func viewDidLoad()
     {
@@ -30,6 +32,7 @@ class PPSendMoneyConfirmViewController: UIViewController
         self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.view.backgroundColor = UIColor.white
+        
         createGradientLayer()
         addConfirmText()
         transition()
@@ -55,7 +58,16 @@ class PPSendMoneyConfirmViewController: UIViewController
         box.frame = CGRect(x: 0, y:0, width: self.view.frame.width, height: self.view.frame.height)
         
         let labelTop = UILabel()
-        labelTop.text = "You rock!"
+        
+        if self.userAccountType == .demoAccount ||
+            self.userStatus == .statusDemo ||
+            self.userStatus == .statusActivating
+        {
+            labelTop.text = "Fake payment done!"
+        } else {
+            labelTop.text = "You rock!"
+        }
+        
         labelTop.textAlignment = .center
         labelTop.textColor = UIColor.white
         labelTop.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
@@ -71,21 +83,52 @@ class PPSendMoneyConfirmViewController: UIViewController
         self.view.addSubview(labelMiddle)
         
         let labelBottom = UILabel()
-        if sendMoney.getOperationType() == 0 {
-            labelBottom.text = "sent to "+sendMoney.getForename()+" "+sendMoney.getLastname()
-        } else if sendMoney.getOperationType() == 1 || sendMoney.getOperationType() == 2 {
-            labelBottom.text = "sent to "+sendMoney.getBeneficiaryName()
-        }        
+        
+        if self.userAccountType == .demoAccount ||
+            self.userStatus == .statusDemo ||
+            self.userStatus == .statusActivating
+        {
+            labelBottom.text = "This is how a payment would be made"
+        } else {
+            if sendMoney.getOperationType() == 0 {
+                labelBottom.text = "sent to "+sendMoney.getForename()+" "+sendMoney.getLastname()
+            } else if sendMoney.getOperationType() == 1 || sendMoney.getOperationType() == 2 {
+                labelBottom.text = "sent to "+sendMoney.getBeneficiaryName()
+            }
+        }
+        
         labelBottom.textAlignment = .center
         labelBottom.textColor = UIColor.white
         labelBottom.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
         labelBottom.frame = CGRect(x: 0, y: (self.view.frame.height/2) - 55, width: self.view.frame.width, height: 20)
         self.view.addSubview(labelBottom)
+        
+        if self.userAccountType == .demoAccount ||
+            self.userStatus == .statusDemo ||
+            self.userStatus == .statusActivating
+        {
+            let labelFinish = UILabel()
+            labelFinish.text = "Please, activate your account if you want to start making real payments"
+            labelFinish.textAlignment = .center
+            labelFinish.numberOfLines = 0
+            labelFinish.textColor = UIColor.white
+            labelFinish.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
+            labelFinish.frame = CGRect(x: 50, y: (self.view.frame.height/2) + 55, width: self.view.frame.width - 100, height: 80)
+            self.view.addSubview(labelFinish)
+        }
     }
     
     func transition()
     {
-        let when = DispatchTime.now() + 3
+        var when = DispatchTime.now() + 3
+        
+        if self.userAccountType == .demoAccount ||
+            self.userStatus == .statusDemo ||
+            self.userStatus == .statusActivating
+        {
+            when = DispatchTime.now() + 5
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: when) {
             self.dismiss(animated: true, completion: nil)
         }

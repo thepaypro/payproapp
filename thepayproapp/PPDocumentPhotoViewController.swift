@@ -129,7 +129,12 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
             let city: String = (user?.city)!
             let country: String = (user?.country)!
             let countryName: String = (user?.countryName)!
-            let deviceToken = UserDefaults.standard.object(forKey: "deviceToken") as! String
+            
+            var deviceToken = ""
+            
+            if UserDefaults.standard.object(forKey: "deviceToken") != nil {
+                deviceToken = UserDefaults.standard.object(forKey: "deviceToken") as! String
+            }
         
             AccountCreate(
                 agreement: agreement,

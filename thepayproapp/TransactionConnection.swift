@@ -8,18 +8,21 @@
 
 import Foundation
 
-func TransactionCreate(transaction: NSDictionary, completion: @escaping (_ transactionResponse: NSDictionary) -> Void)
+func TransactionCreate(beneficiary:Int, amount:String, subject:String, title:String, completion: @escaping (_ transactionResponse: NSDictionary) -> Void)
 {
-    print("transaction: \(transaction)")
-    makePostRequest(paramsDictionary: transaction as NSDictionary, endpointURL: "transactions", completion: {completionDictionary in
+    let transactionDictionary = [
+        "beneficiary": String(beneficiary),
+        "amount": String(amount)!,
+        "subject": String(subject)!,
+        "title": String(title)!
+        ] as [String : Any]
+    
+    print("transaction: \(transactionDictionary)")
+    makePostRequest(paramsDictionary: transactionDictionary as NSDictionary, endpointURL: "transactions", completion: {completionDictionary in
         
         print("completionDictionary: \(completionDictionary)")
         
         if completionDictionary["transaction"] != nil {
-            let date = Date()
-            let calendar = Calendar.current
-            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
-            
             let transactionDictionary = completionDictionary["transaction"] as! NSDictionary
             
             let beneficiaryTransaction = transactionDictionary.value(forKeyPath: "beneficiary") as! NSDictionary
@@ -35,13 +38,26 @@ func TransactionCreate(transaction: NSDictionary, completion: @escaping (_ trans
             let amountString: String = String(amountNumber)
             let amountPounds: Float = NSString(string: amountString.getPounds()).floatValue
             
+            
+            var date = Date()
+            
+            if let date_json = (transactionDictionary as AnyObject).value(forKeyPath: "createdAt") {
+                let date_text:String = (date_json as AnyObject).value(forKeyPath: "date") as! String
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S"
+                
+                date = dateFormatter.date(from: date_text)!
+            }
+
+            
             let transactionDictionaryResponse = [
                 "id" : transactionDictionary.value(forKeyPath: "id")!,
-                "title": title,
-                "subtitle": subject,
+                "title": title.removingPercentEncoding!,
+                "subtitle": subject.removingPercentEncoding!,
                 "amount": amountPounds,
                 "isPayer": true,
-                "datetime": "\(Int(components.year!))/\(Int(components.month!))/\(Int(components.day!)) \(Int(components.hour!)):\(Int(components.minute!))"
+                "datetime": date
             ]  as [String : Any]
             
             let registerTransaction = Transaction.manage(transactionDictionary: transactionDictionaryResponse as NSDictionary)
@@ -61,14 +77,18 @@ func TransactionGetTransactions(completion: @escaping (_ transactionsResponse: N
     lastTransaction = Transaction.getLastTransaction()
     
     var lastTransaction_id:Int64 = 1
+    var endpointURL: String = "transactions"
+    var endpointParams: String = "page=1&size=20"
     
     if (lastTransaction?.count)! > 0 {
         lastTransaction_id = (lastTransaction?[0].identifier)!
+        endpointURL = "transactions/latest"
+        endpointParams = "transactionId=\(lastTransaction_id)"
     }
     
     print("lastTransaction: \(lastTransaction_id)")
     
-    makeGetRequest(endpointURL: "transactions/latest", paramsURL: "transactionId=\(lastTransaction_id)", completion: {completionDictionary in
+    makeGetRequest(endpointURL: endpointURL, paramsURL: endpointParams, completion: {completionDictionary in
 //        print("completionDictionary: \(completionDictionary)")
         
         if let transactions = completionDictionary["transactions"] {
@@ -89,9 +109,22 @@ func TransactionGetTransactions(completion: @escaping (_ transactionsResponse: N
                         }
                     }
                     
-                    let date = Date()
-                    let calendar = Calendar.current
-                    let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+                    var date = Date()
+                    
+                    if let date_json = (transaction as AnyObject).value(forKeyPath: "createdAt") {
+                        let date_text:String = (date_json as AnyObject).value(forKeyPath: "date") as! String
+                        
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
+                        
+                        date = dateFormatter.date(from: date_text)! //according to date format your date string
+                        
+//                        let calendar = Calendar.current
+//                        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date!)
+//                        
+//                        date_string = "\(components.year!)/\(components.month!)/\(components.day!) \(components.hour!):\(String(format: "%02d",components.minute!))"
+                    }
+                    
                 
                     let amountString: String = (transaction as AnyObject).value(forKeyPath: "amount") as! String
                     let amountPounds: Float = NSString(string: amountString.getPounds()).floatValue
@@ -112,20 +145,27 @@ func TransactionGetTransactions(completion: @escaping (_ transactionsResponse: N
                             title += " "+lastname
                         }
                     }
+                    
+                    let subtitle: String = ((transaction as AnyObject).value(forKeyPath: "subject") as? String)!
 
                     let transactionDictionary = [
                         "id" : (transaction as AnyObject).value(forKeyPath: "id")!,
-                        "title": title,
-                        "subtitle": (transaction as AnyObject).value(forKeyPath: "subject")!,
+                        "title": title.removingPercentEncoding!,
+                        "subtitle": subtitle.removingPercentEncoding!,
                         "amount": amountPounds,
                         "isPayer": is_user_payer,
-                        "datetime": "\(Int(components.year!))/\(Int(components.month!))/\(Int(components.day!)) \(Int(components.hour!)):\(Int(components.minute!))"
+                        "datetime": date
                         ]  as [String : Any]
                 
                     Transaction.manage(transactionDictionary: transactionDictionary as NSDictionary)
                 }
+                
+                completion(["status": true] as NSDictionary)
             }
+        } else if let errorMessage = completionDictionary["errorMessage"] {
+            completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
+        } else {
+            completion(["status": false] as NSDictionary)
         }
-        completion(["status":true] as NSDictionary)
     })
 }

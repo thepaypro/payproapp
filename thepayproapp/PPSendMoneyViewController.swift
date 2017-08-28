@@ -9,8 +9,9 @@
 import UIKit
 import Contacts
 import ContactsUI
+import MessageUI
 
-class PPSendMoneyViewController: UIViewController, PickerDelegate
+class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComposeViewControllerDelegate
 {
     var sendMoney = SendMoney()
     
@@ -62,14 +63,26 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate
     
     func ContactInvite(contact: Contact)
     {
-        self.sendMoney.setLoadProcess(loadProcessValue: 1)
-        self.sendMoney.setOperationType(operationTypeValue: 2)
-        self.sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.displayName())
-        self.sendMoney.setphoneNumber(phoneNumberValue: contact.getPhoneNumber())
-        
-        self.dismiss(animated: true, completion: {
-            self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
-        })
+//        self.sendMoney.setLoadProcess(loadProcessValue: 1)
+//        self.sendMoney.setOperationType(operationTypeValue: 2)
+//        self.sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.displayName())
+//        self.sendMoney.setphoneNumber(phoneNumberValue: contact.getPhoneNumber())
+//        
+//        self.dismiss(animated: true, completion: {
+//            self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
+//        })
+        print(contact.getPhoneNumber())
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = "Hi! I am trying to send you money via PayPro but I see you don't have an account. Can you download it so you can instantly have the money? It's on the AppStore :)"
+            controller.recipients = [contact.getPhoneNumber()]
+            controller.messageComposeDelegate = self
+            self.dismiss(animated: true, completion: {
+                self.present(controller, animated: true, completion: nil)
+            })
+        } else {
+            print("no puedo enviar SMS!!")
+        }
     }
     
     func ContactSendInApp(contact: Contact)
@@ -110,7 +123,6 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate
             alert.addAction(bankTransfeButtonAction)
         
             let inviteButtonAction = UIAlertAction(title: "Invite someone to PayPro", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
-                print("Second Button pressed")
                 
                 self.sendMoney.setLoadProcess(loadProcessValue: 1)
                 self.sendMoney.setOperationType(operationTypeValue: 2)
@@ -154,6 +166,49 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate
         print("The following contacts are selected")
         for contact in contacts {
             print("\(contact.displayName())")
+        }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.sendMoney.setLoadProcess(loadProcessValue: 0)
+        
+        switch (result.rawValue) {
+        case MessageComposeResult.cancelled.rawValue:
+            print("Message was cancelled")
+            
+            self.dismiss(animated: true, completion: {
+                let alert = UIAlertController(title: "SMS Cancelled", message: "The message has been successfully canceled.", preferredStyle: UIAlertControllerStyle.alert)
+                let confirmAction = UIAlertAction(title: "Ok", style: .default)
+                
+                alert.addAction(confirmAction)
+                
+                self.present(alert, animated: true, completion: {
+                    self.tabBarController?.selectedIndex = 3
+                    self.dismiss(animated: true, completion: nil)
+                })
+            })
+        case MessageComposeResult.failed.rawValue:
+            print("Message failed")
+            
+            self.dismiss(animated: true, completion: {
+                let alert = UIAlertController(title: "Failed message", message: "Oops! Something went wrong, please try again. If you see the error persists, please contact us at \"Support\".", preferredStyle: UIAlertControllerStyle.alert)
+                let confirmAction = UIAlertAction(title: "Ok", style: .default)
+                
+                alert.addAction(confirmAction)
+                
+                self.present(alert, animated: true, completion: {
+                    self.tabBarController?.selectedIndex = 3
+                    self.dismiss(animated: true, completion: nil)
+                })
+            })
+        case MessageComposeResult.sent.rawValue:
+            print("Message was sent")
+            self.dismiss(animated: true, completion: {
+                self.tabBarController?.selectedIndex = 3
+            })
+            
+        default:
+            break;
         }
     }
     

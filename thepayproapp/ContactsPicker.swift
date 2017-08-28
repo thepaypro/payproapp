@@ -73,7 +73,8 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
     func initializeSearchBar() {
         self.resultSearchController = ( {
             let box = UIView()
-            box.frame = CGRect(x: 0, y:0, width: self.tableView.frame.width , height: 88)
+//            box.frame = CGRect(x: 0, y:0, width: self.tableView.frame.width , height: 88)
+            box.frame = CGRect(x: 0, y:0, width: self.tableView.frame.width , height: 44)
             box.backgroundColor = UIColor.clear
             
             let controller = UISearchController(searchResultsController: nil)
@@ -88,32 +89,32 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
             
             box.addSubview(controller.searchBar)
             
-            let notInContactList = UIView()
-            notInContactList.frame = CGRect(x: 0, y:44, width: box.frame.width , height: 44)
-            
-            let button = UIButton()
-            button.frame = CGRect(x:0, y:0, width: box.frame.width, height: 44)
-            button.backgroundColor = UIColor.clear
-            button.addTarget(self, action: #selector(pressNotInMyContactList), for: .touchUpInside)
-            
-            notInContactList.addSubview(button)
-            
-            let plusImage = UIImage(named: "contactAdd")
-            let plusImageView = UIImageView(image: plusImage!)
-            plusImageView.frame = CGRect(x:15, y: 8, width: 29, height: 29)
-            
-            notInContactList.addSubview(plusImageView)
-            
-            let label = UILabel()
-            label.text = "Not in my contact list"
-            label.textAlignment = .center
-            label.textColor = PayProColors.blue
-            label.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightLight)
-            label.frame = CGRect(x: 40, y: 12, width: 200, height: 20)
-            
-            notInContactList.addSubview(label)
-            
-            box.addSubview(notInContactList)
+//            let notInContactList = UIView()
+//            notInContactList.frame = CGRect(x: 0, y:44, width: box.frame.width , height: 44)
+//            
+//            let button = UIButton()
+//            button.frame = CGRect(x:0, y:0, width: box.frame.width, height: 44)
+//            button.backgroundColor = UIColor.clear
+//            button.addTarget(self, action: #selector(pressNotInMyContactList), for: .touchUpInside)
+//            
+//            notInContactList.addSubview(button)
+//            
+//            let plusImage = UIImage(named: "contactAdd")
+//            let plusImageView = UIImageView(image: plusImage!)
+//            plusImageView.frame = CGRect(x:15, y: 8, width: 29, height: 29)
+//            
+//            notInContactList.addSubview(plusImageView)
+//            
+//            let label = UILabel()
+//            label.text = "Not in my contact list"
+//            label.textAlignment = .center
+//            label.textColor = PayProColors.blue
+//            label.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightLight)
+//            label.frame = CGRect(x: 40, y: 12, width: 200, height: 20)
+//            
+//            notInContactList.addSubview(label)
+//            
+//            box.addSubview(notInContactList)
             
             self.tableView.tableHeaderView = box
             return controller
@@ -385,16 +386,13 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
             resultSearchController.isActive = false
 //            self.contactDelegate?.ContactPicker(self, didSelectContact: selectedContact)
             
-            print("Contact \(selectedContact.displayName()) has been selected")
-            print("getIsPayProUser: \(selectedContact.getIsPayProUser())")
-            
             if selectedContact.getIsPayProUser() == false {
                 let alert = UIAlertController(title: "Send money by", message: "", preferredStyle: .actionSheet)
                 
-                let bankTransfeButtonAction = UIAlertAction(title: "Bank transfer", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
-                    self.contactDelegate?.ContactBankTransfer(contact: selectedContact)
-                })
-                alert.addAction(bankTransfeButtonAction)
+//                let bankTransfeButtonAction = UIAlertAction(title: "Bank transfer", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
+//                    self.contactDelegate?.ContactBankTransfer(contact: selectedContact)
+//                })
+//                alert.addAction(bankTransfeButtonAction)
                 
                 let inviteButtonAction = UIAlertAction(title: "Invite someone to PayPro", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
                     self.contactDelegate?.ContactInvite(contact: selectedContact)

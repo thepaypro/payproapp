@@ -90,6 +90,8 @@ extension User {
             ] as [String : Any]
         
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "login_check", completion: {completionDictionary in
+            print("login response: \(completionDictionary)")
+            
             if let userDictionary = completionDictionary["user"] as? NSDictionary
             {
                 var accountDictionary:NSDictionary?
@@ -152,12 +154,16 @@ extension User {
                             ]
                             
                             let accountUser = self.manage(userDictionary: accountDictionary!)
-                            
                             let loggedUser = self.manage(userDictionary: userDictionary)
                             
-                            TransactionGetTransactions(completion: {transactionsResponse in
-                                completion(["status":loggedUser != nil && accountUser != nil] as NSDictionary)
-                            })
+                            if loggedUser != nil && accountUser != nil {
+                                TransactionGetTransactions(completion: {transactionsResponse in
+                                    print("transactionResponse: \(transactionsResponse)")
+                                    completion(transactionsResponse)
+                                })
+                            } else {
+                                completion(["status":false] as NSDictionary)
+                            }
                         })
                     }
                 } else {
@@ -175,8 +181,11 @@ extension User {
                     let loggedUser = self.manage(userDictionary: userDictionary)
                     completion(["status":loggedUser != nil && accountUser != nil] as NSDictionary)
                 }
+            
+            } else if let errorMessage = completionDictionary["errorMessage"] {
+                completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
             } else {
-                completion(completionDictionary)
+                completion(["status": false] as NSDictionary)
             }
         })
     }

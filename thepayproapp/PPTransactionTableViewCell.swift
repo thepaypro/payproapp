@@ -32,7 +32,11 @@ class PPTransactionTableViewCell: UITableViewCell
     {
         titleLabel.text = transaction.title
         subtitleLabel.text = transaction.subtitle
-        datetimeLabel.text = transaction.datetime
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //Your date format
+        
+        datetimeLabel.text = dateFormatter.string(from: transaction.datetime!)
         
         quantityLabel.text = "£\(abs(transaction.amount))"
         

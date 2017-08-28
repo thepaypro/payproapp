@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class PPSettingsViewController: UIViewController {
+class PPSettingsViewController: UIViewController, MFMessageComposeViewControllerDelegate {
 
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var cardView: UIView!
@@ -23,6 +24,22 @@ class PPSettingsViewController: UIViewController {
         CardUpdateStatus(status: self.disableCardSwitch.isOn, completion: {cardUpdateResponse in
             print("cardUpdateResponse: \(cardUpdateResponse)")
         })
+    }
+//    @IBAction func rateButtonAction(_ sender: Any) {
+//        rateApp(appId: "1225181484") { success in
+//            print("RateApp \(success)")
+//        }
+//    }
+    @IBAction func tellButtonAction(_ sender: Any) {
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = "Hi! Just wanted to show you this new App called \"PayPro\", it works for sharing, sending and spending money with friends. It's on the AppStore!"
+//            controller.recipients = ["666395251"]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        } else {
+            print("no puedo enviar SMS!!")
+        }
     }
     
     
@@ -92,11 +109,11 @@ class PPSettingsViewController: UIViewController {
         infoLayerMiddleB.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayerMiddleB)
         
-        let infoBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 131.6, width: self.view.frame.width, height: 0.4))
-        let infoLayerBottom = CAShapeLayer()
-        infoLayerBottom.path = infoBorderBottom.cgPath
-        infoLayerBottom.fillColor = PayProColors.line.cgColor
-        self.infoView.layer.addSublayer(infoLayerBottom)
+//        let infoBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 131.6, width: self.view.frame.width, height: 0.4))
+//        let infoLayerBottom = CAShapeLayer()
+//        infoLayerBottom.path = infoBorderBottom.cgPath
+//        infoLayerBottom.fillColor = PayProColors.line.cgColor
+//        self.infoView.layer.addSublayer(infoLayerBottom)
         
         self.setupView()
     }
@@ -122,7 +139,7 @@ class PPSettingsViewController: UIViewController {
             avatarImage.contentMode = .scaleToFill
             avatarImage.image = UIImage(named:"default-profile")
         }
-        print("user status: \(User.currentUser()?.status.rawValue)")
+        
         if User.currentUser()?.status == User.Status.statusActivated {
             self.nameLabel.text = (User.currentUser()?.forename)!+" "+(User.currentUser()?.lastname)!
         } else {
@@ -138,6 +155,54 @@ class PPSettingsViewController: UIViewController {
             User.currentUser()?.cardStatus == User.CardStatus.disabled {
             self.disableCardSwitch.isEnabled = true
         }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        switch (result.rawValue) {
+        case MessageComposeResult.cancelled.rawValue:
+            print("Message was cancelled")
+            
+            self.dismiss(animated: true, completion: {
+                let alert = UIAlertController(title: "SMS Cancelled", message: "The message has been successfully canceled.", preferredStyle: UIAlertControllerStyle.alert)
+                let confirmAction = UIAlertAction(title: "Ok", style: .default)
+                
+                alert.addAction(confirmAction)
+                
+                self.present(alert, animated: true, completion: nil)
+            })
+        case MessageComposeResult.failed.rawValue:
+            print("Message failed")
+            
+            self.dismiss(animated: true, completion: {
+                let alert = UIAlertController(title: "Failed message", message: "Oops! Something went wrong, please try again. If you see the error persists, please contact us at \"Support\".", preferredStyle: UIAlertControllerStyle.alert)
+                let confirmAction = UIAlertAction(title: "Ok", style: .default)
+                
+                alert.addAction(confirmAction)
+                
+                self.present(alert, animated: true, completion: nil)
+            })
+        case MessageComposeResult.sent.rawValue:
+            
+            self.dismiss(animated: true, completion: {
+                self.tabBarController?.selectedIndex = 3
+            })
+            
+        default:
+            break;
+        }
+    }
+    
+    func rateApp(appId: String, completion: @escaping ((_ success: Bool)->())) {
+        guard let url = URL(string : "itms-apps://itunes.apple.com/app/" + appId) else {
+            completion(false)
+            return
+        }
+        guard #available(iOS 10, *) else {
+            completion(UIApplication.shared.openURL(url))
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: completion)
     }
 
     override func didReceiveMemoryWarning() {

@@ -8,13 +8,17 @@
 
 import UIKit
 
-class PPSupportViewController: UIViewController
+class PPSupportViewController: UIViewController, UIWebViewDelegate
 {
-    @IBOutlet weak var chatWV: UIWebView!
+    @IBOutlet weak var webView: UIWebView!
+    
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.webView.delegate = self
         
         self.title = "Support"
         
@@ -31,6 +35,8 @@ class PPSupportViewController: UIViewController
         {
             self.loadSupportChat()
         }
+        
+        self.webView.addSubview(self.activityIndicator)
     }
     
     override func didReceiveMemoryWarning()
@@ -46,7 +52,7 @@ class PPSupportViewController: UIViewController
         if let url = URL(string: chatURL)
         {
             let request = URLRequest(url: url)
-            chatWV.loadRequest(request)
+            webView.loadRequest(request)
         }
     }
     
@@ -60,4 +66,32 @@ class PPSupportViewController: UIViewController
      }
      */
     
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        showActivityIndicator()
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        hideActivityIndicator()
+    }
+    
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        showActivityIndicator()
+    }
+    
+    func showActivityIndicator()
+    {
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        self.view.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+    }
+    
+    func hideActivityIndicator()
+    {
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
+    }
 }

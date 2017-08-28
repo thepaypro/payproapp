@@ -20,7 +20,7 @@ extension String {
     
     func getPounds() -> String {
         let amount = self
-        print("amount: \(amount)")
+
         let pounds = Double(amount)! / Double(100)
         
         return String(pounds)

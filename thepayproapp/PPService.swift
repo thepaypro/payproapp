@@ -92,38 +92,42 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
             request.addValue("Bearer "+tokenAccess!, forHTTPHeaderField: "Authorization")
         }
         
-        let task = URLSession.shared.dataTask(with: request as URLRequest)
-        {
-            (data, response, error) -> Void in
+            let task = URLSession.shared.dataTask(with: request as URLRequest)
+            {
+                (data, response, error) -> Void in
             
-            if (error != nil)
-            {
-                print("erroooooooooooooooor")
-                print(error!)
-            }
-            else
-            {
-                DispatchQueue.main.async(execute:
-                    {
-                        if let json = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? NSDictionary
+                if (error != nil)
+                {
+                    print("----")
+                    print(response)
+                    print("erroooooooooooooooor")
+                    print(error!)
+                    DispatchQueue.main.async(execute: {
+                        completion(["status":false, "message":"", "errorMessage":"internet_connection_error"])
+                    })
+                }
+                else
+                {
+                    DispatchQueue.main.async(execute:
                         {
-                            if json["token"] != nil {
-                                UserDefaults.standard.setValue(json["token"], forKey: "token")
-                            }
+                            if let json = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? NSDictionary
+                            {
+                                if json["token"] != nil {
+                                    UserDefaults.standard.setValue(json["token"], forKey: "token")
+                                }
                             
-                            completion(json)
-                        }
-                        else
-                        {
-                            print("EMPTY JSON")
-                            completion(["status":false])
-                        }
-                })
+                                completion(json)
+                            }
+                            else
+                            {
+                                print("EMPTY JSON")
+                                completion(["status":false])
+                            }
+                    })
+                }
             }
-        }
         
-        task.resume()
-        
+            task.resume()
     }
     else
     {

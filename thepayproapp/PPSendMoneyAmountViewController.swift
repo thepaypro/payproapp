@@ -21,7 +21,6 @@ class PPSendMoneyAmountViewController: UIViewController
         super.viewDidLoad()
         
         //disabled block load process
-        sendMoney.setLoadProcess(loadProcessValue: 0)
         
         amountField.addTarget(self, action: #selector(amountFieldDidChange), for: .editingChanged)
         messageField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
@@ -42,6 +41,7 @@ class PPSendMoneyAmountViewController: UIViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.sendMoney.setLoadProcess(loadProcessValue: 0)
         self.amountField.becomeFirstResponder()
     }
     

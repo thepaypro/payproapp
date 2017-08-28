@@ -8,15 +8,21 @@
 
 import UIKit
 
-class PPInfoWebViewController: UIViewController
+class PPInfoWebViewController: UIViewController, UIWebViewDelegate
 {
     @IBOutlet weak var webView: UIWebView!
+    
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    var activityFinished = 0
     
     var loadOption = 0
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.webView.delegate = self
         
         var faqsURL = URL(string: "https://www.thepaypro.com")
         
@@ -29,7 +35,7 @@ class PPInfoWebViewController: UIViewController
             self.title = "Terms & Conditions"
             
         } else if loadOption == 2 {
-            faqsURL = URL(string: "https://www.thepaypro.com")
+            faqsURL = URL(string: "http://payproapp.boards.net/")
             self.title = "Community"
             
         } else if loadOption == 3 {
@@ -47,7 +53,37 @@ class PPInfoWebViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        if activityFinished == 0 {
+            showActivityIndicator()
+        }
+    }
     
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        hideActivityIndicator()
+    }
+    
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        showActivityIndicator()
+    }
+    
+    func showActivityIndicator()
+    {
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        self.view.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+//        UIApplication.shared.beginIgnoringInteractionEvents()
+    }
+    
+    func hideActivityIndicator()
+    {
+        print("00000")
+        activityIndicator.stopAnimating()
+//        UIApplication.shared.endIgnoringInteractionEvents()
+    }
 }
 
 

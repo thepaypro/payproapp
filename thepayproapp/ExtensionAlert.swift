@@ -9,7 +9,8 @@
 import UIKit
 
 extension UIAlertController {
-    func displayAlert(code: String) -> UIAlertController {
+    func displayAlert(code: String, actionConfirm: Any = "") -> UIAlertController {
+        print("action: \(actionConfirm)")
         switch code {
         case "error":
             let alert = UIAlertController(
@@ -132,6 +133,30 @@ extension UIAlertController {
             let confirmAction = UIAlertAction(
                 title: "Ok",
                 style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
+        
+        case "internet_connection_error":
+            let alert = UIAlertController(
+                title: "Internet connection may not work properly :(",
+                message: "The data may not be updated correctly",
+                preferredStyle: UIAlertControllerStyle.alert)
+            
+            var confirmAction = UIAlertAction(
+                title: "Ok",
+                style: .default)
+            
+            if actionConfirm != nil {
+                confirmAction = UIAlertAction(
+                    title: "Ok",
+                    style: .default,
+                    handler: { action in
+                        actionConfirm
+                    }
+                )
+            }
             
             alert.addAction(confirmAction)
             
