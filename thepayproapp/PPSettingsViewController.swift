@@ -97,7 +97,7 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
         infoLayerTop.fillColor = PayProColors.line.cgColor
         self.infoView.layer.addSublayer(infoLayerTop)
         
-        let infoBorderMiddle = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
+        let infoBorderMiddle = UIBezierPath(rect: CGRect(x: 58, y: 43.6, width: self.view.frame.width, height: 0.4))
         let infoLayerMiddle = CAShapeLayer()
         infoLayerMiddle.path = infoBorderMiddle.cgPath
         infoLayerMiddle.fillColor = PayProColors.line.cgColor

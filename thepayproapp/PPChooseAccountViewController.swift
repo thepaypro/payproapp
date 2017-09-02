@@ -88,17 +88,19 @@ class PPChooseAccountViewController: UIViewController, UIScrollViewDelegate
     {
 //        proAccountSelected = true
         
-        proViewHeight.constant = 267.0
-        proCheck.isHidden = false
-        proTitleLabel.textColor = UIColor.white
-        proSubtitleLabel.textColor = UIColor.white
-        proHeaderIV.image = UIImage(named: "proSelected")
+//        proViewHeight.constant = 267.0
+//        proCheck.isHidden = false
+//        proTitleLabel.textColor = UIColor.white
+//        proSubtitleLabel.textColor = UIColor.white
+//        proHeaderIV.image = UIImage(named: "proSelected")
+//        
+//        basicViewHeight.constant = 80.0
+//        basicCheck.isHidden = true
+//        basicTitleLabel.textColor = PayProColors.darkBlue
+//        basicSubtitleLabel.textColor = PayProColors.darkBlue
+//        basicHeaderIV.image = UIImage(named: "basic")
         
-        basicViewHeight.constant = 80.0
-        basicCheck.isHidden = true
-        basicTitleLabel.textColor = PayProColors.darkBlue
-        basicSubtitleLabel.textColor = PayProColors.darkBlue
-        basicHeaderIV.image = UIImage(named: "basic")
+        selectBasic()
     }
     
     func selectBasic()
@@ -111,7 +113,8 @@ class PPChooseAccountViewController: UIViewController, UIScrollViewDelegate
         basicSubtitleLabel.textColor = UIColor.white
         basicHeaderIV.image = UIImage(named: "basicSelected")
         
-        proViewHeight.constant = 80.0
+//        proViewHeight.constant = 80.0
+        proViewHeight.constant = 125.0
         proCheck.isHidden = true
         proTitleLabel.textColor = PayProColors.darkBlue
         proSubtitleLabel.textColor = PayProColors.darkBlue

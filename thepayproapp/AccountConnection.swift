@@ -22,7 +22,7 @@ func AccountCreate(
     documentFront: String,
     documentBack: String,
     deviceToken: String,
-    completion: @escaping (_ success: Bool) -> Void)
+    completion: @escaping (_ success: NSDictionary) -> Void)
 {
     let paramsDictionary = [
         "agreement": agreement,
@@ -43,9 +43,11 @@ func AccountCreate(
     makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "account-requests", completion: {completionDictionary in
         print("completionDictionary: \(completionDictionary)")
         if completionDictionary["emailSended"] != nil {
-            completion(completionDictionary["emailSended"] as! Bool)
+            completion(["status": completionDictionary["emailSended"] as! Bool] as NSDictionary)
+        } else if let errorMessage = completionDictionary["errorMessage"] {
+            completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
         } else {
-            completion(false)
+            completion(["status": false] as NSDictionary)
         }
     })
 }

@@ -24,8 +24,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Groups View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="57" y="263" width="206" height="42"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Coming soon" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
+                                <rect key="frame" x="54" y="263" width="212.5" height="42"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -3909,8 +3909,8 @@ in PayPro</string>
                                     <constraint firstItem="cSp-It-bkI" firstAttribute="centerY" secondItem="oNn-hj-0r9" secondAttribute="centerY" id="yA1-X5-pye"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hS-Gm-Ylg">
-                                <rect key="frame" x="46" y="218.5" width="228" height="267"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2hS-Gm-Ylg">
+                                <rect key="frame" x="46" y="218.5" width="228" height="125"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="proSelected" translatesAutoresizingMaskIntoConstraints="NO" id="gud-3B-bZp">
                                         <rect key="frame" x="0.0" y="0.0" width="228" height="80"/>
@@ -3937,14 +3937,14 @@ in PayPro</string>
                                             <constraint firstAttribute="width" constant="23" id="aH8-rp-ngf"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZY-be-bVG">
-                                        <rect key="frame" x="0.0" y="80" width="228" height="187"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KZY-be-bVG">
+                                        <rect key="frame" x="0.0" y="80" width="228" height="45"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="descriptionBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Qvx-8K-scf">
-                                                <rect key="frame" x="0.0" y="0.0" width="228" height="187"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="descriptionBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Qvx-8K-scf">
+                                                <rect key="frame" x="0.0" y="0.0" width="228" height="45"/>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L1z-No-CcU">
-                                                <rect key="frame" x="0.0" y="0.0" width="228" height="187"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L1z-No-CcU">
+                                                <rect key="frame" x="0.0" y="0.0" width="228" height="45"/>
                                                 <attributedString key="attributedText"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>

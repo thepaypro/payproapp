@@ -89,7 +89,6 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
     
     func nextTapped()
     {
-        print("1")
         if changePassword == true {
             if firstPassword != nil {
                 self.displayNavBarActivity()
@@ -137,9 +136,8 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
                 }
             } else {
                 self.displayNavBarActivity()
-print("2")
+                
                 User.login(username: self.userUsername!, password: self.passcodeTF.text!, completion: {loginResponse in
-                print("3")
                     self.dismissNavBarActivity()
                 
                     if loginResponse["status"] as! Bool == true {
