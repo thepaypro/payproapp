@@ -148,12 +148,14 @@ extension UIAlertController {
                 title: "Ok",
                 style: .default)
             
-            if actionConfirm != nil {
+            let ac:Any = actionConfirm
+            
+            if type(of: ac) is AnyClass{
                 confirmAction = UIAlertAction(
                     title: "Ok",
                     style: .default,
                     handler: { action in
-                        actionConfirm
+                        ac
                     }
                 )
             }
