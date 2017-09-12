@@ -37,21 +37,31 @@ func CardConnection(completion: @escaping (_ cardResponse: NSDictionary) -> Void
     })
 }
 
-func CardActivation(activationCode: String, pinCode: String, confirmCode: String, completion: @escaping (_ cardResponse: NSDictionary) -> Void)
+func CardActivation(activationCode: String,  cardNum: String, completion: @escaping (_ cardResponse: NSDictionary) -> Void)
 {
     print("activationCode: \(activationCode)")
-    print("pinCode: \(pinCode)")
-    print("confirmCode: \(confirmCode)")
+    print("cardNum: \(cardNum)")
     
-    makePostRequest(paramsDictionary: [:] as NSDictionary, endpointURL: "cards/activation", completion: {completionDictionary in
-        
-        print("completionDictionary: \(completionDictionary)")
-        
+//    makePostRequest(paramsDictionary: [:] as NSDictionary, endpointURL: "cards/activation", completion: {completionDictionary in
+    
+//        print("completionDictionary: \(completionDictionary)")
+    
         User.currentUser()?.cardStatus = User.CardStatus.activated
         
-        completion(["status": true] as NSDictionary)
-    })
+        completion(["status": true,"errorMessage": ""] as NSDictionary)
+//    })
 }
+
+func GetPin (completion: @escaping (_ cardResponse: NSDictionary) -> Void)
+{
+    //    makePostRequest(paramsDictionary: [:] as NSDictionary, endpointURL: "cards/activation", completion: {completionDictionary in
+    
+    //        print("completionDictionary: \(completionDictionary)")
+    
+    completion(["status": true,"errorMessage": "","pin": "4321"] as NSDictionary)
+    //    })
+}
+
 
 func CardUpdateStatus(status: Bool, completion: @escaping (_ cardResponse: NSDictionary) -> Void)
 {

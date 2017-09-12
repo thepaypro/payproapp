@@ -13,12 +13,15 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
 
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var pinView: UIView!
     @IBOutlet weak var upgradeView: UIView!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameArrow: UIImageView!
     @IBOutlet weak var disableCardSwitch: UISwitch!
+    
+    var visiblePinScreenTime : Int = 15
     
     @IBAction func disableCardAction(_ sender: Any) {
         CardUpdateStatus(status: self.disableCardSwitch.isOn, completion: {cardUpdateResponse in
@@ -40,6 +43,10 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
         } else {
             print("no puedo enviar SMS!!")
         }
+    }
+    
+    @IBAction func viewPin(_ sender: Any) {
+        
     }
     
     
@@ -76,6 +83,18 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
         cardLayerBottom.path = cardBorderBottom.cgPath
         cardLayerBottom.fillColor = PayProColors.line.cgColor
         self.cardView.layer.addSublayer(cardLayerBottom)
+        
+        let pinBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
+        let pinLayerTop = CAShapeLayer()
+        pinLayerTop.path = pinBorderTop.cgPath
+        pinLayerTop.fillColor = PayProColors.line.cgColor
+        self.pinView.layer.addSublayer(pinLayerTop)
+        
+        let pinBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
+        let pinLayerBottom = CAShapeLayer()
+        pinLayerBottom.path = pinBorderBottom.cgPath
+        pinLayerBottom.fillColor = PayProColors.line.cgColor
+        self.pinView.layer.addSublayer(pinLayerBottom)
         
         
         let upgradeBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
@@ -227,5 +246,12 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
             let changePasscodeVC : PPPasscodeViewController = segue.destination as! PPPasscodeViewController
             changePasscodeVC.changePassword = true
         }
+        if segue.identifier == "showPINCodeFromSettingsSegue" {
+            let PINCodeVC : PPCardPinViewAfterActivationFormController = segue.destination as! PPCardPinViewAfterActivationFormController
+            PINCodeVC.visiblePinScreenTime = self.visiblePinScreenTime
+                
+            }
+        
+        
     }
 }

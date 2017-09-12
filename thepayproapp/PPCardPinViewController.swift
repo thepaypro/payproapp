@@ -17,6 +17,7 @@ class PPCardPinViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var cardActivationTF: UITextField!
     
     var activateCode: String?
+    var cardNum: String?
     var newPINCode: String?
     
     override func viewDidLoad() {
@@ -53,7 +54,7 @@ class PPCardPinViewController: UIViewController, UITextFieldDelegate
             self.performSegue(withIdentifier: "showConfirmPINCodeSegue", sender: nil)
         }
         else {
-            CardActivation(
+            /*CardActivation(
                 activationCode: self.activateCode!,
                 pinCode: self.newPINCode!,
                 confirmCode: self.cardActivationTF.text!,
@@ -64,7 +65,7 @@ class PPCardPinViewController: UIViewController, UITextFieldDelegate
                         self.navigationController?.popToRootViewController(animated: false)
                     }
                 }
-            )
+            )*/
         }
     }
     
