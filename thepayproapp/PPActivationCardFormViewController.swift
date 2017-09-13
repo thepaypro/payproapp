@@ -11,23 +11,23 @@ import UIKit
 class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate
 {
     @IBOutlet weak var verCodeView: UIView!
-    @IBOutlet weak var cardNumView: UIView!
+    @IBOutlet weak var PANView: UIView!
     @IBOutlet weak var verCodeInput: UITextField!
-    @IBOutlet weak var cardNumInput: UITextField!
-    let visiblePinScreenTime: Int = 10
+    @IBOutlet weak var PANInput: UITextField!
+    
     let verCodeMaxLength: Int = 3
-    let cardNumMaxLength: Int = 19
-    let cardNumMatchCharacter:  String = "1234567890 "
+    let PANMaxLength: Int = 19
+    let PANMatchCharacter:  String = "1234567890 "
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         verCodeInput.delegate = self
-        cardNumInput.delegate = self
+        PANInput.delegate = self
         
         self.navigationItem.rightBarButtonItem?.isEnabled = false
         verCodeInput.addTarget(self, action: #selector(editingVerCodeChanged), for: .editingChanged)
-        cardNumInput.addTarget(self, action: #selector(editingCardNumChanged), for: .editingChanged)
+        PANInput.addTarget(self, action: #selector(editingPANChanged), for: .editingChanged)
         
         let borderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.40))
         let layerTop = CAShapeLayer()
@@ -45,7 +45,7 @@ class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate,
         let layerBottom = CAShapeLayer()
         layerBottom.path = borderBottom.cgPath
         layerBottom.fillColor = PayProColors.line.cgColor
-        self.cardNumView.layer.addSublayer(layerBottom)
+        self.PANView.layer.addSublayer(layerBottom)
     
     }
     
@@ -54,7 +54,7 @@ class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate,
         self.displayNavBarActivity()
         CardActivation(
             cardActivationCode: self.verCodeInput.text!,
-            PAN: self.cardNumInput.text!,
+            PAN: self.PANInput.text!,
             completion: {
                 cardActivationResponse in
                 self.dismissNavBarActivity()
@@ -90,8 +90,8 @@ class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate,
         switch textField {
         case verCodeInput:
             shouldChange = fulfildVerCodeFormat(text: prospectiveText as String)
-        case cardNumInput:
-            shouldChange = fulfildCardNumFormat(text: prospectiveText as String)
+        case PANInput:
+            shouldChange = fulfildPANFormat(text: prospectiveText as String)
         default:
             break;
         }
@@ -101,56 +101,56 @@ class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate,
         return text.characters.count <= verCodeMaxLength
     }
     
-    func fulfildCardNumFormat(text: String) -> Bool {
-        let disallowedCharacterSet = CharacterSet(charactersIn: cardNumMatchCharacter).inverted
-        return (text.characters.count <= cardNumMaxLength) && (text.rangeOfCharacter(from: disallowedCharacterSet) == nil)
+    func fulfildPANFormat(text: String) -> Bool {
+        let disallowedCharacterSet = CharacterSet(charactersIn: PANMatchCharacter).inverted
+        return (text.characters.count <= PANMaxLength) && (text.rangeOfCharacter(from: disallowedCharacterSet) == nil)
     }
     
     func editingVerCodeChanged() {
-        if (cardNumInput.text?.characters.count == cardNumMaxLength && verCodeInput.text?.characters.count == verCodeMaxLength){
+        if (PANInput.text?.characters.count == PANMaxLength && verCodeInput.text?.characters.count == verCodeMaxLength){
             self.navigationItem.rightBarButtonItem?.isEnabled = true
         }else if (verCodeInput.text?.characters.count == verCodeMaxLength){
-            cardNumInput.becomeFirstResponder()
+            PANInput.becomeFirstResponder()
         }else {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
         }
     }
     
-    func editingCardNumChanged() {
-        if(!(cardNumInput.text?.characters.isEmpty)!){
+    func editingPANChanged() {
+        if(!(PANInput.text?.characters.isEmpty)!){
             
             var spacesAdded:Int = 0
-            let cardNumArrayNoFilter = cardNumInput.text?.characters.map{String($0)}
-            var cardNumArray = cardNumInput.text?.characters.filter {![" ", "\t", "\n"].contains($0)}
-            print("cardNumArray \(cardNumArray)")
+            let PANArrayNoFilter = PANInput.text?.characters.map{String($0)}
+            var PANArray = PANInput.text?.characters.filter {![" ", "\t", "\n"].contains($0)}
+            print("PANArray \(PANArray)")
             
-            var cursorPosition: Int = cardNumInput.offset(from: cardNumInput.beginningOfDocument, to: (cardNumInput.selectedTextRange?.start)!)
+            var cursorPosition: Int = PANInput.offset(from: PANInput.beginningOfDocument, to: (PANInput.selectedTextRange?.start)!)
         
             let spacePosArray:Array = ["4","8","12"]
-            for (index,_) in (cardNumArray!.enumerated())  {
+            for (index,_) in (PANArray!.enumerated())  {
                 if (spacePosArray.contains(String(index))){
-                    cardNumArray!.insert(" ", at: index + spacesAdded)
-                    print("cardNumArrayInFor \(cardNumArray)")
-                    print("cardNumArrayNoFilter \(cardNumArrayNoFilter)")
-                    if(cursorPosition < (cardNumArray?.count)! ? cardNumArray?[cursorPosition-1] == " " && cardNumArrayNoFilter?[cursorPosition-1] != " " && index == cursorPosition-1-spacesAdded : false){
+                    PANArray!.insert(" ", at: index + spacesAdded)
+                    print("PANArrayInFor \(PANArray)")
+                    print("PANArrayNoFilter \(PANArrayNoFilter)")
+                    if(cursorPosition < (PANArray?.count)! ? PANArray?[cursorPosition-1] == " " && PANArrayNoFilter?[cursorPosition-1] != " " && index == cursorPosition-1-spacesAdded : false){
                         cursorPosition += 1
-                    }else if(cursorPosition < (cardNumArray?.count)! ? (cardNumArray?[cursorPosition-1] == " " && index == cursorPosition-1-spacesAdded) : false){
+                    }else if(cursorPosition < (PANArray?.count)! ? (PANArray?[cursorPosition-1] == " " && index == cursorPosition-1-spacesAdded) : false){
                         cursorPosition -= 1
                     }
                     spacesAdded += 1
                 }
             }
   
-            cardNumInput.text = cardNumArray.map{String($0)}
+            PANInput.text = PANArray.map{String($0)}
         
-            let newCursorPosition: UITextPosition? = cardNumInput.position(from: cardNumInput.beginningOfDocument, offset: cursorPosition > (cardNumArray?.count)! ? (cardNumArray?.count)! : cursorPosition)
+            let newCursorPosition: UITextPosition? = PANInput.position(from: PANInput.beginningOfDocument, offset: cursorPosition > (PANArray?.count)! ? (PANArray?.count)! : cursorPosition)
         
-            cardNumInput.selectedTextRange = cardNumInput.textRange(from: newCursorPosition!, to: newCursorPosition!)
+            PANInput.selectedTextRange = PANInput.textRange(from: newCursorPosition!, to: newCursorPosition!)
             
             
             
             self.navigationItem.rightBarButtonItem?.isEnabled = false
-            if (cardNumInput.text?.characters.count == cardNumMaxLength && verCodeInput.text?.characters.count == verCodeMaxLength){
+            if (PANInput.text?.characters.count == PANMaxLength && verCodeInput.text?.characters.count == verCodeMaxLength){
                 self.navigationItem.rightBarButtonItem?.isEnabled = true
             }
         }
@@ -170,18 +170,10 @@ class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate,
      // MARK: - Navigation
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "showPINCodeFromActivateCardFormSegue" {
+        if identifier == "showCVV2FromActivateCardFormSegue" {
             return checkActivationCode()
         } else {
             return true
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showPINCodeFromActivateCardFormSegue" {
-            let PINCodeVC : PPCardPinViewAfterActivationFormController = segue.destination as! PPCardPinViewAfterActivationFormController
-            PINCodeVC.visiblePinScreenTime = self.visiblePinScreenTime
-
         }
     }
 }

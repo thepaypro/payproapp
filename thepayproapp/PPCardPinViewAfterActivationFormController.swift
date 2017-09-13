@@ -26,6 +26,7 @@ class PPCardPinViewAfterActivationFormController: UIViewController
     var pin: String = ""
     var visiblePinScreenTime: Int?
     var visiblePinTime: Int? = 1
+    var CVV2: String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,37 +36,13 @@ class PPCardPinViewAfterActivationFormController: UIViewController
         pinView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(moveMaskToPoint)))
         
         self.displayNavBarActivity()
-        GetPin(
-            completion: {
-                pinResponse in
-                self.dismissNavBarActivity()
-                if pinResponse["status"] as! Bool == true {
-                    print("pinResponse: \(pinResponse)")
-                    self.pin = pinResponse["pin"] as! String
-                    let pinArray = self.pin.characters.map{String($0)}
-                    for (index,ch) in pinArray.enumerated()  {
-                        let currentLabel = self.pinView.subviews[index].subviews.first as! UILabel
-                        currentLabel.text = ch
-                    }
-                }else{
-                    if let errorMessage = pinResponse["errorMessage"] {
-                        let alert = UIAlertController()
-                        //let onConfirmAlert:Any = self.goBack()
-                        self.present(alert.displayAlert(code: errorMessage as! String , actionConfirm: self.goBack ), animated: true, completion: nil)
-                    }else{
-                        let errorMessage: String = "error"
-                        let alert = UIAlertController()
-                        let onConfirmAlert:Any = self.goBack
-                        self.present(alert.displayAlert(code: errorMessage, actionConfirm: onConfirmAlert ), animated: true, completion: {
-                            
-                        })
-                    }
-                    print("checkActivationError")
-                }
+        let pinArray = self.pin.characters.map{String($0)}
+        for (index,ch) in pinArray.enumerated()  {
+            let currentLabel = self.pinView.subviews[index].subviews.first as! UILabel
+            currentLabel.text = ch
         }
-        )
         
-        //Timer.scheduledTimer(timeInterval: Double(visiblePinScreenTime!), target: self, selector: #selector(self.goBack), userInfo: nil, repeats: false);
+        Timer.scheduledTimer(timeInterval: Double(visiblePinScreenTime!), target: self, selector: #selector(self.goBack), userInfo: nil, repeats: false);
     }
     
     func inverseMask(viewToMask: UIView, maskRect: CGRect, invert: Bool = false) {
