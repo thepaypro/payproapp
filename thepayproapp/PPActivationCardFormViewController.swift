@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate
+class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate
 {
     @IBOutlet weak var verCodeView: UIView!
     @IBOutlet weak var cardNumView: UIView!
@@ -51,11 +51,13 @@ class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate
     
     func checkActivationCode() -> Bool {
         var cardActivated: Bool = false
+        self.displayNavBarActivity()
         CardActivation(
-            activationCode: self.verCodeInput.text!,
-            cardNum: self.cardNumInput.text!,
+            cardActivationCode: self.verCodeInput.text!,
+            PAN: self.cardNumInput.text!,
             completion: {
                 cardActivationResponse in
+                self.dismissNavBarActivity()
                 if cardActivationResponse["status"] as! Bool == true {
                     print("cardActivationResponse: \(cardActivationResponse)")
                     cardActivated = true
@@ -64,7 +66,7 @@ class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate
                         let alert = UIAlertController()
                         self.present(alert.displayAlert(code: errorMessage as! String), animated: true, completion: nil)
                     }else{
-                        let errorMessage: String = "error_invalid_verification_code"
+                        let errorMessage: String = "error"
                         let alert = UIAlertController()
                         self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
                     }

@@ -33,36 +33,39 @@ class PPCardPinViewAfterActivationFormController: UIViewController
         pinView.mask = pinMaskView
         
         pinView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(moveMaskToPoint)))
-        //crossMaskCGRect = pinMaskView.frame
-        //crossMaskView.add.append(crossMaskCGRect)
-        //inverseMask(viewToMask: pinCrossView, maskRect: crossMaskCGRect, invert: true)
         
+        self.displayNavBarActivity()
         GetPin(
             completion: {
                 pinResponse in
+                self.dismissNavBarActivity()
                 if pinResponse["status"] as! Bool == true {
                     print("pinResponse: \(pinResponse)")
                     self.pin = pinResponse["pin"] as! String
+                    let pinArray = self.pin.characters.map{String($0)}
+                    for (index,ch) in pinArray.enumerated()  {
+                        let currentLabel = self.pinView.subviews[index].subviews.first as! UILabel
+                        currentLabel.text = ch
+                    }
                 }else{
-                    if let errorMessage = pinResponse["errorMessage"]{
+                    if let errorMessage = pinResponse["errorMessage"] {
                         let alert = UIAlertController()
-                        self.present(alert.displayAlert(code: errorMessage as! String), animated: true, completion: nil)
+                        //let onConfirmAlert:Any = self.goBack()
+                        self.present(alert.displayAlert(code: errorMessage as! String , actionConfirm: self.goBack ), animated: true, completion: nil)
                     }else{
-                        let errorMessage: String = "error_invalid_verification_code"
+                        let errorMessage: String = "error"
                         let alert = UIAlertController()
-                        self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
+                        let onConfirmAlert:Any = self.goBack
+                        self.present(alert.displayAlert(code: errorMessage, actionConfirm: onConfirmAlert ), animated: true, completion: {
+                            
+                        })
                     }
                     print("checkActivationError")
                 }
         }
         )
-
-        let pinArray = pin.characters.map{String($0)}
-        for (index,ch) in pinArray.enumerated()  {
-            let currentLabel = self.pinView.subviews[index].subviews.first as! UILabel
-            currentLabel.text = ch
-        }
-        Timer.scheduledTimer(timeInterval: Double(visiblePinScreenTime!), target: self, selector: #selector(self.goBack), userInfo: nil, repeats: false);
+        
+        //Timer.scheduledTimer(timeInterval: Double(visiblePinScreenTime!), target: self, selector: #selector(self.goBack), userInfo: nil, repeats: false);
     }
     
     func inverseMask(viewToMask: UIView, maskRect: CGRect, invert: Bool = false) {
@@ -112,7 +115,12 @@ class PPCardPinViewAfterActivationFormController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    func goBack(){
+    /*func onConfirmAction(_: UIAlertAction) -> Void{
+        goBack()
+    }*/
+    
+    func goBack() -> Void{
+        print("ImGoingBack")
         crossMaskView.backgroundColor = nil
         self.navigationController?.popToRootViewController(animated: true)
     }
