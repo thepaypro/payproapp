@@ -18,19 +18,10 @@ extension UIAlertController {
                 message: "If this happens again, please contact us on \"Support\".",
                 preferredStyle: UIAlertControllerStyle.alert)
             
-            var confirmAction = UIAlertAction(
+            let confirmAction = UIAlertAction(
                 title: "Ok",
                 style: .default)
-            
-            if actionConfirm != nil {
-                confirmAction = UIAlertAction(
-                    title: "Ok",
-                    style: .default,
-                    handler: { (action:UIAlertAction) in
-                        actionConfirm
-                }
-                )
-            }
+
             
             alert.addAction(confirmAction)
             

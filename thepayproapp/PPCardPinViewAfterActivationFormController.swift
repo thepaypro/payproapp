@@ -41,6 +41,7 @@ class PPCardPinViewAfterActivationFormController: UIViewController
             let currentLabel = self.pinView.subviews[index].subviews.first as! UILabel
             currentLabel.text = ch
         }
+        self.dismissNavBarActivity()
         
         Timer.scheduledTimer(timeInterval: Double(visiblePinScreenTime!), target: self, selector: #selector(self.goBack), userInfo: nil, repeats: false);
     }

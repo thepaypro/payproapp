@@ -15,39 +15,33 @@ class PPActivationCardCVV2ViewController: UIViewController, UITextFieldDelegate
     
     @IBOutlet weak var CVV2TF: UITextField!
     
-    var CVV2: String?
-    var pin: String = ""
-    let visiblePinScreenTime: Int = 10
+    var pin: String?
+    var visiblePinScreenTime: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         CVV2TF.becomeFirstResponder()
-        
-        let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(nextTapped))
-        nextButton.isEnabled = false
-        
-        navigationItem.rightBarButtonItems = [nextButton]
-    }
+        CVV2TF.delegate = self
     
+        navigationItem.rightBarButtonItems?.first?.isEnabled = false
+    }
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func nextTapped()
-    {
-            self.performSegue(withIdentifier: "showPINCodeFromActivateCardFormSegue", sender: nil)
-    }
-    func checkCVV2 () -> Bool{
+    func checkCVV2() -> Bool{
         var result: Bool = false
         self.displayNavBarActivity()
         GetPin(
+            CVV2: self.CVV2TF.text!,
             completion: {
                 pinResponse in
                 self.dismissNavBarActivity()
                 if pinResponse["status"] as! Bool == true {
                     print("pinResponse: \(pinResponse)")
-                    self.pin = pinResponse["pin"] as! String
+                    self.pin = pinResponse["pin"] as? String
                     result = true
                 }else{
                     if let errorMessage = pinResponse["errorMessage"] {
@@ -56,9 +50,7 @@ class PPActivationCardCVV2ViewController: UIViewController, UITextFieldDelegate
                     }else{
                         let errorMessage: String = "error"
                         let alert = UIAlertController()
-                        self.present(alert.displayAlert(code: errorMessage), animated: true, completion: {
-                            
-                        })
+                        self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
                     }
                     print("getPinError")
                     result = false
@@ -69,8 +61,8 @@ class PPActivationCardCVV2ViewController: UIViewController, UITextFieldDelegate
     }
     //MARK: - UITextFieldDelegate
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
-    {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
+        
         guard let text = textField.text else { return true }
         
         let newLength = text.utf16.count + string.utf16.count - range.length
@@ -79,14 +71,9 @@ class PPActivationCardCVV2ViewController: UIViewController, UITextFieldDelegate
         {
             let currentLabel = self.CVV2View.subviews[range.location].subviews.first as! UILabel
             currentLabel.text = string
+    
+            navigationItem.rightBarButtonItems?.first?.isEnabled = newLength == self.CVV2View.subviews.count
             
-            if CVV2 != nil {
-                navigationItem.rightBarButtonItems?.first?.isEnabled = newLength == self.CVV2View.subviews.count
-                
-            } else if newLength == self.CVV2View.subviews.count && string != "" {
-                self.CVV2TF.text = self.CVV2TF.text! + string
-                nextTapped()
-            }
             return true
         }
         return false
@@ -109,7 +96,7 @@ class PPActivationCardCVV2ViewController: UIViewController, UITextFieldDelegate
             let PINCodeVC : PPCardPinViewAfterActivationFormController = segue.destination as! PPCardPinViewAfterActivationFormController
             PINCodeVC.visiblePinScreenTime = self.visiblePinScreenTime
             PINCodeVC.CVV2 = self.CVV2TF.text
-            PINCodeVC.pin = self.pin
+            PINCodeVC.pin = self.pin!
         }
     }
     

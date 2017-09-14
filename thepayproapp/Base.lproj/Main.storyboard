@@ -1202,8 +1202,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIY-3J-GT4">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                         <connections>
-                                                            <action selector="viewPin:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="FY2-23-9jW"/>
-                                                            <segue destination="ySa-61-9dX" kind="show" identifier="showPINCodeFromSettingsSegue" id="YfU-Qr-QDP"/>
+                                                            <action selector="ViewPinButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="iJF-Qa-exW"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-alone" translatesAutoresizingMaskIntoConstraints="NO" id="rka-ly-4X1">
@@ -1419,6 +1418,7 @@
                         <outlet property="nameView" destination="ewX-oQ-5dn" id="Mfl-PM-Xhf"/>
                         <outlet property="pinView" destination="eci-3d-kdZ" id="Gql-U6-IaQ"/>
                         <outlet property="upgradeView" destination="oJ6-KP-qRJ" id="flD-B7-WAa"/>
+                        <segue destination="gyM-Ux-fpC" kind="show" identifier="showCVV2FromSettingsSegue" id="60J-F3-tNy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -4618,7 +4618,7 @@ in PayPro</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1yC-fr-uA7">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qcW-8p-sz6" id="cBz-7d-ZO1"/>
@@ -6247,10 +6247,18 @@ in PayPro</string>
                             <constraint firstItem="WiW-OE-gbM" firstAttribute="leading" secondItem="7Rt-Kr-8kC" secondAttribute="leadingMargin" id="oqp-UG-Tqn"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="WBS-NL-jfz">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="cPa-wN-qf3">
+                            <connections>
+                                <segue destination="ySa-61-9dX" kind="show" identifier="showPINCodeFromCVV2Segue" id="ua5-hu-rE8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="CCV2TF" destination="9zq-IO-EEM" id="TXC-DI-4qy"/>
+                        <outlet property="CVV2TF" destination="9zq-IO-EEM" id="qOo-T9-oQb"/>
                         <outlet property="CVV2View" destination="9lw-gX-Rcg" id="4wS-mR-Qai"/>
-                        <segue destination="ySa-61-9dX" kind="show" id="bhJ-Cp-kq5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btG-ak-TAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6286,14 +6294,14 @@ in PayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="a4Y-DX-0uo"/>
         <segue reference="JJj-1x-d2j"/>
         <segue reference="fwd-HY-Ucz"/>
-        <segue reference="ops-cj-9Fb"/>
-        <segue reference="W6i-Y0-uXg"/>
+        <segue reference="a4Y-DX-0uo"/>
         <segue reference="Azs-uz-2tr"/>
-        <segue reference="bhJ-Cp-kq5"/>
-        <segue reference="Vby-Ea-oLq"/>
+        <segue reference="QjQ-Zm-ceK"/>
+        <segue reference="W6i-Y0-uXg"/>
+        <segue reference="ops-cj-9Fb"/>
+        <segue reference="Lxe-Dh-tgY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

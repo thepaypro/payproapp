@@ -56,7 +56,7 @@ func CardActivation(cardActivationCode: String,  PAN: String, completion: @escap
     })
 }
 
-func GetPin (completion: @escaping (_ cardResponse: NSDictionary) -> Void)
+func GetPin (CVV2: String, completion: @escaping (_ cardResponse: NSDictionary) -> Void)
 {
     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
 
@@ -64,7 +64,7 @@ func GetPin (completion: @escaping (_ cardResponse: NSDictionary) -> Void)
     
             //print("completionDictionary: \(completionDictionary)")
     
-            completion(["status": false,"pin": "4321"] as NSDictionary)
+            completion(["status": true,"pin": "4321"] as NSDictionary)
         
         //})
     })

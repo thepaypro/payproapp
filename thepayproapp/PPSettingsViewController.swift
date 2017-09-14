@@ -21,6 +21,9 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
     @IBOutlet weak var nameArrow: UIImageView!
     @IBOutlet weak var disableCardSwitch: UISwitch!
     
+    @IBAction func ViewPinButton(_ sender: Any) {
+       self.performSegue(withIdentifier: "showCVV2FromSettingsSegue", sender: nil)
+    }
     var visiblePinScreenTime : Int = 15
     
     @IBAction func disableCardAction(_ sender: Any) {
@@ -44,11 +47,6 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
             print("no puedo enviar SMS!!")
         }
     }
-    
-    @IBAction func viewPin(_ sender: Any) {
-        
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -246,11 +244,11 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
             let changePasscodeVC : PPPasscodeViewController = segue.destination as! PPPasscodeViewController
             changePasscodeVC.changePassword = true
         }
-        if segue.identifier == "showPINCodeFromSettingsSegue" {
-            let PINCodeVC : PPCardPinViewAfterActivationFormController = segue.destination as! PPCardPinViewAfterActivationFormController
-            PINCodeVC.visiblePinScreenTime = self.visiblePinScreenTime
+        if segue.identifier == "showCVV2FromSettingsSegue" {
+            let CVV2CodeVC : PPActivationCardCVV2ViewController = segue.destination as! PPActivationCardCVV2ViewController
+                CVV2CodeVC.visiblePinScreenTime = self.visiblePinScreenTime
                 
-            }
+        }
         
         
     }
