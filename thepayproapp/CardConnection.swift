@@ -42,7 +42,7 @@ func CardActivation(cardActivationCode: String,  PAN: String, completion: @escap
     print("activationCode: \(cardActivationCode)")
     print("cardNum: \(PAN)")
     
-    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+    //DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
         
         //makePostRequest(paramsDictionary: [:] as NSDictionary, endpointURL: "cards/activation", completion: {completionDictionary in
         
@@ -53,12 +53,12 @@ func CardActivation(cardActivationCode: String,  PAN: String, completion: @escap
             completion(["status": true,"errorMessage": ""] as NSDictionary)
         //})
         
-    })
+    //})
 }
 
 func GetPin (CVV2: String, completion: @escaping (_ cardResponse: NSDictionary) -> Void)
 {
-    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+    //DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
 
         //makePostRequest(paramsDictionary: [:] as NSDictionary, endpointURL: "cards/activation", completion: {completionDictionary in
     
@@ -67,7 +67,7 @@ func GetPin (CVV2: String, completion: @escaping (_ cardResponse: NSDictionary) 
             completion(["status": true,"pin": "4321"] as NSDictionary)
         
         //})
-    })
+    //})
 }
 
 

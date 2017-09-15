@@ -33,12 +33,15 @@ class PPActivationCardCVV2ViewController: UIViewController, UITextFieldDelegate
     
     func checkCVV2() -> Bool{
         var result: Bool = false
-        self.displayNavBarActivity()
+        let barButtonItems: [UIBarButtonItem]
+        barButtonItems = self.displayNavBarActivity()!
         GetPin(
             CVV2: self.CVV2TF.text!,
             completion: {
                 pinResponse in
                 self.dismissNavBarActivity()
+                self.navigationItem.rightBarButtonItems = barButtonItems
+                self.navigationItem.rightBarButtonItems?.first?.isEnabled = true
                 if pinResponse["status"] as! Bool == true {
                     print("pinResponse: \(pinResponse)")
                     self.pin = pinResponse["pin"] as? String

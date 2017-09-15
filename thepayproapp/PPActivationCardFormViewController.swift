@@ -19,6 +19,8 @@ class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate,
     let PANMaxLength: Int = 19
     let PANMatchCharacter:  String = "1234567890 "
     
+    let visiblePinScreenTime: Int = 10
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,13 +53,16 @@ class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate,
     
     func checkActivationCode() -> Bool {
         var cardActivated: Bool = false
-        self.displayNavBarActivity()
+        let barButtonItems: [UIBarButtonItem]
+        barButtonItems = self.displayNavBarActivity()!
         CardActivation(
             cardActivationCode: self.verCodeInput.text!,
             PAN: self.PANInput.text!,
             completion: {
                 cardActivationResponse in
                 self.dismissNavBarActivity()
+                self.navigationItem.rightBarButtonItems = barButtonItems
+                self.navigationItem.rightBarButtonItems?.first?.isEnabled = true
                 if cardActivationResponse["status"] as! Bool == true {
                     print("cardActivationResponse: \(cardActivationResponse)")
                     cardActivated = true
@@ -72,6 +77,7 @@ class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate,
                     }
                     print("checkActivationError")
                     cardActivated = false
+
                 }
             }
         )
@@ -122,7 +128,6 @@ class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate,
             var spacesAdded:Int = 0
             let PANArrayNoFilter = PANInput.text?.characters.map{String($0)}
             var PANArray = PANInput.text?.characters.filter {![" ", "\t", "\n"].contains($0)}
-            print("PANArray \(PANArray)")
             
             var cursorPosition: Int = PANInput.offset(from: PANInput.beginningOfDocument, to: (PANInput.selectedTextRange?.start)!)
         
@@ -130,8 +135,6 @@ class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate,
             for (index,_) in (PANArray!.enumerated())  {
                 if (spacePosArray.contains(String(index))){
                     PANArray!.insert(" ", at: index + spacesAdded)
-                    print("PANArrayInFor \(PANArray)")
-                    print("PANArrayNoFilter \(PANArrayNoFilter)")
                     if(cursorPosition < (PANArray?.count)! ? PANArray?[cursorPosition-1] == " " && PANArrayNoFilter?[cursorPosition-1] != " " && index == cursorPosition-1-spacesAdded : false){
                         cursorPosition += 1
                     }else if(cursorPosition < (PANArray?.count)! ? (PANArray?[cursorPosition-1] == " " && index == cursorPosition-1-spacesAdded) : false){
@@ -175,6 +178,16 @@ class PPActivationCardFormViewController: UIViewController, UITextFieldDelegate,
         } else {
             return true
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCVV2FromActivateCardFormSegue" {
+            let CVV2CodeVC : PPActivationCardCVV2ViewController = segue.destination as! PPActivationCardCVV2ViewController
+            CVV2CodeVC.visiblePinScreenTime = self.visiblePinScreenTime
+            
+        }
+        
+        
     }
 }
 
