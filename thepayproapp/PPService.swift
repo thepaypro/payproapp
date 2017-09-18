@@ -10,9 +10,8 @@ import UIKit
 
 //let PPAPIURL = "http://34.253.160.180"
 //let PPAPIURL = "http://35.158.218.151"
-let PPAPIURL = "http://api.payproapp.net"
-//let PPAPIURL = "http://172.28.128.77"
-let PPLocalAPIURL = "http://172.28.128.77"
+//let PPAPIURL = "http://api.payproapp.net"
+let PPAPIURL = "http://172.28.128.70"
 
 func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
 {
@@ -56,7 +55,7 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, comple
                             }
                             else
                             {
-                                print("EMPTY JSON")
+                                print("EMPTY JSON for \(endpointURL)")
                                 completion(["status":false])
                             }
                     })
@@ -100,10 +99,6 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
             
                 if (error != nil)
                 {
-                    print("----")
-                    print(response)
-                    print("erroooooooooooooooor")
-                    print(error!)
                     DispatchQueue.main.async(execute: {
                         completion(["status":false, "message":"", "errorMessage":"internet_connection_error"])
                     })
@@ -122,7 +117,7 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
                             }
                             else
                             {
-                                print("EMPTY JSON")
+                                print("EMPTY JSON for \(endpointURL)")
                                 completion(["status":false])
                             }
                     })
@@ -180,7 +175,7 @@ func makePutRequest(paramsDictionary: NSDictionary, endpointURL: String, complet
                             }
                             else
                             {
-                                print("EMPTY JSON")
+                                print("EMPTY JSON for \(endpointURL)")
                                 completion(["status":false])
                             }
                     })

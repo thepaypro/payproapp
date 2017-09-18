@@ -3139,10 +3139,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7Z-Z5-zcT">
-                                        <rect key="frame" x="179" y="3" width="42.5" height="43"/>
+                                        <rect key="frame" x="178.5" y="2.5" width="43.5" height="44"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="Axi-pW-C0t">
-                                                <rect key="frame" x="-0.5" y="-0.5" width="42.5" height="43"/>
+                                                <rect key="frame" x="-0.5" y="-0.5" width="43.5" height="44"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -3184,10 +3184,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60J-Zt-37b">
-                                        <rect key="frame" x="506.5" y="3" width="42.5" height="43"/>
+                                        <rect key="frame" x="506" y="2.5" width="43.5" height="44"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="MkR-AQ-IHA">
-                                                <rect key="frame" x="-0.5" y="-0.5" width="42.5" height="43"/>
+                                                <rect key="frame" x="-0.5" y="-0.5" width="43.5" height="44"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -3291,7 +3291,6 @@ in PayPro</string>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="OAd-h4-Gfm" kind="relationship" relationship="viewControllers" id="TjT-ZT-US1"/>
-                        <segue destination="F8J-JK-KRD" kind="relationship" relationship="viewControllers" id="HVP-KL-IeV"/>
                         <segue destination="krp-GC-LHI" kind="relationship" relationship="viewControllers" id="RiA-0e-8gF"/>
                         <segue destination="pMF-wz-FKS" kind="relationship" relationship="viewControllers" id="mYd-qk-ALO"/>
                         <segue destination="cLv-Rr-zuf" kind="relationship" relationship="viewControllers" id="Pqr-V8-y7B"/>
@@ -3672,10 +3671,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0U-XH-Yte">
-                                        <rect key="frame" x="179" y="3" width="42.5" height="43"/>
+                                        <rect key="frame" x="178.5" y="2.5" width="43.5" height="44"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="1Mc-6l-ehf">
-                                                <rect key="frame" x="0.0" y="0.0" width="42.5" height="43"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="44"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -3717,10 +3716,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-tI-Ufb">
-                                        <rect key="frame" x="506.5" y="3" width="42.5" height="43"/>
+                                        <rect key="frame" x="506" y="2.5" width="43.5" height="44"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="Jnn-Cw-J9j">
-                                                <rect key="frame" x="0.0" y="0.0" width="42.5" height="43"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="44"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -5058,10 +5057,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNN-ZR-6SB">
-                                        <rect key="frame" x="179" y="3" width="42.5" height="43"/>
+                                        <rect key="frame" x="178.5" y="2.5" width="43.5" height="44"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="uUZ-KR-asb">
-                                                <rect key="frame" x="0.0" y="0.0" width="42.5" height="43"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="44"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -5103,10 +5102,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biY-C9-NNC">
-                                        <rect key="frame" x="506.5" y="3" width="42.5" height="43"/>
+                                        <rect key="frame" x="506" y="2.5" width="43.5" height="44"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="LBR-lM-uym">
-                                                <rect key="frame" x="0.0" y="0.0" width="42.5" height="43"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="44"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>

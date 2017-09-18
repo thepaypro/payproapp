@@ -102,8 +102,9 @@ func TransactionGetTransactions(completion: @escaping (_ transactionsResponse: N
                     var is_user_payer: Bool = false
                     
                     if let payer = (transaction as AnyObject).value(forKeyPath: "payer") {
-                        if let payer_id:Int64 = (payer as AnyObject).value(forKeyPath: "id") as? Int64 {
-                            if payer_id == user_id {
+                        if let payer_user_id:NSArray = (payer as AnyObject).value(forKeyPath: "users") as? NSArray {
+                            
+                            if payer_user_id[0] as! Int64 == user_id {
                                 is_user_payer = true
                             }
                         }
@@ -118,11 +119,6 @@ func TransactionGetTransactions(completion: @escaping (_ transactionsResponse: N
                         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
                         
                         date = dateFormatter.date(from: date_text)! //according to date format your date string
-                        
-//                        let calendar = Calendar.current
-//                        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date!)
-//                        
-//                        date_string = "\(components.year!)/\(components.month!)/\(components.day!) \(components.hour!):\(String(format: "%02d",components.minute!))"
                     }
                     
                 
