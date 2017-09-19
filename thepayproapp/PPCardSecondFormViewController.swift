@@ -220,11 +220,11 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
     
     //MARK: - PPPrefixSelectionDelegate
     
-    func didSelectCountryPrefix(countryPrefix: String, countryName: String, countryISO2: String)
+    func countryPicker(name: String, alpha2Code: String, callingCodes: String)
     {
         let countryRow: ButtonRow? = form.rowBy(tag: "country")
-        countryRow?.title = countryName
-        countryRow?.value = countryISO2
+        countryRow?.title = name
+        countryRow?.value = alpha2Code
         countryRow?.reload()
         countryRow?.cell.textLabel?.textColor = UIColor.black
         

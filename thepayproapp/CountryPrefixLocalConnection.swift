@@ -8,35 +8,41 @@
 
 import UIKit
 
-class CountryPrefixLocalConnection: NSObject
-{
-    class func loadLocalCountriesPrefixes() -> [AnyObject]
-    {
-        do
-        {
-            if let file = Bundle.main.url(forResource: "countries-prefixes", withExtension: "json")
-            {
+extension Country{
+    class func loadLocalCountriesPrefixes() -> [Country]{
+        var countries:[Country] = []
+        do{
+            if let file = Bundle.main.url(forResource: "countries-prefixes", withExtension: "json"){
                 let data = try Data(contentsOf: file)
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                /*let json = try JSONSerialization.jsonObject(with: data, options: [])
                 
                 //JSON is an array
-                if let object = json as? [AnyObject]
-                {
-                    return object
-                }
-                else
-                {
-                    print("JSON is invalid")
+                for countryjson in json{
+                    if let object = countryjson as? Country{
+                        countries.append(object)
+                    }else{
+                        print("JSON is invalid")
                     
-                    return []
+                        return []
+                    }
+                }*/
+                if let jsonDataArray = try? JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                    print(jsonDataArray)
+                    for eachData in jsonDataArray!{
+                        if let object = Country(json: eachData){
+                            countries.append(object)
+                        }else{
+                            print("JSON is invalid")
+                            
+                            return []
+                        }
+                    }
                 }
             }
         }
-        catch
-        {
+        catch{
             print(error.localizedDescription)
         }
-        
-        return []
-    }
+        return countries
+    }    
 }
