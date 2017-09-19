@@ -41,6 +41,13 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, comple
                 if (error != nil)
                 {
                     print(error!)
+                    
+                    if error?._code ==  NSURLErrorTimedOut {
+                        print("Time Out")
+                        DispatchQueue.main.async(execute: {
+                            completion(["status":false, "message":"internet_connection_timeout", "errorMessage":"internet_connection_timeout"])
+                        });
+                    }
                 }
                 else
                 {
@@ -100,13 +107,14 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
             
                 if (error != nil)
                 {
-                    print("----")
-                    print(response)
-                    print("erroooooooooooooooor")
                     print(error!)
-                    DispatchQueue.main.async(execute: {
-                        completion(["status":false, "message":"", "errorMessage":"internet_connection_error"])
-                    })
+                    
+                    if error?._code ==  NSURLErrorTimedOut {
+                        print("Time Out")
+                        DispatchQueue.main.async(execute: {
+                            completion(["status":false, "message":"internet_connection_timeout", "errorMessage":"internet_connection_timeout"])
+                        });
+                    }
                 }
                 else
                 {
@@ -165,6 +173,13 @@ func makePutRequest(paramsDictionary: NSDictionary, endpointURL: String, complet
                 if (error != nil)
                 {
                     print(error!)
+                    
+                    if error?._code ==  NSURLErrorTimedOut {
+                        print("Time Out")
+                        DispatchQueue.main.async(execute: {
+                            completion(["status":false, "message":"internet_connection_timeout", "errorMessage":"internet_connection_timeout"])
+                        });
+                    }
                 }
                 else
                 {

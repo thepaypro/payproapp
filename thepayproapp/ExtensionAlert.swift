@@ -164,6 +164,20 @@ extension UIAlertController {
             
             return alert
             
+        case "internet_connection_timeout":
+            let alert = UIAlertController(
+                title: "Internet Connection Timeout",
+                message: "Make sure your device is connected to the internet.",
+                preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction = UIAlertAction(
+                title: "Ok",
+                style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
+            
         case "transaction_failed":
             let alert = UIAlertController(
                 title: "Transaction Failed",
