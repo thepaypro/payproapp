@@ -31,15 +31,26 @@ open class PPPrefixSelectionViewController: UITableViewController{
     
     fileprivate var unsourtedCountries : [Country] = Country.loadLocalCountriesPrefixes()
     
-    open var didSelectCountryClosure: ((String, String, String) -> ())?
     open weak var delegate: PPPrefixSelectionDelegate?
-    
-    open var customCountriesCode: [String]?
     
     fileprivate let collation = UILocalizedIndexedCollation.current()
         as UILocalizedIndexedCollation
     
-    fileprivate var sections: [CountrySection] {
+    fileprivate var sections: [CountrySection] = []
+    
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        createSections();
+        prefixTV.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        createSearchBar()
+        prefixTV.reloadData()
+        
+        definesPresentationContext = true
+    }
+    
+    // MARK: Methods
+    
+    fileprivate func createSections(){
         
         let countries: [Country] = unsourtedCountries.map { country in
             let country = Country(name: country.name, alpha2Code: country.alpha2Code, callingCodes: country.callingCodes)
@@ -64,25 +75,9 @@ open class PPPrefixSelectionViewController: UITableViewController{
             s.countries = collation.sortedArray(from: section.countries, collationStringSelector: #selector(getter: Country.name)) as! [Country]
         }
         
-        return sections
-    }
-    
-    convenience public init(completionHandler: @escaping ((String, String,String) -> ())) {
-        self.init()
-        self.didSelectCountryClosure = completionHandler
-    }
-    
-    override open func viewDidLoad() {
-        super.viewDidLoad()
+        self.sections = sections
         
-        prefixTV.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-        createSearchBar()
-        prefixTV.reloadData()
-        
-        definesPresentationContext = true
     }
-    
-    // MARK: Methods
     
     fileprivate func createSearchBar() {
         if self.prefixTV.tableHeaderView == nil {
@@ -182,7 +177,7 @@ extension PPPrefixSelectionViewController {
             
         }
         delegate?.countryPicker(name: country.name, alpha2Code: country.alpha2Code, callingCodes: country.callingCodes)
-        didSelectCountryClosure?(country.name, country.alpha2Code, country.callingCodes)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

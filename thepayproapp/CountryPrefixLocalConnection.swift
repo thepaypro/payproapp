@@ -14,26 +14,12 @@ extension Country{
         do{
             if let file = Bundle.main.url(forResource: "countries-prefixes", withExtension: "json"){
                 let data = try Data(contentsOf: file)
-                /*let json = try JSONSerialization.jsonObject(with: data, options: [])
-                
-                //JSON is an array
-                for countryjson in json{
-                    if let object = countryjson as? Country{
-                        countries.append(object)
-                    }else{
-                        print("JSON is invalid")
-                    
-                        return []
-                    }
-                }*/
                 if let jsonDataArray = try? JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
-                    print(jsonDataArray)
                     for eachData in jsonDataArray!{
                         if let object = Country(json: eachData){
                             countries.append(object)
                         }else{
                             print("JSON is invalid")
-                            
                             return []
                         }
                     }
