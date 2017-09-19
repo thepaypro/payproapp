@@ -37,10 +37,12 @@ open class PPPrefixSelectionViewController: UITableViewController{
         as UILocalizedIndexedCollation
     
     fileprivate var sections: [CountrySection] = []
+    fileprivate var initialSections: [CountrySection] = []
+
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        createSections();
+        self.initialSections = createSections(countries: unsourtedCountries);
         prefixTV.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         createSearchBar()
         prefixTV.reloadData()
@@ -50,9 +52,9 @@ open class PPPrefixSelectionViewController: UITableViewController{
     
     // MARK: Methods
     
-    fileprivate func createSections(){
+    fileprivate func createSections(countries: [Country]) -> [CountrySection]{
         
-        let countries: [Country] = unsourtedCountries.map { country in
+        let countries: [Country] = countries.map { country in
             let country = Country(name: country.name, alpha2Code: country.alpha2Code, callingCodes: country.callingCodes)
             country.section = collation.section(for: country, collationStringSelector: #selector(getter: Country.name))
             return country
@@ -76,7 +78,7 @@ open class PPPrefixSelectionViewController: UITableViewController{
         }
         
         self.sections = sections
-        
+        return sections
     }
     
     fileprivate func createSearchBar() {
@@ -91,11 +93,20 @@ open class PPPrefixSelectionViewController: UITableViewController{
     fileprivate func filter(_ searchText: String) -> [Country] {
         filteredList.removeAll()
         
-        sections.forEach { (section) -> () in
+        initialSections.forEach { (section) -> () in
+            var alreadyAppended: Bool = false
             section.countries.forEach({ (country) -> () in
+                alreadyAppended = false
                 if country.name.characters.count >= searchText.characters.count {
-                    let result = country.name.compare(searchText, options: [.caseInsensitive, .diacriticInsensitive], range: searchText.characters.startIndex ..< searchText.characters.endIndex)
-                    if result == .orderedSame {
+                    let nameCompare = country.name.compare(searchText, options: [.caseInsensitive, .diacriticInsensitive], range: searchText.characters.startIndex ..< searchText.characters.endIndex)
+                    if nameCompare == .orderedSame {
+                        filteredList.append(country)
+                        alreadyAppended = true
+                    }
+                }
+                if country.alpha2Code.characters.count >= searchText.characters.count && !alreadyAppended {
+                    let alpha2CodeCompare = country.alpha2Code.compare(searchText, options: [.caseInsensitive, .diacriticInsensitive], range: searchText.characters.startIndex ..< searchText.characters.endIndex)
+                    if alpha2CodeCompare == .orderedSame {
                         filteredList.append(country)
                     }
                 }
@@ -109,16 +120,10 @@ open class PPPrefixSelectionViewController: UITableViewController{
 extension PPPrefixSelectionViewController {
     
     override open func numberOfSections(in tableView: UITableView) -> Int {
-        if searchController.searchBar.text!.characters.count > 0 {
-            return 1
-        }
         return sections.count
     }
     
     override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.searchBar.text!.characters.count > 0 {
-            return filteredList.count
-        }
         return sections[section].countries.count
     }
     
@@ -132,13 +137,7 @@ extension PPPrefixSelectionViewController {
         
         let cell: UITableViewCell! = tempCell
         
-        let country: Country!
-        if searchController.searchBar.text!.characters.count > 0 {
-            country = filteredList[(indexPath as NSIndexPath).row]
-        } else {
-            country = sections[(indexPath as NSIndexPath).section].countries[(indexPath as NSIndexPath).row]
-            
-        }
+        let country: Country! = sections[(indexPath as NSIndexPath).section].countries[(indexPath as NSIndexPath).row]
         
         cell.textLabel?.text = country.name + " (" + country.callingCodes + ")"
         
@@ -156,10 +155,7 @@ extension PPPrefixSelectionViewController {
         return collation.sectionIndexTitles
     }
     
-    override open func tableView(_ tableView: UITableView,
-                                 sectionForSectionIndexTitle title: String,
-                                 at index: Int)
-        -> Int {
+    override open func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
             return collation.section(forSectionIndexTitle: index)
     }
 }
@@ -187,6 +183,7 @@ extension PPPrefixSelectionViewController: UISearchResultsUpdating {
     
     public func updateSearchResults(for searchController: UISearchController) {
         filter(searchController.searchBar.text!)
+        createSections(countries: filteredList)
         prefixTV.reloadData()
     }
 }
