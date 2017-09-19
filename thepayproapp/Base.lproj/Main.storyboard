@@ -3289,7 +3289,7 @@ If you travel abroad, we will only use the official exchange rate +0.5%</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEb-1u-zHw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4331" y="870"/>
+            <point key="canvasLocation" x="-4588" y="582"/>
         </scene>
         <!--Passcode View Controller-->
         <scene sceneID="n9m-Wp-kcV">
@@ -4252,8 +4252,8 @@ in PayPro</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="qcW-8p-sz6" kind="show" identifier="showCountryFormVC" id="IoS-sB-LD8"/>
                         <segue destination="WuB-bl-OVO" kind="show" identifier="documentPhotoFromSecondFormSegue" id="HF2-MJ-WVS"/>
+                        <segue destination="DwD-5f-YGM" kind="show" identifier="showCountryFormVC" id="In3-0W-KaY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sn-Vs-BpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4588,43 +4588,6 @@ in PayPro</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5nj-PZ-jEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2736" y="2060"/>
-        </scene>
-        <!--Prefix Selection View Controller-->
-        <scene sceneID="RJw-oT-HDP">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="qcW-8p-sz6" customClass="PPPrefixSelectionViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FgG-Bo-78A"/>
-                        <viewControllerLayoutGuide type="bottom" id="LrV-pm-RZ4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4J9-f6-7R3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1yC-fr-uA7">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="qcW-8p-sz6" id="cBz-7d-ZO1"/>
-                                    <outlet property="delegate" destination="qcW-8p-sz6" id="Hwv-ih-onu"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="LrV-pm-RZ4" firstAttribute="top" secondItem="1yC-fr-uA7" secondAttribute="bottom" id="K6E-9d-l5J"/>
-                            <constraint firstItem="1yC-fr-uA7" firstAttribute="centerX" secondItem="4J9-f6-7R3" secondAttribute="centerX" id="LHm-L6-61w"/>
-                            <constraint firstItem="1yC-fr-uA7" firstAttribute="top" secondItem="FgG-Bo-78A" secondAttribute="bottom" id="cDc-8H-xaL"/>
-                            <constraint firstItem="1yC-fr-uA7" firstAttribute="width" secondItem="4J9-f6-7R3" secondAttribute="width" id="ky5-Gl-TKd"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="prefixTV" destination="1yC-fr-uA7" id="UKA-5E-yCf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yc3-IW-n9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5814" y="40"/>
         </scene>
         <!--Document Photo View Controller-->
         <scene sceneID="3gF-1N-6Vf">
@@ -6279,11 +6242,12 @@ in PayPro</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QOc-uS-S0D"/>
+        <segue reference="bdZ-XY-lFh"/>
         <segue reference="CKg-gm-nrI"/>
         <segue reference="hTT-Ug-9qa"/>
         <segue reference="Azs-uz-2tr"/>
-        <segue reference="QjQ-Zm-ceK"/>
-        <segue reference="W6i-Y0-uXg"/>
+        <segue reference="cPk-Rt-u9Q"/>
+        <segue reference="HF2-MJ-WVS"/>
         <segue reference="ops-cj-9Fb"/>
         <segue reference="Lxe-Dh-tgY"/>
     </inferredMetricsTieBreakers>

@@ -26,6 +26,8 @@ open class PPPrefixSelectionViewController: UITableViewController{
     
     @IBOutlet var prefixTV: UITableView!
     
+    public var showCallingCodes: Bool = false
+    
     fileprivate var searchController: UISearchController!
     fileprivate var filteredList = [Country]()
     
@@ -139,7 +141,11 @@ extension PPPrefixSelectionViewController {
         
         let country: Country! = sections[(indexPath as NSIndexPath).section].countries[(indexPath as NSIndexPath).row]
         
-        cell.textLabel?.text = country.name + " (" + country.callingCodes + ")"
+        var textLabel = country.name
+        if(showCallingCodes){
+            textLabel += " (" + country.callingCodes + ")"
+        }
+        cell.textLabel?.text = textLabel
         
         return cell
     }
@@ -165,13 +171,7 @@ extension PPPrefixSelectionViewController {
     
     override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let country: Country!
-        if searchController.searchBar.text!.characters.count > 0 {
-            country = filteredList[(indexPath as NSIndexPath).row]
-        } else {
-            country = sections[(indexPath as NSIndexPath).section].countries[(indexPath as NSIndexPath).row]
-            
-        }
+        let country: Country! = sections[(indexPath as NSIndexPath).section].countries[(indexPath as NSIndexPath).row]
         delegate?.countryPicker(name: country.name, alpha2Code: country.alpha2Code, callingCodes: country.callingCodes)
         self.navigationController?.popViewController(animated: true)
     }

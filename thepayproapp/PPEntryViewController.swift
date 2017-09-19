@@ -144,6 +144,7 @@ class PPEntryViewController: UIViewController, UITextFieldDelegate, PPPrefixSele
         {
             let prefixSelectionVC : PPPrefixSelectionViewController = segue.destination as! PPPrefixSelectionViewController
             prefixSelectionVC.delegate = self
+            prefixSelectionVC.showCallingCodes = true
         }
     }
 }
