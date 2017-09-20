@@ -18,7 +18,7 @@ class PPTabBarController: UITabBarController
 
         self.setTabControllers()
         
-        selectedIndex = 2
+        selectedIndex = 3
         
         // Do any additional setup after loading the view.
     }
@@ -35,6 +35,7 @@ class PPTabBarController: UITabBarController
         // create view controllers from storyboard
         let supportNC = storyboard.instantiateViewController(withIdentifier: "PPSupportNavigationController") as! UINavigationController
 //        let groupsNC = storyboard.instantiateViewController(withIdentifier: "PPGroupsNavigationController")
+        let qrNC = storyboard.instantiateViewController(withIdentifier: "PPQRNavigationController")
         let sendNC = storyboard.instantiateViewController(withIdentifier: "PPSendMoneyNavigationController")
         var accountNC = storyboard.instantiateViewController(withIdentifier: "PPAccountNavigationController")
         
@@ -50,8 +51,8 @@ class PPTabBarController: UITabBarController
         
         let settingsNC = storyboard.instantiateViewController(withIdentifier: "PPSettingsNavigationController")
         
-//        self.viewControllers = [supportNC, groupsNC, sendNC, accountNC, settingsNC]
-        self.viewControllers = [supportNC, sendNC, accountNC, settingsNC]
+//        self.viewControllers = [supportNC, groupsNC, qrNC, sendNC, accountNC, settingsNC]
+        self.viewControllers = [supportNC, qrNC, sendNC, accountNC, settingsNC]
     }
     
     func setTabView()

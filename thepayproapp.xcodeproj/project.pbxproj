@@ -37,6 +37,7 @@
 		21D50DA51F1E18AE0013CD4C /* PPDocumentPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D50DA41F1E18AE0013CD4C /* PPDocumentPhotoViewController.swift */; };
 		21DBABB91F34613B00F10980 /* PPCardPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBABB81F34613B00F10980 /* PPCardPinViewController.swift */; };
 		47DF01DE01E7D7D898A65AFE /* Pods_thepayproapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */; };
+		530B16D61F72C751004B0F30 /* PPScanQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530B16D51F72C751004B0F30 /* PPScanQRViewController.swift */; };
 		53524D9C1F5D9954006EB54F /* PPActivationCardFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53524D9B1F5D9954006EB54F /* PPActivationCardFormViewController.swift */; };
 		53564B0D1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */; };
 		53BA09E61F6999FA00CB7F15 /* PPActivationCardCVV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA09E51F6999FA00CB7F15 /* PPActivationCardCVV2ViewController.swift */; };
@@ -154,6 +155,7 @@
 		21DBABB81F34613B00F10980 /* PPCardPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPCardPinViewController.swift; sourceTree = "<group>"; };
 		220E96BB616D905BE09C4351 /* Pods-thepayproappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3AD46AC53B7372C495343342 /* Pods-thepayproapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproapp/Pods-thepayproapp.release.xcconfig"; sourceTree = "<group>"; };
+		530B16D51F72C751004B0F30 /* PPScanQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPScanQRViewController.swift; sourceTree = "<group>"; };
 		53524D9B1F5D9954006EB54F /* PPActivationCardFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPActivationCardFormViewController.swift; sourceTree = "<group>"; };
 		53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPrefixSelectionViewController.swift; sourceTree = "<group>"; };
 		53BA09E51F6999FA00CB7F15 /* PPActivationCardCVV2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPActivationCardCVV2ViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 		216CCA8E1EE82252003FE3CE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				530B16D41F72C72A004B0F30 /* PPScanQrViewController */,
 				215540571EF3CBF300670E86 /* PPContactViewController */,
 				BF7F79851F2206FA00523131 /* PPSliderViewController */,
 				BF31E8661EF93341004C233E /* PPEntryViewController */,
@@ -342,6 +345,14 @@
 				BF7D9CB0B12DBCFD3FE80391 /* Pods_thepayproappUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		530B16D41F72C72A004B0F30 /* PPScanQrViewController */ = {
+			isa = PBXGroup;
+			children = (
+				530B16D51F72C751004B0F30 /* PPScanQRViewController.swift */,
+			);
+			name = PPScanQrViewController;
 			sourceTree = "<group>";
 		};
 		53DAF50B1F70181A0013E406 /* CountryDialCodePicker */ = {
@@ -911,6 +922,7 @@
 				212100D31EF9069700208F72 /* PPBankTransfeReferenceViewController.swift in Sources */,
 				6A9C73F01F20B445006D2C57 /* PPImagePickerController.swift in Sources */,
 				6AF2B6D91F308C3400255B65 /* CardConnection.swift in Sources */,
+				530B16D61F72C751004B0F30 /* PPScanQRViewController.swift in Sources */,
 				BF3D17921F1F506A00F5825D /* PPDemoAccountViewController.swift in Sources */,
 				219355521F17B4A900101256 /* PPProfileEditDocumentViewController.swift in Sources */,
 				212100D51EF9091600208F72 /* PPBankTransfeReferenceListViewController.swift in Sources */,
