@@ -20,7 +20,27 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var sortCodeLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var transactionsSegment: UIView!
+    @IBOutlet weak var infoSegment: UIView!
+    @IBOutlet weak var infoGbpAccountView: UIView!
+    @IBOutlet weak var infoAccountNumberView: UIView!
+    @IBOutlet weak var infoAccountSortCodeView: UIView!
+    @IBOutlet weak var infoAccountNumberLabel: UILabel!
+    @IBOutlet weak var infoAccountSortCodeLabel: UILabel!
     
+    @IBAction func indexChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            transactionsSegment.isHidden = true
+            infoSegment.isHidden = false
+        case 1:
+            transactionsSegment.isHidden = false
+            infoSegment.isHidden = true
+        default:
+            break;
+        }
+        
+    }
     var transactionsArray : [Transaction]?
     
     lazy var refreshControl: UIRefreshControl = {
@@ -56,17 +76,44 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         layerTop.fillColor = UIColor.lightGray.cgColor
         latestTransactionsView.layer.addSublayer(layerTop)
         
-        let borderBottom = UIBezierPath(rect: CGRect(x: 0, y: latestTransactionsView.bounds.height, width: UIScreen.main.bounds.width, height: 0.4))
-        let layerBottom = CAShapeLayer()
-        layerBottom.path = borderBottom.cgPath
-        layerBottom.fillColor = UIColor.lightGray.cgColor
-        latestTransactionsView.layer.addSublayer(layerBottom)
+        let borderTopTransactionsTV = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.40))
+        let layerTopTransactionsTV = CAShapeLayer()
+        layerTopTransactionsTV.path = borderTopTransactionsTV.cgPath
+        layerTopTransactionsTV.fillColor = PayProColors.line.cgColor
+        self.transactionsTV.layer.addSublayer(layerTopTransactionsTV)
+        
+        let borderTopinfoGbpAccountView = UIBezierPath(rect: CGRect(x: 0, y: 0.4, width: UIScreen.main.bounds.width, height: 0.4))
+        let layerTopinfoGbpAccountView = CAShapeLayer()
+        layerTopinfoGbpAccountView.path = borderTopinfoGbpAccountView.cgPath
+        layerTopinfoGbpAccountView.fillColor = UIColor.lightGray.cgColor
+        infoGbpAccountView.layer.addSublayer(layerTopinfoGbpAccountView)
+        
+        let borderTopInfo = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.40))
+        let layerTopInfo = CAShapeLayer()
+        layerTopInfo.path = borderTopInfo.cgPath
+        layerTopInfo.fillColor = PayProColors.line.cgColor
+        self.infoAccountNumberView.layer.addSublayer(layerTopInfo)
+        
+        let borderMiddleInfo = UIBezierPath(rect: CGRect(x: 15, y: 42.6, width: self.view.frame.width, height: 0.40))
+        let layerMiddleInfo = CAShapeLayer()
+        layerMiddleInfo.path = borderMiddleInfo.cgPath
+        layerMiddleInfo.fillColor = PayProColors.line.cgColor
+        self.infoAccountNumberView.layer.addSublayer(layerMiddleInfo)
+        
+        let borderBottomInfo = UIBezierPath(rect: CGRect(x: 0, y: 41.6, width: self.view.frame.width, height: 0.40))
+        let layerBottomInfo = CAShapeLayer()
+        layerBottomInfo.path = borderBottomInfo.cgPath
+        layerBottomInfo.fillColor = PayProColors.line.cgColor
+        self.infoAccountSortCodeView.layer.addSublayer(layerBottomInfo)
         
         self.accountLabel.text = user?.accountNumber
         self.sortCodeLabel.text = user?.sortCode
         self.balanceLabel.text = user?.amountBalance
         self.balanceLabel.numberOfLines = 1
         self.balanceLabel.adjustsFontSizeToFitWidth = true
+        
+        self.infoAccountNumberLabel.text = user?.accountNumber
+        self.infoAccountSortCodeLabel.text = user?.sortCode
         
 //        self.getBalance()
         
