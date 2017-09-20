@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 struct CountrySection {
     var countries: [Country] = []
     
