@@ -194,6 +194,9 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         alert.addAction(cancelAction)
         
+        alert.popoverPresentationController?.sourceView = avatarView
+        alert.popoverPresentationController?.sourceRect = avatarView.bounds
+        
         self.present(alert, animated: true, completion: nil)
     }
     

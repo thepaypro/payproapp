@@ -158,7 +158,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
     func ContactPicker(_: ContactsPicker, didCancel error : NSError)
     {
         print("User canceled the selection");
-        self.tabBarController?.selectedIndex = 3
+        self.tabBarController?.selectedIndex = 2
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -183,7 +183,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
                 alert.addAction(confirmAction)
                 
                 self.present(alert, animated: true, completion: {
-                    self.tabBarController?.selectedIndex = 3
+                    self.tabBarController?.selectedIndex = 2
                     self.dismiss(animated: true, completion: nil)
                 })
             })
@@ -197,14 +197,14 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
                 alert.addAction(confirmAction)
                 
                 self.present(alert, animated: true, completion: {
-                    self.tabBarController?.selectedIndex = 3
+                    self.tabBarController?.selectedIndex = 2
                     self.dismiss(animated: true, completion: nil)
                 })
             })
         case MessageComposeResult.sent.rawValue:
             print("Message was sent")
             self.dismiss(animated: true, completion: {
-                self.tabBarController?.selectedIndex = 3
+                self.tabBarController?.selectedIndex = 2
             })
             
         default:
