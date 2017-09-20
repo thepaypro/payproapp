@@ -37,21 +37,39 @@ func CardConnection(completion: @escaping (_ cardResponse: NSDictionary) -> Void
     })
 }
 
-func CardActivation(activationCode: String, pinCode: String, confirmCode: String, completion: @escaping (_ cardResponse: NSDictionary) -> Void)
+func CardActivation(cardActivationCode: String,  PAN: String, completion: @escaping (_ cardResponse: NSDictionary) -> Void)
 {
-    print("activationCode: \(activationCode)")
-    print("pinCode: \(pinCode)")
-    print("confirmCode: \(confirmCode)")
+    print("activationCode: \(cardActivationCode)")
+    print("cardNum: \(PAN)")
     
-    makePostRequest(paramsDictionary: [:] as NSDictionary, endpointURL: "cards/activation", completion: {completionDictionary in
+    //DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
         
-        print("completionDictionary: \(completionDictionary)")
+        //makePostRequest(paramsDictionary: [:] as NSDictionary, endpointURL: "cards/activation", completion: {completionDictionary in
         
-        User.currentUser()?.cardStatus = User.CardStatus.activated
+            //print("completionDictionary: \(completionDictionary)")
         
-        completion(["status": true] as NSDictionary)
-    })
+            User.currentUser()?.cardStatus = User.CardStatus.activated
+        
+            completion(["status": true,"errorMessage": ""] as NSDictionary)
+        //})
+        
+    //})
 }
+
+func GetPin (CVV2: String, completion: @escaping (_ cardResponse: NSDictionary) -> Void)
+{
+    //DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+
+        //makePostRequest(paramsDictionary: [:] as NSDictionary, endpointURL: "cards/activation", completion: {completionDictionary in
+    
+            //print("completionDictionary: \(completionDictionary)")
+    
+            completion(["status": true,"pin": "4321"] as NSDictionary)
+        
+        //})
+    //})
+}
+
 
 func CardUpdateStatus(status: Bool, completion: @escaping (_ cardResponse: NSDictionary) -> Void)
 {

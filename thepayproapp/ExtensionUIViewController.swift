@@ -9,7 +9,8 @@
 import UIKit
 
 extension UIViewController {
-    func displayNavBarActivity() {
+    
+    func displayNavBarActivity() -> [UIBarButtonItem]? {
         let viewActivityIndicator = UIView()
         viewActivityIndicator.frame = CGRect(x: 0, y: 0, width: 43, height: 43)
         viewActivityIndicator.backgroundColor = UIColor.clear
@@ -24,9 +25,11 @@ extension UIViewController {
         
         let item = UIBarButtonItem(customView: viewActivityIndicator)
         
+        let barButtonItems: [UIBarButtonItem]? = self.navigationItem.rightBarButtonItems
         self.navigationItem.rightBarButtonItem = item
         
         UIApplication.shared.beginIgnoringInteractionEvents()
+        return barButtonItems
     }
     
     func dismissNavBarActivity() {

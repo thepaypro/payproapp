@@ -11,7 +11,9 @@ import UIKit
 //let PPAPIURL = "http://34.253.160.180"
 //let PPAPIURL = "http://35.158.218.151"
 //let PPAPIURL = "http://api.payproapp.net"
-let PPAPIURL = "http://172.28.128.70"
+let PPAPIURL = "http://172.28.128.77"
+let PPLocalAPIURL = "http://172.28.128.77"
+
 
 func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
 {
