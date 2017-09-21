@@ -230,6 +230,7 @@ open class SendMoney {
     open var load_process: Int = 0 //0:initial load not active, 1:initial load active
     open var finish_process: Int = 0 //0:process are active, 1:process are finished
     open var operation_type: Int = 0 //0:bankTransfe, 1:sendMoneyIntraApp, 2:sendMoneyInvite
+    open var currency_type: Int = 0 //0:GBP 1:BTC
     open var amount: String?
     open var forename: String?
     open var lastname: String?
@@ -267,6 +268,14 @@ open class SendMoney {
     
     open func getOperationType() -> Int {
         return operation_type
+    }
+    
+    open func getCurrencyType() ->  Int {
+        return currency_type
+    }
+    
+    open func setCurrencyType(currencyTypeValue: Int){
+        currency_type = currencyTypeValue
     }
     
     open func setAmount(amountToSend: String) {

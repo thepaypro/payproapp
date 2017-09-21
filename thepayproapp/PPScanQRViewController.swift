@@ -71,8 +71,16 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                self.sendMoney.setOperationType(operationTypeValue: 3)
-                self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
+                print("AccountNumber: \(metadataObj.stringValue)")
+                //Endpoint de checkear si es cuenta valida de BITCOIN i si es de un usuario PayPro
+                    self.sendMoney.setCurrencyType(currencyTypeValue: 1)
+                    self.sendMoney.setOperationType(operationTypeValue: 1)
+                    self.sendMoney.account_number = metadataObj.stringValue
+                    self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
+                
+                    //self.sendMoney.setCurrencyType(currencyTypeValue: 1)
+                    //self.sendMoney.setOperationType(operationTypeValue: 0)
+                    //self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
             }
         }
     }

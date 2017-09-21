@@ -23,6 +23,12 @@ class PPSendMoneyAmountViewController: UIViewController
         //disabled block load process
         
         amountField.addTarget(self, action: #selector(amountFieldDidChange), for: .editingChanged)
+        if(sendMoney.getCurrencyType() == 1){
+            amountField.placeholder = "µBTC 000.00"
+        }else{
+            amountField.placeholder = "£ 000.00"
+        }
+        
         messageField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
         
         self.navigationItem.rightBarButtonItem?.isEnabled = false
@@ -46,15 +52,16 @@ class PPSendMoneyAmountViewController: UIViewController
     }
     
     func amountFieldDidChange(_ textField: UITextField) {
-        if let amountString = amountField.text?.currencyInputFormatting() {
-            amountField.text = amountString
+        if let amountString = amountField.text?.currencyInputFormatting(currencyType: sendMoney.getCurrencyType()) {
+                amountField.text = amountString
+           
         }
         
         checkNavigation()
     }
     
     func checkNavigation() {
-        if amountField.text?.checkValidAmount() == true && messageField.text != "" {
+        if amountField.text?.checkValidAmount(currencyType: sendMoney.getCurrencyType()) == true && messageField.text != "" {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
             sendMoney.setAmount(amountToSend: amountField.text!)
             sendMoney.setMessage(messageValue: messageField.text!)

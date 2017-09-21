@@ -73,7 +73,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         
         self.amountLabel.text = sendMoney.getAmount()
         
-        if sendMoney.getOperationType() == 0 {
+        if sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 0 {
             self.firstLabel.text = sendMoney.getForename()+" "+sendMoney.getLastname()
             
             if sendMoney.getAccountDetailsType() == 0 {
@@ -92,14 +92,16 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
             
             self.textInfo.text = "Cell description which explains the consequences of the above action."
             
-        } else if sendMoney.getOperationType() == 1 {
-            self.amountLabel.text = sendMoney.getAmount()
+        } else if sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 1 {
+            self.firstLabel.text = "Destinatary name not Available"
+            self.secondLabel.text = sendMoney.getMessage()
+            self.textInfo.text = "Cell description which explains the consequences of the above action."
+        }else if sendMoney.getOperationType() == 1 {
             self.firstLabel.text = sendMoney.getBeneficiaryName()
             self.secondLabel.text = sendMoney.getMessage()
             self.textInfo.text = "Cell description which explains the consequences of the above action."
             
         } else if sendMoney.getOperationType() == 2 {
-            self.amountLabel.text = sendMoney.getAmount()
             self.firstLabel.text = sendMoney.getBeneficiaryName()
             self.secondLabel.text = sendMoney.getMessage()
             self.thirdLabel.text = sendMoney.getphoneNumber()
@@ -273,46 +275,54 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
     
     func createTransaction(completion: @escaping (_ createTransactionResponse: Bool) -> Void)
     {
-        let amount = String(sendMoney.getAmount())?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
-        let amountPennies:String = (amount?.getPennies())!
-        let subject:String = sendMoney.getMessage()
-        let title:String = String("Transaction to "+sendMoney.getBeneficiaryName())!
-        
-        TransactionCreate(
-            beneficiary: sendMoney.getcontactId(),
-            amount: amountPennies,
-            subject: subject.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
-            title: title.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
-            completion: {transactionResponse in
-                
-                print("transaction: \(transactionResponse)")
-                
-                if transactionResponse["status"] as! Bool == true {
-                    print("finishProcess: \(self.sendMoney.getFinishProcess())")
-                    self.sendMoney.setFinishProcess(finishProcessValue: 1)
-                    completion(true)
-                } else if transactionResponse["errorMessage"] != nil {
-                    self.animateSwipe(position: swipeColorBoxCenterX)
+        if(sendMoney.getCurrencyType() == 0){
+            let amount = String(sendMoney.getAmount())?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
+            let amountPennies:String = (amount?.getPennies())!
+            let subject:String = sendMoney.getMessage()
+            let title:String = String("Transaction to "+sendMoney.getBeneficiaryName())!
+            
+            TransactionCreate(
+                beneficiary: sendMoney.getcontactId(),
+                amount: amountPennies,
+                subject: subject.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
+                title: title.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
+                completion: {transactionResponse in
                     
-                    let errorMessage: String = transactionResponse["errorMessage"] as! String
+                    print("transaction: \(transactionResponse)")
                     
-                    let alert = UIAlertController()
-                    
-                    self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
-                    
-                    completion(false)
-                    
-                } else if transactionResponse["status"] as! Bool == false {
-                    self.animateSwipe(position: swipeColorBoxCenterX)
-                    
-                    let alert = UIAlertController()
-                    
-                    self.present(alert.displayAlert(code: "transaction_failed"), animated: true, completion: nil)
-                    
-                    completion(false)
+                    if transactionResponse["status"] as! Bool == true {
+                        print("finishProcess: \(self.sendMoney.getFinishProcess())")
+                        self.sendMoney.setFinishProcess(finishProcessValue: 1)
+                        completion(true)
+                    } else if transactionResponse["errorMessage"] != nil {
+                        self.animateSwipe(position: swipeColorBoxCenterX)
+                        
+                        let errorMessage: String = transactionResponse["errorMessage"] as! String
+                        
+                        let alert = UIAlertController()
+                        
+                        self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
+                        
+                        completion(false)
+                        
+                    } else if transactionResponse["status"] as! Bool == false {
+                        self.animateSwipe(position: swipeColorBoxCenterX)
+                        
+                        let alert = UIAlertController()
+                        
+                        self.present(alert.displayAlert(code: "transaction_failed"), animated: true, completion: nil)
+                        
+                        completion(false)
+                    }
                 }
-            }
-        )
+            )
+        }else if (sendMoney.getCurrencyType() == 1){
+            let amount = String(sendMoney.getAmount())?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
+            let subject:String = sendMoney.getMessage()
+            let title:String = String("Transaction to "+sendMoney.getBeneficiaryName())!
+            
+            //call endpoint bitcoin Transaction
+        }
     }
 }
 
