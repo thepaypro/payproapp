@@ -71,16 +71,41 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                print("AccountNumber: \(metadataObj.stringValue)")
-                //Endpoint de checkear si es cuenta valida de BITCOIN i si es de un usuario PayPro
+                print("metadataObj: \(metadataObj.stringValue)")
+                let bitcoinUri = NSURL(string: metadataObj.stringValue)
+                if bitcoinUri?.scheme != "bitcoin"{
+                    //Alert de que no es bitcoin QR
+                }else{
+                    //Endpoint de checkear si es cuenta valida de BITCOIN i si es de un usuario PayPro
                     self.sendMoney.setCurrencyType(currencyTypeValue: 1)
                     self.sendMoney.setOperationType(operationTypeValue: 1)
-                    self.sendMoney.account_number = metadataObj.stringValue
-                    self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
-                
                     //self.sendMoney.setCurrencyType(currencyTypeValue: 1)
                     //self.sendMoney.setOperationType(operationTypeValue: 0)
-                    //self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
+                    
+                    self.sendMoney.account_number = bitcoinUri?.host
+                    var amountAlreadySet: Bool = false;
+                    if let bitcoinURISize = bitcoinUri?.query?.getQueryStringParameter(param: "size"){
+                        self.sendMoney.setAmount(amountToSend: bitcoinURISize)
+                        amountAlreadySet = true;
+                    }
+                    if let bitcoinURIAmount = bitcoinUri?.query?.getQueryStringParameter(param: "amount"){
+                        if (!amountAlreadySet){
+                           self.sendMoney.setAmount(amountToSend: bitcoinURIAmount)
+                        }else{
+                            //Bitcoin Uri no valida show alert and restart sendMoney
+                        }
+                    }
+                    if let bitcoinURIBeneficiaryName = bitcoinUri?.query?.getQueryStringParameter(param: "label"){
+                        self.sendMoney.setBeneficiaryName(beneficiaryNameValue: bitcoinURIBeneficiaryName)
+                    }
+                    if let bitcoinURILabel = bitcoinUri?.query?.getQueryStringParameter(param: "label"){
+                        self.sendMoney.setLabel(labelValue: bitcoinURILabel)
+                    }
+                    if let bitcoinURIMessage = bitcoinUri?.query?.getQueryStringParameter(param: "message"){
+                        self.sendMoney.setMessage(messageValue: bitcoinURIMessage)
+                    }
+                    self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
+                }
             }
         }
     }

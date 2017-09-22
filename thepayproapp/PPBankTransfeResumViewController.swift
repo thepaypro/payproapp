@@ -93,7 +93,11 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
             self.textInfo.text = "Cell description which explains the consequences of the above action."
             
         } else if sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 1 {
-            self.firstLabel.text = "Destinatary name not Available"
+            if( sendMoney.getLabel() == ""){
+                self.firstLabel.text = "Destinatary name not Available"
+            }else {
+                self.firstLabel.text = sendMoney.getLabel()
+            }
             self.secondLabel.text = sendMoney.getMessage()
             self.textInfo.text = "Cell description which explains the consequences of the above action."
         }else if sendMoney.getOperationType() == 1 {

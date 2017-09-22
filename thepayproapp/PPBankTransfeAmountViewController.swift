@@ -38,12 +38,12 @@ class PPBankTransfeAmountViewController: UIViewController
     
     func amountFieldDidChange(_ textField: UITextField) {
         
-        if let amountString = amountField.text?.currencyInputFormatting() {
+        if let amountString = amountField.text?.currencyInputFormatting(currencyType: 0) {
             amountField.text = amountString
             sendMoney.setAmount(amountToSend: amountString)
         }
         
-        self.navigationItem.rightBarButtonItem?.isEnabled = (amountField.text?.checkValidAmount())!
+        self.navigationItem.rightBarButtonItem?.isEnabled = (amountField.text?.checkValidAmount(currencyType: 0))!
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

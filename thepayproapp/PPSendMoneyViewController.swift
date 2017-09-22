@@ -46,7 +46,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
         self.sendMoney.setOperationType(operationTypeValue: 0)
         
         self.dismiss(animated: true, completion: {
-            self.performSegue(withIdentifier: "bankTransfeSegue", sender: self)
+            self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
         })
 
     }
@@ -57,7 +57,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
         self.sendMoney.setOperationType(operationTypeValue: 0)
         
         self.dismiss(animated: true, completion: {
-            self.performSegue(withIdentifier: "bankTransfeSegue", sender: self)
+            self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
         })
     }
     
@@ -69,7 +69,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
 //        self.sendMoney.setphoneNumber(phoneNumberValue: contact.getPhoneNumber())
 //        
 //        self.dismiss(animated: true, completion: {
-//            self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
+//            self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
 //        })
         print(contact.getPhoneNumber())
         if (MFMessageComposeViewController.canSendText()) {
@@ -93,7 +93,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
         self.sendMoney.setcontactId(contactIdValue: contact.getContactId())
         
         self.dismiss(animated: true, completion: {
-            self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
+            self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
         })
     }
     
@@ -116,7 +116,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
                 self.sendMoney.setOperationType(operationTypeValue: 0)
                 
                 self.dismiss(animated: true, completion: {
-                    self.performSegue(withIdentifier: "bankTransfeSegue", sender: self)
+                    self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
                 })
             })
         
@@ -130,7 +130,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
                 self.sendMoney.setphoneNumber(phoneNumberValue: contact.getPhoneNumber())
                 
                 self.dismiss(animated: true, completion: {
-                    self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
+                    self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
                 })
             })
         
@@ -149,7 +149,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
             sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.getBeneficiaryName())
             
             self.dismiss(animated: true, completion: {
-                self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
+                self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
             })
         }
         
@@ -213,12 +213,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "bankTransfeSegue" {
-            print("cccc")
-            let bankTransfeAmountVC : PPBankTransfeAmountViewController = segue.destination as! PPBankTransfeAmountViewController
-            bankTransfeAmountVC.sendMoney = sendMoney
-            
-        } else if segue.identifier == "sendMoneyInAppSegue" {
+        if segue.identifier == "sendMoneySegue" {
             let sendMoneyInAppVC : PPSendMoneyAmountViewController = segue.destination as! PPSendMoneyAmountViewController
             sendMoneyInAppVC.sendMoney = sendMoney
         }
@@ -245,6 +240,7 @@ open class SendMoney {
     open var beneficiaryName: String?
     open var phoneNumber: String?
     open var contactId: Int?
+    open var label: String?
     
     open func setLoadProcess(loadProcessValue: Int) {
         load_process = loadProcessValue
@@ -388,5 +384,13 @@ open class SendMoney {
     
     open func getcontactId() -> Int {
         return contactId!
+    }
+    
+    open func getLabel() -> String {
+        return label!
+    }
+    
+    open func setLabel(labelValue: String){
+        label = labelValue
     }
 }
