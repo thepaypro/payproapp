@@ -18,6 +18,18 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     
     override func viewDidLoad() {
         
+/*
+        if sendMoney.bitcoinURISaveData(bitcoinURIString: "bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=50&label=Luke-Jr&message=Donation%20for%20project%20xyz"){
+           print("ValidBitcoinURI")
+            print(sendMoney.getAccountNumber())
+            print(sendMoney.getLabel())
+            print(sendMoney.getAmount())
+            print(sendMoney.getMessage())
+        }else{
+            print("InvalidBitcoinUri")
+        }
+*/
+ 
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
         // as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -66,46 +78,27 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
         if metadataObj.type == AVMetadataObjectTypeQRCode {
-            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
+            // If the found metadata is equal to the QR code metadataset the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
-            if metadataObj.stringValue != nil {
-                print("metadataObj: \(metadataObj.stringValue)")
-                let bitcoinUri = NSURL(string: metadataObj.stringValue)
-                if bitcoinUri?.scheme != "bitcoin"{
-                    //Alert de que no es bitcoin QR
-                }else{
-                    //Endpoint de checkear si es cuenta valida de BITCOIN i si es de un usuario PayPro
-                    self.sendMoney.setCurrencyType(currencyTypeValue: 1)
-                    self.sendMoney.setOperationType(operationTypeValue: 1)
-                    //self.sendMoney.setCurrencyType(currencyTypeValue: 1)
-                    //self.sendMoney.setOperationType(operationTypeValue: 0)
-                    
-                    self.sendMoney.account_number = bitcoinUri?.host
-                    var amountAlreadySet: Bool = false;
-                    if let bitcoinURISize = bitcoinUri?.query?.getQueryStringParameter(param: "size"){
-                        self.sendMoney.setAmount(amountToSend: bitcoinURISize)
-                        amountAlreadySet = true;
-                    }
-                    if let bitcoinURIAmount = bitcoinUri?.query?.getQueryStringParameter(param: "amount"){
-                        if (!amountAlreadySet){
-                           self.sendMoney.setAmount(amountToSend: bitcoinURIAmount)
-                        }else{
-                            //Bitcoin Uri no valida show alert and restart sendMoney
-                        }
-                    }
-                    if let bitcoinURIBeneficiaryName = bitcoinUri?.query?.getQueryStringParameter(param: "label"){
-                        self.sendMoney.setBeneficiaryName(beneficiaryNameValue: bitcoinURIBeneficiaryName)
-                    }
-                    if let bitcoinURILabel = bitcoinUri?.query?.getQueryStringParameter(param: "label"){
-                        self.sendMoney.setLabel(labelValue: bitcoinURILabel)
-                    }
-                    if let bitcoinURIMessage = bitcoinUri?.query?.getQueryStringParameter(param: "message"){
-                        self.sendMoney.setMessage(messageValue: bitcoinURIMessage)
-                    }
-                    self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
-                }
+            if sendMoney.bitcoinURISaveData(bitcoinURIString: metadataObj.stringValue){
+                 print("ValidBitcoinURI")
+                 print(sendMoney.getAccountNumber())
+                 print(sendMoney.getLabel())
+                 print(sendMoney.getAmount())
+                 print(sendMoney.getMessage())
+         
+                self.sendMoney.setCurrencyType(currencyTypeValue: 1)
+                
+                //EndPoint de checkear si es usuario pay pro
+                self.sendMoney.setOperationType(operationTypeValue: 1)
+                //self.sendMoney.setOperationType(operationTypeValue: 0)
+                
+                self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
+            }else{
+                print("InvalidBitcoinUri")
+                //Bitcoin Uri no valida show alert
             }
         }
     }

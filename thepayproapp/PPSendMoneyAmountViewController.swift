@@ -35,8 +35,9 @@ class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource,
         self.currencyPicker.dataSource = self;
         self.currencyPicker.delegate = self;
         
-        if sendMoney.getAmount() == "" {amountField.text = sendMoney.getAmount()}
-        if sendMoney.getMessage() == "" {messageField.text = sendMoney.getMessage()}
+        if sendMoney.getAmount() != "" {amountField.text = sendMoney.getAmount()}
+        if sendMoney.getMessage() != "" {messageField.text = sendMoney.getMessage()}
+        //currencyPicker
         
         
         amountField.addTarget(self, action: #selector(amountFieldDidChange), for: .editingChanged)
