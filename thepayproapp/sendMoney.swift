@@ -35,7 +35,7 @@ open class SendMoney {
         var isBitcoinUriValid: Bool = true
         var bitcoinUri: [String?]
 
-        print(bitcoinURIString?.components(separatedBy: ":"))
+        //print(bitcoinURIString?.components(separatedBy: ":"))
         
         if let bitcoinUriScheme: [String?] = bitcoinURIString?.components(separatedBy: ":"), bitcoinUriScheme[0] == "bitcoin" &&  bitcoinUriScheme[1] != nil{
             bitcoinUri = [bitcoinUriScheme[1]]
@@ -116,6 +116,15 @@ open class SendMoney {
     
     open func getCurrencyType() ->  Int {
         return currency_type
+    }
+    open func getAmountWithCurrencySymbol() -> String {
+        if currency_type == 0{
+            return "£ " + amount!
+        }else if currency_type == 1{
+            return amount! + " bits"
+        }else{
+            return ""
+        }
     }
     
     open func setCurrencyType(currencyTypeValue: Int){

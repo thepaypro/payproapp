@@ -71,7 +71,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         
         swipeColorBoxCenterX = self.swipeColorBox.center.x
         
-        self.amountLabel.text = sendMoney.getAmount()
+        self.amountLabel.text = sendMoney.getAmountWithCurrencySymbol()
         
         if sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 0 {
             self.firstLabel.text = sendMoney.getForename()+" "+sendMoney.getLastname()
