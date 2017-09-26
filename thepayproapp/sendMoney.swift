@@ -121,7 +121,7 @@ open class SendMoney {
         if currency_type == 0{
             return "£ " + amount!
         }else if currency_type == 1{
-            return amount! + " bits"
+            return "bits " + amount!
         }else{
             return ""
         }
