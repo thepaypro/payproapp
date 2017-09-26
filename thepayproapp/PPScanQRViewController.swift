@@ -15,21 +15,23 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     var sendMoney = SendMoney()
+    var QRAlreadyDetected: Bool = false
     
     override func viewDidLoad() {
         
 /*
         if sendMoney.bitcoinURISaveData(bitcoinURIString: "bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=50&label=Luke-Jr&message=Donation%20for%20project%20xyz"){
-           print("ValidBitcoinURI")
+            print("ValidBitcoinURI")
             print(sendMoney.getAccountNumber())
             print(sendMoney.getLabel())
             print(sendMoney.getAmount())
             print(sendMoney.getMessage())
+             self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
         }else{
             print("InvalidBitcoinUri")
         }
+
 */
- 
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
         // as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -65,6 +67,9 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         view.addSubview(qrCodeFrameView!)
         view.bringSubview(toFront: qrCodeFrameView!)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        QRAlreadyDetected = false
+    }
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         
@@ -77,28 +82,31 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         // Get the metadata object.
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
-        if metadataObj.type == AVMetadataObjectTypeQRCode {
+        if metadataObj.type == AVMetadataObjectTypeQRCode{
             // If the found metadata is equal to the QR code metadataset the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
-            if sendMoney.bitcoinURISaveData(bitcoinURIString: metadataObj.stringValue){
-                 print("ValidBitcoinURI")
-                 print(sendMoney.getAccountNumber())
-                 print(sendMoney.getLabel())
-                 print(sendMoney.getAmount())
-                 print(sendMoney.getMessage())
-         
-                self.sendMoney.setCurrencyType(currencyTypeValue: 1)
-                
-                //EndPoint de checkear si es usuario pay pro
-                self.sendMoney.setOperationType(operationTypeValue: 1)
-                //self.sendMoney.setOperationType(operationTypeValue: 0)
-                
-                self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
-            }else{
-                print("InvalidBitcoinUri")
-                //Bitcoin Uri no valida show alert
+            if metadataObj.stringValue != nil && !QRAlreadyDetected{
+                if sendMoney.bitcoinURISaveData(bitcoinURIString: metadataObj.stringValue){
+                     print("ValidBitcoinURI")
+                     print(sendMoney.getAccountNumber())
+                     print(sendMoney.getLabel())
+                     print(sendMoney.getAmount())
+                     print(sendMoney.getMessage())
+                     QRAlreadyDetected = true
+             
+                    self.sendMoney.setCurrencyType(currencyTypeValue: 1)
+                    
+                    //EndPoint de checkear si es usuario pay pro
+                    self.sendMoney.setOperationType(operationTypeValue: 1)
+                    //self.sendMoney.setOperationType(operationTypeValue: 0)
+                    
+                    self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
+                }else{
+                    print("InvalidBitcoinUri")
+                    //Bitcoin Uri no valida show alert
+                }
             }
         }
     }

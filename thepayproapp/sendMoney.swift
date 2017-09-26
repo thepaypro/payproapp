@@ -31,10 +31,12 @@ open class SendMoney {
     
     open func bitcoinURISaveData (bitcoinURIString: String?) -> Bool{
         
-        //  bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=20.3&label=Luke-Jr
+        //bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=50&label=Luke-Jr&message=Donation%20for%20project%20xyz
         var isBitcoinUriValid: Bool = true
         var bitcoinUri: [String?]
 
+        print(bitcoinURIString?.components(separatedBy: ":"))
+        
         if let bitcoinUriScheme: [String?] = bitcoinURIString?.components(separatedBy: ":"), bitcoinUriScheme[0] == "bitcoin" &&  bitcoinUriScheme[1] != nil{
             bitcoinUri = [bitcoinUriScheme[1]]
         }else{
@@ -42,9 +44,17 @@ open class SendMoney {
         }
         
         // need to check if the addr is valid
-        if let bitcoinUriAddr: [String?] = bitcoinUri[0]?.components(separatedBy: "?"){
-            bitcoinUri.append(bitcoinUriAddr[1])
+        bitcoinUriAddr: if let bitcoinUriAddr: [String?] = bitcoinUri[0]?.components(separatedBy: "?"){
+            if bitcoinUriAddr.count > 2{
+                isBitcoinUriValid = false
+                break bitcoinUriAddr
+            }
             account_number = bitcoinUriAddr[0]
+            if bitcoinUriAddr.count == 2{
+               bitcoinUri.append(bitcoinUriAddr[1])
+            }else{
+                return true
+            }
         }else{
             return false
         }
@@ -116,8 +126,8 @@ open class SendMoney {
         amount = amountToSend
     }
     
-    open func getAmount() -> String {
-        return amount!
+    open func getAmount() -> String? {
+        return amount
     }
     
     open func setForename(forenameValue: String) {
@@ -180,8 +190,8 @@ open class SendMoney {
         message = messageValue
     }
     
-    open func getMessage() -> String {
-        return message!
+    open func getMessage() -> String? {
+        return message
     }
     
     open func setReason(reasonValue: String) {
@@ -224,8 +234,8 @@ open class SendMoney {
         return contactId!
     }
     
-    open func getLabel() -> String {
-        return label!
+    open func getLabel() -> String? {
+        return label
     }
     
     open func setLabel(labelValue: String){

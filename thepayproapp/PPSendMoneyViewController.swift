@@ -158,7 +158,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
     func ContactPicker(_: ContactsPicker, didCancel error : NSError)
     {
         print("User canceled the selection");
-        self.tabBarController?.selectedIndex = 2
+        self.tabBarController?.selectedIndex = 3
         self.dismiss(animated: true, completion: nil)
     }
     

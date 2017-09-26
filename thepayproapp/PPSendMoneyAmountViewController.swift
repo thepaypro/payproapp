@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
+class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate
 {
     var sendMoney = SendMoney()
     
@@ -17,27 +17,32 @@ class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource,
     @IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var currencyPicker: UIPickerView!
     @IBAction func nextTapped(_ sender: Any) {
-        if (sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 0 || sendMoney.getOperationType() == 1){
+        if (sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 0){
             self.performSegue(withIdentifier: "beneficiaryNameSegue", sender: self)
-        }else if (sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 1 || sendMoney.getOperationType() == 2){
+        }else if (sendMoney.getCurrencyType() == 1 || sendMoney.getOperationType() == 1 || sendMoney.getOperationType() == 2){
             self.performSegue(withIdentifier: "resumToAmountSegue", sender: self)
         }
     }
     
 
-    let currencyPickerData: [String] = ["£","µBTC"]
+    let currencyPickerData: [String] = ["£","bits"]
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        amountField.delegate = self
         //disabled block load process
         
         self.currencyPicker.dataSource = self;
         self.currencyPicker.delegate = self;
         
-        if sendMoney.getAmount() != "" {amountField.text = sendMoney.getAmount()}
-        if sendMoney.getMessage() != "" {messageField.text = sendMoney.getMessage()}
+        if let amount = sendMoney.getAmount(){
+            amountField.text = amount
+        }
+        if let message = sendMoney.getMessage(){
+            messageField.text = message
+        }
         //currencyPicker
+        currencyPicker.selectRow(sendMoney.getCurrencyType(), inComponent: 0, animated: false)
         
         
         amountField.addTarget(self, action: #selector(amountFieldDidChange), for: .editingChanged)
@@ -62,6 +67,19 @@ class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource,
         self.sendMoney.setLoadProcess(loadProcessValue: 0)
         self.amountField.becomeFirstResponder()
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,replacementString string: String) -> Bool{
+        if(textField == amountField){
+            let maxLength = 18
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }else{
+            return true
+        }
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
 
         return 1
@@ -78,10 +96,12 @@ class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource,
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         sendMoney.setCurrencyType(currencyTypeValue: row)
+        amountField.text = amountField.text?.currencyInputFormatting()
+        
     }
     
     func amountFieldDidChange(_ textField: UITextField) {
-        if let amountString = amountField.text?.currencyInputFormatting(currencyType: sendMoney.getCurrencyType()) {
+        if let amountString = amountField.text?.currencyInputFormatting() {
                 amountField.text = amountString
         }
         
@@ -89,7 +109,7 @@ class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource,
     }
     
     func checkNavigation() {
-        if amountField.text?.checkValidAmount(currencyType: sendMoney.getCurrencyType()) == true && messageField.text != "" {
+        if amountField.text?.checkValidAmount() == true && messageField.text != "" {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
             sendMoney.setAmount(amountToSend: amountField.text!)
             sendMoney.setMessage(messageValue: messageField.text!)

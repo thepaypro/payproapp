@@ -27,15 +27,8 @@ extension String {
     }
     
     // formatting text for currency textField
-    func currencyInputFormatting(currencyType: Int) -> String {
-        var currencySymbol = ""
-        if(currencyType == 0){
-            currencySymbol = "£"
-        }else if (currencyType == 1){
-            currencySymbol = "µBTC"
-        }
-        var amount = self.replacingOccurrences(of: currencySymbol, with: "")
-        
+    func currencyInputFormatting() -> String {
+        var amount = self
         if amount.characters.last == "," {
             amount = String(amount.characters.dropLast()) + "."
         }
@@ -72,12 +65,10 @@ extension String {
         let amount_number = Int(amount_integer)! as NSNumber
         
         let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
+        formatter.numberStyle = .decimal
         formatter.decimalSeparator = "."
-        formatter.currencySymbol = currencySymbol
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
-        formatter.locale = Locale(identifier: "en_GB")
         
         var amount_formatted = formatter.string(from: amount_number)
         
@@ -90,14 +81,8 @@ extension String {
         return amount_formatted!
     }
     
-    func checkValidAmount(currencyType: Int) -> Bool {
-        var currencySymbol = ""
-        if(currencyType == 0){
-            currencySymbol = "£"
-        }else if (currencyType == 1){
-            currencySymbol = "µBTC"
-        }
-        let amount = self.replacingOccurrences(of: currencySymbol, with: "")
+    func checkValidAmount() -> Bool {
+        let amount = self
         
         let matchedA = matches(for: "^\\d+$", in: amount)
         let matchedB = matches(for: "^\\d+(,[0-9]{3})+$", in: amount)

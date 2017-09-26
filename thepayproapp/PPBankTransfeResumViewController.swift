@@ -280,9 +280,9 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
     func createTransaction(completion: @escaping (_ createTransactionResponse: Bool) -> Void)
     {
         if(sendMoney.getCurrencyType() == 0){
-            let amount = String(sendMoney.getAmount())?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
+            let amount = String(sendMoney.getAmount()!)?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
             let amountPennies:String = (amount?.getPennies())!
-            let subject:String = sendMoney.getMessage()
+            let subject:String = sendMoney.getMessage()!
             let title:String = String("Transaction to "+sendMoney.getBeneficiaryName())!
             
             TransactionCreate(
@@ -321,8 +321,8 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                 }
             )
         }else if (sendMoney.getCurrencyType() == 1){
-            let amount = String(sendMoney.getAmount())?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
-            let subject:String = sendMoney.getMessage()
+            let amount = String(sendMoney.getAmount()!)?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
+            let subject:String = sendMoney.getMessage()!
             let title:String = String("Transaction to "+sendMoney.getBeneficiaryName())!
             
             //call endpoint bitcoin Transaction

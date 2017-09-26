@@ -2776,17 +2776,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vn3-0h-v5a">
-                                                <rect key="frame" x="87" y="140" width="240" height="70"/>
+                                                <rect key="frame" x="77" y="140" width="260" height="70"/>
                                                 <subviews>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGv-O4-9GK">
-                                                        <rect key="frame" x="5" y="0.0" width="60" height="70"/>
+                                                        <rect key="frame" x="5" y="0.0" width="90" height="70"/>
                                                         <accessibility key="accessibilityConfiguration" label="t"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="CRC-48-RYR"/>
+                                                            <constraint firstAttribute="width" constant="90" id="CRC-48-RYR"/>
                                                         </constraints>
                                                     </pickerView>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="000.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oRu-ij-CjI">
-                                                        <rect key="frame" x="91.333333333333357" y="15" width="143.66666666666663" height="40"/>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="000.00" textAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="oRu-ij-CjI">
+                                                        <rect key="frame" x="115" y="15" width="140" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="r8f-83-s70"/>
                                                         </constraints>
@@ -2798,11 +2798,12 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="oRu-ij-CjI" secondAttribute="trailing" constant="5" id="3nM-a8-z5N"/>
-                                                    <constraint firstAttribute="width" constant="240" id="5hC-Go-Nwj"/>
+                                                    <constraint firstAttribute="width" constant="260" id="5hC-Go-Nwj"/>
                                                     <constraint firstAttribute="height" constant="70" id="BPH-ag-8JP"/>
                                                     <constraint firstItem="jGv-O4-9GK" firstAttribute="leading" secondItem="vn3-0h-v5a" secondAttribute="leading" constant="5" id="Bm1-O9-tDc"/>
                                                     <constraint firstItem="jGv-O4-9GK" firstAttribute="centerY" secondItem="vn3-0h-v5a" secondAttribute="centerY" id="XBk-bE-GWc"/>
                                                     <constraint firstItem="jGv-O4-9GK" firstAttribute="height" secondItem="vn3-0h-v5a" secondAttribute="height" id="dNJ-rO-PRZ"/>
+                                                    <constraint firstItem="oRu-ij-CjI" firstAttribute="leading" secondItem="jGv-O4-9GK" secondAttribute="trailing" constant="20" id="spp-rY-jjR"/>
                                                     <constraint firstItem="oRu-ij-CjI" firstAttribute="centerY" secondItem="vn3-0h-v5a" secondAttribute="centerY" id="ypc-6H-c8m"/>
                                                 </constraints>
                                             </view>
@@ -2872,7 +2873,7 @@
                         <outlet property="messageField" destination="93f-To-MGd" id="m4Z-IG-LWH"/>
                         <outlet property="messageView" destination="kpp-0r-MqW" id="RU2-ty-jpr"/>
                         <segue destination="tbG-dk-sQh" kind="show" identifier="beneficiaryNameSegue" id="hmg-9l-D97"/>
-                        <segue destination="DEl-P1-6mb" kind="show" identifier="resumToAmountIntraAppSegue" id="X5t-9Z-y2M"/>
+                        <segue destination="DEl-P1-6mb" kind="show" identifier="resumToAmountSegue" id="X5t-9Z-y2M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="437-ee-R4S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3451,10 +3452,10 @@ in PayPro</string>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="OAd-h4-Gfm" kind="relationship" relationship="viewControllers" id="TjT-ZT-US1"/>
+                        <segue destination="HMO-HL-FpG" kind="relationship" relationship="viewControllers" id="mAj-Jk-Alc"/>
                         <segue destination="krp-GC-LHI" kind="relationship" relationship="viewControllers" id="RiA-0e-8gF"/>
                         <segue destination="pMF-wz-FKS" kind="relationship" relationship="viewControllers" id="mYd-qk-ALO"/>
                         <segue destination="cLv-Rr-zuf" kind="relationship" relationship="viewControllers" id="Pqr-V8-y7B"/>
-                        <segue destination="HMO-HL-FpG" kind="relationship" relationship="viewControllers" id="mAj-Jk-Alc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLS-9H-lKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6204,16 +6205,16 @@ in PayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Lxe-Dh-tgY"/>
         <segue reference="a4Y-DX-0uo"/>
         <segue reference="QOc-uS-S0D"/>
         <segue reference="bdZ-XY-lFh"/>
         <segue reference="CKg-gm-nrI"/>
+        <segue reference="4h9-kM-2Nm"/>
+        <segue reference="X5t-9Z-y2M"/>
         <segue reference="cPk-Rt-u9Q"/>
         <segue reference="HF2-MJ-WVS"/>
-        <segue reference="d89-SF-Ut6"/>
-        <segue reference="X5t-9Z-y2M"/>
         <segue reference="Azs-uz-2tr"/>
-        <segue reference="Lxe-Dh-tgY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
