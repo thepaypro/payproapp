@@ -130,9 +130,9 @@ extension User {
                             let agreement = accountInformation.value(forKeyPath: "agreement")
                             var cardstatus: Int32 = 0
                             
-                            if let card = accountInformation.value(forKeyPath: "card"){
-                                if (card as AnyObject).value(forKeyPath: "isActive") as! Bool == true{
-                                    if (card as AnyObject).value(forKeyPath: "isEnabled") as! Bool == true{
+                            if let card: NSDictionary = accountInformation.value(forKeyPath: "card") as? NSDictionary, card.count != 0{
+                                if card.value(forKeyPath: "isActive") as! Bool == true{
+                                    if card.value(forKeyPath: "isEnabled") as! Bool == true{
                                         cardstatus = 2
                                     }else{
                                         cardstatus = 3
