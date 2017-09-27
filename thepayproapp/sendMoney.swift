@@ -45,48 +45,42 @@ open class SendMoney {
         
         // need to check if the addr is valid
         bitcoinUriAddr: if let bitcoinUriAddr: [String?] = bitcoinUri[0]?.components(separatedBy: "?"){
-            if bitcoinUriAddr.count > 2{
+            if bitcoinUriAddr.count > 2 || !(bitcoinUriAddr[0]?.matchesRegex(regex: "^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$"))!{
                 isBitcoinUriValid = false
                 break bitcoinUriAddr
             }
             account_number = bitcoinUriAddr[0]
             if bitcoinUriAddr.count == 2{
-               bitcoinUri.append(bitcoinUriAddr[1])
-            }else{
-                return true
-            }
-        }else{
-            return false
-        }
-        
-        if let bitcoinUriParams: [String?] = bitcoinUri[1]?.components(separatedBy: "&"){
-            parametersLoop: for (_,query) in bitcoinUriParams.enumerated(){
-                if let param: [String] = query?.components(separatedBy: "="){
-                    if param[0] == "amount" || param[0] == "size"{
-                        let regex = try! NSRegularExpression(pattern: "^[0-9]*\\.?[0-9]{0,8}$")
-                        if (regex.firstMatch(in: param[1], options: [], range: NSMakeRange(0, param[1].utf16.count))) != nil{
-                            amount = param[1]
+                bitcoinUri.append(bitcoinUriAddr[1])
+                if let bitcoinUriParams: [String?] = bitcoinUri[1]?.components(separatedBy: "&"){
+                    parametersLoop: for (_,query) in bitcoinUriParams.enumerated(){
+                        if let param: [String] = query?.components(separatedBy: "="), param.count == 2{
+                            if param[0] == "amount" || param[0] == "size"{
+                                if param[1].matchesRegex(regex: "^[0-9]*\\.?[0-9]{0,8}$"){
+                                    amount = param[1]
+                                }else{
+                                    return false
+                                }
+                            }
+                            else if param[0] == "label" {
+                                label = param[1].removingPercentEncoding
+                            }
+                            else if param[0] == "message" {
+                                message = param[1].removingPercentEncoding
+                            }else{
+                                isBitcoinUriValid = false
+                                break parametersLoop
+                            }
                         }else{
-                            return false
+                            isBitcoinUriValid = false
+                            break parametersLoop
                         }
                     }
-                    else if param[0] == "label" {
-                        label = param[1].removingPercentEncoding
-                    }
-                    else if param[0] == "message" {
-                        message = param[1].removingPercentEncoding
-                    }else{
-                        isBitcoinUriValid = false
-                        break parametersLoop
-                    }
-                }else{
-                    isBitcoinUriValid = false
-                    break parametersLoop
-                }
-            }
-        }else{
-            return false
-        }
+                }else{return false}
+            }else{return true}
+        }else{return false}
+        
+
         return isBitcoinUriValid 
     }
     

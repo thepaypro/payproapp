@@ -2748,7 +2748,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="OL8-lm-MJM"/>
+                    <navigationItem key="navigationItem" title="Scan QR" id="OL8-lm-MJM"/>
                     <connections>
                         <segue destination="54n-bP-fDS" kind="show" identifier="sendBitcoinsSegue" id="d89-SF-Ut6"/>
                     </connections>
@@ -6192,16 +6192,16 @@ in PayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lxe-Dh-tgY"/>
-        <segue reference="a4Y-DX-0uo"/>
+        <segue reference="HF2-MJ-WVS"/>
+        <segue reference="cPk-Rt-u9Q"/>
         <segue reference="QOc-uS-S0D"/>
         <segue reference="bdZ-XY-lFh"/>
         <segue reference="CKg-gm-nrI"/>
-        <segue reference="4h9-kM-2Nm"/>
+        <segue reference="d89-SF-Ut6"/>
         <segue reference="X5t-9Z-y2M"/>
-        <segue reference="cPk-Rt-u9Q"/>
-        <segue reference="HF2-MJ-WVS"/>
+        <segue reference="a4Y-DX-0uo"/>
         <segue reference="Azs-uz-2tr"/>
+        <segue reference="Lxe-Dh-tgY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

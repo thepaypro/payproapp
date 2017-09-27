@@ -69,6 +69,7 @@ extension String {
         formatter.decimalSeparator = "."
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
+        formatter.locale = Locale(identifier: "en_GB")
         
         var amount_formatted = formatter.string(from: amount_number)
         
@@ -107,6 +108,11 @@ extension String {
             print("invalid regex: \(error.localizedDescription)")
             return []
         }
+    }
+    
+    func matchesRegex(regex: String) ->Bool {
+        let regex = try! NSRegularExpression(pattern: regex)
+        return regex.firstMatch(in: self, options: [], range: NSMakeRange(0, self.utf16.count)) != nil
     }
     
     func getQueryStringParameter(param: String) -> String? {

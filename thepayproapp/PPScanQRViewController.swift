@@ -62,13 +62,13 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         
         // Initialize QR Code Frame to highlight the QR code
         qrCodeFrameView = UIView()
-        qrCodeFrameView?.layer.borderColor = UIColor.green.cgColor
         qrCodeFrameView?.layer.borderWidth = 2
         view.addSubview(qrCodeFrameView!)
         view.bringSubview(toFront: qrCodeFrameView!)
     }
     override func viewWillAppear(_ animated: Bool) {
         QRAlreadyDetected = false
+        qrCodeFrameView?.frame = CGRect.zero
     }
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
@@ -85,11 +85,14 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         if metadataObj.type == AVMetadataObjectTypeQRCode{
             // If the found metadata is equal to the QR code metadataset the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            qrCodeFrameView?.layer.borderColor = UIColor.yellow.cgColor
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil && !QRAlreadyDetected{
+                sendMoney = SendMoney()
                 if sendMoney.bitcoinURISaveData(bitcoinURIString: metadataObj.stringValue){
                      print("ValidBitcoinURI")
+                     qrCodeFrameView?.layer.borderColor = UIColor.green.cgColor
                      print(sendMoney.getAccountNumber())
                      print(sendMoney.getLabel())
                      print(sendMoney.getAmount())
@@ -99,12 +102,13 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
                     self.sendMoney.setCurrencyType(currencyTypeValue: 1)
                     
                     //EndPoint de checkear si es usuario pay pro
-                    self.sendMoney.setOperationType(operationTypeValue: 1)
+                    self.sendMoney.setOperationType(operationTypeValue: 0)
                     //self.sendMoney.setOperationType(operationTypeValue: 0)
                     
                     self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
                 }else{
                     print("InvalidBitcoinUri")
+                    qrCodeFrameView?.layer.borderColor = UIColor.red.cgColor
                     //Bitcoin Uri no valida show alert
                 }
             }

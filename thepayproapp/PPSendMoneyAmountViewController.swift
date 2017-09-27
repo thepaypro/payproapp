@@ -48,7 +48,7 @@ class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource,
         amountField.addTarget(self, action: #selector(amountFieldDidChange), for: .editingChanged)
         messageField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
         
-        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        self.navigationItem.rightBarButtonItem?.isEnabled = (amountField.text?.checkValidAmount() == true && messageField.text != "")
         
         let borderTop = UIBezierPath(rect: CGRect(x: 15, y: 0, width: self.view.frame.width - 30, height: 0.40))
         let layerTop = CAShapeLayer()

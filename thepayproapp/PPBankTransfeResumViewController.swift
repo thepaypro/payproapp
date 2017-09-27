@@ -93,8 +93,8 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
             self.textInfo.text = "Cell description which explains the consequences of the above action."
             
         } else if sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 1 {
-            if( sendMoney.getLabel() == ""){
-                self.firstLabel.text = "Destinatary name not Available"
+            if( sendMoney.getLabel() == nil){
+                self.firstLabel.text = "Destinatary name not available"
             }else {
                 self.firstLabel.text = sendMoney.getLabel()
             }
@@ -102,13 +102,24 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
             self.textInfo.text = "Cell description which explains the consequences of the above action."
         }else if sendMoney.getOperationType() == 1 {
             self.firstLabel.text = sendMoney.getBeneficiaryName()
-            self.secondLabel.text = sendMoney.getMessage()
+            if let label = sendMoney.getLabel(){
+                self.secondLabel.text = label
+                self.thirdLabel.text = sendMoney.getMessage()
+            }else{
+                self.secondLabel.text = sendMoney.getMessage()
+            }
             self.textInfo.text = "Cell description which explains the consequences of the above action."
             
         } else if sendMoney.getOperationType() == 2 {
             self.firstLabel.text = sendMoney.getBeneficiaryName()
-            self.secondLabel.text = sendMoney.getMessage()
-            self.thirdLabel.text = sendMoney.getphoneNumber()
+            if let label = sendMoney.getLabel(){
+                self.secondLabel.text = label
+                self.thirdLabel.text = sendMoney.getMessage()
+                self.fourthLabel.text = sendMoney.getphoneNumber()
+            }else{
+                self.secondLabel.text = sendMoney.getMessage()
+                self.thirdLabel.text = sendMoney.getphoneNumber()
+            }
             self.textInfo.text = "Cell description which explains the consequences of the above action DIF."
         }
         
