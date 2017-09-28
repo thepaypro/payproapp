@@ -4272,66 +4272,98 @@ in PayPro</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAD-wv-yDc">
-                                <rect key="frame" x="20" y="64" width="374" height="167"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="167"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0X4-GM-g2f">
-                                        <rect key="frame" x="140.33333333333334" y="5" width="93.333333333333314" height="60"/>
+                                        <rect key="frame" x="0.0" y="5" width="414" height="83"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvd-ks-iD8">
-                                                <rect key="frame" x="25" y="0.0" width="43.666666666666657" height="31.333333333333329"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123.45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hn-Mp-U94">
-                                                <rect key="frame" x="20.666666666666657" y="36.333333333333329" width="52" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGX-ZM-fkr">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvd-ks-iD8">
+                                                        <rect key="frame" x="185" y="0.0" width="43.666666666666657" height="31.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hn-Mp-U94">
+                                                        <rect key="frame" x="190" y="26.333333333333329" width="34.333333333333343" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="kvd-ks-iD8" firstAttribute="centerX" secondItem="fGX-ZM-fkr" secondAttribute="centerX" id="5aF-Np-APk"/>
+                                                    <constraint firstItem="kvd-ks-iD8" firstAttribute="bottom" secondItem="5Hn-Mp-U94" secondAttribute="top" constant="5" id="Hlz-1f-zgW"/>
+                                                    <constraint firstItem="5Hn-Mp-U94" firstAttribute="centerX" secondItem="fGX-ZM-fkr" secondAttribute="centerX" id="PNe-oS-6IC"/>
+                                                    <constraint firstItem="kvd-ks-iD8" firstAttribute="top" secondItem="fGX-ZM-fkr" secondAttribute="top" id="yAK-s3-6vo"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
+                                        <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="JvR-AG-izN"/>
-                                            <constraint firstItem="5Hn-Mp-U94" firstAttribute="top" secondItem="kvd-ks-iD8" secondAttribute="bottom" constant="5" id="PAR-ST-6H6"/>
-                                            <constraint firstItem="kvd-ks-iD8" firstAttribute="top" secondItem="0X4-GM-g2f" secondAttribute="top" id="bCD-sR-hEb"/>
-                                            <constraint firstItem="5Hn-Mp-U94" firstAttribute="centerX" secondItem="0X4-GM-g2f" secondAttribute="centerX" id="e7T-2d-roZ"/>
-                                            <constraint firstItem="kvd-ks-iD8" firstAttribute="centerX" secondItem="0X4-GM-g2f" secondAttribute="centerX" id="kYH-fd-0G7"/>
+                                            <constraint firstItem="fGX-ZM-fkr" firstAttribute="height" secondItem="0X4-GM-g2f" secondAttribute="height" id="9nN-G0-04v"/>
+                                            <constraint firstAttribute="height" constant="83.5" id="JvR-AG-izN"/>
+                                            <constraint firstItem="fGX-ZM-fkr" firstAttribute="centerX" secondItem="0X4-GM-g2f" secondAttribute="centerX" id="Nj3-H0-Eok"/>
+                                            <constraint firstItem="fGX-ZM-fkr" firstAttribute="width" secondItem="0X4-GM-g2f" secondAttribute="width" id="i6e-wn-Rml"/>
+                                            <constraint firstItem="fGX-ZM-fkr" firstAttribute="top" secondItem="0X4-GM-g2f" secondAttribute="top" id="uam-a1-ax6"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="qAF-h2-yXQ" appends="YES" id="i7O-YD-vbf"/>
+                                            <outletCollection property="gestureRecognizers" destination="KB7-h6-See" appends="YES" id="ubE-eY-uHJ"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5g-qp-yFJ">
-                                        <rect key="frame" x="140.33333333333334" y="82" width="93.333333333333314" height="60"/>
+                                        <rect key="frame" x="0.0" y="87.999999999999986" width="414" height="83.666666666666643"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GBP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vd-sM-iMM">
-                                                <rect key="frame" x="21.333333333333314" y="0.0" width="51" height="31.333333333333343"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1254.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gic-qo-AL6">
-                                                <rect key="frame" x="15.333333333333314" y="36.333333333333343" width="63" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOt-xo-7Wt">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="83.666666666666657"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GBP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vd-sM-iMM">
+                                                        <rect key="frame" x="181" y="0.0" width="51" height="31.333333333333343"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gic-qo-AL6">
+                                                        <rect key="frame" x="189.33333333333334" y="26.333333333333343" width="34.333333333333314" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="5Vd-sM-iMM" firstAttribute="bottom" secondItem="gic-qo-AL6" secondAttribute="top" constant="5" id="9sR-dT-QKb"/>
+                                                    <constraint firstItem="5Vd-sM-iMM" firstAttribute="centerX" secondItem="qOt-xo-7Wt" secondAttribute="centerX" id="MnW-LJ-feI"/>
+                                                    <constraint firstItem="gic-qo-AL6" firstAttribute="centerX" secondItem="qOt-xo-7Wt" secondAttribute="centerX" id="Vj3-Wt-Wen"/>
+                                                    <constraint firstItem="5Vd-sM-iMM" firstAttribute="top" secondItem="qOt-xo-7Wt" secondAttribute="top" id="fAO-Hb-FnB"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
+                                        <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="7ao-cZ-Tth"/>
-                                            <constraint firstItem="gic-qo-AL6" firstAttribute="top" secondItem="5Vd-sM-iMM" secondAttribute="bottom" constant="5" id="8yU-6c-qUZ"/>
-                                            <constraint firstItem="gic-qo-AL6" firstAttribute="centerX" secondItem="E5g-qp-yFJ" secondAttribute="centerX" id="BSy-f3-NCn"/>
-                                            <constraint firstItem="5Vd-sM-iMM" firstAttribute="centerX" secondItem="E5g-qp-yFJ" secondAttribute="centerX" id="ElQ-3I-DVc"/>
-                                            <constraint firstItem="5Vd-sM-iMM" firstAttribute="top" secondItem="E5g-qp-yFJ" secondAttribute="top" id="M4i-GQ-kPv"/>
+                                            <constraint firstAttribute="height" constant="83.5" id="7ao-cZ-Tth"/>
+                                            <constraint firstItem="qOt-xo-7Wt" firstAttribute="centerX" secondItem="E5g-qp-yFJ" secondAttribute="centerX" id="Eab-TM-tOV"/>
+                                            <constraint firstItem="qOt-xo-7Wt" firstAttribute="top" secondItem="E5g-qp-yFJ" secondAttribute="top" id="Fuk-BW-fRG"/>
+                                            <constraint firstItem="qOt-xo-7Wt" firstAttribute="height" secondItem="E5g-qp-yFJ" secondAttribute="height" id="SVw-BT-lHe"/>
+                                            <constraint firstItem="qOt-xo-7Wt" firstAttribute="width" secondItem="E5g-qp-yFJ" secondAttribute="width" id="WWs-yS-MWy"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Gx9-Q5-BYQ" appends="YES" id="0En-Ik-OOg"/>
+                                            <outletCollection property="gestureRecognizers" destination="dZC-zx-6hM" appends="YES" id="zcH-6j-BpU"/>
+                                        </connections>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="0X4-GM-g2f" firstAttribute="top" secondItem="vAD-wv-yDc" secondAttribute="top" constant="5" id="KQV-kD-E4c"/>
-                                    <constraint firstItem="0X4-GM-g2f" firstAttribute="width" secondItem="vAD-wv-yDc" secondAttribute="width" multiplier="0.25" id="Ma0-Qz-dBb"/>
                                     <constraint firstItem="0X4-GM-g2f" firstAttribute="centerX" secondItem="vAD-wv-yDc" secondAttribute="centerX" id="ODX-dr-aF2"/>
+                                    <constraint firstItem="E5g-qp-yFJ" firstAttribute="top" secondItem="0X4-GM-g2f" secondAttribute="bottom" id="QDc-I3-3tI"/>
                                     <constraint firstAttribute="height" constant="167" id="W58-I9-i9f"/>
                                     <constraint firstItem="E5g-qp-yFJ" firstAttribute="centerX" secondItem="vAD-wv-yDc" secondAttribute="centerX" id="aVI-JP-rC8"/>
-                                    <constraint firstAttribute="bottom" secondItem="E5g-qp-yFJ" secondAttribute="bottom" constant="25" id="rgB-Nd-xYE"/>
-                                    <constraint firstItem="E5g-qp-yFJ" firstAttribute="width" secondItem="vAD-wv-yDc" secondAttribute="width" multiplier="0.25" id="t4X-NL-lg8"/>
+                                    <constraint firstItem="0X4-GM-g2f" firstAttribute="width" secondItem="vAD-wv-yDc" secondAttribute="width" id="hmV-Bf-Y0t"/>
+                                    <constraint firstItem="E5g-qp-yFJ" firstAttribute="width" secondItem="vAD-wv-yDc" secondAttribute="width" id="t4X-NL-lg8"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cO-So-W8R">
@@ -4379,9 +4411,10 @@ in PayPro</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="vAD-wv-yDc" firstAttribute="leading" secondItem="zc3-zb-31a" secondAttribute="leadingMargin" id="3R5-V6-UaN"/>
+                            <constraint firstItem="vAD-wv-yDc" firstAttribute="width" secondItem="zc3-zb-31a" secondAttribute="width" id="0Dw-T8-e6T"/>
                             <constraint firstItem="itn-Lo-3Rf" firstAttribute="top" secondItem="WKE-Od-sRX" secondAttribute="bottom" id="4N1-B0-3jb"/>
                             <constraint firstItem="vAD-wv-yDc" firstAttribute="top" secondItem="TGX-w7-cdC" secondAttribute="bottom" id="D8X-Bh-WCY"/>
+                            <constraint firstItem="vAD-wv-yDc" firstAttribute="centerX" secondItem="zc3-zb-31a" secondAttribute="centerX" id="DZE-fX-wEf"/>
                             <constraint firstItem="WKE-Od-sRX" firstAttribute="width" secondItem="zc3-zb-31a" secondAttribute="width" id="G8X-ZZ-NiG"/>
                             <constraint firstItem="0cO-So-W8R" firstAttribute="width" secondItem="zc3-zb-31a" secondAttribute="width" id="G9j-s8-dnG"/>
                             <constraint firstItem="WKE-Od-sRX" firstAttribute="top" secondItem="0cO-So-W8R" secondAttribute="bottom" id="M4b-ht-WvU"/>
@@ -4391,15 +4424,15 @@ in PayPro</string>
                             <constraint firstItem="vAD-wv-yDc" firstAttribute="bottom" secondItem="0cO-So-W8R" secondAttribute="top" id="eJb-jW-h7C"/>
                             <constraint firstItem="itn-Lo-3Rf" firstAttribute="width" secondItem="zc3-zb-31a" secondAttribute="width" id="h5J-yg-K6L"/>
                             <constraint firstItem="Wdl-El-m0M" firstAttribute="top" secondItem="itn-Lo-3Rf" secondAttribute="bottom" id="niC-KN-Sai"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vAD-wv-yDc" secondAttribute="trailing" id="oxJ-Ca-tnI"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="ifF-Ag-yNA" appends="YES" id="eBg-3y-cyx"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Account" id="O12-uo-L1f"/>
                     <connections>
+                        <outlet property="GBPBalanceLabel" destination="gic-qo-AL6" id="KKb-4i-Scr"/>
+                        <outlet property="GBPResizableView" destination="qOt-xo-7Wt" id="X7V-ya-pUt"/>
                         <outlet property="GBPView" destination="E5g-qp-yFJ" id="cST-YE-Dwo"/>
+                        <outlet property="bitsBalanceLabel" destination="5Hn-Mp-U94" id="n43-jG-8sE"/>
+                        <outlet property="bitsResizableView" destination="fGX-ZM-fkr" id="wWd-ro-gkd"/>
                         <outlet property="bitsView" destination="0X4-GM-g2f" id="D5c-yV-a6r"/>
                         <outlet property="cardButton" destination="0cO-So-W8R" id="8sV-W8-eZQ"/>
                         <outlet property="cardHeight" destination="J77-ru-cX6" id="6qd-9j-QC8"/>
@@ -4412,9 +4445,24 @@ in PayPro</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZJ-ha-FG3" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="ifF-Ag-yNA">
+                <swipeGestureRecognizer direction="left" id="qAF-h2-yXQ">
                     <connections>
-                        <action selector="onSwipeAccount:" destination="E4X-fn-yZx" id="UTG-Dj-Tpj"/>
+                        <action selector="swipeBitsViewLeft:" destination="E4X-fn-yZx" id="XCx-CH-IYd"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="Gx9-Q5-BYQ">
+                    <connections>
+                        <action selector="swipeGBPViewLeft:" destination="E4X-fn-yZx" id="kwq-j2-7P7"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="dZC-zx-6hM">
+                    <connections>
+                        <action selector="swipeGBPViewRight:" destination="E4X-fn-yZx" id="aOQ-yM-MK0"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="KB7-h6-See">
+                    <connections>
+                        <action selector="swipeBitsViewRight:" destination="E4X-fn-yZx" id="dhS-4V-hiy"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>

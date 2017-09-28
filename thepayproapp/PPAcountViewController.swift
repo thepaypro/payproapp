@@ -19,14 +19,38 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
 //    @IBOutlet weak var accountLabel: UILabel!
 //    @IBOutlet weak var sortCodeLabel: UILabel!
 //    @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var bitsBalanceLabel: UILabel!
+    @IBOutlet weak var GBPBalanceLabel: UILabel!
     
     @IBOutlet weak var bitsView: UIView!
+    @IBOutlet weak var bitsResizableView: UIView!
     @IBOutlet weak var GBPView: UIView!
+    @IBOutlet weak var GBPResizableView: UIView!
     @IBOutlet weak var swipeCurrencyView: UIView!
-    var isPositionFixed: Bool = false
-    @IBAction func onSwipeAccount(_ sender: Any) {
-        setCurrencyAnimation(viewOne: GBPView, viewTwo: bitsView, duration: Double(2))
+    var isPositionFixed: Bool = true
+    
+    @IBAction func swipeBitsViewLeft(_ sender: Any) {
+        if isPositionFixed{
+            setCurrencyAnimation(viewOne: bitsView, viewOneResizable: bitsResizableView, viewTwo: GBPView, viewTwoResizable: GBPResizableView, duration: Double(2), directionRight: false)
+        }
     }
+    @IBAction func swipeGBPViewLeft(_ sender: Any) {
+        if isPositionFixed{
+            setCurrencyAnimation(viewOne: GBPView, viewOneResizable: GBPResizableView, viewTwo: bitsView, viewTwoResizable: bitsResizableView, duration: Double(2), directionRight: false)
+        }
+    }
+    @IBAction func swipeGBPViewRight(_ sender: Any) {
+        if isPositionFixed{
+            setCurrencyAnimation(viewOne: GBPView, viewOneResizable: GBPResizableView, viewTwo: bitsView, viewTwoResizable: bitsResizableView, duration: Double(2), directionRight: true)
+        }
+    }
+    @IBAction func swipeBitsViewRight(_ sender: Any) {
+        if isPositionFixed{
+            setCurrencyAnimation(viewOne: bitsView, viewOneResizable: bitsResizableView, viewTwo: GBPView, viewTwoResizable: GBPResizableView, duration: Double(2), directionRight: true)
+        }
+        
+    }
+    
     var transactionsArray : [Transaction]?
     
     lazy var refreshControl: UIRefreshControl = {
@@ -43,14 +67,20 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         //Do any additional setup after loading the view.
-        self.GBPView.subviews.forEach{ label in
-            label.transform = CGAffineTransform(scaleX: 1, y: 1)
-        }
-        self.bitsView.subviews.forEach{ label in
-            label.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-        }
+//        self.GBPView.subviews.forEach{ label in
+//            label.transform = CGAffineTransform(scaleX: 1, y: 1)
+//            label.alpha = 1
+//        }
+//        self.bitsView.subviews.forEach{ label in
+//            label.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+//            label.alpha = 0.7
+//        }
+        GBPResizableView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        GBPResizableView.alpha = 0.7
+        bitsResizableView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        bitsResizableView.alpha = 0.7
         
-        //let user = User.currentUser()
+        let user = User.currentUser()
         
         self.navigationItem.title = User.currentUser()?.accountType == .proAccount ? "Pro account" : "Basic account"
         
@@ -74,6 +104,15 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         
 //        self.accountLabel.text = user?.accountNumber
 //        self.sortCodeLabel.text = user?.sortCode
+        
+        
+        self.GBPBalanceLabel.text = user?.amountBalance
+        self.GBPBalanceLabel.numberOfLines = 1
+        self.GBPBalanceLabel.adjustsFontSizeToFitWidth = true
+        
+        self.bitsBalanceLabel.text = "bits 123.45"
+        self.bitsBalanceLabel.numberOfLines = 1
+        self.bitsBalanceLabel.adjustsFontSizeToFitWidth = true
 //        self.balanceLabel.text = user?.amountBalance
 //        self.balanceLabel.numberOfLines = 1
 //        self.balanceLabel.adjustsFontSizeToFitWidth = true
@@ -96,8 +135,8 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         self.setupView()
     }
     
-    fileprivate func setCurrencyAnimation(viewOne: UIView, viewTwo: UIView, duration: Double) {
-        
+    fileprivate func setCurrencyAnimation(viewOne: UIView, viewOneResizable: UIView ,viewTwo: UIView, viewTwoResizable: UIView, duration: Double, directionRight: Bool) {
+        isPositionFixed = false
         let animation: CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "position")
         let xviewOne = viewOne.center.x
         let yviewOne = viewOne.center.y
@@ -112,8 +151,8 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         let angleTwo = viewOneOnTop ? CGFloat.pi/2 : -CGFloat.pi/2
 
         
-        pathOne.addArc(center: arcCenter, radius: arcHeight/2 ,startAngle: angleOne, endAngle: angleTwo, clockwise: false)
-        pathTwo.addArc(center: arcCenter, radius: arcHeight/2 ,startAngle: angleTwo, endAngle: angleOne, clockwise: false)
+        pathOne.addArc(center: arcCenter, radius: arcHeight/2 ,startAngle: angleOne, endAngle: angleTwo, clockwise: viewOneOnTop ? (directionRight ?  false : true ) : (directionRight ?  true : false ))
+        pathTwo.addArc(center: arcCenter, radius: arcHeight/2 ,startAngle: angleTwo, endAngle: angleOne, clockwise: viewOneOnTop ? (directionRight ?  false : true ) : (directionRight ?  true : false ))
         
         animation.path = pathOne
         animation.duration = duration
@@ -129,16 +168,18 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         
         UIView.animate(withDuration: duration) {
             
-            viewOne.transform = CGAffineTransform(scaleX: viewOneOnTop ? 1:0.7, y: viewOneOnTop ? 1:0.7)
-            viewOne.subviews.forEach{ label in
-                label.transform = CGAffineTransform(scaleX: viewOneOnTop ? 1:0.7, y: viewOneOnTop ? 1:0.7)
-                label.alpha = viewOneOnTop ? 1:0.7
-            }
-            viewTwo.transform = CGAffineTransform(scaleX: viewOneOnTop ? 0.7:1, y: viewOneOnTop ? 0.7:1)
-            viewTwo.subviews.forEach{ label in
-                label.transform = CGAffineTransform(scaleX: viewOneOnTop ? 0.7:1, y: viewOneOnTop ? 0.7:1)
-                label.alpha = viewOneOnTop ? 0.7:1
-            }
+            viewOneResizable.transform = CGAffineTransform(scaleX: viewOneOnTop ? 1:0.5, y: viewOneOnTop ? 1:0.5)
+            viewOneResizable.alpha = 0.7
+//            viewOne.subviews.forEach{ label in
+//                label.transform = CGAffineTransform(scaleX: viewOneOnTop ? 1:0.5, y: viewOneOnTop ? 1:0.5)
+//                label.alpha = viewOneOnTop ? 1:0.7
+//            }
+            viewTwoResizable.transform = CGAffineTransform(scaleX: viewOneOnTop ? 0.5:1, y: viewOneOnTop ? 0.5:1)
+            viewTwoResizable.alpha = 0.7
+//            viewTwo.subviews.forEach{ label in
+//                label.transform = CGAffineTransform(scaleX: viewOneOnTop ? 0.5:1, y: viewOneOnTop ? 0.5:1)
+//                label.alpha = viewOneOnTop ? 0.7:1
+//            }
         }
     }
     
@@ -150,7 +191,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
             bitsView.center.y = GBPViewy
             isPositionFixed = true
         }else{
-            isPositionFixed = false
+            isPositionFixed = true
         }
     }
     
@@ -161,6 +202,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
                     
                 if accountGetBalanceResponse["balance"] != nil {
 //                    self.balanceLabel.text = accountGetBalanceResponse["balance"] as? String
+                    self.GBPBalanceLabel.text = accountGetBalanceResponse["balance"] as? String
                 }
             }
         })
