@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PPAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class PPAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CAAnimationDelegate
 {
 //    @IBOutlet weak var cardIV: UIImageView!
     @IBOutlet weak var transactionsTV: UITableView!
@@ -23,33 +23,9 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var bitsView: UIView!
     @IBOutlet weak var GBPView: UIView!
     @IBOutlet weak var swipeCurrencyView: UIView!
-    
+    var isPositionFixed: Bool = false
     @IBAction func onSwipeAccount(_ sender: Any) {
-        let yGBPView = GBPView.center.y
-        let ybitsView = bitsView.center.y
-        let GBPOnTop: Bool = yGBPView > ybitsView
-        
-        //swipeCurrencyView.bringSubview(toFront: GBPOnTop ? GBPView: bitsView)
-        
-        
-        UIView.animate(withDuration: 0.5) {
-            self.GBPView.center.y = ybitsView
-            self.bitsView.center.y = yGBPView
-            
-            self.GBPView.subviews.forEach{ label in
-                label.transform = CGAffineTransform(scaleX: GBPOnTop ? 0.5:1, y: GBPOnTop ? 0.5:1)
-            }
-            self.bitsView.subviews.forEach{ label in
-                label.transform = CGAffineTransform(scaleX: GBPOnTop ? 1:0.5, y: GBPOnTop ? 1:0.5)
-            }
-            
-            // create a CGPath that implements an arcs
-//            let thePath: CGMutablePath  = CGMutablePath();
-//            CGPathMoveToPoint(thePath,NULL,74.0,74.0);
-//            CGPathAddArc(thePath, NULL, 0, 15, 15, M_PI_2, -M_PI_2, true);
-//            GBPView.path = thePath
-            
-        }
+        setCurrencyAnimation(viewOne: GBPView, viewTwo: bitsView, duration: Double(2))
     }
     var transactionsArray : [Transaction]?
     
@@ -66,18 +42,15 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        let yGBPView = GBPView.center.y
-        let ybitsView = bitsView.center.y
-        let GBPOnTop: Bool = yGBPView > ybitsView
+        //Do any additional setup after loading the view.
         self.GBPView.subviews.forEach{ label in
-            label.transform = CGAffineTransform(scaleX: GBPOnTop ? 0.5:1, y: GBPOnTop ? 0.5:1)
+            label.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
         self.bitsView.subviews.forEach{ label in
-            label.transform = CGAffineTransform(scaleX: GBPOnTop ? 1:0.5, y: GBPOnTop ? 1:0.5)
+            label.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
         }
         
-        let user = User.currentUser()
+        //let user = User.currentUser()
         
         self.navigationItem.title = User.currentUser()?.accountType == .proAccount ? "Pro account" : "Basic account"
         
@@ -121,6 +94,64 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewWillAppear(animated)
         
         self.setupView()
+    }
+    
+    fileprivate func setCurrencyAnimation(viewOne: UIView, viewTwo: UIView, duration: Double) {
+        
+        let animation: CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "position")
+        let xviewOne = viewOne.center.x
+        let yviewOne = viewOne.center.y
+        let yviewTwo = viewTwo.center.y
+        let viewOneOnTop: Bool = yviewOne < yviewTwo
+        
+        let pathOne: CGMutablePath  = CGMutablePath();
+        let pathTwo: CGMutablePath  = CGMutablePath();
+        let arcHeight = abs(yviewOne - yviewTwo)
+        let arcCenter = CGPoint(x: xviewOne , y: yviewOne + (viewOneOnTop ? arcHeight/2 : -arcHeight/2));
+        let angleOne = viewOneOnTop ? -CGFloat.pi/2 : CGFloat.pi/2
+        let angleTwo = viewOneOnTop ? CGFloat.pi/2 : -CGFloat.pi/2
+
+        
+        pathOne.addArc(center: arcCenter, radius: arcHeight/2 ,startAngle: angleOne, endAngle: angleTwo, clockwise: false)
+        pathTwo.addArc(center: arcCenter, radius: arcHeight/2 ,startAngle: angleTwo, endAngle: angleOne, clockwise: false)
+        
+        animation.path = pathOne
+        animation.duration = duration
+        animation.isCumulative = true;
+        animation.isRemovedOnCompletion = false;
+        animation.fillMode = kCAFillModeForwards
+        animation.delegate = self
+        
+        viewOne.layer.add(animation, forKey: "move currency indicators along path")
+        
+        animation.path = pathTwo
+        viewTwo.layer.add(animation, forKey: "move currency indicators along path")
+        
+        UIView.animate(withDuration: duration) {
+            
+            viewOne.transform = CGAffineTransform(scaleX: viewOneOnTop ? 1:0.7, y: viewOneOnTop ? 1:0.7)
+            viewOne.subviews.forEach{ label in
+                label.transform = CGAffineTransform(scaleX: viewOneOnTop ? 1:0.7, y: viewOneOnTop ? 1:0.7)
+                label.alpha = viewOneOnTop ? 1:0.7
+            }
+            viewTwo.transform = CGAffineTransform(scaleX: viewOneOnTop ? 0.7:1, y: viewOneOnTop ? 0.7:1)
+            viewTwo.subviews.forEach{ label in
+                label.transform = CGAffineTransform(scaleX: viewOneOnTop ? 0.7:1, y: viewOneOnTop ? 0.7:1)
+                label.alpha = viewOneOnTop ? 0.7:1
+            }
+        }
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if !isPositionFixed {
+            let bitsViewy = bitsView.center.y
+            let GBPViewy = GBPView.center.y
+            GBPView.center.y = bitsViewy
+            bitsView.center.y = GBPViewy
+            isPositionFixed = true
+        }else{
+            isPositionFixed = false
+        }
     }
     
     func getBalance()
