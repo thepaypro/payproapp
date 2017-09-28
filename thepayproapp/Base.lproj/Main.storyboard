@@ -1205,7 +1205,7 @@
                                                             <action selector="ViewPinButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="iJF-Qa-exW"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-alone" translatesAutoresizingMaskIntoConstraints="NO" id="rka-ly-4X1">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Lock-50" translatesAutoresizingMaskIntoConstraints="NO" id="rka-ly-4X1">
                                                         <rect key="frame" x="15" y="8" width="29" height="29"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="29" id="Z3Q-tt-khQ"/>
@@ -6273,7 +6273,7 @@ in PayPro</string>
         <image name="descriptionBackground" width="315" height="142"/>
         <image name="disclosure-indicator" width="8" height="13"/>
         <image name="disclosure-indicator-down" width="13" height="8"/>
-        <image name="logo-alone" width="512" height="512"/>
+        <image name="icons8-Lock-50" width="25" height="25"/>
         <image name="logo-horizontal" width="467" height="160"/>
         <image name="oval" width="20" height="20"/>
         <image name="proSelected" width="315" height="80"/>
@@ -6294,6 +6294,7 @@ in PayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="60J-F3-tNy"/>
         <segue reference="a4Y-DX-0uo"/>
         <segue reference="JJj-1x-d2j"/>
         <segue reference="fwd-HY-Ucz"/>
@@ -6301,7 +6302,6 @@ in PayPro</string>
         <segue reference="Azs-uz-2tr"/>
         <segue reference="Vby-Ea-oLq"/>
         <segue reference="HF2-MJ-WVS"/>
-        <segue reference="Lxe-Dh-tgY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
