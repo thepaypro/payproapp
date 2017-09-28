@@ -8,19 +8,49 @@
 
 import UIKit
 
-class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource
+class PPAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var cardIV: UIImageView!
+//    @IBOutlet weak var cardIV: UIImageView!
     @IBOutlet weak var transactionsTV: UITableView!
     @IBOutlet weak var cardButton: UIButton!
     @IBOutlet weak var cardHeight: NSLayoutConstraint!
     @IBOutlet weak var latestTransactionsView: UIView!
     @IBOutlet weak var accountDetailsView: UIView!
-    @IBOutlet weak var accountLabel: UILabel!
-    @IBOutlet weak var sortCodeLabel: UILabel!
-    @IBOutlet weak var balanceLabel: UILabel!
+//    @IBOutlet weak var accountLabel: UILabel!
+//    @IBOutlet weak var sortCodeLabel: UILabel!
+//    @IBOutlet weak var balanceLabel: UILabel!
     
+    @IBOutlet weak var bitsView: UIView!
+    @IBOutlet weak var GBPView: UIView!
+    @IBOutlet weak var swipeCurrencyView: UIView!
+    
+    @IBAction func onSwipeAccount(_ sender: Any) {
+        let yGBPView = GBPView.center.y
+        let ybitsView = bitsView.center.y
+        let GBPOnTop: Bool = yGBPView > ybitsView
+        
+        //swipeCurrencyView.bringSubview(toFront: GBPOnTop ? GBPView: bitsView)
+        
+        
+        UIView.animate(withDuration: 0.5) {
+            self.GBPView.center.y = ybitsView
+            self.bitsView.center.y = yGBPView
+            
+            self.GBPView.subviews.forEach{ label in
+                label.transform = CGAffineTransform(scaleX: GBPOnTop ? 0.5:1, y: GBPOnTop ? 0.5:1)
+            }
+            self.bitsView.subviews.forEach{ label in
+                label.transform = CGAffineTransform(scaleX: GBPOnTop ? 1:0.5, y: GBPOnTop ? 1:0.5)
+            }
+            
+            // create a CGPath that implements an arcs
+//            let thePath: CGMutablePath  = CGMutablePath();
+//            CGPathMoveToPoint(thePath,NULL,74.0,74.0);
+//            CGPathAddArc(thePath, NULL, 0, 15, 15, M_PI_2, -M_PI_2, true);
+//            GBPView.path = thePath
+            
+        }
+    }
     var transactionsArray : [Transaction]?
     
     lazy var refreshControl: UIRefreshControl = {
@@ -37,6 +67,15 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        let yGBPView = GBPView.center.y
+        let ybitsView = bitsView.center.y
+        let GBPOnTop: Bool = yGBPView > ybitsView
+        self.GBPView.subviews.forEach{ label in
+            label.transform = CGAffineTransform(scaleX: GBPOnTop ? 0.5:1, y: GBPOnTop ? 0.5:1)
+        }
+        self.bitsView.subviews.forEach{ label in
+            label.transform = CGAffineTransform(scaleX: GBPOnTop ? 1:0.5, y: GBPOnTop ? 1:0.5)
+        }
         
         let user = User.currentUser()
         
@@ -47,8 +86,6 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         refreshTransactionList(fullMode: false)
         
         self.transactionsTV.addSubview(self.refreshControl)
-        
-        scrollView.delegate = self
         
         let borderTop = UIBezierPath(rect: CGRect(x: 0, y: 0.4, width: UIScreen.main.bounds.width, height: 0.4))
         let layerTop = CAShapeLayer()
@@ -62,11 +99,11 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         layerBottom.fillColor = UIColor.lightGray.cgColor
         latestTransactionsView.layer.addSublayer(layerBottom)
         
-        self.accountLabel.text = user?.accountNumber
-        self.sortCodeLabel.text = user?.sortCode
-        self.balanceLabel.text = user?.amountBalance
-        self.balanceLabel.numberOfLines = 1
-        self.balanceLabel.adjustsFontSizeToFitWidth = true
+//        self.accountLabel.text = user?.accountNumber
+//        self.sortCodeLabel.text = user?.sortCode
+//        self.balanceLabel.text = user?.amountBalance
+//        self.balanceLabel.numberOfLines = 1
+//        self.balanceLabel.adjustsFontSizeToFitWidth = true
         
 //        self.getBalance()
         
@@ -92,15 +129,10 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
             if accountGetBalanceResponse["status"] as! Bool == true {
                     
                 if accountGetBalanceResponse["balance"] != nil {
-                    self.balanceLabel.text = accountGetBalanceResponse["balance"] as? String
+//                    self.balanceLabel.text = accountGetBalanceResponse["balance"] as? String
                 }
             }
         })
-    }
-    
-    override func viewDidLayoutSubviews()
-    {
-        scrollView.contentOffset = CGPoint(x: 0.0, y: 0.0)
     }
     
     func getTransactionsFromBack()
@@ -128,14 +160,13 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     func setupView()
     {
-        scrollView.contentOffset = CGPoint(x: 0.0, y: 0.0)
         
         cardButton.isHidden = false
         cardHeight.constant = 60.0
         
         let cardStatus = User.currentUser()?.cardStatus
         
-        cardIV.image = UIImage(named: "account-card")
+//        cardIV.image = UIImage(named: "account-card")
         
         if cardStatus == .notOrdered
         {
@@ -145,7 +176,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         {
             cardButton.setTitle("Activate Visa Debit Card", for: .normal)
             
-            cardIV.image = UIImage(named: "account-card-pending")
+//            cardIV.image = UIImage(named: "account-card-pending")
         }
         else
         {
