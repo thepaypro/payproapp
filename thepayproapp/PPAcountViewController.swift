@@ -62,7 +62,26 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         if isPositionFixed{
             setCurrencyAnimation(viewOne: bitsView, viewOneResizable: bitsResizableView, viewTwo: GBPView, viewTwoResizable: GBPResizableView, duration: Double(1.2), directionRight: true)
         }
-        
+    }
+    @IBAction func swipeBitsViewDown(_ sender: Any) {
+        if isPositionFixed{
+            setCurrencyAnimation(viewOne: bitsView, viewOneResizable: bitsResizableView, viewTwo: GBPView, viewTwoResizable: GBPResizableView, duration: Double(1.2), directionRight: false)
+        }
+    }
+    @IBAction func swipeBitsViewUp(_ sender: Any) {
+        if isPositionFixed{
+            setCurrencyAnimation(viewOne: bitsView, viewOneResizable: bitsResizableView, viewTwo: GBPView, viewTwoResizable: GBPResizableView, duration: Double(1.2), directionRight: true)
+        }
+    }
+    @IBAction func swipeGBPViewDown(_ sender: Any) {
+        if isPositionFixed{
+            setCurrencyAnimation(viewOne: GBPView, viewOneResizable: GBPResizableView, viewTwo: bitsView, viewTwoResizable: bitsResizableView, duration: Double(1.2), directionRight: false)
+        }
+    }
+    @IBAction func swipeGBPViewUp(_ sender: Any) {
+        if isPositionFixed{
+            setCurrencyAnimation(viewOne: GBPView, viewOneResizable: GBPResizableView, viewTwo: bitsView, viewTwoResizable: bitsResizableView, duration: Double(1.2), directionRight: true)
+        }
     }
     
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
@@ -96,6 +115,8 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         
         //Do any additional setup after loading the view.
         
+        self.firstTimeSetup()
+        
         self.addGradient()
         
         self.navigationItem.title = User.currentUser()?.accountType == .proAccount ? "Pro account" : "Basic account"
@@ -109,8 +130,6 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         self.addVisualLines()
         
         self.setupView()
-        
-        self.getBalance()
     }
     
     override func didReceiveMemoryWarning()
@@ -173,6 +192,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
             bitsView.center.y = GBPViewy
             selectedAccount = GBPView.center.y > bitsView.center.y ? .gbp : .bitcoin
             self.setSelectedAccountInfoLabels()
+            self.getBalance()
             isPositionFixed = true
         }
     }
@@ -204,7 +224,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func refreshTransactionList(fullMode:Bool)
     {
-        getBalance()
+//        getBalance()
         if fullMode == false {
             getTransactions()
         } else {
@@ -221,8 +241,8 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func setupView(){
-        
         self.GBPBalanceLabel.text = User.currentUser()?.amountBalance
+        self.getBalance()
         self.GBPBalanceLabel.numberOfLines = 1
         self.GBPBalanceLabel.adjustsFontSizeToFitWidth = true
         
@@ -286,8 +306,9 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         gradientLayer.colors = [PayProColors.blue.cgColor, PayProColors.gradientPink.cgColor]
         
         gradientLayer.startPoint = CGPoint(x: 0, y: 1)
+        gradientLayer.locations = [0.5,1]
         
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.7)
         
         swipeCurrencyGradientView.layer.addSublayer(gradientLayer)
     }
@@ -318,7 +339,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         layerTopInfo.fillColor = PayProColors.line.cgColor
         self.infoAccountNumberView.layer.addSublayer(layerTopInfo)
         
-        let borderMiddleInfo = UIBezierPath(rect: CGRect(x: 15, y: 42.6, width: self.view.frame.width, height: 0.40))
+        let borderMiddleInfo = UIBezierPath(rect: CGRect(x: 15, y: 41.6, width: self.view.frame.width, height: 0.40))
         let layerMiddleInfo = CAShapeLayer()
         layerMiddleInfo.path = borderMiddleInfo.cgPath
         layerMiddleInfo.fillColor = PayProColors.line.cgColor

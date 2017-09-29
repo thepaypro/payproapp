@@ -4419,7 +4419,7 @@ in PayPro</string>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LATEST TRANSACTIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2m-Qz-Eze">
                                                 <rect key="frame" x="15" y="6" width="384" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -4460,7 +4460,7 @@ in PayPro</string>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GBP ACCOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhM-Oz-u0n">
                                                 <rect key="frame" x="15" y="6" width="384" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -4506,14 +4506,14 @@ in PayPro</string>
                                         <rect key="frame" x="0.0" y="72" width="414" height="42"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort code:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDI-sx-LHl">
-                                                <rect key="frame" x="15" y="0.0" width="68" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <rect key="frame" x="15" y="0.0" width="80" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Zkq-in-oPB">
-                                                <rect key="frame" x="98" y="0.0" width="301" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <rect key="frame" x="110" y="0.0" width="289" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -4534,8 +4534,8 @@ in PayPro</string>
                                         <rect key="frame" x="0.0" y="72" width="414" height="42"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSq-KW-n9h">
-                                                <rect key="frame" x="15" y="0.0" width="62" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <rect key="frame" x="15" y="0.0" width="73.333333333333329" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -4670,10 +4670,26 @@ in PayPro</string>
                         <action selector="swipeBitsViewRight:" destination="E4X-fn-yZx" id="dhS-4V-hiy"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="down" id="PrP-38-RtH"/>
-                <swipeGestureRecognizer direction="up" id="9eZ-GP-5G1"/>
-                <swipeGestureRecognizer direction="down" id="c4q-MW-wYe"/>
-                <swipeGestureRecognizer direction="up" id="yqS-KV-HW8"/>
+                <swipeGestureRecognizer direction="down" id="PrP-38-RtH">
+                    <connections>
+                        <action selector="swipeBitsViewDown:" destination="E4X-fn-yZx" id="iMa-mD-Gws"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="9eZ-GP-5G1">
+                    <connections>
+                        <action selector="swipeBitsViewUp:" destination="E4X-fn-yZx" id="3yf-Y8-K6c"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="c4q-MW-wYe">
+                    <connections>
+                        <action selector="swipeGBPViewDown:" destination="E4X-fn-yZx" id="6mQ-VW-8B3"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="yqS-KV-HW8">
+                    <connections>
+                        <action selector="swipeGBPViewUp:" destination="E4X-fn-yZx" id="r2R-pt-7ah"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1784.057971014493" y="2059.239130434783"/>
         </scene>
