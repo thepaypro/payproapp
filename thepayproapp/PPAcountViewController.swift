@@ -11,48 +11,56 @@ import UIKit
 class PPAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CAAnimationDelegate
 {
 //    @IBOutlet weak var cardIV: UIImageView!
+    @IBOutlet weak var infoTitleLabel: UILabel!
     @IBOutlet weak var transactionsTV: UITableView!
     @IBOutlet weak var cardButton: UIButton!
     @IBOutlet weak var cardHeight: NSLayoutConstraint!
     @IBOutlet weak var latestTransactionsView: UIView!
-    @IBOutlet weak var accountDetailsView: UIView!
     @IBOutlet weak var bitsBalanceLabel: UILabel!
     @IBOutlet weak var GBPBalanceLabel: UILabel!
     @IBOutlet weak var bitsView: UIView!
     @IBOutlet weak var bitsResizableView: UIView!
     @IBOutlet weak var GBPView: UIView!
     @IBOutlet weak var GBPResizableView: UIView!
-    @IBOutlet weak var swipeCurrencyView: UIView!
-    @IBOutlet weak var accountLabel: UILabel!
-    @IBOutlet weak var sortCodeLabel: UILabel!
-    @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var transactionsSegment: UIView!
     @IBOutlet weak var infoSegment: UIView!
     @IBOutlet weak var infoGbpAccountView: UIView!
     @IBOutlet weak var infoAccountNumberView: UIView!
-    @IBOutlet weak var infoAccountSortCodeView: UIView!
     @IBOutlet weak var infoAccountNumberLabel: UILabel!
+    @IBOutlet weak var infoAccountSortCodeView: UIView!
     @IBOutlet weak var infoAccountSortCodeLabel: UILabel!
+    @IBOutlet weak var infoAccountQRCodeView: UIView!
+    @IBOutlet weak var swipeCurrencyGradientView: UIView!
+    
+    @IBAction func infoAccountQRCodeButton(_ sender: Any) {
+        //self.performSegue(withIdentifier: String, sender: <#T##Any?#>)
+    }
+    
     var isPositionFixed: Bool = true
+    enum AccountCurrencyType: Int{
+        case gbp = 0
+        case bitcoin = 1
+    }
+    var selectedAccount: AccountCurrencyType = .gbp
     
     @IBAction func swipeBitsViewLeft(_ sender: Any) {
         if isPositionFixed{
-            setCurrencyAnimation(viewOne: bitsView, viewOneResizable: bitsResizableView, viewTwo: GBPView, viewTwoResizable: GBPResizableView, duration: Double(2), directionRight: false)
+            setCurrencyAnimation(viewOne: bitsView, viewOneResizable: bitsResizableView, viewTwo: GBPView, viewTwoResizable: GBPResizableView, duration: Double(1.2), directionRight: false)
         }
     }
     @IBAction func swipeGBPViewLeft(_ sender: Any) {
         if isPositionFixed{
-            setCurrencyAnimation(viewOne: GBPView, viewOneResizable: GBPResizableView, viewTwo: bitsView, viewTwoResizable: bitsResizableView, duration: Double(2), directionRight: false)
+            setCurrencyAnimation(viewOne: GBPView, viewOneResizable: GBPResizableView, viewTwo: bitsView, viewTwoResizable: bitsResizableView, duration: Double(1.2), directionRight: false)
         }
     }
     @IBAction func swipeGBPViewRight(_ sender: Any) {
         if isPositionFixed{
-            setCurrencyAnimation(viewOne: GBPView, viewOneResizable: GBPResizableView, viewTwo: bitsView, viewTwoResizable: bitsResizableView, duration: Double(2), directionRight: true)
+            setCurrencyAnimation(viewOne: GBPView, viewOneResizable: GBPResizableView, viewTwo: bitsView, viewTwoResizable: bitsResizableView, duration: Double(1.2), directionRight: true)
         }
     }
     @IBAction func swipeBitsViewRight(_ sender: Any) {
         if isPositionFixed{
-            setCurrencyAnimation(viewOne: bitsView, viewOneResizable: bitsResizableView, viewTwo: GBPView, viewTwoResizable: GBPResizableView, duration: Double(2), directionRight: true)
+            setCurrencyAnimation(viewOne: bitsView, viewOneResizable: bitsResizableView, viewTwo: GBPView, viewTwoResizable: GBPResizableView, duration: Double(1.2), directionRight: true)
         }
         
     }
@@ -87,20 +95,8 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         //Do any additional setup after loading the view.
-//        self.GBPView.subviews.forEach{ label in
-//            label.transform = CGAffineTransform(scaleX: 1, y: 1)
-//            label.alpha = 1
-//        }
-//        self.bitsView.subviews.forEach{ label in
-//            label.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-//            label.alpha = 0.7
-//        }
-        GBPResizableView.transform = CGAffineTransform(scaleX: 1, y: 1)
-        GBPResizableView.alpha = 0.7
-        bitsResizableView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        bitsResizableView.alpha = 0.7
         
-        let user = User.currentUser()
+        self.addGradient()
         
         self.navigationItem.title = User.currentUser()?.accountType == .proAccount ? "Pro account" : "Basic account"
         
@@ -110,63 +106,11 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         
         self.transactionsTV.addSubview(self.refreshControl)
         
-        let borderTop = UIBezierPath(rect: CGRect(x: 0, y: 0.4, width: UIScreen.main.bounds.width, height: 0.4))
-        let layerTop = CAShapeLayer()
-        layerTop.path = borderTop.cgPath
-        layerTop.fillColor = UIColor.lightGray.cgColor
-        latestTransactionsView.layer.addSublayer(layerTop)
-        
-        let borderTopTransactionsTV = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.40))
-        let layerTopTransactionsTV = CAShapeLayer()
-        layerTopTransactionsTV.path = borderTopTransactionsTV.cgPath
-        layerTopTransactionsTV.fillColor = PayProColors.line.cgColor
-        self.transactionsTV.layer.addSublayer(layerTopTransactionsTV)
-        
-        let borderTopinfoGbpAccountView = UIBezierPath(rect: CGRect(x: 0, y: 0.4, width: UIScreen.main.bounds.width, height: 0.4))
-        let layerTopinfoGbpAccountView = CAShapeLayer()
-        layerTopinfoGbpAccountView.path = borderTopinfoGbpAccountView.cgPath
-        layerTopinfoGbpAccountView.fillColor = UIColor.lightGray.cgColor
-        infoGbpAccountView.layer.addSublayer(layerTopinfoGbpAccountView)
-        
-        let borderTopInfo = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.40))
-        let layerTopInfo = CAShapeLayer()
-        layerTopInfo.path = borderTopInfo.cgPath
-        layerTopInfo.fillColor = PayProColors.line.cgColor
-        self.infoAccountNumberView.layer.addSublayer(layerTopInfo)
-        
-        let borderMiddleInfo = UIBezierPath(rect: CGRect(x: 15, y: 42.6, width: self.view.frame.width, height: 0.40))
-        let layerMiddleInfo = CAShapeLayer()
-        layerMiddleInfo.path = borderMiddleInfo.cgPath
-        layerMiddleInfo.fillColor = PayProColors.line.cgColor
-        self.infoAccountNumberView.layer.addSublayer(layerMiddleInfo)
-        
-        let borderBottomInfo = UIBezierPath(rect: CGRect(x: 0, y: 41.6, width: self.view.frame.width, height: 0.40))
-        let layerBottomInfo = CAShapeLayer()
-        layerBottomInfo.path = borderBottomInfo.cgPath
-        layerBottomInfo.fillColor = PayProColors.line.cgColor
-        self.infoAccountSortCodeView.layer.addSublayer(layerBottomInfo)
-        
-//        self.accountLabel.text = user?.accountNumber
-//        self.sortCodeLabel.text = user?.sortCode
-        
-        
-        self.GBPBalanceLabel.text = user?.amountBalance
-        self.GBPBalanceLabel.numberOfLines = 1
-        self.GBPBalanceLabel.adjustsFontSizeToFitWidth = true
-        
-        self.bitsBalanceLabel.text = "bits 123.45"
-        self.bitsBalanceLabel.numberOfLines = 1
-        self.bitsBalanceLabel.adjustsFontSizeToFitWidth = true
-//        self.balanceLabel.text = user?.amountBalance
-//        self.balanceLabel.numberOfLines = 1
-//        self.balanceLabel.adjustsFontSizeToFitWidth = true
-        
-        self.infoAccountNumberLabel.text = user?.accountNumber
-        self.infoAccountSortCodeLabel.text = user?.sortCode
-        
-//        self.getBalance()
+        self.addVisualLines()
         
         self.setupView()
+        
+        self.getBalance()
     }
     
     override func didReceiveMemoryWarning()
@@ -224,23 +168,22 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if !isPositionFixed {
-            let bitsViewy = bitsView.center.y
             let GBPViewy = GBPView.center.y
-            GBPView.center.y = bitsViewy
+            GBPView.center.y = bitsView.center.y
             bitsView.center.y = GBPViewy
-            isPositionFixed = true
-        }else{
+            selectedAccount = GBPView.center.y > bitsView.center.y ? .gbp : .bitcoin
+            self.setSelectedAccountInfoLabels()
             isPositionFixed = true
         }
     }
     
     func getBalance()
     {
+        //get bitcoin balance as well
         AccountGetBalance(completion: {accountGetBalanceResponse in
             if accountGetBalanceResponse["status"] as! Bool == true {
                     
                 if accountGetBalanceResponse["balance"] != nil {
-//                    self.balanceLabel.text = accountGetBalanceResponse["balance"] as? String
                     self.GBPBalanceLabel.text = accountGetBalanceResponse["balance"] as? String
                 }
             }
@@ -249,7 +192,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func getTransactionsFromBack()
     {
-        TransactionGetTransactions(completion: {transactionsResponse in
+        TransactionGetTransactions(accountType: self.selectedAccount.rawValue, completion: {transactionsResponse in
             print("transactionsResponse: \(transactionsResponse)")
             self.transactionsArray = Transaction.getTransactions()
         })
@@ -270,15 +213,29 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         self.transactionsTV.reloadData()
     }
     
-    func setupView()
-    {
+    func firstTimeSetup(){
+        self.GBPResizableView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        self.GBPResizableView.alpha = 0.7
+        self.bitsResizableView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        self.bitsResizableView.alpha = 0.7
+    }
+    
+    func setupView(){
+        
+        self.GBPBalanceLabel.text = User.currentUser()?.amountBalance
+        self.GBPBalanceLabel.numberOfLines = 1
+        self.GBPBalanceLabel.adjustsFontSizeToFitWidth = true
+        
+        self.bitsBalanceLabel.text = "μ₿ 123.45"
+        self.bitsBalanceLabel.numberOfLines = 1
+        self.bitsBalanceLabel.adjustsFontSizeToFitWidth = true
         
         cardButton.isHidden = false
         cardHeight.constant = 60.0
         
-        let cardStatus = User.currentUser()?.cardStatus
+        self.setSelectedAccountInfoLabels()
         
-//        cardIV.image = UIImage(named: "account-card")
+        let cardStatus = User.currentUser()?.cardStatus
         
         if cardStatus == .notOrdered
         {
@@ -287,8 +244,6 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         else if cardStatus == .ordered
         {
             cardButton.setTitle("Activate Visa Debit Card", for: .normal)
-            
-//            cardIV.image = UIImage(named: "account-card-pending")
         }
         else
         {
@@ -297,6 +252,84 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         refreshTransactionList(fullMode: false)
+    }
+    
+    func setSelectedAccountInfoLabels() {
+        
+        switch selectedAccount {
+            case .gbp:
+                self.infoTitleLabel.text = "GBP ACCOUNT"
+                self.infoAccountNumberLabel.text = User.currentUser()?.accountNumber
+                self.infoAccountSortCodeLabel.text = User.currentUser()?.sortCode
+                self.infoAccountSortCodeView.isHidden = false
+                self.infoAccountQRCodeView.isHidden = true
+            case .bitcoin:
+                self.infoTitleLabel.text = "BITCOIN ACCOUNT"
+                self.infoAccountNumberLabel.text = ""
+                self.infoAccountSortCodeView.isHidden = true
+                self.infoAccountQRCodeView.isHidden = false
+            default:
+                self.infoTitleLabel.text = ""
+                self.infoAccountNumberLabel.text = ""
+                self.infoAccountSortCodeView.isHidden = true
+                self.infoAccountQRCodeView.isHidden = true
+                //alert?
+        }
+    }
+    
+    func addGradient(){
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = swipeCurrencyGradientView.bounds
+        
+        gradientLayer.colors = [PayProColors.blue.cgColor, PayProColors.gradientPink.cgColor]
+        
+        gradientLayer.startPoint = CGPoint(x: 0, y: 1)
+        
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        
+        swipeCurrencyGradientView.layer.addSublayer(gradientLayer)
+    }
+    
+    func addVisualLines(){
+        
+        let borderTop = UIBezierPath(rect: CGRect(x: 0, y: 0.4, width: UIScreen.main.bounds.width, height: 0.4))
+        let layerTop = CAShapeLayer()
+        layerTop.path = borderTop.cgPath
+        layerTop.fillColor = UIColor.lightGray.cgColor
+        latestTransactionsView.layer.addSublayer(layerTop)
+        
+        let borderTopTransactionsTV = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.40))
+        let layerTopTransactionsTV = CAShapeLayer()
+        layerTopTransactionsTV.path = borderTopTransactionsTV.cgPath
+        layerTopTransactionsTV.fillColor = PayProColors.line.cgColor
+        self.transactionsTV.layer.addSublayer(layerTopTransactionsTV)
+        
+        let borderTopinfoGbpAccountView = UIBezierPath(rect: CGRect(x: 0, y: 0.4, width: UIScreen.main.bounds.width, height: 0.4))
+        let layerTopinfoGbpAccountView = CAShapeLayer()
+        layerTopinfoGbpAccountView.path = borderTopinfoGbpAccountView.cgPath
+        layerTopinfoGbpAccountView.fillColor = UIColor.lightGray.cgColor
+        infoGbpAccountView.layer.addSublayer(layerTopinfoGbpAccountView)
+        
+        let borderTopInfo = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.40))
+        let layerTopInfo = CAShapeLayer()
+        layerTopInfo.path = borderTopInfo.cgPath
+        layerTopInfo.fillColor = PayProColors.line.cgColor
+        self.infoAccountNumberView.layer.addSublayer(layerTopInfo)
+        
+        let borderMiddleInfo = UIBezierPath(rect: CGRect(x: 15, y: 42.6, width: self.view.frame.width, height: 0.40))
+        let layerMiddleInfo = CAShapeLayer()
+        layerMiddleInfo.path = borderMiddleInfo.cgPath
+        layerMiddleInfo.fillColor = PayProColors.line.cgColor
+        self.infoAccountNumberView.layer.addSublayer(layerMiddleInfo)
+        
+        let borderBottomInfo = UIBezierPath(rect: CGRect(x: 0, y: 41.6, width: self.view.frame.width, height: 0.40))
+        let layerBottomInfo = CAShapeLayer()
+        layerBottomInfo.path = borderBottomInfo.cgPath
+        layerBottomInfo.fillColor = PayProColors.line.cgColor
+        self.infoAccountSortCodeView.layer.addSublayer(layerBottomInfo)
+        
     }
     
     @IBAction func cardButtonTouched(_ sender: Any)
