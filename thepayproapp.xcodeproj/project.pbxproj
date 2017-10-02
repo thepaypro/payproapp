@@ -39,6 +39,7 @@
 		47DF01DE01E7D7D898A65AFE /* Pods_thepayproapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */; };
 		53524D9C1F5D9954006EB54F /* PPActivationCardFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53524D9B1F5D9954006EB54F /* PPActivationCardFormViewController.swift */; };
 		53564B0D1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */; };
+		535697851F824C75006A0001 /* PPShowQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535697841F824C75006A0001 /* PPShowQRCode.swift */; };
 		53BA09E61F6999FA00CB7F15 /* PPActivationCardCVV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA09E51F6999FA00CB7F15 /* PPActivationCardCVV2ViewController.swift */; };
 		53DAF50D1F7018690013E406 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DAF50C1F7018690013E406 /* Country.swift */; };
 		53F2E6441F5EE81A00094C3B /* PPCardPinViewAfterActivationFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F2E6431F5EE81A00094C3B /* PPCardPinViewAfterActivationFormController.swift */; };
@@ -156,6 +157,7 @@
 		3AD46AC53B7372C495343342 /* Pods-thepayproapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproapp/Pods-thepayproapp.release.xcconfig"; sourceTree = "<group>"; };
 		53524D9B1F5D9954006EB54F /* PPActivationCardFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPActivationCardFormViewController.swift; sourceTree = "<group>"; };
 		53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPrefixSelectionViewController.swift; sourceTree = "<group>"; };
+		535697841F824C75006A0001 /* PPShowQRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPShowQRCode.swift; sourceTree = "<group>"; };
 		53BA09E51F6999FA00CB7F15 /* PPActivationCardCVV2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPActivationCardCVV2ViewController.swift; sourceTree = "<group>"; };
 		53DAF50C1F7018690013E406 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		53F2E6431F5EE81A00094C3B /* PPCardPinViewAfterActivationFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPCardPinViewAfterActivationFormController.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 		216CCA8E1EE82252003FE3CE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				535697831F824C2E006A0001 /* PPShowQRCode */,
 				215540571EF3CBF300670E86 /* PPContactViewController */,
 				BF7F79851F2206FA00523131 /* PPSliderViewController */,
 				BF31E8661EF93341004C233E /* PPEntryViewController */,
@@ -342,6 +345,14 @@
 				BF7D9CB0B12DBCFD3FE80391 /* Pods_thepayproappUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		535697831F824C2E006A0001 /* PPShowQRCode */ = {
+			isa = PBXGroup;
+			children = (
+				535697841F824C75006A0001 /* PPShowQRCode.swift */,
+			);
+			name = PPShowQRCode;
 			sourceTree = "<group>";
 		};
 		53DAF50B1F70181A0013E406 /* CountryDialCodePicker */ = {
@@ -907,6 +918,7 @@
 				BF56BAC81EF26BF300429005 /* Currency+CoreDataClass.swift in Sources */,
 				BF56BAC01EF26BF300429005 /* Invite+CoreDataClass.swift in Sources */,
 				BF7F79871F22071900523131 /* PPSliderViewController.swift in Sources */,
+				535697851F824C75006A0001 /* PPShowQRCode.swift in Sources */,
 				BFF7FA6B1EEFF48D009D798E /* PPSendMoneyViewController.swift in Sources */,
 				212100D31EF9069700208F72 /* PPBankTransfeReferenceViewController.swift in Sources */,
 				6A9C73F01F20B445006D2C57 /* PPImagePickerController.swift in Sources */,

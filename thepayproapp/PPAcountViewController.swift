@@ -288,12 +288,6 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.infoAccountNumberLabel.text = ""
                 self.infoAccountSortCodeView.isHidden = true
                 self.infoAccountQRCodeView.isHidden = false
-            default:
-                self.infoTitleLabel.text = ""
-                self.infoAccountNumberLabel.text = ""
-                self.infoAccountSortCodeView.isHidden = true
-                self.infoAccountQRCodeView.isHidden = true
-                //alert?
         }
     }
     
@@ -306,9 +300,9 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         gradientLayer.colors = [PayProColors.blue.cgColor, PayProColors.gradientPink.cgColor]
         
         gradientLayer.startPoint = CGPoint(x: 0, y: 1)
-        gradientLayer.locations = [0.5,1]
+        gradientLayer.locations = [0.4,1]
         
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0.7)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
         
         swipeCurrencyGradientView.layer.addSublayer(gradientLayer)
     }
@@ -398,5 +392,12 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 76.0
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showQRCode" {
+            let showQRCodeVC : PPShowQRCode = segue.destination as! PPShowQRCode
+            showQRCodeVC.dataToQR = "bitcoin:12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu"
+        }
     }
 }
