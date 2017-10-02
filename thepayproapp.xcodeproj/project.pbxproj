@@ -40,6 +40,7 @@
 		53524D9C1F5D9954006EB54F /* PPActivationCardFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53524D9B1F5D9954006EB54F /* PPActivationCardFormViewController.swift */; };
 		53564B0D1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */; };
 		535697851F824C75006A0001 /* PPShowQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535697841F824C75006A0001 /* PPShowQRCode.swift */; };
+		535697871F82674E006A0001 /* BitcoinTransactionConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535697861F82674E006A0001 /* BitcoinTransactionConnection.swift */; };
 		53BA09E61F6999FA00CB7F15 /* PPActivationCardCVV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA09E51F6999FA00CB7F15 /* PPActivationCardCVV2ViewController.swift */; };
 		53DAF50D1F7018690013E406 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DAF50C1F7018690013E406 /* Country.swift */; };
 		53F2E6441F5EE81A00094C3B /* PPCardPinViewAfterActivationFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F2E6431F5EE81A00094C3B /* PPCardPinViewAfterActivationFormController.swift */; };
@@ -158,6 +159,7 @@
 		53524D9B1F5D9954006EB54F /* PPActivationCardFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPActivationCardFormViewController.swift; sourceTree = "<group>"; };
 		53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPrefixSelectionViewController.swift; sourceTree = "<group>"; };
 		535697841F824C75006A0001 /* PPShowQRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPShowQRCode.swift; sourceTree = "<group>"; };
+		535697861F82674E006A0001 /* BitcoinTransactionConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitcoinTransactionConnection.swift; sourceTree = "<group>"; };
 		53BA09E51F6999FA00CB7F15 /* PPActivationCardCVV2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPActivationCardCVV2ViewController.swift; sourceTree = "<group>"; };
 		53DAF50C1F7018690013E406 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		53F2E6431F5EE81A00094C3B /* PPCardPinViewAfterActivationFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPCardPinViewAfterActivationFormController.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				21315DC21F2F1A9800983888 /* TransactionConnection.swift */,
 				6AF2B6D81F308C3400255B65 /* CardConnection.swift */,
 				6AF2B6DC1F30AAAB00255B65 /* AccountConnection.swift */,
+				535697861F82674E006A0001 /* BitcoinTransactionConnection.swift */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -971,6 +974,7 @@
 				6A0CE8EB1EF58D5E000C0D1F /* ContactCell.swift in Sources */,
 				215540601EF3EF2100670E86 /* Extensions.swift in Sources */,
 				215540591EF3CCD500670E86 /* PPContactViewController.swift in Sources */,
+				535697871F82674E006A0001 /* BitcoinTransactionConnection.swift in Sources */,
 				211ADC101F18ED03003AD369 /* PPInfoFaqsViewController.swift in Sources */,
 				213381291EFD1E2A0007A509 /* PPInfoViewController.swift in Sources */,
 				211C45641F28EC8800CA0174 /* ExtensionUIViewController.swift in Sources */,

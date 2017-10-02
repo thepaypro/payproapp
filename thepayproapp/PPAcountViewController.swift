@@ -123,8 +123,6 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         
         transactionsTV.register(UINib(nibName: "PPTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionCell")
         
-        refreshTransactionList(fullMode: false)
-        
         self.transactionsTV.addSubview(self.refreshControl)
         
         self.addVisualLines()
@@ -285,7 +283,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.infoAccountQRCodeView.isHidden = true
             case .bitcoin:
                 self.infoTitleLabel.text = "BITCOIN ACCOUNT"
-                self.infoAccountNumberLabel.text = ""
+                self.infoAccountNumberLabel.text = User.currentUser()?.accountNumber
                 self.infoAccountSortCodeView.isHidden = true
                 self.infoAccountQRCodeView.isHidden = false
         }
