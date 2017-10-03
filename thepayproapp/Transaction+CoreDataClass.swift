@@ -130,8 +130,8 @@ public class Transaction: NSManagedObject
         
         let transactionsFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Transaction")
         
-        let predicate = NSPredicate(format: "currency = %@", AccountCurrencyType)
-        transactionsFetchRequest.predicate = predicate
+//        let predicate = NSPredicate(format: "currency = %@", AccountCurrencyType)
+//        transactionsFetchRequest.predicate = predicate
         
         let sortDescriptor = NSSortDescriptor(key: "datetime", ascending: false)
         
