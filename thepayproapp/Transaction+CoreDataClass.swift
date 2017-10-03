@@ -124,11 +124,14 @@ public class Transaction: NSManagedObject
         }
     }
     
-    class func getTransactions() -> [Transaction]?
+    class func getTransactions(AccountCurrencyType: Int) -> [Transaction]?
     {
         let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         
         let transactionsFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Transaction")
+        
+        let predicate = NSPredicate(format: "currency = %@", AccountCurrencyType)
+        transactionsFetchRequest.predicate = predicate
         
         let sortDescriptor = NSSortDescriptor(key: "datetime", ascending: false)
         

@@ -21,7 +21,7 @@ extension User {
                 ],
                 "mobileVerificationCode": validationCode
             ]
-        ] as [String : Any]
+            ] as [String : Any]
         
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "register/", completion: {completionDictionary in
             
@@ -37,7 +37,7 @@ extension User {
                         "account_type_id": 0,
                         "card_status_id": 0,
                         "amountBalance": "£ 0.00"
-                    ] as [String : Any]
+                        ] as [String : Any]
                     
                     registeredUser = self.manage(userDictionary: accountDictionary as NSDictionary)
                 }
@@ -90,22 +90,114 @@ extension User {
             ] as [String : Any]
         
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "login_check", completion: {completionDictionary in
-//            print("login response: \(completionDictionary)")
+            //            print("login response: \(completionDictionary)")
             
-            if let userDictionary = completionDictionary["user"] as? NSDictionary
-            {
+            if let userDictionary = completionDictionary["user"] as? NSDictionary{
+                
                 var accountDictionary:NSDictionary?
                 
-                if let accountInformation = (userDictionary as AnyObject).value(forKeyPath: "account")! as? NSDictionary {
+                //if let bitcoinAccountInformation = (userDictionary as AnyObject).value(forKeyPath: "bitcoinAccount")! as? NSDictionary {
+                
+                BitcoinGetBalance(completion: {bitcoinGetBalanceResponse in
                     
-                    let statusAccount:String = (accountInformation.value(forKeyPath: "status") as! String)
+                    var bitcoinAmountBalance = "μ₿ 0.00"
                     
-                    if statusAccount == "PENDING" {
+                    if bitcoinGetBalanceResponse["status"] as! Bool == true {
+                        
+                        if bitcoinGetBalanceResponse["balance"] != nil {
+                            bitcoinAmountBalance = (bitcoinGetBalanceResponse["balance"] as? String)!
+                        }
+                    }else{
+                        completion(["status":false] as NSDictionary)
+                    }
+                    
+                    BitcoinTransactionList(completion: {transactionsResponse in
+                        print("bitcoinTransactionResponse: \(transactionsResponse)")
+                        if (transactionsResponse["status"] as! Bool == false){
+                            completion(["status":false] as NSDictionary)
+                        }
+                    })
+                    
+                    if let accountInformation = (userDictionary as AnyObject).value(forKeyPath: "account")! as? NSDictionary {
+                        
+                        let statusAccount:String = (accountInformation.value(forKeyPath: "status") as! String)
+                        
+                        if statusAccount == "PENDING" {
+                            accountDictionary = [
+                                "id": userDictionary.value(forKeyPath: "id")!,
+                                "username": userDictionary.value(forKeyPath: "username")!,
+                                "account_type_id": User.AccountType.demoAccount.rawValue,
+                                "status": User.Status.statusActivating.rawValue,
+                                "amountBalance": "£ 0.00"
+                            ]
+                            
+                            let accountUser = self.manage(userDictionary: accountDictionary!)
+                            
+                            let loggedUser = self.manage(userDictionary: userDictionary)
+                            completion(["status":loggedUser != nil && accountUser != nil] as NSDictionary)
+                            
+                        } else {
+                            
+                            AccountGetBalance(completion: {accountGetBalanceResponse in
+                                
+                                var amountBalance = "£ 0.00"
+                                
+                                if accountGetBalanceResponse["status"] as! Bool == true {
+                                    
+                                    if accountGetBalanceResponse["balance"] != nil {
+                                        amountBalance = (accountGetBalanceResponse["balance"] as? String)!
+                                    }
+                                }
+                                
+                                let agreement = accountInformation.value(forKeyPath: "agreement")
+                                
+                                let country = accountInformation.value(forKeyPath: "country")
+                                
+                                accountDictionary = [
+                                    "id": userDictionary.value(forKeyPath: "id")!,
+                                    "username": userDictionary.value(forKeyPath: "username")!,
+                                    "forename": accountInformation.value(forKeyPath: "forename")!,
+                                    "lastname": accountInformation.value(forKeyPath: "lastname")!,
+                                    "dob": accountInformation.value(forKeyPath: "birthDate")!,
+                                    "document_type": accountInformation.value(forKeyPath: "documentType")!,
+                                    "document_number": accountInformation.value(forKeyPath: "documentNumber")!,
+                                    "account_type_id": (agreement as AnyObject).value(forKeyPath: "id") as! Int32,
+                                    "accountNumber": accountInformation.value(forKeyPath: "accountNumber")!,
+                                    "sortCode": accountInformation.value(forKeyPath: "sortCode")!,
+                                    "street": accountInformation.value(forKeyPath: "street")!,
+                                    "buildingNumber": accountInformation.value(forKeyPath: "buildingNumber")!,
+                                    "postcode": accountInformation.value(forKeyPath: "postcode")!,
+                                    "city": accountInformation.value(forKeyPath: "city")!,
+                                    "country": (country as AnyObject).value(forKeyPath: "iso2")!,
+                                    "countryName": (country as AnyObject).value(forKeyPath: "name")!,
+                                    "email": accountInformation.value(forKeyPath: "email")!,
+                                    "status": User.Status.statusActivated.rawValue,
+                                    "amountBalance": amountBalance,
+                                    "bitcoinAmountBalance": bitcoinAmountBalance,
+                                    //                                        "bitcoinAddress": bitcoinAccountInformation.value(forKey: "address")!
+                                    
+                                ]
+                                
+                                let accountUser = self.manage(userDictionary: accountDictionary!)
+                                let loggedUser = self.manage(userDictionary: userDictionary)
+                                
+                                if loggedUser != nil && accountUser != nil {
+                                    TransactionGetTransactions(accountType: 0 , completion: {transactionsResponse in
+                                        print("transactionResponse: \(transactionsResponse)")
+                                        completion(transactionsResponse)
+                                    })
+                                } else {
+                                    completion(["status":false] as NSDictionary)
+                                }
+                            })
+                        }
+                    } else {
+                        let status = User.currentUser()?.status.rawValue ?? User.Status.statusDemo.rawValue
                         accountDictionary = [
                             "id": userDictionary.value(forKeyPath: "id")!,
                             "username": userDictionary.value(forKeyPath: "username")!,
                             "account_type_id": User.AccountType.demoAccount.rawValue,
-                            "status": User.Status.statusActivating.rawValue,
+                            "status": status,
                             "amountBalance": "£ 0.00"
                         ]
                         
@@ -113,75 +205,9 @@ extension User {
                         
                         let loggedUser = self.manage(userDictionary: userDictionary)
                         completion(["status":loggedUser != nil && accountUser != nil] as NSDictionary)
-                        
-                    } else {
-                        
-                        AccountGetBalance(completion: {accountGetBalanceResponse in
-                            
-                            var amountBalance = "£ 0.00"
-                            
-                            if accountGetBalanceResponse["status"] as! Bool == true {
-                                
-                                if accountGetBalanceResponse["balance"] != nil {
-                                    amountBalance = (accountGetBalanceResponse["balance"] as? String)!
-                                }
-                            }
-                            
-                            let agreement = accountInformation.value(forKeyPath: "agreement")
-                            
-                            let country = accountInformation.value(forKeyPath: "country")
-                            
-                            accountDictionary = [
-                                "id": userDictionary.value(forKeyPath: "id")!,
-                                "username": userDictionary.value(forKeyPath: "username")!,
-                                "forename": accountInformation.value(forKeyPath: "forename")!,
-                                "lastname": accountInformation.value(forKeyPath: "lastname")!,
-                                "dob": accountInformation.value(forKeyPath: "birthDate")!,
-                                "document_type": accountInformation.value(forKeyPath: "documentType")!,
-                                "document_number": accountInformation.value(forKeyPath: "documentNumber")!,
-                                "account_type_id": (agreement as AnyObject).value(forKeyPath: "id") as! Int32,
-                                "accountNumber": accountInformation.value(forKeyPath: "accountNumber")!,
-                                "sortCode": accountInformation.value(forKeyPath: "sortCode")!,
-                                "street": accountInformation.value(forKeyPath: "street")!,
-                                "buildingNumber": accountInformation.value(forKeyPath: "buildingNumber")!,
-                                "postcode": accountInformation.value(forKeyPath: "postcode")!,
-                                "city": accountInformation.value(forKeyPath: "city")!,
-                                "country": (country as AnyObject).value(forKeyPath: "iso2")!,
-                                "countryName": (country as AnyObject).value(forKeyPath: "name")!,
-                                "email": accountInformation.value(forKeyPath: "email")!,
-                                "status": User.Status.statusActivated.rawValue,
-                                "amountBalance": amountBalance
-                            ]
-                            
-                            let accountUser = self.manage(userDictionary: accountDictionary!)
-                            let loggedUser = self.manage(userDictionary: userDictionary)
-                            
-                            if loggedUser != nil && accountUser != nil {
-                                TransactionGetTransactions(completion: {transactionsResponse in
-                                    print("transactionResponse: \(transactionsResponse)")
-                                    completion(transactionsResponse)
-                                })
-                            } else {
-                                completion(["status":false] as NSDictionary)
-                            }
-                        })
                     }
-                } else {
-                    let status = User.currentUser()?.status.rawValue ?? User.Status.statusDemo.rawValue
-                    accountDictionary = [
-                        "id": userDictionary.value(forKeyPath: "id")!,
-                        "username": userDictionary.value(forKeyPath: "username")!,
-                        "account_type_id": User.AccountType.demoAccount.rawValue,
-                        "status": status,
-                        "amountBalance": "£ 0.00"
-                    ]
-                    
-                    let accountUser = self.manage(userDictionary: accountDictionary!)
-                    
-                    let loggedUser = self.manage(userDictionary: userDictionary)
-                    completion(["status":loggedUser != nil && accountUser != nil] as NSDictionary)
-                }
-            
+                })
+                //}
             } else if let errorMessage = completionDictionary["errorMessage"] {
                 completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
             } else {
@@ -189,7 +215,7 @@ extension User {
             }
         })
     }
-        
+    
     class func supportChat(languageCode: String, completion: @escaping (_ success: Bool) -> Void)
     {
         let absoluteURL = "https://www.mensaxe.com/v6/chat-sessions"
