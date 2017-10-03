@@ -93,6 +93,9 @@ public class User: NSManagedObject
         let sortCode: String? = attributesDictionary.object(forKey: "sortCode") as? String
         let email: String? = attributesDictionary.object(forKey: "email") as? String
         let amountBalance: String? = attributesDictionary.object(forKey: "amountBalance") as? String
+        let bitcoinAmountBalance: String? = attributesDictionary.object(forKey: "bitcoinAmountBalance") as? String
+        let bitcoinAddress: String? = attributesDictionary.object(forKey: "bitcoinAddress") as? String
+
         
 //        var groupMembers: NSSet?
 //        var invites: NSSet?
@@ -235,6 +238,16 @@ public class User: NSManagedObject
         if amountBalance != nil
         {
             user.setValue(amountBalance, forKeyPath: "amountBalance")
+        }
+        
+        if bitcoinAmountBalance != nil
+        {
+            user.setValue(bitcoinAmountBalance, forKeyPath: "bitcoinAmountBalance")
+        }
+        
+        if bitcoinAddress != nil
+        {
+            user.setValue(bitcoinAddress, forKeyPath: "bitcoinAddress")
         }
     }
     

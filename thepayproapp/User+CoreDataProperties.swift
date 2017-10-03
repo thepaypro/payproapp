@@ -68,6 +68,8 @@ extension User {
     @NSManaged public var invites: NSSet?
     @NSManaged public var offsetTransactions: NSSet?
     @NSManaged public var transactions: NSSet?
+    @NSManaged public var bitcoinAddress: String?
+    @NSManaged public var bitcoinAmountBalance: String?
 
 }
 

@@ -99,6 +99,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     var transactionsArray : [Transaction]?
+    var bitcointransactionsArray : [BitcoinTransaction]?
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -190,21 +191,22 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
             self.setSelectedAccountInfoLabels()
             self.getBalance()
             isPositionFixed = true
+            self.refreshTransactionList(fullMode: false)
         }
     }
     
     func getBalance()
     {
-        //get bitcoin balance as well
-        //        AccountGetBalance(completion: {accountGetBalanceResponse in
-        //            if accountGetBalanceResponse["status"] as! Bool == true {
-        //
-        //                if accountGetBalanceResponse["balance"] != nil {
-        //                    print("updatingBalance")
-        //                    self.GBPBalanceLabel.text = accountGetBalanceResponse["balance"] as? String
-        //                }
-        //            }
-        //        })
+//        get bitcoin balance as well
+//        AccountGetBalance(completion: {accountGetBalanceResponse in
+//            if accountGetBalanceResponse["status"] as! Bool == true {
+//
+//                if accountGetBalanceResponse["balance"] != nil {
+//                    print("updatingBalance")
+//                    self.GBPBalanceLabel.text = accountGetBalanceResponse["balance"] as? String
+//                }
+//            }
+//        })
     }
     
     func getTransactionsFromBack()
@@ -213,23 +215,29 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         case .gbp:
             TransactionGetTransactions(completion: {transactionsResponse in
                 print("transactionsResponse: \(transactionsResponse)")
-                self.transactionsArray = Transaction.getTransactions(AccountCurrencyType: self.selectedAccount.rawValue)
+                self.transactionsArray = Transaction.getTransactions()
             })
         case .bitcoin:
             BitcoinTransactionList(completion: {transactionsResponse in
                 print("transactionsResponse: \(transactionsResponse)")
-                self.transactionsArray = Transaction.getTransactions(AccountCurrencyType: self.selectedAccount.rawValue)
+                self.bitcointransactionsArray = BitcoinTransaction.getTransactions()
             })
         }
     }
     
     func getTransactions(){
-        self.transactionsArray = Transaction.getTransactions(AccountCurrencyType: selectedAccount.rawValue)
+        switch selectedAccount {
+            case .gbp:
+                self.transactionsArray = Transaction.getTransactions()
+            case .bitcoin:
+                self.bitcointransactionsArray = BitcoinTransaction.getTransactions()
+        }
+        
     }
     
     func refreshTransactionList(fullMode:Bool)
     {
-        //        getBalance()
+        // getBalance()
         if fullMode == false {
             getTransactions()
         } else {
@@ -251,7 +259,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         self.GBPBalanceLabel.numberOfLines = 1
         self.GBPBalanceLabel.adjustsFontSizeToFitWidth = true
         
-        self.bitsBalanceLabel.text = "μ₿ 123.45"
+        self.bitsBalanceLabel.text = User.currentUser()?.bitcoinAmountBalance
         self.bitsBalanceLabel.numberOfLines = 1
         self.bitsBalanceLabel.adjustsFontSizeToFitWidth = true
         
@@ -290,7 +298,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
             self.infoAccountQRCodeView.isHidden = true
         case .bitcoin:
             self.infoTitleLabel.text = "BITCOIN ACCOUNT"
-            self.infoAccountNumberLabel.text = User.currentUser()?.accountNumber
+            self.infoAccountNumberLabel.text = User.currentUser()?.bitcoinAddress
             self.infoAccountSortCodeView.isHidden = true
             self.infoAccountQRCodeView.isHidden = false
         }
@@ -380,16 +388,29 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return transactionsArray!.count
+        switch selectedAccount {
+        case .gbp:
+            return transactionsArray!.count
+        case .bitcoin:
+            return bitcointransactionsArray!.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! PPTransactionTableViewCell
         
-        let cellTransaction = transactionsArray?[indexPath.row]
+        switch selectedAccount {
+        case .gbp:
+            let cellTransaction = transactionsArray?[indexPath.row]
+            cell.setTransaction(transaction: cellTransaction!)
+        case .bitcoin:
+            let cellTransaction = bitcointransactionsArray?[indexPath.row]
+            cell.setBitcoinTransaction(transaction: cellTransaction!)
+        }
         
-        cell.setTransaction(transaction: cellTransaction!)
+        
         
         return cell
     }
@@ -402,7 +423,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showQRCode" {
             let showQRCodeVC : PPShowQRCode = segue.destination as! PPShowQRCode
-            showQRCodeVC.dataToQR = "bitcoin:12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu"
+            showQRCodeVC.dataToQR = "bitcoin:" + (User.currentUser()?.bitcoinAddress)!
         }
     }
 }

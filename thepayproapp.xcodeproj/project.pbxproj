@@ -43,6 +43,8 @@
 		535843791F8383180050250A /* BitcoinAccountConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535843781F8383180050250A /* BitcoinAccountConnection.swift */; };
 		5358437C1F838D2D0050250A /* PPShowQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358437B1F838D2D0050250A /* PPShowQRCode.swift */; };
 		537C3D9B1F75297C00924ED0 /* sendMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C3D9A1F75297C00924ED0 /* sendMoney.swift */; };
+		53AD56281F83B92E007284C7 /* BitcoinTransaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD56271F83B92E007284C7 /* BitcoinTransaction+CoreDataClass.swift */; };
+		53AD562A1F83B94F007284C7 /* BitcoinTransaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD56291F83B94F007284C7 /* BitcoinTransaction+CoreDataProperties.swift */; };
 		53BA09E61F6999FA00CB7F15 /* PPActivationCardCVV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BA09E51F6999FA00CB7F15 /* PPActivationCardCVV2ViewController.swift */; };
 		53DAF50D1F7018690013E406 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DAF50C1F7018690013E406 /* Country.swift */; };
 		53F2E6441F5EE81A00094C3B /* PPCardPinViewAfterActivationFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F2E6431F5EE81A00094C3B /* PPCardPinViewAfterActivationFormController.swift */; };
@@ -164,6 +166,8 @@
 		535843781F8383180050250A /* BitcoinAccountConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitcoinAccountConnection.swift; sourceTree = "<group>"; };
 		5358437B1F838D2D0050250A /* PPShowQRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPShowQRCode.swift; sourceTree = "<group>"; };
 		537C3D9A1F75297C00924ED0 /* sendMoney.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendMoney.swift; sourceTree = "<group>"; };
+		53AD56271F83B92E007284C7 /* BitcoinTransaction+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BitcoinTransaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		53AD56291F83B94F007284C7 /* BitcoinTransaction+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BitcoinTransaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		53BA09E51F6999FA00CB7F15 /* PPActivationCardCVV2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPActivationCardCVV2ViewController.swift; sourceTree = "<group>"; };
 		53DAF50C1F7018690013E406 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		53F2E6431F5EE81A00094C3B /* PPCardPinViewAfterActivationFormController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPCardPinViewAfterActivationFormController.swift; sourceTree = "<group>"; };
@@ -457,6 +461,8 @@
 				BF56BABB1EF26BF300429005 /* Currency+CoreDataProperties.swift */,
 				BF56BABC1EF26BF300429005 /* Group+CoreDataClass.swift */,
 				BF56BABD1EF26BF300429005 /* Group+CoreDataProperties.swift */,
+				53AD56271F83B92E007284C7 /* BitcoinTransaction+CoreDataClass.swift */,
+				53AD56291F83B94F007284C7 /* BitcoinTransaction+CoreDataProperties.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -966,7 +972,9 @@
 				BFDA4CB71F1373D700300261 /* PPCardSecondFormViewController.swift in Sources */,
 				BF69E1351F0E328D0004EE4E /* PPCardFirstFormViewController.swift in Sources */,
 				BFDA4CB91F137EF400300261 /* PayProDate.swift in Sources */,
+				53AD562A1F83B94F007284C7 /* BitcoinTransaction+CoreDataProperties.swift in Sources */,
 				BF56BAC71EF26BF300429005 /* OffsetTransaction+CoreDataProperties.swift in Sources */,
+				53AD56281F83B92E007284C7 /* BitcoinTransaction+CoreDataClass.swift in Sources */,
 				53DAF50D1F7018690013E406 /* Country.swift in Sources */,
 				6AF2B6D71F30830F00255B65 /* PPCardAddressViewController.swift in Sources */,
 				6A2033B91F3CB29C00CBB14A /* ExtensionConnectivity.swift in Sources */,

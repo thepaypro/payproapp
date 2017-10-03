@@ -9,8 +9,8 @@ import Foundation
 
 func BitcoinTransactionList(completion: @escaping (_ transactionResponse: NSDictionary) -> Void){
     
-    var lastTransaction : [Transaction]?
-    lastTransaction = Transaction.getLastTransaction()
+    var lastTransaction : [BitcoinTransaction]?
+    lastTransaction = BitcoinTransaction.getLastTransaction()
     
     var lastTransaction_id:Int64 = 1
     var endpointURL: String = "bitcoin-transactions"
@@ -25,14 +25,14 @@ func BitcoinTransactionList(completion: @escaping (_ transactionResponse: NSDict
     makeGetRequest(endpointURL: endpointURL, paramsURL: endpointParams, completion: {completionDictionary in
         //        print("completionDictionary: \(completionDictionary)")
         
-        if let transactions = completionDictionary["transactions"] {
+        if let transactions = completionDictionary["transactions"]{
             
-            if (transactions as AnyObject).value(forKeyPath: "response") != nil {
-                
-                let content:NSArray = (transactions as AnyObject).value(forKeyPath: "response") as! NSArray
-                let user_id:Int64 = (User.currentUser()?.identifier)!
-                
-                for transaction in content {
+//            if (transactions as AnyObject).value(forKeyPath: "response") != nil {
+            
+//                let content:NSArray = (transactions as AnyObject).value(forKeyPath: "response") as! NSArray
+//                let user_id:Int64 = (User.currentUser()?.identifier)!
+            
+                for transaction in transactions as! NSArray{
                     
 //                    var date = Date()
                     
@@ -46,7 +46,7 @@ func BitcoinTransactionList(completion: @escaping (_ transactionResponse: NSDict
 //                    }
                     
                     
-                    let amountString: String = (transaction as AnyObject).value(forKeyPath: "amount") as! String
+                    let amountString: Float = ((transaction as AnyObject).value(forKeyPath: "amount") as! NSString).floatValue
 //                    let amountPounds: Float = NSString(string: amountString.getPounds()).floatValue
                     
                     var title:String = "Transaction in your favor"
@@ -69,20 +69,19 @@ func BitcoinTransactionList(completion: @escaping (_ transactionResponse: NSDict
                     let subtitle: String = ((transaction as AnyObject).value(forKeyPath: "beneficiary") as? String)!
                     
                     let transactionDictionary = [
-                        "id" : (transaction as AnyObject).value(forKeyPath: "id")!,
+                        "id" : (transaction as AnyObject).value(forKeyPath: "transactionId")!,
                         "title": title.removingPercentEncoding!,
                         "subtitle": subtitle.removingPercentEncoding!,
                         "amount": amountString,
 //                        "isPayer": is_user_payer,
 //                        "datetime": date,
-                        "currency": 1 //0:GBP 1:BTC
                         ]  as [String : Any]
                     
-                    Transaction.manage(transactionDictionary: transactionDictionary as NSDictionary)
+                    BitcoinTransaction.manage(transactionDictionary: transactionDictionary as NSDictionary)
                 }
                 
                 completion(["status": true] as NSDictionary)
-            }
+//            }
         } else if let errorMessage = completionDictionary["errorMessage"] {
             completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
         } else {

@@ -4467,7 +4467,7 @@ in PayPro</string>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="lQ4-HN-FRv">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="lQ4-HN-FRv">
                                                 <rect key="frame" x="161.33333333333337" y="0.0" width="237.66666666666663" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -6455,19 +6455,16 @@ in PayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HF2-MJ-WVS"/>
-        <segue reference="cPk-Rt-u9Q"/>
-        <segue reference="hTT-Ug-9qa"/>
         <segue reference="QOc-uS-S0D"/>
         <segue reference="CKg-gm-nrI"/>
-        <segue reference="d89-SF-Ut6"/>
-        <segue reference="X5t-9Z-y2M"/>
         <segue reference="a4Y-DX-0uo"/>
         <segue reference="Azs-uz-2tr"/>
+        <segue reference="d89-SF-Ut6"/>
         <segue reference="ops-cj-9Fb"/>
-        <segue reference="Vby-Ea-oLq"/>
         <segue reference="Lxe-Dh-tgY"/>
+        <segue reference="Vby-Ea-oLq"/>
         <segue reference="In3-0W-KaY"/>
+        <segue reference="HF2-MJ-WVS"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -98,21 +98,21 @@ extension User {
                 
                 //if let bitcoinAccountInformation = (userDictionary as AnyObject).value(forKeyPath: "bitcoinAccount")! as? NSDictionary {
                 
-                BitcoinGetBalance(completion: {bitcoinGetBalanceResponse in
+                BitcoinGetWallet(completion: {bitcoinWalletResponse in
                     
-                    var bitcoinAmountBalance = "μ₿ 0.00"
+                    var bitcoinAmountBalance:String?
+                    var bitcoinAddr:String?
                     
-                    if bitcoinGetBalanceResponse["status"] as! Bool == true {
-                        
-                        if bitcoinGetBalanceResponse["balance"] != nil {
-                            bitcoinAmountBalance = (bitcoinGetBalanceResponse["balance"] as? String)!
+                    if bitcoinWalletResponse["status"] as! Bool == true {
+                        if bitcoinWalletResponse["balance"] != nil && bitcoinWalletResponse["address"] != nil{
+                            bitcoinAddr = bitcoinWalletResponse["address"] as? String
+                            bitcoinAmountBalance = bitcoinWalletResponse["balance"] as? String
                         }
                     }else{
                         completion(["status":false] as NSDictionary)
                     }
                     
                     BitcoinTransactionList(completion: {transactionsResponse in
-                        print("bitcoinTransactionResponse: \(transactionsResponse)")
                         if (transactionsResponse["status"] as! Bool == false){
                             completion(["status":false] as NSDictionary)
                         }
@@ -173,9 +173,8 @@ extension User {
                                     "email": accountInformation.value(forKeyPath: "email")!,
                                     "status": User.Status.statusActivated.rawValue,
                                     "amountBalance": amountBalance,
-                                    "bitcoinAmountBalance": bitcoinAmountBalance,
-                                    //                                        "bitcoinAddress": bitcoinAccountInformation.value(forKey: "address")!
-                                    
+                                    "bitcoinAmountBalance": bitcoinAmountBalance!,
+                                    "bitcoinAddress": bitcoinAddr!
                                 ]
                                 
                                 let accountUser = self.manage(userDictionary: accountDictionary!)
@@ -183,7 +182,6 @@ extension User {
                                 
                                 if loggedUser != nil && accountUser != nil {
                                     TransactionGetTransactions( completion: {transactionsResponse in
-                                        print("transactionResponse: \(transactionsResponse)")
                                         completion(transactionsResponse)
                                     })
                                 } else {

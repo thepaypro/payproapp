@@ -1,8 +1,8 @@
 //
-//  Transaction+CoreDataClass.swift
+//  BitcoinTransaction+CoreDataClass.swift
 //  thepayproapp
 //
-//  Created by Manuel Ortega Cordovilla on 15/06/2017.
+//  Created by Roger Baiget on 3/10/17.
 //  Copyright © 2017 The Pay Pro LTD. All rights reserved.
 //
 
@@ -10,42 +10,42 @@ import Foundation
 import CoreData
 import UIKit
 
-@objc(Transaction)
-public class Transaction: NSManagedObject
+@objc(BitcoinTransaction)
+public class BitcoinTransaction: NSManagedObject
 {
-    class func create () -> Transaction
+    class func create () -> BitcoinTransaction
     {
         let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         
-        let transaction : Transaction
+        let transaction : BitcoinTransaction
         
         if #available(iOS 10.0, *)
         {
-            transaction = Transaction(context: context)
+            transaction = BitcoinTransaction(context: context)
         }
         else
         {
             // Fallback on earlier versions
-            transaction = NSEntityDescription.insertNewObject(forEntityName: "Transaction", into: context) as! Transaction
+            transaction = NSEntityDescription.insertNewObject(forEntityName: "BitcoinTransaction", into: context) as! BitcoinTransaction
         }
         
         return transaction
     }
     
-    class func manage (transactionDictionary: NSDictionary) -> Transaction?
+    class func manage (transactionDictionary: NSDictionary) -> BitcoinTransaction?
     {
-        var transaction : Transaction?
+        var transaction : BitcoinTransaction?
         
-        if let transactionID = transactionDictionary.value(forKeyPath: "id")! as? Int64
+        if let transactionID = transactionDictionary.value(forKeyPath: "id")! as? String
         {
             let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
             
-            let transactionFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Transaction")
-            transactionFetchRequest.predicate = NSPredicate(format: "identifier == %d", transactionID)
+            let transactionFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BitcoinTransaction")
+            transactionFetchRequest.predicate = NSPredicate(format: "identifier == %@", transactionID)
             
             do
             {
-                transaction = try context.fetch(transactionFetchRequest).first as? Transaction
+                transaction = try context.fetch(transactionFetchRequest).first as? BitcoinTransaction
                 
                 if transaction == nil
                 {
@@ -70,12 +70,12 @@ public class Transaction: NSManagedObject
         return transaction
     }
     
-    class func update(transaction: Transaction, attributesDictionary: NSDictionary)
+    class func update(transaction: BitcoinTransaction, attributesDictionary: NSDictionary)
     {
         let title: String? = attributesDictionary.object(forKey: "title") as? String
         let subtitle: String? = attributesDictionary.object(forKey: "subtitle") as? String
         let datetime: Date? = attributesDictionary.object(forKey: "datetime") as? Date
-        let identifier: Int64? = attributesDictionary.object(forKey: "id") as? Int64
+        let identifier: String? = attributesDictionary.object(forKey: "id") as? String
         let amount: Float? = attributesDictionary.object(forKey: "amount") as? Float
         let isPayer: Bool? = attributesDictionary.object(forKey: "isPayer") as? Bool
         
@@ -124,11 +124,11 @@ public class Transaction: NSManagedObject
         }
     }
     
-    class func getTransactions() -> [Transaction]?
+    class func getTransactions() -> [BitcoinTransaction]?
     {
         let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         
-        let transactionsFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Transaction")
+        let transactionsFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BitcoinTransaction")
         
         let sortDescriptor = NSSortDescriptor(key: "datetime", ascending: false)
         
@@ -136,7 +136,7 @@ public class Transaction: NSManagedObject
         
         do
         {
-            let transactions: [Transaction]? = try context.fetch(transactionsFetchRequest) as? [Transaction]
+            let transactions: [BitcoinTransaction]? = try context.fetch(transactionsFetchRequest) as? [BitcoinTransaction]
             
             return transactions!
         }
@@ -146,11 +146,11 @@ public class Transaction: NSManagedObject
         }
     }
     
-    class func getLastTransaction() -> [Transaction]?
+    class func getLastTransaction() -> [BitcoinTransaction]?
     {
         let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         
-        let transactionsFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Transaction")
+        let transactionsFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BitcoinTransaction")
         
         let sortDescriptor = NSSortDescriptor(key: "identifier", ascending: false)
         
@@ -160,7 +160,7 @@ public class Transaction: NSManagedObject
         
         do
         {
-            let transactions: [Transaction]? = try context.fetch(transactionsFetchRequest) as? [Transaction]
+            let transactions: [BitcoinTransaction]? = try context.fetch(transactionsFetchRequest) as? [BitcoinTransaction]
             return transactions!
         }
         catch
@@ -173,7 +173,7 @@ public class Transaction: NSManagedObject
     {
         let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Transaction")
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "BitcoinTransaction")
         
         if #available(iOS 9.0, *)
         {
@@ -211,3 +211,4 @@ public class Transaction: NSManagedObject
         }
     }
 }
+

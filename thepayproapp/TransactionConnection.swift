@@ -143,7 +143,7 @@ func TransactionGetTransactions(completion: @escaping (_ transactionsResponse: N
                     }
                     
                     let subtitle: String = ((transaction as AnyObject).value(forKeyPath: "subject") as? String)!
-
+                    
                     let transactionDictionary = [
                         "id" : (transaction as AnyObject).value(forKeyPath: "id")!,
                         "title": title.removingPercentEncoding!,
@@ -151,7 +151,6 @@ func TransactionGetTransactions(completion: @escaping (_ transactionsResponse: N
                         "amount": amountPounds,
                         "isPayer": is_user_payer,
                         "datetime": date,
-                        "currency": 0 //0:GBP 1:BTC
                         ]  as [String : Any]
                 
                     Transaction.manage(transactionDictionary: transactionDictionary as NSDictionary)
