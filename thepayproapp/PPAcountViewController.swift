@@ -209,10 +209,18 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func getTransactionsFromBack()
     {
-        TransactionGetTransactions(accountType: self.selectedAccount.rawValue, completion: {transactionsResponse in
-            print("transactionsResponse: \(transactionsResponse)")
-            self.transactionsArray = Transaction.getTransactions(AccountCurrencyType: self.selectedAccount.rawValue)
-        })
+        switch selectedAccount {
+        case .gbp:
+            TransactionGetTransactions(completion: {transactionsResponse in
+                print("transactionsResponse: \(transactionsResponse)")
+                self.transactionsArray = Transaction.getTransactions(AccountCurrencyType: self.selectedAccount.rawValue)
+            })
+        case .bitcoin:
+            BitcoinTransactionList(completion: {transactionsResponse in
+                print("transactionsResponse: \(transactionsResponse)")
+                self.transactionsArray = Transaction.getTransactions(AccountCurrencyType: self.selectedAccount.rawValue)
+            })
+        }
     }
     
     func getTransactions(){

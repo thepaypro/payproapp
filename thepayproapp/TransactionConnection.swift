@@ -71,7 +71,7 @@ func TransactionCreate(beneficiary:Int, amount:String, subject:String, title:Str
     })
 }
 
-func TransactionGetTransactions(accountType: Int, completion: @escaping (_ transactionsResponse: NSDictionary) -> Void)
+func TransactionGetTransactions(completion: @escaping (_ transactionsResponse: NSDictionary) -> Void)
 {
     var lastTransaction : [Transaction]?
     lastTransaction = Transaction.getLastTransaction()

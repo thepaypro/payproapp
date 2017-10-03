@@ -182,7 +182,7 @@ extension User {
                                 let loggedUser = self.manage(userDictionary: userDictionary)
                                 
                                 if loggedUser != nil && accountUser != nil {
-                                    TransactionGetTransactions(accountType: 0 , completion: {transactionsResponse in
+                                    TransactionGetTransactions( completion: {transactionsResponse in
                                         print("transactionResponse: \(transactionsResponse)")
                                         completion(transactionsResponse)
                                     })

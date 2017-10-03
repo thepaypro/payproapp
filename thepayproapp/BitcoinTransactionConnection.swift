@@ -13,8 +13,7 @@ func BitcoinTransactionList(completion: @escaping (_ transactionResponse: NSDict
     lastTransaction = Transaction.getLastTransaction()
     
     var lastTransaction_id:Int64 = 1
-    //    var endpointURL: String = "bitcoin-transactions"
-    var endpointURL: String = "transactions"
+    var endpointURL: String = "bitcoin-transactions"
     var endpointParams: String = "page=1&size=20"
     
     //    if (lastTransaction?.count)! > 0 {
@@ -28,64 +27,54 @@ func BitcoinTransactionList(completion: @escaping (_ transactionResponse: NSDict
         
         if let transactions = completionDictionary["transactions"] {
             
-            if (transactions as AnyObject).value(forKeyPath: "content") != nil {
+            if (transactions as AnyObject).value(forKeyPath: "response") != nil {
                 
-                let content:NSArray = (transactions as AnyObject).value(forKeyPath: "content") as! NSArray
+                let content:NSArray = (transactions as AnyObject).value(forKeyPath: "response") as! NSArray
                 let user_id:Int64 = (User.currentUser()?.identifier)!
                 
                 for transaction in content {
-                    var is_user_payer: Bool = false
                     
-                    if let payer = (transaction as AnyObject).value(forKeyPath: "payer") {
-                        if let payer_user_id:NSArray = (payer as AnyObject).value(forKeyPath: "users") as? NSArray {
-                            
-                            if payer_user_id[0] as! Int64 == user_id {
-                                is_user_payer = true
-                            }
-                        }
-                    }
+//                    var date = Date()
                     
-                    var date = Date()
-                    
-                    if let date_json = (transaction as AnyObject).value(forKeyPath: "createdAt") {
-                        let date_text:String = (date_json as AnyObject).value(forKeyPath: "date") as! String
-                        
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
-                        
-                        date = dateFormatter.date(from: date_text)! //according to date format your date string
-                    }
+//                    if let date_json = (transaction as AnyObject).value(forKeyPath: "createdAt") {
+//                        let date_text:String = (date_json as AnyObject).value(forKeyPath: "date") as! String
+//                        
+//                        let dateFormatter = DateFormatter()
+//                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
+//                        
+//                        date = dateFormatter.date(from: date_text)! //according to date format your date string
+//                    }
                     
                     
                     let amountString: String = (transaction as AnyObject).value(forKeyPath: "amount") as! String
-                    let amountPounds: Float = NSString(string: amountString.getPounds()).floatValue
+//                    let amountPounds: Float = NSString(string: amountString.getPounds()).floatValue
                     
                     var title:String = "Transaction in your favor"
                     
-                    if let titleFromBack = (transaction as AnyObject).value(forKeyPath: "title") as? String {
+                    if let titleFromBack = (transaction as AnyObject).value(forKeyPath: "subject") as? String {
                         title = titleFromBack
-                        
-                    } else if is_user_payer == true {
-                        title = "Transaction to"
-                        
-                        if let beneficiary = (transaction as AnyObject).value(forKeyPath: "beneficiary") {
-                            let forename:String = (beneficiary as AnyObject).value(forKeyPath: "forename") as! String
-                            title += " "+forename
-                            
-                            let lastname: String = (beneficiary as AnyObject).value(forKeyPath: "lastname") as! String
-                            title += " "+lastname
-                        }
                     }
+//                    else if is_user_payer == true {
+//                        title = "Transaction to"
+//                        
+//                        if let beneficiary = (transaction as AnyObject).value(forKeyPath: "beneficiary")  {
+//                            let forename:String = (beneficiary as AnyObject).value(forKeyPath: "forename") as! String
+//                            title += " "+forename
+//                            
+//                            let lastname: String = (beneficiary as AnyObject).value(forKeyPath: "lastname") as! String
+//                            title += " "+lastname
+//                        }
+//                    }
                     
-                    let subtitle: String = ((transaction as AnyObject).value(forKeyPath: "subject") as? String)!
+                    let subtitle: String = ((transaction as AnyObject).value(forKeyPath: "beneficiary") as? String)!
                     
                     let transactionDictionary = [
                         "id" : (transaction as AnyObject).value(forKeyPath: "id")!,
                         "title": title.removingPercentEncoding!,
                         "subtitle": subtitle.removingPercentEncoding!,
-                        "amount": amountPounds,
-                        "isPayer": is_user_payer,
-                        "datetime": date,
+                        "amount": amountString,
+//                        "isPayer": is_user_payer,
+//                        "datetime": date,
                         "currency": 1 //0:GBP 1:BTC
                         ]  as [String : Any]
                     
