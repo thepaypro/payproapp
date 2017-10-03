@@ -26,6 +26,22 @@ extension String {
         return String(pounds)
     }
     
+    func getBTCFromBits() -> String{
+        let amount = self
+        
+        let BTC = Double(amount)! * Double(0.000001)
+        
+        return String(BTC)
+    }
+    
+    func getbitsFromBTC() -> String{
+        let amount = self
+        
+        let BTC = Double(amount)! / Double(0.000001)
+        
+        return String(BTC)
+    }
+    
     // formatting text for currency textField
     func currencyInputFormatting() -> String {
         var amount = self

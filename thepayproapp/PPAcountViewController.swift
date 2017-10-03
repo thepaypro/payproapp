@@ -189,7 +189,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
             bitsView.center.y = GBPViewy
             selectedAccount = GBPView.center.y > bitsView.center.y ? .gbp : .bitcoin
             self.setSelectedAccountInfoLabels()
-            self.getBalance()
+//            self.getBalance()
             isPositionFixed = true
             self.refreshTransactionList(fullMode: false)
         }
@@ -197,16 +197,22 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func getBalance()
     {
-//        get bitcoin balance as well
-//        AccountGetBalance(completion: {accountGetBalanceResponse in
-//            if accountGetBalanceResponse["status"] as! Bool == true {
-//
-//                if accountGetBalanceResponse["balance"] != nil {
-//                    print("updatingBalance")
-//                    self.GBPBalanceLabel.text = accountGetBalanceResponse["balance"] as? String
-//                }
-//            }
-//        })
+        AccountGetBalance(completion: {accountGetBalanceResponse in
+            if accountGetBalanceResponse["status"] as! Bool == true {
+                if accountGetBalanceResponse["balance"] != nil {
+                    print("updatingGBPBalance")
+                    self.GBPBalanceLabel.text = accountGetBalanceResponse["balance"] as? String
+                }
+            }
+        })
+        BitcoinGetWallet(completion: {bitcoinWalletResponse in
+            if bitcoinWalletResponse["status"] as! Bool == true {
+                if bitcoinWalletResponse["balance"] != nil{
+                    print("updatingBTCBalance")
+                    self.bitsBalanceLabel.text = bitcoinWalletResponse["balance"] as? String
+                }
+            }
+        })
     }
     
     func getTransactionsFromBack()
@@ -232,12 +238,11 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
             case .bitcoin:
                 self.bitcointransactionsArray = BitcoinTransaction.getTransactions()
         }
-        
     }
     
     func refreshTransactionList(fullMode:Bool)
     {
-        // getBalance()
+//        getBalance()
         if fullMode == false {
             getTransactions()
         } else {
@@ -375,6 +380,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getBalance()
         refreshTransactionList(fullMode: true)
         refreshControl.endRefreshing()
     }

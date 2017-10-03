@@ -332,11 +332,44 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                 }
             )
         }else if (sendMoney.getCurrencyType() == 1){
-            let amount = String(sendMoney.getAmount()!)?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
-            let subject:String = sendMoney.getMessage()!
-            let title:String = String("Transaction to "+sendMoney.getBeneficiaryName())!
             
-            //call endpoint bitcoin Transaction
+            let amount = String(sendMoney.getAmount()!)?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
+            let amountBTC:String = (amount?.getBTCFromBits())!
+            let subject:String = sendMoney.getMessage()!
+            
+            BitcoinTransactionCreate(
+                beneficiary: sendMoney.getcontactId(),
+                amount: amountBTC,
+                subject: subject.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
+                completion: {transactionResponse in
+                    
+                    print("transaction: \(transactionResponse)")
+                    
+                    if transactionResponse["status"] as! Bool == true {
+                        print("finishProcess: \(self.sendMoney.getFinishProcess())")
+                        self.sendMoney.setFinishProcess(finishProcessValue: 1)
+                        completion(true)
+                    } else if transactionResponse["errorMessage"] != nil {
+                        self.animateSwipe(position: swipeColorBoxCenterX)
+                        
+                        let errorMessage: String = transactionResponse["errorMessage"] as! String
+                        
+                        let alert = UIAlertController()
+                        
+                        self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
+                        
+                        completion(false)
+                        
+                    } else if transactionResponse["status"] as! Bool == false {
+                        self.animateSwipe(position: swipeColorBoxCenterX)
+                        
+                        let alert = UIAlertController()
+                        
+                        self.present(alert.displayAlert(code: "transaction_failed"), animated: true, completion: nil)
+                        
+                        completion(false)
+                    }
+            })
         }
     }
 }

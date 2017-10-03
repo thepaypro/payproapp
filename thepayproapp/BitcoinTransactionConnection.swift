@@ -7,6 +7,63 @@
 //
 import Foundation
 
+
+func BitcoinTransactionCreate(beneficiary:Int, amount:String, subject:String, completion: @escaping (_ transactionResponse: NSDictionary) -> Void)
+{
+    let transactionDictionary = [
+        "subject": String(subject)!,
+        "amount": String(amount)!,
+        "beneficiary": String(beneficiary)
+        ] as [String : Any]
+    
+    print("transaction: \(transactionDictionary)")
+    makePostRequest(paramsDictionary: transactionDictionary as NSDictionary, endpointURL: "bitcoin-transactions", completion: {completionDictionary in
+        
+        print("completionDictionary: \(completionDictionary)")
+        
+        if let transaction = completionDictionary["transaction"] as? NSArray {
+            
+            var title = "Transaction to "
+            title += transaction.value(forKeyPath: "beneficiary") as! String
+            
+            let subject = transaction.value(forKeyPath: "subject") as! String
+            
+            let amountNumber: Float = transaction.value(forKeyPath: "amount") as! Float
+            
+//            var date = Date()
+//            
+//            if let date_json = (transactionDictionary as AnyObject).value(forKeyPath: "createdAt") {
+//                let date_text:String = (date_json as AnyObject).value(forKeyPath: "date") as! String
+//                
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S"
+//                
+//                date = dateFormatter.date(from: date_text)!
+//            }
+            
+            
+            let transactionDictionaryResponse = [
+                "id" : transaction.value(forKeyPath: "id")!,
+                "title": title.removingPercentEncoding!,
+                "subtitle": subject.removingPercentEncoding!,
+                "amount": amountNumber,
+//                "isPayer": true,
+//                "datetime": date
+                ]  as [String : Any]
+            
+            let registerTransaction = BitcoinTransaction.manage(transactionDictionary: transactionDictionaryResponse as NSDictionary)
+            
+            completion(["status": registerTransaction != nil] as NSDictionary)
+        } else if let errorMessage = completionDictionary["errorMessage"] {
+            completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
+        } else {
+            completion(["status": false] as NSDictionary)
+        }
+    })
+}
+
+
+
 func BitcoinTransactionList(completion: @escaping (_ transactionResponse: NSDictionary) -> Void){
     
     var lastTransaction : [BitcoinTransaction]?
