@@ -126,8 +126,6 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         self.transactionsTV.addSubview(self.refreshControl)
         
         self.addVisualLines()
-        
-        self.setupView()
     }
     
     override func didReceiveMemoryWarning()
@@ -198,26 +196,27 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     func getBalance()
     {
         //get bitcoin balance as well
-        AccountGetBalance(completion: {accountGetBalanceResponse in
-            if accountGetBalanceResponse["status"] as! Bool == true {
-                    
-                if accountGetBalanceResponse["balance"] != nil {
-                    self.GBPBalanceLabel.text = accountGetBalanceResponse["balance"] as? String
-                }
-            }
-        })
+//        AccountGetBalance(completion: {accountGetBalanceResponse in
+//            if accountGetBalanceResponse["status"] as! Bool == true {
+//                    
+//                if accountGetBalanceResponse["balance"] != nil {
+//                    print("updatingBalance")
+//                    self.GBPBalanceLabel.text = accountGetBalanceResponse["balance"] as? String
+//                }
+//            }
+//        })
     }
     
     func getTransactionsFromBack()
     {
         TransactionGetTransactions(accountType: self.selectedAccount.rawValue, completion: {transactionsResponse in
             print("transactionsResponse: \(transactionsResponse)")
-            self.transactionsArray = Transaction.getTransactions()
+            self.transactionsArray = Transaction.getTransactions(AccountCurrencyType: self.selectedAccount.rawValue)
         })
     }
     
     func getTransactions(){
-        self.transactionsArray = Transaction.getTransactions()
+        self.transactionsArray = Transaction.getTransactions(AccountCurrencyType: selectedAccount.rawValue)
     }
     
     func refreshTransactionList(fullMode:Bool)

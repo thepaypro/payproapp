@@ -150,7 +150,8 @@ func TransactionGetTransactions(accountType: Int, completion: @escaping (_ trans
                         "subtitle": subtitle.removingPercentEncoding!,
                         "amount": amountPounds,
                         "isPayer": is_user_payer,
-                        "datetime": date
+                        "datetime": date,
+                        "currency": 0 //0:GBP 1:BTC
                         ]  as [String : Any]
                 
                     Transaction.manage(transactionDictionary: transactionDictionary as NSDictionary)
