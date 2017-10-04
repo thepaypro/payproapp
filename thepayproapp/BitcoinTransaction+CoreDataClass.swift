@@ -137,7 +137,7 @@ public class BitcoinTransaction: NSManagedObject
         do
         {
             let transactions: [BitcoinTransaction]? = try context.fetch(transactionsFetchRequest) as? [BitcoinTransaction]
-            
+            print(transactions?.count)
             return transactions!
         }
         catch
@@ -186,7 +186,7 @@ public class BitcoinTransaction: NSManagedObject
             }
             catch
             {
-                print ("There was an error deleting the user")
+                print ("There was an error deleting the bitcoinTransactions")
             }
         }
         else
@@ -206,7 +206,7 @@ public class BitcoinTransaction: NSManagedObject
             }
             catch
             {
-                print ("There was an error deleting the user")
+                print ("There was an error deleting the bitcoinTransactions")
             }
         }
     }

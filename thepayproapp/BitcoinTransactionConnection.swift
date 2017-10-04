@@ -64,14 +64,14 @@ func BitcoinTransactionCreate(beneficiary:Int, amount:String, subject:String, co
 
 
 
-func BitcoinTransactionList(completion: @escaping (_ transactionResponse: NSDictionary) -> Void){
+func BitcoinTransactionList(page: Int ,completion: @escaping (_ transactionResponse: NSDictionary) -> Void){
     
-    var lastTransaction : [BitcoinTransaction]?
-    lastTransaction = BitcoinTransaction.getLastTransaction()
+//    var lastTransaction : [BitcoinTransaction]?
+//    lastTransaction = BitcoinTransaction.getLastTransaction()
     
-    var lastTransaction_id:Int64 = 1
-    var endpointURL: String = "bitcoin-transactions"
-    var endpointParams: String = "page=1&size=20"
+//    var lastTransaction_id:Int64 = 1
+    let endpointURL: String = "bitcoin-transactions"
+    let endpointParams: String = "page="+String(page)+"&size=5"
     
     //    if (lastTransaction?.count)! > 0 {
     //        lastTransaction_id = (lastTransaction?[0].identifier)!
@@ -83,15 +83,16 @@ func BitcoinTransactionList(completion: @escaping (_ transactionResponse: NSDict
         //        print("completionDictionary: \(completionDictionary)")
         
         if let transactions = completionDictionary["transactions"]{
-            
+//            print((transactions as AnyObject).count)
+                
 //            if (transactions as AnyObject).value(forKeyPath: "response") != nil {
             
 //                let content:NSArray = (transactions as AnyObject).value(forKeyPath: "response") as! NSArray
 //                let user_id:Int64 = (User.currentUser()?.identifier)!
-            
+            if page == 1 {BitcoinTransaction.deleteTransactions()}
                 for transaction in transactions as! NSArray{
                     
-//                    var date = Date()
+                    var date:Date?
                     
 //                    if let date_json = (transaction as AnyObject).value(forKeyPath: "createdAt") {
 //                        let date_text:String = (date_json as AnyObject).value(forKeyPath: "date") as! String
@@ -102,7 +103,24 @@ func BitcoinTransactionList(completion: @escaping (_ transactionResponse: NSDict
 //                        date = dateFormatter.date(from: date_text)! //according to date format your date string
 //                    }
                     
+//                    if let date_text:String = (transaction as AnyObject).value(forKeyPath: "date") as! String{
+//                        let dateFormatter = DateFormatter()
+//                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
+//                        date = dateFormatter.date(from: date_text)! //according to date format your date string
+//                    }
                     
+                    if(page == 1){
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
+                        date = dateFormatter.date(from: "528809581.91278797") //according to date format your date string
+                    }else{
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
+                        date = dateFormatter.date(from: "528809487.66079497") //according to date format your date string
+                    }
+                    
+                    
+            
                     let amountString: Float = ((transaction as AnyObject).value(forKeyPath: "amount") as! NSString).floatValue
 //                    let amountPounds: Float = NSString(string: amountString.getPounds()).floatValue
                     
@@ -131,13 +149,13 @@ func BitcoinTransactionList(completion: @escaping (_ transactionResponse: NSDict
                         "subtitle": subtitle.removingPercentEncoding!,
                         "amount": amountString,
 //                        "isPayer": is_user_payer,
-//                        "datetime": date,
+                        "datetime": date ?? "",
                         ]  as [String : Any]
                     
                     BitcoinTransaction.manage(transactionDictionary: transactionDictionary as NSDictionary)
                 }
                 
-                completion(["status": true] as NSDictionary)
+                completion(["status": true, "transactionsLoaded": (transactions as AnyObject).count] as NSDictionary)
 //            }
         } else if let errorMessage = completionDictionary["errorMessage"] {
             completion(["status": false, "errorMessage": errorMessage] as NSDictionary)

@@ -17,7 +17,6 @@ extension BitcoinTransaction {
     }
     
     @NSManaged public var amount: Float
-    @NSManaged public var contisId: Int64
     @NSManaged public var currencyId: Int64
     @NSManaged public var datetime: Date?
     @NSManaged public var groupId: Int64

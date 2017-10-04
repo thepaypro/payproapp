@@ -4420,6 +4420,7 @@ in PayPro</string>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itn-Lo-3Rf">
                                         <rect key="frame" x="0.0" y="30" width="414" height="355"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="dataSource" destination="E4X-fn-yZx" id="ZRz-Tx-OZC"/>
                                             <outlet property="delegate" destination="E4X-fn-yZx" id="A9Z-uh-4zl"/>

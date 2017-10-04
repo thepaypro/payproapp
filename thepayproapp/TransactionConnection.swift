@@ -71,7 +71,7 @@ func TransactionCreate(beneficiary:Int, amount:String, subject:String, title:Str
     })
 }
 
-func TransactionGetTransactions(completion: @escaping (_ transactionsResponse: NSDictionary) -> Void)
+func TransactionGetTransactions(page: Int ,completion: @escaping (_ transactionsResponse: NSDictionary) -> Void)
 {
     var lastTransaction : [Transaction]?
     lastTransaction = Transaction.getLastTransaction()
@@ -92,7 +92,9 @@ func TransactionGetTransactions(completion: @escaping (_ transactionsResponse: N
 //        print("completionDictionary: \(completionDictionary)")
         
         if let transactions = completionDictionary["transactions"] {
+            print((transactions as AnyObject).count)
             
+            if page == 1 {Transaction.deleteTransactions()}
             if (transactions as AnyObject).value(forKeyPath: "content") != nil {
                 
                 let content:NSArray = (transactions as AnyObject).value(forKeyPath: "content") as! NSArray

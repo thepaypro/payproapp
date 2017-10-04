@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RefreshCell" id="Zdt-76-BbY" userLabel="RefreshCell" customClass="RefreshCellView" customModule="thepayproapp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zdt-76-BbY" id="BVu-09-eYc">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading more data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9r-wa-8JZ">
+                        <rect key="frame" x="116" y="49" width="143" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="03S-ld-k9H">
+                        <rect key="frame" x="167.5" y="8" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="4FT-yq-L3L"/>
+                            <constraint firstAttribute="width" constant="40" id="Mgn-GG-d3M"/>
+                        </constraints>
+                        <color key="color" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </activityIndicatorView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="03S-ld-k9H" firstAttribute="centerX" secondItem="BVu-09-eYc" secondAttribute="centerX" id="8cT-j6-RSN"/>
+                    <constraint firstItem="G9r-wa-8JZ" firstAttribute="top" secondItem="03S-ld-k9H" secondAttribute="bottom" constant="1" id="ETl-wF-Y2L"/>
+                    <constraint firstItem="G9r-wa-8JZ" firstAttribute="centerX" secondItem="BVu-09-eYc" secondAttribute="centerX" id="FHj-Wd-ygO"/>
+                    <constraint firstAttribute="topMargin" secondItem="03S-ld-k9H" secondAttribute="top" id="Ywc-8U-Gxl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="label" destination="G9r-wa-8JZ" id="YUU-hy-YHK"/>
+                <outlet property="loader" destination="03S-ld-k9H" id="Gx3-gO-Sg9"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="62"/>
+        </tableViewCell>
+    </objects>
+</document>

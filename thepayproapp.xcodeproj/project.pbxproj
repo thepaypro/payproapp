@@ -37,6 +37,8 @@
 		21DBABB91F34613B00F10980 /* PPCardPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DBABB81F34613B00F10980 /* PPCardPinViewController.swift */; };
 		47DF01DE01E7D7D898A65AFE /* Pods_thepayproapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */; };
 		530B16D61F72C751004B0F30 /* PPScanQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530B16D51F72C751004B0F30 /* PPScanQRViewController.swift */; };
+		5346B3571F850B3D00FEEF44 /* RefreshCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5346B3561F850B3D00FEEF44 /* RefreshCellView.swift */; };
+		5346B3591F85199600FEEF44 /* RefreshCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5346B3581F85199600FEEF44 /* RefreshCellView.xib */; };
 		53524D9C1F5D9954006EB54F /* PPActivationCardFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53524D9B1F5D9954006EB54F /* PPActivationCardFormViewController.swift */; };
 		53564B0D1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */; };
 		535843771F8382C40050250A /* BitcoinTransactionConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535843761F8382C40050250A /* BitcoinTransactionConnection.swift */; };
@@ -160,6 +162,8 @@
 		220E96BB616D905BE09C4351 /* Pods-thepayproappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproappTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3AD46AC53B7372C495343342 /* Pods-thepayproapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproapp/Pods-thepayproapp.release.xcconfig"; sourceTree = "<group>"; };
 		530B16D51F72C751004B0F30 /* PPScanQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPScanQRViewController.swift; sourceTree = "<group>"; };
+		5346B3561F850B3D00FEEF44 /* RefreshCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshCellView.swift; sourceTree = "<group>"; };
+		5346B3581F85199600FEEF44 /* RefreshCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshCellView.xib; sourceTree = "<group>"; };
 		53524D9B1F5D9954006EB54F /* PPActivationCardFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPActivationCardFormViewController.swift; sourceTree = "<group>"; };
 		53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPrefixSelectionViewController.swift; sourceTree = "<group>"; };
 		535843761F8382C40050250A /* BitcoinTransactionConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitcoinTransactionConnection.swift; sourceTree = "<group>"; };
@@ -307,6 +311,8 @@
 			children = (
 				BF401F931F1CD0CA0071EA84 /* PPTransactionTableViewCell.swift */,
 				BF401F941F1CD0CA0071EA84 /* PPTransactionTableViewCell.xib */,
+				5346B3561F850B3D00FEEF44 /* RefreshCellView.swift */,
+				5346B3581F85199600FEEF44 /* RefreshCellView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -780,6 +786,7 @@
 				6A0CE8F11EF58DB9000C0D1F /* ContactCell.xib in Resources */,
 				BF9DB87F1EDD770600C8A0ED /* Assets.xcassets in Resources */,
 				BF6516041F02467F00CEE051 /* countries-prefixes.json in Resources */,
+				5346B3591F85199600FEEF44 /* RefreshCellView.xib in Resources */,
 				BF9DB87D1EDD770600C8A0ED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -959,6 +966,7 @@
 				212100D51EF9091600208F72 /* PPBankTransfeReferenceListViewController.swift in Sources */,
 				537C3D9B1F75297C00924ED0 /* sendMoney.swift in Sources */,
 				213381271EFD1A5B0007A509 /* PPProfileViewController.swift in Sources */,
+				5346B3571F850B3D00FEEF44 /* RefreshCellView.swift in Sources */,
 				215540621EF3EF3E00670E86 /* ContactsPicker.swift in Sources */,
 				6A0CE8EF1EF58D92000C0D1F /* Constants.swift in Sources */,
 				BF42C2931EFA629F00DFBED7 /* Utils.swift in Sources */,
