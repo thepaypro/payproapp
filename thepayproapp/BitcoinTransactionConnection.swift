@@ -62,34 +62,12 @@ func BitcoinTransactionCreate(beneficiary:Int, amount:String, subject:String, co
     })
 }
 
-
-
-func BitcoinTransactionList(page: Int ,completion: @escaping (_ transactionResponse: NSDictionary) -> Void){
+func getBitcoinTransactionsFromBackRequest(page: Int ,size: Int, completion: @escaping (_ transactionResponse: NSDictionary) -> Void){
     
-//    var lastTransaction : [BitcoinTransaction]?
-//    lastTransaction = BitcoinTransaction.getLastTransaction()
-    
-//    var lastTransaction_id:Int64 = 1
-    let endpointURL: String = "bitcoin-transactions"
-    let endpointParams: String = "page="+String(page)+"&size=5"
-    
-    //    if (lastTransaction?.count)! > 0 {
-    //        lastTransaction_id = (lastTransaction?[0].identifier)!
-    //        endpointURL = "transactions/latest"
-    //        endpointParams = "transactionId=\(lastTransaction_id)"
-    //    }
-    
-    makeGetRequest(endpointURL: endpointURL, paramsURL: endpointParams, completion: {completionDictionary in
-        //        print("completionDictionary: \(completionDictionary)")
-        
+    makeGetRequest(endpointURL: "bitcoin-transactions", paramsURL: "page="+String(page)+"&size="+String(size), completion: {completionDictionary in
+        print(page)
+        print(size)
         if let transactions = completionDictionary["transactions"]{
-//            print((transactions as AnyObject).count)
-                
-//            if (transactions as AnyObject).value(forKeyPath: "response") != nil {
-            
-//                let content:NSArray = (transactions as AnyObject).value(forKeyPath: "response") as! NSArray
-//                let user_id:Int64 = (User.currentUser()?.identifier)!
-            if page == 1 {BitcoinTransaction.deleteTransactions()}
                 for transaction in transactions as! NSArray{
                     
                     var date:Date?
@@ -109,26 +87,40 @@ func BitcoinTransactionList(page: Int ,completion: @escaping (_ transactionRespo
 //                        date = dateFormatter.date(from: date_text)! //according to date format your date string
 //                    }
                     
-                    if(page == 1){
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
-                        date = dateFormatter.date(from: "528809581.91278797") //according to date format your date string
-                    }else{
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
-                        date = dateFormatter.date(from: "528809487.66079497") //according to date format your date string
-                    }
+    if(page == 1){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
+        date = dateFormatter.date(from: "528809581.91278797") //according to date format your date string
+    }else if(page == 2){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
+        date = dateFormatter.date(from: "528809487.66079497") //according to date format your date string
+    }else if(page == 2){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
+        date = dateFormatter.date(from: "528809489.66079497") //according to date format your date string
+    }else if(page == 3){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
+        date = dateFormatter.date(from: "528809491.66079497") //according to date format your date string
+    }else if(page == 4){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S" //Your date format
+        date = dateFormatter.date(from: "528809497.66079497") //according to date format your date string
+     }
                     
                     
-            
+                    
+                    
+                    
                     let amountString: Float = ((transaction as AnyObject).value(forKeyPath: "amount") as! NSString).floatValue
-//                    let amountPounds: Float = NSString(string: amountString.getPounds()).floatValue
                     
                     var title:String = "Transaction in your favor"
                     
                     if let titleFromBack = (transaction as AnyObject).value(forKeyPath: "subject") as? String {
                         title = titleFromBack
                     }
+                    
 //                    else if is_user_payer == true {
 //                        title = "Transaction to"
 //                        
@@ -154,8 +146,8 @@ func BitcoinTransactionList(page: Int ,completion: @escaping (_ transactionRespo
                     
                     BitcoinTransaction.manage(transactionDictionary: transactionDictionary as NSDictionary)
                 }
-                
-                completion(["status": true, "transactionsLoaded": (transactions as AnyObject).count] as NSDictionary)
+                print((transactions as! NSArray).count)
+                completion(["status": true, "newTransactions": (transactions as! NSArray).count] as NSDictionary)
 //            }
         } else if let errorMessage = completionDictionary["errorMessage"] {
             completion(["status": false, "errorMessage": errorMessage] as NSDictionary)

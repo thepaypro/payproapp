@@ -37,14 +37,12 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     }
     
     var isPositionFixed: Bool = true
-    enum AccountCurrencyType: Int{
+     enum AccountCurrencyType: Int{
         case gbp = 0
         case bitcoin = 1
     }
     var selectedAccount: AccountCurrencyType = .gbp
-    var GBPTransactionLoadedPages:Int = 1
-    var bitcoinTransactionLoadedPages:Int = 1
-    var isGetMoreTransactionsAnimationAvailable = false
+//    var isGetMoreTransactionsAnimationAvailable = false
     
     @IBAction func swipeBitsViewLeft(_ sender: Any) {
         if isPositionFixed{
@@ -104,6 +102,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     var transactionsArray : [Transaction]?
     var bitcointransactionsArray : [BitcoinTransaction]?
     var transactionsNewFetchBool: Bool = false
+    var transactionPageSize: Int = 5
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -196,7 +195,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
             self.setSelectedAccountInfoLabels()
 //            self.getBalance()
             isPositionFixed = true
-            self.refreshTransactionList(fullMode: false)
+            self.loadTransactions()
         }
     }
     
@@ -220,49 +219,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         })
     }
     
-    func getTransactionsFromBack(isRefresh: Bool, completion: @escaping (_ getTransactionsFromBackResponse: NSDictionary) -> Void)
-    {
-        switch selectedAccount {
-        case .gbp:
-            self.GBPTransactionLoadedPages += 1
-            if isRefresh {
-                self.GBPTransactionLoadedPages = 1
-//                self.isGetMoreTransactionsAnimationAvailable = false
-            }
-            TransactionGetTransactions(page: GBPTransactionLoadedPages,completion: {transactionsResponse in
-                if transactionsResponse["status"] as! Bool == true {
-                    self.transactionsArray = Transaction.getTransactions()
-                }else{
-                   completion(["status": false] as NSDictionary)
-                }
-            })
-        case .bitcoin:
-            self.bitcoinTransactionLoadedPages += 1
-            if isRefresh {
-                self.bitcoinTransactionLoadedPages = 1
-//                self.isGetMoreTransactionsAnimationAvailable = false
-            }
-            BitcoinTransactionList(page: bitcoinTransactionLoadedPages, completion: {transactionsResponse in
-                self.refreshControl.endRefreshing()
-                if transactionsResponse["status"] as! Bool == true {
-                    self.bitcointransactionsArray = BitcoinTransaction.getTransactions()
-                    self.transactionsTV.reloadData()
-                    if transactionsResponse["transactionsLoaded"] as! Int > 0 {
-//                        print(BitcoinTransaction.getTransactions()!.count)
-    //                    print(self.bitcoinTransactionLoadedPages)
-    //                    print(self.bitcointransactionsArray?.count)
-                        completion(["status": true, "noMoreTransactions": false] as NSDictionary)
-                    }else{
-                       completion(["status": true, "noMoreTransactions": true] as NSDictionary)
-                    }
-                }else{
-                    completion(["status": false] as NSDictionary)
-                }
-            })
-        }
-    }
-    
-    func getTransactions(){
+    func loadTransactions(){
         switch selectedAccount {
             case .gbp:
                 self.transactionsArray = Transaction.getTransactions()
@@ -271,21 +228,6 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
                 self.bitcointransactionsArray = BitcoinTransaction.getTransactions()
                 transactionsTV.reloadData()
         }
-    }
-    
-    func refreshTransactionList(fullMode:Bool)
-    {
-//        getBalance()
-        if fullMode == false {
-            getTransactions()
-        } else {
-            getTransactionsFromBack(isRefresh: true,completion: {getTransactionsFromBackResponse in
-                if getTransactionsFromBackResponse["status"] as! Bool == false {
-                    //show alerts
-                }
-            })
-        }
-        
     }
     
     func firstTimeSetup(){
@@ -326,7 +268,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
             cardHeight.constant = 0.0
         }
         
-        refreshTransactionList(fullMode: false)
+        loadTransactions()
     }
     
     func setSelectedAccountInfoLabels() {
@@ -419,7 +361,15 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
         getBalance()
-        refreshTransactionList(fullMode: true)
+        refreshTransactionsFromBack(selectedAccount: selectedAccount ,completion: {refreshTransactionsFromBackResponse in
+            if refreshTransactionsFromBackResponse["status"] as! Bool == true {
+                self.selectedAccount == .bitcoin ? (self.bitcointransactionsArray = BitcoinTransaction.getTransactions()): (self.transactionsArray = Transaction.getTransactions())
+                self.transactionsTV.reloadData()
+                self.refreshControl.endRefreshing()
+            }else{
+                
+            }
+        })
     }
     
     //MARK:- ScrollView Delegate
@@ -429,25 +379,20 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         if(decelerate && transactionsNewFetchBool && scrollView.contentOffset.y >= 0)
         {
             let tv =  scrollView as! UITableView
-            let lastCellIndexPath = IndexPath(row:selectedAccount == .bitcoin ?
-                bitcointransactionsArray!.count :
-                transactionsArray!.count , section: 0)
-            isGetMoreTransactionsAnimationAvailable = true
-            tv.reloadData()
-            let refreshCell = tv.cellForRow(at: lastCellIndexPath) as! RefreshCellView
-            refreshCell.startLoading()
-            getTransactionsFromBack(isRefresh: false,completion: {getTransactionsFromBackResponse in
-                if getTransactionsFromBackResponse["status"] as! Bool == true {
-                    if getTransactionsFromBackResponse["noMoreTransactions"] as! Bool{
-                        self.isGetMoreTransactionsAnimationAvailable = false
-                        refreshCell
-                        tv.reloadData()
-                    }
-                }else{
-                    //show alerts
-                }
-            })
-            transactionsNewFetchBool = false
+            let lastCellIndexPath = IndexPath(row: transactionsTV.numberOfRows(inSection: 0) - 1 , section: 0)
+            if let refreshCell = tv.cellForRow(at: lastCellIndexPath) as? RefreshCellView{
+                refreshCell.showLoader()
+                let reloadPreviousPage = (selectedAccount == .bitcoin) ? ((bitcointransactionsArray?.count)! % transactionPageSize > 0) : ((transactionsArray?.count)! % transactionPageSize > 0)
+                    getTransactionsFromBack(selectedAccount: selectedAccount, reloadPreviousPage: reloadPreviousPage, completion: {getTransactionsFromBackResponse in
+                        if getTransactionsFromBackResponse["status"] as! Bool == true {
+                            self.selectedAccount == .bitcoin ? (self.bitcointransactionsArray = BitcoinTransaction.getTransactions()): (self.transactionsArray = Transaction.getTransactions())
+                            self.transactionsTV.reloadData()
+                        }else{
+                            //show alert
+                        }
+                })
+                transactionsNewFetchBool = false
+            }
         }
         else if(!decelerate)
         {
@@ -468,47 +413,39 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     {
         switch selectedAccount {
         case .gbp:
-            print(transactionsArray?.count)
-            return transactionsArray!.count + (isGetMoreTransactionsAnimationAvailable ? 1 : 0)
+//            print(transactionsArray?.count)
+            return transactionsArray!.count + 1
         case .bitcoin:
-            print(bitcointransactionsArray?.count)
-            return bitcointransactionsArray!.count + (isGetMoreTransactionsAnimationAvailable ? 1 : 0)
+//            print(bitcointransactionsArray?.count)
+            return bitcointransactionsArray!.count + 1
         }
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        switch selectedAccount {
-        case .gbp:
-            if((indexPath as NSIndexPath).row < (transactionsArray?.count)!){
-                let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! PPTransactionTableViewCell
-                let cellTransaction = transactionsArray?[indexPath.row]
-                cell.setTransaction(transaction: cellTransaction!)
-                return cell
-            }else{
-                let cell = tableView.dequeueReusableCell(withIdentifier: "RefreshCell") as! RefreshCellView
-//                cell.stopLoading()
-                return cell
-            }
-        case .bitcoin:
-            if((indexPath as NSIndexPath).row < (bitcointransactionsArray?.count)!){
-                let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! PPTransactionTableViewCell
-                let cellTransaction = bitcointransactionsArray?[indexPath.row]
-                cell.setBitcoinTransaction(transaction: cellTransaction!)
-                return cell
-            }else{
-                let cell = tableView.dequeueReusableCell(withIdentifier: "RefreshCell") as! RefreshCellView
-//                cell.stopLoading()
-                return cell
-            }
+        if (indexPath as NSIndexPath).row < (selectedAccount == .bitcoin ? bitcointransactionsArray?.count : transactionsArray?.count)!{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! PPTransactionTableViewCell
+            let cellTransaction = (selectedAccount == .bitcoin ? bitcointransactionsArray?[indexPath.row] : transactionsArray?[indexPath.row])
+            selectedAccount == .bitcoin ? cell.setBitcoinTransaction(transaction: cellTransaction! as! BitcoinTransaction) : cell.setTransaction(transaction: cellTransaction! as! Transaction)
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RefreshCell") as! RefreshCellView
+            cell.hideLoader()
+            return cell
         }
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 76.0
+//        if (indexPath as NSIndexPath).row < (selectedAccount == .bitcoin ? bitcointransactionsArray?.count : transactionsArray?.count)!{
+            return 76.0
+//        }else{
+//            let lastCellIndexPath = IndexPath(row:selectedAccount == .bitcoin ? bitcointransactionsArray!.count : transactionsArray!.count , section: 0)
+//            let refreshCell = transactionsTV.cellForRow(at: lastCellIndexPath) as! RefreshCellView
+//            return refreshCell.isVisible() ? 76.0 : 20
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

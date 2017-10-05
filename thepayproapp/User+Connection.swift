@@ -111,8 +111,8 @@ extension User {
                     }else{
                         completion(["status":false] as NSDictionary)
                     }
-                    
-                    BitcoinTransactionList(page: 1, completion: {transactionsResponse in
+                    BitcoinTransaction.deleteTransactions()
+                    getBitcoinTransactionsFromBackRequest(page: 1, size: 5, completion: {transactionsResponse in
                         if (transactionsResponse["status"] as! Bool == false){
                             completion(["status":false] as NSDictionary)
                         }
@@ -197,7 +197,8 @@ extension User {
                                 let loggedUser = self.manage(userDictionary: userDictionary)
                                 
                                 if loggedUser != nil && accountUser != nil {
-                                    TransactionGetTransactions( page: 1, completion: {transactionsResponse in
+                                    Transaction.deleteTransactions()
+                                    getGBPTransactionsFromBackRequest( page: 1, size: 5, completion: {transactionsResponse in
                                         completion(transactionsResponse)
                                     })
                                 } else {

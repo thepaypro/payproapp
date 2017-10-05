@@ -12,6 +12,7 @@ class RefreshCellView : UITableViewCell
 {
     @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var height: NSLayoutConstraint!
     
     override func awakeFromNib()
     {
@@ -31,5 +32,24 @@ class RefreshCellView : UITableViewCell
     
     func updateText(text: String){
         label.text = text
+    }
+    
+    func hideLoader(){
+        self.loader.isHidden = true
+        self.label.isHidden = true
+//        self.height.constant = 20
+        self.stopLoading()
+        
+    }
+    
+    func showLoader(){
+        self.loader.isHidden = false
+        self.label.isHidden = false
+//        self.height.constant = 76
+        self.startLoading()
+    }
+    
+    func isVisible() -> Bool {
+        return !self.loader.isHidden
     }
 }
