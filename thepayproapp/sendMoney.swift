@@ -11,8 +11,9 @@ import UIKit
 open class SendMoney {
     fileprivate var load_process: Int = 0 //0:initial load not active, 1:initial load active
     fileprivate var finish_process: Int = 0 //0:process are active, 1:process are finished
-    fileprivate var operation_type: Int = 0 //0:bankTransfe, 1:sendMoneyIntraApp, 2:sendMoneyInvite
+    fileprivate var operation_type: Int = 0 //0:OutApp, 1:sendMoneyIntraApp, 2:sendMoneyInvite
     fileprivate var currency_type: Int = 0 //0:GBP 1:BTC
+    fileprivate var fixed_currency: Bool = false
     fileprivate var amount: String?
     fileprivate var forename: String?
     fileprivate var lastname: String?
@@ -29,37 +30,36 @@ open class SendMoney {
     fileprivate var contactId: Int?
     fileprivate var label: String?
     
-    open func bitcoinURISaveData (bitcoinURIString: String?) -> Bool{
+    open func bitcoinURISaveData (bitcoinURIString: String?, completion: @escaping (_ response: NSDictionary) -> Void)
+    {
         
         //bitcoin:175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W?amount=50&label=Luke-Jr&message=Donation%20for%20project%20xyz
-        var isBitcoinUriValid: Bool = true
-        var bitcoinUri: [String?]
+        var bitcoinUri: [String?] = []
 
         //print(bitcoinURIString?.components(separatedBy: ":"))
         
         if let bitcoinUriScheme: [String?] = bitcoinURIString?.components(separatedBy: ":"), bitcoinUriScheme[0] == "bitcoin" &&  bitcoinUriScheme[1] != nil{
             bitcoinUri = [bitcoinUriScheme[1]]
         }else{
-            return false
+            completion(["status": false] as NSDictionary)
         }
         
         // need to check if the addr is valid
-        bitcoinUriAddr: if let bitcoinUriAddr: [String?] = bitcoinUri[0]?.components(separatedBy: "?"){
+        if let bitcoinUriAddr: [String?] = bitcoinUri[0]?.components(separatedBy: "?"){
             if bitcoinUriAddr.count > 2 || !(bitcoinUriAddr[0]?.matchesRegex(regex: "^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$"))!{
-                isBitcoinUriValid = false
-                break bitcoinUriAddr
+                completion(["status": false] as NSDictionary)
             }
             account_number = bitcoinUriAddr[0]
             if bitcoinUriAddr.count == 2{
                 bitcoinUri.append(bitcoinUriAddr[1])
                 if let bitcoinUriParams: [String?] = bitcoinUri[1]?.components(separatedBy: "&"){
-                    parametersLoop: for (_,query) in bitcoinUriParams.enumerated(){
+                    for (_,query) in bitcoinUriParams.enumerated(){
                         if let param: [String] = query?.components(separatedBy: "="), param.count == 2{
                             if param[0] == "amount" || param[0] == "size"{
                                 if param[1].matchesRegex(regex: "^[0-9]*\\.?[0-9]{0,8}$"){
                                     amount = param[1]
                                 }else{
-                                    return false
+                                    completion(["status": false] as NSDictionary)
                                 }
                             }
                             else if param[0] == "label" {
@@ -68,20 +68,17 @@ open class SendMoney {
                             else if param[0] == "message" {
                                 message = param[1].removingPercentEncoding
                             }else{
-                                isBitcoinUriValid = false
-                                break parametersLoop
+                                completion(["status": false] as NSDictionary)
                             }
                         }else{
-                            isBitcoinUriValid = false
-                            break parametersLoop
+                            completion(["status": false] as NSDictionary)
                         }
                     }
-                }else{return false}
-            }else{return true}
-        }else{return false}
+                }else{completion(["status": false] as NSDictionary)}
+            }else{completion(["status": true] as NSDictionary)}
+        }else{completion(["status": false] as NSDictionary)}
         
-
-        return isBitcoinUriValid 
+        completion(["status": true] as NSDictionary)
     }
     
     open func setLoadProcess(loadProcessValue: Int) {
@@ -243,5 +240,13 @@ open class SendMoney {
     
     open func setLabel(labelValue: String){
         label = labelValue
+    }
+    
+    open func getFixedCurrency () -> Bool {
+        return fixed_currency
+    }
+    
+    open func setFixedCurrency(fixedCurrencyValue: Bool){
+        fixed_currency = fixedCurrencyValue
     }
 }

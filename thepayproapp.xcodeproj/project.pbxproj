@@ -40,6 +40,7 @@
 		5346B3571F850B3D00FEEF44 /* RefreshCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5346B3561F850B3D00FEEF44 /* RefreshCellView.swift */; };
 		5346B3591F85199600FEEF44 /* RefreshCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5346B3581F85199600FEEF44 /* RefreshCellView.xib */; };
 		5351C9041F8642F4001FACB3 /* TransactionConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351C9031F8642F4001FACB3 /* TransactionConnection.swift */; };
+		5351C9071F869297001FACB3 /* PPBitcoinAddr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351C9061F869297001FACB3 /* PPBitcoinAddr.swift */; };
 		53524D9C1F5D9954006EB54F /* PPActivationCardFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53524D9B1F5D9954006EB54F /* PPActivationCardFormViewController.swift */; };
 		53564B0D1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */; };
 		535843771F8382C40050250A /* BitcoinTransactionConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535843761F8382C40050250A /* BitcoinTransactionConnection.swift */; };
@@ -166,6 +167,7 @@
 		5346B3561F850B3D00FEEF44 /* RefreshCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshCellView.swift; sourceTree = "<group>"; };
 		5346B3581F85199600FEEF44 /* RefreshCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshCellView.xib; sourceTree = "<group>"; };
 		5351C9031F8642F4001FACB3 /* TransactionConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionConnection.swift; sourceTree = "<group>"; };
+		5351C9061F869297001FACB3 /* PPBitcoinAddr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBitcoinAddr.swift; sourceTree = "<group>"; };
 		53524D9B1F5D9954006EB54F /* PPActivationCardFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPActivationCardFormViewController.swift; sourceTree = "<group>"; };
 		53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPrefixSelectionViewController.swift; sourceTree = "<group>"; };
 		535843761F8382C40050250A /* BitcoinTransactionConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitcoinTransactionConnection.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 		216CCA8E1EE82252003FE3CE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5351C9051F869271001FACB3 /* PPBitcoinAddr */,
 				5358437A1F838D1D0050250A /* PPShowQRCode */,
 				530B16D41F72C72A004B0F30 /* PPScanQrViewController */,
 				215540571EF3CBF300670E86 /* PPContactViewController */,
@@ -372,6 +375,14 @@
 				530B16D51F72C751004B0F30 /* PPScanQRViewController.swift */,
 			);
 			name = PPScanQrViewController;
+			sourceTree = "<group>";
+		};
+		5351C9051F869271001FACB3 /* PPBitcoinAddr */ = {
+			isa = PBXGroup;
+			children = (
+				5351C9061F869297001FACB3 /* PPBitcoinAddr.swift */,
+			);
+			name = PPBitcoinAddr;
 			sourceTree = "<group>";
 		};
 		5358437A1F838D1D0050250A /* PPShowQRCode */ = {
@@ -986,6 +997,7 @@
 				53AD562A1F83B94F007284C7 /* BitcoinTransaction+CoreDataProperties.swift in Sources */,
 				BF56BAC71EF26BF300429005 /* OffsetTransaction+CoreDataProperties.swift in Sources */,
 				53AD56281F83B92E007284C7 /* BitcoinTransaction+CoreDataClass.swift in Sources */,
+				5351C9071F869297001FACB3 /* PPBitcoinAddr.swift in Sources */,
 				53DAF50D1F7018690013E406 /* Country.swift in Sources */,
 				6AF2B6D71F30830F00255B65 /* PPCardAddressViewController.swift in Sources */,
 				6A2033B91F3CB29C00CBB14A /* ExtensionConnectivity.swift in Sources */,

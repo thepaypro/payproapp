@@ -15,6 +15,7 @@ class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource,
     @IBOutlet weak var amountField: UITextField!
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var messageField: UITextField!
+    @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var currencyPicker: UIPickerView!
     @IBAction func nextTapped(_ sender: Any) {
         if (sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 0){
@@ -24,8 +25,8 @@ class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource,
         }
     }
     
-
     let currencyPickerData: [String] = ["£","bits"]
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource,
         if let message = sendMoney.getMessage(){
             messageField.text = message
         }
+        
         //currencyPicker
         currencyPicker.selectRow(sendMoney.getCurrencyType(), inComponent: 0, animated: false)
         
@@ -60,17 +62,30 @@ class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource,
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.sendMoney.setLoadProcess(loadProcessValue: 0)
         self.amountField.becomeFirstResponder()
+        if self.sendMoney.getFixedCurrency() {
+            currencyPicker.isHidden = true
+            currencyLabel.isHidden = false
+            (self.sendMoney.getCurrencyType() == 0) ? (currencyLabel.text = "£") : (currencyLabel.text = "bits")
+        }else{
+            currencyPicker.isHidden = false
+            currencyLabel.isHidden = true
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,replacementString string: String) -> Bool{
         if(textField == amountField){
             let maxLength = 18
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }else if(textField == messageField){
+            let maxLength = 99
             let currentString: NSString = textField.text! as NSString
             let newString: NSString =
                 currentString.replacingCharacters(in: range, with: string) as NSString

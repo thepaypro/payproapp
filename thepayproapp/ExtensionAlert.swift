@@ -192,7 +192,36 @@ extension UIAlertController {
             alert.addAction(confirmAction)
             
             return alert
+            
+        case "invalid_bitcoin_addr":
+            let alert = UIAlertController(
+                title: "Address not valid",
+                message: "Bitcoin Address is not valid",
+                preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction = UIAlertAction(
+                title: "Ok",
+                style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
+            
+        case "invalid_bitcoin_uri":
+            let alert = UIAlertController(
+                title: "URI not valid",
+                message: "Bitcoin Uri is not valid",
+                preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction = UIAlertAction(
+                title: "Ok",
+                style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
 
+            
         default:
             let alert = UIAlertController(
                 title: "Ups! Sorry, something went wrong :(",

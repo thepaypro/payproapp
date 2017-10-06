@@ -390,7 +390,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
                         }else{
                             //show alert
                         }
-                })
+                    })
                 transactionsNewFetchBool = false
             }
         }

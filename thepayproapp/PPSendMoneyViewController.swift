@@ -22,6 +22,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
     
     override func viewWillAppear(_ animated: Bool)
     {
+        sendMoney = SendMoney()
         if sendMoney.getLoadProcess() == 0 {
             let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.phoneNumber)
             let navigationController = UINavigationController(rootViewController: contactPickerScene)
@@ -42,23 +43,23 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
     
     func ContacPickerNotInList(controller: ContactsPicker)
     {
-        self.sendMoney.setLoadProcess(loadProcessValue: 1)
-        self.sendMoney.setOperationType(operationTypeValue: 0)
-        
-        self.dismiss(animated: true, completion: {
-            self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
-        })
+//        self.sendMoney.setLoadProcess(loadProcessValue: 1)
+//        self.sendMoney.setOperationType(operationTypeValue: 0)
+//        
+//        self.dismiss(animated: true, completion: {
+//            self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
+//        })
 
     }
     
     func ContactBankTransfer(contact: Contact)
     {
-        self.sendMoney.setLoadProcess(loadProcessValue: 1)
-        self.sendMoney.setOperationType(operationTypeValue: 0)
-        
-        self.dismiss(animated: true, completion: {
-            self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
-        })
+//        self.sendMoney.setLoadProcess(loadProcessValue: 1)
+//        self.sendMoney.setOperationType(operationTypeValue: 0)
+//        
+//        self.dismiss(animated: true, completion: {
+//            self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
+//        })
     }
     
     func ContactInvite(contact: Contact)
@@ -83,6 +84,18 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
         } else {
             print("no puedo enviar SMS!!")
         }
+    }
+    
+    func ContactIntroduceBitcoinAddress(){
+    
+        self.sendMoney.setLoadProcess(loadProcessValue: 1)
+        self.sendMoney.setOperationType(operationTypeValue: 0)
+        self.sendMoney.setCurrencyType(currencyTypeValue: 1)
+        self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
+    
+        self.dismiss(animated: true, completion: {
+            self.performSegue(withIdentifier: "introduceBitcoinAddressSegue", sender: self)
+        })
     }
     
     func ContactSendInApp(contact: Contact)
@@ -110,17 +123,17 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
         if contact.getIsPayProUser() == false {
             let alert = UIAlertController(title: "Send money by", message: "", preferredStyle: .actionSheet)
         
-            let bankTransfeButtonAction = UIAlertAction(title: "Bank transfer", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
+//            let bankTransfeButtonAction = UIAlertAction(title: "Bank transfer", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
                 //enabled block load process
-                self.sendMoney.setLoadProcess(loadProcessValue: 1)
-                self.sendMoney.setOperationType(operationTypeValue: 0)
-                
-                self.dismiss(animated: true, completion: {
-                    self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
-                })
-            })
-        
-            alert.addAction(bankTransfeButtonAction)
+//                self.sendMoney.setLoadProcess(loadProcessValue: 1)
+//                self.sendMoney.setOperationType(operationTypeValue: 0)
+//                
+//                self.dismiss(animated: true, completion: {
+//                    self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
+//                })
+//            })
+//        
+//            alert.addAction(bankTransfeButtonAction)
         
             let inviteButtonAction = UIAlertAction(title: "Invite someone to PayPro", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
                 
@@ -216,7 +229,11 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
         if segue.identifier == "sendMoneySegue" {
             let sendMoneyInAppVC : PPSendMoneyAmountViewController = segue.destination as! PPSendMoneyAmountViewController
             sendMoneyInAppVC.sendMoney = sendMoney
+        }else if segue.identifier == "introduceBitcoinAddressSegue" {
+            let introduceBitcoinAddressVC : PPBitcoinAddr = segue.destination as! PPBitcoinAddr
+            introduceBitcoinAddressVC.sendMoney = sendMoney
         }
+        
     }
 
 }

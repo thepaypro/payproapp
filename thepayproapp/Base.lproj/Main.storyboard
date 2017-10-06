@@ -63,11 +63,77 @@
                     </navigationItem>
                     <connections>
                         <segue destination="54n-bP-fDS" kind="show" identifier="sendMoneySegue" id="4h9-kM-2Nm"/>
+                        <segue destination="jvQ-xK-gDJ" kind="show" identifier="introduceBitcoinAddressSegue" id="Zc4-Vl-OgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U17-4F-g0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1784" y="-1320"/>
+            <point key="canvasLocation" x="1770" y="-1321"/>
+        </scene>
+        <!--Bitcoin Address-->
+        <scene sceneID="6Je-fS-0V1">
+            <objects>
+                <viewController id="jvQ-xK-gDJ" customClass="PPBitcoinAddr" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dwj-Rf-YNa"/>
+                        <viewControllerLayoutGuide type="bottom" id="bpD-qZ-Heb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r5Q-Vk-cvM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82A-iW-PXi">
+                                <rect key="frame" x="0.0" y="107" width="414" height="43"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Bitcoin Addr:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Neb-rp-zDZ">
+                                        <rect key="frame" x="15" y="11" width="100" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="3FI-9Q-IgK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zeG-k8-Rcg">
+                                        <rect key="frame" x="130" y="13.333333333333329" width="269" height="17.000000000000014"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="BIg-SH-rOP"/>
+                                    <constraint firstItem="zeG-k8-Rcg" firstAttribute="leading" secondItem="Neb-rp-zDZ" secondAttribute="trailing" constant="15" id="JFm-Sh-qK4"/>
+                                    <constraint firstItem="zeG-k8-Rcg" firstAttribute="centerY" secondItem="82A-iW-PXi" secondAttribute="centerY" id="NE0-n8-IcA"/>
+                                    <constraint firstItem="Neb-rp-zDZ" firstAttribute="centerY" secondItem="82A-iW-PXi" secondAttribute="centerY" id="Zb6-b6-xMK"/>
+                                    <constraint firstAttribute="trailing" secondItem="zeG-k8-Rcg" secondAttribute="trailing" constant="15" id="kvh-9o-hJN"/>
+                                    <constraint firstItem="Neb-rp-zDZ" firstAttribute="leading" secondItem="82A-iW-PXi" secondAttribute="leading" constant="15" id="pQh-Ff-BVM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="82A-iW-PXi" firstAttribute="centerX" secondItem="r5Q-Vk-cvM" secondAttribute="centerX" id="29K-dc-muT"/>
+                            <constraint firstItem="82A-iW-PXi" firstAttribute="top" secondItem="dwj-Rf-YNa" secondAttribute="bottom" constant="43" id="Tal-OF-ILH"/>
+                            <constraint firstItem="82A-iW-PXi" firstAttribute="width" secondItem="r5Q-Vk-cvM" secondAttribute="width" id="V5A-Uk-6aT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bitcoin Address" id="3w5-Nm-cW4">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="hEh-gQ-Mbx">
+                            <connections>
+                                <segue destination="54n-bP-fDS" kind="show" identifier="sendMoneyBitcoinAddrSegue" id="bB5-YO-Pzd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="input" destination="zeG-k8-Rcg" id="XU2-aq-ZSb"/>
+                        <outlet property="label" destination="Neb-rp-zDZ" id="lvE-ja-3RA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qOd-KQ-l4l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1782.608695652174" y="-479.34782608695656"/>
         </scene>
         <!--Beneficiary name-->
         <scene sceneID="n3X-0J-i2W">
@@ -140,7 +206,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.9384416937828064" green="0.93565088510513306" blue="0.95562607049942017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="yBY-Kz-7PS" firstAttribute="top" secondItem="bEp-rJ-9Vx" secondAttribute="top" constant="43" id="4KU-Vp-IH1"/>
                                             <constraint firstAttribute="trailing" secondItem="i4j-Mv-XNM" secondAttribute="trailing" id="6J3-OQ-qMf"/>
@@ -2776,6 +2842,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vn3-0h-v5a">
                                         <rect key="frame" x="76.333333333333314" y="0.0" width="260" height="70"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJP-OW-Iab">
+                                                <rect key="frame" x="5" y="-0.33333333333331439" width="90" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="90" id="HMk-m4-InF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGv-O4-9GK">
                                                 <rect key="frame" x="5" y="0.0" width="90" height="70"/>
                                                 <accessibility key="accessibilityConfiguration" label="t"/>
@@ -2799,8 +2874,12 @@
                                             <constraint firstAttribute="width" constant="260" id="5hC-Go-Nwj"/>
                                             <constraint firstAttribute="height" constant="70" id="BPH-ag-8JP"/>
                                             <constraint firstItem="jGv-O4-9GK" firstAttribute="leading" secondItem="vn3-0h-v5a" secondAttribute="leading" constant="5" id="Bm1-O9-tDc"/>
+                                            <constraint firstItem="oRu-ij-CjI" firstAttribute="leading" secondItem="fJP-OW-Iab" secondAttribute="trailing" constant="20" id="Sqg-KF-jXk"/>
                                             <constraint firstItem="jGv-O4-9GK" firstAttribute="centerY" secondItem="vn3-0h-v5a" secondAttribute="centerY" id="XBk-bE-GWc"/>
+                                            <constraint firstItem="fJP-OW-Iab" firstAttribute="leading" secondItem="vn3-0h-v5a" secondAttribute="leading" constant="5" id="Ztp-nD-1Vk"/>
                                             <constraint firstItem="jGv-O4-9GK" firstAttribute="height" secondItem="vn3-0h-v5a" secondAttribute="height" id="dNJ-rO-PRZ"/>
+                                            <constraint firstItem="fJP-OW-Iab" firstAttribute="centerY" secondItem="vn3-0h-v5a" secondAttribute="centerY" id="gHv-pV-xMl"/>
+                                            <constraint firstItem="fJP-OW-Iab" firstAttribute="height" secondItem="vn3-0h-v5a" secondAttribute="height" id="sEx-FW-MMR"/>
                                             <constraint firstItem="oRu-ij-CjI" firstAttribute="leading" secondItem="jGv-O4-9GK" secondAttribute="trailing" constant="20" id="spp-rY-jjR"/>
                                             <constraint firstItem="oRu-ij-CjI" firstAttribute="centerY" secondItem="vn3-0h-v5a" secondAttribute="centerY" id="ypc-6H-c8m"/>
                                         </constraints>
@@ -2857,6 +2936,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="amountField" destination="oRu-ij-CjI" id="rBT-qP-67X"/>
+                        <outlet property="currencyLabel" destination="fJP-OW-Iab" id="lir-xr-ppo"/>
                         <outlet property="currencyPicker" destination="jGv-O4-9GK" id="mYK-da-A3k"/>
                         <outlet property="messageField" destination="93f-To-MGd" id="m4Z-IG-LWH"/>
                         <outlet property="messageView" destination="kpp-0r-MqW" id="RU2-ty-jpr"/>
@@ -6255,7 +6335,7 @@ in PayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pfM-04-GR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5273" y="2437"/>
+            <point key="canvasLocation" x="5338" y="2437"/>
         </scene>
         <!--Activation CardCVV2 View Controller-->
         <scene sceneID="DSh-bh-Wk4">
@@ -6425,7 +6505,7 @@ in PayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btG-ak-TAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4463" y="2437"/>
+            <point key="canvasLocation" x="4462" y="2437"/>
         </scene>
     </scenes>
     <resources>
@@ -6456,16 +6536,16 @@ in PayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="a4Y-DX-0uo"/>
         <segue reference="QOc-uS-S0D"/>
         <segue reference="CKg-gm-nrI"/>
-        <segue reference="a4Y-DX-0uo"/>
+        <segue reference="4h9-kM-2Nm"/>
+        <segue reference="X5t-9Z-y2M"/>
         <segue reference="Azs-uz-2tr"/>
-        <segue reference="d89-SF-Ut6"/>
-        <segue reference="ops-cj-9Fb"/>
-        <segue reference="Lxe-Dh-tgY"/>
         <segue reference="Vby-Ea-oLq"/>
-        <segue reference="In3-0W-KaY"/>
         <segue reference="HF2-MJ-WVS"/>
+        <segue reference="In3-0W-KaY"/>
+        <segue reference="Lxe-Dh-tgY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

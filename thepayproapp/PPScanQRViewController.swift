@@ -67,6 +67,7 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         view.bringSubview(toFront: qrCodeFrameView!)
     }
     override func viewWillAppear(_ animated: Bool) {
+        sendMoney = SendMoney()
         QRAlreadyDetected = false
         qrCodeFrameView?.frame = CGRect.zero
     }
@@ -90,27 +91,40 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             
             if metadataObj.stringValue != nil && !QRAlreadyDetected{
                 sendMoney = SendMoney()
-                if sendMoney.bitcoinURISaveData(bitcoinURIString: metadataObj.stringValue){
-                     print("ValidBitcoinURI")
-                     qrCodeFrameView?.layer.borderColor = UIColor.green.cgColor
-                     print(sendMoney.getAccountNumber())
-                     print(sendMoney.getLabel())
-                     print(sendMoney.getAmount())
-                     print(sendMoney.getMessage())
-                     QRAlreadyDetected = true
-             
-                    self.sendMoney.setCurrencyType(currencyTypeValue: 1)
-                    
-                    //EndPoint de checkear si es usuario pay pro
-                    self.sendMoney.setOperationType(operationTypeValue: 0)
-                    //self.sendMoney.setOperationType(operationTypeValue: 0)
-                    
-                    self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
-                }else{
-                    print("InvalidBitcoinUri")
-                    qrCodeFrameView?.layer.borderColor = UIColor.red.cgColor
-                    //Bitcoin Uri no valida show alert
-                }
+                sendMoney.bitcoinURISaveData(bitcoinURIString: metadataObj.stringValue, completion: {response in
+                    if response["status"] as! Bool == true {
+                        print("ValidBitcoinURI")
+//                        print(sendMoney.getAccountNumber())
+//                        print(sendMoney.getLabel())
+//                        print(sendMoney.getAmount())
+//                        print(sendMoney.getMessage())
+                        self.qrCodeFrameView?.layer.borderColor = UIColor.green.cgColor
+                        self.QRAlreadyDetected = true
+                        self.sendMoney.setCurrencyType(currencyTypeValue: 1)
+                        self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
+
+                        //EndPoint de checkear si es usuario pay pro y setear beneficiary en sendMoney
+                        BitcoinAddrBelongsToPayProUser(addr: self.sendMoney.getAccountNumber(), completion: {response in
+                            if response["status"] as! Bool == true{
+                                if response["isUser"] as! Bool == true{
+                                    self.sendMoney.setOperationType(operationTypeValue: 1)
+                                    self.sendMoney.setBeneficiaryName(beneficiaryNameValue: "BeneficiaryName")
+                                }else{
+                                    self.sendMoney.setOperationType(operationTypeValue: 0)
+                                }
+                                self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
+                            }else{
+                                //Error in checking if is payProUser
+                            }
+                        })
+                    }else{
+                        self.sendMoney = SendMoney()
+                        print("InvalidBitcoinUri")
+                        self.qrCodeFrameView?.layer.borderColor = UIColor.red.cgColor
+                        let alert = UIAlertController()
+                        self.present(alert.displayAlert(code: "invalid_bitcoin_uri"), animated: true, completion: nil)
+                    }
+                })
             }
         }
     }

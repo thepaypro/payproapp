@@ -16,9 +16,10 @@ public protocol PickerDelegate: class {
     func ContactPicker(_: ContactsPicker, didSelectContact contact: Contact)
     func ContactPicker(_: ContactsPicker, didSelectMultipleContacts contacts: [Contact])
     func ContacPickerNotInList(controller:ContactsPicker)
-    func ContactBankTransfer(contact: Contact)
+//    func ContactBankTransfer(contact: Contact)
     func ContactInvite(contact: Contact)
     func ContactSendInApp(contact: Contact)
+    func ContactIntroduceBitcoinAddress()
 }
 
 public extension PickerDelegate {
@@ -27,9 +28,10 @@ public extension PickerDelegate {
     func ContactPicker(_: ContactsPicker, didSelectContact contact: Contact) { }
     func ContactPicker(_: ContactsPicker, didSelectMultipleContacts contacts: [Contact]) { }
     func ContacPickerNotInList(controller:ContactsPicker) { }
-    func ContactBankTransfer(contact: Contact) { }
+//    func ContactBankTransfer(contact: Contact) { }
     func ContactInvite(contact: Contact) { }
     func ContactSendInApp(contact: Contact) { }
+    func ContactIntroduceBitcoinAddress() { }
 }
 
 typealias ContactsHandler = (_ contacts : [CNContact] , _ error : NSError?) -> Void
@@ -272,7 +274,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                         position += 1
                     }
                 }
-
+                self.displayNavBarActivity()
                 checkContacts(contacts: phoneNumberArray as NSDictionary, completion: {contactsResponse in
                     
                     if contactsResponse["status"] as! Bool == true {
@@ -286,7 +288,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                         let alert = UIAlertController()
                         self.present(alert.displayAlert(code: errorMessage as! String), animated: true, completion: nil)
                     }
-                    
+                    self.dismissNavBarActivity()
                     completion(contactsArray, nil)
                 })
             }
@@ -392,6 +394,12 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
 //                    self.contactDelegate?.ContactBankTransfer(contact: selectedContact)
 //                })
 //                alert.addAction(bankTransfeButtonAction)
+                
+                let introduceBitcoinAddressAction = UIAlertAction(title: "Introduce Bitcoin Address", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
+                    self.contactDelegate?.ContactIntroduceBitcoinAddress()
+                })
+                
+                alert.addAction(introduceBitcoinAddressAction)
                 
                 let inviteButtonAction = UIAlertAction(title: "Invite someone to PayPro", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
                     self.contactDelegate?.ContactInvite(contact: selectedContact)
