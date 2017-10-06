@@ -22,17 +22,17 @@ public protocol PickerDelegate: class {
     func ContactIntroduceBitcoinAddress()
 }
 
-public extension PickerDelegate {
-    func ContactPicker(_: ContactsPicker, didContactFetchFailed error: NSError) { }
-    func ContactPicker(_: ContactsPicker, didCancel error: NSError) { }
-    func ContactPicker(_: ContactsPicker, didSelectContact contact: Contact) { }
-    func ContactPicker(_: ContactsPicker, didSelectMultipleContacts contacts: [Contact]) { }
-    func ContacPickerNotInList(controller:ContactsPicker) { }
-//    func ContactBankTransfer(contact: Contact) { }
-    func ContactInvite(contact: Contact) { }
-    func ContactSendInApp(contact: Contact) { }
-    func ContactIntroduceBitcoinAddress() { }
-}
+//public extension PickerDelegate {
+//    func ContactPicker(_: ContactsPicker, didContactFetchFailed error: NSError) { }
+//    func ContactPicker(_: ContactsPicker, didCancel error: NSError) { }
+//    func ContactPicker(_: ContactsPicker, didSelectContact contact: Contact) { }
+//    func ContactPicker(_: ContactsPicker, didSelectMultipleContacts contacts: [Contact]) { }
+//    func ContacPickerNotInList(controller:ContactsPicker) { }
+////    func ContactBankTransfer(contact: Contact) { }
+//    func ContactInvite(contact: Contact) { }
+//    func ContactSendInApp(contact: Contact) { }
+//    func ContactIntroduceBitcoinAddress() { }
+//}
 
 typealias ContactsHandler = (_ contacts : [CNContact] , _ error : NSError?) -> Void
 
@@ -162,7 +162,6 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
     
     override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Initializers

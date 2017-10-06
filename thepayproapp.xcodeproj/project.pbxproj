@@ -19,7 +19,6 @@
 		2131C1011F18D6CB00118B1D /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2131C1001F18D6CB00118B1D /* User+CoreDataProperties.swift */; };
 		213381271EFD1A5B0007A509 /* PPProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213381261EFD1A5B0007A509 /* PPProfileViewController.swift */; };
 		213381291EFD1E2A0007A509 /* PPInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213381281EFD1E2A0007A509 /* PPInfoViewController.swift */; };
-		215540591EF3CCD500670E86 /* PPContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215540581EF3CCD500670E86 /* PPContactViewController.swift */; };
 		2155405B1EF3D7C900670E86 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2155405A1EF3D7C900670E86 /* Contacts.framework */; };
 		2155405D1EF3D7D400670E86 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2155405C1EF3D7D400670E86 /* ContactsUI.framework */; };
 		215540601EF3EF2100670E86 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2155405F1EF3EF2100670E86 /* Extensions.swift */; };
@@ -145,7 +144,6 @@
 		2131C1001F18D6CB00118B1D /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		213381261EFD1A5B0007A509 /* PPProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPProfileViewController.swift; sourceTree = "<group>"; };
 		213381281EFD1E2A0007A509 /* PPInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPInfoViewController.swift; sourceTree = "<group>"; };
-		215540581EF3CCD500670E86 /* PPContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPContactViewController.swift; sourceTree = "<group>"; };
 		2155405A1EF3D7C900670E86 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		2155405C1EF3D7D400670E86 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		2155405F1EF3EF2100670E86 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -295,7 +293,6 @@
 		215540571EF3CBF300670E86 /* PPContactViewController */ = {
 			isa = PBXGroup;
 			children = (
-				215540581EF3CCD500670E86 /* PPContactViewController.swift */,
 			);
 			name = PPContactViewController;
 			sourceTree = "<group>";
@@ -1029,7 +1026,6 @@
 				215540601EF3EF2100670E86 /* Extensions.swift in Sources */,
 				535843771F8382C40050250A /* BitcoinTransactionConnection.swift in Sources */,
 				5358437C1F838D2D0050250A /* PPShowQRCode.swift in Sources */,
-				215540591EF3CCD500670E86 /* PPContactViewController.swift in Sources */,
 				211ADC101F18ED03003AD369 /* PPInfoFaqsViewController.swift in Sources */,
 				213381291EFD1E2A0007A509 /* PPInfoViewController.swift in Sources */,
 				211C45641F28EC8800CA0174 /* ExtensionUIViewController.swift in Sources */,

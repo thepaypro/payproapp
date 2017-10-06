@@ -134,6 +134,12 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
 //            })
 //        
 //            alert.addAction(bankTransfeButtonAction)
+            
+            let introduceBitcoinAddressAction = UIAlertAction(title: "Introduce Bitcoin Address", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
+                self.ContactIntroduceBitcoinAddress()
+            })
+            
+            alert.addAction(introduceBitcoinAddressAction)
         
             let inviteButtonAction = UIAlertAction(title: "Invite someone to PayPro", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
                 

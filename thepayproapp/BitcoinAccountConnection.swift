@@ -48,6 +48,5 @@ func BitcoinGetWallet(completion: @escaping (_ bitcoinAccountGetWalletResponse: 
 
 func BitcoinAddrBelongsToPayProUser(addr: String ,completion: @escaping (_ response: NSDictionary) -> Void)
 {
-
-        completion(["status":true, "isUser": true, "fullName":"Test Full Name"] as NSDictionary)
+        completion(["status":true, "isUser": false, "fullName":""] as NSDictionary)
 }

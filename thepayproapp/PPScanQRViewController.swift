@@ -108,7 +108,7 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
                             if response["status"] as! Bool == true{
                                 if response["isUser"] as! Bool == true{
                                     self.sendMoney.setOperationType(operationTypeValue: 1)
-                                    self.sendMoney.setBeneficiaryName(beneficiaryNameValue: "BeneficiaryName")
+                                    self.sendMoney.setBeneficiaryName(beneficiaryNameValue: "")
                                 }else{
                                     self.sendMoney.setOperationType(operationTypeValue: 0)
                                 }

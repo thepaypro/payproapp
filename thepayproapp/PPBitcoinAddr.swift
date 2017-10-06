@@ -26,6 +26,9 @@ class PPBitcoinAddr: UIViewController{
     
     func checkBitcoinAddr() -> Bool{
         if (input.text?.matchesRegex(regex: "^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$"))! {
+            self.sendMoney.setCurrencyType(currencyTypeValue: 1)
+            self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
+            self.sendMoney.setOperationType(operationTypeValue: 0)
             return true
         }else{
             let alert = UIAlertController()

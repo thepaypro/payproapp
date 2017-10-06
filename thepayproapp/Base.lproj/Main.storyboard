@@ -2842,12 +2842,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vn3-0h-v5a">
                                         <rect key="frame" x="76.333333333333314" y="0.0" width="260" height="70"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJP-OW-Iab">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJP-OW-Iab">
                                                 <rect key="frame" x="5" y="-0.33333333333331439" width="90" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="90" id="HMk-m4-InF"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -6538,13 +6538,13 @@ in PayPro</string>
     <inferredMetricsTieBreakers>
         <segue reference="a4Y-DX-0uo"/>
         <segue reference="QOc-uS-S0D"/>
+        <segue reference="bdZ-XY-lFh"/>
         <segue reference="CKg-gm-nrI"/>
-        <segue reference="4h9-kM-2Nm"/>
+        <segue reference="bB5-YO-Pzd"/>
         <segue reference="X5t-9Z-y2M"/>
         <segue reference="Azs-uz-2tr"/>
         <segue reference="Vby-Ea-oLq"/>
         <segue reference="HF2-MJ-WVS"/>
-        <segue reference="In3-0W-KaY"/>
         <segue reference="Lxe-Dh-tgY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
