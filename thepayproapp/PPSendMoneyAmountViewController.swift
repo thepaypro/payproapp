@@ -126,8 +126,6 @@ class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource,
     func checkNavigation() {
         if amountField.text?.checkValidAmount() == true && messageField.text != "" {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
-            sendMoney.setAmount(amountToSend: amountField.text!)
-            sendMoney.setMessage(messageValue: messageField.text!)
         } else {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
         }
@@ -139,11 +137,17 @@ class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource,
         {
             let resumVC : PPBankTransfeResumViewController = segue.destination as! PPBankTransfeResumViewController
             resumVC.sendMoney = sendMoney
+            sendMoney.setAmount(amountToSend: amountField.text!)
+            print(sendMoney.getAmount()!)
+            sendMoney.setMessage(messageValue: messageField.text!)
         }
         else if segue.identifier == "beneficiaryNameSegue"
         {
             let beneficiaryVC : PPBankTransfeViewController = segue.destination as! PPBankTransfeViewController
             beneficiaryVC.sendMoney = sendMoney
+            sendMoney.setAmount(amountToSend: amountField.text!)
+            print(sendMoney.getAmount()!)
+            sendMoney.setMessage(messageValue: messageField.text!)
         }
     }
 }

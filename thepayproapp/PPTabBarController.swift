@@ -42,12 +42,12 @@ class PPTabBarController: UITabBarController
         let userAccountType = User.currentUser()?.accountType
         let userStatus = User.currentUser()?.status
         
-        if userAccountType == .demoAccount ||
-           userStatus == .statusDemo ||
-           userStatus == .statusActivating
-        {
-            accountNC = storyboard.instantiateViewController(withIdentifier: "PPDemoAccountNavigationController")
-        }
+//        if userAccountType == .demoAccount ||
+//           userStatus == .statusDemo ||
+//           userStatus == .statusActivating
+//        {
+//            accountNC = storyboard.instantiateViewController(withIdentifier: "PPDemoAccountNavigationController")
+//        }
         
         let settingsNC = storyboard.instantiateViewController(withIdentifier: "PPSettingsNavigationController")
         

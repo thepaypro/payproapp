@@ -193,7 +193,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
             bitsView.center.y = GBPViewy
             selectedAccount = GBPView.center.y > bitsView.center.y ? .gbp : .bitcoin
             self.setSelectedAccountInfoLabels()
-//            self.getBalance()
+            self.getBalance()
             isPositionFixed = true
             self.loadTransactions()
         }

@@ -67,7 +67,7 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         view.bringSubview(toFront: qrCodeFrameView!)
     }
     override func viewWillAppear(_ animated: Bool) {
-        sendMoney = SendMoney()
+        sendMoney.deleteSavedData()
         QRAlreadyDetected = false
         qrCodeFrameView?.frame = CGRect.zero
     }
@@ -112,6 +112,7 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
                                 }else{
                                     self.sendMoney.setOperationType(operationTypeValue: 0)
                                 }
+                                self.sendMoney.setLoadProcess(loadProcessValue: 1)
                                 self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
                             }else{
                                 //Error in checking if is payProUser

@@ -11,7 +11,7 @@ import Contacts
 import ContactsUI
 import MessageUI
 
-class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComposeViewControllerDelegate
+class PPPPCurrencyRevolverPickerDelegateSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComposeViewControllerDelegate
 {
     var sendMoney = SendMoney()
     
@@ -22,7 +22,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
     
     override func viewWillAppear(_ animated: Bool)
     {
-        sendMoney = SendMoney()
+        sendMoney.deleteSavedData()
         if sendMoney.getLoadProcess() == 0 {
             let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.phoneNumber)
             let navigationController = UINavigationController(rootViewController: contactPickerScene)

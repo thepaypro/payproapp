@@ -414,7 +414,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                 
                 self.present(alert, animated: true, completion: nil)
                 
-            } else if selectedContact.getIsPayProUser() == true {
+            }else if selectedContact.getIsPayProUser() == true {
                 //enabled block load process
                 self.contactDelegate?.ContactSendInApp(contact: selectedContact)
             }

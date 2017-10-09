@@ -19,6 +19,7 @@ open class SendMoney {
     fileprivate var lastname: String?
     fileprivate var account_details_type: Int?
     fileprivate var account_number: String?
+    fileprivate var bitcoinAddr: String?
     fileprivate var shortcode: String?
     fileprivate var iban: String?
     fileprivate var bic: String?
@@ -29,6 +30,29 @@ open class SendMoney {
     fileprivate var phoneNumber: String?
     fileprivate var contactId: Int?
     fileprivate var label: String?
+    
+    
+    open func deleteSavedData(){
+        operation_type = 0
+        currency_type = 0
+        fixed_currency = false
+        amount = nil
+        forename = nil
+        lastname = nil
+        account_details_type = nil
+        account_number = nil
+        bitcoinAddr = nil
+        shortcode = nil
+        iban = nil
+        bic = nil
+        message = nil
+        reason = nil
+        reasonExplain = nil
+        beneficiaryName = nil
+        phoneNumber = nil
+        contactId = nil
+        label = nil
+    }
     
     open func bitcoinURISaveData (bitcoinURIString: String?, completion: @escaping (_ response: NSDictionary) -> Void)
     {
@@ -49,7 +73,7 @@ open class SendMoney {
             if bitcoinUriAddr.count > 2 || !(bitcoinUriAddr[0]?.matchesRegex(regex: "^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$"))!{
                 completion(["status": false] as NSDictionary)
             }
-            account_number = bitcoinUriAddr[0]
+            bitcoinAddr = bitcoinUriAddr[0]
             if bitcoinUriAddr.count == 2{
                 bitcoinUri.append(bitcoinUriAddr[1])
                 if let bitcoinUriParams: [String?] = bitcoinUri[1]?.components(separatedBy: "&"){
@@ -160,6 +184,14 @@ open class SendMoney {
     
     open func getAccountNumber() -> String {
         return account_number!
+    }
+    
+    open func setBitcoinAddr(bitcoinAddrValue: String) {
+        bitcoinAddr = bitcoinAddrValue
+    }
+    
+    open func getBitcoinAddr() -> String {
+        return bitcoinAddr!
     }
     
     open func setShortcode(shortcodeValue: String) {

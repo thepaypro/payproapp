@@ -75,7 +75,7 @@ class PPSendMoneyConfirmViewController: UIViewController
         self.view.addSubview(labelTop)
        
         let labelMiddle = UILabel()
-        labelMiddle.text = sendMoney.getAmount()
+        labelMiddle.text = sendMoney.getAmountWithCurrencySymbol()
         labelMiddle.textAlignment = .center
         labelMiddle.textColor = UIColor.white
         labelMiddle.font = UIFont.systemFont(ofSize: 42, weight: UIFontWeightLight)
@@ -90,7 +90,7 @@ class PPSendMoneyConfirmViewController: UIViewController
         {
             labelBottom.text = "This is how a payment would be made"
         } else {
-            if sendMoney.getOperationType() == 0 {
+            if sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 0{
                 labelBottom.text = "sent to "+sendMoney.getForename()+" "+sendMoney.getLastname()
             } else if sendMoney.getOperationType() == 1 || sendMoney.getOperationType() == 2 {
                 labelBottom.text = "sent to "+sendMoney.getBeneficiaryName()

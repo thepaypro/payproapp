@@ -29,6 +29,7 @@ class PPBitcoinAddr: UIViewController{
             self.sendMoney.setCurrencyType(currencyTypeValue: 1)
             self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
             self.sendMoney.setOperationType(operationTypeValue: 0)
+            self.sendMoney.setBitcoinAddr(bitcoinAddrValue: input.text!)
             return true
         }else{
             let alert = UIAlertController()

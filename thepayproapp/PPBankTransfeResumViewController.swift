@@ -334,12 +334,12 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         }else if (sendMoney.getCurrencyType() == 1){
             
             let amount = String(sendMoney.getAmount()!)?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
-            let amountBTC:String = (amount?.getBTCFromBits())!
+//            let amountBTC:String = (amount?.getBTCFromBits())!
             let subject:String = sendMoney.getMessage()!
             
             BitcoinTransactionCreate(
-                beneficiary: sendMoney.getcontactId(),
-                amount: amountBTC,
+                addr: sendMoney.getBitcoinAddr(),
+                amount: amount!,
                 subject: subject.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
                 completion: {transactionResponse in
                     

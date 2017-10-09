@@ -8,12 +8,12 @@
 import Foundation
 
 
-func BitcoinTransactionCreate(beneficiary:Int, amount:String, subject:String, completion: @escaping (_ transactionResponse: NSDictionary) -> Void)
+func BitcoinTransactionCreate(addr:String, amount:String, subject:String, completion: @escaping (_ transactionResponse: NSDictionary) -> Void)
 {
     let transactionDictionary = [
         "subject": String(subject)!,
         "amount": String(amount)!,
-        "beneficiary": String(beneficiary)
+        "beneficiary": String(addr)!
         ] as [String : Any]
     
     print("transaction: \(transactionDictionary)")
@@ -21,14 +21,14 @@ func BitcoinTransactionCreate(beneficiary:Int, amount:String, subject:String, co
         
         print("completionDictionary: \(completionDictionary)")
         
-        if let transaction = completionDictionary["transaction"] as? NSArray {
+        if let transaction = completionDictionary["transaction"] as? NSDictionary {
             
             var title = "Transaction to "
             title += transaction.value(forKeyPath: "beneficiary") as! String
             
             let subject = transaction.value(forKeyPath: "subject") as! String
             
-            let amountNumber: Float = transaction.value(forKeyPath: "amount") as! Float
+            let amount: Float = Float(transaction.value(forKeyPath: "amount") as! String)!
             
 //            var date = Date()
 //            
@@ -43,10 +43,10 @@ func BitcoinTransactionCreate(beneficiary:Int, amount:String, subject:String, co
             
             
             let transactionDictionaryResponse = [
-                "id" : transaction.value(forKeyPath: "id")!,
+                "id" : transaction.value(forKeyPath: "transactionId")!,
                 "title": title.removingPercentEncoding!,
                 "subtitle": subject.removingPercentEncoding!,
-                "amount": amountNumber,
+                "amount": amount,
 //                "isPayer": true,
 //                "datetime": date
                 ]  as [String : Any]
