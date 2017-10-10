@@ -4457,7 +4457,7 @@ in PayPro</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9j-0q-StU">
-                                <rect key="frame" x="0.0" y="351" width="375" height="316"/>
+                                <rect key="frame" x="0.0" y="351" width="375" height="267"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKE-Od-sRX">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -4479,7 +4479,7 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itn-Lo-3Rf">
-                                        <rect key="frame" x="0.0" y="30" width="375" height="286"/>
+                                        <rect key="frame" x="0.0" y="30" width="375" height="237"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -4499,7 +4499,7 @@ in PayPro</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWx-mz-Yuh">
-                                <rect key="frame" x="0.0" y="351" width="375" height="316"/>
+                                <rect key="frame" x="0.0" y="351" width="375" height="267"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Tz-UY-LWU">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -6317,16 +6317,16 @@ in PayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d89-SF-Ut6"/>
+        <segue reference="ops-cj-9Fb"/>
+        <segue reference="4h9-kM-2Nm"/>
         <segue reference="QOc-uS-S0D"/>
         <segue reference="CKg-gm-nrI"/>
         <segue reference="hTT-Ug-9qa"/>
         <segue reference="Azs-uz-2tr"/>
-        <segue reference="ops-cj-9Fb"/>
-        <segue reference="Vby-Ea-oLq"/>
-        <segue reference="In3-0W-KaY"/>
-        <segue reference="HF2-MJ-WVS"/>
         <segue reference="Lxe-Dh-tgY"/>
+        <segue reference="Vby-Ea-oLq"/>
+        <segue reference="HF2-MJ-WVS"/>
+        <segue reference="In3-0W-KaY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

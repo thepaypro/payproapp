@@ -11,9 +11,10 @@ import Contacts
 import ContactsUI
 import MessageUI
 
-class PPPPCurrencyRevolverPickerDelegateSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComposeViewControllerDelegate
+class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComposeViewControllerDelegate
 {
     var sendMoney = SendMoney()
+//    var userStatus: User.Status = .statusDemo
     var userStatus: User.Status = (User.currentUser()?.status)!
     
     override func viewDidLoad()
@@ -23,9 +24,9 @@ class PPPPCurrencyRevolverPickerDelegateSendMoneyViewController: UIViewControlle
     
     override func viewWillAppear(_ animated: Bool)
     {
-        sendMoney.deleteSavedData()
         userStatus = (User.currentUser()?.status)!
         if sendMoney.getLoadProcess() == 0 {
+            sendMoney.deleteSavedData()
             let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.phoneNumber)
             let navigationController = UINavigationController(rootViewController: contactPickerScene)
             self.present(navigationController, animated: true, completion: nil)
@@ -107,10 +108,11 @@ class PPPPCurrencyRevolverPickerDelegateSendMoneyViewController: UIViewControlle
         self.sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.getBeneficiaryName())
         self.sendMoney.setcontactId(contactIdValue: contact.getContactId())
         
-
         if userStatus != .statusActivated{
             self.sendMoney.setCurrencyType(currencyTypeValue: 1)
             self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
+        }else{
+            self.sendMoney.setFixedCurrency(fixedCurrencyValue: false)
         }
         
         self.dismiss(animated: true, completion: {
@@ -159,6 +161,8 @@ class PPPPCurrencyRevolverPickerDelegateSendMoneyViewController: UIViewControlle
                 if self.userStatus != .statusActivated{
                     self.sendMoney.setCurrencyType(currencyTypeValue: 1)
                     self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
+                }else{
+                    self.sendMoney.setFixedCurrency(fixedCurrencyValue: false)
                 }
                 
                 self.dismiss(animated: true, completion: {
@@ -183,6 +187,8 @@ class PPPPCurrencyRevolverPickerDelegateSendMoneyViewController: UIViewControlle
             if userStatus != .statusActivated{
                 self.sendMoney.setCurrencyType(currencyTypeValue: 1)
                 self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
+            }else{
+                self.sendMoney.setFixedCurrency(fixedCurrencyValue: false)
             }
             
             self.dismiss(animated: true, completion: {
