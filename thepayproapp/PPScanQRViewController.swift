@@ -104,20 +104,13 @@ class PPScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
                         self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
 
                         //EndPoint de checkear si es usuario pay pro y setear beneficiary en sendMoney
-                        BitcoinAddrBelongsToPayProUser(addr: self.sendMoney.getAccountNumber(), completion: {response in
-                            if response["status"] as! Bool == true{
-                                if response["isUser"] as! Bool == true{
-                                    self.sendMoney.setOperationType(operationTypeValue: 1)
-                                    self.sendMoney.setBeneficiaryName(beneficiaryNameValue: "")
-                                }else{
-                                    self.sendMoney.setOperationType(operationTypeValue: 0)
-                                }
-                                self.sendMoney.setLoadProcess(loadProcessValue: 1)
-                                self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
-                            }else{
-                                //Error in checking if is payProUser
-                            }
-                        })
+                        self.sendMoney.setOperationType(operationTypeValue: 0)
+                        self.sendMoney.setBeneficiaryName(beneficiaryNameValue: "Destinatary name not available")
+                        
+                        self.sendMoney.setLoadProcess(loadProcessValue: 1)
+                        self.performSegue(withIdentifier: "sendBitcoinsSegue", sender: self)
+                        
+
                     }else{
                         self.sendMoney = SendMoney()
                         print("InvalidBitcoinUri")
