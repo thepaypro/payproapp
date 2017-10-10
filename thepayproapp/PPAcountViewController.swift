@@ -13,8 +13,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     //    @IBOutlet weak var cardIV: UIImageView!
     @IBOutlet weak var infoTitleLabel: UILabel!
     @IBOutlet weak var transactionsTV: UITableView!
-    @IBOutlet weak var cardButton: UIButton!
-    @IBOutlet weak var cardHeight: NSLayoutConstraint!
+    @IBOutlet weak var stateButton: UIButton!
+    @IBOutlet weak var stateButtonHeight: NSLayoutConstraint!
     @IBOutlet weak var latestTransactionsView: UIView!
     @IBOutlet weak var bitsBalanceLabel: UILabel!
     @IBOutlet weak var GBPBalanceLabel: UILabel!
@@ -32,17 +32,20 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     @IBOutlet weak var infoAccountQRCodeView: UIView!
     @IBOutlet weak var swipeCurrencyGradientView: UIView!
     
-    @IBAction func infoAccountQRCodeButton(_ sender: Any) {
-        //self.performSegue(withIdentifier: String, sender: <#T##Any?#>)
-    }
-    
     var isPositionFixed: Bool = true
      enum AccountCurrencyType: Int{
         case gbp = 0
         case bitcoin = 1
     }
     var selectedAccount: AccountCurrencyType = .gbp
-//    var isGetMoreTransactionsAnimationAvailable = false
+    
+//    var cardStatus: User.CardStatus = (User.currentUser()?.cardStatus)!
+//    var userStatus: User.Status = .statusActivating
+//    var userAccountType: User.AccountType = (User.currentUser()?.accountType)!
+    
+    var cardStatus: User.CardStatus = (User.currentUser()?.cardStatus)!
+    var userStatus: User.Status = (User.currentUser()?.status)!
+    var userAccountType: User.AccountType = (User.currentUser()?.accountType)!
     
     @IBAction func swipeBitsViewLeft(_ sender: Any) {
         if isPositionFixed{
@@ -123,11 +126,16 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         self.addGradient()
         
-        self.navigationItem.title = User.currentUser()?.accountType == .proAccount ? "Pro account" : "Basic account"
+        if userAccountType == .basicAccount {
+            self.navigationItem.title = "Basic Account"
+        }else if userAccountType == .proAccount  {
+            self.navigationItem.title = "Pro Account"
+        }else{
+            self.navigationItem.title = "Demo Account"
+        }
         
         transactionsTV.register(UINib(nibName: "PPTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionCell")
         transactionsTV.register(UINib(nibName: "RefreshCellView", bundle: nil), forCellReuseIdentifier: "RefreshCell")
-        
         self.transactionsTV.addSubview(self.refreshControl)
         
         self.addVisualLines()
@@ -193,26 +201,34 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
             bitsView.center.y = GBPViewy
             selectedAccount = GBPView.center.y > bitsView.center.y ? .gbp : .bitcoin
             self.setSelectedAccountInfoLabels()
+            if selectedAccount == .bitcoin { transactionsTV.isHidden = false }
             self.getBalance()
+            if userStatus == .statusActivated || selectedAccount == .bitcoin {
+                self.loadTransactions()
+            }else if(userStatus != .statusActivated && selectedAccount == .gbp){
+                transactionsTV.isHidden = true
+            }
             isPositionFixed = true
-            self.loadTransactions()
+            
         }
     }
     
     func getBalance()
     {
-        AccountGetBalance(completion: {accountGetBalanceResponse in
-            if accountGetBalanceResponse["status"] as! Bool == true {
-                if accountGetBalanceResponse["balance"] != nil {
-                    print("updatingGBPBalance")
-                    self.GBPBalanceLabel.text = accountGetBalanceResponse["balance"] as? String
+        if(userStatus == .statusActivated){
+            AccountGetBalance(completion: {accountGetBalanceResponse in
+                if accountGetBalanceResponse["status"] as! Bool == true {
+                    if accountGetBalanceResponse["balance"] != nil {
+//                        print("updatingGBPBalance")
+                        self.GBPBalanceLabel.text = accountGetBalanceResponse["balance"] as? String
+                    }
                 }
-            }
-        })
+            })
+        }
         BitcoinGetWallet(completion: {bitcoinWalletResponse in
             if bitcoinWalletResponse["status"] as! Bool == true {
                 if bitcoinWalletResponse["balance"] != nil{
-                    print("updatingBTCBalance")
+//                    print("updatingBTCBalance")
                     self.bitsBalanceLabel.text = bitcoinWalletResponse["balance"] as? String
                 }
             }
@@ -235,37 +251,75 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         self.GBPResizableView.alpha = 0.7
         self.bitsResizableView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         self.bitsResizableView.alpha = 0.7
+        
+        if userStatus == .statusDemo {
+            
+            let demoAccountAlert = UIAlertController(title: "", message: "In order to enjoy the advantages of the Visa debit card you need to start a free PayPro account", preferredStyle: .alert)
+            
+            let notNowAction = UIAlertAction(title: "Not now", style: .cancel, handler: nil)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
+                self.performSegue(withIdentifier: "showChooseAccountVCSegue", sender: self)
+            })
+            
+            demoAccountAlert.addAction(notNowAction)
+            demoAccountAlert.addAction(OKAction)
+            demoAccountAlert.preferredAction = OKAction
+            
+            self.present(demoAccountAlert, animated: true)
+        }
     }
     
     func setupView(){
-        self.GBPBalanceLabel.text = User.currentUser()?.amountBalance
-        self.getBalance()
-        self.GBPBalanceLabel.numberOfLines = 1
-        self.GBPBalanceLabel.adjustsFontSizeToFitWidth = true
+        
+        cardStatus = (User.currentUser()?.cardStatus)!
+        userStatus = (User.currentUser()?.status)!
+        userAccountType = (User.currentUser()?.accountType)!
+        
+        
+        if userStatus == .statusActivated {
+            self.GBPBalanceLabel.text = User.currentUser()?.amountBalance
+            self.GBPBalanceLabel.numberOfLines = 1
+            self.GBPBalanceLabel.adjustsFontSizeToFitWidth = true
+        }
         
         self.bitsBalanceLabel.text = User.currentUser()?.bitcoinAmountBalance
         self.bitsBalanceLabel.numberOfLines = 1
         self.bitsBalanceLabel.adjustsFontSizeToFitWidth = true
+        self.getBalance()
+
         
-        cardButton.isHidden = false
-        cardHeight.constant = 60.0
+        
+        stateButton.isHidden = false
+        stateButtonHeight.constant = 60.0
         
         self.setSelectedAccountInfoLabels()
         
-        let cardStatus = User.currentUser()?.cardStatus
+        if (userStatus == .statusDemo || userAccountType == .demoAccount || userStatus == .statusActivated) && (selectedAccount == .gbp){
+            transactionsTV.isHidden = true
+        }
         
-        if cardStatus == .notOrdered
+        if userStatus == .statusDemo {
+            stateButton.setTitle("Start Now", for: .normal)
+        }
+        else if userAccountType == .demoAccount || userStatus == .statusActivating{
+            stateButton.setTitle("Your account is being reviewed", for: .normal)
+            stateButton.isEnabled = false
+            stateButton.backgroundColor = PayProColors.statusButtonInactive
+            stateButton.setTitleColor(PayProColors.statusButtonInactiveText, for: .normal)
+        }
+        else if cardStatus == .notOrdered
         {
-            cardButton.setTitle("Order Visa Debit Card", for: .normal)
+            stateButton.setTitle("Order Visa Debit Card", for: .normal)
         }
         else if cardStatus == .ordered
         {
-            cardButton.setTitle("Activate Visa Debit Card", for: .normal)
+            stateButton.setTitle("Activate Visa Debit Card", for: .normal)
         }
         else
         {
-            cardButton.isHidden = true
-            cardHeight.constant = 0.0
+            stateButton.isHidden = true
+            stateButtonHeight.constant = 0.0
         }
         
         loadTransactions()
@@ -276,8 +330,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         switch selectedAccount {
         case .gbp:
             self.infoTitleLabel.text = "GBP ACCOUNT"
-            self.infoAccountNumberLabel.text = User.currentUser()?.accountNumber
-            self.infoAccountSortCodeLabel.text = User.currentUser()?.sortCode
+            self.infoAccountNumberLabel.text = (userStatus == .statusActivated) ? User.currentUser()?.accountNumber : "-"
+            self.infoAccountSortCodeLabel.text = (userStatus == .statusActivated) ? User.currentUser()?.sortCode : "-"
             self.infoAccountSortCodeView.isHidden = false
             self.infoAccountQRCodeView.isHidden = true
         case .bitcoin:
@@ -344,11 +398,16 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
     }
     
-    @IBAction func cardButtonTouched(_ sender: Any)
+    @IBAction func stateButtonTouched(_ sender: Any)
     {
-        let cardStatus = User.currentUser()?.cardStatus
         
-        if cardStatus == .notOrdered
+        if userStatus == .statusDemo{
+            self.performSegue(withIdentifier: "showChooseAccountVCSegue", sender: self)
+        }
+        else if userStatus == .statusActivating{
+            // do nothing
+        }
+        else if cardStatus == .notOrdered
         {
             self.performSegue(withIdentifier: "showShippingAddressVC", sender: self)
         }
@@ -439,20 +498,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-//        if (indexPath as NSIndexPath).row < (selectedAccount == .bitcoin ? bitcointransactionsArray?.count : transactionsArray?.count)!{
             return 76.0
-//        }else{
-//            let lastCellIndexPath = IndexPath(row:selectedAccount == .bitcoin ? bitcointransactionsArray!.count : transactionsArray!.count , section: 0)
-//            let refreshCell = transactionsTV.cellForRow(at: lastCellIndexPath) as! RefreshCellView
-//            return refreshCell.isVisible() ? 76.0 : 20
-//        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showQRCode" {
-            let showQRCodeVC : PPShowQRCode = segue.destination as! PPShowQRCode
-            showQRCodeVC.dataToQR = "bitcoin:" + (User.currentUser()?.bitcoinAddress)!
-        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
@@ -463,6 +509,13 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
         transactionsNewFetchBool = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showQRCode" {
+            let showQRCodeVC : PPShowQRCode = segue.destination as! PPShowQRCode
+            showQRCodeVC.dataToQR = "bitcoin:" + (User.currentUser()?.bitcoinAddress)!
+        }
     }
     
 }

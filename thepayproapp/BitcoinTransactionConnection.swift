@@ -16,10 +16,10 @@ func BitcoinTransactionCreate(addr:String, amount:String, subject:String, comple
         "beneficiary": String(addr)!
         ] as [String : Any]
     
-    print("transaction: \(transactionDictionary)")
+//    print("transaction: \(transactionDictionary)")
     makePostRequest(paramsDictionary: transactionDictionary as NSDictionary, endpointURL: "bitcoin-transactions", completion: {completionDictionary in
         
-        print("completionDictionary: \(completionDictionary)")
+//        print("completionDictionary: \(completionDictionary)")
         
         if let transaction = completionDictionary["transaction"] as? NSDictionary {
             
@@ -65,8 +65,8 @@ func BitcoinTransactionCreate(addr:String, amount:String, subject:String, comple
 func getBitcoinTransactionsFromBackRequest(page: Int ,size: Int, completion: @escaping (_ transactionResponse: NSDictionary) -> Void){
     
     makeGetRequest(endpointURL: "bitcoin-transactions", paramsURL: "page="+String(page)+"&size="+String(size), completion: {completionDictionary in
-        print(page)
-        print(size)
+//        print(page)
+//        print(size)
         if let transactions = completionDictionary["transactions"]{
                 for transaction in transactions as! NSArray{
                     
@@ -146,7 +146,7 @@ func getBitcoinTransactionsFromBackRequest(page: Int ,size: Int, completion: @es
                     
                     BitcoinTransaction.manage(transactionDictionary: transactionDictionary as NSDictionary)
                 }
-                print((transactions as! NSArray).count)
+//                print((transactions as! NSArray).count)
                 completion(["status": true, "newTransactions": (transactions as! NSArray).count] as NSDictionary)
 //            }
         } else if let errorMessage = completionDictionary["errorMessage"] {

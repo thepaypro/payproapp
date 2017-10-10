@@ -37,10 +37,10 @@ class PPTabBarController: UITabBarController
 //        let groupsNC = storyboard.instantiateViewController(withIdentifier: "PPGroupsNavigationController")
         let qrNC = storyboard.instantiateViewController(withIdentifier: "PPQRNavigationController")
         let sendNC = storyboard.instantiateViewController(withIdentifier: "PPSendMoneyNavigationController")
-        var accountNC = storyboard.instantiateViewController(withIdentifier: "PPAccountNavigationController")
+        let accountNC = storyboard.instantiateViewController(withIdentifier: "PPAccountNavigationController")
         
-        let userAccountType = User.currentUser()?.accountType
-        let userStatus = User.currentUser()?.status
+//        let userAccountType = User.currentUser()?.accountType
+//        let userStatus = User.currentUser()?.status
         
 //        if userAccountType == .demoAccount ||
 //           userStatus == .statusDemo ||

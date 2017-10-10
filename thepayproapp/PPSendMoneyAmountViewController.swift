@@ -67,7 +67,7 @@ class PPSendMoneyAmountViewController: UIViewController, UIPickerViewDataSource,
     override func viewWillAppear(_ animated: Bool) {
         self.sendMoney.setLoadProcess(loadProcessValue: 0)
         self.amountField.becomeFirstResponder()
-        if self.sendMoney.getFixedCurrency() {
+        if self.sendMoney.getFixedCurrency() || User.currentUser()?.status != .statusActivated{
             currencyPicker.isHidden = true
             currencyLabel.isHidden = false
             (self.sendMoney.getCurrencyType() == 0) ? (currencyLabel.text = "£") : (currencyLabel.text = "bits")

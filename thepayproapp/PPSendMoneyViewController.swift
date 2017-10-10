@@ -14,6 +14,7 @@ import MessageUI
 class PPPPCurrencyRevolverPickerDelegateSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComposeViewControllerDelegate
 {
     var sendMoney = SendMoney()
+    var userStatus: User.Status = (User.currentUser()?.status)!
     
     override func viewDidLoad()
     {
@@ -23,6 +24,7 @@ class PPPPCurrencyRevolverPickerDelegateSendMoneyViewController: UIViewControlle
     override func viewWillAppear(_ animated: Bool)
     {
         sendMoney.deleteSavedData()
+        userStatus = (User.currentUser()?.status)!
         if sendMoney.getLoadProcess() == 0 {
             let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.phoneNumber)
             let navigationController = UINavigationController(rootViewController: contactPickerScene)
@@ -105,6 +107,12 @@ class PPPPCurrencyRevolverPickerDelegateSendMoneyViewController: UIViewControlle
         self.sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.getBeneficiaryName())
         self.sendMoney.setcontactId(contactIdValue: contact.getContactId())
         
+
+        if userStatus != .statusActivated{
+            self.sendMoney.setCurrencyType(currencyTypeValue: 1)
+            self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
+        }
+        
         self.dismiss(animated: true, completion: {
             self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
         })
@@ -148,6 +156,11 @@ class PPPPCurrencyRevolverPickerDelegateSendMoneyViewController: UIViewControlle
                 self.sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.displayName())
                 self.sendMoney.setphoneNumber(phoneNumberValue: contact.getPhoneNumber())
                 
+                if self.userStatus != .statusActivated{
+                    self.sendMoney.setCurrencyType(currencyTypeValue: 1)
+                    self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
+                }
+                
                 self.dismiss(animated: true, completion: {
                     self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
                 })
@@ -166,6 +179,11 @@ class PPPPCurrencyRevolverPickerDelegateSendMoneyViewController: UIViewControlle
             sendMoney.setLoadProcess(loadProcessValue: 1)
             sendMoney.setOperationType(operationTypeValue: 1)
             sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.getBeneficiaryName())
+            
+            if userStatus != .statusActivated{
+                self.sendMoney.setCurrencyType(currencyTypeValue: 1)
+                self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
+            }
             
             self.dismiss(animated: true, completion: {
                 self.performSegue(withIdentifier: "sendMoneySegue", sender: self)

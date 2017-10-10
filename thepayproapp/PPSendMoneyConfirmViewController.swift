@@ -75,7 +75,7 @@ class PPSendMoneyConfirmViewController: UIViewController
         self.view.addSubview(labelTop)
        
         let labelMiddle = UILabel()
-        labelMiddle.text = sendMoney.getAmountWithCurrencySymbol()
+        labelMiddle.text = sendMoney.getAmount()
         labelMiddle.textAlignment = .center
         labelMiddle.textColor = UIColor.white
         labelMiddle.font = UIFont.systemFont(ofSize: 42, weight: UIFontWeightLight)
