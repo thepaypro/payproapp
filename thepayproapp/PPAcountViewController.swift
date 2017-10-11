@@ -201,7 +201,9 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
             bitsView.center.y = GBPViewy
             selectedAccount = GBPView.center.y > bitsView.center.y ? .gbp : .bitcoin
             self.setSelectedAccountInfoLabels()
-            if selectedAccount == .bitcoin { transactionsTV.isHidden = false }
+            if selectedAccount == .bitcoin {
+                transactionsTV.isHidden = false
+            }
             self.getBalance()
             if userStatus == .statusActivated || selectedAccount == .bitcoin {
                 self.loadTransactions()
@@ -273,8 +275,11 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     func setupView(){
         
         cardStatus = (User.currentUser()?.cardStatus)!
+        print(cardStatus.rawValue)
         userStatus = (User.currentUser()?.status)!
+        print(userStatus.rawValue)
         userAccountType = (User.currentUser()?.accountType)!
+        print(userAccountType.rawValue)
         
         
         if userStatus == .statusActivated {
@@ -295,8 +300,10 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         self.setSelectedAccountInfoLabels()
         
-        if (userStatus == .statusDemo || userAccountType == .demoAccount || userStatus == .statusActivated) && (selectedAccount == .gbp){
+        if (userStatus != .statusActivated) && (selectedAccount == .gbp){
             transactionsTV.isHidden = true
+        }else{
+            transactionsTV.isHidden = false
         }
         
         if userStatus == .statusDemo {
