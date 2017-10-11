@@ -2785,11 +2785,11 @@
             </objects>
             <point key="canvasLocation" x="3579.375" y="3992.9577464788731"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Scan QR-->
         <scene sceneID="xLa-KH-JLR">
             <objects>
                 <navigationController storyboardIdentifier="PPQRNavigationController" id="HMO-HL-FpG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" selectedImage="basic" systemItem="more" id="NLA-id-9oZ"/>
+                    <tabBarItem key="tabBarItem" title="Scan QR" image="tap-scan" id="NLA-id-9oZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Bp-h3-1E6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3353,10 +3353,10 @@ in PayPro</string>
                                 <rect key="frame" x="20" y="277" width="374" height="50"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHH-7q-BGP">
-                                        <rect key="frame" x="35.333333333333329" y="13.333333333333314" width="22.333333333333336" height="23.333333333333371"/>
+                                        <rect key="frame" x="35.333333333333329" y="14" width="22.333333333333336" height="22.333333333333314"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="Hu2-ec-puQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="22.333333333333336" height="23.333333333333371"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="22.333333333333336" height="22.333333333333314"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -3428,10 +3428,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdi-hz-2nI">
-                                        <rect key="frame" x="316.33333333333331" y="13.333333333333314" width="22.333333333333371" height="23.333333333333371"/>
+                                        <rect key="frame" x="316.33333333333331" y="14" width="22.333333333333371" height="22.333333333333314"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="6ib-EK-mFu">
-                                                <rect key="frame" x="0.0" y="0.0" width="22.333333333333371" height="23.333333333333371"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="22.333333333333371" height="22.333333333333314"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -6314,6 +6314,7 @@ in PayPro</string>
         <image name="tab-paypro" width="48" height="32"/>
         <image name="tab-settings" width="48" height="32"/>
         <image name="tab-support" width="48" height="32"/>
+        <image name="tap-scan" width="25" height="25"/>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
