@@ -433,7 +433,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
                 self.transactionsTV.reloadData()
                 self.refreshControl.endRefreshing()
             }else{
-                
+                let alert = UIAlertController()
+                self.present(alert.displayAlert(code: "unable_to_load_transactions"), animated: true, completion: nil)
             }
         })
     }
@@ -454,7 +455,8 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
                             self.selectedAccount == .bitcoin ? (self.bitcointransactionsArray = BitcoinTransaction.getTransactions()): (self.transactionsArray = Transaction.getTransactions())
                             self.transactionsTV.reloadData()
                         }else{
-                            //show alert
+                            let alert = UIAlertController()
+                            self.present(alert.displayAlert(code: "unable_to_load_transactions"), animated: true, completion: nil)
                         }
                     })
                 transactionsNewFetchBool = false

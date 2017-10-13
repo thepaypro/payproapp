@@ -111,6 +111,7 @@ extension User {
                     }else{
                         completion(["status":false] as NSDictionary)
                     }
+                    
                     BitcoinTransaction.deleteTransactions()
                     getBitcoinTransactionsFromBackRequest(page: 1, size: 5, completion: {transactionsResponse in
                         if (transactionsResponse["status"] as! Bool == false){
@@ -142,11 +143,10 @@ extension User {
                                 
                                 var amountBalance = "£ 0.00"
                                 
-                                if accountGetBalanceResponse["status"] as! Bool == true {
-                                    
-                                    if accountGetBalanceResponse["balance"] != nil {
-                                        amountBalance = (accountGetBalanceResponse["balance"] as? String)!
-                                    }
+                                if accountGetBalanceResponse["status"] as! Bool == true && accountGetBalanceResponse["balance"] != nil{
+                                    amountBalance = (accountGetBalanceResponse["balance"] as? String)!
+                                }else{
+                                    completion(["status":false] as NSDictionary)
                                 }
                                 
                                 let agreement = accountInformation.value(forKeyPath: "agreement")
@@ -199,7 +199,9 @@ extension User {
                                 if loggedUser != nil && accountUser != nil {
                                     Transaction.deleteTransactions()
                                     getGBPTransactionsFromBackRequest( page: 1, size: 5, completion: {transactionsResponse in
-                                        completion(transactionsResponse)
+                                        if (transactionsResponse["status"] as! Bool == false){
+                                            completion(["status":false] as NSDictionary)
+                                        }
                                     })
                                 } else {
                                     completion(["status":false] as NSDictionary)

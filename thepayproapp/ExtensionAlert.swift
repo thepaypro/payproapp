@@ -220,6 +220,20 @@ extension UIAlertController {
             alert.addAction(confirmAction)
             
             return alert
+            
+        case "unable_to_load_transactions":
+            let alert = UIAlertController(
+                title: "Unable to load Transactions",
+                message: "Something went wrong and we could not load the transactions",
+                preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction = UIAlertAction(
+                title: "Ok",
+                style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
 
             
         default:
