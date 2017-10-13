@@ -22,7 +22,8 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
     @IBOutlet weak var disableCardSwitch: UISwitch!
     
     @IBAction func ViewPinButton(_ sender: Any) {
-        if User.currentUser()?.cardStatus == User.CardStatus.activated || User.currentUser()?.cardStatus == User.CardStatus.disabled {
+        let cardStatus = User.currentUser()?.cardStatus
+        if  cardStatus == .activated || cardStatus == .disabled {
             self.performSegue(withIdentifier: "showCVV2FromSettingsSegue", sender: nil)
         }
     }
