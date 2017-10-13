@@ -149,15 +149,31 @@ extension UIAlertController {
                 title: "Ok",
                 style: .default)
             
-            if actionConfirm != nil {
+            let ac:Any = actionConfirm
+            
+            if type(of: ac) is AnyClass{
                 confirmAction = UIAlertAction(
                     title: "Ok",
                     style: .default,
                     handler: { action in
-                        actionConfirm
+                        ac
                     }
                 )
             }
+            
+            alert.addAction(confirmAction)
+            
+            return alert
+            
+        case "internet_connection_timeout":
+            let alert = UIAlertController(
+                title: "Internet Connection Timeout",
+                message: "Make sure your device is connected to the internet.",
+                preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction = UIAlertAction(
+                title: "Ok",
+                style: .default)
             
             alert.addAction(confirmAction)
             

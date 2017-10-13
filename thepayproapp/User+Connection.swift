@@ -90,7 +90,7 @@ extension User {
             ] as [String : Any]
         
         makePostRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "login_check", completion: {completionDictionary in
-            print("login response: \(completionDictionary)")
+//            print("login response: \(completionDictionary)")
             
             if let userDictionary = completionDictionary["user"] as? NSDictionary
             {

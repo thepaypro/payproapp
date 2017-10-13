@@ -283,7 +283,6 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                             self.validateContacts = contacts
                         }
                     } else if let errorMessage = contactsResponse["errorMessage"] {
-                        print("aaaaaa")
                         let alert = UIAlertController()
                         self.present(alert.displayAlert(code: errorMessage as! String), animated: true, completion: nil)
                     }
@@ -359,7 +358,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
         if multiSelectEnabled  && selectedContacts.contains(where: { $0.contactId == contact.contactId }) {
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }
-//        print("contacto: \(contact)")
+
         cell.updateContactsinUI(contact, validateContacts: self.validateContacts, indexPath: indexPath, subtitleType: subtitleCellValue)
         return cell
     }
@@ -397,10 +396,14 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                 let inviteButtonAction = UIAlertAction(title: "Invite someone to PayPro", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
                     self.contactDelegate?.ContactInvite(contact: selectedContact)
                 })
+                
                 alert.addAction(inviteButtonAction)
                 
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
                 alert.addAction(cancelAction)
+                
+                alert.popoverPresentationController?.sourceView = tableView
+                alert.popoverPresentationController?.sourceRect = tableView.rectForRow(at: indexPath)
                 
                 self.present(alert, animated: true, completion: nil)
                 

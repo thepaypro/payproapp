@@ -191,7 +191,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
             confirmViewController.modalTransitionStyle = .crossDissolve
             confirmViewController.sendMoney = self.sendMoney
             self.present(confirmViewController, animated: true, completion: {
-                self.tabBarController?.selectedIndex = 3
+                self.tabBarController?.selectedIndex = 2
                 self.vibrateDevice()
             })
         } else {
@@ -208,7 +208,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                         confirmViewController.modalTransitionStyle = .crossDissolve
                         confirmViewController.sendMoney = self.sendMoney
                         self.present(confirmViewController, animated: true, completion: {
-                            self.tabBarController?.selectedIndex = 3
+                            self.tabBarController?.selectedIndex = 2
                             self.vibrateDevice()
                         })
                     }
@@ -262,7 +262,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                 confirmViewController.sendMoney = self.sendMoney
                 self.present(confirmViewController, animated: true, completion: {
                     self.vibrateDevice()
-                    self.tabBarController?.selectedIndex = 3
+                    self.tabBarController?.selectedIndex = 2
                 })
             })
 

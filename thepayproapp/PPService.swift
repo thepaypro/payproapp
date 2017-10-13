@@ -14,6 +14,7 @@ import UIKit
 let PPAPIURL = "http://192.168.1.202"
 let PPLocalAPIURL = "http://192.168.1.202"
 
+
 func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
 {
     if Reachability.isConnectedToNetwork() == true
@@ -41,6 +42,13 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, comple
                 if (error != nil)
                 {
                     print(error!)
+                    
+                    if error?._code ==  NSURLErrorTimedOut {
+                        print("Time Out")
+                        DispatchQueue.main.async(execute: {
+                            completion(["status":false, "message":"internet_connection_timeout", "errorMessage":"internet_connection_timeout"])
+                        });
+                    }
                 }
                 else
                 {
@@ -56,7 +64,7 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, comple
                             }
                             else
                             {
-                                print("EMPTY JSON")
+                                print("EMPTY JSON for \(endpointURL)")
                                 completion(["status":false])
                             }
                     })
@@ -100,13 +108,14 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
             
                 if (error != nil)
                 {
-                    print("----")
-                    print(response)
-                    print("erroooooooooooooooor")
                     print(error!)
-                    DispatchQueue.main.async(execute: {
-                        completion(["status":false, "message":"", "errorMessage":"internet_connection_error"])
-                    })
+                    
+                    if error?._code ==  NSURLErrorTimedOut {
+                        print("Time Out")
+                        DispatchQueue.main.async(execute: {
+                            completion(["status":false, "message":"internet_connection_timeout", "errorMessage":"internet_connection_timeout"])
+                        });
+                    }
                 }
                 else
                 {
@@ -122,7 +131,7 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
                             }
                             else
                             {
-                                print("EMPTY JSON")
+                                print("EMPTY JSON for \(endpointURL)")
                                 completion(["status":false])
                             }
                     })
@@ -165,6 +174,13 @@ func makePutRequest(paramsDictionary: NSDictionary, endpointURL: String, complet
                 if (error != nil)
                 {
                     print(error!)
+                    
+                    if error?._code ==  NSURLErrorTimedOut {
+                        print("Time Out")
+                        DispatchQueue.main.async(execute: {
+                            completion(["status":false, "message":"internet_connection_timeout", "errorMessage":"internet_connection_timeout"])
+                        });
+                    }
                 }
                 else
                 {
@@ -180,7 +196,7 @@ func makePutRequest(paramsDictionary: NSDictionary, endpointURL: String, complet
                             }
                             else
                             {
-                                print("EMPTY JSON")
+                                print("EMPTY JSON for \(endpointURL)")
                                 completion(["status":false])
                             }
                     })
