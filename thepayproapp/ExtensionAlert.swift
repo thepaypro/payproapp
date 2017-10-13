@@ -226,6 +226,20 @@ extension UIAlertController {
                 title: "Unable to load Transactions",
                 message: "Something went wrong and we could not load the transactions",
                 preferredStyle: UIAlertControllerStyle.alert)
+                
+            let confirmAction = UIAlertAction(
+                    title: "Ok",
+                    style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
+            
+        case "error_on_get_pin":
+            let alert = UIAlertController(
+                title: "Unable to get Pin",
+                message: "There is a problem retrieving your PIN. You can get in touch with us on \"Support\".",
+                preferredStyle: UIAlertControllerStyle.alert)
             
             let confirmAction = UIAlertAction(
                 title: "Ok",

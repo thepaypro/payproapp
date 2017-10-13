@@ -433,7 +433,27 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         }
         else if cardStatus == .ordered
         {
-            self.performSegue(withIdentifier: "showActivateCardFormVCSegue", sender: self)
+            self.displayNavBarActivity()
+            CardRequestActivationCode(
+                completion: {
+                    cardRequestActivationCodeResponse in
+                    self.dismissNavBarActivity()
+                    if cardRequestActivationCodeResponse["status"] as! Bool == true {
+                        print("cardGetActivationCodeResponse: \(cardRequestActivationCodeResponse)")
+                        self.performSegue(withIdentifier: "showActivateCardFormVCSegue", sender: self)
+                    }else{
+                        if let errorMessage = cardRequestActivationCodeResponse["errorMessage"]{
+                            let alert = UIAlertController()
+                            self.present(alert.displayAlert(code: errorMessage as! String), animated: true, completion: nil)
+                        }else{
+                            let errorMessage: String = "error"
+                            let alert = UIAlertController()
+                            self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
+                        }
+                        print("requestActivationCodeError")
+                    }
+                }
+            )
         }
     }
     // MARK: - Table handle refresh
