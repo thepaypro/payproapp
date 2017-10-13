@@ -192,6 +192,20 @@ extension UIAlertController {
             alert.addAction(confirmAction)
             
             return alert
+            
+        case "error_on_get_pin":
+            let alert = UIAlertController(
+                title: "Unable to get Pin",
+                message: "Unable to get Pin",
+                preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction = UIAlertAction(
+                title: "Ok",
+                style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
 
         default:
             let alert = UIAlertController(

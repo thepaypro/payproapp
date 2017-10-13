@@ -47,14 +47,9 @@ class PPActivationCardCVV2ViewController: UIViewController, UITextFieldDelegate
                     self.pin = pinResponse["pin"] as? String
                     result = true
                 }else{
-                    if let errorMessage = pinResponse["errorMessage"] {
-                        let alert = UIAlertController()
-                        self.present(alert.displayAlert(code: errorMessage as! String), animated: true, completion: nil)
-                    }else{
-                        let errorMessage: String = "error"
-                        let alert = UIAlertController()
-                        self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
-                    }
+                    let errorMessage: String = "error_on_get_pin"
+                    let alert = UIAlertController()
+                    self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
                     print("getPinError")
                     result = false
                 }

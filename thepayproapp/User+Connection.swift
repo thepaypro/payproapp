@@ -128,6 +128,21 @@ extension User {
                             }
                             
                             let agreement = accountInformation.value(forKeyPath: "agreement")
+                            var cardstatus: Int32 = 0
+                            
+                            if let card: NSDictionary = accountInformation.value(forKeyPath: "card") as? NSDictionary, card.count != 0{
+                                if card.value(forKeyPath: "isActive") as! Bool == true{
+                                    if card.value(forKeyPath: "isEnabled") as! Bool == true{
+                                        cardstatus = 2
+                                    }else{
+                                        cardstatus = 3
+                                    }
+                                }else{
+                                   cardstatus = 1
+                                }
+                            }else{
+                                cardstatus = 0
+                            }
                             
                             let country = accountInformation.value(forKeyPath: "country")
                             
@@ -140,6 +155,7 @@ extension User {
                                 "document_type": accountInformation.value(forKeyPath: "documentType")!,
                                 "document_number": accountInformation.value(forKeyPath: "documentNumber")!,
                                 "account_type_id": (agreement as AnyObject).value(forKeyPath: "id") as! Int32,
+                                "card_status_id": cardstatus,
                                 "accountNumber": accountInformation.value(forKeyPath: "accountNumber")!,
                                 "sortCode": accountInformation.value(forKeyPath: "sortCode")!,
                                 "street": accountInformation.value(forKeyPath: "street")!,
