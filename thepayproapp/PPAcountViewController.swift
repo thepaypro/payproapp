@@ -323,7 +323,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         }
         else if cardStatus == .notOrdered
         {
-            stateButton.setTitle("Order Visa Debit Card", for: .normal)
+            stateButton.setTitle("Order VISA Debit Card (GBP 5.99)", for: .normal)
             stateButton.isEnabled = true
             stateButton.backgroundColor = PayProColors.statusButtonActive
             stateButton.setTitleColor(PayProColors.white, for: .normal)
