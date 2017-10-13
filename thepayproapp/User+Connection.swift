@@ -201,6 +201,8 @@ extension User {
                                     getGBPTransactionsFromBackRequest( page: 1, size: 5, completion: {transactionsResponse in
                                         if (transactionsResponse["status"] as! Bool == false){
                                             completion(["status":false] as NSDictionary)
+                                        }else{
+                                            completion(["status":loggedUser != nil && accountUser != nil] as NSDictionary)
                                         }
                                     })
                                 } else {

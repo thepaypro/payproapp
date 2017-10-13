@@ -31,6 +31,7 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
     @IBOutlet weak var infoAccountSortCodeLabel: UILabel!
     @IBOutlet weak var infoAccountQRCodeView: UIView!
     @IBOutlet weak var swipeCurrencyGradientView: UIView!
+    @IBOutlet weak var bitcoinQRButton: UIButton!
     
     var isPositionFixed: Bool = true
      enum AccountCurrencyType: Int{
@@ -130,8 +131,10 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
             self.navigationItem.title = "Basic Account"
         }else if userAccountType == .proAccount  {
             self.navigationItem.title = "Pro Account"
-        }else{
+        }else if userAccountType == .demoAccount{
             self.navigationItem.title = "Demo Account"
+        }else{
+            self.navigationItem.title = "Account"
         }
         
         transactionsTV.register(UINib(nibName: "PPTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionCell")
@@ -201,15 +204,13 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
             bitsView.center.y = GBPViewy
             selectedAccount = GBPView.center.y > bitsView.center.y ? .gbp : .bitcoin
             self.setSelectedAccountInfoLabels()
-            if selectedAccount == .bitcoin {
+            if (userStatus != .statusActivated && selectedAccount == .gbp ) || userStatus == .statusDemo {
+                transactionsTV.isHidden = true
+            }else{
+                self.loadTransactions()
                 transactionsTV.isHidden = false
             }
             self.getBalance()
-            if userStatus == .statusActivated || selectedAccount == .bitcoin {
-                self.loadTransactions()
-            }else if(userStatus != .statusActivated && selectedAccount == .gbp){
-                transactionsTV.isHidden = true
-            }
             isPositionFixed = true
             
         }
@@ -227,14 +228,16 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
                 }
             })
         }
-        BitcoinGetWallet(completion: {bitcoinWalletResponse in
-            if bitcoinWalletResponse["status"] as! Bool == true {
-                if bitcoinWalletResponse["balance"] != nil{
-//                    print("updatingBTCBalance")
-                    self.bitsBalanceLabel.text = bitcoinWalletResponse["balance"] as? String
+        if(userStatus != .statusDemo){
+            BitcoinGetWallet(completion: {bitcoinWalletResponse in
+                if bitcoinWalletResponse["status"] as! Bool == true {
+                    if bitcoinWalletResponse["balance"] != nil{
+        //                    print("updatingBTCBalance")
+                        self.bitsBalanceLabel.text = bitcoinWalletResponse["balance"] as? String
+                    }
                 }
-            }
-        })
+            })
+        }
     }
     
     func loadTransactions(){
@@ -287,20 +290,20 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
             self.GBPBalanceLabel.numberOfLines = 1
             self.GBPBalanceLabel.adjustsFontSizeToFitWidth = true
         }
-        
-        self.bitsBalanceLabel.text = User.currentUser()?.bitcoinAmountBalance
-        self.bitsBalanceLabel.numberOfLines = 1
-        self.bitsBalanceLabel.adjustsFontSizeToFitWidth = true
-        self.getBalance()
-
-        
+        if userStatus == .statusActivating || userStatus == .statusActivated{
+            self.bitsBalanceLabel.text = User.currentUser()?.bitcoinAmountBalance
+            self.bitsBalanceLabel.numberOfLines = 1
+            self.bitsBalanceLabel.adjustsFontSizeToFitWidth = true
+            self.getBalance()
+        }
         
         stateButton.isHidden = false
         stateButtonHeight.constant = 60.0
         
         self.setSelectedAccountInfoLabels()
         
-        if (userStatus != .statusActivated) && (selectedAccount == .gbp){
+        
+        if (userStatus != .statusActivated && selectedAccount == .gbp ) || userStatus == .statusDemo {
             transactionsTV.isHidden = true
         }else{
             transactionsTV.isHidden = false
@@ -308,8 +311,11 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         if userStatus == .statusDemo {
             stateButton.setTitle("Start Now", for: .normal)
+            stateButton.isEnabled = true
+            stateButton.backgroundColor = PayProColors.statusButtonActive
+            stateButton.setTitleColor(PayProColors.white, for: .normal)
         }
-        else if userAccountType == .demoAccount || userStatus == .statusActivating{
+        else if userAccountType == .demoAccount && userStatus == .statusActivating{
             stateButton.setTitle("Your account is being reviewed", for: .normal)
             stateButton.isEnabled = false
             stateButton.backgroundColor = PayProColors.statusButtonInactive
@@ -318,10 +324,16 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
         else if cardStatus == .notOrdered
         {
             stateButton.setTitle("Order Visa Debit Card", for: .normal)
+            stateButton.isEnabled = true
+            stateButton.backgroundColor = PayProColors.statusButtonActive
+            stateButton.setTitleColor(PayProColors.white, for: .normal)
         }
         else if cardStatus == .ordered
         {
             stateButton.setTitle("Activate Visa Debit Card", for: .normal)
+            stateButton.isEnabled = true
+            stateButton.backgroundColor = PayProColors.statusButtonActive
+            stateButton.setTitleColor(PayProColors.white, for: .normal)
         }
         else
         {
@@ -343,9 +355,10 @@ class PPAccountViewController: UIViewController, UIScrollViewDelegate, UITableVi
             self.infoAccountQRCodeView.isHidden = true
         case .bitcoin:
             self.infoTitleLabel.text = "BITCOIN ACCOUNT"
-            self.infoAccountNumberLabel.text = User.currentUser()?.bitcoinAddress
+            self.infoAccountNumberLabel.text = (userStatus != .statusDemo) ? User.currentUser()?.bitcoinAddress : "-"
             self.infoAccountSortCodeView.isHidden = true
             self.infoAccountQRCodeView.isHidden = false
+            self.bitcoinQRButton.isEnabled = (userStatus != .statusDemo)
         }
     }
     

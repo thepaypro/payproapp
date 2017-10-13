@@ -4336,8 +4336,8 @@ in PayPro</string>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="μ₿ 0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hn-Mp-U94">
-                                                        <rect key="frame" x="177.66666666666666" y="27" width="60" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="μ₿ -.--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hn-Mp-U94">
+                                                        <rect key="frame" x="181.33333333333337" y="27" width="52.666666666666657" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -4421,7 +4421,7 @@ in PayPro</string>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cO-So-W8R">
                                 <rect key="frame" x="0.0" y="231" width="414" height="60"/>
-                                <color key="backgroundColor" red="0.3411764705882353" green="1" blue="0.70196078431372544" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.47843137254901957" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="J77-ru-cX6"/>
                                 </constraints>
@@ -4673,6 +4673,7 @@ in PayPro</string>
                         <outlet property="GBPBalanceLabel" destination="gic-qo-AL6" id="KKb-4i-Scr"/>
                         <outlet property="GBPResizableView" destination="qOt-xo-7Wt" id="X7V-ya-pUt"/>
                         <outlet property="GBPView" destination="E5g-qp-yFJ" id="cST-YE-Dwo"/>
+                        <outlet property="bitcoinQRButton" destination="TYZ-M4-bJw" id="lTF-Ai-5Yp"/>
                         <outlet property="bitsBalanceLabel" destination="5Hn-Mp-U94" id="n43-jG-8sE"/>
                         <outlet property="bitsResizableView" destination="fGX-ZM-fkr" id="wWd-ro-gkd"/>
                         <outlet property="bitsView" destination="0X4-GM-g2f" id="D5c-yV-a6r"/>
