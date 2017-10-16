@@ -8,12 +8,13 @@
 import Foundation
 
 
-func BitcoinTransactionCreate(addr:String, amount:String, subject:String, completion: @escaping (_ transactionResponse: NSDictionary) -> Void)
+func BitcoinTransactionCreate(addr:String, beneficiaryUserID: Int, amount:String, subject:String, completion: @escaping (_ transactionResponse: NSDictionary) -> Void)
 {
     let transactionDictionary = [
         "subject": String(subject)!,
         "amount": String(amount)!,
-        "beneficiary": String(addr)!
+        "beneficiary": String(addr)!,
+        "beneficiaryUserID" : Int(beneficiaryUserID),
         ] as [String : Any]
     
     makePostRequest(paramsDictionary: transactionDictionary as NSDictionary, endpointURL: "bitcoin-transactions", completion: {completionDictionary in

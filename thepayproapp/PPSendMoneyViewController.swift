@@ -106,7 +106,8 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
         self.sendMoney.setLoadProcess(loadProcessValue: 1)
         self.sendMoney.setOperationType(operationTypeValue: 1)
         self.sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.getBeneficiaryName())
-        self.sendMoney.setcontactId(contactIdValue: contact.getContactId())
+        self.sendMoney.setBeneficiaryUserId(beneficiaryUserIdValue: contact.getUserId())
+        self.sendMoney.setBeneficiaryAccountId(beneficiaryAccountIdValue: contact.getAccountId())
         
 //        if userStatus != .statusActivated{
 //            self.sendMoney.setCurrencyType(currencyTypeValue: 1)
