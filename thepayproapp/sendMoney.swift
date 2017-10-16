@@ -194,8 +194,8 @@ open class SendMoney {
         bitcoinAddr = bitcoinAddrValue
     }
     
-    open func getBitcoinAddr() -> String {
-        return bitcoinAddr!
+    open func getBitcoinAddr() -> String? {
+        return bitcoinAddr
     }
     
     open func setShortcode(shortcodeValue: String) {
@@ -266,8 +266,8 @@ open class SendMoney {
         beneficiaryUserId = beneficiaryUserIdValue
     }
     
-    open func getBeneficiaryUserId() -> Int {
-        return beneficiaryUserId!
+    open func getBeneficiaryUserId() -> Int? {
+        return beneficiaryUserId
     }
     
     open func setBeneficiaryAccountId(beneficiaryAccountIdValue: Int) {

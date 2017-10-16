@@ -339,6 +339,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                 addr: sendMoney.getBitcoinAddr(),
                 beneficiaryUserID: sendMoney.getBeneficiaryUserId(),
                 amount: amount!,
+                inApp: sendMoney.getOperationType() == 1,
                 subject: subject.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
                 completion: {transactionResponse in
                     
