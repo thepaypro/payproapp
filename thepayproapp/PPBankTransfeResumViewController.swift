@@ -198,7 +198,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         let userAccountType = User.currentUser()?.accountType
         let userStatus = User.currentUser()?.status
         
-        if ((userAccountType == .demoAccount || userStatus != .statusActivated ) && sendMoney.getCurrencyType() == 0) || ( userStatus == .statusDemo && sendMoney.getCurrencyType() == 1 )
+        if (userAccountType == .demoAccount || userStatus != .statusActivated )
         {
             self.sendMoney.setFinishProcess(finishProcessValue: 1)
             

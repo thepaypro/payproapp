@@ -59,7 +59,7 @@ class PPSendMoneyConfirmViewController: UIViewController
         
         let labelTop = UILabel()
         
-        if ((userAccountType == .demoAccount || userStatus != .statusActivated ) && sendMoney.getCurrencyType() == 0) || ( userStatus == .statusDemo && sendMoney.getCurrencyType() == 1 )
+       if (userAccountType == .demoAccount || userStatus != .statusActivated )
         {
             labelTop.text = "Fake payment done!"
         } else {
@@ -82,8 +82,7 @@ class PPSendMoneyConfirmViewController: UIViewController
         
         let labelBottom = UILabel()
         
-        if ((userAccountType == .demoAccount || userStatus != .statusActivated ) && sendMoney.getCurrencyType() == 0) || ( userStatus == .statusDemo && sendMoney.getCurrencyType() == 1 )
-        {
+        if (userAccountType == .demoAccount || userStatus != .statusActivated )        {
             labelBottom.text = "This is how a payment would be made"
         } else {
             if sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 0{
@@ -99,7 +98,7 @@ class PPSendMoneyConfirmViewController: UIViewController
         labelBottom.frame = CGRect(x: 0, y: (self.view.frame.height/2) - 55, width: self.view.frame.width, height: 20)
         self.view.addSubview(labelBottom)
         
-        if ((userAccountType == .demoAccount || userStatus != .statusActivated ) && sendMoney.getCurrencyType() == 0) || ( userStatus == .statusDemo && sendMoney.getCurrencyType() == 1 )
+        if (userAccountType == .demoAccount || userStatus != .statusActivated )
         {
             let labelFinish = UILabel()
             labelFinish.text = "Please, activate your account if you want to start making real payments"
@@ -116,7 +115,7 @@ class PPSendMoneyConfirmViewController: UIViewController
     {
         var when = DispatchTime.now() + 3
         
-        if ((userAccountType == .demoAccount || userStatus != .statusActivated ) && sendMoney.getCurrencyType() == 0) || ( userStatus == .statusDemo && sendMoney.getCurrencyType() == 1 )
+        if (userAccountType == .demoAccount || userStatus != .statusActivated )
         {
             when = DispatchTime.now() + 5
         }
