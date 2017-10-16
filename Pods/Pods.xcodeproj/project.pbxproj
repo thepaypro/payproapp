@@ -7,104 +7,105 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02F07D843F3B3151880D1E67205C11A0 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DF3C82C130269F105FB0D604085938 /* Core.swift */; };
-		04A620B8F7A9DF431B022A24B4355E7C /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1413DBBA8BD5140ACD5A53D27F9920 /* UIViewExtensions.swift */; };
-		04A9A536DFAF3C5EC723F92EED127215 /* SegmentedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3583567ACCF6141A77C3A122F887150C /* SegmentedRow.swift */; };
-		04F70AFABCC0D9B5E02B9BA27D81938D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		0AFDB91CAB32B63E9877CE50A73792DF /* PhotoLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F780B3009551DE56930F9668B402B178 /* PhotoLibraryViewController.swift */; };
-		0B2FCAF300C1B74DA6343E48B7D5F3F6 /* PickerInlineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E94EEA23FB49894D041394AD13813 /* PickerInlineRow.swift */; };
-		0C19B0ADBDDF9D1F35443473DD32F58C /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116BAFC02F5BB3232D305B11A233474D /* Form.swift */; };
+		02F07D843F3B3151880D1E67205C11A0 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C44E0B7D0B2083D3E9BC40D2D127AD /* Core.swift */; };
+		04A9A536DFAF3C5EC723F92EED127215 /* SegmentedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F273082FE7ECFC73A7248256CF6573E5 /* SegmentedRow.swift */; };
+		0B2FCAF300C1B74DA6343E48B7D5F3F6 /* PickerInlineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8152A6127B4D6D8DAF6AC532914637 /* PickerInlineRow.swift */; };
+		0C19B0ADBDDF9D1F35443473DD32F58C /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC25FE5DA43253C59AFFC00883201C7 /* Form.swift */; };
 		0C8636B11E33E3FC1514574EFBA5C031 /* Pods-thepayproappUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E40440804D22DFF90BFFC138AE6E36C4 /* Pods-thepayproappUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0DE2B989EA1F1592E67AED334AAB6B98 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84FE3AD047D61D8BBE1D8DB59789162 /* CameraView.swift */; };
-		0F47F6ABDFD61B71965C06B833435E53 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DB971540EA91085F16AEEC521B8D22 /* Protocols.swift */; };
-		12A9528C78FC91D0AABD455430F71F14 /* ALCameraViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B2C77C3F9D500DB8D2F0DAA2B8F21D42 /* ALCameraViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		144A795542A55FCA27F839FD8B3848AD /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8A135888E3E6180D3DCD17606ABD1E /* CellType.swift */; };
-		17048D78835182A0B4E9D7926DA75DAD /* PopoverSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C121250F6982C726F6B1EFA1B9776E7 /* PopoverSelectorRow.swift */; };
-		1772EAFC71C30BD931A9585212CA03AC /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = E245BB86AA6B32C957B6448FA8F05FB2 /* Row.swift */; };
-		17A3FB1B471D1C1A61BCFBBF5831D845 /* RowControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FA0D481A7CDB1E62434FDD9621FF0C /* RowControllerType.swift */; };
-		1921256E0012189FC4EEE2A11AE2E820 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B05678598183FCFD200093F4405208 /* CameraViewController.swift */; };
-		19A2983E2CC133E1C50E8FB6AEAC9D9D /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83ED2D2317DDAC6BFBE808BDB5CE0D3 /* PermissionsView.swift */; };
-		1ACA00A9EC125081B88B9228462431B8 /* ButtonRowWithPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F872FEEED7794EA3109297C5F5C476 /* ButtonRowWithPresent.swift */; };
-		1C5B941F79B39828B27EAAD3C9AF7B4B /* PickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C3894FB5C6F4E1E9E6B2EF4985EC0F /* PickerRow.swift */; };
-		1D4CD70DC32B037FCD6320FE079695D5 /* CheckRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8F1ECC8B37D079F074E40FB8647C5 /* CheckRow.swift */; };
-		1EEFBE2820F6BEAC9BAD184673293C9E /* NavigationAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE8A554E50FCF8292BEFA3B53853B84 /* NavigationAccessoryView.swift */; };
+		0F47F6ABDFD61B71965C06B833435E53 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389D7EAA9B9C0F769A514366600E351D /* Protocols.swift */; };
+		144A795542A55FCA27F839FD8B3848AD /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA0B081D38A8CC468FB9635046B40E1 /* CellType.swift */; };
+		17048D78835182A0B4E9D7926DA75DAD /* PopoverSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23F4EAD1E2ACD10BD3161B99BDCC63 /* PopoverSelectorRow.swift */; };
+		1772EAFC71C30BD931A9585212CA03AC /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DA3CB2C46A592F51E16B49F9017604 /* Row.swift */; };
+		17980A7D4FFDA661EB7A2A7877957D1C /* ALCameraViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A4D6A84C1AE28B25F83FA06A9D8AC509 /* ALCameraViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17A3FB1B471D1C1A61BCFBBF5831D845 /* RowControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1E5220520C529E3DF7705C7D3729E /* RowControllerType.swift */; };
+		1ACA00A9EC125081B88B9228462431B8 /* ButtonRowWithPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B116E8583A137E40A4481CF708AF48 /* ButtonRowWithPresent.swift */; };
+		1C5B941F79B39828B27EAAD3C9AF7B4B /* PickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B828D28192FA366AE962F1ABF84828 /* PickerRow.swift */; };
+		1D4CD70DC32B037FCD6320FE079695D5 /* CheckRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE18519CB12125DD82EDA0602A74AD /* CheckRow.swift */; };
+		1EEFBE2820F6BEAC9BAD184673293C9E /* NavigationAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE764CB9F4C293256EE4F432C3B692A /* NavigationAccessoryView.swift */; };
 		20C68297FA304930BA590492D74DF580 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		2189F5569BACCE66FD41F5E58FF351B8 /* DateInlineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D2F2622F4DFEF9BB18C039ED05730 /* DateInlineRow.swift */; };
-		23E6887F5ADC8D4917BC12B079864E1D /* FieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473E72DCD64FA999F91CD7DF561885B1 /* FieldRow.swift */; };
-		25A70264F9301E7603D9883777DE8050 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F13AD49F7B191655657715123BA74 /* SelectorViewController.swift */; };
-		265A3BCF8B426717E8EE1CAD4341F99A /* DateFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65D9668D1368A91B57A2E49E8C944AF /* DateFieldRow.swift */; };
+		2189F5569BACCE66FD41F5E58FF351B8 /* DateInlineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E84151B9FEC968B41C085F8803DA4BC /* DateInlineRow.swift */; };
+		23E6887F5ADC8D4917BC12B079864E1D /* FieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BE8559E2DB46EE7E85C0AB2603EFE5 /* FieldRow.swift */; };
+		25A70264F9301E7603D9883777DE8050 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3850BC8FD839F4D96C36F35FEC49DE /* SelectorViewController.swift */; };
+		265A3BCF8B426717E8EE1CAD4341F99A /* DateFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440FC4F51E82E78345E6D9EC1442A358 /* DateFieldRow.swift */; };
 		277F9A7B495B8D7C948F6546F431AB16 /* Pods-thepayproapp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 917D5129DB594A2CCD68B51F8DAE1EA0 /* Pods-thepayproapp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		27E90381F850892642E4C4A84B8770BE /* Pods-thepayproappUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C26A3EB25C7107BBBF5C8884D4C91FD7 /* Pods-thepayproappUITests-dummy.m */; };
-		28500C67AF0CB1EB34B53FFA93C3D27F /* ListCheckRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6D61B8D08A581F3BD5F7B6252E957 /* ListCheckRow.swift */; };
-		29DBA0C923DE13772022DB52DBAF3CEE /* PushRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70E39D88B45540F2289ECCA7FFA8A9F /* PushRow.swift */; };
-		2A179EA67ECDDBB23F30CF0B0A71A617 /* ActionSheetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814E47DD53148E6FB92EB9774F689A5 /* ActionSheetRow.swift */; };
-		2B7B1C4B141251B7154840885562AA93 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26CB9175C87E2164118B46BFDD928A /* Utilities.swift */; };
-		306BD477167820D6CDECDCE1D7445ECD /* SliderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB97E9495BAD29BD436B7CFD53694D2 /* SliderRow.swift */; };
+		28500C67AF0CB1EB34B53FFA93C3D27F /* ListCheckRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D87BFD3DC28B4CF0F5F98FE9472298 /* ListCheckRow.swift */; };
+		29DBA0C923DE13772022DB52DBAF3CEE /* PushRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D0A43BFA3A2A052F6C018922F36409 /* PushRow.swift */; };
+		2A179EA67ECDDBB23F30CF0B0A71A617 /* ActionSheetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DB2ACD242E6775BFD54CAECFDFFB1D /* ActionSheetRow.swift */; };
+		306BD477167820D6CDECDCE1D7445ECD /* SliderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4620FD80E5C27774F041763F8B7C1627 /* SliderRow.swift */; };
 		3168BBDF8D3249F05E2E85B598E1CA8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		3BD24FAC0C1C25415AC53CDBAC1F57DA /* PhotoLibraryAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B8D4045A3E21A15859D9C66109305 /* PhotoLibraryAuthorizer.swift */; };
-		3E89604392C5EBDC5E27937AA57C5AC0 /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBBB34E735B864BD1E6B59B77562EF7 /* SwitchRow.swift */; };
-		3F0D960DBEF20736A7A505A9250942F1 /* Eureka-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 46DD47563DE03B40523A4A0C8DCF88B9 /* Eureka-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		45AD103A7308F4575C81A34F31B4AD4C /* ALCameraViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C2228482A500F1D7700293F8C0DC26D6 /* ALCameraViewController-dummy.m */; };
+		3579A5632C68ECB771284AE039E39705 /* CameraViewControllerConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB455B11A4EEED0AA9ECA479C3064CF /* CameraViewControllerConstraint.swift */; };
+		3E89604392C5EBDC5E27937AA57C5AC0 /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120FEB4979BCFEC52081EE7350A254C3 /* SwitchRow.swift */; };
+		3F0D960DBEF20736A7A505A9250942F1 /* Eureka-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BBD3361E3BCC6D63E507A4AF51A8AB32 /* Eureka-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		42F0D75E7DA383640BD4574C8D08CEF1 /* ALCameraViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 748715A8AA8227C190EA389A8419DE56 /* ALCameraViewController-dummy.m */; };
+		43DEE2F1EF7D3B1B7036EF4DF900513B /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C48FC8AA7481BDC417B3E33054E45A /* UIButtonExtensions.swift */; };
+		47475127F3D9B0AA095E90193F7A0012 /* SingleImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75B3DE006D121FF7CD496091D139134 /* SingleImageSaver.swift */; };
+		48A62FDCD9FCD5C1940DE1C041D38D31 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344F2C009180C384F67D55F7E01D8D9D /* CameraViewController.swift */; };
+		49F718CC2A382A6E091F07A4A3449441 /* CameraView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C4050C22A56B5E4DDD2510DF2B64B5E /* CameraView.strings */; };
+		4A7A65E9F5B5FC9025396987A8BBEAD3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		4AD5DA24A58B72BEF85EDD8C1117813B /* PhotoLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1DF3EA92760CE0CACACD3451CAA19B /* PhotoLibraryViewController.swift */; };
 		4B2B636DF6D9389DFE9D363DEAD3C9BD /* Pods-thepayproappTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 098E17F609694FCEDBB3410BDE1B20B4 /* Pods-thepayproappTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4EA524A2BD2D970745B89DAADDF7719E /* PresenterRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872BC26AE2FEEA5D8FD364ADFC35F485 /* PresenterRowType.swift */; };
-		51F62349D05FCB3B6E1E8AD406DEEFE7 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = E520C8435A3D9FC8B712B3F7E23B5C1B /* Section.swift */; };
-		57F029A6EAD66812E9B0C1319AFE527B /* LabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C52EBF48601ADBCA912E4070DBE3120 /* LabelRow.swift */; };
-		5820152CF7B16F6FF64E13D78467376A /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FA8C4D5CCDEAA9B0D750CFD884A7F9 /* ImageCell.swift */; };
-		59947C008333007F823B0922EE87F96B /* MultipleSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7904CD3A1858143BC01A5ACC4AD3C2 /* MultipleSelectorViewController.swift */; };
-		5A380E0127635057397F45AFBD13B255 /* Eureka-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272ADD62437B90F71C3CEE55E103B001 /* Eureka-dummy.m */; };
-		5D647533060C688C633E15C86553B868 /* DatePickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BC1B77C03E93EB2F51E5821036018A /* DatePickerRow.swift */; };
-		654744F1D8E5A8DB4711E81DC6CC99C3 /* AlertRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756ABE54818484013578F33BE5E61C86 /* AlertRow.swift */; };
-		67BFD91AEE97E523E7CD95D783DD2C02 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09146DDB22D111BA4A4D9514B083BBA /* ConfirmViewController.swift */; };
-		6D4FFBDD1446E07634AC24A82B729C44 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F6841C0985ABEFA90EB242A0777E18 /* UIButtonExtensions.swift */; };
-		6F9F25DE63532C8DE5077822E6316111 /* DateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DD2C878C9BC8718F048DA59BC81B07 /* DateRow.swift */; };
+		4EA524A2BD2D970745B89DAADDF7719E /* PresenterRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F397FAAA7EC50FCAC413A9D26E539D /* PresenterRowType.swift */; };
+		51F62349D05FCB3B6E1E8AD406DEEFE7 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8B22EFF89392143C872AE3B7817D1 /* Section.swift */; };
+		55691B4946AE3E04672E63C66BC3604D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAF4120A206BD08BEDA5A421B5104BF /* Utilities.swift */; };
+		57F029A6EAD66812E9B0C1319AFE527B /* LabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4339563EEF0493F1C131B51260DC8A8F /* LabelRow.swift */; };
+		59947C008333007F823B0922EE87F96B /* MultipleSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1477E42A3EC801A21E0B01EF5CCF9EC9 /* MultipleSelectorViewController.swift */; };
+		5A380E0127635057397F45AFBD13B255 /* Eureka-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B60C123EA9DC5CD0DA0F8B3F09388A6 /* Eureka-dummy.m */; };
+		5C1184CF84A07DF3F565A9E450FBCA62 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63AA2434A0345C66E740A0F2F24E27E /* UIViewExtensions.swift */; };
+		5D647533060C688C633E15C86553B868 /* DatePickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD625C4361A23F0418D6075409AA78E /* DatePickerRow.swift */; };
+		654744F1D8E5A8DB4711E81DC6CC99C3 /* AlertRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C55AFBBCB4689B9DCF2A3199ECC34A /* AlertRow.swift */; };
+		67032953D1DB30B26C861A3D2E02FE8B /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF9CD4331009394DA27065275C324F /* ImageFetcher.swift */; };
+		6F9F25DE63532C8DE5077822E6316111 /* DateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036C1BE169CEAEAEC46C1F0869D284B8 /* DateRow.swift */; };
 		73B0AC0AC032A3D843E74DBFEF648671 /* Pods-thepayproapp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1408ACE92B1F7588E023C6CEB61FFCD1 /* Pods-thepayproapp-dummy.m */; };
-		76110C1B9D1144D99D2C179DC74121DD /* MultipleSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04763CC9BB2EA0EBA98792F87408FB /* MultipleSelectorRow.swift */; };
-		776BC005849D0896DD668DA2FB5F7D99 /* CameraView.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED2D97AA129FCAF77EFC8A6416E73803 /* CameraView.strings */; };
-		7B19019174C42D7D481C1B120272443B /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2771C887390565A8710E846E3382D0 /* Operators.swift */; };
-		7CE512D69EDD58D7DDD7B66BE6592EED /* DateInlineFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D2FD08B1B9D2FE6C6F73F9264CC292 /* DateInlineFieldRow.swift */; };
-		7D4103D396B2519600255CA676DE1D62 /* BaseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3F1991124C62938FD11F96C1DA95B0 /* BaseRow.swift */; };
-		827BD4C80F28C2F7E9521461DA5CBDAE /* RuleURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F10CEE8975BCBEF54008C78D92C12B /* RuleURL.swift */; };
+		76110C1B9D1144D99D2C179DC74121DD /* MultipleSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6276579A687D53C2E2886BB8682816BE /* MultipleSelectorRow.swift */; };
+		78229C724844A2F32DB2D05285CE515C /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAF9D2C132D71704E3AF43EF321D1D /* ImageCell.swift */; };
+		7B19019174C42D7D481C1B120272443B /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCCCAA922D37A07A2C22A6E1BD04B1D /* Operators.swift */; };
+		7CE512D69EDD58D7DDD7B66BE6592EED /* DateInlineFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675A6DEE0C7A2A592C6B1500959B4C14 /* DateInlineFieldRow.swift */; };
+		7D4103D396B2519600255CA676DE1D62 /* BaseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC29DF5997DEE8EF5AD7F828E9B4133D /* BaseRow.swift */; };
+		827BD4C80F28C2F7E9521461DA5CBDAE /* RuleURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF799CC3D21CB9AAE04EFC5998B88D3 /* RuleURL.swift */; };
 		8E610F054B0F5FDBBB26323A0C73F4F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		91BF56F2EE96EC97E18675351C4C9B30 /* CameraGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD223219484C2788FDCBDF04238C834C /* CameraGlobals.swift */; };
-		987A9AA62B48BC871C21106E68F9257E /* RuleEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12871EE810DF8E78A7E152B981DACC6 /* RuleEmail.swift */; };
-		9926EF73DC7EFCBD50D322671328B24F /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928A56306AE7669ED3A76841D408218A /* Cell.swift */; };
-		99BC63A28EB55DCDC2CA8EAC1886E077 /* StepperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E7FC69CA7BBD966DE808985FB3E84 /* StepperRow.swift */; };
-		9CD46DF12CFA5C561B75EF20B95EECD0 /* PickerInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB3D2E1DD69762C42A29A09FB13387C /* PickerInputRow.swift */; };
-		A0E6C2F2A364C6349BD2B79F520A8958 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E646E682F7294538E6862407EC3E /* Helpers.swift */; };
-		A38A545D1ADAFAB39F6A28B499D9AAB9 /* GenericMultipleSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94238D85A0B82AE166F08162CAC48A4 /* GenericMultipleSelectorRow.swift */; };
-		A5B27A12053041F38D47538E48678881 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1942B71FA8A7679CFCD9F33D90486FCD /* Validation.swift */; };
-		AA0CDD726F8156D06FDFE3C6FAB27C52 /* ButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CBF701CAE3E832AF11B34EC801DC6 /* ButtonRow.swift */; };
-		AA7012D4A2E0818B5D6C2BAA5DFA3CD2 /* RuleEqualsToRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64FCE8506748254903DFCBEDC309E18 /* RuleEqualsToRow.swift */; };
+		8FD3EBBBF1622F58ABCF8671CBCD3432 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69105515A1E27DCAA2A1D882502CA331 /* ConfirmViewController.swift */; };
+		9159303811E1CF0D6FCE1B7C0BF0A26C /* ConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19190E130AD9AC7CEC1E9EB0602D3219 /* ConfirmViewController.xib */; };
+		987A9AA62B48BC871C21106E68F9257E /* RuleEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B73DAC379DFE35286DE4501DB8BB1 /* RuleEmail.swift */; };
+		9926EF73DC7EFCBD50D322671328B24F /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBEB0614EBA882497713F6F374EBB00 /* Cell.swift */; };
+		99BC63A28EB55DCDC2CA8EAC1886E077 /* StepperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FEFEAEA7B41523437FBC35AF64A430 /* StepperRow.swift */; };
+		9CD46DF12CFA5C561B75EF20B95EECD0 /* PickerInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0A13C53DF5F11ACD28F8096DCA1265 /* PickerInputRow.swift */; };
+		A0E6C2F2A364C6349BD2B79F520A8958 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7CE2838C0D3D683966FEC3928241A5 /* Helpers.swift */; };
+		A38A545D1ADAFAB39F6A28B499D9AAB9 /* GenericMultipleSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43F1A1E777E4DCCCD55C5945F0AC743 /* GenericMultipleSelectorRow.swift */; };
+		A5B27A12053041F38D47538E48678881 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D56464202490DF739D08D12806C703 /* Validation.swift */; };
+		AA0CDD726F8156D06FDFE3C6FAB27C52 /* ButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E349702FF93A1F9EDC7007C32442C099 /* ButtonRow.swift */; };
+		AA7012D4A2E0818B5D6C2BAA5DFA3CD2 /* RuleEqualsToRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26E985B954BD1BF113AD5C47B5E8CF /* RuleEqualsToRow.swift */; };
 		ACA4BCCABFAD1DFBFF7EBC4251752C6E /* Pods-thepayproappTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 32372294027047BFDBBCA6A92DA24CCD /* Pods-thepayproappTests-dummy.m */; };
 		AD5D905ABDE0ED57B623A541EB1DBC20 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
-		B3B5B10201D9BA6470173163A6F6725E /* SelectorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CE7AD0A32B27DEF023B1F033C708D /* SelectorAlertController.swift */; };
-		B5BA32808AFF5DC9C2723CD85931B9DB /* TextAreaRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4950C7A39A09D1ACD129588096D583 /* TextAreaRow.swift */; };
-		B8D93073BC7B63600BB2052C397F9BAF /* CameraShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D9A05F8445AD63F702FE6C121F8FD /* CameraShot.swift */; };
-		BB04DAD5C6DCAE93C15FED1090520610 /* RuleRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF75551DBBCC7899646BE0C78C3F64F /* RuleRequired.swift */; };
-		BD6FEBF93A8FB23057B38BC52342AF19 /* Eureka.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 963BA248E2DE7CFC84F9944B765735ED /* Eureka.bundle */; };
-		BFE53EDC99E6B10F19E85ECBD01FB33E /* RowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE2CE47C4E1D29A49313A0A1C2A67CA /* RowType.swift */; };
-		C657B4C0DFB6C3BE1119C1BB8CAD4C78 /* RuleLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78989772201125EE854F433D2AD35BC /* RuleLength.swift */; };
-		C82D76C04578BCDA05C5A6265391B649 /* CameraViewControllerConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C90C783D495E9EA27C641297218CF4F /* CameraViewControllerConstraint.swift */; };
-		CC4F616136F385FA9CDEA939FA766815 /* SingleImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789B648F1B0161F9CF96D7942B8FA405 /* SingleImageFetcher.swift */; };
-		CCAB89C5B0F52B0F69DBED084DDFCFBB /* OptionsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE061E24330D0B51878874953ADB3FD /* OptionsRow.swift */; };
+		B097E8B525DDBE65C30DAF5458957FE8 /* CroppingParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7956468BB777405408F21CDC20CF80B /* CroppingParameters.swift */; };
+		B3B5B10201D9BA6470173163A6F6725E /* SelectorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC34FCA82B61CF030FD1A4EA0A611D /* SelectorAlertController.swift */; };
+		B5BA32808AFF5DC9C2723CD85931B9DB /* TextAreaRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E09FFD11E635D002E7BE901F9F0E52 /* TextAreaRow.swift */; };
+		BB04DAD5C6DCAE93C15FED1090520610 /* RuleRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD958E2D73EB63E9DDDD18EAD3E44BF7 /* RuleRequired.swift */; };
+		BD39EF4C7C9A9BDA97CABD4B34A7258E /* CameraShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F8B4A412A63899B374DC3C45D439F9 /* CameraShot.swift */; };
+		BD6FEBF93A8FB23057B38BC52342AF19 /* Eureka.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E4623786465EC87AAB7DC5F868D24702 /* Eureka.bundle */; };
+		BFE53EDC99E6B10F19E85ECBD01FB33E /* RowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD698039BC8DF91C309EE0EE9084807 /* RowType.swift */; };
+		C5AA50DCF34D3F018072C984EF18D366 /* CropOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE59C0B278F1AF2140F8A4774162A3F7 /* CropOverlay.swift */; };
+		C657B4C0DFB6C3BE1119C1BB8CAD4C78 /* RuleLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6425D39C1FFD271802ADBC3FAA80DB /* RuleLength.swift */; };
+		CBF8C92C5692B682ECC8EF60FD304A19 /* VolumeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF2105113E163D946A26E785231DE33 /* VolumeControl.swift */; };
+		CCAB89C5B0F52B0F69DBED084DDFCFBB /* OptionsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAF6D6FE12D0F8A17E89392AA0443C1 /* OptionsRow.swift */; };
+		CF011AF8E0AEC4435805CC095D647FA6 /* CameraViewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39869E020D0273E35A319B3DF57E75F4 /* CameraViewAssets.xcassets */; };
 		D0BB13C0828EFCD8D6148084308169E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		D1ADD9FA19AFF58FD32941D28BE1D1DA /* CropOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A517648CB4D890E6A0BD5519393DF4 /* CropOverlay.swift */; };
-		D9284875BF00A2033E41A8252CE907A5 /* SelectableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2AE4090011E768212CA5F83C205099 /* SelectableSection.swift */; };
-		DB5214501DA0045F69B3F336F0AB11E8 /* SelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC0644965B1EB84B836B971D2EC683F /* SelectorRow.swift */; };
-		DE1A8D219A174437C79F956E941F2907 /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32E9FE756401B29B9FABCA46A258EC9 /* ImageFetcher.swift */; };
-		DE6DF70A452BF20CB858BA7072AAE3EA /* RowProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4199CC858F0567FE6BA5D6726385CF6A /* RowProtocols.swift */; };
-		E0946CE4B110F2A64041FAB63546FB48 /* RuleRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FA8BA20D533BF21AE523FDCE78F452 /* RuleRange.swift */; };
-		E490A481C69CE189A0814626B1251FB4 /* RuleClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93C82EACC499B3009D95BFAD9833017 /* RuleClosure.swift */; };
-		E585A7898FC181529FD2704BEF4CE992 /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94139552C66EB5361AC9EBA55CDD6CA /* DecimalFormatter.swift */; };
-		E92B5113A74D07D38C8137460AE0E3C7 /* RuleRegExp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A185C5BC706DB649214E4219D904A4A /* RuleRegExp.swift */; };
-		EC0C9AF7C16D80B37803F5C04703F0E5 /* ConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81FE78A108FCA7BE37D522D42913D159 /* ConfirmViewController.xib */; };
-		EEF987BCFB48224604D3FC617582648B /* VolumeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C80D055DFBC63F8720DC65290D2883 /* VolumeControl.swift */; };
-		EF8C344CE47D0DB5EFFE54EFC76F417E /* CameraViewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E780DA95495F5EB7F939A57940653F4 /* CameraViewAssets.xcassets */; };
-		F1681F8D16AD91A13187576F524783A8 /* HeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A424208F0F963C09E0BA1AE5058DEC2 /* HeaderFooterView.swift */; };
-		F2095372A5BB341F1B5469F634EA6687 /* FieldsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773053B21A19ACA642A69442D94B25A3 /* FieldsRow.swift */; };
-		F2B32C3D5DDB7C59A06F094526AF7088 /* SingleImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E10686BD7BB1A78A08B4AB43432D58C /* SingleImageSaver.swift */; };
-		FC505268B5A20F0F00D3BC0A9FF66F99 /* SelectableRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73853166C4A50ED3066A2EFF2FED8B20 /* SelectableRowType.swift */; };
-		FF0168C08BB3555924897006B4AD36DA /* InlineRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DEA12BFB14B1ACFA003489080EB6B0 /* InlineRowType.swift */; };
+		D9284875BF00A2033E41A8252CE907A5 /* SelectableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDA2976BC97E02B2DD4D829C16BD84D /* SelectableSection.swift */; };
+		DA68E34E7E7D39961D4462EDF798C9A7 /* SingleImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D400E15D09AACF14F2BDA6CF7C77CE2 /* SingleImageFetcher.swift */; };
+		DB5214501DA0045F69B3F336F0AB11E8 /* SelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A42AAF7C68C58560CA2AF16E1A576 /* SelectorRow.swift */; };
+		DE6DF70A452BF20CB858BA7072AAE3EA /* RowProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D79933C20DEB25047079210187454FE /* RowProtocols.swift */; };
+		E0946CE4B110F2A64041FAB63546FB48 /* RuleRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C366BB21C5E497CD67FF4C910214D72E /* RuleRange.swift */; };
+		E490A481C69CE189A0814626B1251FB4 /* RuleClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD633A57328C7A30D73939F8870E05 /* RuleClosure.swift */; };
+		E585A7898FC181529FD2704BEF4CE992 /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDFAE7205F2143CC22A99922EBE5791 /* DecimalFormatter.swift */; };
+		E92B5113A74D07D38C8137460AE0E3C7 /* RuleRegExp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262B33D3BADA962B78F6EF515AC0E55E /* RuleRegExp.swift */; };
+		EC056198370845290ED30DE12701B0DC /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49E16D7ED9287042EEA6337026CAF3 /* CameraView.swift */; };
+		EE77DCD20E836C23F782D39D02505887 /* CameraGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C7DE9E08D92C953297432E3D2CDE2C /* CameraGlobals.swift */; };
+		F1681F8D16AD91A13187576F524783A8 /* HeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96483AE23686249EE7923BD5B775322D /* HeaderFooterView.swift */; };
+		F2095372A5BB341F1B5469F634EA6687 /* FieldsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDF0D85D1E8950E46CBD16E22079B2E /* FieldsRow.swift */; };
+		F6B7C96A9E89CFB46CE8BE6DE9C93016 /* PhotoLibraryAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A47FFC80EAC5A473DFF4C9412488F0D /* PhotoLibraryAuthorizer.swift */; };
+		FAB23BC0A0156DB93D49CA64968230EC /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ABC435402DFA5772BF1C899B423B9 /* PermissionsView.swift */; };
+		FC505268B5A20F0F00D3BC0A9FF66F99 /* SelectableRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3C53B39910F2F6EEEC367F4B5664FB /* SelectableRowType.swift */; };
+		FF0168C08BB3555924897006B4AD36DA /* InlineRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC7F619EF059FB20AE1CED269BA1257 /* InlineRowType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,152 +120,153 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D7FAEFEAF68AE19EB2D22369766AF24E;
+			remoteGlobalIDString = 5570ADD82640075EE63C4B974684196D;
 			remoteInfo = ALCameraViewController;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		036C1BE169CEAEAEC46C1F0869D284B8 /* DateRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateRow.swift; path = Source/Rows/DateRow.swift; sourceTree = "<group>"; };
+		043ABC435402DFA5772BF1C899B423B9 /* PermissionsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PermissionsView.swift; path = ALCameraViewController/Views/PermissionsView.swift; sourceTree = "<group>"; };
+		06DB2ACD242E6775BFD54CAECFDFFB1D /* ActionSheetRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionSheetRow.swift; path = Source/Rows/ActionSheetRow.swift; sourceTree = "<group>"; };
 		098E17F609694FCEDBB3410BDE1B20B4 /* Pods-thepayproappTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-thepayproappTests-umbrella.h"; sourceTree = "<group>"; };
-		09F5BA2EF2A1354873997B90CCBF3FE3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A185C5BC706DB649214E4219D904A4A /* RuleRegExp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRegExp.swift; path = Source/Validations/RuleRegExp.swift; sourceTree = "<group>"; };
-		116BAFC02F5BB3232D305B11A233474D /* Form.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Form.swift; path = Source/Core/Form.swift; sourceTree = "<group>"; };
+		0E3850BC8FD839F4D96C36F35FEC49DE /* SelectorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorViewController.swift; path = Source/Rows/Controllers/SelectorViewController.swift; sourceTree = "<group>"; };
+		0FD625C4361A23F0418D6075409AA78E /* DatePickerRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerRow.swift; path = Source/Rows/DatePickerRow.swift; sourceTree = "<group>"; };
+		120FEB4979BCFEC52081EE7350A254C3 /* SwitchRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwitchRow.swift; path = Source/Rows/SwitchRow.swift; sourceTree = "<group>"; };
+		124FE4FEB1D40F634AFB45E24DE7B503 /* Eureka.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Eureka.modulemap; sourceTree = "<group>"; };
 		1408ACE92B1F7588E023C6CEB61FFCD1 /* Pods-thepayproapp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-thepayproapp-dummy.m"; sourceTree = "<group>"; };
-		14175028E47D4B8903027DB58F444A9B /* Eureka-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Eureka-prefix.pch"; sourceTree = "<group>"; };
-		16BC1B77C03E93EB2F51E5821036018A /* DatePickerRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerRow.swift; path = Source/Rows/DatePickerRow.swift; sourceTree = "<group>"; };
-		170B8D4045A3E21A15859D9C66109305 /* PhotoLibraryAuthorizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotoLibraryAuthorizer.swift; path = ALCameraViewController/Utilities/PhotoLibraryAuthorizer.swift; sourceTree = "<group>"; };
+		1477E42A3EC801A21E0B01EF5CCF9EC9 /* MultipleSelectorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipleSelectorViewController.swift; path = Source/Rows/Controllers/MultipleSelectorViewController.swift; sourceTree = "<group>"; };
 		17351207BD42E7456EBB161D50738F05 /* Pods-thepayproappUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-thepayproappUITests.modulemap"; sourceTree = "<group>"; };
-		1942B71FA8A7679CFCD9F33D90486FCD /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Core/Validation.swift; sourceTree = "<group>"; };
-		1C121250F6982C726F6B1EFA1B9776E7 /* PopoverSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopoverSelectorRow.swift; path = Source/Rows/PopoverSelectorRow.swift; sourceTree = "<group>"; };
-		1C52EBF48601ADBCA912E4070DBE3120 /* LabelRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LabelRow.swift; path = Source/Rows/LabelRow.swift; sourceTree = "<group>"; };
+		19190E130AD9AC7CEC1E9EB0602D3219 /* ConfirmViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ConfirmViewController.xib; path = ALCameraViewController/ViewController/ConfirmViewController.xib; sourceTree = "<group>"; };
+		1C4050C22A56B5E4DDD2510DF2B64B5E /* CameraView.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = CameraView.strings; path = ALCameraViewController/CameraView.strings; sourceTree = "<group>"; };
+		1CE764CB9F4C293256EE4F432C3B692A /* NavigationAccessoryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationAccessoryView.swift; path = Source/Core/NavigationAccessoryView.swift; sourceTree = "<group>"; };
+		1D23F4EAD1E2ACD10BD3161B99BDCC63 /* PopoverSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopoverSelectorRow.swift; path = Source/Rows/PopoverSelectorRow.swift; sourceTree = "<group>"; };
+		1DAF4120A206BD08BEDA5A421B5104BF /* Utilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ALCameraViewController/Utilities/Utilities.swift; sourceTree = "<group>"; };
 		2057566E84F9E21BED1A763750F61899 /* Pods-thepayproapp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-thepayproapp.modulemap"; sourceTree = "<group>"; };
-		22D2FD08B1B9D2FE6C6F73F9264CC292 /* DateInlineFieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateInlineFieldRow.swift; path = Source/Rows/Common/DateInlineFieldRow.swift; sourceTree = "<group>"; };
-		22F5ABEC383BD41DEAD22EFA196B85ED /* ALCameraViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ALCameraViewController-prefix.pch"; sourceTree = "<group>"; };
-		23C3894FB5C6F4E1E9E6B2EF4985EC0F /* PickerRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerRow.swift; path = Source/Rows/PickerRow.swift; sourceTree = "<group>"; };
-		2550C1E70AE73C742FAFE7219FCF3A81 /* Eureka.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Eureka.modulemap; sourceTree = "<group>"; };
-		272ADD62437B90F71C3CEE55E103B001 /* Eureka-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Eureka-dummy.m"; sourceTree = "<group>"; };
-		27DF3C82C130269F105FB0D604085938 /* Core.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Core.swift; path = Source/Core/Core.swift; sourceTree = "<group>"; };
+		262B33D3BADA962B78F6EF515AC0E55E /* RuleRegExp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRegExp.swift; path = Source/Validations/RuleRegExp.swift; sourceTree = "<group>"; };
 		29734B0287A0E20045961D7AF6876539 /* Pods_thepayproapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_thepayproapp.framework; path = "Pods-thepayproapp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E26CB9175C87E2164118B46BFDD928A /* Utilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ALCameraViewController/Utilities/Utilities.swift; sourceTree = "<group>"; };
-		2E3F1991124C62938FD11F96C1DA95B0 /* BaseRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseRow.swift; path = Source/Core/BaseRow.swift; sourceTree = "<group>"; };
-		2E780DA95495F5EB7F939A57940653F4 /* CameraViewAssets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = CameraViewAssets.xcassets; path = ALCameraViewController/CameraViewAssets.xcassets; sourceTree = "<group>"; };
+		2A47FFC80EAC5A473DFF4C9412488F0D /* PhotoLibraryAuthorizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotoLibraryAuthorizer.swift; path = ALCameraViewController/Utilities/PhotoLibraryAuthorizer.swift; sourceTree = "<group>"; };
+		2B7CE2838C0D3D683966FEC3928241A5 /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Source/Core/Helpers.swift; sourceTree = "<group>"; };
+		2BF799CC3D21CB9AAE04EFC5998B88D3 /* RuleURL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleURL.swift; path = Source/Validations/RuleURL.swift; sourceTree = "<group>"; };
+		2CDFAE7205F2143CC22A99922EBE5791 /* DecimalFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DecimalFormatter.swift; path = Source/Rows/Common/DecimalFormatter.swift; sourceTree = "<group>"; };
+		2DD698039BC8DF91C309EE0EE9084807 /* RowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowType.swift; path = Source/Core/RowType.swift; sourceTree = "<group>"; };
 		32372294027047BFDBBCA6A92DA24CCD /* Pods-thepayproappTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-thepayproappTests-dummy.m"; sourceTree = "<group>"; };
-		32EA87AD9110D885B71C2975B2F06E10 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3583567ACCF6141A77C3A122F887150C /* SegmentedRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SegmentedRow.swift; path = Source/Rows/SegmentedRow.swift; sourceTree = "<group>"; };
-		3BB3D2E1DD69762C42A29A09FB13387C /* PickerInputRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerInputRow.swift; path = Source/Rows/PickerInputRow.swift; sourceTree = "<group>"; };
+		344F2C009180C384F67D55F7E01D8D9D /* CameraViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ALCameraViewController/ViewController/CameraViewController.swift; sourceTree = "<group>"; };
+		3523BC719CBA26E5C3757C6E07F6337C /* ALCameraViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ALCameraViewController.xcconfig; sourceTree = "<group>"; };
+		35E09FFD11E635D002E7BE901F9F0E52 /* TextAreaRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextAreaRow.swift; path = Source/Rows/TextAreaRow.swift; sourceTree = "<group>"; };
+		389D7EAA9B9C0F769A514366600E351D /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = Source/Rows/Common/Protocols.swift; sourceTree = "<group>"; };
+		39869E020D0273E35A319B3DF57E75F4 /* CameraViewAssets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = CameraViewAssets.xcassets; path = ALCameraViewController/CameraViewAssets.xcassets; sourceTree = "<group>"; };
+		3E3D79FA06A03E640250CFF4BB53906F /* Eureka.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Eureka.xcconfig; sourceTree = "<group>"; };
+		3E84151B9FEC968B41C085F8803DA4BC /* DateInlineRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateInlineRow.swift; path = Source/Rows/DateInlineRow.swift; sourceTree = "<group>"; };
+		3EBF9CD4331009394DA27065275C324F /* ImageFetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageFetcher.swift; path = ALCameraViewController/Utilities/ImageFetcher.swift; sourceTree = "<group>"; };
+		3FB07BDB6F9E31BBA3036B2B2E7611D3 /* ALCameraViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ALCameraViewController-prefix.pch"; sourceTree = "<group>"; };
 		405B2D12B18E9D6E7D5AE10929AA8EEA /* Pods-thepayproappUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-thepayproappUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		4199CC858F0567FE6BA5D6726385CF6A /* RowProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowProtocols.swift; path = Source/Core/RowProtocols.swift; sourceTree = "<group>"; };
-		446CE7AD0A32B27DEF023B1F033C708D /* SelectorAlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorAlertController.swift; path = Source/Rows/Controllers/SelectorAlertController.swift; sourceTree = "<group>"; };
-		44DEA12BFB14B1ACFA003489080EB6B0 /* InlineRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InlineRowType.swift; path = Source/Core/InlineRowType.swift; sourceTree = "<group>"; };
-		46DD2C878C9BC8718F048DA59BC81B07 /* DateRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateRow.swift; path = Source/Rows/DateRow.swift; sourceTree = "<group>"; };
-		46DD47563DE03B40523A4A0C8DCF88B9 /* Eureka-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Eureka-umbrella.h"; sourceTree = "<group>"; };
-		473E72DCD64FA999F91CD7DF561885B1 /* FieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldRow.swift; path = Source/Rows/Common/FieldRow.swift; sourceTree = "<group>"; };
-		48F6841C0985ABEFA90EB242A0777E18 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIButtonExtensions.swift; path = ALCameraViewController/Utilities/UIButtonExtensions.swift; sourceTree = "<group>"; };
+		4339563EEF0493F1C131B51260DC8A8F /* LabelRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LabelRow.swift; path = Source/Rows/LabelRow.swift; sourceTree = "<group>"; };
+		440FC4F51E82E78345E6D9EC1442A358 /* DateFieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateFieldRow.swift; path = Source/Rows/Common/DateFieldRow.swift; sourceTree = "<group>"; };
+		4620FD80E5C27774F041763F8B7C1627 /* SliderRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SliderRow.swift; path = Source/Rows/SliderRow.swift; sourceTree = "<group>"; };
+		47D87BFD3DC28B4CF0F5F98FE9472298 /* ListCheckRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListCheckRow.swift; path = Source/Rows/SelectableRows/ListCheckRow.swift; sourceTree = "<group>"; };
+		49F8B4A412A63899B374DC3C45D439F9 /* CameraShot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CameraShot.swift; path = ALCameraViewController/Utilities/CameraShot.swift; sourceTree = "<group>"; };
 		4A378B2EA9A63A46880242CAD43123F4 /* Pods-thepayproappTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-thepayproappTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		4AC0644965B1EB84B836B971D2EC683F /* SelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorRow.swift; path = Source/Rows/Common/SelectorRow.swift; sourceTree = "<group>"; };
-		4BA6D61B8D08A581F3BD5F7B6252E957 /* ListCheckRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListCheckRow.swift; path = Source/Rows/SelectableRows/ListCheckRow.swift; sourceTree = "<group>"; };
-		4C9F13AD49F7B191655657715123BA74 /* SelectorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorViewController.swift; path = Source/Rows/Controllers/SelectorViewController.swift; sourceTree = "<group>"; };
-		4E10686BD7BB1A78A08B4AB43432D58C /* SingleImageSaver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SingleImageSaver.swift; path = ALCameraViewController/Utilities/SingleImageSaver.swift; sourceTree = "<group>"; };
+		4FB455B11A4EEED0AA9ECA479C3064CF /* CameraViewControllerConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CameraViewControllerConstraint.swift; path = ALCameraViewController/ViewController/CameraViewControllerConstraint.swift; sourceTree = "<group>"; };
+		4FCCCAA922D37A07A2C22A6E1BD04B1D /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Source/Core/Operators.swift; sourceTree = "<group>"; };
 		505F63E8DBB0EC4D2A096BCD47A0180B /* Pods-thepayproappUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-thepayproappUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		55A517648CB4D890E6A0BD5519393DF4 /* CropOverlay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CropOverlay.swift; path = ALCameraViewController/Views/CropOverlay.swift; sourceTree = "<group>"; };
-		59C80D055DFBC63F8720DC65290D2883 /* VolumeControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VolumeControl.swift; path = ALCameraViewController/Utilities/VolumeControl.swift; sourceTree = "<group>"; };
-		5B7904CD3A1858143BC01A5ACC4AD3C2 /* MultipleSelectorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipleSelectorViewController.swift; path = Source/Rows/Controllers/MultipleSelectorViewController.swift; sourceTree = "<group>"; };
-		5C2771C887390565A8710E846E3382D0 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Source/Core/Operators.swift; sourceTree = "<group>"; };
+		52FEFEAEA7B41523437FBC35AF64A430 /* StepperRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StepperRow.swift; path = Source/Rows/StepperRow.swift; sourceTree = "<group>"; };
+		56BCD267122B5A8AA0F3912FE7B0F00F /* Eureka-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Eureka-prefix.pch"; sourceTree = "<group>"; };
+		5B6425D39C1FFD271802ADBC3FAA80DB /* RuleLength.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleLength.swift; path = Source/Validations/RuleLength.swift; sourceTree = "<group>"; };
+		5D400E15D09AACF14F2BDA6CF7C77CE2 /* SingleImageFetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SingleImageFetcher.swift; path = ALCameraViewController/Utilities/SingleImageFetcher.swift; sourceTree = "<group>"; };
+		5D79933C20DEB25047079210187454FE /* RowProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowProtocols.swift; path = Source/Core/RowProtocols.swift; sourceTree = "<group>"; };
 		601FF6588DF6064F62629DC1AC486028 /* Pods-thepayproappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-thepayproappUITests.release.xcconfig"; sourceTree = "<group>"; };
-		637D2F2622F4DFEF9BB18C039ED05730 /* DateInlineRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateInlineRow.swift; path = Source/Rows/DateInlineRow.swift; sourceTree = "<group>"; };
-		6A424208F0F963C09E0BA1AE5058DEC2 /* HeaderFooterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeaderFooterView.swift; path = Source/Core/HeaderFooterView.swift; sourceTree = "<group>"; };
-		71DB971540EA91085F16AEEC521B8D22 /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = Source/Rows/Common/Protocols.swift; sourceTree = "<group>"; };
+		61B828D28192FA366AE962F1ABF84828 /* PickerRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerRow.swift; path = Source/Rows/PickerRow.swift; sourceTree = "<group>"; };
+		6276579A687D53C2E2886BB8682816BE /* MultipleSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipleSelectorRow.swift; path = Source/Rows/MultipleSelectorRow.swift; sourceTree = "<group>"; };
+		675A6DEE0C7A2A592C6B1500959B4C14 /* DateInlineFieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateInlineFieldRow.swift; path = Source/Rows/Common/DateInlineFieldRow.swift; sourceTree = "<group>"; };
+		69105515A1E27DCAA2A1D882502CA331 /* ConfirmViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConfirmViewController.swift; path = ALCameraViewController/ViewController/ConfirmViewController.swift; sourceTree = "<group>"; };
+		6B60C123EA9DC5CD0DA0F8B3F09388A6 /* Eureka-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Eureka-dummy.m"; sourceTree = "<group>"; };
+		6CC7F619EF059FB20AE1CED269BA1257 /* InlineRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InlineRowType.swift; path = Source/Core/InlineRowType.swift; sourceTree = "<group>"; };
+		6CF8B22EFF89392143C872AE3B7817D1 /* Section.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Source/Core/Section.swift; sourceTree = "<group>"; };
+		6FBAF9D2C132D71704E3AF43EF321D1D /* ImageCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCell.swift; path = ALCameraViewController/Views/ImageCell.swift; sourceTree = "<group>"; };
 		72D6AE6D8732BEA5779CFE11FFF1721E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73853166C4A50ED3066A2EFF2FED8B20 /* SelectableRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectableRowType.swift; path = Source/Core/SelectableRowType.swift; sourceTree = "<group>"; };
-		756ABE54818484013578F33BE5E61C86 /* AlertRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertRow.swift; path = Source/Rows/AlertRow.swift; sourceTree = "<group>"; };
+		73D0A43BFA3A2A052F6C018922F36409 /* PushRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PushRow.swift; path = Source/Rows/PushRow.swift; sourceTree = "<group>"; };
+		748715A8AA8227C190EA389A8419DE56 /* ALCameraViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ALCameraViewController-dummy.m"; sourceTree = "<group>"; };
 		7661DCC79E2E3549CC213CDD8D6D0046 /* Pods-thepayproappUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-thepayproappUITests-resources.sh"; sourceTree = "<group>"; };
-		773053B21A19ACA642A69442D94B25A3 /* FieldsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldsRow.swift; path = Source/Rows/FieldsRow.swift; sourceTree = "<group>"; };
-		789B648F1B0161F9CF96D7942B8FA405 /* SingleImageFetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SingleImageFetcher.swift; path = ALCameraViewController/Utilities/SingleImageFetcher.swift; sourceTree = "<group>"; };
-		7C90C783D495E9EA27C641297218CF4F /* CameraViewControllerConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CameraViewControllerConstraint.swift; path = ALCameraViewController/ViewController/CameraViewControllerConstraint.swift; sourceTree = "<group>"; };
-		7FF8F1ECC8B37D079F074E40FB8647C5 /* CheckRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CheckRow.swift; path = Source/Rows/CheckRow.swift; sourceTree = "<group>"; };
-		81FE78A108FCA7BE37D522D42913D159 /* ConfirmViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ConfirmViewController.xib; path = ALCameraViewController/ViewController/ConfirmViewController.xib; sourceTree = "<group>"; };
-		82FA0D481A7CDB1E62434FDD9621FF0C /* RowControllerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowControllerType.swift; path = Source/Core/RowControllerType.swift; sourceTree = "<group>"; };
+		7DBEB0614EBA882497713F6F374EBB00 /* Cell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cell.swift; path = Source/Core/Cell.swift; sourceTree = "<group>"; };
+		7DDA2976BC97E02B2DD4D829C16BD84D /* SelectableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectableSection.swift; path = Source/Core/SelectableSection.swift; sourceTree = "<group>"; };
+		7E0A13C53DF5F11ACD28F8096DCA1265 /* PickerInputRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerInputRow.swift; path = Source/Rows/PickerInputRow.swift; sourceTree = "<group>"; };
+		7FAF6D6FE12D0F8A17E89392AA0443C1 /* OptionsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionsRow.swift; path = Source/Rows/Common/OptionsRow.swift; sourceTree = "<group>"; };
+		83C48FC8AA7481BDC417B3E33054E45A /* UIButtonExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIButtonExtensions.swift; path = ALCameraViewController/Utilities/UIButtonExtensions.swift; sourceTree = "<group>"; };
 		8458EBCECC826895DC43CD1AD1A8E838 /* Pods-thepayproappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-thepayproappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84E31B6B020A65DB6EEE37FA1566E0D5 /* Pods-thepayproappTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-thepayproappTests-frameworks.sh"; sourceTree = "<group>"; };
 		85BC19464D1F224451278069D82131B0 /* Pods-thepayproapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-thepayproapp.debug.xcconfig"; sourceTree = "<group>"; };
-		872BC26AE2FEEA5D8FD364ADFC35F485 /* PresenterRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresenterRowType.swift; path = Source/Core/PresenterRowType.swift; sourceTree = "<group>"; };
-		87F872FEEED7794EA3109297C5F5C476 /* ButtonRowWithPresent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonRowWithPresent.swift; path = Source/Rows/ButtonRowWithPresent.swift; sourceTree = "<group>"; };
-		881D9A05F8445AD63F702FE6C121F8FD /* CameraShot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CameraShot.swift; path = ALCameraViewController/Utilities/CameraShot.swift; sourceTree = "<group>"; };
+		86F397FAAA7EC50FCAC413A9D26E539D /* PresenterRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresenterRowType.swift; path = Source/Core/PresenterRowType.swift; sourceTree = "<group>"; };
+		8772F880163929B37BA48D9C9EC66602 /* ALCameraViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ALCameraViewController.modulemap; sourceTree = "<group>"; };
+		87C55AFBBCB4689B9DCF2A3199ECC34A /* AlertRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertRow.swift; path = Source/Rows/AlertRow.swift; sourceTree = "<group>"; };
+		8E49E16D7ED9287042EEA6337026CAF3 /* CameraView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CameraView.swift; path = ALCameraViewController/Views/CameraView.swift; sourceTree = "<group>"; };
+		90A1E5220520C529E3DF7705C7D3729E /* RowControllerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowControllerType.swift; path = Source/Core/RowControllerType.swift; sourceTree = "<group>"; };
 		90D25FDF39A912C5DC8FC4B3783EE0D3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		917D5129DB594A2CCD68B51F8DAE1EA0 /* Pods-thepayproapp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-thepayproapp-umbrella.h"; sourceTree = "<group>"; };
-		928A56306AE7669ED3A76841D408218A /* Cell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cell.swift; path = Source/Core/Cell.swift; sourceTree = "<group>"; };
+		928E1D4A4A50D6AADD8A7D5025E435A1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92ADBDC26DB4D1F68D91B7815E0512C8 /* ALCameraViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ALCameraViewController.framework; path = ALCameraViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		963BA248E2DE7CFC84F9944B765735ED /* Eureka.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Eureka.bundle; path = Source/Resources/Eureka.bundle; sourceTree = "<group>"; };
-		9814E47DD53148E6FB92EB9774F689A5 /* ActionSheetRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionSheetRow.swift; path = Source/Rows/ActionSheetRow.swift; sourceTree = "<group>"; };
-		9E24C3882A547CD6989DE379DFCE871B /* ALCameraViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ALCameraViewController.xcconfig; sourceTree = "<group>"; };
-		9F4950C7A39A09D1ACD129588096D583 /* TextAreaRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextAreaRow.swift; path = Source/Rows/TextAreaRow.swift; sourceTree = "<group>"; };
-		A12871EE810DF8E78A7E152B981DACC6 /* RuleEmail.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleEmail.swift; path = Source/Validations/RuleEmail.swift; sourceTree = "<group>"; };
-		A4E7E646E682F7294538E6862407EC3E /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Source/Core/Helpers.swift; sourceTree = "<group>"; };
-		A78989772201125EE854F433D2AD35BC /* RuleLength.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleLength.swift; path = Source/Validations/RuleLength.swift; sourceTree = "<group>"; };
+		96483AE23686249EE7923BD5B775322D /* HeaderFooterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeaderFooterView.swift; path = Source/Core/HeaderFooterView.swift; sourceTree = "<group>"; };
+		96BD633A57328C7A30D73939F8870E05 /* RuleClosure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleClosure.swift; path = Source/Validations/RuleClosure.swift; sourceTree = "<group>"; };
+		9A8152A6127B4D6D8DAF6AC532914637 /* PickerInlineRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerInlineRow.swift; path = Source/Rows/PickerInlineRow.swift; sourceTree = "<group>"; };
+		9BF2105113E163D946A26E785231DE33 /* VolumeControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VolumeControl.swift; path = ALCameraViewController/Utilities/VolumeControl.swift; sourceTree = "<group>"; };
+		A0DA3CB2C46A592F51E16B49F9017604 /* Row.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Row.swift; path = Source/Core/Row.swift; sourceTree = "<group>"; };
+		A4D6A84C1AE28B25F83FA06A9D8AC509 /* ALCameraViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ALCameraViewController-umbrella.h"; sourceTree = "<group>"; };
 		A7E8517C9483E2E106AE1D3348A74A8F /* Pods-thepayproapp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-thepayproapp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AC29DF5997DEE8EF5AD7F828E9B4133D /* BaseRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseRow.swift; path = Source/Core/BaseRow.swift; sourceTree = "<group>"; };
 		AC5931DA6CC6C04D6195CD756B353CD9 /* Pods-thepayproapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-thepayproapp.release.xcconfig"; sourceTree = "<group>"; };
-		AE1413DBBA8BD5140ACD5A53D27F9920 /* UIViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = ALCameraViewController/Utilities/UIViewExtensions.swift; sourceTree = "<group>"; };
+		ACA0B081D38A8CC468FB9635046B40E1 /* CellType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CellType.swift; path = Source/Core/CellType.swift; sourceTree = "<group>"; };
+		AE59C0B278F1AF2140F8A4774162A3F7 /* CropOverlay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CropOverlay.swift; path = ALCameraViewController/Views/CropOverlay.swift; sourceTree = "<group>"; };
 		AFBA19091DFEB7F4F1362D28F577D66C /* Pods_thepayproappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_thepayproappTests.framework; path = "Pods-thepayproappTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFF75551DBBCC7899646BE0C78C3F64F /* RuleRequired.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRequired.swift; path = Source/Validations/RuleRequired.swift; sourceTree = "<group>"; };
-		B20E94EEA23FB49894D041394AD13813 /* PickerInlineRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerInlineRow.swift; path = Source/Rows/PickerInlineRow.swift; sourceTree = "<group>"; };
-		B2C77C3F9D500DB8D2F0DAA2B8F21D42 /* ALCameraViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ALCameraViewController-umbrella.h"; sourceTree = "<group>"; };
+		B0B116E8583A137E40A4481CF708AF48 /* ButtonRowWithPresent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonRowWithPresent.swift; path = Source/Rows/ButtonRowWithPresent.swift; sourceTree = "<group>"; };
+		B4D56464202490DF739D08D12806C703 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Core/Validation.swift; sourceTree = "<group>"; };
+		B5BE18519CB12125DD82EDA0602A74AD /* CheckRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CheckRow.swift; path = Source/Rows/CheckRow.swift; sourceTree = "<group>"; };
+		B63AA2434A0345C66E740A0F2F24E27E /* UIViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = ALCameraViewController/Utilities/UIViewExtensions.swift; sourceTree = "<group>"; };
 		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		BD223219484C2788FDCBDF04238C834C /* CameraGlobals.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CameraGlobals.swift; path = ALCameraViewController/Utilities/CameraGlobals.swift; sourceTree = "<group>"; };
+		B7956468BB777405408F21CDC20CF80B /* CroppingParameters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CroppingParameters.swift; path = ALCameraViewController/Utilities/CroppingParameters.swift; sourceTree = "<group>"; };
+		BBD3361E3BCC6D63E507A4AF51A8AB32 /* Eureka-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Eureka-umbrella.h"; sourceTree = "<group>"; };
+		BE26E985B954BD1BF113AD5C47B5E8CF /* RuleEqualsToRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleEqualsToRow.swift; path = Source/Validations/RuleEqualsToRow.swift; sourceTree = "<group>"; };
 		BE76EFD9940F9DF83CD7C1D818B76992 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF9DE3EA5ACB99D1480E027DB0D40866 /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Eureka.framework; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2228482A500F1D7700293F8C0DC26D6 /* ALCameraViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ALCameraViewController-dummy.m"; sourceTree = "<group>"; };
 		C26A3EB25C7107BBBF5C8884D4C91FD7 /* Pods-thepayproappUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-thepayproappUITests-dummy.m"; sourceTree = "<group>"; };
-		C39CBF701CAE3E832AF11B34EC801DC6 /* ButtonRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonRow.swift; path = Source/Rows/ButtonRow.swift; sourceTree = "<group>"; };
-		C6178D1D88A999F8E0135DEAAB7C6608 /* Eureka.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Eureka.xcconfig; sourceTree = "<group>"; };
-		C65D9668D1368A91B57A2E49E8C944AF /* DateFieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateFieldRow.swift; path = Source/Rows/Common/DateFieldRow.swift; sourceTree = "<group>"; };
-		C70E39D88B45540F2289ECCA7FFA8A9F /* PushRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PushRow.swift; path = Source/Rows/PushRow.swift; sourceTree = "<group>"; };
-		C84FE3AD047D61D8BBE1D8DB59789162 /* CameraView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CameraView.swift; path = ALCameraViewController/Views/CameraView.swift; sourceTree = "<group>"; };
-		C8FA8C4D5CCDEAA9B0D750CFD884A7F9 /* ImageCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCell.swift; path = ALCameraViewController/Views/ImageCell.swift; sourceTree = "<group>"; };
-		C94238D85A0B82AE166F08162CAC48A4 /* GenericMultipleSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GenericMultipleSelectorRow.swift; path = Source/Rows/Common/GenericMultipleSelectorRow.swift; sourceTree = "<group>"; };
+		C366BB21C5E497CD67FF4C910214D72E /* RuleRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRange.swift; path = Source/Validations/RuleRange.swift; sourceTree = "<group>"; };
+		C43F1A1E777E4DCCCD55C5945F0AC743 /* GenericMultipleSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GenericMultipleSelectorRow.swift; path = Source/Rows/Common/GenericMultipleSelectorRow.swift; sourceTree = "<group>"; };
 		C9704F3AB3E2C036D68F25A3EB306078 /* Pods-thepayproappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-thepayproappTests.release.xcconfig"; sourceTree = "<group>"; };
-		CA8A135888E3E6180D3DCD17606ABD1E /* CellType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CellType.swift; path = Source/Core/CellType.swift; sourceTree = "<group>"; };
-		CB2AE4090011E768212CA5F83C205099 /* SelectableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectableSection.swift; path = Source/Core/SelectableSection.swift; sourceTree = "<group>"; };
-		CE4E7FC69CA7BBD966DE808985FB3E84 /* StepperRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StepperRow.swift; path = Source/Rows/StepperRow.swift; sourceTree = "<group>"; };
-		D0B05678598183FCFD200093F4405208 /* CameraViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ALCameraViewController/ViewController/CameraViewController.swift; sourceTree = "<group>"; };
+		CAC25FE5DA43253C59AFFC00883201C7 /* Form.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Form.swift; path = Source/Core/Form.swift; sourceTree = "<group>"; };
+		CD3C53B39910F2F6EEEC367F4B5664FB /* SelectableRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectableRowType.swift; path = Source/Core/SelectableRowType.swift; sourceTree = "<group>"; };
+		CD958E2D73EB63E9DDDD18EAD3E44BF7 /* RuleRequired.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRequired.swift; path = Source/Validations/RuleRequired.swift; sourceTree = "<group>"; };
 		D2292F4C45C38B2AEDAD414B017DC5D3 /* Pods-thepayproappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-thepayproappUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D32E9FE756401B29B9FABCA46A258EC9 /* ImageFetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageFetcher.swift; path = ALCameraViewController/Utilities/ImageFetcher.swift; sourceTree = "<group>"; };
+		D2AC34FCA82B61CF030FD1A4EA0A611D /* SelectorAlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorAlertController.swift; path = Source/Rows/Controllers/SelectorAlertController.swift; sourceTree = "<group>"; };
 		D35964E3EE0D36C988F67D20D6B5115D /* Pods_thepayproappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_thepayproappUITests.framework; path = "Pods-thepayproappUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3A266D6D7FA1A1F140EA24067D4EF24 /* Pods-thepayproapp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-thepayproapp-frameworks.sh"; sourceTree = "<group>"; };
-		D5FA8BA20D533BF21AE523FDCE78F452 /* RuleRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRange.swift; path = Source/Validations/RuleRange.swift; sourceTree = "<group>"; };
+		D5C7DE9E08D92C953297432E3D2CDE2C /* CameraGlobals.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CameraGlobals.swift; path = ALCameraViewController/Utilities/CameraGlobals.swift; sourceTree = "<group>"; };
 		D65362E68AA2552552FD1669B188C393 /* Pods-thepayproappTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-thepayproappTests.modulemap"; sourceTree = "<group>"; };
 		D68358C16339D9C549E579B293A1C687 /* Pods-thepayproapp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-thepayproapp-resources.sh"; sourceTree = "<group>"; };
+		D6C44E0B7D0B2083D3E9BC40D2D127AD /* Core.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Core.swift; path = Source/Core/Core.swift; sourceTree = "<group>"; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		DCE8A554E50FCF8292BEFA3B53853B84 /* NavigationAccessoryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationAccessoryView.swift; path = Source/Core/NavigationAccessoryView.swift; sourceTree = "<group>"; };
-		DFB97E9495BAD29BD436B7CFD53694D2 /* SliderRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SliderRow.swift; path = Source/Rows/SliderRow.swift; sourceTree = "<group>"; };
-		DFE2CE47C4E1D29A49313A0A1C2A67CA /* RowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowType.swift; path = Source/Core/RowType.swift; sourceTree = "<group>"; };
-		E245BB86AA6B32C957B6448FA8F05FB2 /* Row.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Row.swift; path = Source/Core/Row.swift; sourceTree = "<group>"; };
+		DAD9D9658FDBCA7D7DD162FAFA78CB8C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCDF0D85D1E8950E46CBD16E22079B2E /* FieldsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldsRow.swift; path = Source/Rows/FieldsRow.swift; sourceTree = "<group>"; };
+		DE1B73DAC379DFE35286DE4501DB8BB1 /* RuleEmail.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleEmail.swift; path = Source/Validations/RuleEmail.swift; sourceTree = "<group>"; };
+		E349702FF93A1F9EDC7007C32442C099 /* ButtonRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonRow.swift; path = Source/Rows/ButtonRow.swift; sourceTree = "<group>"; };
 		E40440804D22DFF90BFFC138AE6E36C4 /* Pods-thepayproappUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-thepayproappUITests-umbrella.h"; sourceTree = "<group>"; };
-		E520C8435A3D9FC8B712B3F7E23B5C1B /* Section.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Source/Core/Section.swift; sourceTree = "<group>"; };
-		E83ED2D2317DDAC6BFBE808BDB5CE0D3 /* PermissionsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PermissionsView.swift; path = ALCameraViewController/Views/PermissionsView.swift; sourceTree = "<group>"; };
-		E93C82EACC499B3009D95BFAD9833017 /* RuleClosure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleClosure.swift; path = Source/Validations/RuleClosure.swift; sourceTree = "<group>"; };
-		E94139552C66EB5361AC9EBA55CDD6CA /* DecimalFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DecimalFormatter.swift; path = Source/Rows/Common/DecimalFormatter.swift; sourceTree = "<group>"; };
-		ECBBB34E735B864BD1E6B59B77562EF7 /* SwitchRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwitchRow.swift; path = Source/Rows/SwitchRow.swift; sourceTree = "<group>"; };
-		ED2D97AA129FCAF77EFC8A6416E73803 /* CameraView.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = CameraView.strings; path = ALCameraViewController/CameraView.strings; sourceTree = "<group>"; };
-		EDE061E24330D0B51878874953ADB3FD /* OptionsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionsRow.swift; path = Source/Rows/Common/OptionsRow.swift; sourceTree = "<group>"; };
-		EE04763CC9BB2EA0EBA98792F87408FB /* MultipleSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipleSelectorRow.swift; path = Source/Rows/MultipleSelectorRow.swift; sourceTree = "<group>"; };
+		E44A42AAF7C68C58560CA2AF16E1A576 /* SelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorRow.swift; path = Source/Rows/Common/SelectorRow.swift; sourceTree = "<group>"; };
+		E4623786465EC87AAB7DC5F868D24702 /* Eureka.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Eureka.bundle; path = Source/Resources/Eureka.bundle; sourceTree = "<group>"; };
+		E75B3DE006D121FF7CD496091D139134 /* SingleImageSaver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SingleImageSaver.swift; path = ALCameraViewController/Utilities/SingleImageSaver.swift; sourceTree = "<group>"; };
 		EEDCD9D21320160D0CA0FEC88F221778 /* Pods-thepayproappUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-thepayproappUITests-frameworks.sh"; sourceTree = "<group>"; };
-		F09146DDB22D111BA4A4D9514B083BBA /* ConfirmViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConfirmViewController.swift; path = ALCameraViewController/ViewController/ConfirmViewController.swift; sourceTree = "<group>"; };
-		F288BCEC5B4F16822A25487E165215EE /* ALCameraViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ALCameraViewController.modulemap; sourceTree = "<group>"; };
-		F3F10CEE8975BCBEF54008C78D92C12B /* RuleURL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleURL.swift; path = Source/Validations/RuleURL.swift; sourceTree = "<group>"; };
+		EF1DF3EA92760CE0CACACD3451CAA19B /* PhotoLibraryViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotoLibraryViewController.swift; path = ALCameraViewController/ViewController/PhotoLibraryViewController.swift; sourceTree = "<group>"; };
+		F273082FE7ECFC73A7248256CF6573E5 /* SegmentedRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SegmentedRow.swift; path = Source/Rows/SegmentedRow.swift; sourceTree = "<group>"; };
+		F3BE8559E2DB46EE7E85C0AB2603EFE5 /* FieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldRow.swift; path = Source/Rows/Common/FieldRow.swift; sourceTree = "<group>"; };
 		F4792FF20143BC3326796D2998962015 /* Pods-thepayproappTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-thepayproappTests-resources.sh"; sourceTree = "<group>"; };
-		F64FCE8506748254903DFCBEDC309E18 /* RuleEqualsToRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleEqualsToRow.swift; path = Source/Validations/RuleEqualsToRow.swift; sourceTree = "<group>"; };
 		F725C79084E255DAC02E1FDE7BAD3EB4 /* Pods-thepayproappTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-thepayproappTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		F780B3009551DE56930F9668B402B178 /* PhotoLibraryViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhotoLibraryViewController.swift; path = ALCameraViewController/ViewController/PhotoLibraryViewController.swift; sourceTree = "<group>"; };
 		FB17C2F1693E5780203CBECD475688A2 /* Pods-thepayproapp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-thepayproapp-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2C64B1D7F92FF76BD0D1CDA8F9EC103B /* Frameworks */ = {
+		18783CF14ED3F149631FC314BE0B95E0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04F70AFABCC0D9B5E02B9BA27D81938D /* Foundation.framework in Frameworks */,
+				4A7A65E9F5B5FC9025396987A8BBEAD3 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,70 +306,83 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A3C78FCE6696F40C358B4A987462C2F /* ALCameraViewController */ = {
+		016072DAA0180856FDB762AC0D3781E6 /* Eureka */ = {
 			isa = PBXGroup;
 			children = (
-				BD223219484C2788FDCBDF04238C834C /* CameraGlobals.swift */,
-				881D9A05F8445AD63F702FE6C121F8FD /* CameraShot.swift */,
-				C84FE3AD047D61D8BBE1D8DB59789162 /* CameraView.swift */,
-				D0B05678598183FCFD200093F4405208 /* CameraViewController.swift */,
-				7C90C783D495E9EA27C641297218CF4F /* CameraViewControllerConstraint.swift */,
-				F09146DDB22D111BA4A4D9514B083BBA /* ConfirmViewController.swift */,
-				55A517648CB4D890E6A0BD5519393DF4 /* CropOverlay.swift */,
-				C8FA8C4D5CCDEAA9B0D750CFD884A7F9 /* ImageCell.swift */,
-				D32E9FE756401B29B9FABCA46A258EC9 /* ImageFetcher.swift */,
-				E83ED2D2317DDAC6BFBE808BDB5CE0D3 /* PermissionsView.swift */,
-				170B8D4045A3E21A15859D9C66109305 /* PhotoLibraryAuthorizer.swift */,
-				F780B3009551DE56930F9668B402B178 /* PhotoLibraryViewController.swift */,
-				789B648F1B0161F9CF96D7942B8FA405 /* SingleImageFetcher.swift */,
-				4E10686BD7BB1A78A08B4AB43432D58C /* SingleImageSaver.swift */,
-				48F6841C0985ABEFA90EB242A0777E18 /* UIButtonExtensions.swift */,
-				AE1413DBBA8BD5140ACD5A53D27F9920 /* UIViewExtensions.swift */,
-				2E26CB9175C87E2164118B46BFDD928A /* Utilities.swift */,
-				59C80D055DFBC63F8720DC65290D2883 /* VolumeControl.swift */,
-				0DC6AD6B7DDDB1E8843E64BD4CFBDBF4 /* Resources */,
-				0C47003ABBA85C519E4D04C4147B83D9 /* Support Files */,
+				06DB2ACD242E6775BFD54CAECFDFFB1D /* ActionSheetRow.swift */,
+				87C55AFBBCB4689B9DCF2A3199ECC34A /* AlertRow.swift */,
+				AC29DF5997DEE8EF5AD7F828E9B4133D /* BaseRow.swift */,
+				E349702FF93A1F9EDC7007C32442C099 /* ButtonRow.swift */,
+				B0B116E8583A137E40A4481CF708AF48 /* ButtonRowWithPresent.swift */,
+				7DBEB0614EBA882497713F6F374EBB00 /* Cell.swift */,
+				ACA0B081D38A8CC468FB9635046B40E1 /* CellType.swift */,
+				B5BE18519CB12125DD82EDA0602A74AD /* CheckRow.swift */,
+				D6C44E0B7D0B2083D3E9BC40D2D127AD /* Core.swift */,
+				440FC4F51E82E78345E6D9EC1442A358 /* DateFieldRow.swift */,
+				675A6DEE0C7A2A592C6B1500959B4C14 /* DateInlineFieldRow.swift */,
+				3E84151B9FEC968B41C085F8803DA4BC /* DateInlineRow.swift */,
+				0FD625C4361A23F0418D6075409AA78E /* DatePickerRow.swift */,
+				036C1BE169CEAEAEC46C1F0869D284B8 /* DateRow.swift */,
+				2CDFAE7205F2143CC22A99922EBE5791 /* DecimalFormatter.swift */,
+				F3BE8559E2DB46EE7E85C0AB2603EFE5 /* FieldRow.swift */,
+				DCDF0D85D1E8950E46CBD16E22079B2E /* FieldsRow.swift */,
+				CAC25FE5DA43253C59AFFC00883201C7 /* Form.swift */,
+				C43F1A1E777E4DCCCD55C5945F0AC743 /* GenericMultipleSelectorRow.swift */,
+				96483AE23686249EE7923BD5B775322D /* HeaderFooterView.swift */,
+				2B7CE2838C0D3D683966FEC3928241A5 /* Helpers.swift */,
+				6CC7F619EF059FB20AE1CED269BA1257 /* InlineRowType.swift */,
+				4339563EEF0493F1C131B51260DC8A8F /* LabelRow.swift */,
+				47D87BFD3DC28B4CF0F5F98FE9472298 /* ListCheckRow.swift */,
+				6276579A687D53C2E2886BB8682816BE /* MultipleSelectorRow.swift */,
+				1477E42A3EC801A21E0B01EF5CCF9EC9 /* MultipleSelectorViewController.swift */,
+				1CE764CB9F4C293256EE4F432C3B692A /* NavigationAccessoryView.swift */,
+				4FCCCAA922D37A07A2C22A6E1BD04B1D /* Operators.swift */,
+				7FAF6D6FE12D0F8A17E89392AA0443C1 /* OptionsRow.swift */,
+				9A8152A6127B4D6D8DAF6AC532914637 /* PickerInlineRow.swift */,
+				7E0A13C53DF5F11ACD28F8096DCA1265 /* PickerInputRow.swift */,
+				61B828D28192FA366AE962F1ABF84828 /* PickerRow.swift */,
+				1D23F4EAD1E2ACD10BD3161B99BDCC63 /* PopoverSelectorRow.swift */,
+				86F397FAAA7EC50FCAC413A9D26E539D /* PresenterRowType.swift */,
+				389D7EAA9B9C0F769A514366600E351D /* Protocols.swift */,
+				73D0A43BFA3A2A052F6C018922F36409 /* PushRow.swift */,
+				A0DA3CB2C46A592F51E16B49F9017604 /* Row.swift */,
+				90A1E5220520C529E3DF7705C7D3729E /* RowControllerType.swift */,
+				5D79933C20DEB25047079210187454FE /* RowProtocols.swift */,
+				2DD698039BC8DF91C309EE0EE9084807 /* RowType.swift */,
+				96BD633A57328C7A30D73939F8870E05 /* RuleClosure.swift */,
+				DE1B73DAC379DFE35286DE4501DB8BB1 /* RuleEmail.swift */,
+				BE26E985B954BD1BF113AD5C47B5E8CF /* RuleEqualsToRow.swift */,
+				5B6425D39C1FFD271802ADBC3FAA80DB /* RuleLength.swift */,
+				C366BB21C5E497CD67FF4C910214D72E /* RuleRange.swift */,
+				262B33D3BADA962B78F6EF515AC0E55E /* RuleRegExp.swift */,
+				CD958E2D73EB63E9DDDD18EAD3E44BF7 /* RuleRequired.swift */,
+				2BF799CC3D21CB9AAE04EFC5998B88D3 /* RuleURL.swift */,
+				6CF8B22EFF89392143C872AE3B7817D1 /* Section.swift */,
+				F273082FE7ECFC73A7248256CF6573E5 /* SegmentedRow.swift */,
+				CD3C53B39910F2F6EEEC367F4B5664FB /* SelectableRowType.swift */,
+				7DDA2976BC97E02B2DD4D829C16BD84D /* SelectableSection.swift */,
+				D2AC34FCA82B61CF030FD1A4EA0A611D /* SelectorAlertController.swift */,
+				E44A42AAF7C68C58560CA2AF16E1A576 /* SelectorRow.swift */,
+				0E3850BC8FD839F4D96C36F35FEC49DE /* SelectorViewController.swift */,
+				4620FD80E5C27774F041763F8B7C1627 /* SliderRow.swift */,
+				52FEFEAEA7B41523437FBC35AF64A430 /* StepperRow.swift */,
+				120FEB4979BCFEC52081EE7350A254C3 /* SwitchRow.swift */,
+				35E09FFD11E635D002E7BE901F9F0E52 /* TextAreaRow.swift */,
+				B4D56464202490DF739D08D12806C703 /* Validation.swift */,
+				845995416EB1A07F8BE687C8141DA112 /* Resources */,
+				4202BBFE088D367B902EE8C055E7E628 /* Support Files */,
 			);
-			name = ALCameraViewController;
-			path = ALCameraViewController;
+			name = Eureka;
+			path = Eureka;
 			sourceTree = "<group>";
 		};
-		0C47003ABBA85C519E4D04C4147B83D9 /* Support Files */ = {
+		1A111C5C18E77C2EB1823C2EECD9F2CE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F288BCEC5B4F16822A25487E165215EE /* ALCameraViewController.modulemap */,
-				9E24C3882A547CD6989DE379DFCE871B /* ALCameraViewController.xcconfig */,
-				C2228482A500F1D7700293F8C0DC26D6 /* ALCameraViewController-dummy.m */,
-				22F5ABEC383BD41DEAD22EFA196B85ED /* ALCameraViewController-prefix.pch */,
-				B2C77C3F9D500DB8D2F0DAA2B8F21D42 /* ALCameraViewController-umbrella.h */,
-				09F5BA2EF2A1354873997B90CCBF3FE3 /* Info.plist */,
+				58FCFE33C1E940D017FEA6E3F6FED8AC /* ALCameraViewController */,
+				016072DAA0180856FDB762AC0D3781E6 /* Eureka */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/ALCameraViewController";
-			sourceTree = "<group>";
-		};
-		0DC6AD6B7DDDB1E8843E64BD4CFBDBF4 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				ED2D97AA129FCAF77EFC8A6416E73803 /* CameraView.strings */,
-				2E780DA95495F5EB7F939A57940653F4 /* CameraViewAssets.xcassets */,
-				81FE78A108FCA7BE37D522D42913D159 /* ConfirmViewController.xib */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		28A5364405F1B445B51841359A2B9D53 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				2550C1E70AE73C742FAFE7219FCF3A81 /* Eureka.modulemap */,
-				C6178D1D88A999F8E0135DEAAB7C6608 /* Eureka.xcconfig */,
-				272ADD62437B90F71C3CEE55E103B001 /* Eureka-dummy.m */,
-				14175028E47D4B8903027DB58F444A9B /* Eureka-prefix.pch */,
-				46DD47563DE03B40523A4A0C8DCF88B9 /* Eureka-umbrella.h */,
-				32EA87AD9110D885B71C2975B2F06E10 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Eureka";
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		2E58C3BC884A086A0A2BC08D52791E6C /* Targets Support Files */ = {
@@ -378,6 +393,20 @@
 				A0D420D6572CCD9FB61568876DB447AF /* Pods-thepayproappUITests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		4202BBFE088D367B902EE8C055E7E628 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				124FE4FEB1D40F634AFB45E24DE7B503 /* Eureka.modulemap */,
+				3E3D79FA06A03E640250CFF4BB53906F /* Eureka.xcconfig */,
+				6B60C123EA9DC5CD0DA0F8B3F09388A6 /* Eureka-dummy.m */,
+				56BCD267122B5A8AA0F3912FE7B0F00F /* Eureka-prefix.pch */,
+				BBD3361E3BCC6D63E507A4AF51A8AB32 /* Eureka-umbrella.h */,
+				DAD9D9658FDBCA7D7DD162FAFA78CB8C /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Eureka";
 			sourceTree = "<group>";
 		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
@@ -397,82 +426,33 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		43F63B87E3C230B2D1656042C8A1395E /* Eureka */ = {
+		58FCFE33C1E940D017FEA6E3F6FED8AC /* ALCameraViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9814E47DD53148E6FB92EB9774F689A5 /* ActionSheetRow.swift */,
-				756ABE54818484013578F33BE5E61C86 /* AlertRow.swift */,
-				2E3F1991124C62938FD11F96C1DA95B0 /* BaseRow.swift */,
-				C39CBF701CAE3E832AF11B34EC801DC6 /* ButtonRow.swift */,
-				87F872FEEED7794EA3109297C5F5C476 /* ButtonRowWithPresent.swift */,
-				928A56306AE7669ED3A76841D408218A /* Cell.swift */,
-				CA8A135888E3E6180D3DCD17606ABD1E /* CellType.swift */,
-				7FF8F1ECC8B37D079F074E40FB8647C5 /* CheckRow.swift */,
-				27DF3C82C130269F105FB0D604085938 /* Core.swift */,
-				C65D9668D1368A91B57A2E49E8C944AF /* DateFieldRow.swift */,
-				22D2FD08B1B9D2FE6C6F73F9264CC292 /* DateInlineFieldRow.swift */,
-				637D2F2622F4DFEF9BB18C039ED05730 /* DateInlineRow.swift */,
-				16BC1B77C03E93EB2F51E5821036018A /* DatePickerRow.swift */,
-				46DD2C878C9BC8718F048DA59BC81B07 /* DateRow.swift */,
-				E94139552C66EB5361AC9EBA55CDD6CA /* DecimalFormatter.swift */,
-				473E72DCD64FA999F91CD7DF561885B1 /* FieldRow.swift */,
-				773053B21A19ACA642A69442D94B25A3 /* FieldsRow.swift */,
-				116BAFC02F5BB3232D305B11A233474D /* Form.swift */,
-				C94238D85A0B82AE166F08162CAC48A4 /* GenericMultipleSelectorRow.swift */,
-				6A424208F0F963C09E0BA1AE5058DEC2 /* HeaderFooterView.swift */,
-				A4E7E646E682F7294538E6862407EC3E /* Helpers.swift */,
-				44DEA12BFB14B1ACFA003489080EB6B0 /* InlineRowType.swift */,
-				1C52EBF48601ADBCA912E4070DBE3120 /* LabelRow.swift */,
-				4BA6D61B8D08A581F3BD5F7B6252E957 /* ListCheckRow.swift */,
-				EE04763CC9BB2EA0EBA98792F87408FB /* MultipleSelectorRow.swift */,
-				5B7904CD3A1858143BC01A5ACC4AD3C2 /* MultipleSelectorViewController.swift */,
-				DCE8A554E50FCF8292BEFA3B53853B84 /* NavigationAccessoryView.swift */,
-				5C2771C887390565A8710E846E3382D0 /* Operators.swift */,
-				EDE061E24330D0B51878874953ADB3FD /* OptionsRow.swift */,
-				B20E94EEA23FB49894D041394AD13813 /* PickerInlineRow.swift */,
-				3BB3D2E1DD69762C42A29A09FB13387C /* PickerInputRow.swift */,
-				23C3894FB5C6F4E1E9E6B2EF4985EC0F /* PickerRow.swift */,
-				1C121250F6982C726F6B1EFA1B9776E7 /* PopoverSelectorRow.swift */,
-				872BC26AE2FEEA5D8FD364ADFC35F485 /* PresenterRowType.swift */,
-				71DB971540EA91085F16AEEC521B8D22 /* Protocols.swift */,
-				C70E39D88B45540F2289ECCA7FFA8A9F /* PushRow.swift */,
-				E245BB86AA6B32C957B6448FA8F05FB2 /* Row.swift */,
-				82FA0D481A7CDB1E62434FDD9621FF0C /* RowControllerType.swift */,
-				4199CC858F0567FE6BA5D6726385CF6A /* RowProtocols.swift */,
-				DFE2CE47C4E1D29A49313A0A1C2A67CA /* RowType.swift */,
-				E93C82EACC499B3009D95BFAD9833017 /* RuleClosure.swift */,
-				A12871EE810DF8E78A7E152B981DACC6 /* RuleEmail.swift */,
-				F64FCE8506748254903DFCBEDC309E18 /* RuleEqualsToRow.swift */,
-				A78989772201125EE854F433D2AD35BC /* RuleLength.swift */,
-				D5FA8BA20D533BF21AE523FDCE78F452 /* RuleRange.swift */,
-				0A185C5BC706DB649214E4219D904A4A /* RuleRegExp.swift */,
-				AFF75551DBBCC7899646BE0C78C3F64F /* RuleRequired.swift */,
-				F3F10CEE8975BCBEF54008C78D92C12B /* RuleURL.swift */,
-				E520C8435A3D9FC8B712B3F7E23B5C1B /* Section.swift */,
-				3583567ACCF6141A77C3A122F887150C /* SegmentedRow.swift */,
-				73853166C4A50ED3066A2EFF2FED8B20 /* SelectableRowType.swift */,
-				CB2AE4090011E768212CA5F83C205099 /* SelectableSection.swift */,
-				446CE7AD0A32B27DEF023B1F033C708D /* SelectorAlertController.swift */,
-				4AC0644965B1EB84B836B971D2EC683F /* SelectorRow.swift */,
-				4C9F13AD49F7B191655657715123BA74 /* SelectorViewController.swift */,
-				DFB97E9495BAD29BD436B7CFD53694D2 /* SliderRow.swift */,
-				CE4E7FC69CA7BBD966DE808985FB3E84 /* StepperRow.swift */,
-				ECBBB34E735B864BD1E6B59B77562EF7 /* SwitchRow.swift */,
-				9F4950C7A39A09D1ACD129588096D583 /* TextAreaRow.swift */,
-				1942B71FA8A7679CFCD9F33D90486FCD /* Validation.swift */,
-				58C50F28DBFC52AAC1A652453D7DE5DB /* Resources */,
-				28A5364405F1B445B51841359A2B9D53 /* Support Files */,
+				D5C7DE9E08D92C953297432E3D2CDE2C /* CameraGlobals.swift */,
+				49F8B4A412A63899B374DC3C45D439F9 /* CameraShot.swift */,
+				8E49E16D7ED9287042EEA6337026CAF3 /* CameraView.swift */,
+				344F2C009180C384F67D55F7E01D8D9D /* CameraViewController.swift */,
+				4FB455B11A4EEED0AA9ECA479C3064CF /* CameraViewControllerConstraint.swift */,
+				69105515A1E27DCAA2A1D882502CA331 /* ConfirmViewController.swift */,
+				AE59C0B278F1AF2140F8A4774162A3F7 /* CropOverlay.swift */,
+				B7956468BB777405408F21CDC20CF80B /* CroppingParameters.swift */,
+				6FBAF9D2C132D71704E3AF43EF321D1D /* ImageCell.swift */,
+				3EBF9CD4331009394DA27065275C324F /* ImageFetcher.swift */,
+				043ABC435402DFA5772BF1C899B423B9 /* PermissionsView.swift */,
+				2A47FFC80EAC5A473DFF4C9412488F0D /* PhotoLibraryAuthorizer.swift */,
+				EF1DF3EA92760CE0CACACD3451CAA19B /* PhotoLibraryViewController.swift */,
+				5D400E15D09AACF14F2BDA6CF7C77CE2 /* SingleImageFetcher.swift */,
+				E75B3DE006D121FF7CD496091D139134 /* SingleImageSaver.swift */,
+				83C48FC8AA7481BDC417B3E33054E45A /* UIButtonExtensions.swift */,
+				B63AA2434A0345C66E740A0F2F24E27E /* UIViewExtensions.swift */,
+				1DAF4120A206BD08BEDA5A421B5104BF /* Utilities.swift */,
+				9BF2105113E163D946A26E785231DE33 /* VolumeControl.swift */,
+				F5948603BB071E83FAC97CDB0ECC3654 /* Resources */,
+				88EE114D94FD35A7E75A2C3D9CB5BA72 /* Support Files */,
 			);
-			name = Eureka;
-			path = Eureka;
-			sourceTree = "<group>";
-		};
-		58C50F28DBFC52AAC1A652453D7DE5DB /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				963BA248E2DE7CFC84F9944B765735ED /* Eureka.bundle */,
-			);
-			name = Resources;
+			name = ALCameraViewController;
+			path = ALCameraViewController;
 			sourceTree = "<group>";
 		};
 		75DF88E50805A4BB1A2470DB7B598951 /* Products */ = {
@@ -492,19 +472,32 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				96B016017D60D5A8800DE814C87DAD83 /* Pods */,
+				1A111C5C18E77C2EB1823C2EECD9F2CE /* Pods */,
 				75DF88E50805A4BB1A2470DB7B598951 /* Products */,
 				2E58C3BC884A086A0A2BC08D52791E6C /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		96B016017D60D5A8800DE814C87DAD83 /* Pods */ = {
+		845995416EB1A07F8BE687C8141DA112 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0A3C78FCE6696F40C358B4A987462C2F /* ALCameraViewController */,
-				43F63B87E3C230B2D1656042C8A1395E /* Eureka */,
+				E4623786465EC87AAB7DC5F868D24702 /* Eureka.bundle */,
 			);
-			name = Pods;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		88EE114D94FD35A7E75A2C3D9CB5BA72 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8772F880163929B37BA48D9C9EC66602 /* ALCameraViewController.modulemap */,
+				3523BC719CBA26E5C3757C6E07F6337C /* ALCameraViewController.xcconfig */,
+				748715A8AA8227C190EA389A8419DE56 /* ALCameraViewController-dummy.m */,
+				3FB07BDB6F9E31BBA3036B2B2E7611D3 /* ALCameraViewController-prefix.pch */,
+				A4D6A84C1AE28B25F83FA06A9D8AC509 /* ALCameraViewController-umbrella.h */,
+				928E1D4A4A50D6AADD8A7D5025E435A1 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ALCameraViewController";
 			sourceTree = "<group>";
 		};
 		A0D420D6572CCD9FB61568876DB447AF /* Pods-thepayproappUITests */ = {
@@ -561,6 +554,16 @@
 			path = "Target Support Files/Pods-thepayproapp";
 			sourceTree = "<group>";
 		};
+		F5948603BB071E83FAC97CDB0ECC3654 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1C4050C22A56B5E4DDD2510DF2B64B5E /* CameraView.strings */,
+				39869E020D0273E35A319B3DF57E75F4 /* CameraViewAssets.xcassets */,
+				19190E130AD9AC7CEC1E9EB0602D3219 /* ConfirmViewController.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -569,6 +572,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F0D960DBEF20736A7A505A9250942F1 /* Eureka-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EE3A49DACCD8BB22CB1D9E2F86D3B86 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17980A7D4FFDA661EB7A2A7877957D1C /* ALCameraViewController-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,14 +596,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				277F9A7B495B8D7C948F6546F431AB16 /* Pods-thepayproapp-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E27F76F016316C2D92C5B45E3F9B660D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				12A9528C78FC91D0AABD455430F71F14 /* ALCameraViewController-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,6 +646,24 @@
 			productReference = D35964E3EE0D36C988F67D20D6B5115D /* Pods_thepayproappUITests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		5570ADD82640075EE63C4B974684196D /* ALCameraViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C45949BC229DC75A6C527ED35205E062 /* Build configuration list for PBXNativeTarget "ALCameraViewController" */;
+			buildPhases = (
+				6D152D1336D8323C8F4D231278A12573 /* Sources */,
+				18783CF14ED3F149631FC314BE0B95E0 /* Frameworks */,
+				B7BF6612D8479386CF4D84DE6BBC435A /* Resources */,
+				2EE3A49DACCD8BB22CB1D9E2F86D3B86 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ALCameraViewController;
+			productName = ALCameraViewController;
+			productReference = 92ADBDC26DB4D1F68D91B7815E0512C8 /* ALCameraViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		675A114988AE198732ED4AD726408964 /* Eureka */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50C8E1EFA0C5DC6AD96DBEE0EFA14308 /* Build configuration list for PBXNativeTarget "Eureka" */;
@@ -678,24 +699,6 @@
 			productReference = AFBA19091DFEB7F4F1362D28F577D66C /* Pods_thepayproappTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D7FAEFEAF68AE19EB2D22369766AF24E /* ALCameraViewController */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FD90E44CDD34EB5E733256DD755BB941 /* Build configuration list for PBXNativeTarget "ALCameraViewController" */;
-			buildPhases = (
-				BAB486A2A6E2C0A5A03FD3435FD75320 /* Sources */,
-				2C64B1D7F92FF76BD0D1CDA8F9EC103B /* Frameworks */,
-				4E1A17333FAB145991373207913351ED /* Resources */,
-				E27F76F016316C2D92C5B45E3F9B660D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ALCameraViewController;
-			productName = ALCameraViewController;
-			productReference = 92ADBDC26DB4D1F68D91B7815E0512C8 /* ALCameraViewController.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -717,7 +720,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D7FAEFEAF68AE19EB2D22369766AF24E /* ALCameraViewController */,
+				5570ADD82640075EE63C4B974684196D /* ALCameraViewController */,
 				675A114988AE198732ED4AD726408964 /* Eureka */,
 				004AA6C585AF4A884003F03FA4A71AE3 /* Pods-thepayproapp */,
 				86A732DCD5C6573D45C77D7A7D8D02AD /* Pods-thepayproappTests */,
@@ -727,13 +730,13 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4E1A17333FAB145991373207913351ED /* Resources */ = {
+		B7BF6612D8479386CF4D84DE6BBC435A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				776BC005849D0896DD668DA2FB5F7D99 /* CameraView.strings in Resources */,
-				EF8C344CE47D0DB5EFFE54EFC76F417E /* CameraViewAssets.xcassets in Resources */,
-				EC0C9AF7C16D80B37803F5C04703F0E5 /* ConfirmViewController.xib in Resources */,
+				49F718CC2A382A6E091F07A4A3449441 /* CameraView.strings in Resources */,
+				CF011AF8E0AEC4435805CC095D647FA6 /* CameraViewAssets.xcassets in Resources */,
+				9159303811E1CF0D6FCE1B7C0BF0A26C /* ConfirmViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,6 +764,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				27E90381F850892642E4C4A84B8770BE /* Pods-thepayproappUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D152D1336D8323C8F4D231278A12573 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42F0D75E7DA383640BD4574C8D08CEF1 /* ALCameraViewController-dummy.m in Sources */,
+				EE77DCD20E836C23F782D39D02505887 /* CameraGlobals.swift in Sources */,
+				BD39EF4C7C9A9BDA97CABD4B34A7258E /* CameraShot.swift in Sources */,
+				EC056198370845290ED30DE12701B0DC /* CameraView.swift in Sources */,
+				48A62FDCD9FCD5C1940DE1C041D38D31 /* CameraViewController.swift in Sources */,
+				3579A5632C68ECB771284AE039E39705 /* CameraViewControllerConstraint.swift in Sources */,
+				8FD3EBBBF1622F58ABCF8671CBCD3432 /* ConfirmViewController.swift in Sources */,
+				C5AA50DCF34D3F018072C984EF18D366 /* CropOverlay.swift in Sources */,
+				B097E8B525DDBE65C30DAF5458957FE8 /* CroppingParameters.swift in Sources */,
+				78229C724844A2F32DB2D05285CE515C /* ImageCell.swift in Sources */,
+				67032953D1DB30B26C861A3D2E02FE8B /* ImageFetcher.swift in Sources */,
+				FAB23BC0A0156DB93D49CA64968230EC /* PermissionsView.swift in Sources */,
+				F6B7C96A9E89CFB46CE8BE6DE9C93016 /* PhotoLibraryAuthorizer.swift in Sources */,
+				4AD5DA24A58B72BEF85EDD8C1117813B /* PhotoLibraryViewController.swift in Sources */,
+				DA68E34E7E7D39961D4462EDF798C9A7 /* SingleImageFetcher.swift in Sources */,
+				47475127F3D9B0AA095E90193F7A0012 /* SingleImageSaver.swift in Sources */,
+				43DEE2F1EF7D3B1B7036EF4DF900513B /* UIButtonExtensions.swift in Sources */,
+				5C1184CF84A07DF3F565A9E450FBCA62 /* UIViewExtensions.swift in Sources */,
+				55691B4946AE3E04672E63C66BC3604D /* Utilities.swift in Sources */,
+				CBF8C92C5692B682ECC8EF60FD304A19 /* VolumeControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,39 +870,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BAB486A2A6E2C0A5A03FD3435FD75320 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				45AD103A7308F4575C81A34F31B4AD4C /* ALCameraViewController-dummy.m in Sources */,
-				91BF56F2EE96EC97E18675351C4C9B30 /* CameraGlobals.swift in Sources */,
-				B8D93073BC7B63600BB2052C397F9BAF /* CameraShot.swift in Sources */,
-				0DE2B989EA1F1592E67AED334AAB6B98 /* CameraView.swift in Sources */,
-				1921256E0012189FC4EEE2A11AE2E820 /* CameraViewController.swift in Sources */,
-				C82D76C04578BCDA05C5A6265391B649 /* CameraViewControllerConstraint.swift in Sources */,
-				67BFD91AEE97E523E7CD95D783DD2C02 /* ConfirmViewController.swift in Sources */,
-				D1ADD9FA19AFF58FD32941D28BE1D1DA /* CropOverlay.swift in Sources */,
-				5820152CF7B16F6FF64E13D78467376A /* ImageCell.swift in Sources */,
-				DE1A8D219A174437C79F956E941F2907 /* ImageFetcher.swift in Sources */,
-				19A2983E2CC133E1C50E8FB6AEAC9D9D /* PermissionsView.swift in Sources */,
-				3BD24FAC0C1C25415AC53CDBAC1F57DA /* PhotoLibraryAuthorizer.swift in Sources */,
-				0AFDB91CAB32B63E9877CE50A73792DF /* PhotoLibraryViewController.swift in Sources */,
-				CC4F616136F385FA9CDEA939FA766815 /* SingleImageFetcher.swift in Sources */,
-				F2B32C3D5DDB7C59A06F094526AF7088 /* SingleImageSaver.swift in Sources */,
-				6D4FFBDD1446E07634AC24A82B729C44 /* UIButtonExtensions.swift in Sources */,
-				04A620B8F7A9DF431B022A24B4355E7C /* UIViewExtensions.swift in Sources */,
-				2B7B1C4B141251B7154840885562AA93 /* Utilities.swift in Sources */,
-				EEF987BCFB48224604D3FC617582648B /* VolumeControl.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		0AE82AD02ADD0ACD866624BCF88C2821 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ALCameraViewController;
-			target = D7FAEFEAF68AE19EB2D22369766AF24E /* ALCameraViewController */;
+			target = 5570ADD82640075EE63C4B974684196D /* ALCameraViewController */;
 			targetProxy = DA680D60B15758F53686E98FC5FB4C59 /* PBXContainerItemProxy */;
 		};
 		A36821BECF1CB0BCC14DA51C63657AC6 /* PBXTargetDependency */ = {
@@ -884,43 +888,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0CE8301641C08BD40FFDE13168AE2643 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8458EBCECC826895DC43CD1AD1A8E838 /* Pods-thepayproappTests.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-thepayproappTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_thepayproappTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		34FE9531DA9AF2820790339988D5FF41 /* Release */ = {
+		1A41B15D3AA834993ADDD808FA9D8764 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -956,7 +924,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
@@ -964,9 +932,9 @@
 			};
 			name = Release;
 		};
-		980844EBC6C62E0B45E38CCA761C4411 /* Release */ = {
+		24BDA3CDFC9408EFAEBC7640BB0399AF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E24C3882A547CD6989DE379DFCE871B /* ALCameraViewController.xcconfig */;
+			baseConfigurationReference = 601FF6588DF6064F62629DC1AC486028 /* Pods-thepayproappUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -980,52 +948,18 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ALCameraViewController/ALCameraViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ALCameraViewController/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-thepayproappUITests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ALCameraViewController/ALCameraViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = ALCameraViewController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		A7A74E3C0CF3381A45C9BAD209862AB7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9704F3AB3E2C036D68F25A3EB306078 /* Pods-thepayproappTests.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-thepayproappTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-thepayproappUITests/Pods-thepayproappUITests.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_thepayproappTests;
+				PRODUCT_NAME = Pods_thepayproappUITests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1034,42 +968,7 @@
 			};
 			name = Release;
 		};
-		AE88C678AEE4C2372629E0A23239EECF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6178D1D88A999F8E0135DEAAB7C6608 /* Eureka.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Eureka/Eureka-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Eureka/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Eureka/Eureka.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Eureka;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		B0EF07AAD323D809FBE789B1EE359353 /* Debug */ = {
+		59F4818E27264354D6E25A1433CF2658 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 85BC19464D1F224451278069D82131B0 /* Pods-thepayproapp.debug.xcconfig */;
 			buildSettings = {
@@ -1087,7 +986,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-thepayproapp/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-thepayproapp/Pods-thepayproapp.modulemap";
@@ -1108,16 +1007,16 @@
 			};
 			name = Debug;
 		};
-		B22DDBBC57993ACFE65315729604483D /* Release */ = {
+		73CCC7227FB4EBBF28594EDD04181927 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 601FF6588DF6064F62629DC1AC486028 /* Pods-thepayproappUITests.release.xcconfig */;
+			baseConfigurationReference = D2292F4C45C38B2AEDAD414B017DC5D3 /* Pods-thepayproappUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1126,11 +1025,11 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-thepayproappUITests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-thepayproappUITests/Pods-thepayproappUITests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1142,9 +1041,9 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		C104F7F091290C3D1E248192F07FE689 /* Debug */ = {
+		7D144F724433A09597E3476A57631255 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1184,7 +1083,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -1192,79 +1091,9 @@
 			};
 			name = Debug;
 		};
-		CAAA31D04C2ED387A21DC6C957A05F41 /* Debug */ = {
+		9E50975E2EC071AC9AF5950F5B9F6B79 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2292F4C45C38B2AEDAD414B017DC5D3 /* Pods-thepayproappUITests.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-thepayproappUITests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-thepayproappUITests/Pods-thepayproappUITests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_thepayproappUITests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		D46BD71F55A5058116376C24D476C855 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6178D1D88A999F8E0135DEAAB7C6608 /* Eureka.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Eureka/Eureka-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Eureka/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Eureka/Eureka.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Eureka;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		D7421BAA7A7EDA758D2ABECD1512DEB7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E24C3882A547CD6989DE379DFCE871B /* ALCameraViewController.xcconfig */;
+			baseConfigurationReference = 3523BC719CBA26E5C3757C6E07F6337C /* ALCameraViewController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1297,7 +1126,182 @@
 			};
 			name = Debug;
 		};
-		F8F9CE92F4BB1C1F51D77B4B810BDC58 /* Release */ = {
+		AE88C678AEE4C2372629E0A23239EECF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E3D79FA06A03E640250CFF4BB53906F /* Eureka.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Eureka/Eureka-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Eureka/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Eureka/Eureka.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Eureka;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C427D98C4C5BD3BDB93933AAAA310F00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9704F3AB3E2C036D68F25A3EB306078 /* Pods-thepayproappTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-thepayproappTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_thepayproappTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D46BD71F55A5058116376C24D476C855 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E3D79FA06A03E640250CFF4BB53906F /* Eureka.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Eureka/Eureka-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Eureka/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Eureka/Eureka.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Eureka;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E04DB65D5608E4E6D0D5272B30C9515B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3523BC719CBA26E5C3757C6E07F6337C /* ALCameraViewController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ALCameraViewController/ALCameraViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ALCameraViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ALCameraViewController/ALCameraViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ALCameraViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E661C08BD79232D05E665D9EE3DEA5E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8458EBCECC826895DC43CD1AD1A8E838 /* Pods-thepayproappTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-thepayproappTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-thepayproappTests/Pods-thepayproappTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_thepayproappTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ECB46599E498B5555FB04393654E1E7C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AC5931DA6CC6C04D6195CD756B353CD9 /* Pods-thepayproapp.release.xcconfig */;
 			buildSettings = {
@@ -1315,7 +1319,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-thepayproapp/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-thepayproapp/Pods-thepayproapp.modulemap";
@@ -1341,8 +1345,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C104F7F091290C3D1E248192F07FE689 /* Debug */,
-				34FE9531DA9AF2820790339988D5FF41 /* Release */,
+				7D144F724433A09597E3476A57631255 /* Debug */,
+				1A41B15D3AA834993ADDD808FA9D8764 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1359,8 +1363,8 @@
 		76139DAFAEB3448F0799A851E4533159 /* Build configuration list for PBXNativeTarget "Pods-thepayproapp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B0EF07AAD323D809FBE789B1EE359353 /* Debug */,
-				F8F9CE92F4BB1C1F51D77B4B810BDC58 /* Release */,
+				59F4818E27264354D6E25A1433CF2658 /* Debug */,
+				ECB46599E498B5555FB04393654E1E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1368,8 +1372,8 @@
 		7EA2C615A020B7226BFA212836265FD1 /* Build configuration list for PBXNativeTarget "Pods-thepayproappTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0CE8301641C08BD40FFDE13168AE2643 /* Debug */,
-				A7A74E3C0CF3381A45C9BAD209862AB7 /* Release */,
+				E661C08BD79232D05E665D9EE3DEA5E2 /* Debug */,
+				C427D98C4C5BD3BDB93933AAAA310F00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1377,17 +1381,17 @@
 		8F5D156E3C339F9D5D52B1AEEF16D529 /* Build configuration list for PBXNativeTarget "Pods-thepayproappUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CAAA31D04C2ED387A21DC6C957A05F41 /* Debug */,
-				B22DDBBC57993ACFE65315729604483D /* Release */,
+				73CCC7227FB4EBBF28594EDD04181927 /* Debug */,
+				24BDA3CDFC9408EFAEBC7640BB0399AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FD90E44CDD34EB5E733256DD755BB941 /* Build configuration list for PBXNativeTarget "ALCameraViewController" */ = {
+		C45949BC229DC75A6C527ED35205E062 /* Build configuration list for PBXNativeTarget "ALCameraViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D7421BAA7A7EDA758D2ABECD1512DEB7 /* Debug */,
-				980844EBC6C62E0B45E38CCA761C4411 /* Release */,
+				9E50975E2EC071AC9AF5950F5B9F6B79 /* Debug */,
+				E04DB65D5608E4E6D0D5272B30C9515B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
