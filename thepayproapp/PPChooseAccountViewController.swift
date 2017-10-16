@@ -62,7 +62,7 @@ class PPChooseAccountViewController: UIViewController, UIScrollViewDelegate
         proAS.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSRange(location: 0, length: proAS.length))
         proDescriptionTV.attributedText = proAS
         
-        let basicAS = NSMutableAttributedString(string: "Bank Account FREE\nVisa Debit (-6 € on your first top up)\nFX Transactions (1%)\nPOS FREE\nUp to € 2,000 per month FREE")
+        let basicAS = NSMutableAttributedString(string: "Bank Account FREE\nVisa Debit (-5.99 € on your first top up)\nFX Transactions (1%)\nPOS FREE\nUp to € 2,000 per month FREE")
         basicAS.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightLight), range: NSRange(location: 0, length: basicAS.length))
         basicAS.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightMedium), range: NSRange(location: 13, length: 4))
         basicAS.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightMedium), range: NSRange(location: 82, length: 4))

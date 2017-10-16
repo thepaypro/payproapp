@@ -981,12 +981,6 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewX-oQ-5dn">
                                                 <rect key="frame" x="0.0" y="30" width="414" height="76"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ft2-5f-fjx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
-                                                        <connections>
-                                                            <segue destination="PeJ-Wt-1eu" kind="show" identifier="profileViewSegue" id="jxM-N8-RF6"/>
-                                                        </connections>
-                                                    </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T9U-hM-d1f">
                                                         <rect key="frame" x="15" y="10" width="56" height="56"/>
                                                         <constraints>
@@ -1003,6 +997,12 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disclosure-indicator" translatesAutoresizingMaskIntoConstraints="NO" id="v2L-HB-irG">
                                                         <rect key="frame" x="390" y="31" width="8" height="13"/>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ft2-5f-fjx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
+                                                        <connections>
+                                                            <segue destination="PeJ-Wt-1eu" kind="show" identifier="profileViewSegue" id="jxM-N8-RF6"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -4866,43 +4866,6 @@ in PayPro</string>
             </objects>
             <point key="canvasLocation" x="2692" y="1092"/>
         </scene>
-        <!--Prefix Selection View Controller-->
-        <scene sceneID="RJw-oT-HDP">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="qcW-8p-sz6" customClass="PPPrefixSelectionViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FgG-Bo-78A"/>
-                        <viewControllerLayoutGuide type="bottom" id="LrV-pm-RZ4"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4J9-f6-7R3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1yC-fr-uA7">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="qcW-8p-sz6" id="cBz-7d-ZO1"/>
-                                    <outlet property="delegate" destination="qcW-8p-sz6" id="Hwv-ih-onu"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="LrV-pm-RZ4" firstAttribute="top" secondItem="1yC-fr-uA7" secondAttribute="bottom" id="K6E-9d-l5J"/>
-                            <constraint firstItem="1yC-fr-uA7" firstAttribute="centerX" secondItem="4J9-f6-7R3" secondAttribute="centerX" id="LHm-L6-61w"/>
-                            <constraint firstItem="1yC-fr-uA7" firstAttribute="top" secondItem="FgG-Bo-78A" secondAttribute="bottom" id="cDc-8H-xaL"/>
-                            <constraint firstItem="1yC-fr-uA7" firstAttribute="width" secondItem="4J9-f6-7R3" secondAttribute="width" id="ky5-Gl-TKd"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="prefixTV" destination="1yC-fr-uA7" id="UKA-5E-yCf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yc3-IW-n9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5814" y="40"/>
-        </scene>
         <!--Document Photo View Controller-->
         <scene sceneID="3gF-1N-6Vf">
             <objects>
@@ -4916,10 +4879,10 @@ in PayPro</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WbT-aP-dJ6">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5f-9o-kZ3">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gB-um-3tU">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
@@ -4939,32 +4902,32 @@ in PayPro</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORz-hX-KxU">
-                                                <rect key="frame" x="0.0" y="43" width="320" height="461"/>
+                                                <rect key="frame" x="0.0" y="43" width="414" height="580"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLs-e8-nlz">
-                                                        <rect key="frame" x="15" y="15" width="290" height="203"/>
+                                                        <rect key="frame" x="15" y="15" width="384" height="255.33333333333331"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="0Ds-t4-hdv">
-                                                                <rect key="frame" x="110" y="67" width="69" height="69"/>
+                                                                <rect key="frame" x="157" y="93.333333333333343" width="69" height="68.999999999999972"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="69" id="17Q-Zw-njH"/>
                                                                     <constraint firstAttribute="width" constant="69" id="VtV-jp-c8J"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press to take a photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Lp-Ee-9oA">
-                                                                <rect key="frame" x="63.5" y="136" width="162" height="21"/>
+                                                                <rect key="frame" x="110.66666666666669" y="162.33333333333331" width="162" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DoX-aw-PpD">
-                                                                <rect key="frame" x="0.0" y="0.0" width="290" height="203"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="255.33333333333331"/>
                                                                 <connections>
                                                                     <action selector="firstButtonAction:" destination="WuB-bl-OVO" eventType="touchUpInside" id="hqt-5Z-17i"/>
                                                                 </connections>
                                                             </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="crm-mN-QgF">
-                                                                <rect key="frame" x="0.0" y="0.0" width="290" height="203"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="255.33333333333331"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.93843692540000001" green="0.9390823841" blue="0.95562428239999997" alpha="1" colorSpace="deviceRGB"/>
@@ -4985,29 +4948,29 @@ in PayPro</string>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obn-xA-v14">
-                                                        <rect key="frame" x="15" y="285" width="384" height="255"/>
+                                                        <rect key="frame" x="15" y="285.33333333333337" width="384" height="255.33333333333337"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="dfu-nU-Qp1">
-                                                                <rect key="frame" x="158" y="92.333333333333314" width="69" height="69.000000000000057"/>
+                                                                <rect key="frame" x="158" y="92.333333333333371" width="69" height="68.999999999999943"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="69" id="XYC-22-jna"/>
                                                                     <constraint firstAttribute="width" constant="69" id="o0M-Nt-3Z4"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press to take a photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkU-KS-2Ue">
-                                                                <rect key="frame" x="111" y="161.33333333333337" width="162" height="21"/>
+                                                                <rect key="frame" x="111" y="161.33333333333331" width="162" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xY-Ck-Zs1">
-                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="255"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="255.33333333333331"/>
                                                                 <connections>
                                                                     <action selector="secondButtonAction:" destination="WuB-bl-OVO" eventType="touchUpInside" id="yWk-nx-L1U"/>
                                                                 </connections>
                                                             </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="49X-3V-fpO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="255"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="255.33333333333331"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.93843692540000001" green="0.9390823841" blue="0.95562428239999997" alpha="1" colorSpace="deviceRGB"/>
@@ -6334,8 +6297,7 @@ in PayPro</string>
         <image name="descriptionBackground" width="315" height="142"/>
         <image name="disclosure-indicator" width="8" height="13"/>
         <image name="disclosure-indicator-down" width="13" height="8"/>
-        <image name="icons8-Lock-50" width="25" height="25"/>
-        <image name="logo-alone" width="50" height="50"/>
+        <image name="icons8-Lock-50" width="16" height="16"/>
         <image name="logo-horizontal" width="467" height="160"/>
         <image name="oval" width="20" height="20"/>
         <image name="proSelected" width="315" height="80"/>
@@ -6357,22 +6319,16 @@ in PayPro</string>
         <image name="whiteCheck" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4h9-kM-2Nm"/>
-        <segue reference="60J-F3-tNy"/>
-        <segue reference="JJj-1x-d2j"/>
-        <segue reference="fwd-HY-Ucz"/>
+        <segue reference="hTT-Ug-9qa"/>
         <segue reference="QOc-uS-S0D"/>
         <segue reference="CKg-gm-nrI"/>
-        <segue reference="Lxe-Dh-tgY"/>
-        <segue reference="In3-0W-KaY"/>
-        <segue reference="a4Y-DX-0uo"/>
-        <segue reference="W6i-Y0-uXg"/>
-        <segue reference="hTT-Ug-9qa"/>
-        <segue reference="cPk-Rt-u9Q"/>
+        <segue reference="4h9-kM-2Nm"/>
         <segue reference="ops-cj-9Fb"/>
-        <segue reference="Azs-uz-2tr"/>
         <segue reference="Vby-Ea-oLq"/>
+        <segue reference="In3-0W-KaY"/>
         <segue reference="HF2-MJ-WVS"/>
+        <segue reference="60J-F3-tNy"/>
+        <segue reference="Azs-uz-2tr"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
