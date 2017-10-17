@@ -187,10 +187,12 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
     // MARK: - Contact Operations
     
     open func reloadContacts() {
+        self.displayNavBarActivity()
         getContacts( {(contacts, error) in
             if (error == nil) {
                 DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
+                    self.dismissNavBarActivity()
                 })
             }
         })
@@ -273,7 +275,6 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                         position += 1
                     }
                 }
-                self.displayNavBarActivity()
                 checkContacts(contacts: phoneNumberArray as NSDictionary, completion: {contactsResponse in
                     
                     if contactsResponse["status"] as! Bool == true {
@@ -287,7 +288,6 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                         let alert = UIAlertController()
                         self.present(alert.displayAlert(code: errorMessage as! String), animated: true, completion: nil)
                     }
-                    self.dismissNavBarActivity()
                     completion(contactsArray, nil)
                 })
             }
