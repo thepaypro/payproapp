@@ -29,6 +29,8 @@ open class SendMoney {
     fileprivate var beneficiaryName: String?
     fileprivate var phoneNumber: String?
     fileprivate var contactId: Int?
+    fileprivate var beneficiaryUserId: Int?
+    fileprivate var beneficiaryAccountId: Int?
     fileprivate var label: String?
     
     
@@ -51,6 +53,8 @@ open class SendMoney {
         beneficiaryName = nil
         phoneNumber = nil
         contactId = nil
+        beneficiaryUserId = nil
+        beneficiaryAccountId = nil
         label = nil
     }
     
@@ -190,8 +194,8 @@ open class SendMoney {
         bitcoinAddr = bitcoinAddrValue
     }
     
-    open func getBitcoinAddr() -> String {
-        return bitcoinAddr!
+    open func getBitcoinAddr() -> String? {
+        return bitcoinAddr
     }
     
     open func setShortcode(shortcodeValue: String) {
@@ -258,12 +262,20 @@ open class SendMoney {
         return phoneNumber!
     }
     
-    open func setcontactId(contactIdValue: Int) {
-        contactId = contactIdValue
+    open func setBeneficiaryUserId(beneficiaryUserIdValue: Int) {
+        beneficiaryUserId = beneficiaryUserIdValue
     }
     
-    open func getcontactId() -> Int {
-        return contactId!
+    open func getBeneficiaryUserId() -> Int? {
+        return beneficiaryUserId
+    }
+    
+    open func setBeneficiaryAccountId(beneficiaryAccountIdValue: Int) {
+        beneficiaryAccountId = beneficiaryAccountIdValue
+    }
+    
+    open func getBeneficiaryAccountId() -> Int {
+        return beneficiaryAccountId!
     }
     
     open func getLabel() -> String? {

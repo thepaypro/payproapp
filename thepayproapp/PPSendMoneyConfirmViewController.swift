@@ -59,9 +59,7 @@ class PPSendMoneyConfirmViewController: UIViewController
         
         let labelTop = UILabel()
         
-        if self.userAccountType == .demoAccount ||
-            self.userStatus == .statusDemo ||
-            self.userStatus == .statusActivating
+       if (userAccountType == .demoAccount || userStatus != .statusActivated )
         {
             labelTop.text = "Fake payment done!"
         } else {
@@ -75,7 +73,7 @@ class PPSendMoneyConfirmViewController: UIViewController
         self.view.addSubview(labelTop)
        
         let labelMiddle = UILabel()
-        labelMiddle.text = sendMoney.getAmount()
+        labelMiddle.text = sendMoney.getAmountWithCurrencySymbol()
         labelMiddle.textAlignment = .center
         labelMiddle.textColor = UIColor.white
         labelMiddle.font = UIFont.systemFont(ofSize: 42, weight: UIFontWeightLight)
@@ -84,10 +82,7 @@ class PPSendMoneyConfirmViewController: UIViewController
         
         let labelBottom = UILabel()
         
-        if self.userAccountType == .demoAccount ||
-            self.userStatus == .statusDemo ||
-            self.userStatus == .statusActivating
-        {
+        if (userAccountType == .demoAccount || userStatus != .statusActivated )        {
             labelBottom.text = "This is how a payment would be made"
         } else {
             if sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 0{
@@ -103,9 +98,7 @@ class PPSendMoneyConfirmViewController: UIViewController
         labelBottom.frame = CGRect(x: 0, y: (self.view.frame.height/2) - 55, width: self.view.frame.width, height: 20)
         self.view.addSubview(labelBottom)
         
-        if self.userAccountType == .demoAccount ||
-            self.userStatus == .statusDemo ||
-            self.userStatus == .statusActivating
+        if (userAccountType == .demoAccount || userStatus != .statusActivated )
         {
             let labelFinish = UILabel()
             labelFinish.text = "Please, activate your account if you want to start making real payments"
@@ -122,9 +115,7 @@ class PPSendMoneyConfirmViewController: UIViewController
     {
         var when = DispatchTime.now() + 3
         
-        if self.userAccountType == .demoAccount ||
-            self.userStatus == .statusDemo ||
-            self.userStatus == .statusActivating
+        if (userAccountType == .demoAccount || userStatus != .statusActivated )
         {
             when = DispatchTime.now() + 5
         }

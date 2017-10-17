@@ -356,7 +356,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
             contact = Contact(contact: contactsForSection[(indexPath as NSIndexPath).row])
         }
         
-        if multiSelectEnabled  && selectedContacts.contains(where: { $0.contactId == contact.contactId }) {
+        if multiSelectEnabled  && selectedContacts.contains(where: { $0.userId == contact.userId }) {
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }
 
@@ -373,7 +373,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
             if cell.accessoryType == UITableViewCellAccessoryType.checkmark {
                 cell.accessoryType = UITableViewCellAccessoryType.none
                 selectedContacts = selectedContacts.filter(){
-                    return selectedContact.contactId != $0.contactId
+                    return selectedContact.userId != $0.userId
                 }
             }
             else {

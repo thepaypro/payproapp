@@ -46,7 +46,7 @@ class PPCardPinViewAfterActivationFormController: UIViewController
         let backButton = UIBarButtonItem(title:"Back",style: .done, target: self, action: #selector(self.goBack(_:)))
         navigationItem.leftBarButtonItems = [backButton]
 
-        Timer.scheduledTimer(timeInterval: Double(visiblePinScreenTime!), target: self, selector: #selector(self.goBack), userInfo: nil, repeats: false);
+//        Timer.scheduledTimer(timeInterval: Double(visiblePinScreenTime!), target: self, selector: #selector(self.goBack), userInfo: nil, repeats: false);
     }
     
     func inverseMask(viewToMask: UIView, maskRect: CGRect, invert: Bool = false) {
@@ -101,7 +101,7 @@ class PPCardPinViewAfterActivationFormController: UIViewController
     }*/
     
     func goBack(_:Any) -> Void{
-        print("ImGoingBack")
+//        print("ImGoingBack")
         crossMaskView.backgroundColor = nil
         self.navigationController?.popToRootViewController(animated: true)
     }

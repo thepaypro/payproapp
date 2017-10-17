@@ -18,7 +18,8 @@ open class Contact {
     open var profileImage: UIImage?
 //    open var birthday: Date?
 //    open var birthdayString: String?
-    open var contactId: Int?
+    open var userId: Int?
+    open var accountId: Int?
     open var phoneNumbers = [(phoneNumber: String, phoneLabel: String)]()
 //    open var emails = [(email: String, emailLabel: String )]()
     open var isPayProUser: Bool = false
@@ -108,12 +109,20 @@ open class Contact {
         return phoneNumber!
     }
     
-    open func setContactId(contactIdValue: Int) {
-        contactId = contactIdValue
+    open func setUserId(userIdValue: Int){
+        userId = userIdValue
     }
     
-    open func getContactId() -> Int {
-        return contactId!
+    open func getUserId() -> Int {
+        return userId!
+    }
+    
+    open func setAccountId(accountIdValue: Int){
+        accountId = accountIdValue
+    }
+    
+    open func getAccountId() -> Int {
+        return accountId!
     }
 }
 

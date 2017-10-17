@@ -52,11 +52,11 @@ class PPTransactionTableViewCell: UITableViewCell
         titleLabel.text = transaction.title
         subtitleLabel.text = transaction.subtitle
         
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //Your date format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //Your date format
         
-//        datetimeLabel.text = dateFormatter.string(from: transaction.datetime!)
-        datetimeLabel.text = ""
+        datetimeLabel.text = dateFormatter.string(from: transaction.datetime!)
+//        datetimeLabel.text = transaction.datetime as? String
         
         quantityLabel.text = "µ₿ \(abs(transaction.amount))"
         
