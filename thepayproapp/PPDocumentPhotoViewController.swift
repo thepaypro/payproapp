@@ -38,7 +38,7 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
     var updateAccount : Bool = false
     
     var libraryEnabled: Bool = true
-    var croppingEnabled: Bool = false
+    var croppingEnabled: Bool = true
     var allowResizing: Bool = true
     var allowMoving: Bool = false
     var minimumSize: CGSize = CGSize(width: 60, height: 60)

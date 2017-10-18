@@ -27,9 +27,10 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
 //        userStatus = (User.currentUser()?.status)!
         if sendMoney.getLoadProcess() == 0 {
             sendMoney.deleteSavedData()
-            let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.phoneNumber)
-            let navigationController = UINavigationController(rootViewController: contactPickerScene)
-            self.present(navigationController, animated: true, completion: nil)
+//            let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.phoneNumber)
+//            let navigationController = UINavigationController(rootViewController: contactPickerScene)
+//            self.present(navigationController, animated: true, completion: nil)
+            loadContactsView()
         }
     }
     
@@ -42,6 +43,13 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
     override func viewWillDisappear(_ animated: Bool) {
         sendMoney.setFinishProcess(finishProcessValue: 0)
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    func loadContactsView()
+    {
+        let contactPickerScene = ContactsPicker(delegate: self, multiSelection:false, subtitleCellType: SubtitleCellValue.phoneNumber)
+        let navigationController = UINavigationController(rootViewController: contactPickerScene)
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     func ContacPickerNotInList(controller: ContactsPicker)
@@ -226,8 +234,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
                 alert.addAction(confirmAction)
                 
                 self.present(alert, animated: true, completion: {
-                    self.tabBarController?.selectedIndex = 2
-                    self.dismiss(animated: true, completion: nil)
+                    self.tabBarController?.selectedIndex = 3
                 })
             })
         case MessageComposeResult.failed.rawValue:
@@ -240,14 +247,20 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
                 alert.addAction(confirmAction)
                 
                 self.present(alert, animated: true, completion: {
-                    self.tabBarController?.selectedIndex = 2
-                    self.dismiss(animated: true, completion: nil)
+                    self.tabBarController?.selectedIndex = 3
                 })
             })
         case MessageComposeResult.sent.rawValue:
             print("Message was sent")
             self.dismiss(animated: true, completion: {
-                self.tabBarController?.selectedIndex = 2
+                let alert = UIAlertController(title: "SMS Sended", message: "The message has been successfully sended.", preferredStyle: UIAlertControllerStyle.alert)
+                let confirmAction = UIAlertAction(title: "Ok", style: .default)
+                
+                alert.addAction(confirmAction)
+                
+                self.present(alert, animated: true, completion: {
+                    self.tabBarController?.selectedIndex = 3
+                })
             })
             
         default:

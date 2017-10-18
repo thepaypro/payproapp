@@ -89,7 +89,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
             
 //            self.tableView.tableHeaderView = controller.searchBar
             
-            box.addSubview(controller.searchBar)
+//            box.addSubview(controller.searchBar)
             
 //            let notInContactList = UIView()
 //            notInContactList.frame = CGRect(x: 0, y:44, width: box.frame.width , height: 44)
@@ -118,7 +118,8 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
 //            
 //            box.addSubview(notInContactList)
             
-            self.tableView.tableHeaderView = box
+//            self.tableView.tableHeaderView = box
+            self.tableView.tableHeaderView = controller.searchBar
             return controller
         })()
     }
