@@ -82,9 +82,11 @@ class ContactCell: UITableViewCell {
                     if isPayProUser == true {
                         contact.setIsPayProUser(value: true)
                         
-                        let contactId = (validateContactRow as AnyObject).value(forKeyPath: "id") as! Int
+                        let userId = (validateContactRow as AnyObject).value(forKeyPath: "userId") as! Int
+                        let accountId = (validateContactRow as AnyObject).value(forKeyPath: "accountId") as! Int
                         
-                        contact.setContactId(contactIdValue: contactId)
+                        contact.setUserId(userIdValue: userId)
+                        contact.setAccountId(accountIdValue: accountId)
                         
                         let beneficiaryName = (validateContactRow as AnyObject).value(forKeyPath: "fullName") as! String
                         

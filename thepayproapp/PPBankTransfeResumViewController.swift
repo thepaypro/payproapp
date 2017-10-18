@@ -198,7 +198,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         let userAccountType = User.currentUser()?.accountType
         let userStatus = User.currentUser()?.status
         
-        if ((userAccountType == .demoAccount || userStatus != .statusActivated ) && sendMoney.getCurrencyType() == 0) || ( userStatus == .statusDemo && sendMoney.getCurrencyType() == 1 )
+        if (userAccountType == .demoAccount || userStatus != .statusActivated )
         {
             self.sendMoney.setFinishProcess(finishProcessValue: 1)
             
@@ -206,7 +206,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
             confirmViewController.modalTransitionStyle = .crossDissolve
             confirmViewController.sendMoney = self.sendMoney
             self.present(confirmViewController, animated: true, completion: {
-                self.tabBarController?.selectedIndex = 2
+                self.tabBarController?.selectedIndex = 3
                 self.vibrateDevice()
             })
         } else {
@@ -223,7 +223,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                         confirmViewController.modalTransitionStyle = .crossDissolve
                         confirmViewController.sendMoney = self.sendMoney
                         self.present(confirmViewController, animated: true, completion: {
-                            self.tabBarController?.selectedIndex = 2
+                            self.tabBarController?.selectedIndex = 3
                             self.vibrateDevice()
                         })
                     }
@@ -277,7 +277,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                 confirmViewController.sendMoney = self.sendMoney
                 self.present(confirmViewController, animated: true, completion: {
                     self.vibrateDevice()
-                    self.tabBarController?.selectedIndex = 2
+                    self.tabBarController?.selectedIndex = 3
                 })
             })
 
@@ -295,7 +295,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
             let title:String = String("Transaction to "+sendMoney.getBeneficiaryName())!
             
             TransactionCreate(
-                beneficiary: sendMoney.getcontactId(),
+                beneficiary: sendMoney.getBeneficiaryAccountId(),
                 amount: amountPennies,
                 subject: subject.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
                 title: title.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
@@ -337,7 +337,9 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
             
             BitcoinTransactionCreate(
                 addr: sendMoney.getBitcoinAddr(),
+                beneficiaryUserID: sendMoney.getBeneficiaryUserId(),
                 amount: amount!,
+                inApp: sendMoney.getOperationType() == 1,
                 subject: subject.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
                 completion: {transactionResponse in
                     

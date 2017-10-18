@@ -188,10 +188,12 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
     // MARK: - Contact Operations
     
     open func reloadContacts() {
+        self.displayNavBarActivity()
         getContacts( {(contacts, error) in
             if (error == nil) {
                 DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
+                    self.dismissNavBarActivity()
                 })
             }
         })
@@ -274,7 +276,6 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                         position += 1
                     }
                 }
-                self.displayNavBarActivity()
                 checkContacts(contacts: phoneNumberArray as NSDictionary, completion: {contactsResponse in
                     
                     if contactsResponse["status"] as! Bool == true {
@@ -288,7 +289,6 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
                         let alert = UIAlertController()
                         self.present(alert.displayAlert(code: errorMessage as! String), animated: true, completion: nil)
                     }
-                    self.dismissNavBarActivity()
                     completion(contactsArray, nil)
                 })
             }
@@ -357,7 +357,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
             contact = Contact(contact: contactsForSection[(indexPath as NSIndexPath).row])
         }
         
-        if multiSelectEnabled  && selectedContacts.contains(where: { $0.contactId == contact.contactId }) {
+        if multiSelectEnabled  && selectedContacts.contains(where: { $0.userId == contact.userId }) {
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }
 
@@ -374,7 +374,7 @@ open class ContactsPicker: UITableViewController, UISearchResultsUpdating, UISea
             if cell.accessoryType == UITableViewCellAccessoryType.checkmark {
                 cell.accessoryType = UITableViewCellAccessoryType.none
                 selectedContacts = selectedContacts.filter(){
-                    return selectedContact.contactId != $0.contactId
+                    return selectedContact.userId != $0.userId
                 }
             }
             else {
