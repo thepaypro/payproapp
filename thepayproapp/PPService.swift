@@ -24,7 +24,7 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, comple
         {
             let tokenAccess = UserDefaults.standard.string(forKey: "token")
             
-            let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+            let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30.0)
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
@@ -95,7 +95,7 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
             absoluteURL += "?\(paramsURL)"
         }
         
-        let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 20.0)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         

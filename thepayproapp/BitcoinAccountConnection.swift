@@ -14,7 +14,7 @@ func BitcoinGetWallet(completion: @escaping (_ bitcoinAccountGetWalletResponse: 
         
         if let wallet:NSDictionary = completionDictionary["wallet"] as? NSDictionary{
             if wallet.value(forKeyPath: "balance") != nil && wallet.value(forKeyPath: "address") != nil && wallet.value(forKey: "units") != nil{
-                let amountNumber:Float = (wallet.value(forKey: "balance") as! NSString).floatValue
+                let amountNumber:Float = wallet.value(forKey: "balance") as! Float
                 let unit:String?
                 if(wallet.value(forKey: "units") as! String == "bit"){
                     unit = "μ₿ "

@@ -248,7 +248,20 @@ extension UIAlertController {
             alert.addAction(confirmAction)
             
             return alert
-
+            
+        case "Insufficient funds":
+            let alert = UIAlertController(
+                title: "Insufficient funds",
+                message: "You don't have sufficient funds",
+                preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction = UIAlertAction(
+                title: "Ok",
+                style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
             
         default:
             let alert = UIAlertController(

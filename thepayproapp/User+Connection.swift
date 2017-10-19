@@ -102,13 +102,14 @@ extension User {
                     
                     BitcoinGetWallet(completion: {bitcoinWalletResponse in
                         
-                        var bitcoinAmountBalance:String? = nil
+//                        var bitcoinAmountBalance:String? = nil
+                        var bitcoinBalance:String = "μ₿ -.--"
                         var bitcoinAddr:String? = nil
                         
                         if bitcoinWalletResponse["status"] as! Bool == true {
                             if bitcoinWalletResponse["balance"] != nil && bitcoinWalletResponse["address"] != nil{
                                 bitcoinAddr = bitcoinWalletResponse["address"] as? String
-                                bitcoinAmountBalance = bitcoinWalletResponse["balance"] as? String
+                                bitcoinBalance = (bitcoinWalletResponse["balance"] as? String)!
                             }
                         }else{
                             completion(["status":false] as NSDictionary)
@@ -189,8 +190,8 @@ extension User {
                                     "email": accountInformation.value(forKeyPath: "email")!,
                                     "status": User.Status.statusActivated.rawValue,
                                     "amountBalance": amountBalance,
-                                    "bitcoinAmountBalance": bitcoinAmountBalance!,
-                                    "bitcoinAddress": bitcoinAddr!
+                                    "bitcoinAmountBalance": bitcoinBalance,
+                                    "bitcoinAddress": bitcoinAddr ?? ""
                                 ]
                                 
                                 let accountUser = self.manage(userDictionary: accountDictionary!)
