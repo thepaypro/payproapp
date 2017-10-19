@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import Intercom
 
 class PPPasscodeViewController: UIViewController, UITextFieldDelegate
 {
@@ -123,6 +124,9 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
                         self.dismissNavBarActivity()
                         
                         if registerResponse["status"] as! Bool == true {
+                            let username:String = (User.currentUser()?.username)!
+                            Intercom.registerUser(withUserId: username)
+                            
                             self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
                         } else {
                             let errorMessage: String = registerResponse["errorMessage"] as! String
@@ -141,6 +145,10 @@ class PPPasscodeViewController: UIViewController, UITextFieldDelegate
                     self.dismissNavBarActivity()
                 
                     if loginResponse["status"] as! Bool == true {
+                        let username:String = (User.currentUser()?.username)!
+                        print("username: \(username)")
+                        Intercom.registerUser(withUserId: username)
+                        
                         self.performSegue(withIdentifier: "showTabCSegue", sender: nil)
                     } else {
                         if loginResponse["errorMessage"] != nil {
