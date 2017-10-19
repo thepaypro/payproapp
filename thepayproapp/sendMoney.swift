@@ -70,12 +70,14 @@ open class SendMoney {
             bitcoinUri = [bitcoinUriScheme[1]]
         }else{
             completion(["status": false] as NSDictionary)
+            return
         }
         
         // need to check if the addr is valid
         if let bitcoinUriAddr: [String?] = bitcoinUri[0]?.components(separatedBy: "?"){
             if bitcoinUriAddr.count > 2 || !(bitcoinUriAddr[0]?.matchesRegex(regex: "^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$"))!{
                 completion(["status": false] as NSDictionary)
+                return
             }
             bitcoinAddr = bitcoinUriAddr[0]
             if bitcoinUriAddr.count == 2{
@@ -88,6 +90,7 @@ open class SendMoney {
                                     amount = param[1]
                                 }else{
                                     completion(["status": false] as NSDictionary)
+                                    return
                                 }
                             }
                             else if param[0] == "label" {
@@ -97,16 +100,18 @@ open class SendMoney {
                                 message = param[1].removingPercentEncoding
                             }else{
                                 completion(["status": false] as NSDictionary)
+                                return
                             }
                         }else{
                             completion(["status": false] as NSDictionary)
+                            return
                         }
                     }
-                }else{completion(["status": false] as NSDictionary)}
-            }else{completion(["status": true] as NSDictionary)}
-        }else{completion(["status": false] as NSDictionary)}
-        
+                }else{completion(["status": false] as NSDictionary); return}
+            }else{completion(["status": true] as NSDictionary); return}
+        }else{completion(["status": false] as NSDictionary); return}
         completion(["status": true] as NSDictionary)
+        return
     }
     
     open func setLoadProcess(loadProcessValue: Int) {
