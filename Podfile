@@ -1,13 +1,14 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, '8.0'
+platform :ios, '11.0'
 
 target 'thepayproapp' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for thepayproapp
-  pod 'Eureka', '3.0.0'
+  pod 'Eureka', '4.0.0'
   pod 'ALCameraViewController', :git => 'https://github.com/Tulleb/ALCameraViewController.git'
+  pod 'Intercom'
 
   target 'thepayproappTests' do
     inherit! :search_paths

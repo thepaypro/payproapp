@@ -71,9 +71,9 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         
         swipeColorBoxCenterX = self.swipeColorBox.center.x
         
-        self.amountLabel.text = sendMoney.getAmount()
+        self.amountLabel.text = sendMoney.getAmountWithCurrencySymbol()
         
-        if sendMoney.getOperationType() == 0 {
+        if sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 0 {
             self.firstLabel.text = sendMoney.getForename()+" "+sendMoney.getLastname()
             
             if sendMoney.getAccountDetailsType() == 0 {
@@ -92,17 +92,34 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
             
             self.textInfo.text = "Cell description which explains the consequences of the above action."
             
-        } else if sendMoney.getOperationType() == 1 {
-            self.amountLabel.text = sendMoney.getAmount()
-            self.firstLabel.text = sendMoney.getBeneficiaryName()
+        } else if sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 1 {
+            if( sendMoney.getLabel() == nil){
+                self.firstLabel.text = "Destinatary name not available"
+            }else {
+                self.firstLabel.text = sendMoney.getLabel()
+            }
             self.secondLabel.text = sendMoney.getMessage()
+            self.textInfo.text = "Cell description which explains the consequences of the above action."
+        }else if sendMoney.getOperationType() == 1 {
+            self.firstLabel.text = sendMoney.getBeneficiaryName()
+            if let label = sendMoney.getLabel(){
+                self.secondLabel.text = label
+                self.thirdLabel.text = sendMoney.getMessage()
+            }else{
+                self.secondLabel.text = sendMoney.getMessage()
+            }
             self.textInfo.text = "Cell description which explains the consequences of the above action."
             
         } else if sendMoney.getOperationType() == 2 {
-            self.amountLabel.text = sendMoney.getAmount()
             self.firstLabel.text = sendMoney.getBeneficiaryName()
-            self.secondLabel.text = sendMoney.getMessage()
-            self.thirdLabel.text = sendMoney.getphoneNumber()
+            if let label = sendMoney.getLabel(){
+                self.secondLabel.text = label
+                self.thirdLabel.text = sendMoney.getMessage()
+                self.fourthLabel.text = sendMoney.getphoneNumber()
+            }else{
+                self.secondLabel.text = sendMoney.getMessage()
+                self.thirdLabel.text = sendMoney.getphoneNumber()
+            }
             self.textInfo.text = "Cell description which explains the consequences of the above action DIF."
         }
         
@@ -181,9 +198,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
         let userAccountType = User.currentUser()?.accountType
         let userStatus = User.currentUser()?.status
         
-        if userAccountType == .demoAccount ||
-            userStatus == .statusDemo ||
-            userStatus == .statusActivating
+        if (userAccountType == .demoAccount || userStatus != .statusActivated )
         {
             self.sendMoney.setFinishProcess(finishProcessValue: 1)
             
@@ -191,7 +206,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
             confirmViewController.modalTransitionStyle = .crossDissolve
             confirmViewController.sendMoney = self.sendMoney
             self.present(confirmViewController, animated: true, completion: {
-                self.tabBarController?.selectedIndex = 2
+                self.tabBarController?.selectedIndex = 3
                 self.vibrateDevice()
             })
         } else {
@@ -208,7 +223,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                         confirmViewController.modalTransitionStyle = .crossDissolve
                         confirmViewController.sendMoney = self.sendMoney
                         self.present(confirmViewController, animated: true, completion: {
-                            self.tabBarController?.selectedIndex = 2
+                            self.tabBarController?.selectedIndex = 3
                             self.vibrateDevice()
                         })
                     }
@@ -262,7 +277,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
                 confirmViewController.sendMoney = self.sendMoney
                 self.present(confirmViewController, animated: true, completion: {
                     self.vibrateDevice()
-                    self.tabBarController?.selectedIndex = 2
+                    self.tabBarController?.selectedIndex = 3
                 })
             })
 
@@ -273,46 +288,89 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
     
     func createTransaction(completion: @escaping (_ createTransactionResponse: Bool) -> Void)
     {
-        let amount = String(sendMoney.getAmount())?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
-        let amountPennies:String = (amount?.getPennies())!
-        let subject:String = sendMoney.getMessage()
-        let title:String = String("Transaction to "+sendMoney.getBeneficiaryName())!
-        
-        TransactionCreate(
-            beneficiary: sendMoney.getcontactId(),
-            amount: amountPennies,
-            subject: subject.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
-            title: title.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
-            completion: {transactionResponse in
-                
-                print("transaction: \(transactionResponse)")
-                
-                if transactionResponse["status"] as! Bool == true {
-                    print("finishProcess: \(self.sendMoney.getFinishProcess())")
-                    self.sendMoney.setFinishProcess(finishProcessValue: 1)
-                    completion(true)
-                } else if transactionResponse["errorMessage"] != nil {
-                    self.animateSwipe(position: swipeColorBoxCenterX)
+        if(sendMoney.getCurrencyType() == 0){
+            let amount = String(sendMoney.getAmount()!)?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
+            let amountPennies:String = (amount?.getPennies())!
+            let subject:String = sendMoney.getMessage()!
+            let title:String = String("Transaction to "+sendMoney.getBeneficiaryName())!
+            
+            TransactionCreate(
+                beneficiary: sendMoney.getBeneficiaryAccountId(),
+                amount: amountPennies,
+                subject: subject.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
+                title: title.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
+                completion: {transactionResponse in
                     
-                    let errorMessage: String = transactionResponse["errorMessage"] as! String
+                    print("transaction: \(transactionResponse)")
                     
-                    let alert = UIAlertController()
-                    
-                    self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
-                    
-                    completion(false)
-                    
-                } else if transactionResponse["status"] as! Bool == false {
-                    self.animateSwipe(position: swipeColorBoxCenterX)
-                    
-                    let alert = UIAlertController()
-                    
-                    self.present(alert.displayAlert(code: "transaction_failed"), animated: true, completion: nil)
-                    
-                    completion(false)
+                    if transactionResponse["status"] as! Bool == true {
+                        print("finishProcess: \(self.sendMoney.getFinishProcess())")
+                        self.sendMoney.setFinishProcess(finishProcessValue: 1)
+                        completion(true)
+                    } else if transactionResponse["errorMessage"] != nil {
+                        self.animateSwipe(position: swipeColorBoxCenterX)
+                        
+                        let errorMessage: String = transactionResponse["errorMessage"] as! String
+                        
+                        let alert = UIAlertController()
+                        
+                        self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
+                        
+                        completion(false)
+                        
+                    } else if transactionResponse["status"] as! Bool == false {
+                        self.animateSwipe(position: swipeColorBoxCenterX)
+                        
+                        let alert = UIAlertController()
+                        
+                        self.present(alert.displayAlert(code: "transaction_failed"), animated: true, completion: nil)
+                        
+                        completion(false)
+                    }
                 }
-            }
-        )
+            )
+        }else if (sendMoney.getCurrencyType() == 1){
+            
+            let amount = String(sendMoney.getAmount()!)?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
+//            let amountBTC:String = (amount?.getBTCFromBits())!
+            let subject:String = sendMoney.getMessage()!
+            
+            BitcoinTransactionCreate(
+                addr: sendMoney.getBitcoinAddr(),
+                beneficiaryUserID: sendMoney.getBeneficiaryUserId(),
+                amount: amount!,
+                inApp: sendMoney.getOperationType() == 1,
+                subject: subject.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
+                completion: {transactionResponse in
+                    
+                    print("transaction: \(transactionResponse)")
+                    
+                    if transactionResponse["status"] as! Bool == true {
+                        print("finishProcess: \(self.sendMoney.getFinishProcess())")
+                        self.sendMoney.setFinishProcess(finishProcessValue: 1)
+                        completion(true)
+                    } else if transactionResponse["errorMessage"] != nil {
+                        self.animateSwipe(position: swipeColorBoxCenterX)
+                        
+                        let errorMessage: String = transactionResponse["errorMessage"] as! String
+                        
+                        let alert = UIAlertController()
+                        
+                        self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
+                        
+                        completion(false)
+                        
+                    } else if transactionResponse["status"] as! Bool == false {
+                        self.animateSwipe(position: swipeColorBoxCenterX)
+                        
+                        let alert = UIAlertController()
+                        
+                        self.present(alert.displayAlert(code: "transaction_failed"), animated: true, completion: nil)
+                        
+                        completion(false)
+                    }
+            })
+        }
     }
 }
 

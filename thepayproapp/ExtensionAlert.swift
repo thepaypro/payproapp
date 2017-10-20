@@ -193,10 +193,10 @@ extension UIAlertController {
             
             return alert
             
-        case "error_on_get_pin":
+        case "invalid_bitcoin_addr":
             let alert = UIAlertController(
-                title: "Unable to get Pin",
-                message: "Unable to get Pin",
+                title: "Address not valid",
+                message: "Bitcoin Address is not valid",
                 preferredStyle: UIAlertControllerStyle.alert)
             
             let confirmAction = UIAlertAction(
@@ -206,7 +206,63 @@ extension UIAlertController {
             alert.addAction(confirmAction)
             
             return alert
-
+            
+        case "invalid_bitcoin_uri":
+            let alert = UIAlertController(
+                title: "URI not valid",
+                message: "Bitcoin Uri is not valid",
+                preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction = UIAlertAction(
+                title: "Ok",
+                style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
+            
+        case "unable_to_load_transactions":
+            let alert = UIAlertController(
+                title: "Unable to load Transactions",
+                message: "Something went wrong and we could not load the transactions",
+                preferredStyle: UIAlertControllerStyle.alert)
+                
+            let confirmAction = UIAlertAction(
+                    title: "Ok",
+                    style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
+            
+        case "error_on_get_pin":
+            let alert = UIAlertController(
+                title: "Unable to get Pin",
+                message: "There is a problem retrieving your PIN. You can get in touch with us on \"Support\".",
+                preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction = UIAlertAction(
+                title: "Ok",
+                style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
+            
+        case "Insufficient funds":
+            let alert = UIAlertController(
+                title: "Insufficient funds",
+                message: "You don't have sufficient funds",
+                preferredStyle: UIAlertControllerStyle.alert)
+            
+            let confirmAction = UIAlertAction(
+                title: "Ok",
+                style: .default)
+            
+            alert.addAction(confirmAction)
+            
+            return alert
+            
         default:
             let alert = UIAlertController(
                 title: "Ups! Sorry, something went wrong :(",

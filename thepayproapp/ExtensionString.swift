@@ -26,10 +26,25 @@ extension String {
         return String(pounds)
     }
     
+    func getBTCFromBits() -> String{
+        let amount = self
+        
+        let BTC = Double(amount)! * Double(0.000001)
+        
+        return String(BTC)
+    }
+    
+    func getbitsFromBTC() -> String{
+        let amount = self
+        
+        let BTC = Double(amount)! / Double(0.000001)
+        
+        return String(BTC)
+    }
+    
     // formatting text for currency textField
     func currencyInputFormatting() -> String {
-        var amount = self.replacingOccurrences(of: "£", with: "")
-        
+        var amount = self
         if amount.characters.last == "," {
             amount = String(amount.characters.dropLast()) + "."
         }
@@ -66,9 +81,8 @@ extension String {
         let amount_number = Int(amount_integer)! as NSNumber
         
         let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
+        formatter.numberStyle = .decimal
         formatter.decimalSeparator = "."
-        formatter.currencySymbol = "£"
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
         formatter.locale = Locale(identifier: "en_GB")
@@ -85,7 +99,7 @@ extension String {
     }
     
     func checkValidAmount() -> Bool {
-        let amount = self.replacingOccurrences(of: "£", with: "")
+        let amount = self
         
         let matchedA = matches(for: "^\\d+$", in: amount)
         let matchedB = matches(for: "^\\d+(,[0-9]{3})+$", in: amount)
@@ -110,5 +124,15 @@ extension String {
             print("invalid regex: \(error.localizedDescription)")
             return []
         }
+    }
+    
+    func matchesRegex(regex: String) ->Bool {
+        let regex = try! NSRegularExpression(pattern: regex)
+        return regex.firstMatch(in: self, options: [], range: NSMakeRange(0, self.utf16.count)) != nil
+    }
+    
+    func getQueryStringParameter(param: String) -> String? {
+        guard let url = URLComponents(string: self) else { return nil }
+        return url.queryItems?.first(where: { $0.name == param })?.value
     }
 }

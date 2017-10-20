@@ -10,9 +10,8 @@ import UIKit
 
 //let PPAPIURL = "http://34.253.160.180"
 //let PPAPIURL = "http://35.158.218.151"
-//let PPAPIURL = "http://api.payproapp.net"
-let PPAPIURL = "http://192.168.1.202"
-let PPLocalAPIURL = "http://192.168.1.202"
+let PPAPIURL = "http://api.payproapp.net"
+//let PPAPIURL = "http://192.168.1.201"
 
 
 func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, completion: @escaping (_ json: NSDictionary) -> Void)
@@ -25,7 +24,7 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, comple
         {
             let tokenAccess = UserDefaults.standard.string(forKey: "token")
             
-            let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+            let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30.0)
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
@@ -39,12 +38,16 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, comple
             {
                 (data, response, error) -> Void in
                 
+//                print("data: \(data)")
+//                print("response: \(response)")
+//                print("error: \(error)")
+                
                 if (error != nil)
                 {
                     print(error!)
                     
                     if error?._code ==  NSURLErrorTimedOut {
-                        print("Time Out")
+//                        print("Time Out")
                         DispatchQueue.main.async(execute: {
                             completion(["status":false, "message":"internet_connection_timeout", "errorMessage":"internet_connection_timeout"])
                         });
@@ -92,7 +95,7 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
             absoluteURL += "?\(paramsURL)"
         }
         
-        let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 20.0)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -111,7 +114,7 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
                     print(error!)
                     
                     if error?._code ==  NSURLErrorTimedOut {
-                        print("Time Out")
+//                        print("Time Out")
                         DispatchQueue.main.async(execute: {
                             completion(["status":false, "message":"internet_connection_timeout", "errorMessage":"internet_connection_timeout"])
                         });
@@ -176,7 +179,7 @@ func makePutRequest(paramsDictionary: NSDictionary, endpointURL: String, complet
                     print(error!)
                     
                     if error?._code ==  NSURLErrorTimedOut {
-                        print("Time Out")
+//                        print("Time Out")
                         DispatchQueue.main.async(execute: {
                             completion(["status":false, "message":"internet_connection_timeout", "errorMessage":"internet_connection_timeout"])
                         });

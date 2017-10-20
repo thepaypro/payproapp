@@ -37,6 +37,16 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
     var secondDocumentBase64: String!
     var updateAccount : Bool = false
     
+    var libraryEnabled: Bool = true
+    var croppingEnabled: Bool = true
+    var allowResizing: Bool = true
+    var allowMoving: Bool = false
+    var minimumSize: CGSize = CGSize(width: 60, height: 60)
+    
+    var croppingParameters: CroppingParameters {
+        return CroppingParameters(isEnabled: croppingEnabled, allowResizing: allowResizing, allowMoving: allowMoving, minimumSize: minimumSize)
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -246,7 +256,7 @@ class PPDocumentPhotoViewController: UIViewController, UIImagePickerControllerDe
     
     func openCamera()
     {
-        let cameraViewController = CameraViewController(croppingEnabled: true, allowsLibraryAccess: true) { [weak self] image, asset in
+        let cameraViewController = CameraViewController(croppingParameters: croppingParameters, allowsLibraryAccess: libraryEnabled) { [weak self] image, asset in
             
             if image != nil {
                 let w:Int = Int((image?.size.width)!)

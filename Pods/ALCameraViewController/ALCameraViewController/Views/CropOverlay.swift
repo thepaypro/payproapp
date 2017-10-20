@@ -18,28 +18,26 @@ internal class CropOverlay: UIView {
     var topRightCornerLines = [UIView]()
     var bottomLeftCornerLines = [UIView]()
     var bottomRightCornerLines = [UIView]()
-	
-	var cornerButtons = [UIButton]()
-	
-	let cornerLineDepth: CGFloat = 3
-	let cornerLineWidth: CGFloat = 20
-	let cornerButtonWidth: CGFloat = 70
+
+    var cornerButtons = [UIButton]()
+
+    let cornerLineDepth: CGFloat = 3
+    let cornerLineWidth: CGFloat = 22.5
+    var cornerButtonWidth: CGFloat {
+        return self.cornerLineWidth * 2
+    }
 
     let lineWidth: CGFloat = 1
-	
-	let outterGapRatio: CGFloat = 1/3
-	
-	var outterGap: CGFloat {
-		get {
-			return self.cornerButtonWidth * self.outterGapRatio
-		}
-	}
-    
-    internal init() {
-        super.init(frame: CGRect.zero)
-        createLines()
+
+    let outterGapRatio: CGFloat = 1/3
+    var outterGap: CGFloat {
+        return self.cornerButtonWidth * self.outterGapRatio
     }
-    
+
+    var isResizable: Bool = false
+    var isMovable: Bool = false
+    var minimumSize: CGSize = CGSize.zero
+
     internal override init(frame: CGRect) {
         super.init(frame: frame)
         createLines()
@@ -161,17 +159,13 @@ internal class CropOverlay: UIView {
 		
 		let dragGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(moveCropOverlay))
 		button.addGestureRecognizer(dragGestureRecognizer)
-		
-//		// DEBUG
-//		button.backgroundColor = .yellow
-//		button.alpha = 0.2	// DEBUG
-		
+
 		addSubview(button)
 		return button
 	}
 	
 	func moveCropOverlay(gestureRecognizer: UIPanGestureRecognizer) {
-		if let button = gestureRecognizer.view as? UIButton {
+		if isResizable, let button = gestureRecognizer.view as? UIButton {
 			if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
 				let translation = gestureRecognizer.translation(in: self)
 				
@@ -179,7 +173,7 @@ internal class CropOverlay: UIView {
 				
 				switch button {
 				case cornerButtons[0]:	// Top Left
-					newFrame = CGRect(x: frame.origin.x + translation.x, y: frame.origin.y + translation.y, width: frame.size.width - translation.x, height: frame.size.height - translation.y)
+                    newFrame = CGRect(x: frame.origin.x + translation.x, y: frame.origin.y + translation.y, width: frame.size.width - translation.x, height: frame.size.height - translation.y)
 				case cornerButtons[1]:	// Top Right
 					newFrame = CGRect(x: frame.origin.x, y: frame.origin.y + translation.y, width: frame.size.width + translation.x, height: frame.size.height - translation.y)
 				case cornerButtons[2]:	// Bottom Left
@@ -189,13 +183,14 @@ internal class CropOverlay: UIView {
 				default:
 					newFrame = CGRect.zero
 				}
-				
-				frame = newFrame
+
+                let minimumFrame = CGRect(x: newFrame.origin.x, y: newFrame.origin.y, width: max(newFrame.size.width, minimumSize.width + 2 * outterGap), height: max(newFrame.size.height, minimumSize.height + 2 * outterGap))
+				frame = minimumFrame
 				layoutSubviews()
-				
+
 				gestureRecognizer.setTranslation(CGPoint.zero, in: self)
 			}
-		} else {
+		} else if isMovable {
 			if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
 				let translation = gestureRecognizer.translation(in: self)
 				

@@ -70,18 +70,5 @@ class PPCardAddressViewController: UIViewController
                 self.navigationController?.popToRootViewController(animated: false)
             }
         })
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "showAddressFormVC"
-        {
-            let formVC = segue.destination as! PPCardSecondFormViewController
-            formVC.orderingCard = true
-        }
-    }
-    
+    }    
 }

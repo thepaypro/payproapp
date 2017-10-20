@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import Intercom
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -24,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let entryNavigationController = storyboard.instantiateViewController(withIdentifier: "PPEntryNavigationController")
-//        let entryNavigationController = storyboard.instantiateViewController(withIdentifier: "PPTABBAR")
         
         var rootController = entryNavigationController
         
@@ -49,6 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         }
         application.registerForRemoteNotifications()
         
+        Intercom.setApiKey("ios_sdk-238f80549b4b6dac71874c9461cfefeb00a22854", forAppId: "u32hbwiy")
+        
+        Intercom.setLauncherVisible(false)
+        
         return true
     }
     
@@ -72,6 +76,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
         // Print notification payload data
         print("Push notification received: \(data)")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let passcodeVC : PPPasscodeViewController = storyboard.instantiateViewController(withIdentifier: "PPPasscodeViewController") as! PPPasscodeViewController
+        passcodeVC.userUsername = User.currentUser()?.username
+        
+        let passcodeNC = UINavigationController.init(rootViewController: passcodeVC)
+        Utils.navigationBarToPayProStyle(navigationBar: passcodeNC.navigationBar)
+        let rootController = passcodeNC
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = rootController
+        window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(_ application: UIApplication)
