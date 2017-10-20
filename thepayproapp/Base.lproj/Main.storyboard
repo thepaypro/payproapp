@@ -4824,7 +4824,7 @@ in PayPro</string>
                                             <segue destination="SAg-Jd-pbt" kind="show" identifier="showAddressFormVC" id="Vby-Ea-oLq"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Cell description which explains the consequences of the above action." textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="P1P-XQ-MPW">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="We will send the card to this address." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P1P-XQ-MPW">
                                         <rect key="frame" x="15" y="173" width="384" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="mCJ-4I-ZXX"/>
@@ -6326,7 +6326,7 @@ in PayPro</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="60J-F3-tNy"/>
-        <segue reference="W6i-Y0-uXg"/>
+        <segue reference="HF2-MJ-WVS"/>
         <segue reference="Vby-Ea-oLq"/>
         <segue reference="QOc-uS-S0D"/>
         <segue reference="CKg-gm-nrI"/>
