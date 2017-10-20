@@ -3641,24 +3641,9 @@ in PayPro</string>
                     <view key="view" contentMode="scaleToFill" id="nXa-4D-k23">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQD-Bk-iNM">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="wQD-Bk-iNM" firstAttribute="top" secondItem="Rur-3g-Ore" secondAttribute="bottom" id="F8j-6b-0Zp"/>
-                            <constraint firstItem="wQD-Bk-iNM" firstAttribute="width" secondItem="nXa-4D-k23" secondAttribute="width" id="IiS-yb-XG6"/>
-                            <constraint firstItem="wQD-Bk-iNM" firstAttribute="centerX" secondItem="nXa-4D-k23" secondAttribute="centerX" id="KKJ-6N-eat"/>
-                            <constraint firstItem="yug-lM-ExX" firstAttribute="top" secondItem="wQD-Bk-iNM" secondAttribute="bottom" id="OUy-f2-Qkz"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lqy-2o-2Ky"/>
-                    <connections>
-                        <outlet property="webView" destination="wQD-Bk-iNM" id="87Y-fs-zcT"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WiO-9T-pal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3966,10 +3951,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxQ-Ve-mEL">
-                                        <rect key="frame" x="316.33333333333331" y="13.333333333333371" width="22.333333333333371" height="23.333333333333314"/>
+                                        <rect key="frame" x="316.33333333333331" y="14" width="22.333333333333371" height="22.333333333333371"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="wu4-Sa-Scp">
-                                                <rect key="frame" x="0.0" y="0.0" width="22.333333333333371" height="23.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="22.333333333333371" height="22.333333333333371"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -4816,14 +4801,7 @@ in PayPro</string>
                                         <color key="textColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.44705882352941173" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmm-TV-YUh">
-                                        <rect key="frame" x="369" y="14" width="30" height="30"/>
-                                        <state key="normal" title="Edit"/>
-                                        <connections>
-                                            <segue destination="SAg-Jd-pbt" kind="show" identifier="showAddressFormVC" id="Vby-Ea-oLq"/>
-                                        </connections>
-                                    </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Cell description which explains the consequences of the above action." textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="P1P-XQ-MPW">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="We will send the card to this address." textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="P1P-XQ-MPW">
                                         <rect key="frame" x="15" y="173" width="384" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="mCJ-4I-ZXX"/>
@@ -4838,10 +4816,8 @@ in PayPro</string>
                                     <constraint firstItem="P1P-XQ-MPW" firstAttribute="leading" secondItem="vhX-0C-4wU" secondAttribute="leading" constant="15" id="03c-Dj-lGe"/>
                                     <constraint firstAttribute="trailing" secondItem="4ho-an-MEB" secondAttribute="trailing" id="21d-qI-oKB"/>
                                     <constraint firstItem="4ho-an-MEB" firstAttribute="centerX" secondItem="vhX-0C-4wU" secondAttribute="centerX" id="HRh-LJ-5Uv"/>
-                                    <constraint firstAttribute="trailing" secondItem="xmm-TV-YUh" secondAttribute="trailing" constant="15" id="IUx-jl-2cs"/>
                                     <constraint firstItem="4ho-an-MEB" firstAttribute="top" secondItem="vhX-0C-4wU" secondAttribute="top" constant="44" id="JQb-Gu-e9j"/>
                                     <constraint firstAttribute="trailing" secondItem="P1P-XQ-MPW" secondAttribute="trailing" constant="15" id="LMo-Nc-hgG"/>
-                                    <constraint firstItem="4ho-an-MEB" firstAttribute="top" secondItem="xmm-TV-YUh" secondAttribute="bottom" id="RkR-sV-hQr"/>
                                     <constraint firstAttribute="bottom" secondItem="4ho-an-MEB" secondAttribute="bottom" constant="270" id="YxZ-bE-Xt4"/>
                                     <constraint firstItem="P1P-XQ-MPW" firstAttribute="top" secondItem="4ho-an-MEB" secondAttribute="bottom" constant="10" id="caJ-Ac-zee"/>
                                     <constraint firstItem="4ho-an-MEB" firstAttribute="top" secondItem="Crq-Ma-d5X" secondAttribute="bottom" constant="8" id="nyk-fu-gvV"/>
@@ -5361,10 +5337,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2eX-bg-G01">
-                                        <rect key="frame" x="316.33333333333331" y="13.333333333333371" width="22.333333333333371" height="23.333333333333314"/>
+                                        <rect key="frame" x="316.33333333333331" y="14" width="22.333333333333371" height="22.333333333333371"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="hmU-6l-g0I">
-                                                <rect key="frame" x="0.0" y="0.0" width="22.333333333333371" height="23.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="22.333333333333371" height="22.333333333333371"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -6325,8 +6301,8 @@ in PayPro</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="60J-F3-tNy"/>
-        <segue reference="W6i-Y0-uXg"/>
-        <segue reference="Vby-Ea-oLq"/>
+        <segue reference="HF2-MJ-WVS"/>
+        <segue reference="cPk-Rt-u9Q"/>
         <segue reference="QOc-uS-S0D"/>
         <segue reference="CKg-gm-nrI"/>
         <segue reference="In3-0W-KaY"/>

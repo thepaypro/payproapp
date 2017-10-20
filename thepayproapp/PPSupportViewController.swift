@@ -7,91 +7,32 @@
 //
 
 import UIKit
+import Intercom
 
-class PPSupportViewController: UIViewController, UIWebViewDelegate
+class PPSupportViewController: UIViewController
 {
-    @IBOutlet weak var webView: UIWebView!
-    
-    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        self.webView.delegate = self
-        
+
         self.title = "Support"
-        
-        // Do any additional setup after loading the view.
-        
-        if User.currentUser()?.supportChatId == 0
-        {
-            User.supportChat(languageCode: Locale.current.languageCode!) { (supportChatId) in
-                self.loadSupportChat()
-            }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let when = DispatchTime.now() + 0.1
+
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.tabBarController?.selectedIndex = 3
         }
-        
-        if User.currentUser()?.supportChatId != 0
-        {
-            self.loadSupportChat()
-        }
-        
-        self.webView.addSubview(self.activityIndicator)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        Intercom.presentMessenger()
     }
     
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    public func loadSupportChat()
-    {
-        let chatURL = "https://www.mensaxe.com/webview/\((User.currentUser()?.supportChatId)!)?key=kprvd6suDOTedUX9xN3hc4EiDKHnLEvTBmsJuj"
-        
-        if let url = URL(string: chatURL)
-        {
-            let request = URLRequest(url: url)
-            webView.loadRequest(request)
-        }
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    func webViewDidStartLoad(_ webView: UIWebView) {
-        showActivityIndicator()
-    }
-    
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        hideActivityIndicator()
-    }
-    
-    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        showActivityIndicator()
-    }
-    
-    func showActivityIndicator()
-    {
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        self.view.addSubview(activityIndicator)
-        
-        activityIndicator.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
-    }
-    
-    func hideActivityIndicator()
-    {
-        activityIndicator.stopAnimating()
-        UIApplication.shared.endIgnoringInteractionEvents()
     }
 }

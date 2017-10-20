@@ -94,7 +94,25 @@ class PPCardSecondFormViewController: FormViewController, PPPrefixSelectionDeleg
                     if user?.countryName == nil {
                         cell.textLabel?.textColor = UIColor.lightGray
                     }
-            }
+                }
+        
+        form +++
+            Section()
+                <<< LabelRow { row in
+                    row.title = "Please note that this address will be used to send the VISA card and it must be the same as the one on your National Identity Document, Driver’s License or Passport that we will ask for in the next step. The address can not be edited until 90 days after account activation."
+                    row.cell.textLabel?.numberOfLines = 0
+                    row.cell.textLabel?.font = UIFont.systemFont(ofSize: 12, weight: UIFontWeightLight)
+                    row.cell.backgroundColor = PayProColors.background
+        }
+        
+//        let textInfo = UILabel()
+//        textInfo.text = "Please note that this address will be used to send the VISA card and it must be the same as the one on your National Identity Document, Driver’s License or Passport that we will ask for in the next step. The address can not be edited until 90 days after account activation."
+//
+//        textInfo.textAlignment = .center
+//        textInfo.textColor = PayProColors.title
+//        textInfo.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
+//        textInfo.frame = CGRect(x: 15, y: (self.view.frame.width/2) - 125, width: self.view.frame.width - 30, height: 60)
+//        self.view.addSubview(textInfo)
         
         self.setupView()
     }

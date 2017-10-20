@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import Intercom
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -47,6 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             // Enable or disable features based on authorization.
         }
         application.registerForRemoteNotifications()
+        
+        Intercom.setApiKey("ios_sdk-238f80549b4b6dac71874c9461cfefeb00a22854", forAppId: "u32hbwiy")
+        
+        Intercom.setLauncherVisible(false)
         
         return true
     }
