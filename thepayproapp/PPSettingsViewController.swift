@@ -20,11 +20,21 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameArrow: UIImageView!
     @IBOutlet weak var disableCardSwitch: UISwitch!
+    @IBOutlet weak var viewPinArrow: UIImageView!
     
     @IBAction func ViewPinButton(_ sender: Any) {
         let cardStatus = User.currentUser()?.cardStatus
         if  cardStatus == .activated || cardStatus == .disabled {
             self.performSegue(withIdentifier: "showCVV2FromSettingsSegue", sender: nil)
+        }else{
+            let alertController = UIAlertController(title: "", message: "You need a card to check the pin", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alertController.addAction(cancelAction)
+            
+            alertController.popoverPresentationController?.sourceView = sender as? UIView
+            
+            present(alertController, animated: true, completion: nil)
         }
     }
     var visiblePinScreenTime : Int = 15
@@ -165,6 +175,12 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
         } else {
             self.nameLabel.text = "Your name"
             self.nameArrow.isHidden = true
+        }
+        let cardStatus = User.currentUser()?.cardStatus
+        if  cardStatus == .activated || cardStatus == .disabled {
+            viewPinArrow.isHidden = false
+        }else{
+            viewPinArrow.isHidden = true
         }
         
         if User.currentUser()?.cardStatus == User.CardStatus.notOrdered ||

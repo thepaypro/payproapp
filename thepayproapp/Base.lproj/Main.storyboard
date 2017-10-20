@@ -1404,6 +1404,7 @@
                         <outlet property="nameView" destination="ewX-oQ-5dn" id="Mfl-PM-Xhf"/>
                         <outlet property="pinView" destination="eci-3d-kdZ" id="Gql-U6-IaQ"/>
                         <outlet property="upgradeView" destination="oJ6-KP-qRJ" id="flD-B7-WAa"/>
+                        <outlet property="viewPinArrow" destination="qOh-ag-ESI" id="9nT-c1-T7G"/>
                         <segue destination="gyM-Ux-fpC" kind="show" identifier="showCVV2FromSettingsSegue" id="60J-F3-tNy"/>
                     </connections>
                 </viewController>
