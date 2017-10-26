@@ -104,6 +104,7 @@ func getGBPTransactionsFromBackRequest(page: Int, size: Int, completion: @escapi
                         date = dateFormatter.date(from: date_text)! //according to date format your date string
                     }
                     
+                    print("transaction: \(transaction)")
                     
                     let amountString: String = (transaction as AnyObject).value(forKeyPath: "amount") as! String
                     let amountPounds: Float = NSString(string: amountString.getPounds()).floatValue
