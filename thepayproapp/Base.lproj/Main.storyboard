@@ -5820,7 +5820,7 @@ in PayPro</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is your pin" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uin-9U-43t">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe over to see the PIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uin-9U-43t">
                                 <rect key="frame" x="20" y="214.66666666666666" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9eJ-f5-tL4"/>
@@ -6066,6 +6066,13 @@ in PayPro</string>
                                     <constraint firstItem="tvp-rC-6My" firstAttribute="width" secondItem="nJv-3N-A6N" secondAttribute="width" multiplier="0.06" id="y2d-cU-FDR"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipe-gesture" translatesAutoresizingMaskIntoConstraints="NO" id="oFa-hM-hSD">
+                                <rect key="frame" x="87" y="346" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="h8x-Fu-IfA"/>
+                                    <constraint firstAttribute="width" constant="240" id="mBS-pd-gBo"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -6080,8 +6087,10 @@ in PayPro</string>
                             <constraint firstAttribute="trailingMargin" secondItem="CC2-59-c6V" secondAttribute="trailing" id="Uzp-S5-Kqc"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Uin-9U-43t" secondAttribute="leading" id="aVk-QF-k4q"/>
                             <constraint firstAttribute="leadingMargin" secondItem="CC2-59-c6V" secondAttribute="leading" id="fOh-SY-iQn"/>
+                            <constraint firstItem="oFa-hM-hSD" firstAttribute="centerX" secondItem="Jhm-YS-Gsg" secondAttribute="centerX" id="h3e-Ws-2il"/>
                             <constraint firstItem="Luf-c9-2v6" firstAttribute="centerY" secondItem="Jhm-YS-Gsg" secondAttribute="centerY" multiplier="0.5" id="hXM-X4-9xe"/>
                             <constraint firstItem="Luf-c9-2v6" firstAttribute="leading" secondItem="Jhm-YS-Gsg" secondAttribute="leadingMargin" id="kLu-Ek-bp4"/>
+                            <constraint firstItem="oFa-hM-hSD" firstAttribute="top" secondItem="Uin-9U-43t" secondAttribute="bottom" constant="92" id="wKU-Gv-hv8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Luf-c9-2v6" secondAttribute="trailing" id="zm4-3I-X6A"/>
                             <constraint firstItem="CC2-59-c6V" firstAttribute="top" secondItem="Uin-9U-43t" secondAttribute="bottom" constant="32" id="zmA-QA-u6h"/>
                         </constraints>
@@ -6254,7 +6263,7 @@ in PayPro</string>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="WBS-NL-jfz">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="cPa-wN-qf3">
+                        <barButtonItem key="rightBarButtonItem" id="cPa-wN-qf3">
                             <connections>
                                 <segue destination="ySa-61-9dX" kind="show" identifier="showPINCodeFromCVV2Segue" id="ua5-hu-rE8"/>
                             </connections>
@@ -6289,6 +6298,7 @@ in PayPro</string>
         <image name="settings-passcode" width="29" height="29"/>
         <image name="settings-tellafriend" width="29" height="29"/>
         <image name="settings-upgrade" width="29" height="29"/>
+        <image name="swipe-gesture" width="512" height="512"/>
         <image name="swipe-send-money" width="331" height="74"/>
         <image name="swipe-send-money-confirm" width="331" height="74"/>
         <image name="tab-account" width="48" height="32"/>
