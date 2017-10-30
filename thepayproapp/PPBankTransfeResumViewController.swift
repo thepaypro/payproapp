@@ -288,48 +288,7 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
     
     func createTransaction(completion: @escaping (_ createTransactionResponse: Bool) -> Void)
     {
-        if(sendMoney.getCurrencyType() == 0){
-            let amount = String(sendMoney.getAmount()!)?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
-            let amountPennies:String = (amount?.getPennies())!
-            let subject:String = sendMoney.getMessage()!
-            let title:String = String("Transaction to "+sendMoney.getBeneficiaryName())!
-            
-            TransactionCreate(
-                beneficiary: sendMoney.getBeneficiaryAccountId(),
-                amount: amountPennies,
-                subject: subject.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
-                title: title.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!,
-                completion: {transactionResponse in
-                    
-                    print("transaction: \(transactionResponse)")
-                    
-                    if transactionResponse["status"] as! Bool == true {
-                        print("finishProcess: \(self.sendMoney.getFinishProcess())")
-                        self.sendMoney.setFinishProcess(finishProcessValue: 1)
-                        completion(true)
-                    } else if transactionResponse["errorMessage"] != nil {
-                        self.animateSwipe(position: swipeColorBoxCenterX)
-                        
-                        let errorMessage: String = transactionResponse["errorMessage"] as! String
-                        
-                        let alert = UIAlertController()
-                        
-                        self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
-                        
-                        completion(false)
-                        
-                    } else if transactionResponse["status"] as! Bool == false {
-                        self.animateSwipe(position: swipeColorBoxCenterX)
-                        
-                        let alert = UIAlertController()
-                        
-                        self.present(alert.displayAlert(code: "transaction_failed"), animated: true, completion: nil)
-                        
-                        completion(false)
-                    }
-                }
-            )
-        }else if (sendMoney.getCurrencyType() == 1){
+        if (sendMoney.getCurrencyType() == 1){
             
             let amount = String(sendMoney.getAmount()!)?.replacingOccurrences(of: "[^\\d+\\.?\\d+?]", with: "", options: [.regularExpression])
 //            let amountBTC:String = (amount?.getBTCFromBits())!

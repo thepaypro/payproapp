@@ -15,34 +15,6 @@ var bitcoinTransactionLoadedPages:Int = 1
 func getTransactionsFromBack(selectedAccount: PPAccountViewController.AccountCurrencyType, reloadPreviousPage: Bool ,completion: @escaping (_ getTransactionsFromBackResponse: NSDictionary) -> Void)
 {
     switch selectedAccount {
-    case .gbp:
-        if reloadPreviousPage {
-            getGBPTransactionsFromBackRequest(page: GBPTransactionLoadedPages , size: 5,completion: {transactionsResponse in
-                if transactionsResponse["status"] as! Bool == true {
-                    completion(["status": true] as NSDictionary)
-                    if transactionsResponse["newTransactions"] as! Int == 5 {
-                        GBPTransactionLoadedPages += 1
-                    }
-                }else if let errorMessage = transactionsResponse["errorMessage"] {
-                    completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
-                }else{
-                    completion(["status": false] as NSDictionary)
-                }
-            })
-        }else{
-            getGBPTransactionsFromBackRequest(page: GBPTransactionLoadedPages + 1, size: 5 ,completion: {transactionsResponse in
-                if transactionsResponse["status"] as! Bool == true {
-                    completion(["status": true] as NSDictionary)
-                    if transactionsResponse["newTransactions"] as! Int > 0 {
-                        GBPTransactionLoadedPages += 1
-                    }
-                }else if let errorMessage = transactionsResponse["errorMessage"] {
-                    completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
-                }else{
-                    completion(["status": false] as NSDictionary)
-                }
-            })
-        }
     case .bitcoin:
         if reloadPreviousPage {
             getBitcoinTransactionsFromBackRequest(page: bitcoinTransactionLoadedPages , size: 5 ,completion: {transactionsResponse in
@@ -77,18 +49,6 @@ func getTransactionsFromBack(selectedAccount: PPAccountViewController.AccountCur
 func refreshTransactionsFromBack(selectedAccount: PPAccountViewController.AccountCurrencyType ,completion: @escaping (_ getTransactionsFromBackResponse: NSDictionary) -> Void)
 {
     switch selectedAccount {
-    case .gbp:
-        GBPTransactionLoadedPages = 1
-        Transaction.deleteTransactions()
-        getGBPTransactionsFromBackRequest(page: 1, size: 5 ,completion: {transactionsResponse in
-            if transactionsResponse["status"] as! Bool == true {
-                completion(["status": true] as NSDictionary)
-            }else if let errorMessage = transactionsResponse ["errorMessage"] {
-                completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
-            }else{
-                completion(["status": false] as NSDictionary)
-            }
-        })
     case .bitcoin:
         bitcoinTransactionLoadedPages = 1
         BitcoinTransaction.deleteTransactions()

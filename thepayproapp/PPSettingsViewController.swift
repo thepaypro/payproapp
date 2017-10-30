@@ -29,11 +29,11 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
     }
     var visiblePinScreenTime : Int = 15
     
-    @IBAction func disableCardAction(_ sender: Any) {
-        CardUpdateStatus(status: self.disableCardSwitch.isOn, completion: {cardUpdateResponse in
-            print("cardUpdateResponse: \(cardUpdateResponse)")
-        })
-    }
+//    @IBAction func disableCardAction(_ sender: Any) {
+//        CardUpdateStatus(status: self.disableCardSwitch.isOn, completion: {cardUpdateResponse in
+//            print("cardUpdateResponse: \(cardUpdateResponse)")
+//        })
+//    }
 //    @IBAction func rateButtonAction(_ sender: Any) {
 //        rateApp(appId: "1225181484") { success in
 //            print("RateApp \(success)")
@@ -247,12 +247,5 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
             let changePasscodeVC : PPPasscodeViewController = segue.destination as! PPPasscodeViewController
             changePasscodeVC.changePassword = true
         }
-        if segue.identifier == "showCVV2FromSettingsSegue" {
-            let CVV2CodeVC : PPActivationCardCVV2ViewController = segue.destination as! PPActivationCardCVV2ViewController
-                CVV2CodeVC.visiblePinScreenTime = self.visiblePinScreenTime
-                
-        }
-        
-        
     }
 }

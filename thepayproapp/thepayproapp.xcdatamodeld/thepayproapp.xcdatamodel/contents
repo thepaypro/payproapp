@@ -23,7 +23,6 @@
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="bitcointransactions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BitcoinTransaction" inverseName="currency" inverseEntity="BitcoinTransaction" syncable="YES"/>
-        <relationship name="transactions" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Transaction" inverseName="currency" inverseEntity="Transaction" syncable="YES"/>
     </entity>
     <entity name="Group" representedClassName="Group" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -33,7 +32,6 @@
         <relationship name="groupMembers" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="GroupMember" inverseName="group" inverseEntity="GroupMember" syncable="YES"/>
         <relationship name="invites" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Invite" inverseName="groups" inverseEntity="Invite" syncable="YES"/>
         <relationship name="offsets" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Offset" inverseName="group" inverseEntity="Offset" syncable="YES"/>
-        <relationship name="transactions" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Transaction" inverseName="group" inverseEntity="Transaction" syncable="YES"/>
     </entity>
     <entity name="GroupMember" representedClassName="GroupMember" syncable="YES">
         <attribute name="groupId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -50,7 +48,6 @@
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="bitcointransactions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BitcoinTransaction" inverseName="invites" inverseEntity="BitcoinTransaction" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="invites" inverseEntity="Group" syncable="YES"/>
-        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="invites" inverseEntity="Transaction" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="invites" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Offset" representedClassName="Offset" syncable="YES">
@@ -60,7 +57,6 @@
         <relationship name="bitcointransactions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BitcoinTransaction" inverseName="offset" inverseEntity="BitcoinTransaction" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="offsets" inverseEntity="Group" syncable="YES"/>
         <relationship name="offsetTransactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OffsetTransaction" inverseName="offset" inverseEntity="OffsetTransaction" syncable="YES"/>
-        <relationship name="transactions" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Transaction" inverseName="offset" inverseEntity="Transaction" syncable="YES"/>
     </entity>
     <entity name="OffsetTransaction" representedClassName="OffsetTransaction" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -71,25 +67,6 @@
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="offset" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Offset" inverseName="offsetTransactions" inverseEntity="Offset" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="offsetTransactions" inverseEntity="User" syncable="YES"/>
-    </entity>
-    <entity name="Transaction" representedClassName="Transaction" syncable="YES">
-        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="contisId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="currencyId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="datetime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="groupId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="isPayer" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="offsetId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="transactionDescription" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="currency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Currency" inverseName="transactions" inverseEntity="Currency" syncable="YES"/>
-        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="transactions" inverseEntity="Group" syncable="YES"/>
-        <relationship name="invites" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Invite" inverseName="transactions" inverseEntity="Invite" syncable="YES"/>
-        <relationship name="offset" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Offset" inverseName="transactions" inverseEntity="Offset" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="transactions" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="accountNumber" optional="YES" attributeType="String" syncable="YES"/>
@@ -121,17 +98,15 @@
         <relationship name="groupMembers" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="GroupMember" inverseName="user" inverseEntity="GroupMember" syncable="YES"/>
         <relationship name="invites" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Invite" inverseName="user" inverseEntity="Invite" syncable="YES"/>
         <relationship name="offsetTransactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OffsetTransaction" inverseName="user" inverseEntity="OffsetTransaction" syncable="YES"/>
-        <relationship name="transactions" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Transaction" inverseName="user" inverseEntity="Transaction" syncable="YES"/>
     </entity>
     <elements>
         <element name="BitcoinTransaction" positionX="-18" positionY="135" width="128" height="285"/>
-        <element name="Currency" positionX="0" positionY="108" width="128" height="120"/>
-        <element name="Group" positionX="-18" positionY="99" width="128" height="165"/>
+        <element name="Currency" positionX="0" positionY="108" width="128" height="105"/>
+        <element name="Group" positionX="-18" positionY="99" width="128" height="150"/>
         <element name="GroupMember" positionX="36" positionY="126" width="128" height="150"/>
-        <element name="Invite" positionX="18" positionY="117" width="128" height="150"/>
-        <element name="Offset" positionX="-36" positionY="90" width="128" height="150"/>
+        <element name="Invite" positionX="18" positionY="117" width="128" height="135"/>
+        <element name="Offset" positionX="-36" positionY="90" width="128" height="135"/>
         <element name="OffsetTransaction" positionX="-18" positionY="117" width="128" height="165"/>
-        <element name="Transaction" positionX="-54" positionY="45" width="128" height="300"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="495"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="480"/>
     </elements>
 </model>
