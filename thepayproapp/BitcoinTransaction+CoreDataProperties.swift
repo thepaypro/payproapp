@@ -20,7 +20,7 @@ extension BitcoinTransaction {
     @NSManaged public var currencyId: Int64
     @NSManaged public var datetime: Date?
     @NSManaged public var groupId: Int64
-    @NSManaged public var identifier: String
+    @NSManaged public var identifier: Int64
     @NSManaged public var offsetId: Int64
     @NSManaged public var status: String?
     @NSManaged public var subtitle: String?
