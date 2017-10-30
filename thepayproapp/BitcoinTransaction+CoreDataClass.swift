@@ -36,12 +36,12 @@ public class BitcoinTransaction: NSManagedObject
     {
         var transaction : BitcoinTransaction?
         
-        if let transactionID = transactionDictionary.value(forKeyPath: "id")! as? String
+        if let transactionID = transactionDictionary.value(forKeyPath: "id")! as? Int64
         {
             let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
             
             let transactionFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BitcoinTransaction")
-            transactionFetchRequest.predicate = NSPredicate(format: "identifier == %@", transactionID)
+            transactionFetchRequest.predicate = NSPredicate(format: "identifier == %d", transactionID)
             
             do
             {
@@ -75,7 +75,7 @@ public class BitcoinTransaction: NSManagedObject
         let title: String? = attributesDictionary.object(forKey: "title") as? String
         let subtitle: String? = attributesDictionary.object(forKey: "subtitle") as? String
         let datetime: Date? = attributesDictionary.object(forKey: "datetime") as? Date
-        let identifier: String? = attributesDictionary.object(forKey: "id") as? String
+        let identifier: Int64? = attributesDictionary.object(forKey: "id") as? Int64
         let amount: Float? = attributesDictionary.object(forKey: "amount") as? Float
         let isPayer: Bool? = attributesDictionary.object(forKey: "isPayer") as? Bool
         
@@ -137,7 +137,7 @@ public class BitcoinTransaction: NSManagedObject
         do
         {
             let transactions: [BitcoinTransaction]? = try context.fetch(transactionsFetchRequest) as? [BitcoinTransaction]
-            print(transactions?.count)
+
             return transactions!
         }
         catch
