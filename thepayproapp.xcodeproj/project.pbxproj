@@ -31,6 +31,7 @@
 		47DF01DE01E7D7D898A65AFE /* Pods_thepayproapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */; };
 		530B16D61F72C751004B0F30 /* PPScanQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530B16D51F72C751004B0F30 /* PPScanQRViewController.swift */; };
 		534DA3831FA7467D001CA526 /* AccountsConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534DA3821FA7467D001CA526 /* AccountsConnection.swift */; };
+		535018FB1FA88647005B3FCF /* ExtensionFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535018FA1FA88647005B3FCF /* ExtensionFloat.swift */; };
 		5351C9041F8642F4001FACB3 /* TransactionConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351C9031F8642F4001FACB3 /* TransactionConnection.swift */; };
 		5351C9071F869297001FACB3 /* PPBitcoinAddr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351C9061F869297001FACB3 /* PPBitcoinAddr.swift */; };
 		53564B0D1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */; };
@@ -142,6 +143,7 @@
 		3AD46AC53B7372C495343342 /* Pods-thepayproapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thepayproapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-thepayproapp/Pods-thepayproapp.release.xcconfig"; sourceTree = "<group>"; };
 		530B16D51F72C751004B0F30 /* PPScanQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPScanQRViewController.swift; sourceTree = "<group>"; };
 		534DA3821FA7467D001CA526 /* AccountsConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsConnection.swift; sourceTree = "<group>"; };
+		535018FA1FA88647005B3FCF /* ExtensionFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFloat.swift; sourceTree = "<group>"; };
 		5351C9031F8642F4001FACB3 /* TransactionConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionConnection.swift; sourceTree = "<group>"; };
 		5351C9061F869297001FACB3 /* PPBitcoinAddr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBitcoinAddr.swift; sourceTree = "<group>"; };
 		53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPrefixSelectionViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				211C45631F28EC8800CA0174 /* ExtensionUIViewController.swift */,
 				6A2033B21F39B1B300CBB14A /* ExtensionAlert.swift */,
 				6A2033B81F3CB29C00CBB14A /* ExtensionConnectivity.swift */,
+				535018FA1FA88647005B3FCF /* ExtensionFloat.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -951,6 +954,7 @@
 				BF69E1351F0E328D0004EE4E /* PPCardFirstFormViewController.swift in Sources */,
 				53BDBC391FA78956006DE2A7 /* PPBankTransfeResumViewController.swift in Sources */,
 				BFDA4CB91F137EF400300261 /* PayProDate.swift in Sources */,
+				535018FB1FA88647005B3FCF /* ExtensionFloat.swift in Sources */,
 				53AD562A1F83B94F007284C7 /* BitcoinTransaction+CoreDataProperties.swift in Sources */,
 				BF56BAC71EF26BF300429005 /* OffsetTransaction+CoreDataProperties.swift in Sources */,
 				53AD56281F83B92E007284C7 /* BitcoinTransaction+CoreDataClass.swift in Sources */,

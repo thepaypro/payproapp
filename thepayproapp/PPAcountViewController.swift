@@ -104,19 +104,6 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         self.setupView()
     }
     
-    func getBalance()
-    {
-        if(userStatus == .statusActivated){
-            BitcoinGetWallet(completion: {bitcoinWalletResponse in
-                if bitcoinWalletResponse["status"] as! Bool == true {
-                    if bitcoinWalletResponse["balance"] != nil{
-                        self.bitsBalanceLabel.text = bitcoinWalletResponse["balance"] as? String
-                    }
-                }
-            })
-        }
-    }
-    
     func loadTransactions(){
         switch selectedAccount {
             case .bitcoin:
@@ -157,7 +144,6 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
             self.bitsBalanceLabel.text = User.currentUser()?.bitcoinAmountBalance
             self.bitsBalanceLabel.numberOfLines = 1
             self.bitsBalanceLabel.adjustsFontSizeToFitWidth = true
-            self.getBalance()
         }
         
         stateButton.isHidden = false
@@ -266,17 +252,20 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - Table handle refresh
     
     func handleRefresh(_ refreshControl: UIRefreshControl) {
-        getBalance()
-        refreshTransactionsFromBack(selectedAccount: selectedAccount ,completion: {refreshTransactionsFromBackResponse in
-            if refreshTransactionsFromBackResponse["status"] as! Bool == true {
+        AccountsInfo(completion: {response in
+            if let bitcoinBalance = response["balance"], response["status"] as! Bool == true{
+                self.bitsBalanceLabel.text = bitcoinBalance as? String
                 self.bitcointransactionsArray = BitcoinTransaction.getTransactions()
                 self.transactionsTV.reloadData()
                 self.refreshControl.endRefreshing()
+            }else if let errorMessage = response["errorMessage"] {
+                let alert = UIAlertController()
+                self.present(alert.displayAlert(code: errorMessage as! String), animated: true, completion: nil)
             }else{
                 let alert = UIAlertController()
                 self.present(alert.displayAlert(code: "unable_to_load_transactions"), animated: true, completion: nil)
             }
-        })
+        });
     }
     
     // MARK: - Table view data source

@@ -76,7 +76,7 @@ public class BitcoinTransaction: NSManagedObject
         let subtitle: String? = attributesDictionary.object(forKey: "subtitle") as? String
         let datetime: Date? = attributesDictionary.object(forKey: "datetime") as? Date
         let identifier: Int64? = attributesDictionary.object(forKey: "id") as? Int64
-        let amount: Float? = attributesDictionary.object(forKey: "amount") as? Float
+        let amount: String? = attributesDictionary.object(forKey: "amount") as? String
         let isPayer: Bool? = attributesDictionary.object(forKey: "isPayer") as? Bool
         
         if identifier == nil

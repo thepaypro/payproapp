@@ -16,7 +16,7 @@ extension BitcoinTransaction {
         return NSFetchRequest<BitcoinTransaction>(entityName: "BitcoinTransaction")
     }
     
-    @NSManaged public var amount: Float
+    @NSManaged public var amount: String
     @NSManaged public var currencyId: Int64
     @NSManaged public var datetime: Date?
     @NSManaged public var groupId: Int64
