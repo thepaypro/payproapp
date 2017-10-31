@@ -130,7 +130,7 @@ extension User {
                 }
                 
                 if let bitcoinAccountInfo = (userDictionary as AnyObject).value(forKeyPath: "bitcoinAccount")! as? NSDictionary {
-                    loginDictionary!["bitcoinAddress"] = bitcoinAccountInfo.value(forKeyPath: "address")!
+                    loginDictionary!["bitcoinAddress"] = (bitcoinAccountInfo.value(forKeyPath: "address") as! String)
                 }
                 
                 AccountsInfo(completion: {response in

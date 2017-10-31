@@ -35,7 +35,6 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     var selectedAccount: AccountCurrencyType = .bitcoin
     
     var userStatus: User.Status = (User.currentUser()?.status)!
-    var userAccountType: User.AccountType = (User.currentUser()?.accountType)!
     
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -74,15 +73,9 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         
         self.addGradient()
         
-        if userAccountType == .basicAccount {
-            self.navigationItem.title = "Basic Account"
-        }else if userAccountType == .proAccount  {
-            self.navigationItem.title = "Pro Account"
-        }else if userAccountType == .demoAccount{
-            self.navigationItem.title = "Demo Account"
-        }else{
-            self.navigationItem.title = "Account"
-        }
+
+        self.navigationItem.title = "Account"
+
         
         transactionsTV.register(UINib(nibName: "PPTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionCell")
         transactionsTV.register(UINib(nibName: "RefreshCellView", bundle: nil), forCellReuseIdentifier: "RefreshCell")
@@ -134,49 +127,24 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func setupView(){
         
-       
         userStatus = (User.currentUser()?.status)!
         print(userStatus.rawValue)
-        userAccountType = (User.currentUser()?.accountType)!
-        print(userAccountType.rawValue)
-        
-        if userStatus == .statusActivated{
-            self.bitsBalanceLabel.text = User.currentUser()?.bitcoinAmountBalance
-            self.bitsBalanceLabel.numberOfLines = 1
-            self.bitsBalanceLabel.adjustsFontSizeToFitWidth = true
-        }
-        
-        stateButton.isHidden = false
-        stateButtonHeight.constant = 60.0
         
         self.setSelectedAccountInfoLabels()
-        
         
         if userStatus != .statusActivated {
             transactionsTV.isHidden = true
         }else{
             transactionsTV.isHidden = false
+            loadTransactions()
+            self.bitsBalanceLabel.text = User.currentUser()?.bitcoinAmountBalance
+            self.bitsBalanceLabel.numberOfLines = 1
+            self.bitsBalanceLabel.adjustsFontSizeToFitWidth = true
         }
         
-        if userStatus == .statusDemo {
-            stateButton.setTitle("Start Now", for: .normal)
-            stateButton.isEnabled = true
-            stateButton.backgroundColor = PayProColors.statusButtonActive
-            stateButton.setTitleColor(PayProColors.white, for: .normal)
-        }
-        else if userAccountType == .demoAccount && userStatus == .statusActivating{
-            stateButton.setTitle("Your account is being reviewed", for: .normal)
-            stateButton.isEnabled = false
-            stateButton.backgroundColor = PayProColors.statusButtonInactive
-            stateButton.setTitleColor(PayProColors.statusButtonInactiveText, for: .normal)
-        }
-        else
-        {
-            stateButton.isHidden = true
-            stateButtonHeight.constant = 0.0
-        }
+        stateButton.isHidden = true
+        stateButtonHeight.constant = 0.0
         
-        loadTransactions()
     }
     
     func setSelectedAccountInfoLabels() {
@@ -279,7 +247,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     {
         switch selectedAccount {
         case .bitcoin:
-//            print(bitcointransactionsArray?.count)
+//          print(bitcointransactionsArray?.count)
             return bitcointransactionsArray!.count
         }
         

@@ -67,7 +67,6 @@ func AccountsInfo( completion: @escaping (_ response: NSDictionary) -> Void)
                         }
                         
                         let amountNumber: Float = ((transaction as AnyObject).value(forKeyPath: "amount") as! NSString).floatValue
-//                        let amountString: String = String(describing:(transaction as AnyObject).value(forKeyPath: "amount"))
                         
                         var balanceAmountTransaction: String = ""
                         if abs(amountNumber) >= Float(1000000){
@@ -76,9 +75,6 @@ func AccountsInfo( completion: @escaping (_ response: NSDictionary) -> Void)
                         }else{
                             balanceAmountTransaction = formatterBits.string(from: NSNumber(value: amountNumber))!
                         }
-                        
-                        
-//                        let amountBits: Float = NSString(string: amountString.getbitsFromBTC()).floatValue
                         
                         var title:String = ""
                         
