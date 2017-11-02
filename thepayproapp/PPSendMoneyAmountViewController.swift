@@ -16,7 +16,6 @@ class PPSendMoneyAmountViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var currencyLabel: UILabel!
-    @IBOutlet weak var currencyPicker: UIPickerView!
     @IBAction func nextTapped(_ sender: Any) {
         if (sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 0){
             self.performSegue(withIdentifier: "beneficiaryNameSegue", sender: self)
@@ -25,27 +24,19 @@ class PPSendMoneyAmountViewController: UIViewController, UITextFieldDelegate
         }
     }
     
-//    let currencyPickerData: [String] = ["£","bits"]
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         amountField.delegate = self
         //disabled block load process
-        
-//        self.currencyPicker.dataSource = self;
-//        self.currencyPicker.delegate = self;
-        
+
         if let amount = sendMoney.getAmount(){
             amountField.text = amount
         }
         if let message = sendMoney.getMessage(){
             messageField.text = message
         }
-        
-        //currencyPicker
-//        currencyPicker.selectRow(sendMoney.getCurrencyType(), inComponent: 0, animated: false)
-        
         
         amountField.addTarget(self, action: #selector(amountFieldDidChange), for: .editingChanged)
         messageField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
@@ -67,15 +58,9 @@ class PPSendMoneyAmountViewController: UIViewController, UITextFieldDelegate
     override func viewWillAppear(_ animated: Bool) {
         self.sendMoney.setLoadProcess(loadProcessValue: 0)
         self.amountField.becomeFirstResponder()
-//        if self.sendMoney.getFixedCurrency(){
-        currencyPicker.isHidden = true
         currencyLabel.isHidden = false
         currencyLabel.text = "bits"
-//            (self.sendMoney.getCurrencyType() == 0) ? (currencyLabel.text = "£") : (currencyLabel.text = "bits")
-//        }else{
-//            currencyPicker.isHidden = false
-//            currencyLabel.isHidden = true
-//        }
+
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,replacementString string: String) -> Bool{
@@ -100,21 +85,6 @@ class PPSendMoneyAmountViewController: UIViewController, UITextFieldDelegate
 
         return 1
     }
-    
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return currencyPickerData.count;
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return currencyPickerData[row]
-//    }
-    
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-//    {
-//        sendMoney.setCurrencyType(currencyTypeValue: row)
-//        amountField.text = amountField.text?.currencyInputFormatting()
-//
-//    }
     
     func amountFieldDidChange(_ textField: UITextField) {
         if let amountString = amountField.text?.currencyInputFormatting() {

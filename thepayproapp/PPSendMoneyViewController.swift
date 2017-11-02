@@ -113,16 +113,10 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
     {
         self.sendMoney.setLoadProcess(loadProcessValue: 1)
         self.sendMoney.setOperationType(operationTypeValue: 1)
+        self.sendMoney.setCurrencyType(currencyTypeValue: 1)
         self.sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.getBeneficiaryName())
-        self.sendMoney.setBeneficiaryUserId(beneficiaryUserIdValue: contact.getUserId())
+        self.sendMoney.setBeneficiaryUserId(beneficiaryUserIdValue: contact.getAccountId())
         self.sendMoney.setBeneficiaryAccountId(beneficiaryAccountIdValue: contact.getAccountId())
-        
-//        if userStatus != .statusActivated{
-//            self.sendMoney.setCurrencyType(currencyTypeValue: 1)
-//            self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
-//        }else{
-//            self.sendMoney.setFixedCurrency(fixedCurrencyValue: false)
-//        }
         
         self.dismiss(animated: true, completion: {
             self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
@@ -136,75 +130,7 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
     
     func ContactPicker(_: ContactsPicker, didSelectContact contact : Contact)
     {
-//        print("Contact \(contact.displayName()) has been selected")
-//        print("getIsPayProUser: \(contact.getIsPayProUser())")
-//        
-//        if contact.getIsPayProUser() == false {
-//            let alert = UIAlertController(title: "Send money by", message: "", preferredStyle: .actionSheet)
-//        
-////            let bankTransfeButtonAction = UIAlertAction(title: "Bank transfer", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
-//                //enabled block load process
-////                self.sendMoney.setLoadProcess(loadProcessValue: 1)
-////                self.sendMoney.setOperationType(operationTypeValue: 0)
-////                
-////                self.dismiss(animated: true, completion: {
-////                    self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
-////                })
-////            })
-////        
-////            alert.addAction(bankTransfeButtonAction)
-//            
-//            let introduceBitcoinAddressAction = UIAlertAction(title: "Introduce Bitcoin Address", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
-//                self.ContactIntroduceBitcoinAddress()
-//            })
-//            
-//            alert.addAction(introduceBitcoinAddressAction)
-//        
-//            let inviteButtonAction = UIAlertAction(title: "Invite someone to PayPro", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
-//                
-//                self.sendMoney.setLoadProcess(loadProcessValue: 1)
-//                self.sendMoney.setOperationType(operationTypeValue: 2)
-//                self.sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.displayName())
-//                self.sendMoney.setphoneNumber(phoneNumberValue: contact.getPhoneNumber())
-//                
-//                if self.userStatus != .statusActivated{
-//                    self.sendMoney.setCurrencyType(currencyTypeValue: 1)
-//                    self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
-//                }else{
-//                    self.sendMoney.setFixedCurrency(fixedCurrencyValue: false)
-//                }
-//                
-//                self.dismiss(animated: true, completion: {
-//                    self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
-//                })
-//            })
-//        
-//            alert.addAction(inviteButtonAction)
-//        
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-//        
-//            alert.addAction(cancelAction)
-//        
-//            self.present(alert, animated: true, completion: nil)
-//            
-//        } else if contact.getIsPayProUser() == true {
-//            //enabled block load process
-//            sendMoney.setLoadProcess(loadProcessValue: 1)
-//            sendMoney.setOperationType(operationTypeValue: 1)
-//            sendMoney.setBeneficiaryName(beneficiaryNameValue: contact.getBeneficiaryName())
-//            
-//            if userStatus != .statusActivated{
-//                self.sendMoney.setCurrencyType(currencyTypeValue: 1)
-//                self.sendMoney.setFixedCurrency(fixedCurrencyValue: true)
-//            }else{
-//                self.sendMoney.setFixedCurrency(fixedCurrencyValue: false)
-//            }
-//            
-//            self.dismiss(animated: true, completion: {
-//                self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
-//            })
-//        }
-        
+  
     }
     
     func ContactPicker(_: ContactsPicker, didCancel error : NSError)

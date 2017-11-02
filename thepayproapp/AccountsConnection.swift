@@ -15,7 +15,7 @@ func AccountsInfo( completion: @escaping (_ response: NSDictionary) -> Void)
     lastTransaction = BitcoinTransaction.getLastTransaction()
     
     var lastTransaction_id:Int64 = 1
-    var endpointParams: String = "page=1&size=20"
+    var endpointParams: String = ""
     
     if (lastTransaction?.count)! > 0 {
         lastTransaction_id = (lastTransaction?[0].identifier)!

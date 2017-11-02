@@ -142,13 +142,7 @@ open class SendMoney {
         return currency_type
     }
     open func getAmountWithCurrencySymbol() -> String {
-        if currency_type == 0{
-            return "£ " + amount!
-        }else if currency_type == 1{
-            return "bits " + amount!
-        }else{
-            return ""
-        }
+        return "bits " + amount!
     }
     
     open func setCurrencyType(currencyTypeValue: Int){
