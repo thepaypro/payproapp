@@ -87,7 +87,7 @@ class PPProfileEditNameViewController: UIViewController
                 "nickname": nickname,
                 ] as [String : Any]
             
-            UserUpdate(paramsDictionary: accountUpdateDictionary as NSDictionary, completion: { userUpdateResponse in
+            User.updateInfo(paramsDictionary: accountUpdateDictionary as NSDictionary, completion: { userUpdateResponse in
                 
                 if userUpdateResponse["status"] as! Bool == true {
                     let userDictionary = [

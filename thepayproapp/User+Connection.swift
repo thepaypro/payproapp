@@ -9,22 +9,6 @@
 
 import Foundation
 
-func UserUpdate(paramsDictionary: NSDictionary, completion: @escaping (_ userUpdateResponse: NSDictionary) -> Void)
-{
-    let userId:Int64 = Int64((User.currentUser()?.identifier)!)
-    
-    makePutRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "users/\(userId)", completion: {completionDictionary in
-        
-        print("completionDictionary: \(completionDictionary)")
-        
-        if completionDictionary["user"] != nil {
-            completion(["status":true] as NSDictionary)
-        } else {
-            completion(["status":false] as NSDictionary)
-        }
-    })
-}
-
 extension User {
     class func register(username: String, password: String, passwordConfirmation: String, validationCode: String, completion: @escaping (_ registerResponse: NSDictionary) -> Void)
     {
@@ -216,6 +200,22 @@ extension User {
                 completion(["status":true] as NSDictionary)
             } else {
                 completion(["status":false, "messageError": completionDictionary["message"]!] as NSDictionary)
+            }
+        })
+    }
+    
+    class func updateInfo(paramsDictionary: NSDictionary, completion: @escaping (_ userUpdateResponse: NSDictionary) -> Void)
+    {
+        let userId:Int64 = Int64((User.currentUser()?.identifier)!)
+        
+        makePutRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "users/\(userId)", completion: {completionDictionary in
+            
+            print("completionDictionary: \(completionDictionary)")
+            
+            if completionDictionary["user"] != nil {
+                completion(["status":true] as NSDictionary)
+            } else {
+                completion(["status":false] as NSDictionary)
             }
         })
     }

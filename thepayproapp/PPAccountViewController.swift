@@ -29,7 +29,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var bitcoinQRButton: UIButton!
     
     var isPositionFixed: Bool = true
-     enum AccountCurrencyType: Int{
+    enum AccountCurrencyType: Int{
         case bitcoin = 1
     }
     var selectedAccount: AccountCurrencyType = .bitcoin
@@ -71,9 +71,9 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         
         self.addGradient()
         
-
+        
         self.navigationItem.title = "Account"
-
+        
         
         transactionsTV.register(UINib(nibName: "PPTransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionCell")
         transactionsTV.register(UINib(nibName: "RefreshCellView", bundle: nil), forCellReuseIdentifier: "RefreshCell")
@@ -97,9 +97,9 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func loadTransactions(){
         switch selectedAccount {
-            case .bitcoin:
-                self.bitcointransactionsArray = BitcoinTransaction.getTransactions()
-                transactionsTV.reloadData()
+        case .bitcoin:
+            self.bitcointransactionsArray = BitcoinTransaction.getTransactions()
+            transactionsTV.reloadData()
         }
     }
     
@@ -217,7 +217,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     {
         switch selectedAccount {
         case .bitcoin:
-//          print(bitcointransactionsArray?.count)
+            //          print(bitcointransactionsArray?.count)
             return bitcointransactionsArray!.count
         }
         
@@ -225,16 +225,16 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! PPTransactionTableViewCell
-            let cellTransaction = bitcointransactionsArray?[indexPath.row]
-            cell.setBitcoinTransaction(transaction: cellTransaction! as! BitcoinTransaction)
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as! PPTransactionTableViewCell
+        let cellTransaction = bitcointransactionsArray?[indexPath.row]
+        cell.setBitcoinTransaction(transaction: cellTransaction! as! BitcoinTransaction)
+        return cell
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-            return 76.0
+        return 76.0
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)

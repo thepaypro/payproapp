@@ -47,12 +47,8 @@ func AccountsInfo( completion: @escaping (_ response: NSDictionary) -> Void)
                 formatterBits.locale = Locale(identifier: "GBP")
                 
                 var balanceAmount: String = ""
-//                if abs(amountNumber) > Float(1000000){
-//                    let amountBTC: Float = amountNumber.getBTCFromBits()
-//                    balanceAmount = formatterBTC.string(from: NSNumber(value: amountBTC))!
-//                }else{
-                    balanceAmount = formatterBits.string(from: NSNumber(value: amountNumber))!
-//                }
+                balanceAmount = formatterBits.string(from: NSNumber(value: amountNumber))!
+
                 if let transactions = (info.value(forKeyPath: "bitcoinTransactions") as? NSDictionary)?.value(forKeyPath: "content") {
                     for transaction in transactions as! NSArray{
                         

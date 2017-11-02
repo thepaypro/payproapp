@@ -28,33 +28,14 @@ extension User {
 
 }
 
-
-
-// MARK: Generated accessors for offsetTransactions
-extension User {
-
-    @objc(addOffsetTransactionsObject:)
-    @NSManaged public func addToOffsetTransactions(_ value: OffsetTransaction)
-
-    @objc(removeOffsetTransactionsObject:)
-    @NSManaged public func removeFromOffsetTransactions(_ value: OffsetTransaction)
-
-    @objc(addOffsetTransactions:)
-    @NSManaged public func addToOffsetTransactions(_ values: NSSet)
-
-    @objc(removeOffsetTransactions:)
-    @NSManaged public func removeFromOffsetTransactions(_ values: NSSet)
-
-}
-
 // MARK: Generated accessors for transactions
 extension User {
 
     @objc(addTransactionsObject:)
-    @NSManaged public func addToTransactions(_ value: Transaction)
+    @NSManaged public func addToTransactions(_ value: BitcoinTransaction)
 
     @objc(removeTransactionsObject:)
-    @NSManaged public func removeFromTransactions(_ value: Transaction)
+    @NSManaged public func removeFromTransactions(_ value: BitcoinTransaction)
 
     @objc(addTransactions:)
     @NSManaged public func addToTransactions(_ values: NSSet)

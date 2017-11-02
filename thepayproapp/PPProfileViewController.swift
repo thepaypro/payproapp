@@ -84,7 +84,7 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         let user = User.currentUser()
         
-        self.nameLabel.text = user?.nickname ?? ""
+        self.nameLabel.text = user?.nickname ?? "NICKNAME"
 
 
     }
