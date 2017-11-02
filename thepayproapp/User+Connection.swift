@@ -9,6 +9,22 @@
 
 import Foundation
 
+func UserUpdate(paramsDictionary: NSDictionary, completion: @escaping (_ userUpdateResponse: NSDictionary) -> Void)
+{
+    let userId:Int64 = Int64((User.currentUser()?.identifier)!)
+    
+    makePutRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "users/\(userId)", completion: {completionDictionary in
+        
+        print("completionDictionary: \(completionDictionary)")
+        
+        if completionDictionary["user"] != nil {
+            completion(["status":true] as NSDictionary)
+        } else {
+            completion(["status":false] as NSDictionary)
+        }
+    })
+}
+
 extension User {
     class func register(username: String, password: String, passwordConfirmation: String, validationCode: String, completion: @escaping (_ registerResponse: NSDictionary) -> Void)
     {
@@ -27,22 +43,32 @@ extension User {
             
             if let userDictionary = completionDictionary["user"] as? NSDictionary
             {
-                var registeredUser = self.manage(userDictionary: userDictionary )
                 
-                let accountId:Int64 = Int64((User.currentUser()?.identifier)!)
+                var accountDictionary:NSMutableDictionary?
                 
-                if registeredUser != nil {
-                    let accountDictionary = [
-                        "id": accountId,
-                        "account_type_id": 0,
-                        "card_status_id": 0,
-                        "amountBalance": "£ 0.00"
-                        ] as [String : Any]
-                    
-                    registeredUser = self.manage(userDictionary: accountDictionary as NSDictionary)
+                accountDictionary = [
+                    "id": userDictionary.value(forKeyPath: "id")!,
+                    "username": userDictionary.value(forKeyPath: "username")!,
+                    "nickname": userDictionary.value(forKeyPath: "nickname")!
+                ];
+                
+                if let bitcoinAccountInfo = (userDictionary as AnyObject).value(forKeyPath: "bitcoinAccount")! as? NSDictionary {
+                    accountDictionary!["bitcoinAddress"] = (bitcoinAccountInfo.value(forKeyPath: "address") as! String)
                 }
-                
-                completion(["status": registeredUser != nil] as NSDictionary)
+
+                AccountsInfo(completion: {response in
+                    if let bitcoinBalance = response["balance"], response["status"] as! Bool == true{
+                        accountDictionary!["bitcoinAmountBalance"] = bitcoinBalance
+                        let loggedUser = self.manage(userDictionary: accountDictionary!)
+                        completion(["status":loggedUser != nil] as NSDictionary)
+                    }else if let errorMessage = response["errorMessage"] {
+                        completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
+                        return;
+                    }else{
+                        completion(["status":false] as NSDictionary)
+                        return;
+                    }
+                });
             } else {
                 var errorMessage = completionDictionary["message"] as! String
                 if completionDictionary["message"] as! String == "Invalid verification code" {
@@ -95,39 +121,11 @@ extension User {
                 
                 var loginDictionary:NSMutableDictionary?
                 
-                if let gbpAccountInfo = (userDictionary as AnyObject).value(forKeyPath: "gbpAccount")! as? NSDictionary {
-                    
-                    let statusAccount:String = (gbpAccountInfo.value(forKeyPath: "status") as! String)
-                    if statusAccount == "PENDING" {
-                        loginDictionary = [
-                            "id": userDictionary.value(forKeyPath: "id")!,
-                            "username": userDictionary.value(forKeyPath: "username")!,
-                            "account_type_id": User.AccountType.demoAccount.rawValue,
-                            "status": User.Status.statusActivating.rawValue,
-                            "amountBalance": "£ 0.00"
-                        ]
-                    }else{
-//                        guard let cardStatus = (gbpAccountInfo.value(forKeyPath: "card") as? NSDictionary)?.value(forKeyPath: "cardStatus") as? Int else {
-//                            let cardstatus = 0
-//                        }
-                        
-                        loginDictionary = [
-                            "id": userDictionary.value(forKeyPath: "id")!,
-                            "forename": gbpAccountInfo.value(forKeyPath: "forename")!,
-                            "lastname": gbpAccountInfo.value(forKeyPath: "lastname")!,
-                            "card_status_id": (gbpAccountInfo.value(forKeyPath: "card") as? NSDictionary)?.value(forKeyPath: "cardStatus") as? Int ?? 0,
-                            "accountNumber": gbpAccountInfo.value(forKeyPath: "accountNumber")!,
-                            "sortCode": gbpAccountInfo.value(forKeyPath: "sortCode")!,
-                            "street": gbpAccountInfo.value(forKeyPath: "street")!,
-                            "buildingNumber": gbpAccountInfo.value(forKeyPath: "buildingNumber")!,
-                            "postcode": gbpAccountInfo.value(forKeyPath: "postcode")!,
-                            "city": gbpAccountInfo.value(forKeyPath: "city")!,
-                            "country": gbpAccountInfo.value(forKeyPath: "country")!,
-                            "email": gbpAccountInfo.value(forKeyPath: "email")!,
-                            "status": User.Status.statusActivated.rawValue
-                        ]
-                    }
-                }
+                loginDictionary = [
+                    "id": userDictionary.value(forKeyPath: "id")!,
+                    "username": userDictionary.value(forKeyPath: "username")!,
+                    "nickname": userDictionary.value(forKeyPath: "nickname")!
+                ];
                 
                 if let bitcoinAccountInfo = (userDictionary as AnyObject).value(forKeyPath: "bitcoinAccount")! as? NSDictionary {
                     loginDictionary!["bitcoinAddress"] = (bitcoinAccountInfo.value(forKeyPath: "address") as! String)
@@ -136,9 +134,8 @@ extension User {
                 AccountsInfo(completion: {response in
                     if let bitcoinBalance = response["balance"], response["status"] as! Bool == true{
                        loginDictionary!["bitcoinAmountBalance"] = bitcoinBalance
-                        let accountUser = self.manage(userDictionary: loginDictionary!)
-                        let loggedUser = self.manage(userDictionary: userDictionary)
-                        completion(["status":loggedUser != nil && accountUser != nil] as NSDictionary)
+                        let loggedUser = self.manage(userDictionary: loginDictionary!)
+                        completion(["status":loggedUser != nil] as NSDictionary)
                     }else if let errorMessage = response["errorMessage"] {
                         completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
                         return;
@@ -211,9 +208,9 @@ extension User {
             "confirm_password": confirmPasscode
             ] as [String : Any]
         
-        let accountId:Int64 = Int64((User.currentUser()?.identifier)!)
+        let userId:Int64 = Int64((User.currentUser()?.identifier)!)
         
-        makePutRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "users/\(accountId)", completion: {completionDictionary in
+        makePutRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "users/\(userId)", completion: {completionDictionary in
             if completionDictionary["user"] != nil
             {
                 completion(["status":true] as NSDictionary)

@@ -11,8 +11,6 @@ import UIKit
 class PPSendMoneyConfirmViewController: UIViewController
 {
     var sendMoney = SendMoney()
-    var userAccountType = User.currentUser()?.accountType
-    var userStatus = User.currentUser()?.status
     
     override func viewDidLoad()
     {
@@ -58,13 +56,8 @@ class PPSendMoneyConfirmViewController: UIViewController
         box.frame = CGRect(x: 0, y:0, width: self.view.frame.width, height: self.view.frame.height)
         
         let labelTop = UILabel()
-        
-       if (userAccountType == .demoAccount || userStatus != .statusActivated )
-        {
-            labelTop.text = "Fake payment done!"
-        } else {
-            labelTop.text = "You rock!"
-        }
+       
+        labelTop.text = "You rock!"
         
         labelTop.textAlignment = .center
         labelTop.textColor = UIColor.white
@@ -82,14 +75,10 @@ class PPSendMoneyConfirmViewController: UIViewController
         
         let labelBottom = UILabel()
         
-        if (userAccountType == .demoAccount || userStatus != .statusActivated )        {
-            labelBottom.text = "This is how a payment would be made"
-        } else {
-            if sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 0{
-                labelBottom.text = "sent to "+sendMoney.getForename()+" "+sendMoney.getLastname()
-            } else if sendMoney.getOperationType() == 1 || sendMoney.getOperationType() == 2 {
-                labelBottom.text = "sent to "+sendMoney.getBeneficiaryName()
-            }
+        if sendMoney.getOperationType() == 0 && sendMoney.getCurrencyType() == 0{
+            labelBottom.text = "sent to "+sendMoney.getForename()+" "+sendMoney.getLastname()
+        } else if sendMoney.getOperationType() == 1 || sendMoney.getOperationType() == 2 {
+            labelBottom.text = "sent to "+sendMoney.getBeneficiaryName()
         }
         
         labelBottom.textAlignment = .center
@@ -98,27 +87,11 @@ class PPSendMoneyConfirmViewController: UIViewController
         labelBottom.frame = CGRect(x: 0, y: (self.view.frame.height/2) - 55, width: self.view.frame.width, height: 20)
         self.view.addSubview(labelBottom)
         
-        if (userAccountType == .demoAccount || userStatus != .statusActivated )
-        {
-            let labelFinish = UILabel()
-            labelFinish.text = "Please, activate your account if you want to start making real payments"
-            labelFinish.textAlignment = .center
-            labelFinish.numberOfLines = 0
-            labelFinish.textColor = UIColor.white
-            labelFinish.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
-            labelFinish.frame = CGRect(x: 50, y: (self.view.frame.height/2) + 55, width: self.view.frame.width - 100, height: 80)
-            self.view.addSubview(labelFinish)
-        }
     }
     
     func transition()
     {
         var when = DispatchTime.now() + 3
-        
-        if (userAccountType == .demoAccount || userStatus != .statusActivated )
-        {
-            when = DispatchTime.now() + 5
-        }
         
         DispatchQueue.main.asyncAfter(deadline: when) {
             self.dismiss(animated: true, completion: nil)

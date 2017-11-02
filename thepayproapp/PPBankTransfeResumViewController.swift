@@ -195,50 +195,34 @@ class PPBankTransfeResumViewController: UIViewController, MFMessageComposeViewCo
     
     func goToConfirm()
     {
-        let userAccountType = User.currentUser()?.accountType
-        let userStatus = User.currentUser()?.status
-        
-        if (userAccountType == .demoAccount || userStatus != .statusActivated )
-        {
-            self.sendMoney.setFinishProcess(finishProcessValue: 1)
+        if sendMoney.getOperationType() == 0 || sendMoney.getOperationType() == 1 {
             
-            let confirmViewController = PPSendMoneyConfirmViewController()
-            confirmViewController.modalTransitionStyle = .crossDissolve
-            confirmViewController.sendMoney = self.sendMoney
-            self.present(confirmViewController, animated: true, completion: {
-                self.tabBarController?.selectedIndex = 3
-                self.vibrateDevice()
-            })
-        } else {
-            if sendMoney.getOperationType() == 0 || sendMoney.getOperationType() == 1 {
+            //call endpoint
+            showActivityIndicator()
+            
+            createTransaction(completion:{createTransactionResponse in
+                self.hideActivityIndicator()
                 
-                //call endpoint
-                showActivityIndicator()
-                
-                createTransaction(completion:{createTransactionResponse in
-                    self.hideActivityIndicator()
-                    
-                    if createTransactionResponse {
-                        let confirmViewController = PPSendMoneyConfirmViewController()
-                        confirmViewController.modalTransitionStyle = .crossDissolve
-                        confirmViewController.sendMoney = self.sendMoney
-                        self.present(confirmViewController, animated: true, completion: {
-                            self.tabBarController?.selectedIndex = 3
-                            self.vibrateDevice()
-                        })
-                    }
-                })
-                
-            } else if sendMoney.getOperationType() == 2 {
-                if (MFMessageComposeViewController.canSendText()) {
-                    let controller = MFMessageComposeViewController()
-                    controller.body = "Enric Giribet te invita a que descarges PayPro App!!! http://www.payproapp.com "
-                    controller.recipients = ["666395251"]
-                    controller.messageComposeDelegate = self
-                    self.present(controller, animated: true, completion: nil)
-                } else {
-                    print("no puedo enviar SMS!!")
+                if createTransactionResponse {
+                    let confirmViewController = PPSendMoneyConfirmViewController()
+                    confirmViewController.modalTransitionStyle = .crossDissolve
+                    confirmViewController.sendMoney = self.sendMoney
+                    self.present(confirmViewController, animated: true, completion: {
+                        self.tabBarController?.selectedIndex = 3
+                        self.vibrateDevice()
+                    })
                 }
+            })
+            
+        } else if sendMoney.getOperationType() == 2 {
+            if (MFMessageComposeViewController.canSendText()) {
+                let controller = MFMessageComposeViewController()
+                controller.body = "Enric Giribet te invita a que descarges PayPro App!!! http://www.payproapp.com "
+                controller.recipients = ["666395251"]
+                controller.messageComposeDelegate = self
+                self.present(controller, animated: true, completion: nil)
+            } else {
+                print("no puedo enviar SMS!!")
             }
         }
     }

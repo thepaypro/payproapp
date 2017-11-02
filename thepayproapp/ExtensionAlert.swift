@@ -41,24 +41,10 @@ extension UIAlertController {
             
             return alert
             
-        case "error_profile_saving_forename":
+        case "error_profile_saving_nickname":
             let alert = UIAlertController(
-                title: "Name error!",
-                message: "Please, enter a valid name.",
-                preferredStyle: UIAlertControllerStyle.alert)
-            
-            let confirmAction = UIAlertAction(
-                title: "Ok",
-                style: .default)
-            
-            alert.addAction(confirmAction)
-            
-            return alert
-            
-        case "error_profile_saving_lastname":
-            let alert = UIAlertController(
-                title: "Surname error!",
-                message: "Please, enter a valid name.",
+                title: "Nickname error!",
+                message: "Please, enter a valid nickname.",
                 preferredStyle: UIAlertControllerStyle.alert)
             
             let confirmAction = UIAlertAction(

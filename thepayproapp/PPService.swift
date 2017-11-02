@@ -92,7 +92,7 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
             absoluteURL += "?\(paramsURL)"
         }
         
-        let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 20.0)
+        let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30.0)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         

@@ -13,23 +13,14 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
 {
     @IBOutlet weak var avatarView: UIView!
     @IBOutlet weak var nameView: UIView!
-    @IBOutlet weak var nationalView: UIView!
-    @IBOutlet weak var addressView: UIView!
-    @IBOutlet weak var infoView: UIView!
+    
     @IBAction func avatarButtonAction(_ sender: Any) {
         avatarAlert()
     }
     @IBOutlet weak var avatarImage: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var documentLabel: UILabel!
-    @IBOutlet weak var streetLabel: UILabel!
-    @IBOutlet weak var numberBuildingLabel: UILabel!
-    @IBOutlet weak var postCodeLabel: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var countryLabel: UILabel!
-    @IBOutlet weak var phoneNumberLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
+
     
     override func viewDidLoad()
     {
@@ -59,51 +50,6 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         nameLayerBottom.path = nameBorderBottom.cgPath
         nameLayerBottom.fillColor = PayProColors.line.cgColor
         self.nameView.layer.addSublayer(nameLayerBottom)
-        
-        
-        let nationalBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
-        let nationalLayerTop = CAShapeLayer()
-        nationalLayerTop.path = nationalBorderTop.cgPath
-        nationalLayerTop.fillColor = PayProColors.line.cgColor
-        self.nationalView.layer.addSublayer(nationalLayerTop)
-        
-        let nationalBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
-        let nationalLayerBottom = CAShapeLayer()
-        nationalLayerBottom.path = nationalBorderBottom.cgPath
-        nationalLayerBottom.fillColor = PayProColors.line.cgColor
-        self.nationalView.layer.addSublayer(nationalLayerBottom)
-        
-        
-        let addressBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
-        let addressLayerTop = CAShapeLayer()
-        addressLayerTop.path = addressBorderTop.cgPath
-        addressLayerTop.fillColor = PayProColors.line.cgColor
-        self.addressView.layer.addSublayer(addressLayerTop)
-        
-        let addressBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 119.6, width: self.view.frame.width, height: 0.4))
-        let addressLayerBottom = CAShapeLayer()
-        addressLayerBottom.path = addressBorderBottom.cgPath
-        addressLayerBottom.fillColor = PayProColors.line.cgColor
-        self.addressView.layer.addSublayer(addressLayerBottom)
-
-        
-        let infoBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
-        let infoLayerTop = CAShapeLayer()
-        infoLayerTop.path = infoBorderTop.cgPath
-        infoLayerTop.fillColor = PayProColors.line.cgColor
-        self.infoView.layer.addSublayer(infoLayerTop)
-        
-        let infoBorderMiddle = UIBezierPath(rect: CGRect(x: 15, y: 43.6, width: self.view.frame.width, height: 0.4))
-        let infoLayerMiddle = CAShapeLayer()
-        infoLayerMiddle.path = infoBorderMiddle.cgPath
-        infoLayerMiddle.fillColor = PayProColors.line.cgColor
-        self.infoView.layer.addSublayer(infoLayerMiddle)
-        
-        let infoBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 87.6, width: self.view.frame.width, height: 0.4))
-        let infoLayerBottom = CAShapeLayer()
-        infoLayerBottom.path = infoBorderBottom.cgPath
-        infoLayerBottom.fillColor = PayProColors.line.cgColor
-        self.infoView.layer.addSublayer(infoLayerBottom)
         
         self.setupView()
     }
@@ -138,18 +84,9 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         let user = User.currentUser()
         
-        if user?.status == User.Status.statusActivating ||
-            user?.status == User.Status.statusActivated {
-            self.nameLabel.text = (user?.forename)!+" "+(user?.lastname)!
-            self.documentLabel.text = user?.documentNumber
-            self.streetLabel.text = user?.street
-            self.numberBuildingLabel.text = user?.buildingNumber
-            self.postCodeLabel.text = user?.postCode
-            self.cityLabel.text = user?.city
-            self.countryLabel.text = user?.country
-            self.phoneNumberLabel.text = user?.username
-            self.emailLabel.text = user?.email
-        }
+        self.nameLabel.text = user?.nickname ?? ""
+
+
     }
     
     func avatarAlert()
@@ -226,12 +163,5 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         avatarImage.contentMode = .scaleToFill
         avatarImage.image = UIImage(data: data as Data)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showUpdateAddressSegue" {
-            let updateAddressVC = segue.destination as! PPCardSecondFormViewController
-            updateAddressVC.updateAccount = true
-        }
     }
 }

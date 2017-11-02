@@ -12,33 +12,10 @@ import MessageUI
 class PPSettingsViewController: UIViewController, MFMessageComposeViewControllerDelegate {
 
     @IBOutlet weak var nameView: UIView!
-    @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var pinView: UIView!
-    @IBOutlet weak var upgradeView: UIView!
-    @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameArrow: UIImageView!
-    @IBOutlet weak var disableCardSwitch: UISwitch!
     
-    @IBAction func ViewPinButton(_ sender: Any) {
-        let cardStatus = User.currentUser()?.cardStatus
-        if  cardStatus == .activated || cardStatus == .disabled {
-            self.performSegue(withIdentifier: "showCVV2FromSettingsSegue", sender: nil)
-        }
-    }
-    var visiblePinScreenTime : Int = 15
-    
-//    @IBAction func disableCardAction(_ sender: Any) {
-//        CardUpdateStatus(status: self.disableCardSwitch.isOn, completion: {cardUpdateResponse in
-//            print("cardUpdateResponse: \(cardUpdateResponse)")
-//        })
-//    }
-//    @IBAction func rateButtonAction(_ sender: Any) {
-//        rateApp(appId: "1225181484") { success in
-//            print("RateApp \(success)")
-//        }
-//    }
     @IBAction func tellButtonAction(_ sender: Any) {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
@@ -66,75 +43,6 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
         nameLayerBottom.fillColor = PayProColors.line.cgColor
         self.nameView.layer.addSublayer(nameLayerBottom)
         
-        
-        let cardBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
-        let cardLayerTop = CAShapeLayer()
-        cardLayerTop.path = cardBorderTop.cgPath
-        cardLayerTop.fillColor = PayProColors.line.cgColor
-        self.cardView.layer.addSublayer(cardLayerTop)
-        
-        let cardBorderMiddle = UIBezierPath(rect: CGRect(x: 58, y: 43.6, width: self.view.frame.width, height: 0.4))
-        let cardLayerMiddle = CAShapeLayer()
-        cardLayerMiddle.path = cardBorderMiddle.cgPath
-        cardLayerMiddle.fillColor = PayProColors.line.cgColor
-        self.cardView.layer.addSublayer(cardLayerMiddle)
-        
-        let cardBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 87.6, width: self.view.frame.width, height: 0.4))
-        let cardLayerBottom = CAShapeLayer()
-        cardLayerBottom.path = cardBorderBottom.cgPath
-        cardLayerBottom.fillColor = PayProColors.line.cgColor
-        self.cardView.layer.addSublayer(cardLayerBottom)
-        
-        let pinBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
-        let pinLayerTop = CAShapeLayer()
-        pinLayerTop.path = pinBorderTop.cgPath
-        pinLayerTop.fillColor = PayProColors.line.cgColor
-        self.pinView.layer.addSublayer(pinLayerTop)
-        
-        let pinBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
-        let pinLayerBottom = CAShapeLayer()
-        pinLayerBottom.path = pinBorderBottom.cgPath
-        pinLayerBottom.fillColor = PayProColors.line.cgColor
-        self.pinView.layer.addSublayer(pinLayerBottom)
-        
-        
-        let upgradeBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
-        let upgradeLayerTop = CAShapeLayer()
-        upgradeLayerTop.path = upgradeBorderTop.cgPath
-        upgradeLayerTop.fillColor = PayProColors.line.cgColor
-        self.upgradeView.layer.addSublayer(upgradeLayerTop)
-        
-        let upgradeBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
-        let upgradeLayerBottom = CAShapeLayer()
-        upgradeLayerBottom.path = upgradeBorderBottom.cgPath
-        upgradeLayerBottom.fillColor = PayProColors.line.cgColor
-        self.upgradeView.layer.addSublayer(upgradeLayerBottom)
-        
-        
-        let infoBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
-        let infoLayerTop = CAShapeLayer()
-        infoLayerTop.path = infoBorderTop.cgPath
-        infoLayerTop.fillColor = PayProColors.line.cgColor
-        self.infoView.layer.addSublayer(infoLayerTop)
-        
-        let infoBorderMiddle = UIBezierPath(rect: CGRect(x: 58, y: 43.6, width: self.view.frame.width, height: 0.4))
-        let infoLayerMiddle = CAShapeLayer()
-        infoLayerMiddle.path = infoBorderMiddle.cgPath
-        infoLayerMiddle.fillColor = PayProColors.line.cgColor
-        self.infoView.layer.addSublayer(infoLayerMiddle)
-        
-        let infoBorderMiddleB = UIBezierPath(rect: CGRect(x: 0, y: 87.6, width: self.view.frame.width, height: 0.4))
-        let infoLayerMiddleB = CAShapeLayer()
-        infoLayerMiddleB.path = infoBorderMiddleB.cgPath
-        infoLayerMiddleB.fillColor = PayProColors.line.cgColor
-        self.infoView.layer.addSublayer(infoLayerMiddleB)
-        
-//        let infoBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 131.6, width: self.view.frame.width, height: 0.4))
-//        let infoLayerBottom = CAShapeLayer()
-//        infoLayerBottom.path = infoBorderBottom.cgPath
-//        infoLayerBottom.fillColor = PayProColors.line.cgColor
-//        self.infoView.layer.addSublayer(infoLayerBottom)
-        
         self.setupView()
     }
     
@@ -160,21 +68,8 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
             avatarImage.image = UIImage(named:"default-profile")
         }
         
-        if User.currentUser()?.status == User.Status.statusActivated {
-            self.nameLabel.text = (User.currentUser()?.forename)!+" "+(User.currentUser()?.lastname)!
-        } else {
-            self.nameLabel.text = "Your name"
-            self.nameArrow.isHidden = true
-        }
+        self.nameLabel.text = User.currentUser()?.nickname ?? ""
         
-        if User.currentUser()?.cardStatus == User.CardStatus.notOrdered ||
-            User.currentUser()?.cardStatus == User.CardStatus.ordered {
-            self.disableCardSwitch.isEnabled = false
-            
-        } else if User.currentUser()?.cardStatus == User.CardStatus.activated ||
-            User.currentUser()?.cardStatus == User.CardStatus.disabled {
-            self.disableCardSwitch.isEnabled = true
-        }
     }
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
@@ -231,15 +126,7 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "profileViewSegue" {
-            if User.currentUser()?.status == User.Status.statusActivated {
-                return true
-            } else {
-                return false
-            }
-        } else {
-            return true
-        }
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

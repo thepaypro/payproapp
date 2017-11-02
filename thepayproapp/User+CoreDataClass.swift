@@ -71,108 +71,18 @@ public class User: NSManagedObject
     
     class func update(user: User, attributesDictionary: NSDictionary)
     {
-        let accountTypeId: Int32? = attributesDictionary.object(forKey: "account_type_id") as? Int32
-        let cardStatusId: Int32? = attributesDictionary.object(forKey: "card_status_id") as? Int32
-        let cardHolderId: Int64? = attributesDictionary.object(forKey: "card_holder_id") as? Int64
-        let dob: String? = attributesDictionary.object(forKey: "dob") as? String
-        let documentNumber: String? = attributesDictionary.object(forKey: "document_number") as? String
-        let documentType: String? = attributesDictionary.object(forKey: "document_type") as? String
-        let forename: String? = attributesDictionary.object(forKey: "forename") as? String
         let identifier: Int64? = attributesDictionary.object(forKey: "id") as? Int64
-        let lastname: String? = attributesDictionary.object(forKey: "lastname") as? String
         let username: String? = attributesDictionary.object(forKey: "username") as? String
         let token: String? = attributesDictionary.object(forKey: "token") as? String
         let status: Int32? = attributesDictionary.object(forKey: "status") as? Int32
-        let street: String? = attributesDictionary.object(forKey: "street") as? String
-        let buildingNumber: String? = attributesDictionary.object(forKey: "buildingNumber") as? String
-        let postcode: String? = attributesDictionary.object(forKey: "postcode") as? String
-        let city: String? = attributesDictionary.object(forKey: "city") as? String
-        let country: String? = attributesDictionary.object(forKey: "country") as? String
-        let countryName: String? = attributesDictionary.object(forKey: "countryName") as? String
-        let accountNumber: String? = attributesDictionary.object(forKey: "accountNumber") as? String
-        let sortCode: String? = attributesDictionary.object(forKey: "sortCode") as? String
-        let email: String? = attributesDictionary.object(forKey: "email") as? String
-        let amountBalance: String? = attributesDictionary.object(forKey: "amountBalance") as? String
         let bitcoinAmountBalance: String? = attributesDictionary.object(forKey: "bitcoinAmountBalance") as? String
         let bitcoinAddress: String? = attributesDictionary.object(forKey: "bitcoinAddress") as? String
-
+        let nickname: String? = attributesDictionary.object(forKey: "nickname") as? String
         
-//        var groupMembers: NSSet?
-//        var invites: NSSet?
-//        var offsetTransactions: NSSet?
-//        var transactions: NSSet?
         
         if identifier == nil
         {
             return
-        }
-        
-        // Static account type setting
-        // TO-DO: Fetch from WS
-//        accountTypeId = 0
-        
-        if accountTypeId != nil
-        {
-            user.setValue(accountTypeId, forKeyPath: "accountType")
-//            user.accountType = .demoAccount
-//            
-//            if accountTypeId == 1
-//            {
-//                user.accountType = .basicAccount
-//            }
-//            else if accountTypeId == 2
-//            {
-//                user.accountType = .proAccount
-//            }
-        }
-        
-        // Static card status setting
-        // TO-DO: Fetch from WS
-//        cardStatusId = 1
-        
-        if cardStatusId != nil
-        {
-            user.setValue(cardStatusId, forKeyPath: "cardStatus")
-//            user.cardStatus = .notOrdered
-//            
-//            if cardStatusId == 1
-//            {
-//                user.cardStatus = .ordered
-//            }
-//            else if cardStatusId == 2
-//            {
-//                user.cardStatus = .activated
-//            }
-        }
-        
-        if cardHolderId != nil
-        {
-            user.setValue(cardHolderId, forKeyPath: "cardHolderId")
-        }
-        
-        if dob != nil
-        {
-            user.setValue(dob, forKeyPath: "dob")
-        }
-        
-        if documentNumber != nil
-        {
-            user.setValue(documentNumber, forKeyPath: "documentNumber")
-        }
-        
-        if documentType != nil
-        {
-            user.setValue(documentType, forKeyPath: "documentType")
-        }
-        
-        if forename != nil
-        {
-            user.setValue(forename, forKeyPath: "forename")
-        }
-        
-        if lastname != nil
-        {
-            user.setValue(lastname, forKeyPath: "lastname")
         }
         
         if username != nil
@@ -190,56 +100,6 @@ public class User: NSManagedObject
             user.setValue(status, forKeyPath: "status")
         }
         
-        if street != nil
-        {
-            user.setValue(street, forKeyPath: "street")
-        }
-        
-        if buildingNumber != nil
-        {
-            user.setValue(buildingNumber, forKeyPath: "buildingNumber")
-        }
-        
-        if postcode != nil
-        {
-            user.setValue(postcode, forKeyPath: "postCode")
-        }
-        
-        if city != nil
-        {
-            user.setValue(city, forKeyPath: "city")
-        }
-        
-        if country != nil
-        {
-            user.setValue(country, forKeyPath: "country")
-        }
-        
-        if countryName != nil
-        {
-            user.setValue(countryName, forKeyPath: "countryName")
-        }
-        
-        if accountNumber != nil
-        {
-            user.setValue(accountNumber, forKeyPath: "accountNumber")
-        }
-        
-        if sortCode != nil
-        {
-            user.setValue(sortCode, forKeyPath: "sortCode")
-        }
-        
-        if email != nil
-        {
-            user.setValue(email, forKeyPath: "email")
-        }
-        
-        if amountBalance != nil
-        {
-            user.setValue(amountBalance, forKeyPath: "amountBalance")
-        }
-        
         if bitcoinAmountBalance != nil
         {
             user.setValue(bitcoinAmountBalance, forKeyPath: "bitcoinAmountBalance")
@@ -248,6 +108,11 @@ public class User: NSManagedObject
         if bitcoinAddress != nil
         {
             user.setValue(bitcoinAddress, forKeyPath: "bitcoinAddress")
+        }
+        
+        if nickname != nil
+        {
+            user.setValue(nickname, forKeyPath: "nickname")
         }
     }
     

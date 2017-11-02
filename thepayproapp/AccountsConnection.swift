@@ -27,7 +27,6 @@ func AccountsInfo( completion: @escaping (_ response: NSDictionary) -> Void)
         if let info:NSDictionary = completionDictionary["info"] as? NSDictionary{
             if info.value(forKeyPath: "bitcoinBalance") != nil && info.value(forKeyPath: "bitcoinTransactions") != nil{
                 let amountNumber:Float = info.value(forKey: "bitcoinBalance") as! Float
-//                let amountString: String = String(describing: info.value(forKey: "bitcoinBalance"))
                 
                 let formatterBTC = NumberFormatter()
                 formatterBTC.numberStyle = .currencyAccounting

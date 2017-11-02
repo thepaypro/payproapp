@@ -34,8 +34,6 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     var selectedAccount: AccountCurrencyType = .bitcoin
     
-    var userStatus: User.Status = (User.currentUser()?.status)!
-    
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -107,40 +105,17 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func firstTimeSetup(){
         
-        if userStatus == .statusDemo {
-            
-            let demoAccountAlert = UIAlertController(title: "", message: "In order to enjoy the advantages of the Visa debit card you need to start a free PayPro account", preferredStyle: .alert)
-            
-            let notNowAction = UIAlertAction(title: "Not now", style: .cancel, handler: nil)
-            
-            let OKAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
-                self.performSegue(withIdentifier: "showChooseAccountVCSegue", sender: self)
-            })
-            
-            demoAccountAlert.addAction(notNowAction)
-            demoAccountAlert.addAction(OKAction)
-            demoAccountAlert.preferredAction = OKAction
-            
-            self.present(demoAccountAlert, animated: true)
-        }
     }
     
     func setupView(){
         
-        userStatus = (User.currentUser()?.status)!
-        print(userStatus.rawValue)
-        
         self.setSelectedAccountInfoLabels()
         
-        if userStatus != .statusActivated {
-            transactionsTV.isHidden = true
-        }else{
-            transactionsTV.isHidden = false
-            loadTransactions()
-            self.bitsBalanceLabel.text = User.currentUser()?.bitcoinAmountBalance
-            self.bitsBalanceLabel.numberOfLines = 1
-            self.bitsBalanceLabel.adjustsFontSizeToFitWidth = true
-        }
+        transactionsTV.isHidden = false
+        loadTransactions()
+        self.bitsBalanceLabel.text = User.currentUser()?.bitcoinAmountBalance
+        self.bitsBalanceLabel.numberOfLines = 1
+        self.bitsBalanceLabel.adjustsFontSizeToFitWidth = true
         
         stateButton.isHidden = true
         stateButtonHeight.constant = 0.0
@@ -152,9 +127,9 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         switch selectedAccount {
         case .bitcoin:
             self.infoTitleLabel.text = "BITCOIN ACCOUNT"
-            self.infoAccountNumberLabel.text = (userStatus == .statusActivated) ? User.currentUser()?.bitcoinAddress : "-"
+            self.infoAccountNumberLabel.text =  User.currentUser()?.bitcoinAddress
             self.infoAccountQRCodeView.isHidden = false
-            self.bitcoinQRButton.isEnabled = userStatus == .statusActivated
+            self.bitcoinQRButton.isEnabled = true
         }
     }
     
@@ -210,12 +185,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBAction func stateButtonTouched(_ sender: Any)
     {
-        if userStatus == .statusDemo{
-            self.performSegue(withIdentifier: "showChooseAccountVCSegue", sender: self)
-        }
-        else if userStatus == .statusActivating{
-            // do nothing
-        }
+        self.performSegue(withIdentifier: "showChooseAccountVCSegue", sender: self)
     }
     // MARK: - Table handle refresh
     

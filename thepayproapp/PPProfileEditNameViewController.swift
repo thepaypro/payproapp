@@ -10,10 +10,8 @@ import UIKit
 
 class PPProfileEditNameViewController: UIViewController
 {
-    @IBOutlet weak var forenameView: UIView!
-    @IBOutlet weak var forenameInput: UITextField!
-    @IBOutlet weak var lastnameView: UIView!
-    @IBOutlet weak var lastnameInput: UITextField!
+    @IBOutlet weak var nicknameView: UIView!
+    @IBOutlet weak var nicknameInput: UITextField!
     
     override func viewDidLoad()
     {
@@ -23,23 +21,17 @@ class PPProfileEditNameViewController: UIViewController
         let forenameLayerTop = CAShapeLayer()
         forenameLayerTop.path = forenameBorderTop.cgPath
         forenameLayerTop.fillColor = PayProColors.line.cgColor
-        self.forenameView.layer.addSublayer(forenameLayerTop)
+        self.nicknameView.layer.addSublayer(forenameLayerTop)
         
-        let lastnameBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
-        let lastnameLayerTop = CAShapeLayer()
-        lastnameLayerTop.path = lastnameBorderTop.cgPath
-        lastnameLayerTop.fillColor = PayProColors.line.cgColor
-        self.lastnameView.layer.addSublayer(lastnameLayerTop)
         
         let lastnameBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
         let lastnameLayerBottom = CAShapeLayer()
         lastnameLayerBottom.path = lastnameBorderBottom.cgPath
         lastnameLayerBottom.fillColor = PayProColors.line.cgColor
-        self.lastnameView.layer.addSublayer(lastnameLayerBottom)
+        self.nicknameView.layer.addSublayer(lastnameLayerBottom)
         
         
-        forenameInput.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
-        lastnameInput.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
+        nicknameInput.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
         
         self.setupView()
     }
@@ -52,7 +44,7 @@ class PPProfileEditNameViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool)
     {
-        self.forenameInput.becomeFirstResponder()
+        self.nicknameInput.becomeFirstResponder()
         self.setupView()
     }
     
@@ -60,8 +52,7 @@ class PPProfileEditNameViewController: UIViewController
     {
         let user = User.currentUser()
         
-        self.forenameInput.text = user?.forename
-        self.lastnameInput.text = user?.lastname
+        self.nicknameInput.text = user?.nickname
         
         self.setNavigationBarButton()
     }
@@ -77,9 +68,8 @@ class PPProfileEditNameViewController: UIViewController
     
     func checkNavigation()
     {
-        if forenameInput.text != "" && lastnameInput.text != "" {
+        if nicknameInput.text != "" {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
-            
         } else {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
         }
@@ -87,25 +77,22 @@ class PPProfileEditNameViewController: UIViewController
     
     func nextTapped()
     {
-        if self.forenameInput.text != "" && self.lastnameInput.text != "" {
+        if self.nicknameInput.text != "" {
             self.displayNavBarActivity()
             
             let identifier: Int64 = Int64((User.currentUser()?.identifier)!)
-            let forename: String = String((self.forenameInput.text)!)
-            let lastname: String = String((self.lastnameInput.text)!)
+            let nickname: String = String((self.nicknameInput.text)!)
             
             let accountUpdateDictionary = [
-                "forename": forename,
-                "lastname": lastname
+                "nickname": nickname,
                 ] as [String : Any]
             
-            AccountUpdate(paramsDictionary: accountUpdateDictionary as NSDictionary, completion: { accountUpdateResponse in
+            UserUpdate(paramsDictionary: accountUpdateDictionary as NSDictionary, completion: { userUpdateResponse in
                 
-                if accountUpdateResponse["status"] as! Bool == true {
+                if userUpdateResponse["status"] as! Bool == true {
                     let userDictionary = [
                         "id": identifier,
-                        "forename": forename,
-                        "lastname": lastname
+                        "nickname": nickname
                         ] as [String : Any]
                     
                     let updateUser = User.manage(userDictionary: userDictionary as NSDictionary)
@@ -122,8 +109,8 @@ class PPProfileEditNameViewController: UIViewController
                 } else {
                     var errorMessage: String = "error_saving"
                     
-                    if accountUpdateResponse["errorMessage"] != nil {
-                        errorMessage = accountUpdateResponse["errorMessage"] as! String
+                    if userUpdateResponse["errorMessage"] != nil {
+                        errorMessage = userUpdateResponse["errorMessage"] as! String
                     }
                     
                     self.dismissNavBarActivity()
@@ -132,16 +119,11 @@ class PPProfileEditNameViewController: UIViewController
                     self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
                 }
             })
-        } else if self.forenameInput.text == "" {
+        } else  {
             self.dismissNavBarActivity()
             self.setNavigationBarButton()
             let alert = UIAlertController()
-            self.present(alert.displayAlert(code: "error_profile_saving_forename"), animated: true, completion: nil)
-        } else if self.lastnameInput.text == "" {
-            self.dismissNavBarActivity()
-            self.setNavigationBarButton()
-            let alert = UIAlertController()
-            self.present(alert.displayAlert(code: "error_profile_saving_lastname"), animated: true, completion: nil)
+            self.present(alert.displayAlert(code: "error_profile_saving_nickname"), animated: true, completion: nil)
         }
     }
     
