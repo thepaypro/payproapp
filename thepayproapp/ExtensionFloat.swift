@@ -8,22 +8,22 @@
 
 import UIKit
 
-extension Float {
+extension Double {
     
-    func getBTCFromBits() -> Float{
+    func getBTCFromBits() -> Double{
         let amount = self
         
-        let BTC = amount * Float(0.000001)
+        let BTC = amount * Double(0.000001)
         
-        return Float(BTC)
+        return Double(BTC)
     }
     
-    func getbitsFromBTC() -> Float{
+    func getbitsFromBTC() -> Double{
         let amount = self
         
-        let BTC = amount / Float(0.000001)
+        let BTC = amount / Double(0.000001)
         
-        return Float(BTC)
+        return Double(BTC)
     }
 }
 
