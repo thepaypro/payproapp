@@ -13,8 +13,6 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
 {
     @IBOutlet weak var avatarView: UIView!
     @IBOutlet weak var nameView: UIView!
-    @IBOutlet weak var nicknameView: UIView!
-    @IBOutlet weak var nicknameInput: UITextField!
     
     @IBAction func avatarButtonAction(_ sender: Any) {
         avatarAlert()
@@ -53,8 +51,6 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         nameLayerBottom.fillColor = PayProColors.line.cgColor
         self.nameView.layer.addSublayer(nameLayerBottom)
         
-        nicknameInput.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
-        
         self.setupView()
     }
     
@@ -64,9 +60,7 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(_ animated: Bool)
-    {
-        self.nicknameInput.becomeFirstResponder()
+    override func viewWillAppear(_ animated: Bool) {
         self.setupView()
     }
     
@@ -90,9 +84,7 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         let user = User.currentUser()
         
-        self.nicknameInput.text = user?.nickname ?? "Nickname"
-        
-        self.setNavigationBarButton()
+        self.nameLabel.text = user?.nickname ?? "nickname"
 
 
     }
@@ -114,6 +106,9 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
                 print("problems with open camera")
             }
             
+//            self.dismiss(animated: true, completion: {
+//                self.performSegue(withIdentifier: "sendMoneyInAppSegue", sender: self)
+//            })
         })
         
         alert.addAction(cameraButtonAction)
@@ -168,75 +163,5 @@ class PPProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         avatarImage.contentMode = .scaleToFill
         avatarImage.image = UIImage(data: data as Data)
-    }
-    
-    func setNavigationBarButton()
-    {
-        let nextButton = UIBarButtonItem(title: "Confirm", style: .done, target: self, action: #selector(nextTapped))
-        
-        self.navigationItem.rightBarButtonItem = nextButton
-        
-        self.checkNavigation()
-    }
-    
-    func checkNavigation()
-    {
-        if nicknameInput.text != "" {
-            self.navigationItem.rightBarButtonItem?.isEnabled = true
-        } else {
-            self.navigationItem.rightBarButtonItem?.isEnabled = false
-        }
-    }
-    
-    func nextTapped()
-    {
-        if self.nicknameInput.text != "" {
-            self.displayNavBarActivity()
-            
-            let identifier: Int64 = Int64((User.currentUser()?.identifier)!)
-            let nickname: String = String((self.nicknameInput.text)!)
-            
-            let accountUpdateDictionary = [
-                "nickname": nickname,
-                ] as [String : Any]
-            
-            User.updateInfo(paramsDictionary: accountUpdateDictionary as NSDictionary, completion: { userUpdateResponse in
-                
-                if userUpdateResponse["status"] as! Bool == true {
-                    let userDictionary = [
-                        "id": identifier,
-                        "nickname": nickname
-                        ] as [String : Any]
-                    
-                    let updateUser = User.manage(userDictionary: userDictionary as NSDictionary)
-                    
-                    if updateUser != nil {
-                        self.dismissNavBarActivity()
-                        self.navigationController?.popViewController(animated: true)
-                    } else {
-                        self.dismissNavBarActivity()
-                        self.setNavigationBarButton()
-                        let alert = UIAlertController()
-                        self.present(alert.displayAlert(code: "error_saving"), animated: true, completion: nil)
-                    }
-                } else {
-                    var errorMessage: String = "error_saving"
-                    
-                    if userUpdateResponse["errorMessage"] != nil {
-                        errorMessage = userUpdateResponse["errorMessage"] as! String
-                    }
-                    
-                    self.dismissNavBarActivity()
-                    self.setNavigationBarButton()
-                    let alert = UIAlertController()
-                    self.present(alert.displayAlert(code: errorMessage), animated: true, completion: nil)
-                }
-            })
-        } else  {
-            self.dismissNavBarActivity()
-            self.setNavigationBarButton()
-            let alert = UIAlertController()
-            self.present(alert.displayAlert(code: "error_profile_saving_nickname"), animated: true, completion: nil)
-        }
     }
 }

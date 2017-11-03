@@ -208,7 +208,7 @@ extension User {
     {
         let userId:Int64 = Int64((User.currentUser()?.identifier)!)
         
-        makePutRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "users/\(userId)", completion: {completionDictionary in
+        makePutRequest(paramsDictionary: paramsDictionary as NSDictionary, endpointURL: "users/profile/\(userId)", completion: {completionDictionary in
             
             print("completionDictionary: \(completionDictionary)")
             
