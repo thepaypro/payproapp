@@ -15,6 +15,8 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameArrow: UIImageView!
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var cardView: UIView!
     
     @IBAction func tellButtonAction(_ sender: Any) {
         if (MFMessageComposeViewController.canSendText()) {
@@ -43,6 +45,42 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
         nameLayerBottom.fillColor = PayProColors.line.cgColor
         self.nameView.layer.addSublayer(nameLayerBottom)
         
+        let cardBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
+        let cardLayerTop = CAShapeLayer()
+        cardLayerTop.path = cardBorderTop.cgPath
+        cardLayerTop.fillColor = PayProColors.line.cgColor
+        self.cardView.layer.addSublayer(cardLayerTop)
+        
+        let cardBorderMiddle = UIBezierPath(rect: CGRect(x: 58, y: 43.6, width: self.view.frame.width, height: 0.4))
+        let cardLayerMiddle = CAShapeLayer()
+        cardLayerMiddle.path = cardBorderMiddle.cgPath
+        cardLayerMiddle.fillColor = PayProColors.line.cgColor
+        self.cardView.layer.addSublayer(cardLayerMiddle)
+        
+        let cardBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 87.6, width: self.view.frame.width, height: 0.4))
+        let cardLayerBottom = CAShapeLayer()
+        cardLayerBottom.path = cardBorderBottom.cgPath
+        cardLayerBottom.fillColor = PayProColors.line.cgColor
+        self.cardView.layer.addSublayer(cardLayerBottom)
+        
+        let infoBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
+        let infoLayerTop = CAShapeLayer()
+        infoLayerTop.path = infoBorderTop.cgPath
+        infoLayerTop.fillColor = PayProColors.line.cgColor
+        self.infoView.layer.addSublayer(infoLayerTop)
+        
+        let infoBorderMiddle = UIBezierPath(rect: CGRect(x: 58, y: 43.6, width: self.view.frame.width, height: 0.4))
+        let infoLayerMiddle = CAShapeLayer()
+        infoLayerMiddle.path = infoBorderMiddle.cgPath
+        infoLayerMiddle.fillColor = PayProColors.line.cgColor
+        self.infoView.layer.addSublayer(infoLayerMiddle)
+        
+        let infoBorderMiddleB = UIBezierPath(rect: CGRect(x: 0, y: 87.6, width: self.view.frame.width, height: 0.4))
+        let infoLayerMiddleB = CAShapeLayer()
+        infoLayerMiddleB.path = infoBorderMiddleB.cgPath
+        infoLayerMiddleB.fillColor = PayProColors.line.cgColor
+        self.infoView.layer.addSublayer(infoLayerMiddleB)
+        
         self.setupView()
     }
     
@@ -68,7 +106,7 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
             avatarImage.image = UIImage(named:"default-profile")
         }
         
-        self.nameLabel.text = User.currentUser()?.nickname ?? ""
+        self.nameLabel.text = User.currentUser()?.nickname ?? "Nickname"
         
     }
     
@@ -119,7 +157,7 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
         }
         UIApplication.shared.open(url, options: [:], completionHandler: completion)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -136,3 +174,4 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
         }
     }
 }
+

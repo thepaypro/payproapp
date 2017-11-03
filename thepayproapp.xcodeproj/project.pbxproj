@@ -31,6 +31,9 @@
 		53564B0D1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */; };
 		535843791F8383180050250A /* BitcoinAccountConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535843781F8383180050250A /* BitcoinAccountConnection.swift */; };
 		5358437C1F838D2D0050250A /* PPShowQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358437B1F838D2D0050250A /* PPShowQRCode.swift */; };
+		536498DF1FACA4B4009B61CE /* PPInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536498DE1FACA4B4009B61CE /* PPInfoViewController.swift */; };
+		536498E11FACA51F009B61CE /* PPInfoWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536498E01FACA51F009B61CE /* PPInfoWebViewController.swift */; };
+		536498E31FACA5F5009B61CE /* PPAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536498E21FACA5F5009B61CE /* PPAboutViewController.swift */; };
 		537633771F910549001673E3 /* BitcoinTransactionConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537633761F910549001673E3 /* BitcoinTransactionConnection.swift */; };
 		537C3D9B1F75297C00924ED0 /* sendMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C3D9A1F75297C00924ED0 /* sendMoney.swift */; };
 		53AD56281F83B92E007284C7 /* BitcoinTransaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD56271F83B92E007284C7 /* BitcoinTransaction+CoreDataClass.swift */; };
@@ -116,6 +119,9 @@
 		53564B0C1F712DAF007D2EA8 /* PPPrefixSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPrefixSelectionViewController.swift; sourceTree = "<group>"; };
 		535843781F8383180050250A /* BitcoinAccountConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitcoinAccountConnection.swift; sourceTree = "<group>"; };
 		5358437B1F838D2D0050250A /* PPShowQRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPShowQRCode.swift; sourceTree = "<group>"; };
+		536498DE1FACA4B4009B61CE /* PPInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PPInfoViewController.swift; path = ../../PPInfoViewController.swift; sourceTree = "<group>"; };
+		536498E01FACA51F009B61CE /* PPInfoWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPInfoWebViewController.swift; sourceTree = "<group>"; };
+		536498E21FACA5F5009B61CE /* PPAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPAboutViewController.swift; sourceTree = "<group>"; };
 		537633761F910549001673E3 /* BitcoinTransactionConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitcoinTransactionConnection.swift; sourceTree = "<group>"; };
 		537C3D9A1F75297C00924ED0 /* sendMoney.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendMoney.swift; sourceTree = "<group>"; };
 		53AD56271F83B92E007284C7 /* BitcoinTransaction+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BitcoinTransaction+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -511,6 +517,9 @@
 				BFF7FA671EEFF469009D798E /* PPSettingsViewController.swift */,
 				213381261EFD1A5B0007A509 /* PPProfileViewController.swift */,
 				2193554F1F17AD7400101256 /* PPProfileEditNameViewController.swift */,
+				536498DE1FACA4B4009B61CE /* PPInfoViewController.swift */,
+				536498E01FACA51F009B61CE /* PPInfoWebViewController.swift */,
+				536498E21FACA5F5009B61CE /* PPAboutViewController.swift */,
 			);
 			name = PPSettingsViewController;
 			sourceTree = "<group>";
@@ -842,6 +851,7 @@
 				BF7F79871F22071900523131 /* PPSliderViewController.swift in Sources */,
 				BFF7FA6B1EEFF48D009D798E /* PPSendMoneyViewController.swift in Sources */,
 				6A9C73F01F20B445006D2C57 /* PPImagePickerController.swift in Sources */,
+				536498E31FACA5F5009B61CE /* PPAboutViewController.swift in Sources */,
 				530B16D61F72C751004B0F30 /* PPScanQRViewController.swift in Sources */,
 				537C3D9B1F75297C00924ED0 /* sendMoney.swift in Sources */,
 				213381271EFD1A5B0007A509 /* PPProfileViewController.swift in Sources */,
@@ -867,11 +877,13 @@
 				BFF7FA681EEFF469009D798E /* PPSettingsViewController.swift in Sources */,
 				21B948631EE700B30099A79F /* Colors.swift in Sources */,
 				2156A4D11F0A3318005EEE68 /* PPSendMoneyConfirmViewController.swift in Sources */,
+				536498DF1FACA4B4009B61CE /* PPInfoViewController.swift in Sources */,
 				2158D7CC1F1CE1C30081A7E6 /* thepayproapp.xcdatamodeld in Sources */,
 				BF401F951F1CD0CA0071EA84 /* PPTransactionTableViewCell.swift in Sources */,
 				BF42C2961EFA7A6900DFBED7 /* PPPasscodeViewController.swift in Sources */,
 				6A0CE8EB1EF58D5E000C0D1F /* ContactCell.swift in Sources */,
 				215540601EF3EF2100670E86 /* Extensions.swift in Sources */,
+				536498E11FACA51F009B61CE /* PPInfoWebViewController.swift in Sources */,
 				5358437C1F838D2D0050250A /* PPShowQRCode.swift in Sources */,
 				211C45641F28EC8800CA0174 /* ExtensionUIViewController.swift in Sources */,
 				6A0CE8ED1EF58D7A000C0D1F /* Contact.swift in Sources */,
