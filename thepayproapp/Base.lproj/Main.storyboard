@@ -1241,7 +1241,7 @@ If you travel abroad, we will only use the official exchange rate +0.5%</string>
                                 <color key="currentPageIndicatorTintColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.47843137254901957" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="mDT-Cg-umo" firstAttribute="centerX" secondItem="hD3-Xr-kSj" secondAttribute="centerX" id="2FE-PG-8UU"/>
                             <constraint firstItem="mDT-Cg-umo" firstAttribute="width" secondItem="hD3-Xr-kSj" secondAttribute="width" id="ByD-PM-7W4"/>
@@ -2923,7 +2923,7 @@ in PayPro</string>
         <image name="tap-scan" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uDo-ku-Dhr"/>
+        <segue reference="hDX-Pe-NhY"/>
         <segue reference="JJj-1x-d2j"/>
         <segue reference="CKg-gm-nrI"/>
         <segue reference="bB5-YO-Pzd"/>
