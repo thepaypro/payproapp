@@ -51,17 +51,12 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
         cardLayerTop.fillColor = PayProColors.line.cgColor
         self.cardView.layer.addSublayer(cardLayerTop)
         
-        let cardBorderMiddle = UIBezierPath(rect: CGRect(x: 58, y: 43.6, width: self.view.frame.width, height: 0.4))
+        let cardBorderMiddle = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
         let cardLayerMiddle = CAShapeLayer()
         cardLayerMiddle.path = cardBorderMiddle.cgPath
         cardLayerMiddle.fillColor = PayProColors.line.cgColor
         self.cardView.layer.addSublayer(cardLayerMiddle)
         
-        let cardBorderBottom = UIBezierPath(rect: CGRect(x: 0, y: 87.6, width: self.view.frame.width, height: 0.4))
-        let cardLayerBottom = CAShapeLayer()
-        cardLayerBottom.path = cardBorderBottom.cgPath
-        cardLayerBottom.fillColor = PayProColors.line.cgColor
-        self.cardView.layer.addSublayer(cardLayerBottom)
         
         let infoBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
         let infoLayerTop = CAShapeLayer()
