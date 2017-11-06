@@ -39,9 +39,11 @@ class PPSendMoneyAmountViewController: UIViewController, UITextFieldDelegate
         }
         
         amountField.addTarget(self, action: #selector(amountFieldDidChange), for: .editingChanged)
-        messageField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
+//        messageField.addTarget(self, action: #selector(checkNavigation), for: .editingChanged)
         
-        self.navigationItem.rightBarButtonItem?.isEnabled = (amountField.text?.checkValidAmount() == true && messageField.text != "")
+//        self.navigationItem.rightBarButtonItem?.isEnabled = (amountField.text?.checkValidAmount() == true && messageField.text != "")
+        
+        self.navigationItem.rightBarButtonItem?.isEnabled = (amountField.text?.checkValidAmount() == true)
         
         let borderTop = UIBezierPath(rect: CGRect(x: 15, y: 0, width: self.view.frame.width - 30, height: 0.40))
         let layerTop = CAShapeLayer()
@@ -82,7 +84,6 @@ class PPSendMoneyAmountViewController: UIViewController, UITextFieldDelegate
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-
         return 1
     }
     
@@ -95,7 +96,8 @@ class PPSendMoneyAmountViewController: UIViewController, UITextFieldDelegate
     }
     
     func checkNavigation() {
-        if amountField.text?.checkValidAmount() == true && messageField.text != "" {
+//        if amountField.text?.checkValidAmount() == true && messageField.text != "" {
+        if amountField.text?.checkValidAmount() == true {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
         } else {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
@@ -109,8 +111,12 @@ class PPSendMoneyAmountViewController: UIViewController, UITextFieldDelegate
             let resumVC : PPBankTransfeResumViewController = segue.destination as! PPBankTransfeResumViewController
             resumVC.sendMoney = sendMoney
             sendMoney.setAmount(amountToSend: amountField.text!)
-            print(sendMoney.getAmount()!)
-            sendMoney.setMessage(messageValue: messageField.text!)
+            
+            if messageField.text != "" {
+                sendMoney.setMessage(messageValue: messageField.text!)
+            } else {
+                sendMoney.setMessage(messageValue: "Sent from PayPro App - download on the AppStore")
+            }
         }
     }
 }

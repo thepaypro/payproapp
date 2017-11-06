@@ -1058,12 +1058,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hzv-bA-nB6" userLabel="Container View">
-                                        <rect key="frame" x="0.0" y="0.0" width="1242" height="736"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="828" height="736"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAk-1r-2nc">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen_simulate" translatesAutoresizingMaskIntoConstraints="NO" id="32Q-CZ-lui">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen_simulate" translatesAutoresizingMaskIntoConstraints="NO" id="32Q-CZ-lui">
                                                         <rect key="frame" x="117" y="85" width="180" height="210"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="180" id="SGo-2z-buJ"/>
@@ -1144,63 +1144,20 @@ It’s easy, free and fast.</string>
                                                     <constraint firstItem="Wbl-tZ-AmS" firstAttribute="top" secondItem="Qct-kh-GEP" secondAttribute="bottom" constant="8" id="woD-bZ-2Li"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="meY-Ef-JUf">
-                                                <rect key="frame" x="828" y="0.0" width="414" height="736"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account-card" translatesAutoresizingMaskIntoConstraints="NO" id="cbC-Kh-Vuv">
-                                                        <rect key="frame" x="107" y="85" width="200" height="210"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="200" id="kW0-jb-xZl"/>
-                                                            <constraint firstAttribute="height" constant="210" id="lLs-u7-287"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQM-rL-PNK">
-                                                        <rect key="frame" x="181" y="303" width="53" height="21"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0eh-ec-qrm">
-                                                        <rect key="frame" x="15" y="332" width="384" height="150"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="150" id="Bn4-Ea-ZVL"/>
-                                                        </constraints>
-                                                        <string key="text">You can use your money on PayPro anywhere where VISA is accepted.
-
-If you travel abroad, we will only use the official exchange rate +0.5%</string>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.47843137250000001" alpha="1" colorSpace="deviceRGB"/>
-                                                <constraints>
-                                                    <constraint firstItem="cbC-Kh-Vuv" firstAttribute="top" secondItem="meY-Ef-JUf" secondAttribute="top" constant="85" id="ApH-zv-Lf4"/>
-                                                    <constraint firstItem="0eh-ec-qrm" firstAttribute="top" secondItem="DQM-rL-PNK" secondAttribute="bottom" constant="8" id="Kto-5b-K60"/>
-                                                    <constraint firstItem="DQM-rL-PNK" firstAttribute="top" secondItem="cbC-Kh-Vuv" secondAttribute="bottom" constant="8" id="L8N-ii-0nb"/>
-                                                    <constraint firstItem="cbC-Kh-Vuv" firstAttribute="centerX" secondItem="meY-Ef-JUf" secondAttribute="centerX" id="UGf-Rn-ZYg"/>
-                                                    <constraint firstAttribute="trailing" secondItem="0eh-ec-qrm" secondAttribute="trailing" constant="15" id="UuH-3L-od4"/>
-                                                    <constraint firstItem="0eh-ec-qrm" firstAttribute="leading" secondItem="meY-Ef-JUf" secondAttribute="leading" constant="15" id="hRX-bK-9N1"/>
-                                                    <constraint firstItem="DQM-rL-PNK" firstAttribute="centerX" secondItem="meY-Ef-JUf" secondAttribute="centerX" id="pSF-gx-0ag"/>
-                                                    <constraint firstItem="0eh-ec-qrm" firstAttribute="centerX" secondItem="meY-Ef-JUf" secondAttribute="centerX" id="sKR-oN-Av7"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.47843137250000001" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstItem="UAk-1r-2nc" firstAttribute="top" secondItem="Hzv-bA-nB6" secondAttribute="top" id="Ai3-Fu-C4N"/>
                                             <constraint firstAttribute="bottom" secondItem="UAk-1r-2nc" secondAttribute="bottom" id="CYv-h1-e2K"/>
                                             <constraint firstItem="UAk-1r-2nc" firstAttribute="leading" secondItem="Hzv-bA-nB6" secondAttribute="leading" id="Cg6-Rk-ifd"/>
                                             <constraint firstAttribute="bottom" secondItem="O1h-7x-Hge" secondAttribute="bottom" id="bgd-PV-DiB"/>
-                                            <constraint firstItem="meY-Ef-JUf" firstAttribute="top" secondItem="Hzv-bA-nB6" secondAttribute="top" id="hXN-eJ-fUR"/>
-                                            <constraint firstItem="meY-Ef-JUf" firstAttribute="leading" secondItem="O1h-7x-Hge" secondAttribute="trailing" id="mbf-tc-Sad"/>
+                                            <constraint firstAttribute="width" constant="828" id="fNT-k5-OGk"/>
                                             <constraint firstItem="O1h-7x-Hge" firstAttribute="top" secondItem="Hzv-bA-nB6" secondAttribute="top" id="no1-Yk-fBw"/>
-                                            <constraint firstAttribute="trailing" secondItem="meY-Ef-JUf" secondAttribute="trailing" id="oH0-Gk-Fhu"/>
                                             <constraint firstItem="O1h-7x-Hge" firstAttribute="leading" secondItem="UAk-1r-2nc" secondAttribute="trailing" id="qtf-q9-ln3"/>
-                                            <constraint firstAttribute="bottom" secondItem="meY-Ef-JUf" secondAttribute="bottom" id="wmq-O3-9fB"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.47843137250000001" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstItem="UAk-1r-2nc" firstAttribute="width" secondItem="mDT-Cg-umo" secondAttribute="width" id="1PG-9b-CVA"/>
                                     <constraint firstAttribute="bottom" secondItem="Hzv-bA-nB6" secondAttribute="bottom" id="7TL-qv-2Du"/>
@@ -1210,7 +1167,6 @@ If you travel abroad, we will only use the official exchange rate +0.5%</string>
                                     <constraint firstItem="O1h-7x-Hge" firstAttribute="width" secondItem="mDT-Cg-umo" secondAttribute="width" id="ggS-ih-nqu"/>
                                     <constraint firstAttribute="trailing" secondItem="Hzv-bA-nB6" secondAttribute="trailing" id="l1k-Fq-czR"/>
                                     <constraint firstItem="Hzv-bA-nB6" firstAttribute="width" secondItem="mDT-Cg-umo" secondAttribute="width" id="so8-JC-70A"/>
-                                    <constraint firstItem="meY-Ef-JUf" firstAttribute="width" secondItem="mDT-Cg-umo" secondAttribute="width" id="uI0-EN-aN9"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1235,8 +1191,8 @@ If you travel abroad, we will only use the official exchange rate +0.5%</string>
                                     <action selector="continueButtonTouched:" destination="djb-cS-4ox" eventType="touchUpInside" id="cZm-5P-op3"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="DDO-I1-JAi">
-                                <rect key="frame" x="187.66666666666666" y="699" width="39" height="37"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="DDO-I1-JAi">
+                                <rect key="frame" x="195.66666666666666" y="699" width="23" height="37"/>
                                 <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
@@ -2244,22 +2200,22 @@ in PayPro</string>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="lQ4-HN-FRv">
-                                                <rect key="frame" x="97.666666666666657" y="0.0" width="301.33333333333337" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="mutHtH6DbgJiKa9dVEmNhrBiNJUsDuYpdb" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jx1-cV-dwt">
+                                                <rect key="frame" x="97.666666666666657" y="5" width="301.33333333333337" height="37"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Jx1-cV-dwt" secondAttribute="trailing" constant="15" id="06H-WD-30M"/>
                                             <constraint firstItem="bji-Fy-GCt" firstAttribute="top" secondItem="zrp-eC-hHI" secondAttribute="top" id="5Do-sB-6VX"/>
-                                            <constraint firstItem="lQ4-HN-FRv" firstAttribute="leading" secondItem="bji-Fy-GCt" secondAttribute="trailing" constant="15" id="RnO-lc-P6V"/>
+                                            <constraint firstAttribute="bottom" secondItem="Jx1-cV-dwt" secondAttribute="bottom" id="7Aq-g4-wRh"/>
+                                            <constraint firstItem="Jx1-cV-dwt" firstAttribute="top" secondItem="zrp-eC-hHI" secondAttribute="top" constant="5" id="Qg9-Ul-Ixn"/>
+                                            <constraint firstItem="Jx1-cV-dwt" firstAttribute="leading" secondItem="bji-Fy-GCt" secondAttribute="trailing" constant="15" id="eSu-6b-fdv"/>
                                             <constraint firstAttribute="height" constant="42" id="f8Q-Ur-VrD"/>
                                             <constraint firstAttribute="bottom" secondItem="bji-Fy-GCt" secondAttribute="bottom" id="gZB-GB-rhc"/>
-                                            <constraint firstAttribute="bottom" secondItem="lQ4-HN-FRv" secondAttribute="bottom" id="lYg-Os-Xdy"/>
-                                            <constraint firstAttribute="trailing" secondItem="lQ4-HN-FRv" secondAttribute="trailing" constant="15" id="meY-zH-T19"/>
-                                            <constraint firstItem="lQ4-HN-FRv" firstAttribute="top" secondItem="zrp-eC-hHI" secondAttribute="top" id="uEO-dP-Ob4"/>
                                             <constraint firstItem="bji-Fy-GCt" firstAttribute="leading" secondItem="zrp-eC-hHI" secondAttribute="leading" constant="15" id="w1D-P3-wkZ"/>
                                         </constraints>
                                     </view>
@@ -2316,8 +2272,8 @@ in PayPro</string>
                                     <constraint firstItem="Uf9-Th-wvg" firstAttribute="top" secondItem="zrp-eC-hHI" secondAttribute="bottom" id="pCz-4U-MkO"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9j-0q-StU">
-                                <rect key="frame" x="0.0" y="351" width="414" height="336"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y9j-0q-StU">
+                                <rect key="frame" x="0.0" y="500" width="414" height="336"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKE-Od-sRX">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
@@ -2402,7 +2358,7 @@ in PayPro</string>
                         <outlet property="bitsBalanceLabel" destination="5Hn-Mp-U94" id="n43-jG-8sE"/>
                         <outlet property="bitsResizableView" destination="fGX-ZM-fkr" id="wWd-ro-gkd"/>
                         <outlet property="bitsView" destination="0X4-GM-g2f" id="D5c-yV-a6r"/>
-                        <outlet property="infoAccountNumberLabel" destination="lQ4-HN-FRv" id="M5e-fg-FPT"/>
+                        <outlet property="infoAccountNumberLabel" destination="Jx1-cV-dwt" id="ggP-Cy-rA4"/>
                         <outlet property="infoAccountNumberView" destination="zrp-eC-hHI" id="NXU-hB-91R"/>
                         <outlet property="infoAccountQRCodeView" destination="Uf9-Th-wvg" id="4uU-ED-qv7"/>
                         <outlet property="infoGbpAccountView" destination="0Tz-UY-LWU" id="yAA-X2-TgL"/>
@@ -2418,7 +2374,7 @@ in PayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZJ-ha-FG3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1769" y="1093"/>
+            <point key="canvasLocation" x="1768.1159420289857" y="1092.3913043478262"/>
         </scene>
         <!--Passcode View Controller-->
         <scene sceneID="Ics-rg-dGI">
@@ -2904,13 +2860,12 @@ in PayPro</string>
         </scene>
     </scenes>
     <resources>
-        <image name="account-card" width="1082" height="708"/>
         <image name="disclosure-indicator" width="8" height="13"/>
         <image name="disclosure-indicator-down" width="13" height="8"/>
         <image name="logo-horizontal" width="467" height="160"/>
         <image name="oval" width="20" height="20"/>
         <image name="ray" width="162" height="215"/>
-        <image name="screen_simulate" width="805" height="1639"/>
+        <image name="screen_simulate" width="2000" height="2000"/>
         <image name="settings-info" width="29" height="29"/>
         <image name="settings-passcode" width="29" height="29"/>
         <image name="settings-tellafriend" width="29" height="29"/>
@@ -2926,7 +2881,7 @@ in PayPro</string>
         <segue reference="hDX-Pe-NhY"/>
         <segue reference="JJj-1x-d2j"/>
         <segue reference="CKg-gm-nrI"/>
-        <segue reference="bB5-YO-Pzd"/>
+        <segue reference="4h9-kM-2Nm"/>
         <segue reference="a4Y-DX-0uo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

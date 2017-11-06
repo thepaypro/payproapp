@@ -54,13 +54,12 @@ class PPSendMoneyViewController: UIViewController, PickerDelegate, MFMessageComp
     
     func ContacPickerNotInList(controller: ContactsPicker)
     {
-//        self.sendMoney.setLoadProcess(loadProcessValue: 1)
-//        self.sendMoney.setOperationType(operationTypeValue: 0)
-//        
-//        self.dismiss(animated: true, completion: {
-//            self.performSegue(withIdentifier: "sendMoneySegue", sender: self)
-//        })
-
+        self.sendMoney.setLoadProcess(loadProcessValue: 1)
+        self.sendMoney.setOperationType(operationTypeValue: 0)
+        
+        self.dismiss(animated: true, completion: {
+            self.performSegue(withIdentifier: "introduceBitcoinAddressSegue", sender: self)
+        })
     }
     
     func ContactBankTransfer(contact: Contact)
