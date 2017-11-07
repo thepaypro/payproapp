@@ -8,56 +8,6 @@
 
 import UIKit
 
-class CopyableLabel: UILabel {
-    
-    override public var canBecomeFirstResponder: Bool {
-        get {
-            return true
-        }
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        sharedInit()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        sharedInit()
-    }
-    
-    func sharedInit() {
-        isUserInteractionEnabled = true
-        addGestureRecognizer(UILongPressGestureRecognizer(
-            target: self,
-            action: #selector(showMenu(sender:))
-        ))
-    }
-    
-    override func copy(_ sender: Any?) {
-        UIPasteboard.general.string = text
-        UIMenuController.shared.setMenuVisible(false, animated: true)
-    }
-    
-    func showMenu(sender: Any?) {
-        becomeFirstResponder()
-        let menu = UIMenuController.shared
-        if !menu.isMenuVisible {
-            menu.setTargetRect(bounds, in: self)
-            menu.setMenuVisible(true, animated: true)
-        }
-    }
-    
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        if action == #selector(copy(_:)) {
-            return true
-        }
-        
-        return false
-    }
-}
-
-
 class PPAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     //    @IBOutlet weak var cardIV: UIImageView!
@@ -106,6 +56,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.tintColor = PayProColors.blue
+        refreshControl.backgroundColor = PayProColors.green
         refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControlEvents.valueChanged)
         
         return refreshControl
@@ -191,7 +142,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let gradientLayer = CAGradientLayer()
         
-        gradientLayer.frame = swipeCurrencyGradientView.bounds
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.bitsView.frame.size.height)
         
         gradientLayer.colors = [PayProColors.blue.cgColor, PayProColors.gradientPink.cgColor]
         
