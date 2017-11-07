@@ -49,8 +49,8 @@ func AccountsInfo( completion: @escaping (_ response: NSDictionary) -> Void)
                 var balanceAmount: String = ""
                 balanceAmount = formatterBits.string(from: NSNumber(value: amountNumber))!
 
-                if let transactions = (info.value(forKeyPath: "bitcoinTransactions") as? NSDictionary)?.value(forKeyPath: "content") {
-                    for transaction in transactions as! NSArray{
+                if let transactions = ((info["bitcoinTransactions"] as? NSDictionary)!["content"]) as? NSArray{
+                    for transaction in transactions{
                         
                         var date:Date?
                         
@@ -66,7 +66,6 @@ func AccountsInfo( completion: @escaping (_ response: NSDictionary) -> Void)
                         print(((transaction as AnyObject).value(forKeyPath: "amount") as! NSString).doubleValue)
                         
                         let amountNumber = (transaction as AnyObject).value(forKeyPath: "amount") as! NSString
-//                        let amountNumber: Float = ((transaction as AnyObject).value(forKeyPath: "amount") as! NSString)
                         
                         var balanceAmountTransaction: String = ""
                         if abs(amountNumber.doubleValue) >= Double(1000000){
@@ -78,10 +77,10 @@ func AccountsInfo( completion: @escaping (_ response: NSDictionary) -> Void)
                         
                         var title:String = ""
                         
-                        if let payer = (transaction as AnyObject).value(forKeyPath: "payer"){
-                             title = "Transaction in your favor"
-                        }else if let beneficiary = (transaction as AnyObject).value(forKeyPath: "beneficiary"){
+                        if let payer = (transaction as AnyObject).value(forKeyPath: "payer") as? Int64{
                              title = "Transaction to"
+                        }else if let beneficiary = (transaction as AnyObject).value(forKeyPath: "beneficiary") as? Int64{
+                             title = "Transaction in your favor"
                         }
 
                         let subtitle: String = ((transaction as AnyObject).value(forKeyPath: "subject") as? String)!

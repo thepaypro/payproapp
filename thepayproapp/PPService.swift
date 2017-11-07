@@ -11,8 +11,8 @@ import UIKit
 
 //let PPAPIURL = "http://34.253.160.180"
 //let PPAPIURL = "http://35.158.218.151"
-let PPAPIURL = "http://api.payproapp.net"
-//let PPAPIURL = "http://192.168.1.201"
+//let PPAPIURL = "http://api.payproapp.net"
+let PPAPIURL = "http://192.168.1.202"
 
 
 
@@ -26,7 +26,7 @@ func makePostRequest(paramsDictionary: NSDictionary, endpointURL: String, comple
         {
             let tokenAccess = UserDefaults.standard.string(forKey: "token")
             
-            let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30.0)
+            let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 80.0)
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
@@ -92,7 +92,7 @@ func makeGetRequest(endpointURL: String, paramsURL: String, completion: @escapin
             absoluteURL += "?\(paramsURL)"
         }
         
-        let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30.0)
+        let request = NSMutableURLRequest(url: URL(string: absoluteURL)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 60.0)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         

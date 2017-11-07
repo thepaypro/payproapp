@@ -28,25 +28,6 @@ class PPTransactionTableViewCell: UITableViewCell
         // Configure the view for the selected state
     }
     
-//    public func setTransaction(transaction: Transaction)
-//    {
-//        titleLabel.text = transaction.title
-//        subtitleLabel.text = transaction.subtitle
-//
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //Your date format
-//
-//        datetimeLabel.text = dateFormatter.string(from: transaction.datetime!)
-//
-//
-//        quantityLabel.text = "£ \(abs(transaction.amount))"
-//
-//        if transaction.isPayer
-//        {
-//            quantityLabel.text = "-\(quantityLabel.text!)"
-//        }
-//    }
-    
     public func setBitcoinTransaction(transaction: BitcoinTransaction)
     {
         titleLabel.text = transaction.title

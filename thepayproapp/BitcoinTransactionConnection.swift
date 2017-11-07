@@ -31,35 +31,36 @@ func BitcoinTransactionCreate(addr:String?, beneficiaryUserID: Int?, amount:Stri
         
         if let transaction = completionDictionary["transaction"] as? NSDictionary {
             
-            var title = "Transaction to "
-            title += transaction.value(forKeyPath: "beneficiary") as! String
+//            var title = "Transaction to "
+//            title += transaction.value(forKeyPath: "beneficiary") as! String
             
-            let subject = transaction.value(forKeyPath: "subject") as! String
-            
-            let amount: Float = Float(transaction.value(forKeyPath: "amount") as! String)!
-            
-            var date = Date()
-            
-            if let date_json = (transactionDictionary as AnyObject).value(forKeyPath: "createdAt") {
-                let date_text:String = (date_json as AnyObject).value(forKeyPath: "date") as! String
-                
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S"
-                
-                date = dateFormatter.date(from: date_text)!
-            }
-            
-            let transactionDictionaryResponse = [
-                "id" : transaction.value(forKeyPath: "transactionId")!,
-                "title": title.removingPercentEncoding!,
-                "subtitle": subject.removingPercentEncoding!,
-                "amount": amount,
-                "datetime": date
-                ]  as [String : Any]
-            
-            let registerTransaction = BitcoinTransaction.manage(transactionDictionary: transactionDictionaryResponse as NSDictionary)
-            
-            completion(["status": registerTransaction != nil] as NSDictionary)
+//            let subject = transaction.value(forKeyPath: "subject") as! String
+//
+//            let amount: Float = Float(transaction.value(forKeyPath: "amount") as! String)!
+//
+//            var date = Date()
+//
+//            if let date_json = (transactionDictionary as AnyObject).value(forKeyPath: "createdAt") {
+//                let date_text:String = (date_json as AnyObject).value(forKeyPath: "date") as! String
+//
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.S"
+//
+//                date = dateFormatter.date(from: date_text)!
+//            }
+//
+//            let transactionDictionaryResponse = [
+//                "id" : transaction.value(forKeyPath: "transactionId")!,
+//                "title": title.removingPercentEncoding!,
+//                "subtitle": subject.removingPercentEncoding!,
+//                "amount": amount,
+//                "datetime": date
+//                ]  as [String : Any]
+//
+//            let registerTransaction = BitcoinTransaction.manage(transactionDictionary: transactionDictionaryResponse as NSDictionary)
+//
+//            completion(["status": registerTransaction != nil] as NSDictionary)
+            completion(["status": true] as NSDictionary)
         } else if let errorMessage = completionDictionary["errorMessage"] {
             completion(["status": false, "errorMessage": errorMessage] as NSDictionary)
         } else {

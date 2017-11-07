@@ -56,7 +56,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.tintColor = PayProColors.blue
-        refreshControl.backgroundColor = PayProColors.green
+        refreshControl.backgroundColor = PayProColors.white
         refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControlEvents.valueChanged)
         
         return refreshControl
