@@ -1,5 +1,5 @@
 //
-//  ExtensionFloat.swift
+//  ExtensionDouble.swift
 //  thepayproapp
 //
 //  Created by Roger Baiget on 31/10/17.

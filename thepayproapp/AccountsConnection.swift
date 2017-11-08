@@ -28,21 +28,21 @@ func AccountsInfo( completion: @escaping (_ response: NSDictionary) -> Void)
             if info.value(forKeyPath: "bitcoinBalance") != nil && info.value(forKeyPath: "bitcoinTransactions") != nil{
                 let amountNumber:Float = info.value(forKey: "bitcoinBalance") as! Float
                 
-                let formatterBTC = NumberFormatter()
-                formatterBTC.numberStyle = .currencyAccounting
-                formatterBTC.currencyCode = "BTC"
-                formatterBTC.currencySymbol = "₿ "
-                formatterBTC.minimumFractionDigits = 2
-                formatterBTC.maximumFractionDigits = 2
-                formatterBTC.groupingSeparator = ","
-                formatterBTC.locale = Locale(identifier: "GBP")
+//                let formatterBTC = NumberFormatter()
+//                formatterBTC.numberStyle = .currencyAccounting
+//                formatterBTC.currencyCode = "BTC"
+//                formatterBTC.currencySymbol = "₿ "
+//                formatterBTC.minimumFractionDigits = 2
+//                formatterBTC.maximumFractionDigits = 10
+//                formatterBTC.groupingSeparator = ","
+//                formatterBTC.locale = Locale(identifier: "GBP")
                 
                 let formatterBits = NumberFormatter()
                 formatterBits.numberStyle = .currencyAccounting
                 formatterBits.currencyCode = "BTC"
                 formatterBits.currencySymbol = "μ₿ "
                 formatterBits.minimumFractionDigits = 2
-                formatterBits.maximumFractionDigits = 2
+                formatterBits.maximumFractionDigits = 8
                 formatterBits.groupingSeparator = ","
                 formatterBits.locale = Locale(identifier: "GBP")
                 
@@ -68,12 +68,12 @@ func AccountsInfo( completion: @escaping (_ response: NSDictionary) -> Void)
                         let amountNumber = (transaction as AnyObject).value(forKeyPath: "amount") as! NSString
                         
                         var balanceAmountTransaction: String = ""
-                        if abs(amountNumber.doubleValue) >= Double(1000000){
-                            let amountBTC: Float = Float(amountNumber.doubleValue.getBTCFromBits())
-                            balanceAmountTransaction = formatterBTC.string(from: NSNumber(value: amountBTC))!
-                        }else{
-                            balanceAmountTransaction = formatterBits.string(from: NSNumber(value: amountNumber.doubleValue))!
-                        }
+//                        if abs(amountNumber.doubleValue) >= Double(1000000){
+//                            let amountBTC: Float = Float(amountNumber.doubleValue.getBTCFromBits())
+//                            balanceAmountTransaction = formatterBTC.string(from: NSNumber(value: amountBTC))!
+//                        }else{
+                        balanceAmountTransaction = formatterBits.string(from: NSNumber(value: amountNumber.doubleValue))!
+//                        }
                         
                         var title:String = ""
                         
