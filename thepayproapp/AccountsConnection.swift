@@ -61,18 +61,16 @@ func AccountsInfo( completion: @escaping (_ response: NSDictionary) -> Void)
                             date = dateFormatter.date(from: date_text)!
                         }
                         
-                        print("amount transaction: \((transaction as AnyObject).value(forKeyPath: "amount")as! NSString)")
+                        print("amount transaction: \((transaction as AnyObject).value(forKeyPath: "amount") as! Double)")
                         
-                        print(((transaction as AnyObject).value(forKeyPath: "amount") as! NSString).doubleValue)
-                        
-                        let amountNumber = (transaction as AnyObject).value(forKeyPath: "amount") as! NSString
+                        let amountNumber: Float = (transaction as AnyObject).value(forKeyPath: "amount") as! Float
                         
                         var balanceAmountTransaction: String = ""
 //                        if abs(amountNumber.doubleValue) >= Double(1000000){
 //                            let amountBTC: Float = Float(amountNumber.doubleValue.getBTCFromBits())
 //                            balanceAmountTransaction = formatterBTC.string(from: NSNumber(value: amountBTC))!
 //                        }else{
-                        balanceAmountTransaction = formatterBits.string(from: NSNumber(value: amountNumber.doubleValue))!
+                        balanceAmountTransaction = formatterBits.string(from: NSNumber(value: amountNumber))!
 //                        }
                         
                         var title:String = ""
