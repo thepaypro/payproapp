@@ -78,6 +78,7 @@ public class BitcoinTransaction: NSManagedObject
         let identifier: Int64? = attributesDictionary.object(forKey: "id") as? Int64
         let amount: String? = attributesDictionary.object(forKey: "amount") as? String
         let isPayer: Bool? = attributesDictionary.object(forKey: "isPayer") as? Bool
+        let addressTo: String? = attributesDictionary.object(forKey: "addressTo") as? String
         
         if identifier == nil
         {
@@ -107,6 +108,11 @@ public class BitcoinTransaction: NSManagedObject
         if isPayer != nil
         {
             transaction.isPayer = isPayer!
+        }
+        
+        if addressTo != nil
+        {
+            transaction.addressTo = addressTo!
         }
     }
     

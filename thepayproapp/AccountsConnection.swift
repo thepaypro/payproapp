@@ -78,16 +78,20 @@ func AccountsInfo( completion: @escaping (_ response: NSDictionary) -> Void)
                         var title:String = ""
                         
                         if let payer = (transaction as AnyObject).value(forKeyPath: "payer") as? Int64{
-                             title = "Transaction to"
+                             title = "Transfer out "
+                             balanceAmountTransaction = "- " + balanceAmountTransaction;
                         }else if let beneficiary = (transaction as AnyObject).value(forKeyPath: "beneficiary") as? Int64{
-                             title = "Transaction in your favor"
+                             title = "Transfer in "
                         }
+                        
+                        let addressTo = (transaction as AnyObject).value(forKeyPath: "addressTo") as? String
 
                         let subtitle: String = ((transaction as AnyObject).value(forKeyPath: "subject") as? String)!
                         
                         let transactionDictionary = [
                             "id" : (transaction as AnyObject).value(forKeyPath: "id")!,
                             "title": title.removingPercentEncoding!,
+                            "addressTo": addressTo,
                             "subtitle": subtitle.removingPercentEncoding!,
                             "amount": balanceAmountTransaction,
                             "datetime": date!,

@@ -11,6 +11,7 @@ import UIKit
 class PPTransactionTableViewCell: UITableViewCell
 {
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var addressToTextView: UITextView!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var datetimeLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
@@ -31,6 +32,7 @@ class PPTransactionTableViewCell: UITableViewCell
     public func setBitcoinTransaction(transaction: BitcoinTransaction)
     {
         titleLabel.text = transaction.title
+        addressToTextView.text = transaction.addressTo
         subtitleLabel.text = transaction.subtitle
         
         let dateFormatter = DateFormatter()

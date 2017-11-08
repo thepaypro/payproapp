@@ -21,7 +21,7 @@ extension BitcoinTransaction {
     @NSManaged public var identifier: Int64
     @NSManaged public var subtitle: String?
     @NSManaged public var title: String?
-    @NSManaged public var transactionDescription: String?
+    @NSManaged public var addressTo: String?
     @NSManaged public var isPayer: Bool
     @NSManaged public var invites: NSSet?
     @NSManaged public var user: User?
