@@ -22,7 +22,6 @@
 		217316BB1F05084900DB0B14 /* PPSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217316BA1F05084900DB0B14 /* PPSupportViewController.swift */; };
 		219355501F17AD7400101256 /* PPProfileEditNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193554F1F17AD7400101256 /* PPProfileEditNameViewController.swift */; };
 		21B948631EE700B30099A79F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B948621EE700B30099A79F /* Colors.swift */; };
-		47DF01DE01E7D7D898A65AFE /* Pods_thepayproapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */; };
 		530B16D61F72C751004B0F30 /* PPScanQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530B16D51F72C751004B0F30 /* PPScanQRViewController.swift */; };
 		5320F0751FAB7FA9006784BC /* PPAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5320F0741FAB7FA9006784BC /* PPAccountViewController.swift */; };
 		534DA3831FA7467D001CA526 /* AccountsConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534DA3821FA7467D001CA526 /* AccountsConnection.swift */; };
@@ -180,7 +179,6 @@
 				6AF2B6DB1F309DE000255B65 /* UserNotifications.framework in Frameworks */,
 				2155405D1EF3D7D400670E86 /* ContactsUI.framework in Frameworks */,
 				2155405B1EF3D7C900670E86 /* Contacts.framework in Frameworks */,
-				47DF01DE01E7D7D898A65AFE /* Pods_thepayproapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

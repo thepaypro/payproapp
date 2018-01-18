@@ -10,7 +10,7 @@ import XCTest
 @testable import thepayproapp
 
 class PPSlideTests: XCTestCase {
-    var vcSlide:PPSliderViewController
+//    var vcSlide:PPSliderViewController
     
     override func setUp() {
         super.setUp()
