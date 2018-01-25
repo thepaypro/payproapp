@@ -17,12 +17,12 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
     @IBOutlet weak var nameArrow: UIImageView!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var LanguageView: UIView!
     
     @IBAction func tellButtonAction(_ sender: Any) {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
             controller.body = "Hi! Just wanted to show you this new App called \"PayPro\", it works for sharing, sending and spending money with friends. It's on the AppStore!"
-//            controller.recipients = ["666395251"]
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: nil)
         } else {
@@ -56,6 +56,18 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
         cardLayerMiddle.path = cardBorderMiddle.cgPath
         cardLayerMiddle.fillColor = PayProColors.line.cgColor
         self.cardView.layer.addSublayer(cardLayerMiddle)
+        
+        let languageBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
+        let languageLayerTop = CAShapeLayer()
+        languageLayerTop.path = languageBorderTop.cgPath
+        languageLayerTop.fillColor = PayProColors.line.cgColor
+        self.LanguageView.layer.addSublayer(languageLayerTop)
+        
+        let languageBorderMiddle = UIBezierPath(rect: CGRect(x: 0, y: 43.6, width: self.view.frame.width, height: 0.4))
+        let languageLayerMiddle = CAShapeLayer()
+        languageLayerMiddle.path = languageBorderMiddle.cgPath
+        languageLayerMiddle.fillColor = PayProColors.line.cgColor
+        self.LanguageView.layer.addSublayer(languageLayerMiddle)
         
         
         let infoBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))

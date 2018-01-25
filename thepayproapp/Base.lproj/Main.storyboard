@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -182,19 +182,19 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sent from PayPro App - download on the AppStore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mOO-eb-whH">
-                                                        <rect key="frame" x="15" y="7" width="345" height="20.333333333333314"/>
+                                                        <rect key="frame" x="15" y="7.0000000000000018" width="345" height="20.666666666666671"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPY-EZ-uT2">
-                                                        <rect key="frame" x="15" y="27.333333333333314" width="345" height="0.0"/>
+                                                        <rect key="frame" x="15" y="27.666666666666686" width="345" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRO-06-AJe">
-                                                        <rect key="frame" x="15" y="27.333333333333314" width="345" height="0.0"/>
+                                                        <rect key="frame" x="15" y="27.666666666666686" width="345" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -239,7 +239,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="330" height="72"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to send" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qf-oz-fXR">
-                                                                <rect key="frame" x="119.66666666666666" y="28" width="91.999999999999972" height="17"/>
+                                                                <rect key="frame" x="119.66666666666669" y="28" width="92" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" red="0.44562017920000002" green="0.44198131559999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -502,8 +502,56 @@
                                                     <constraint firstAttribute="height" constant="44" id="oXz-Eh-ubC"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIh-Sk-vEV">
+                                                <rect key="frame" x="0.0" y="180" width="375" height="44"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TY3-hC-SqX">
+                                                        <rect key="frame" x="0.0" y="2" width="375" height="42"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="42" id="7aG-rO-0Lv"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <segue destination="9VN-Mv-IZA" kind="show" id="v1H-gP-WV8"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings-passcode" translatesAutoresizingMaskIntoConstraints="NO" id="Wbt-zw-z43">
+                                                        <rect key="frame" x="15" y="8" width="29" height="29"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="29" id="OV4-jg-mOh"/>
+                                                            <constraint firstAttribute="width" constant="29" id="Ygv-LN-m5G"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disclosure-indicator" translatesAutoresizingMaskIntoConstraints="NO" id="BhJ-VW-5W1">
+                                                        <rect key="frame" x="351" y="15" width="8" height="13"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="13" id="S0A-rG-eyp"/>
+                                                            <constraint firstAttribute="width" constant="8" id="Wnt-Vn-koa"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuW-cd-eXG">
+                                                        <rect key="frame" x="59" y="11" width="276" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="iuW-cd-eXG" secondAttribute="bottom" constant="11.5" id="38Q-fA-EGw"/>
+                                                    <constraint firstItem="iuW-cd-eXG" firstAttribute="leading" secondItem="Wbt-zw-z43" secondAttribute="trailing" constant="15" id="BJc-wg-ono"/>
+                                                    <constraint firstAttribute="height" constant="44" id="Cjr-70-Id2"/>
+                                                    <constraint firstItem="TY3-hC-SqX" firstAttribute="leading" secondItem="mIh-Sk-vEV" secondAttribute="leading" id="Gl9-vf-TjT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="BhJ-VW-5W1" secondAttribute="bottom" constant="16" id="TNP-b4-ua7"/>
+                                                    <constraint firstItem="Wbt-zw-z43" firstAttribute="leading" secondItem="mIh-Sk-vEV" secondAttribute="leading" constant="15" id="VKP-VE-6D8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="iuW-cd-eXG" secondAttribute="trailing" constant="40" id="VPz-sR-ua6"/>
+                                                    <constraint firstAttribute="bottom" secondItem="TY3-hC-SqX" secondAttribute="bottom" id="WxB-ne-SuO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="BhJ-VW-5W1" secondAttribute="trailing" constant="16" id="dFx-ZI-CSE"/>
+                                                    <constraint firstItem="Wbt-zw-z43" firstAttribute="centerY" secondItem="mIh-Sk-vEV" secondAttribute="centerY" id="mSx-Zt-xY5"/>
+                                                    <constraint firstAttribute="trailing" secondItem="TY3-hC-SqX" secondAttribute="trailing" id="wwR-hs-msR"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QAw-y3-M8S">
-                                                <rect key="frame" x="0.0" y="210" width="375" height="88"/>
+                                                <rect key="frame" x="0.0" y="254" width="375" height="88"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODO-o7-VFk">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -595,6 +643,7 @@
                                             <constraint firstItem="r0n-dm-cga" firstAttribute="top" secondItem="ILe-sl-pQU" secondAttribute="top" constant="136" id="6o9-mj-te1"/>
                                             <constraint firstItem="ewX-oQ-5dn" firstAttribute="leading" secondItem="ILe-sl-pQU" secondAttribute="leading" id="9hp-yu-HM5"/>
                                             <constraint firstAttribute="height" constant="490" id="9mz-74-Q5Y"/>
+                                            <constraint firstAttribute="trailing" secondItem="mIh-Sk-vEV" secondAttribute="trailing" id="DK9-iH-fPe"/>
                                             <constraint firstAttribute="trailing" secondItem="r0n-dm-cga" secondAttribute="trailing" id="EWS-Iu-Hqp"/>
                                             <constraint firstItem="r0n-dm-cga" firstAttribute="top" secondItem="ewX-oQ-5dn" secondAttribute="bottom" constant="30" id="Evr-Ld-mLx"/>
                                             <constraint firstItem="r0n-dm-cga" firstAttribute="leading" secondItem="ewX-oQ-5dn" secondAttribute="leading" id="H8O-8y-tjV"/>
@@ -602,15 +651,17 @@
                                             <constraint firstItem="r0n-dm-cga" firstAttribute="leading" secondItem="QAw-y3-M8S" secondAttribute="leading" id="NTd-bW-fC5"/>
                                             <constraint firstAttribute="bottom" secondItem="r0n-dm-cga" secondAttribute="bottom" constant="310" id="R8G-3c-JfL"/>
                                             <constraint firstItem="r0n-dm-cga" firstAttribute="centerX" secondItem="QAw-y3-M8S" secondAttribute="centerX" id="XgD-Tb-sko"/>
-                                            <constraint firstItem="QAw-y3-M8S" firstAttribute="top" secondItem="r0n-dm-cga" secondAttribute="bottom" constant="30" id="dKF-fB-vk3"/>
+                                            <constraint firstItem="mIh-Sk-vEV" firstAttribute="leading" secondItem="ILe-sl-pQU" secondAttribute="leading" id="Y3O-Im-OW6"/>
+                                            <constraint firstItem="QAw-y3-M8S" firstAttribute="top" secondItem="mIh-Sk-vEV" secondAttribute="bottom" constant="30" id="akP-mu-tdY"/>
                                             <constraint firstItem="r0n-dm-cga" firstAttribute="leading" secondItem="ILe-sl-pQU" secondAttribute="leading" id="dub-c9-6B8"/>
                                             <constraint firstAttribute="trailing" secondItem="ewX-oQ-5dn" secondAttribute="trailing" id="kz2-9E-QJh"/>
+                                            <constraint firstItem="mIh-Sk-vEV" firstAttribute="centerX" secondItem="ILe-sl-pQU" secondAttribute="centerX" id="lAB-bn-hHp"/>
                                             <constraint firstItem="r0n-dm-cga" firstAttribute="centerX" secondItem="ewX-oQ-5dn" secondAttribute="centerX" id="nbS-Mc-1KI"/>
+                                            <constraint firstItem="mIh-Sk-vEV" firstAttribute="top" secondItem="r0n-dm-cga" secondAttribute="bottom" id="nq9-ud-OKo"/>
                                             <constraint firstItem="r0n-dm-cga" firstAttribute="top" secondItem="ILe-sl-pQU" secondAttribute="top" constant="136" id="oN5-Ww-LLF"/>
                                             <constraint firstItem="r0n-dm-cga" firstAttribute="leading" secondItem="ILe-sl-pQU" secondAttribute="leading" id="pUg-lN-Qnb"/>
                                             <constraint firstItem="r0n-dm-cga" firstAttribute="trailing" secondItem="ewX-oQ-5dn" secondAttribute="trailing" id="qN8-BT-sDo"/>
                                             <constraint firstItem="r0n-dm-cga" firstAttribute="leading" secondItem="ILe-sl-pQU" secondAttribute="leading" id="qbj-VV-fDa"/>
-                                            <constraint firstItem="QAw-y3-M8S" firstAttribute="top" secondItem="r0n-dm-cga" secondAttribute="bottom" constant="30" id="rOk-QK-Nwh"/>
                                             <constraint firstItem="ewX-oQ-5dn" firstAttribute="top" secondItem="ILe-sl-pQU" secondAttribute="top" constant="30" id="roP-gP-5LO"/>
                                             <constraint firstItem="r0n-dm-cga" firstAttribute="centerX" secondItem="ILe-sl-pQU" secondAttribute="centerX" id="tKn-uF-MlL"/>
                                             <constraint firstItem="r0n-dm-cga" firstAttribute="top" secondItem="ewX-oQ-5dn" secondAttribute="bottom" constant="30" id="v5l-Co-GCA"/>
@@ -640,6 +691,7 @@
                     <navigationItem key="navigationItem" title="Profile" id="Zxj-EK-KFy"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="LanguageView" destination="mIh-Sk-vEV" id="pTy-Sf-4pY"/>
                         <outlet property="avatarImage" destination="T9U-hM-d1f" id="Eex-p1-MRN"/>
                         <outlet property="cardView" destination="r0n-dm-cga" id="pRh-D0-QRA"/>
                         <outlet property="infoView" destination="QAw-y3-M8S" id="Szk-it-9uV"/>
@@ -650,7 +702,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1778" y="3123"/>
+            <point key="canvasLocation" x="1777" y="3461"/>
+        </scene>
+        <!--Language Table View Controller-->
+        <scene sceneID="WLY-Vm-v7l">
+            <objects>
+                <tableViewController id="9VN-Mv-IZA" customClass="PPLanguageTableViewController" customModule="thepayproapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PxG-4g-VwP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="9VN-Mv-IZA" id="jsc-mV-B7u"/>
+                            <outlet property="delegate" destination="9VN-Mv-IZA" id="j8Z-Cx-NE3"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="languageTableView" destination="PxG-4g-VwP" id="iQ2-uJ-0n1"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L9o-XX-3Wd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2590" y="2687"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="gYo-NX-wwE">
@@ -808,7 +881,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpZ-2A-JZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2590" y="3124"/>
+            <point key="canvasLocation" x="2590" y="3463"/>
         </scene>
         <!--Profile Edit Name View Controller-->
         <scene sceneID="dcg-HP-gZo">
@@ -829,13 +902,13 @@
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXJ-CD-e60">
-                                                <rect key="frame" x="15" y="12" width="76.333333333333329" height="21"/>
+                                                <rect key="frame" x="15" y="12" width="76.666666666666671" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nickname" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="OvZ-EA-6NI">
-                                                <rect key="frame" x="106.33333333333334" y="12" width="253.66666666666666" height="21"/>
+                                                <rect key="frame" x="106.66666666666667" y="12" width="253.33333333333331" height="21"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -877,7 +950,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBz-1h-lQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3580" y="3123"/>
+            <point key="canvasLocation" x="3580" y="3461"/>
         </scene>
         <!--Scan QR-->
         <scene sceneID="xLa-KH-JLR">
@@ -934,7 +1007,7 @@
                                 <rect key="frame" x="0.0" y="346" width="375" height="120"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vn3-0h-v5a">
-                                        <rect key="frame" x="57.333333333333343" y="0.0" width="260" height="70"/>
+                                        <rect key="frame" x="57.666666666666657" y="0.0" width="260" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJP-OW-Iab">
                                                 <rect key="frame" x="5" y="-0.33333333333331439" width="90" height="70"/>
@@ -946,7 +1019,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="000.00" textAlignment="center" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="oRu-ij-CjI">
-                                                <rect key="frame" x="115.00000000000001" y="15" width="140" height="40"/>
+                                                <rect key="frame" x="115" y="15" width="140" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="r8f-83-s70"/>
                                                 </constraints>
@@ -1106,7 +1179,7 @@
                                                 <rect key="frame" x="375" y="0.0" width="375" height="812"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ray" translatesAutoresizingMaskIntoConstraints="NO" id="Qct-kh-GEP">
-                                                        <rect key="frame" x="97.666666666666686" y="85" width="179.99999999999994" height="210"/>
+                                                        <rect key="frame" x="97.666666666666686" y="85" width="180" height="210"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="180" id="otm-6E-ScO"/>
                                                             <constraint firstAttribute="height" constant="210" id="uTh-QJ-r1M"/>
@@ -1114,7 +1187,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instant payments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbl-tZ-AmS">
-                                                        <rect key="frame" x="116.66666666666669" y="303" width="142.99999999999994" height="21"/>
+                                                        <rect key="frame" x="116.66666666666669" y="303" width="143" height="21"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -1177,7 +1250,7 @@ It’s easy, free and fast.</string>
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGN-7U-n5S">
-                                <rect key="frame" x="56.333333333333343" y="704" width="262.33333333333337" height="40"/>
+                                <rect key="frame" x="56.333333333333343" y="704" width="262.33333333333326" height="40"/>
                                 <color key="backgroundColor" red="0.3411764705882353" green="1" blue="0.70196078431372544" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="aR6-9W-p3J"/>
@@ -1385,10 +1458,10 @@ in PayPro</string>
                                 <rect key="frame" x="16" y="296" width="343" height="50"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHH-7q-BGP">
-                                        <rect key="frame" x="32.333333333333343" y="14.666666666666686" width="20.666666666666664" height="20.333333333333314"/>
+                                        <rect key="frame" x="32.333333333333336" y="14.666666666666684" width="20.666666666666664" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="Hu2-ec-puQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666664" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666668" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -1400,10 +1473,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7Z-Z5-zcT">
-                                        <rect key="frame" x="84" y="14" width="20.666666666666671" height="20.333333333333314"/>
+                                        <rect key="frame" x="84" y="13.999999999999998" width="20.666666666666671" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="Axi-pW-C0t">
-                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666671" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666668" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -1415,10 +1488,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e6i-NR-2iI">
-                                        <rect key="frame" x="136" y="14" width="20" height="20.333333333333314"/>
+                                        <rect key="frame" x="135.66666666666666" y="13.999999999999998" width="20" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="I4c-pc-Ody">
-                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -1430,10 +1503,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEC-KO-Bao">
-                                        <rect key="frame" x="187" y="14" width="20" height="20.333333333333314"/>
+                                        <rect key="frame" x="187.33333333333334" y="13.999999999999998" width="20" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="bf2-yl-PBq">
-                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -1445,10 +1518,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60J-Zt-37b">
-                                        <rect key="frame" x="238.33333333333337" y="14" width="20.666666666666629" height="20.333333333333314"/>
+                                        <rect key="frame" x="238.33333333333334" y="13.999999999999998" width="21.000000000000028" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="MkR-AQ-IHA">
-                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666657" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="21" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -1460,10 +1533,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdi-hz-2nI">
-                                        <rect key="frame" x="290" y="14.666666666666686" width="20.666666666666686" height="20.333333333333314"/>
+                                        <rect key="frame" x="290" y="14.666666666666684" width="20.666666666666686" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="6ib-EK-mFu">
-                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666686" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666668" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -1598,7 +1671,7 @@ in PayPro</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEe-A8-bID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="3125"/>
+            <point key="canvasLocation" x="828" y="3463"/>
         </scene>
         <!--Send Money-->
         <scene sceneID="Ax2-zH-crl">
@@ -1676,7 +1749,7 @@ in PayPro</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the SMS code you have received to register in the PayPro app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO7-md-j7H">
-                                <rect key="frame" x="16" y="233.66666666666669" width="343" height="40.000000000000057"/>
+                                <rect key="frame" x="16" y="233.66666666666666" width="343" height="39.999999999999972"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="tTZ-aq-B4u"/>
                                 </constraints>
@@ -1688,16 +1761,16 @@ in PayPro</string>
                                 <rect key="frame" x="16" y="305.66666666666669" width="343" height="50"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSV-rL-iKg">
-                                        <rect key="frame" x="57.333333333333329" y="10" width="21.333333333333343" height="30"/>
+                                        <rect key="frame" x="56.999999999999993" y="10" width="21.666666666666664" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="la1-yz-vQc">
-                                                <rect key="frame" x="0.0" y="0.0" width="21.333333333333343" height="26"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="21.666666666666668" height="26"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ya-s3-OIS">
-                                                <rect key="frame" x="1" y="28" width="19.333333333333343" height="1"/>
+                                                <rect key="frame" x="1" y="28" width="19.666666666666668" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="hqQ-SW-G5c"/>
@@ -1772,16 +1845,16 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Isq-PW-zyq">
-                                        <rect key="frame" x="264.33333333333331" y="10" width="21.333333333333371" height="30"/>
+                                        <rect key="frame" x="264.33333333333331" y="10" width="21.666666666666686" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nH0-f3-MGu">
-                                                <rect key="frame" x="0.0" y="0.0" width="21.333333333333371" height="26"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="21.666666666666668" height="26"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCB-pO-oMN">
-                                                <rect key="frame" x="1" y="28" width="19.333333333333371" height="1"/>
+                                                <rect key="frame" x="1" y="28" width="19.666666666666668" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="I4C-YM-5hv"/>
@@ -1884,10 +1957,10 @@ in PayPro</string>
                                 <rect key="frame" x="16" y="296" width="343" height="50"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahE-3F-7AL">
-                                        <rect key="frame" x="32.333333333333343" y="14.666666666666686" width="20.666666666666664" height="20.333333333333314"/>
+                                        <rect key="frame" x="32.333333333333336" y="14.666666666666684" width="20.666666666666664" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="0bk-8R-fWE">
-                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666664" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666668" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -1899,10 +1972,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0U-XH-Yte">
-                                        <rect key="frame" x="84" y="14" width="20.666666666666671" height="20.333333333333314"/>
+                                        <rect key="frame" x="84" y="13.999999999999998" width="20.666666666666671" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="1Mc-6l-ehf">
-                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666671" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666668" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -1914,10 +1987,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sp7-Yv-YsH">
-                                        <rect key="frame" x="136" y="14" width="20" height="20.333333333333314"/>
+                                        <rect key="frame" x="135.66666666666666" y="13.999999999999998" width="20" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="aTB-4e-76j">
-                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -1929,10 +2002,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g80-zY-D3i">
-                                        <rect key="frame" x="187" y="14" width="20" height="20.333333333333314"/>
+                                        <rect key="frame" x="187.33333333333334" y="13.999999999999998" width="20" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="94B-pM-yc6">
-                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -1944,10 +2017,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdt-tI-Ufb">
-                                        <rect key="frame" x="238.33333333333337" y="14" width="20.666666666666629" height="20.333333333333314"/>
+                                        <rect key="frame" x="238.33333333333334" y="13.999999999999998" width="21.000000000000028" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="Jnn-Cw-J9j">
-                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666657" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="21" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -1959,10 +2032,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxQ-Ve-mEL">
-                                        <rect key="frame" x="290" y="14.666666666666686" width="20.666666666666686" height="20.333333333333314"/>
+                                        <rect key="frame" x="290" y="14.666666666666684" width="20.666666666666686" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="wu4-Sa-Scp">
-                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666686" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666668" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -2049,7 +2122,7 @@ in PayPro</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nS6-8o-tUo">
-                                <rect key="frame" x="93.666666666666686" y="312.33333333333331" width="187.66666666666663" height="187.33333333333337"/>
+                                <rect key="frame" x="93.666666666666671" y="312.33333333333331" width="187.66666666666663" height="187.33333333333331"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2066,7 +2139,7 @@ in PayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrm-ij-GBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1769" y="1851"/>
+            <point key="canvasLocation" x="2738" y="1093"/>
         </scene>
         <!--Account-->
         <scene sceneID="2P1-wl-qAK">
@@ -2094,7 +2167,7 @@ in PayPro</string>
                                                 <rect key="frame" x="0.0" y="41.666666666666657" width="375" height="84"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvd-ks-iD8">
-                                                        <rect key="frame" x="166.33333333333334" y="0.0" width="42.333333333333314" height="32"/>
+                                                        <rect key="frame" x="166.66666666666666" y="0.0" width="42" height="32"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -2193,13 +2266,13 @@ in PayPro</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrp-eC-hHI">
                                         <rect key="frame" x="0.0" y="30" width="375" height="42"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" ambiguous="YES" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bji-Fy-GCt">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bji-Fy-GCt">
                                                 <rect key="frame" x="15" y="0.0" width="67.666666666666671" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="mutHtH6DbgJiKa9dVEmNhrBiNJUsDuYpdb" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jx1-cV-dwt">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="mutHtH6DbgJiKa9dVEmNhrBiNJUsDuYpdb" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jx1-cV-dwt">
                                                 <rect key="frame" x="97.666666666666657" y="5" width="262.33333333333337" height="37"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2405,10 +2478,10 @@ in PayPro</string>
                                 <rect key="frame" x="16" y="296" width="343" height="50"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kLP-4c-QEL">
-                                        <rect key="frame" x="32.333333333333343" y="14.666666666666686" width="20.666666666666664" height="20.333333333333314"/>
+                                        <rect key="frame" x="32.333333333333336" y="14.666666666666684" width="20.666666666666664" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="ApH-AU-dNn">
-                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666664" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666668" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -2420,10 +2493,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNN-ZR-6SB">
-                                        <rect key="frame" x="84" y="14" width="20.666666666666671" height="20.333333333333314"/>
+                                        <rect key="frame" x="84" y="13.999999999999998" width="20.666666666666671" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="uUZ-KR-asb">
-                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666671" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666668" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -2435,10 +2508,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9V-wA-aUd">
-                                        <rect key="frame" x="136" y="14" width="20" height="20.333333333333314"/>
+                                        <rect key="frame" x="135.66666666666666" y="13.999999999999998" width="20" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-We-P7m">
-                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -2450,10 +2523,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Rq-Fh-F2b">
-                                        <rect key="frame" x="187" y="14" width="20" height="20.333333333333314"/>
+                                        <rect key="frame" x="187.33333333333334" y="13.999999999999998" width="20" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="HVn-IR-r0q">
-                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -2465,10 +2538,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biY-C9-NNC">
-                                        <rect key="frame" x="238.33333333333337" y="14" width="20.666666666666629" height="20.333333333333314"/>
+                                        <rect key="frame" x="238.33333333333334" y="13.999999999999998" width="21.000000000000028" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="LBR-lM-uym">
-                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666657" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="21" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -2480,10 +2553,10 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2eX-bg-G01">
-                                        <rect key="frame" x="290" y="14.666666666666686" width="20.666666666666686" height="20.333333333333314"/>
+                                        <rect key="frame" x="290" y="14.666666666666684" width="20.666666666666686" height="20.333333333333329"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="hmU-6l-g0I">
-                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666686" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20.666666666666668" height="20.333333333333332"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -2740,7 +2813,7 @@ in PayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebM-vs-dA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1781" y="3959"/>
+            <point key="canvasLocation" x="2590" y="4502"/>
         </scene>
         <!--Info Web View Controller-->
         <scene sceneID="HU5-Ur-B0A">
@@ -2774,7 +2847,7 @@ in PayPro</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MLM-N8-cU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1783" y="4738"/>
+            <point key="canvasLocation" x="3649" y="4208"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="yPY-BP-Ixq">
@@ -3034,7 +3107,7 @@ You assume any and all risks associated with the use of the Software. We reserve
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQ4-6N-Jtn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2587.5" y="4737.6760563380285"/>
+            <point key="canvasLocation" x="3649" y="4917"/>
         </scene>
     </scenes>
     <resources>

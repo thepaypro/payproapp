@@ -35,6 +35,8 @@
 		536498E51FACAC13009B61CE /* PPInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536498E41FACAC13009B61CE /* PPInfoViewController.swift */; };
 		537633771F910549001673E3 /* BitcoinTransactionConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537633761F910549001673E3 /* BitcoinTransactionConnection.swift */; };
 		537C3D9B1F75297C00924ED0 /* sendMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C3D9A1F75297C00924ED0 /* sendMoney.swift */; };
+		538C04CD2019E9E00026FA1A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 538C04CF2019E9E00026FA1A /* Localizable.strings */; };
+		538C04D52019F96B0026FA1A /* PPLanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C04D42019F96B0026FA1A /* PPLanguageTableViewController.swift */; };
 		53AD56281F83B92E007284C7 /* BitcoinTransaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD56271F83B92E007284C7 /* BitcoinTransaction+CoreDataClass.swift */; };
 		53AD562A1F83B94F007284C7 /* BitcoinTransaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AD56291F83B94F007284C7 /* BitcoinTransaction+CoreDataProperties.swift */; };
 		53BDBC391FA78956006DE2A7 /* PPBankTransfeResumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BDBC381FA78955006DE2A7 /* PPBankTransfeResumViewController.swift */; };
@@ -63,7 +65,6 @@
 		BF9DB8761EDD770600C8A0ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */; };
 		BF9DB87D1EDD770600C8A0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB87B1EDD770600C8A0ED /* Main.storyboard */; };
 		BF9DB87F1EDD770600C8A0ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB87E1EDD770600C8A0ED /* Assets.xcassets */; };
-		BF9DB8821EDD770600C8A0ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9DB8801EDD770600C8A0ED /* LaunchScreen.storyboard */; };
 		BF9DB88D1EDD770600C8A0ED /* thepayproappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB88C1EDD770600C8A0ED /* thepayproappTests.swift */; };
 		BF9DB8981EDD770600C8A0ED /* thepayproappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB8971EDD770600C8A0ED /* thepayproappUITests.swift */; };
 		BFBD89431F0100FD003E7A4F /* CountryPrefixLocalConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBD89421F0100FD003E7A4F /* CountryPrefixLocalConnection.swift */; };
@@ -123,6 +124,10 @@
 		536498E41FACAC13009B61CE /* PPInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPInfoViewController.swift; sourceTree = "<group>"; };
 		537633761F910549001673E3 /* BitcoinTransactionConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitcoinTransactionConnection.swift; sourceTree = "<group>"; };
 		537C3D9A1F75297C00924ED0 /* sendMoney.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendMoney.swift; sourceTree = "<group>"; };
+		538C04CB2019E9060026FA1A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		538C04CE2019E9E00026FA1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		538C04D02019E9E70026FA1A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		538C04D42019F96B0026FA1A /* PPLanguageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPLanguageTableViewController.swift; sourceTree = "<group>"; };
 		53AD56271F83B92E007284C7 /* BitcoinTransaction+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BitcoinTransaction+CoreDataClass.swift"; sourceTree = "<group>"; };
 		53AD56291F83B94F007284C7 /* BitcoinTransaction+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BitcoinTransaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		53BDBC381FA78955006DE2A7 /* PPBankTransfeResumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBankTransfeResumViewController.swift; sourceTree = "<group>"; };
@@ -154,7 +159,6 @@
 		BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF9DB87C1EDD770600C8A0ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF9DB87E1EDD770600C8A0ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BF9DB8811EDD770600C8A0ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF9DB8831EDD770600C8A0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF9DB8881EDD770600C8A0ED /* thepayproappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = thepayproappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB88C1EDD770600C8A0ED /* thepayproappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thepayproappTests.swift; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 				BFF7FA631EEFF3E0009D798E /* PPSupportViewController */,
 				BFF7FA691EEFF479009D798E /* PPSendMoneyViewController */,
 				BFF7FA661EEFF44E009D798E /* PPSettingsViewController */,
+				538C04D32019F22D0026FA1A /* PPLanguageViewController */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -316,6 +321,14 @@
 				537C3D9A1F75297C00924ED0 /* sendMoney.swift */,
 			);
 			name = SendMoney;
+			sourceTree = "<group>";
+		};
+		538C04D32019F22D0026FA1A /* PPLanguageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				538C04D42019F96B0026FA1A /* PPLanguageTableViewController.swift */,
+			);
+			name = PPLanguageViewController;
 			sourceTree = "<group>";
 		};
 		53DAF50B1F70181A0013E406 /* CountryDialCodePicker */ = {
@@ -452,6 +465,7 @@
 		BF9DB8741EDD770600C8A0ED /* thepayproapp */ = {
 			isa = PBXGroup;
 			children = (
+				538C04CF2019E9E00026FA1A /* Localizable.strings */,
 				212BC5971F2B5A0000625A9A /* thepayproapp.entitlements */,
 				216CCA8E1EE82252003FE3CE /* Controllers */,
 				216CCA8D1EE8224D003FE3CE /* Views */,
@@ -461,7 +475,6 @@
 				BF9DB8751EDD770600C8A0ED /* AppDelegate.swift */,
 				BF9DB87B1EDD770600C8A0ED /* Main.storyboard */,
 				BF9DB87E1EDD770600C8A0ED /* Assets.xcassets */,
-				BF9DB8801EDD770600C8A0ED /* LaunchScreen.storyboard */,
 				BF9DB8831EDD770600C8A0ED /* Info.plist */,
 			);
 			path = thepayproapp;
@@ -642,6 +655,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = BF9DB8691EDD770500C8A0ED;
 			productRefGroup = BF9DB8731EDD770600C8A0ED /* Products */;
@@ -661,8 +675,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF401F961F1CD0CA0071EA84 /* PPTransactionTableViewCell.xib in Resources */,
-				BF9DB8821EDD770600C8A0ED /* LaunchScreen.storyboard in Resources */,
 				6A0CE8F11EF58DB9000C0D1F /* ContactCell.xib in Resources */,
+				538C04CD2019E9E00026FA1A /* Localizable.strings in Resources */,
 				BF9DB87F1EDD770600C8A0ED /* Assets.xcassets in Resources */,
 				BF6516041F02467F00CEE051 /* countries-prefixes.json in Resources */,
 				BF9DB87D1EDD770600C8A0ED /* Main.storyboard in Resources */,
@@ -874,6 +888,7 @@
 				BF612E541EFBBC7D007110D4 /* PPSMSConfirmationViewController.swift in Sources */,
 				BFF7FA681EEFF469009D798E /* PPSettingsViewController.swift in Sources */,
 				536498E51FACAC13009B61CE /* PPInfoViewController.swift in Sources */,
+				538C04D52019F96B0026FA1A /* PPLanguageTableViewController.swift in Sources */,
 				21B948631EE700B30099A79F /* Colors.swift in Sources */,
 				2156A4D11F0A3318005EEE68 /* PPSendMoneyConfirmViewController.swift in Sources */,
 				2158D7CC1F1CE1C30081A7E6 /* thepayproapp.xcdatamodeld in Sources */,
@@ -931,20 +946,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		538C04CF2019E9E00026FA1A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				538C04CE2019E9E00026FA1A /* en */,
+				538C04D02019E9E70026FA1A /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		BF9DB87B1EDD770600C8A0ED /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BF9DB87C1EDD770600C8A0ED /* Base */,
+				538C04CB2019E9060026FA1A /* es */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BF9DB8801EDD770600C8A0ED /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF9DB8811EDD770600C8A0ED /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -954,6 +971,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1005,6 +1023,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
