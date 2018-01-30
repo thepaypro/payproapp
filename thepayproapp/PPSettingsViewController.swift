@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import Localize_Swift
 
 class PPSettingsViewController: UIViewController, MFMessageComposeViewControllerDelegate {
 
@@ -18,6 +19,10 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var LanguageView: UIView!
+    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var passcodeLabel: UILabel!
+    
+    @IBAction func unwindToSettingsFromLanguage(segue:UIStoryboardSegue) { }
     
     @IBAction func tellButtonAction(_ sender: Any) {
         if (MFMessageComposeViewController.canSendText()) {
@@ -30,8 +35,18 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
         }
     }
     
+    // MARK: Localized Text
+    
+    @objc func setText(){
+        languageLabel.text = "Language".localized()
+        passcodeLabel.text = "Passcode".localized()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setText()
+        NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
         
         let nameBorderTop = UIBezierPath(rect: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0.4))
         let nameLayerTop = CAShapeLayer()
@@ -89,10 +104,17 @@ class PPSettingsViewController: UIViewController, MFMessageComposeViewController
         self.infoView.layer.addSublayer(infoLayerMiddleB)
         
         self.setupView()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.setupView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        NotificationCenter.default.removeObserver(self)
     }
     
     func setupView()

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localize_Swift
 
 class PPAccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
@@ -27,6 +28,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var infoAccountQRCodeView: UIView!
     @IBOutlet weak var swipeCurrencyGradientView: UIView!
     @IBOutlet weak var bitcoinQRButton: UIButton!
+    @IBOutlet weak var latestTransactionsLabel: UILabel!
     
     var isPositionFixed: Bool = true
     enum AccountCurrencyType: Int{
@@ -65,6 +67,8 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        latestTransactionsLabel.text = "LATEST TRANSACTIONS".localized();
         
         //Do any additional setup after loading the view.
         

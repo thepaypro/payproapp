@@ -695,9 +695,11 @@
                         <outlet property="avatarImage" destination="T9U-hM-d1f" id="Eex-p1-MRN"/>
                         <outlet property="cardView" destination="r0n-dm-cga" id="pRh-D0-QRA"/>
                         <outlet property="infoView" destination="QAw-y3-M8S" id="Szk-it-9uV"/>
+                        <outlet property="languageLabel" destination="iuW-cd-eXG" id="7P0-Sm-jCU"/>
                         <outlet property="nameArrow" destination="v2L-HB-irG" id="L67-b9-NXc"/>
                         <outlet property="nameLabel" destination="LvK-B3-IwB" id="kht-4q-N11"/>
                         <outlet property="nameView" destination="ewX-oQ-5dn" id="Mfl-PM-Xhf"/>
+                        <outlet property="passcodeLabel" destination="3Aq-yl-RtU" id="3uz-1F-nnW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -719,9 +721,11 @@
                     </tableView>
                     <connections>
                         <outlet property="languageTableView" destination="PxG-4g-VwP" id="iQ2-uJ-0n1"/>
+                        <segue destination="A9y-PG-Rfl" kind="unwind" identifier="unwindSegueLanguageToSettings" unwindAction="unwindToSettingsFromLanguageWithSegue:" id="oxi-UV-q6c"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9o-XX-3Wd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="A9y-PG-Rfl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2590" y="2687"/>
         </scene>
@@ -1761,16 +1765,16 @@ in PayPro</string>
                                 <rect key="frame" x="16" y="305.66666666666669" width="343" height="50"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSV-rL-iKg">
-                                        <rect key="frame" x="56.999999999999993" y="10" width="21.666666666666664" height="30"/>
+                                        <rect key="frame" x="57.666666666666679" y="10" width="20.333333333333336" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="la1-yz-vQc">
-                                                <rect key="frame" x="0.0" y="0.0" width="21.666666666666668" height="26"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20.333333333333332" height="26"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ya-s3-OIS">
-                                                <rect key="frame" x="1" y="28" width="19.666666666666668" height="1"/>
+                                                <rect key="frame" x="1" y="28" width="18.333333333333332" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="hqQ-SW-G5c"/>
@@ -1845,16 +1849,16 @@ in PayPro</string>
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Isq-PW-zyq">
-                                        <rect key="frame" x="264.33333333333331" y="10" width="21.666666666666686" height="30"/>
+                                        <rect key="frame" x="265" y="10" width="20.333333333333314" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nH0-f3-MGu">
-                                                <rect key="frame" x="0.0" y="0.0" width="21.666666666666668" height="26"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="20.333333333333332" height="26"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCB-pO-oMN">
-                                                <rect key="frame" x="1" y="28" width="19.666666666666668" height="1"/>
+                                                <rect key="frame" x="1" y="28" width="18.333333333333332" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="I4C-YM-5hv"/>
@@ -2435,6 +2439,7 @@ in PayPro</string>
                         <outlet property="infoGbpAccountView" destination="0Tz-UY-LWU" id="yAA-X2-TgL"/>
                         <outlet property="infoSegment" destination="ZWx-mz-Yuh" id="6OL-A2-fvN"/>
                         <outlet property="infoTitleLabel" destination="UhM-Oz-u0n" id="LGG-rF-btX"/>
+                        <outlet property="latestTransactionsLabel" destination="l2m-Qz-Eze" id="cn1-5r-g8L"/>
                         <outlet property="latestTransactionsView" destination="WKE-Od-sRX" id="KPN-e3-lDE"/>
                         <outlet property="stateButton" destination="0cO-So-W8R" id="HE8-db-Igl"/>
                         <outlet property="stateButtonHeight" destination="J77-ru-cX6" id="U61-ot-bFL"/>
@@ -2881,8 +2886,8 @@ in PayPro</string>
                                             <constraint firstAttribute="height" constant="200" id="ePP-7X-kue"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sY9-NC-eti">
-                                        <rect key="frame" x="0.0" y="200" width="375" height="441"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sY9-NC-eti">
+                                        <rect key="frame" x="0.0" y="200" width="375" height="0.0"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CwV-Jf-3Nq">
                                                 <rect key="frame" x="15" y="15" width="345" height="411"/>
@@ -3132,7 +3137,7 @@ You assume any and all risks associated with the use of the Software. We reserve
         <segue reference="hDX-Pe-NhY"/>
         <segue reference="JJj-1x-d2j"/>
         <segue reference="CKg-gm-nrI"/>
-        <segue reference="bB5-YO-Pzd"/>
+        <segue reference="4h9-kM-2Nm"/>
         <segue reference="a4Y-DX-0uo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.44562017917633057" green="0.44198131561279297" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

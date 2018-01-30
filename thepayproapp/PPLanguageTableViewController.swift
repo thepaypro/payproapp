@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localize_Swift
 
 class PPLanguageTableViewController: UITableViewController {
 
@@ -42,12 +43,26 @@ class PPLanguageTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        let indexPath = tableView.indexPathForSelectedRow
+        switch tableView.indexPathForSelectedRow!.item {
+        case 0:
+            Localize.setCurrentLanguage("en")
+            self.performSegue(withIdentifier: "unwindSegueLanguageToSettings", sender: self)
+            break;
+        case 1:
+            Localize.setCurrentLanguage("es")
+            self.performSegue(withIdentifier: "unwindSegueLanguageToSettings", sender: self)
+            break;
+        case 2:
+            Localize.setCurrentLanguage("fr")
+            self.performSegue(withIdentifier: "unwindSegueLanguageToSettings", sender: self)
+            break;
+        default:
+            Localize.resetCurrentLanguageToDefault()
+        }
     }
     
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
