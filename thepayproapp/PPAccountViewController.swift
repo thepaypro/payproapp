@@ -68,8 +68,6 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
     {
         super.viewDidLoad()
         
-        latestTransactionsLabel.text = "LATEST TRANSACTIONS".localized();
-        
         //Do any additional setup after loading the view.
         
         self.firstTimeSetup()
@@ -123,6 +121,7 @@ class PPAccountViewController: UIViewController, UITableViewDelegate, UITableVie
         stateButton.isHidden = true
         stateButtonHeight.constant = 0.0
         
+        latestTransactionsLabel.text = "LATEST TRANSACTIONS".localized();
     }
     
 //    func handleLongPress(_ gesture: UILongPressGestureRecognizer) {

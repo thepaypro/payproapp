@@ -9,6 +9,7 @@ target 'thepayproapp' do
   pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'feature/Xcode9-Swift3_2'
   pod 'ALCameraViewController', :git => 'https://github.com/Tulleb/ALCameraViewController.git'
   pod 'Intercom'
+  pod 'Localize-Swift', '~> 2.0'
 
   target 'thepayproappTests' do
     inherit! :search_paths

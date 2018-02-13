@@ -2,11 +2,13 @@ PODS:
   - ALCameraViewController (2.0.0)
   - Eureka (3.0.0)
   - Intercom (4.1.2)
+  - Localize-Swift (2.0.0)
 
 DEPENDENCIES:
   - ALCameraViewController (from `https://github.com/Tulleb/ALCameraViewController.git`)
   - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `feature/Xcode9-Swift3_2`)
   - Intercom
+  - Localize-Swift (~> 2.0)
 
 EXTERNAL SOURCES:
   ALCameraViewController:
@@ -27,7 +29,8 @@ SPEC CHECKSUMS:
   ALCameraViewController: a25740cfe95c0f06334b099e882a6c6871974637
   Eureka: 5b9418d7bfdc21ca977d69d124a6409f3e9af2c7
   Intercom: 56b1c4405dda7b0c79bffd3cc9ae6aa1b5898bda
+  Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
 
-PODFILE CHECKSUM: f4fbb8c0064b550e78a8b998623b1b0eca002f51
+PODFILE CHECKSUM: a4ee825d26e953adebdfdd79e295bdd3a6e6c388
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0

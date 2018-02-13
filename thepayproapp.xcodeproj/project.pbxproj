@@ -51,6 +51,7 @@
 		6AF2B6DB1F309DE000255B65 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF2B6DA1F309DE000255B65 /* UserNotifications.framework */; };
 		77324EC23C69DAC949032A50 /* Pods_thepayproappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61F7BACC0A7CA6BAD1E0FB1 /* Pods_thepayproappTests.framework */; };
 		898982352C785B0A87DE711B /* Pods_thepayproappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7D9CB0B12DBCFD3FE80391 /* Pods_thepayproappUITests.framework */; };
+		B31003DFF4CDDE15FA92E243 /* Pods_thepayproapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C53BEA6DF55F45B648C894 /* Pods_thepayproapp.framework */; };
 		BF2345721EF7B13400C50004 /* User+Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2345711EF7B13400C50004 /* User+Connection.swift */; };
 		BF2345751EF7B2DA00C50004 /* PPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2345741EF7B2DA00C50004 /* PPService.swift */; };
 		BF31E8641EF90108004C233E /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF31E8621EF90108004C233E /* User+CoreDataClass.swift */; };
@@ -122,9 +123,9 @@
 		536498E01FACA51F009B61CE /* PPInfoWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPInfoWebViewController.swift; sourceTree = "<group>"; };
 		536498E21FACA5F5009B61CE /* PPAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPAboutViewController.swift; sourceTree = "<group>"; };
 		536498E41FACAC13009B61CE /* PPInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPInfoViewController.swift; sourceTree = "<group>"; };
+		5371CEC52020C7A200A34E52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		537633761F910549001673E3 /* BitcoinTransactionConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitcoinTransactionConnection.swift; sourceTree = "<group>"; };
 		537C3D9A1F75297C00924ED0 /* sendMoney.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sendMoney.swift; sourceTree = "<group>"; };
-		538C04CB2019E9060026FA1A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		538C04CE2019E9E00026FA1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		538C04D02019E9E70026FA1A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		538C04D42019F96B0026FA1A /* PPLanguageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPLanguageTableViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +184,7 @@
 				6AF2B6DB1F309DE000255B65 /* UserNotifications.framework in Frameworks */,
 				2155405D1EF3D7D400670E86 /* ContactsUI.framework in Frameworks */,
 				2155405B1EF3D7C900670E86 /* Contacts.framework in Frameworks */,
+				B31003DFF4CDDE15FA92E243 /* Pods_thepayproapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,7 +717,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 		};
 		2D171F09A1F4C8268D6095C6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -732,7 +734,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3FF4E7EE8D96338BDEF77960 /* [CP] Check Pods Manifest.lock */ = {
@@ -750,7 +752,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5AF375E450E4E1FD4FA549BA /* [CP] Copy Pods Resources */ = {
@@ -777,11 +779,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-thepayproapp/Pods-thepayproapp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ALCameraViewController/ALCameraViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALCameraViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -815,7 +819,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Intercom.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntercomTranslations.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -951,6 +956,7 @@
 			children = (
 				538C04CE2019E9E00026FA1A /* en */,
 				538C04D02019E9E70026FA1A /* es */,
+				5371CEC52020C7A200A34E52 /* Base */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -959,7 +965,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				BF9DB87C1EDD770600C8A0ED /* Base */,
-				538C04CB2019E9060026FA1A /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
