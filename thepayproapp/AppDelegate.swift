@@ -104,6 +104,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
     func applicationWillEnterForeground(_ application: UIApplication)
     {
+        CheckVersion { (response) in
+            if(response["need_update"] as! Bool){
+                let alert = UIAlertController(title: "Update Avaliable", message: "You need to update the app in order to keep using it", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Update", style: UIAlertActionStyle.default, handler: { alertAction in
+                    UIApplication.shared.open(URL(string : "https://itunes.apple.com/us/app/paypro/id1225181484?l=ca&ls=1&mt=8")!)
+                }))
+                self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+            }
+        }
+        
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
 
