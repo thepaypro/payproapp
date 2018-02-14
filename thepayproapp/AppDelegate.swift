@@ -28,16 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         
         var rootController = entryNavigationController
         
-        if User.currentUser() != nil
-        {
-            let passcodeVC : PPPasscodeViewController = storyboard.instantiateViewController(withIdentifier: "PPPasscodeViewController") as! PPPasscodeViewController
-            passcodeVC.userUsername = User.currentUser()?.username
-            
-            let passcodeNC = UINavigationController.init(rootViewController: passcodeVC)
-            Utils.navigationBarToPayProStyle(navigationBar: passcodeNC.navigationBar)
-            rootController = passcodeNC
-        }
-        
         // Make the Tab Bar Controller the root view controller
         window?.rootViewController = rootController
         window?.makeKeyAndVisible()
@@ -104,16 +94,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
     func applicationWillEnterForeground(_ application: UIApplication)
     {
-        CheckVersion { (response) in
-            if(response["need_update"] as! Bool){
-                let alert = UIAlertController(title: "Update Avaliable", message: "You need to update the app in order to keep using it", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Update", style: UIAlertActionStyle.default, handler: { alertAction in
-                    UIApplication.shared.open(URL(string : "https://itunes.apple.com/us/app/paypro/id1225181484?l=ca&ls=1&mt=8")!)
-                }))
-                self.window?.rootViewController?.present(alert, animated: true, completion: nil)
-            }
-        }
-        
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
 
@@ -197,6 +177,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                 abort()
             }
         }
+    }
+    
+    func showUpdateDialog(){
+        
     }
 }
 

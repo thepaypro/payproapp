@@ -12,7 +12,12 @@ func CheckVersion( completion: @escaping (_ response: NSDictionary) -> Void)
 {
     let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     
-    makePostRequest(paramsDictionary: ["version": version], endpointURL: "app_version/ios", completion: {completionDictionary in
-        completion(["need_update": completionDictionary["need_update"] ?? false] as NSDictionary)
+    makePostRequest(paramsDictionary: ["app_version": version], endpointURL: "app_version/ios", completion: {completionDictionary in
+        if let need_update = completionDictionary["need_update"] as? Bool{
+            completion(["need_update": need_update] as NSDictionary)
+        }else{
+            completion(["status": false] as NSDictionary)
+        }
+        
     })
 }
